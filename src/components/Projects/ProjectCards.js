@@ -17,7 +17,7 @@ const techIcons = {
   Css: <DiCss3 />,
   Javascript: <DiJavascript1 />,
   Vuejs: <SiVuedotjs />
-};
+}; 
 
 function ProjectCards(props) {
   return (

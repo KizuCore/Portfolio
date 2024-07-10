@@ -27,7 +27,9 @@ function Projects() {
               title="LemonMaze API"
               description="API en RESTful sous express.js pour communiquer avec l'application mobile LemonMaze via requêtes HTTP."
               ghLink="https://github.com/Theo22100/APILemonMaze"
+              techStack={["Express"]}
             />
+            
           </Col>
 
           <Col md={4} className="project-card">
@@ -36,6 +38,7 @@ function Projects() {
               title="LemonMaze"
               description="LemonMaze est une application mobile sous Flutter, qui a pour but de faire découvrir Rennes sous une sorte de suites d'énigmes en fonction d'un parcours, avec des récompenses à la clé. "
               ghLink="https://github.com/Theo22100/Lemon_Maze"
+              techStack={["Flutter", "Javascript"]}
             />
           </Col>
 
@@ -46,6 +49,7 @@ function Projects() {
               description="CosmicLink est un réseau social, avec panel d'administration sous le format d'étoiles / constellations, codé sous PHP natif."
               ghLink="https://github.com/Theo22100/CosmicLink"
               youtubeLink="https://youtube.com/watch?v=3yVybmKT5d0"
+              techStack={["Php", "Javascript","Html","Css"]}
             />
           </Col>
 
@@ -55,6 +59,7 @@ function Projects() {
               title="Minuteur mobile"
               description="Application mobile en Kotlin, propose trois minuteurs pour les œufs, qui peuvent être redémarrés et lancés, ainsi que des minuteurs personnalisables pouvant être modifiés et supprimés avec notification sonore. "
               ghLink="https://github.com/Theo22100/MDS-ExamMobile2024"
+              techStack={["Kotlin"]}
             />
           </Col>
 
@@ -65,6 +70,7 @@ function Projects() {
               description="Projet PhP de L2, où nous devions faire la partie Back d'un site web comme Leboncoin, ainsi qu'un peu de Front."
               ghLink="https://github.com/Theo22100/BreizhCoin"
               youtubeLink="https://youtu.be/OqgS7SW_8tU"
+              techStack={["Php", "Javascript", "Html", "Css"]}
             />
           </Col>
           <Col md={4} className="project-card">
@@ -73,6 +79,7 @@ function Projects() {
               title="TheBindingOfIsaac"
               description="Projet de L2 qui était la création d'un jeu qui ressemble à TheBindingOfIsaac en Java."
               ghLink="https://github.com/Theo22100/TheBindingOfIsaac"
+              techStack={["Java"]}
             />
           </Col>
           <Col md={4} className="project-card">
@@ -81,6 +88,7 @@ function Projects() {
               title="Portfolio V1"
               description="Ancien Portfolio pour essayer Vue.js."
               ghLink="https://github.com/Theo22100/PortFolio"
+              techStack={["Vuejs", "Javascript","Html","Css"]}
             />
           </Col>
         </Row>

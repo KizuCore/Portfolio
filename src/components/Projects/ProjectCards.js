@@ -2,8 +2,8 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { BsGithub, BsYoutube } from "react-icons/bs";
-import { Container, Row, Col } from "react-bootstrap";
-import { DiCss3, DiHtml5, DiJava, DiJavascript, DiMysql, DiPhp } from "react-icons/di";
+import { Row, Col } from "react-bootstrap";
+import { DiCss3, DiHtml5, DiJava, DiJavascript1, DiMysql, DiPhp } from "react-icons/di";
 import { SiExpress, SiFlutter, SiKotlin, SiVuedotjs } from "react-icons/si";
 
 const techIcons = {

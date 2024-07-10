@@ -37,7 +37,7 @@ function Projects() {
               title="LemonMaze"
               description="LemonMaze est une application mobile sous Flutter, qui a pour but de faire découvrir Rennes sous une sorte de suites d'énigmes en fonction d'un parcours, avec des récompenses à la clé. "
               ghLink="https://github.com/Theo22100/Lemon_Maze"
-              techStack={["Flutter"}
+              techStack={["Flutter"]}
             />
           </Col>
 

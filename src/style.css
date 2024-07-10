@@ -581,6 +581,33 @@ button:focus {
   line-height: 1.6 !important;
 }
 
+/**********************************/
+
+.tech-icons2 {
+  font-size: 1.2em !important;
+  margin: 10px !important;
+  padding: 5px !important;
+  opacity: 0.93 !important;
+  border: 1.7px solid rgba(78, 134, 240, 0.637) !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  border-radius: 10px !important;
+  display: table !important;
+  box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
+  overflow: hidden !important;
+  transition: all 0.4s ease 0s !important;
+}
+
+
+
+.tech-icons2:hover {
+  transform: scale(1.05) !important;
+  overflow: hidden !important;
+  border: 2.2px solid rgba(33, 96, 179, 0.883) !important;
+}
+
+/***************/
+
 .quote-card-view {
   border: none !important;
   color: white !important;

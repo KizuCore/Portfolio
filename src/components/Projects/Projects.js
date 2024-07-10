@@ -29,7 +29,6 @@ function Projects() {
               ghLink="https://github.com/Theo22100/APILemonMaze"
               techStack={["Express"]}
             />
-            
           </Col>
 
           <Col md={4} className="project-card">

@@ -15,22 +15,28 @@ function AboutCard() {
             <br />
             <br />
             J'ai actuellement :
-            <br/> &nbsp;&nbsp;&nbsp;&nbsp;- Licence Informatique-Electronique (Rennes ISTIC)
-            <br/> &nbsp;&nbsp;&nbsp;&nbsp;- Bachelor Développeur-Web (Rennes MyDigitalSchool)
-            <br/> &nbsp;&nbsp;&nbsp;&nbsp;- Titre Concepteur Développeur d'application
-            <br />
+            <br/>
+            <br/>
+            <ul>
+              <li className="about-activity"> Licence Informatique-Electronique (Rennes ISTIC)</li> 
+              <li className="about-activity"> Bachelor Développeur-Web (Rennes MyDigitalSchool)</li> 
+              <li className="about-activity"> Titre Concepteur Développeur d'application</li>
+            </ul>
             <br />
             En dehors du codage, voici quelques autres activités que j'aime faire :
           </p>
           <ul>
             <li className="about-activity">
-              ✈️ • Voyager / Me promener / Prendre des photos
+              ✈️ • Voyager
             </li>
             <li className="about-activity">
-            🔭 • Astronomie
+              📷 • Prendre des photos
             </li>
             <li className="about-activity">
-            🐈‍⬛ • M'occuper d'animaux 
+              🔭 • Astronomie
+            </li>
+            <li className="about-activity">
+              🐈‍⬛ • M'occuper d'animaux
             </li>
           </ul>
 

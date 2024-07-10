@@ -38,10 +38,6 @@ function Techstack() {
         <SiExpress />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiBootstrap />
-      </Col>
-
-      <Col xs={4} md={2} className="tech-icons">
         <DiPhp />
       </Col>
       <Col xs={4} md={2} className="tech-icons">

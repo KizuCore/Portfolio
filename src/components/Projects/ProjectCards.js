@@ -15,7 +15,7 @@ const techIcons = {
   Java: <DiJava />,
   Html: <DiHtml5 />,
   Css: <DiCss3 />,
-  Javascript: <DiJavascript />,
+  Javascript: <DiJavascript1 />,
   Vuejs: <SiVuedotjs />
 };
 

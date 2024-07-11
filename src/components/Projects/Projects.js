@@ -85,7 +85,7 @@ function Projects() {
             <ProjectCard
               imgPath={portfolio}
               title="Portfolio V1"
-              description="Ancien Portfolio pour essayer Vue.js."
+              description="Ancien Portfolio pour essayer le framework Vue.js avec responsive."
               ghLink="https://github.com/Theo22100/PortFolio"
               techStack={["Vuejs", "Javascript","Html","Css"]}
             />

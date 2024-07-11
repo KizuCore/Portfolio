@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+import ReactTooltip from "react-tooltip";
 import {
   SiVisualstudiocode,
   SiPostman,
@@ -12,37 +13,36 @@ import {
   SiPhpmyadmin,
 } from "react-icons/si";
 
+const tools = [
+  { component: SiWindows, name: "Windows" },
+  { component: SiLinux, name: "Linux" },
+  { component: SiVisualstudiocode, name: "Visual Studio Code" },
+  { component: SiAndroidstudio, name: "Android Studio" },
+  { component: SiPostman, name: "Postman" },
+  { component: SiGit, name: "Git" },
+  { component: SiGithub, name: "GitHub" },
+  { component: SiGitlab, name: "GitLab" },
+  { component: SiPhpmyadmin, name: "phpMyAdmin" },
+];
+
 function Toolstack() {
   return (
-    <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiWindows />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiLinux />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiVisualstudiocode />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiAndroidstudio />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiPostman />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiGit />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiGithub/>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiGitlab/>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiPhpmyadmin/>
-      </Col>
-    </Row>
+    <div>
+      <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+        {tools.map((tool, index) => (
+          <Col
+            key={index}
+            xs={4}
+            md={2}
+            className="tech-icons"
+            data-tip={tool.name}
+          >
+            <tool.component />
+          </Col>
+        ))}
+      </Row>
+      <ReactTooltip />
+    </div>
   );
 }
 

@@ -2,9 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/avatar.png";
 import Tilt from "react-parallax-tilt";
-import {
-  AiFillGithub,
-} from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
 function Home2() {
@@ -42,7 +40,7 @@ function Home2() {
           </Col>
           <Col md={4} className="myAvtar">
             <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" style={{ height: "16em" }} />
+              <img src={myImg} className="img-fluid" alt="Mon Avatar" style={{ height: "16em" }} />
             </Tilt>
           </Col>
         </Row>
@@ -50,7 +48,7 @@ function Home2() {
           <Col md={12} className="home-about-social">
             <h1>RÉSEAUX</h1>
             <p>
-            N'hésitez pas à me <span className="blue">contacter </span> !
+              N'hésitez pas à me <span className="blue">contacter </span> !
             </p>
             <ul className="home-about-social-links">
               <li className="social-icons">
@@ -58,7 +56,7 @@ function Home2() {
                   href="https://github.com/Theo22100"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
+                  className="icon-colour home-social-icons"
                 >
                   <AiFillGithub />
                 </a>
@@ -68,7 +66,7 @@ function Home2() {
                   href="https://www.linkedin.com/in/théo-guérin-b20630192/"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
+                  className="icon-colour home-social-icons"
                 >
                   <FaLinkedinIn />
                 </a>
@@ -80,4 +78,5 @@ function Home2() {
     </Container>
   );
 }
+
 export default Home2;

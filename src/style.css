@@ -353,10 +353,10 @@ button:focus {
 .home-social-icons {
   position: relative !important;
   display: inline-block !important;
-  width: 40px !important;
-  height: 40px !important;
+  width: 55px !important;
+  height: 55px !important;
   text-align: center !important;
-  font-size: 1.2em !important;
+  font-size: 1.6em !important;
   line-height: 2em !important;
   background: rgba(255, 255, 255, 0.972) !important;
   border-radius: 50% !important;
@@ -390,8 +390,8 @@ button:focus {
 
 .social-icons {
   display: inline-block !important;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .icon-colour {
@@ -427,15 +427,15 @@ button:focus {
 }
 
 .footer h3 {
-  font-size: 1em;
+  font-size: 1.1em;
   color: white !important;
   margin-top: 0.5em !important;
   margin-bottom: 0.5em !important;
 }
 .footer-icons {
-  margin-top: 0.5em !important;
   margin-bottom: 0.5em !important;
   padding: 0 !important;
+  font-size: 1.6em;
 }
 
 .blockquote-footer {
@@ -584,19 +584,33 @@ button:focus {
 /**********************************/
 
 .tech-icons2 {
-  font-size: 1.2em !important;
+  font-size: 2.5em !important;
   margin: 10px !important;
-  padding: 5px !important;
+  padding: 10px !important;
   opacity: 0.93 !important;
   border: 1.7px solid rgba(78, 134, 240, 0.637) !important;
-  vertical-align: middle !important;
   text-align: center !important;
   border-radius: 10px !important;
-  display: table !important;
+  display: flex !important;
   box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
-  overflow: hidden !important;
   transition: all 0.4s ease 0s !important;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: auto !important; /* Permet à l'élément de s'ajuster à son contenu */
+  width: auto !important; /* Permet à l'élément de s'ajuster à son contenu */
+  min-width: fit-content; /* Ajuste la largeur minimale à son contenu */
+  overflow: hidden !important; /* Permet d'afficher le contenu qui dépasse */
+  white-space: nowrap; /* Empêche le texte de passer à la ligne */
 }
+
+.tech-icons2 span {
+  white-space: nowrap; /* Empêche le texte de passer à la ligne */
+  display: inline-block;
+}
+
+
+
 
 
 

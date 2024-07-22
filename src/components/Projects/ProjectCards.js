@@ -3,7 +3,6 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { BsGithub, BsYoutube } from "react-icons/bs";
 import { Row, Col } from "react-bootstrap";
-import ReactTooltip from "react-tooltip";
 import { DiCss3, DiHtml5, DiJavascript1, DiMysql, DiPhp } from "react-icons/di";
 import { SiExpress, SiFlutter, SiKotlin, SiVuedotjs } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
@@ -59,7 +58,6 @@ function ProjectCards(props) {
           </Button>
         )}
       </Card.Body>
-      <ReactTooltip />
     </Card>
   );
 }

@@ -8,6 +8,7 @@ import chrono from "../../Assets/Projects/chrono.png";
 import tboi from "../../Assets/Projects/TBOI.png";
 import breizhcoin from "../../Assets/Projects/breizhcoin.png";
 import portfolio from "../../Assets/Projects/portfolio.png";
+import ReactTooltip from "react-tooltip";
 
 function Projects() {
   return (
@@ -92,6 +93,7 @@ function Projects() {
           </Col>
         </Row>
       </Container>
+      <ReactTooltip />
     </Container>
   );
 }

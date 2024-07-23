@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import logo from "../Assets/logo.png";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import {
-  AiOutlineHome,
-  AiOutlineFundProjectionScreen,
-  AiOutlineUser,
-} from "react-icons/ai";
-
+import { AiOutlineHome, AiOutlineFundProjectionScreen, AiOutlineUser } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
 
 function NavBar() {
@@ -18,15 +13,21 @@ function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
 
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
+  useEffect(() => {
+    function scrollHandler() {
+      if (window.scrollY >= 20) {
+        updateNavbar(true);
+      } else {
+        updateNavbar(false);
+      }
     }
-  }
 
-  window.addEventListener("scroll", scrollHandler);
+    window.addEventListener("scroll", scrollHandler);
+
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  }, []);
 
   const changeLanguage = (event) => {
     i18n.changeLanguage(event.target.value);
@@ -77,10 +78,7 @@ function NavBar() {
                 to="/project"
                 onClick={() => updateExpanded(false)}
               >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                {t('project')}
+                <AiOutlineFundProjectionScreen style={{ marginBottom: "2px" }} /> {t('project')}
               </Nav.Link>
             </Nav.Item>
 
@@ -94,9 +92,8 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
-
             <Nav.Item className="language-selector">
-              <select onChange={changeLanguage} className="language-selector-select">
+              <select onChange={changeLanguage} className="language-selector-select" >
                 <option value="fr">🇫🇷</option>
                 <option value="en">🇬🇧</option>
               </select>

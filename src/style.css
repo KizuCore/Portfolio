@@ -51,19 +51,21 @@ button:focus {
 .language-selector {
   position: relative;
   display: inline-block;
+  
 }
 
 .language-selector select {
   background-color: transparent;
   border: 1px solid transparent;
-  color: #000;
+  color: #ffffff;
   font-size: 24px;
   padding: 5px;
-  padding-top:10px;
+  margin-top:5px;
   padding-right: 16px; 
   appearance: none; /* Enlever le style par défaut du sélecteur */
   -webkit-appearance: none; 
   -moz-appearance: none; 
+  cursor: pointer;
 }
 
 /* Flèche */
@@ -73,9 +75,18 @@ button:focus {
   color: #ffffff; 
   position: absolute;
   top: 45%;
-  right: 0%; 
+  right: 5%; 
   pointer-events: none; /* Empêche de cliquer sur la flèche */
   transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Changer le fond de l'élément sélectionné */
+.language-selector select:focus, 
+.language-selector select:active {
+  background-color: #0b02485c; /* Couleur de fond pour l'élément sélectionné */
+  border-radius: 12px;
+  color: #fff; /* Couleur du texte pour l'élément sélectionné */
 }
 
 

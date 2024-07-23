@@ -94,8 +94,8 @@ function NavBar() {
 
             <Nav.Item className="language-selector">
               <select onChange={changeLanguage} className="language-selector-select" >
-                <option value="fr">🇫🇷</option>
                 <option value="en">🇬🇧</option>
+                <option value="fr">🇫🇷</option>
               </select>
             </Nav.Item>
           </Nav>

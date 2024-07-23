@@ -8,7 +8,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'fr',
+    fallbackLng: 'en',
     backend: {
       loadPath: '/locale/{{lng}}.json', // Chemin mis à jour
     },

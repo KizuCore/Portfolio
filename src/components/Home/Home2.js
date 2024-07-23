@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/avatar.png";
 import Tilt from "react-parallax-tilt";
@@ -6,36 +7,36 @@ import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
 function Home2() {
+  const { t } = useTranslation();
+
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
         <Row>
           <Col md={8} className="home-about-description">
             <h1 style={{ fontSize: "2.6em" }}>
-              <span className="blue"> INTRODUCTION </span>
+              <span className="blue"> {t('introduction')} </span>
             </h1>
             <p className="home-about-body">
-              Je suis un jeune développeur qui adore programmer, et découvrir de nouvelles fonctionnalités afin d'approfondir mes connaissances techniques !
+              {t('description')}
               <br />
-              <br />Je parle couramment des classiques comme
+              <br />{t('classic_technologies')}
               <i>
-                <b className="blue"> Java, Flutter, PHP et Node.js. </b>
+                <b className="blue"> {t('technologies')} </b>
               </i>
               <br />
               <br />
-              Mes centres d'intérêt sont la construction de nouveaux&nbsp;
-                <b className="blue">Projets et la découverte de nouveaux langages !</b>
+              {t('interests')}
+                <b className="blue"> {t('projects_and_discovery')}</b>
               <br />
               <br />
-              Dans la mesure du possible, j'applique également ma passion pour le développement de projets 
-              avec <b className="blue">Node.js </b>(&nbsp;
+              {t('passion')} <b className="blue">{t('nodejs')} </b>(&nbsp;
               <i>
                 <b className="blue">
-                  Librairie & Framework de Javascript&nbsp;
+                  {t('libraries_frameworks')}&nbsp;
                 </b>
               </i>
-              )&nbsp; comme
-                <b className="blue"> React.js</b>
+              )&nbsp; {t('reactjs')}
             </p>
           </Col>
           <Col md={4} className="myAvtar">
@@ -46,9 +47,9 @@ function Home2() {
         </Row>
         <Row>
           <Col md={12} className="home-about-social">
-            <h1>RÉSEAUX</h1>
+            <h1>{t('social')}</h1>
             <p>
-              N'hésitez pas à me <span className="blue">contacter </span> !
+              {t('contact')} <span className="blue">{t('contact_me')}</span> !
             </p>
             <ul className="home-about-social-links">
               <li className="social-icons">

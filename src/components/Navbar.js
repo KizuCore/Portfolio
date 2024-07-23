@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import logo from "../Assets/logo.png";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
@@ -13,6 +14,7 @@ import {
 import { CgFileDocument } from "react-icons/cg";
 
 function NavBar() {
+  const { t, i18n } = useTranslation();
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
 
@@ -25,6 +27,10 @@ function NavBar() {
   }
 
   window.addEventListener("scroll", scrollHandler);
+
+  const changeLanguage = (event) => {
+    i18n.changeLanguage(event.target.value);
+  };
 
   return (
     <Navbar
@@ -51,7 +57,7 @@ function NavBar() {
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
               <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Accueil
+                <AiOutlineHome style={{ marginBottom: "2px" }} /> {t('home')}
               </Nav.Link>
             </Nav.Item>
 
@@ -61,7 +67,7 @@ function NavBar() {
                 to="/about"
                 onClick={() => updateExpanded(false)}
               >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> A propos
+                <AiOutlineUser style={{ marginBottom: "2px" }} /> {t('about')}
               </Nav.Link>
             </Nav.Item>
 
@@ -74,7 +80,7 @@ function NavBar() {
                 <AiOutlineFundProjectionScreen
                   style={{ marginBottom: "2px" }}
                 />{" "}
-                Projets
+                {t('project')}
               </Nav.Link>
             </Nav.Item>
 
@@ -89,7 +95,12 @@ function NavBar() {
             </Nav.Item>
 
 
-
+            <Nav.Item className="language-selector">
+              <select onChange={changeLanguage} className="language-selector-select">
+                <option value="fr">🇫🇷</option>
+                <option value="en">🇬🇧</option>
+              </select>
+            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
       </Container>

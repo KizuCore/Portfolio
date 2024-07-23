@@ -47,6 +47,46 @@ button:focus {
   height: 100vh;
 }
 
+
+.language-selector {
+  position: relative;
+  display: inline-block;
+  margin-left: 15px; /* Ajuster la marge selon les besoins */
+}
+
+.language-selector select {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: #000;
+  font-size: 24px;
+  padding: 5px;
+  padding-top:10px;
+  padding-right: 30px; /* Ajoute de l'espace pour la flèche */
+  appearance: none; /* Enlever le style par défaut du sélecteur */
+  -webkit-appearance: none; /* Support pour Webkit */
+  -moz-appearance: none; /* Support pour Firefox */
+}
+
+.language-selector::after {
+  content: '▼'; /* Flèche personnalisée */
+  font-size: 12px;
+  color: #ffffff; /* Couleur de la flèche */
+  position: absolute;
+  top: 45%;
+  right: 20%; /* Positionne la flèche à droite */
+  pointer-events: none; /* Empêche de cliquer sur la flèche */
+  transform: translateY(-50%);
+}
+
+
+
+
+
+
+
+
+
+
 /* --------- */
 /*Scrollbar   */
 /* --------- */

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
@@ -11,22 +12,24 @@ import portfolio from "../../Assets/Projects/portfolio.png";
 import ReactTooltip from "react-tooltip";
 
 function Projects() {
+  const { t } = useTranslation();
+
   return (
     <Container fluid className="project-section">
       <Particle />
       <Container>
         <h1 className="project-heading">
-          Mes <strong className="blue">Projets </strong>
+          {t('my_projects')} <strong className="blue">{t('projects')}</strong>
         </h1>
         <p style={{ color: "white" }}>
-          Voici quelques projets sur lesquels j'ai travaillé :
+          {t('projects_description')}
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={lemonmaze}
-              title="LemonMaze API"
-              description="API en RESTful sous express.js pour communiquer avec l'application mobile LemonMaze via requêtes HTTP."
+              title={t('lemonmaze_api_title')}
+              description={t('lemonmaze_api_description')}
               ghLink="https://github.com/Theo22100/APILemonMaze"
               techStack={["Express"]}
             />
@@ -35,8 +38,8 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={lemonmaze}
-              title="LemonMaze"
-              description="LemonMaze est une application mobile sous Flutter, qui a pour but de faire découvrir Rennes sous une sorte de suites d'énigmes en fonction d'un parcours, avec des récompenses à la clé. "
+              title={t('lemonmaze_title')}
+              description={t('lemonmaze_description')}
               ghLink="https://github.com/Theo22100/Lemon_Maze"
               techStack={["Flutter"]}
             />
@@ -45,8 +48,8 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={cosmiclink}
-              title="CosmicLink"
-              description="CosmicLink est un réseau social, avec panel d'administration sous le format d'étoiles / constellations, codé sous PHP natif."
+              title={t('cosmiclink_title')}
+              description={t('cosmiclink_description')}
               ghLink="https://github.com/Theo22100/CosmicLink"
               youtubeLink="https://youtube.com/watch?v=3yVybmKT5d0"
               techStack={["Php", "Javascript","Html","Css"]}
@@ -56,8 +59,8 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={chrono}
-              title="Minuteur mobile"
-              description="Application mobile en Kotlin, propose trois minuteurs pour les œufs, qui peuvent être redémarrés et lancés, ainsi que des minuteurs personnalisables pouvant être modifiés et supprimés avec notification sonore. "
+              title={t('minuteur_mobile_title')}
+              description={t('minuteur_mobile_description')}
               ghLink="https://github.com/Theo22100/MDS-ExamMobile2024"
               techStack={["Kotlin"]}
             />
@@ -66,8 +69,8 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={breizhcoin}
-              title="BreizhCoin"
-              description="Projet PhP de L2, où nous devions faire la partie Back d'un site web comme Leboncoin, ainsi qu'un peu de Front."
+              title={t('breizhcoin_title')}
+              description={t('breizhcoin_description')}
               ghLink="https://github.com/Theo22100/BreizhCoin"
               youtubeLink="https://youtu.be/OqgS7SW_8tU"
               techStack={["Php", "Javascript", "Html", "Css"]}
@@ -76,8 +79,8 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={tboi}
-              title="TheBindingOfIsaac"
-              description="Projet de L2 qui était la création d'un jeu qui ressemble à TheBindingOfIsaac en Java."
+              title={t('thebindingofisaac_title')}
+              description={t('thebindingofisaac_description')}
               ghLink="https://github.com/Theo22100/TheBindingOfIsaac"
               techStack={["Java"]}
             />
@@ -85,8 +88,8 @@ function Projects() {
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={portfolio}
-              title="Portfolio V1"
-              description="Ancien Portfolio pour essayer le framework Vue.js avec responsive."
+              title={t('portfolio_v1_title')}
+              description={t('portfolio_v1_description')}
               ghLink="https://github.com/Theo22100/PortFolio"
               techStack={["Vuejs", "Javascript","Html","Css"]}
             />

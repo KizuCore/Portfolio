@@ -9,6 +9,7 @@ import chrono from "../../Assets/Projects/chrono.png";
 import tboi from "../../Assets/Projects/TBOI.png";
 import breizhcoin from "../../Assets/Projects/breizhcoin.png";
 import portfolio from "../../Assets/Projects/portfolio.png";
+import portfoliov2 from "../../Assets/Projects/portfoliov2.png";
 import ReactTooltip from "react-tooltip";
 
 function Projects() {
@@ -52,7 +53,7 @@ function Projects() {
               description={t('cosmiclink_description')}
               ghLink="https://github.com/Theo22100/CosmicLink"
               youtubeLink="https://youtube.com/watch?v=3yVybmKT5d0"
-              techStack={["Php", "Javascript","Html","Css"]}
+              techStack={["Php", "Javascript", "Html", "Css"]}
             />
           </Col>
 
@@ -91,7 +92,16 @@ function Projects() {
               title={t('portfolio_v1_title')}
               description={t('portfolio_v1_description')}
               ghLink="https://github.com/Theo22100/PortFolio"
-              techStack={["Vuejs", "Javascript","Html","Css"]}
+              techStack={["Vuejs", "Javascript", "Html", "Css"]}
+            />
+          </Col>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={portfoliov2}
+              title={t('portfolio_v2_title')}
+              description={t('portfolio_v2_description')}
+              ghLink="https://github.com/Theo22100/Portfolio-v2"
+              techStack={["React", "Bootstrap", "Css"]}
             />
           </Col>
         </Row>

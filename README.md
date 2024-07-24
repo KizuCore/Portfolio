@@ -9,8 +9,8 @@
 Portfolio v2
 
 - React.js
-- Node.js
-- Express.js
+- Bootstrap
 - CSS3
+- Vercel
 - VsCode
 

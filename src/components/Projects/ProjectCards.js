@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { BsGithub, BsYoutube } from "react-icons/bs";
 import { Row, Col } from "react-bootstrap";
-import { DiCss3, DiHtml5, DiJavascript1, DiMysql, DiPhp } from "react-icons/di";
+import { DiBootstrap, DiCss3, DiHtml5, DiJavascript1, DiMysql, DiPhp, DiReact } from "react-icons/di";
 import { SiExpress, SiFlutter, SiKotlin, SiVuedotjs } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
@@ -18,7 +18,9 @@ const techIcons = {
   Html: <DiHtml5 />,
   Css: <DiCss3 />,
   Javascript: <DiJavascript1 />,
-  Vuejs: <SiVuedotjs />
+  Vuejs: <SiVuedotjs />,
+  React: <DiReact />,
+  Bootstrap: <DiBootstrap />
 };
 
 function ProjectCards(props) {

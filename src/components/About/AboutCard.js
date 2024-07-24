@@ -20,9 +20,14 @@ function AboutCard() {
             {t('qualifications')}
             <br />
             <ul>
-              <li className="about-activity">{t('degree1')}</li>
-              <li className="about-activity">{t('degree2')}</li>
-              <li className="about-activity">{t('degree3')}</li>
+              <li className="about-activity">• {t('degree1')}</li>
+              <li className="about-activity">• {t('degree2')}</li>
+              <li className="about-activity">
+                • <a href="https://www.francecompetences.fr/recherche/rncp/37873/" style={{ textDecoration: 'none', color: 'inherit' }} target="_blank" rel="noopener noreferrer">
+                  {t('degree3')}
+                </a>
+              </li>
+
             </ul>
             <br />
             {t('outside_of_coding')}

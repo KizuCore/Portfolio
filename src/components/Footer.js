@@ -14,7 +14,15 @@ function Footer() {
     <Container fluid className="footer">
       <Row>
         <Col md="4" className="footer-copywright">
-          <h3>{t('bytheo')}</h3>
+          <h3>
+            {t('bytheo1')}
+            <a href="https://github.com/Theo22100"
+              target="_blank"
+              rel="noopener noreferrer">
+              Theo22100
+            </a>
+            {t('bytheo2')}
+          </h3>
         </Col>
         <Col md="4" className="footer-copywright">
           <h3>Copyright © {year}</h3>
@@ -25,7 +33,7 @@ function Footer() {
               <a
                 href="https://github.com/Theo22100"
                 style={{ color: "white" }}
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <AiFillGithub />
@@ -36,7 +44,7 @@ function Footer() {
               <a
                 href="https://www.linkedin.com/in/théo-guérin-b20630192/"
                 style={{ color: "white" }}
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <FaLinkedinIn />

@@ -492,6 +492,17 @@ button:focus {
   font-size: 1.6em;
 }
 
+
+.footer a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer a:hover {
+  color: #108dd4 !important;
+}
+
 .blockquote-footer {
   color: #889cc0 !important;
 }
@@ -618,6 +629,19 @@ button:focus {
   overflow: hidden !important;
   transition: all 0.4s ease 0s !important;
 }
+
+.about-activity a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease-in-out;
+}
+
+.about-activity a:hover {
+  color: #108dd4 !important;
+}
+
+
+
 
 @media (max-width: 767px) {
   .tech-icons {

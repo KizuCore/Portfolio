@@ -6,9 +6,11 @@ import pdf from "../../Assets/../Assets/CV-Guerin-Theo.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import { useTranslation } from 'react-i18next';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 function ResumeNew() {
+  const { t } = useTranslation();
   const [width, setWidth] = useState(1200);
 
   useEffect(() => {
@@ -27,7 +29,7 @@ function ResumeNew() {
             style={{ maxWidth: "250px" }}
           >
             <AiOutlineDownload />
-            &nbsp;Télécharger mon CV
+            &nbsp;{t('dowloadcv')}
           </Button>
         </Row>
 
@@ -45,7 +47,7 @@ function ResumeNew() {
             style={{ maxWidth: "250px" }}
           >
             <AiOutlineDownload />
-            &nbsp;Télécharger mon CV
+            &nbsp;{t('dowloadcv')}
           </Button>
         </Row>
       </Container>

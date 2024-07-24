@@ -6,6 +6,7 @@ import { Row, Col } from "react-bootstrap";
 import { DiCss3, DiHtml5, DiJavascript1, DiMysql, DiPhp } from "react-icons/di";
 import { SiExpress, SiFlutter, SiKotlin, SiVuedotjs } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
 
 const techIcons = {
   Flutter: <SiFlutter />,
@@ -21,6 +22,7 @@ const techIcons = {
 };
 
 function ProjectCards(props) {
+  const { t } = useTranslation();
   return (
     <Card className="project-card-view">
       <Card.Img variant="top" src={props.imgPath} alt="card-img" />
@@ -54,7 +56,7 @@ function ProjectCards(props) {
             style={{ marginLeft: "10px" }}
           >
             <BsYoutube /> &nbsp;
-            {"Vidéo"}
+            {t('video')}
           </Button>
         )}
       </Card.Body>

@@ -21,22 +21,14 @@ function Home2() {
               {t('description')}
               <br />
               <br />{t('classic_technologies')}
-              <i>
                 <b className="blue"> {t('technologies')} </b>
-              </i>
               <br />
               <br />
               {t('interests')}
                 <b className="blue"> {t('projects_and_discovery')}</b>
               <br />
               <br />
-              {t('passion')} <b className="blue">{t('nodejs')} </b>(&nbsp;
-              <i>
-                <b className="blue">
-                  {t('libraries_frameworks')}&nbsp;
-                </b>
-              </i>
-              )&nbsp; {t('reactjs')}
+              {t('passion')} <b className="blue">{t('nodejs')} &nbsp; {t('reactjs')}
             </p>
           </Col>
           <Col md={4} className="myAvtar">

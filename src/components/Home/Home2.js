@@ -28,10 +28,10 @@ function Home2() {
                 <b className="blue"> {t('projects_and_discovery')}</b>
               <br />
               <br />
-              {t('passion')} <b className="blue">{t('nodejs')} &nbsp; {t('reactjs')}
+              {t('passion')} <b className="blue">{t('nodejs')}</b> {t('reactjs')}
             </p>
           </Col>
-          <Col md={4} className="myAvtar">
+          <Col md={4} className="atar">
             <Tilt>
               <img src={myImg} className="img-fluid" alt="Mon Avatar" style={{ height: "16em" }} />
             </Tilt>

@@ -26,8 +26,12 @@
     "tools": "Tools",
     "i_use": "I Use",
     "greeting": "Hello everyone, I am",
-    "from": "from",
-    "current_position": "I am a 23-year-old web developer, currently in my first year of a Master's program in Full-Stack Web Development, doing a work-study.",
+    "from": ", and I live in ",
+    "current_position1": "I am a ",
+    "current_position2": ", currently in my",
+    "developper23": "23-year-old web developer",
+    "firstmaster": "first year of a Master's program in Full-Stack Web Development",
+    "current_position3": ", doing a work-study.",
     "qualifications": "I currently have:",
     "degree1": "Bachelor of Computer Science-Electronics (Rennes ISTIC)",
     "degree2": "Bachelor in Web Development (Rennes MyDigitalSchool)",
@@ -62,5 +66,6 @@
     "github_profile": "GitHub Profile",
     "video": "Video",
     "portfolio_v2_title": "Portfolio V2",
-    "portfolio_v2_description": "Portfolio to introduce myself, contact me, show my projects and my CV."
+    "portfolio_v2_description": "Portfolio to introduce myself, contact me, show my projects and my CV.",
+    "rennes": "Rennes, France"
 }

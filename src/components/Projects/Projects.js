@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
-import lemonmaze from "../../Assets/Projects/LemonMaze.png";
-import cosmiclink from "../../Assets/Projects/CosmicLink.png";
-import chrono from "../../Assets/Projects/chrono.png";
-import tboi from "../../Assets/Projects/TBOI.png";
-import breizhcoin from "../../Assets/Projects/breizhcoin.png";
-import portfolio from "../../Assets/Projects/portfolio.png";
-import portfoliov2 from "../../Assets/Projects/portfoliov2.png";
+import lemonmaze from "../../Assets/Projects/LemonMaze.webp";
+import cosmiclink from "../../Assets/Projects/CosmicLink.webp";
+import chrono from "../../Assets/Projects/chrono.webp";
+import tboi from "../../Assets/Projects/TBOI.webp";
+import breizhcoin from "../../Assets/Projects/breizhcoin.webp";
+import portfolio from "../../Assets/Projects/portfolio.webp";
+import portfoliov2 from "../../Assets/Projects/portfoliov2.webp";
 import ReactTooltip from "react-tooltip";
 
 function Projects() {

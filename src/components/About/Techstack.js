@@ -10,6 +10,7 @@ import {
   DiDjango,
   DiScala,
   DiPhp,
+  DiWordpress,
 } from "react-icons/di";
 import { FaJava, FaVuejs } from "react-icons/fa";
 import {
@@ -17,6 +18,8 @@ import {
   SiTailwindcss,
   SiBootstrap,
   SiExpress,
+  SiCss3,
+  SiLaravel,
 } from "react-icons/si";
 
 const icons = [
@@ -34,6 +37,9 @@ const icons = [
   { component: DiPython, name: "Python" },
   { component: FaJava, name: "Java" },
   { component: FaVuejs, name: "Vue.js" },
+  { component: DiWordpress, name: "Wordpress" },
+  { component: SiCss3, name: "CSS" },
+  { component: SiLaravel, name: "Laravel (En cours)" },
 ];
 
 function Techstack() {

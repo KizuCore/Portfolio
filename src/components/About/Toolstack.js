@@ -11,6 +11,8 @@ import {
   SiGithub,
   SiGitlab,
   SiPhpmyadmin,
+  SiMamp,
+  SiWireshark,
 } from "react-icons/si";
 
 const tools = [
@@ -23,6 +25,8 @@ const tools = [
   { component: SiGithub, name: "GitHub" },
   { component: SiGitlab, name: "GitLab" },
   { component: SiPhpmyadmin, name: "phpMyAdmin" },
+  { component: SiMamp, name: "MAMP / LAMP" },
+  { component: SiWireshark, name: "Wireshark" },
 ];
 
 function Toolstack() {

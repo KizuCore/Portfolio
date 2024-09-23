@@ -20,6 +20,7 @@ import {
   SiExpress,
   SiCss3,
   SiLaravel,
+  SiFlask
 } from "react-icons/si";
 
 const icons = [
@@ -39,6 +40,7 @@ const icons = [
   { component: FaVuejs, name: "Vue.js" },
   { component: DiWordpress, name: "Wordpress" },
   { component: SiCss3, name: "CSS" },
+  { component: SiFlask, name: "Flask" },
   { component: SiLaravel, name: "Laravel (En cours)" },
 ];
 

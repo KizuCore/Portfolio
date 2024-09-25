@@ -67,5 +67,7 @@
     "video": "Vidéo",
     "portfolio_v2_title": "Portfolio V2",
     "portfolio_v2_description": "Portfolio pour me présenter, me contacter, montrer mes projets ainsi que mon CV.",
+    "apibook_title": "Application Livre",
+    "apibook_description": "Projet de groupe en Master en 2,5 jours, faire un back pour une application web sur les livres avec BDD MySQL, API GoogleBooks.",
     "rennes": "Rennes, en France"
 }

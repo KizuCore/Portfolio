@@ -67,5 +67,7 @@
     "video": "Video",
     "portfolio_v2_title": "Portfolio V2",
     "portfolio_v2_description": "Portfolio to introduce myself, contact me, show my projects and my CV.",
+    "apibook_title": "Book Application",
+    "apibook_description": "Group project during a Master's program over 2.5 days, creating a backend for a web application about books with a MySQL database and the GoogleBooks API.",
     "rennes": "Rennes, France"
 }

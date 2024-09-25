@@ -13,6 +13,7 @@ import {
   SiPhpmyadmin,
   SiMamp,
   SiWireshark,
+  SiAmazonaws,
 } from "react-icons/si";
 
 const tools = [
@@ -27,6 +28,7 @@ const tools = [
   { component: SiPhpmyadmin, name: "phpMyAdmin" },
   { component: SiMamp, name: "MAMP / LAMP" },
   { component: SiWireshark, name: "Wireshark" },
+  { component: SiAmazonaws, name: "AWS" },
 ];
 
 function Toolstack() {

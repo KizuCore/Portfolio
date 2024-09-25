@@ -10,6 +10,7 @@ import tboi from "../../Assets/Projects/TBOI.webp";
 import breizhcoin from "../../Assets/Projects/breizhcoin.webp";
 import portfolio from "../../Assets/Projects/portfolio.webp";
 import portfoliov2 from "../../Assets/Projects/portfoliov2.webp";
+import apibook from "../../Assets/Projects/apibook.webp";
 import ReactTooltip from "react-tooltip";
 
 function Projects() {
@@ -32,7 +33,7 @@ function Projects() {
               title={t('lemonmaze_api_title')}
               description={t('lemonmaze_api_description')}
               ghLink="https://github.com/Theo22100/APILemonMaze"
-              techStack={["Express"]}
+              techStack={["Express","Swagger","MySQL"]}
             />
           </Col>
 
@@ -104,6 +105,16 @@ function Projects() {
               techStack={["React", "Bootstrap", "Css"]}
             />
           </Col>
+          
+          <Col md={4} className="project-card">
+              <ProjectCard
+                imgPath={apibook}
+                title={t('apibook_title')}
+                description={t('apibook_description')}
+                ghLink="https://github.com/imPayne/workshop-client-1/tree/marc/back"
+                techStack={["Express", "ApiGoogleBooks", "Swagger","MySQL"]}
+              />
+            </Col>
         </Row>
       </Container>
       <ReactTooltip />

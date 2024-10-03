@@ -225,8 +225,9 @@ button:focus {
 
   .language-selector {
     display: flex;
-    align-items: center;
-    margin-right: 1rem;
+    justify-content: center; 
+    margin: 0 auto; 
+    width: 100%; 
   }
 
   .navbar-toggler {

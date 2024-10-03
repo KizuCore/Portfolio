@@ -47,57 +47,6 @@ button:focus {
   height: 100vh;
 }
 
-/* --------- */
-/*  Language */
-/* --------- */
-.language-selector {
-  position: relative;
-  display: inline-block;
-  
-}
-
-.language-selector select {
-  background-color: transparent;
-  border: 1px solid transparent;
-  color: #ffffff;
-  font-size: 24px;
-  padding: 5px;
-  margin-top:5px;
-  padding-right: 16px; 
-  appearance: none; 
-  -webkit-appearance: none; 
-  -moz-appearance: none; 
-  cursor: pointer;
-}
-
-/* Flèche */
-.language-selector::after {
-  content: '▼'; 
-  font-size: 12px;
-  color: #ffffff; 
-  position: absolute;
-  top: 45%;
-  right: 5%; 
-  pointer-events: none; /* Empêche de cliquer sur la flèche */
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-
-.language-selector select:focus, 
-.language-selector select:active {
-  background-color: #0b02485c; 
-  border-radius: 12px;
-  color: #fff; 
-}
-
-/* Cacher la flèche sur les appareils mobiles */
-@media (max-width: 600px) {
-  .language-selector::after {
-    display: none;
-  }
-}
-
 
 
 
@@ -130,20 +79,92 @@ button:focus {
 /* --------- */
 /* Navbar Section  */
 /* --------- */
+/* Sélecteur de langue */
+.language-selector {
+  position: relative;
+  display: inline-block;
+  background: transparent !important;
+}
+
+.dropdown-toggle:hover {
+  background: #444162 !important;
+  transition: ease-in-out 0.4s !important;
+}
+
+
+
+
+/* Masquer le triangle de la flèche */
+.dropdown-toggle {
+  padding: 0.8rem 1rem !important; 
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none !important;
+  padding-right: 1rem; 
+  background: #19172ac3 !important;
+}
+
+.dropdown-toggle::after {
+  display: none !important; 
+  color: #ffffff;
+}
+
+/* mettre bien bouton language */
+.dropdown-menu {
+  background: #44416291 !important;
+  margin-top: 0.5rem; 
+}
+.dropdown-item {
+  color: #ffffff !important;
+}
+
+.dropdown-menu a::after {
+  background: transparent !important;
+}
+
+.dropdown-item:hover {
+  color: #ffffff !important;
+  background: #757390 !important;
+}
+
+.language-selector select {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: #ffffff;
+  font-size: 24px;
+  padding: 5px;
+  margin-top: 5px;
+  padding-right: 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+/* Navbar Sticky */
+
 .sticky {
   background-color: #1b1a2ea9 !important;
-  transition: all 0.3s ease-out 0s !important;
+  transition: all 0.3s ease-out !important;
   box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
   backdrop-filter: blur(15px) !important;
 }
 
+/* Navbar Styles */
 .navbar {
   position: fixed !important;
-  transition: all 0.3s ease-out 0s !important;
+  transition: all 0.3s ease-out !important;
   padding: 0.3rem 2rem !important;
   font-size: 1.2rem !important;
 }
 
+/* Navbar Toggler - Hamburger Button */
 .navbar-toggler {
   position: relative !important;
   background-color: transparent !important;
@@ -152,14 +173,10 @@ button:focus {
 
 .navbar-toggler span {
   display: block !important;
-  background-color: #5092f4 !important;
   height: 4px !important;
   width: 27px !important;
   margin-top: 5px !important;
   margin-bottom: 5px !important;
-  transform: rotate(0deg) !important;
-  left: 0 !important;
-  opacity: 1 !important;
 }
 
 .navbar-toggler:focus,
@@ -167,9 +184,9 @@ button:focus {
   outline: 0 !important;
 }
 
+/* Animation du menu hamburger */
 .navbar-toggler span:nth-child(1),
 .navbar-toggler span:nth-child(3) {
-  transition: transform 0.35s ease-in-out !important;
   transition: transform 0.35s ease-in-out !important;
 }
 
@@ -184,7 +201,6 @@ button:focus {
 .navbar-toggler:not(.collapsed) span:nth-child(2) {
   height: 12px !important;
   visibility: hidden !important;
-  background-color: transparent !important;
 }
 
 .navbar-toggler:not(.collapsed) span:nth-child(3) {
@@ -195,16 +211,30 @@ button:focus {
   opacity: 0.9 !important;
 }
 
+/* Styles pour le mobile */
 @media (max-width: 767px) {
   .navbar {
     padding: 1rem 2rem !important;
     font-size: 1.4rem !important;
     background-color: #181a27 !important;
   }
+
   .navbar-nav .nav-item a::after {
     display: none !important;
   }
+
+  .language-selector {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+  }
+
+  .navbar-toggler {
+    margin-left: auto;
+  }
 }
+
+/* Logo et liens de navigation */
 .navbar-brand {
   color: rgb(250, 250, 250) !important;
 }
@@ -230,6 +260,7 @@ button:focus {
   }
 }
 
+/* Effet de survol sur les liens de navigation */
 .navbar-nav .nav-item {
   position: relative;
   margin-left: 20px;
@@ -237,7 +268,7 @@ button:focus {
 
 .navbar-nav .nav-item a {
   font-weight: 400;
-  transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out;
   position: relative;
   z-index: 1;
 }
@@ -253,12 +284,13 @@ button:focus {
   bottom: 1px;
   left: 0;
   z-index: -1;
-  transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out;
 }
 
 .navbar-nav .nav-item a:hover::after {
   width: 100%;
 }
+
 
 /* --------- */
 /* Home section */

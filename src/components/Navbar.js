@@ -7,9 +7,10 @@ import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { AiOutlineHome, AiOutlineFundProjectionScreen, AiOutlineUser } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
+import LanguageSelector from "./LanguageSelector"; 
 
 function NavBar() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
 
@@ -29,10 +30,6 @@ function NavBar() {
     };
   }, []);
 
-  const changeLanguage = (event) => {
-    i18n.changeLanguage(event.target.value);
-  };
-
   return (
     <Navbar
       expanded={expand}
@@ -47,7 +44,7 @@ function NavBar() {
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           onClick={() => {
-            updateExpanded(expand ? false : "expanded");
+            updateExpanded(!expand);
           }}
         >
           <span></span>
@@ -57,7 +54,7 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
+              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)} aria-label="Home">
                 <AiOutlineHome style={{ marginBottom: "2px" }} /> {t('home')}
               </Nav.Link>
             </Nav.Item>
@@ -67,6 +64,7 @@ function NavBar() {
                 as={Link}
                 to="/about"
                 onClick={() => updateExpanded(false)}
+                aria-label="About Me"
               >
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> {t('about')}
               </Nav.Link>
@@ -77,6 +75,7 @@ function NavBar() {
                 as={Link}
                 to="/project"
                 onClick={() => updateExpanded(false)}
+                aria-label="Projects"
               >
                 <AiOutlineFundProjectionScreen style={{ marginBottom: "2px" }} /> {t('project')}
               </Nav.Link>
@@ -87,16 +86,14 @@ function NavBar() {
                 as={Link}
                 to="/resume"
                 onClick={() => updateExpanded(false)}
+                aria-label="Resume"
               >
                 <CgFileDocument style={{ marginBottom: "2px" }} /> CV
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item className="language-selector">
-              <select onChange={changeLanguage} className="language-selector-select" >
-                <option value="en">🇬🇧</option>
-                <option value="fr">🇫🇷</option>
-              </select>
+            <Nav.Item>
+              <LanguageSelector />
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

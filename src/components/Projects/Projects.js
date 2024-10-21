@@ -109,10 +109,10 @@ function Projects() {
           <Col md={4} className="project-card">
               <ProjectCard
                 imgPath={apibook}
-                title={t('apibook_title')}
-                description={t('apibook_description')}
-                ghLink="https://github.com/imPayne/workshop-client-1/tree/marc/back"
-                techStack={["Express", "ApiGoogleBooks", "Swagger","MySQL"]}
+                title={t('library_title')}
+                description={t('library_description')}
+                ghLink="https://github.com/Theo22100/MDS-M1-Librairie"
+                techStack={["Express", "Swagger","MySQL", "React", "Bootstrap", "Sequelize"]}
               />
             </Col>
         </Row>

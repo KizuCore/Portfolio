@@ -14,8 +14,18 @@ html {
   --imp-text-color: #52a4f1;
 }
 
+/* Police couleur texte bleu */
+.blue-title {
+  color: #387dfd;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.title-font {
+  font-family: 'Permanent Marker', cursive;
+}
+
 .blue {
-  color: var(--imp-text-color) !important;
+  color: #88b9f8;
 }
 
 button:focus {
@@ -892,4 +902,32 @@ button:focus {
 }
 .fork-btn-inner::after {
   display: none !important;
+}
+
+/* Effet gauche */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideInFromLeft 2s ease-out;
+}
+
+.background-box {
+  background-color: rgba(255, 255, 255, 0.226); 
+  padding: 2em; 
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 15px; 
+}
+
+
+.text-justify {
+  text-align: justify;
 }

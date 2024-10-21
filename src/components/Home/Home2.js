@@ -3,9 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/home/avatar.webp";
 import Tilt from "react-parallax-tilt";
-import { AiFillGithub } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
 import { useInView } from 'react-intersection-observer';
+import Reseaux from "./Reseaux";
 
 function Home2() {
   const { t } = useTranslation();
@@ -60,34 +59,7 @@ function Home2() {
           </Col>
         </Row>
         <Row>
-          <Col md={12} className="home-about-social">
-            <h1>{t('social')}</h1>
-            <p>
-              {t('contact')} <span className="blue">{t('contact_me')}</span> !
-            </p>
-            <ul className="home-about-social-links">
-              <li className="social-icons">
-                <a
-                  href="https://github.com/Theo22100"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                >
-                  <AiFillGithub />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.linkedin.com/in/théo-guérin-b20630192/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                >
-                  <FaLinkedinIn />
-                </a>
-              </li>
-            </ul>
-          </Col>
+          <Reseaux/>
         </Row>
       </Container>
     </Container>

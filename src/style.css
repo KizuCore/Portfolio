@@ -1,22 +1,18 @@
 html {
-  --section-background-color: linear-gradient(
-    to bottom left,
-    rgba(17, 16, 16, 0.582),
-    rgba(12, 8, 24, 0.904)
-  );
+  --section-background-color: linear-gradient(to bottom left,
+      rgba(17, 16, 16, 0.582),
+      rgba(12, 8, 24, 0.904));
 
-  --image-gradient: linear-gradient(
-    to bottom left,
-    rgba(17, 16, 16, 0.678),
-    rgba(12, 10, 22, 0.863)
-  );
+  --image-gradient: linear-gradient(to bottom left,
+      rgba(17, 16, 16, 0.678),
+      rgba(12, 10, 22, 0.863));
 
   --imp-text-color: #52a4f1;
 }
 
 /* Police couleur texte bleu */
 .blue-title {
-  color: #387dfd;
+  color: #276DEE;
   font-family: 'Permanent Marker', cursive;
 }
 
@@ -106,25 +102,26 @@ button:focus {
 
 /* Masquer le triangle de la flèche */
 .dropdown-toggle {
-  padding: 0.8rem 1rem !important; 
+  padding: 0.8rem 1rem !important;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   background-image: none !important;
-  padding-right: 1rem; 
+  padding-right: 1rem;
   background: #19172ac3 !important;
 }
 
 .dropdown-toggle::after {
-  display: none !important; 
+  display: none !important;
   color: #ffffff;
 }
 
 /* mettre bien bouton language */
 .dropdown-menu {
   background: #44416291 !important;
-  margin-top: 0.5rem; 
+  margin-top: 0.5rem;
 }
+
 .dropdown-item {
   color: #ffffff !important;
 }
@@ -235,9 +232,9 @@ button:focus {
 
   .language-selector {
     display: flex;
-    justify-content: center; 
-    margin: 0 auto; 
-    width: 100%; 
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .navbar-toggler {
@@ -288,14 +285,19 @@ button:focus {
   content: "";
   position: relative;
   display: block;
-  height: 5px;
+  height: 3px;
   width: 0;
   border-radius: 16px;
-  background: #5b99f5;
+  background: #276DEE;
   bottom: 1px;
   left: 0;
   z-index: -1;
   transition: all 0.3s ease-out;
+}
+
+.navbar-nav .nav-item a:hover {
+  color: #3d7ef5 !important;
+  transition: all 0.4s ease-out;
 }
 
 .navbar-nav .nav-item a:hover::after {
@@ -307,10 +309,10 @@ button:focus {
 /* Home section */
 /* --------- */
 .wave {
-  animation-name: wave-animation; 
-  animation-duration: 2.1s; 
-  animation-iteration-count: infinite; 
-  transform-origin: 70% 70%; 
+  animation-name: wave-animation;
+  animation-duration: 2.1s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
   display: inline-block;
 }
 
@@ -318,34 +320,34 @@ button:focus {
   0% {
     transform: rotate(0deg);
   }
+
   10% {
     transform: rotate(14deg);
-  } 
+  }
+
   20% {
     transform: rotate(-8deg);
   }
+
   30% {
     transform: rotate(14deg);
   }
+
   40% {
     transform: rotate(-4deg);
   }
+
   50% {
     transform: rotate(10deg);
   }
+
   60% {
     transform: rotate(0deg);
-  } 
+  }
+
   100% {
     transform: rotate(0deg);
   }
-}
-#tsparticles {
-  position: fixed !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  width: 100%;
-  height: 100%;
 }
 
 .home-header {
@@ -385,7 +387,9 @@ button:focus {
   font-size: 2.2em !important;
   color: #4d99fd !important;
   font-weight: 600 !important;
+  min-height: 60px !important;
 }
+
 .Typewriter__cursor {
   font-size: 2.4em !important;
   color: #39a6d8 !important;
@@ -393,14 +397,22 @@ button:focus {
 
 @media (max-width: 767px) {
   .Typewriter__wrapper {
-    font-size: 1.4em !important;
+    font-size: 1.8em !important;
     font-weight: 500 !important;
-    position: absolute !important;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px !important;
+    min-width: 150px !important;
   }
+
   .Typewriter__cursor {
     display: none !important;
   }
 }
+
+
 
 .myAvatar {
   justify-content: center !important;
@@ -443,7 +455,8 @@ button:focus {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  gap: 30px !important; /* Espace entre les icônes */
+  gap: 30px !important;
+  /* Espace entre les icônes */
   padding-top: 15px !important;
   padding-inline-start: 0 !important;
 }
@@ -452,14 +465,18 @@ button:focus {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  width: 100px !important;
-  height: 100px !important;
+  width: 80px !important;
+  /* Ajuster la taille pour mobile */
+  height: 80px !important;
   font-size: 2em !important;
   background: rgba(255, 255, 255, 0.972) !important;
   border-radius: 50% !important;
   transition: 0.5s !important;
   position: relative !important;
 }
+
+
+
 
 .home-social-icons::before {
   content: "";
@@ -478,6 +495,7 @@ button:focus {
 .home-social-icons:hover {
   background: #deeafc !important;
 }
+
 .home-social-icons:hover::before {
   transform: scale(1.1);
   box-shadow: 0 0 15px #b8c9f8;
@@ -486,8 +504,6 @@ button:focus {
 
 .social-icons {
   display: inline-block !important;
-  padding-right: 20px;
-  padding-left: 20px;
 }
 
 .social-icons-footer {
@@ -508,8 +524,9 @@ button:focus {
   background-color: rgb(10, 4, 22);
   bottom: 0 !important;
   padding-top: 10px !important;
-  padding-bottom: 8px !important ;
+  padding-bottom: 8px !important;
 }
+
 .footer-copywright {
   text-align: center !important;
 }
@@ -535,6 +552,7 @@ button:focus {
   margin-top: 0.5em !important;
   margin-bottom: 0.5em !important;
 }
+
 .footer-icons {
   margin-bottom: 0.5em !important;
   padding: 0 !important;
@@ -549,12 +567,13 @@ button:focus {
 }
 
 .footer a:hover {
-  color: #108dd4 !important;
+  color: #276DEE !important;
 }
 
 .blockquote-footer {
   color: #889cc0 !important;
 }
+
 /* --------- */
 /* Projects */
 /* --------- */
@@ -581,6 +600,7 @@ button:focus {
   transition: all 0.5s ease 0s !important;
   height: 100% !important;
 }
+
 .project-card-view:hover {
   transform: scale(1.02) !important;
   overflow: hidden !important;
@@ -641,10 +661,12 @@ button:focus {
   background-color: #108dd4 !important;
   border-color: #108dd4 !important;
 }
+
 .btn:focus {
   outline: none !important;
   box-shadow: none !important;
 }
+
 .project-heading {
   color: white !important;
   font-size: 2.3em !important;
@@ -718,17 +740,20 @@ button:focus {
 /* Effet au survol pour chaque niveau */
 .border-blue:hover {
   transform: scale(1.05) !important;
-  border: 2.2px solid rgba(255, 145, 0, 0.8) !important; /* Bleu foncé au survol */
+  border: 2.2px solid rgba(255, 145, 0, 0.8) !important;
+  /* Bleu foncé au survol */
 }
 
 .border-yellow:hover {
   transform: scale(1.05) !important;
-  border: 2.2px solid rgba(255, 255, 0, 0.8) !important; /* Jaune foncé au survol */
+  border: 2.2px solid rgba(255, 255, 0, 0.8) !important;
+  /* Jaune foncé au survol */
 }
 
 .border-green:hover {
   transform: scale(1.05) !important;
-  border: 2.2px solid rgba(0, 190, 0, 0.8) !important; /* Vert foncé au survol */
+  border: 2.2px solid rgba(0, 190, 0, 0.8) !important;
+  /* Vert foncé au survol */
 }
 
 .tech-icon-images {
@@ -752,6 +777,7 @@ button:focus {
   overflow: hidden !important;
   transition: all 0.4s ease 0s !important;
 }
+
 /* Niveaux */
 
 .level-circle {
@@ -761,6 +787,31 @@ button:focus {
   margin-right: 10px;
 }
 
+/* CV BUTTON */
+
+.button-cv {
+  background-color: #1c53b8 !important;
+  border: 1px solid white !important;
+  color: white !important;
+  border-radius: 50px !important;
+  transition: all 0.3s ease-in-out !important;
+  font-size: 1.1em !important;
+  max-width: 250px !important;
+  z-index: 1;
+}
+
+.button-cv:hover {
+  background-color: #d8e6ff !important;
+  border: 2px solid #1c53b8 !important;
+  color: #1c53b8 !important;
+}
+
+.pdf-container {
+  border-radius: 10px;
+  overflow: hidden;
+  display: inline-block;
+  margin: 0 auto;
+}
 
 
 /**********************************/
@@ -779,15 +830,15 @@ button:focus {
   flex-direction: column;
   align-items: center;
   flex-wrap: nowrap;
-  height: auto !important; 
-  width: auto !important; 
-  min-width: fit-content; 
-  overflow: hidden !important; 
-  white-space: nowrap; 
+  height: auto !important;
+  width: auto !important;
+  min-width: fit-content;
+  overflow: hidden !important;
+  white-space: nowrap;
 }
 
 .tech-icons2 span {
-  white-space: nowrap; 
+  white-space: nowrap;
   display: inline-block;
 }
 
@@ -821,6 +872,7 @@ button:focus {
     padding-top: 0 !important;
   }
 }
+
 /* --------- */
 /* Resume */
 /* --------- */
@@ -858,6 +910,7 @@ button:focus {
     padding-left: 15px !important;
   }
 }
+
 .resume .resume-title {
   font-size: 2em;
   font-weight: 700;
@@ -934,10 +987,12 @@ button:focus {
   animation-fill-mode: forwards;
   animation-duration: 0.85s;
 }
+
 @keyframes likeAnimation {
   0% {
     transform: scale(1.5);
   }
+
   100% {
     transform: scale(1);
   }
@@ -961,6 +1016,7 @@ button:focus {
   background-color: #4d87d386 !important;
   border-color: #4d87d386 !important;
 }
+
 .fork-btn-inner::after {
   display: none !important;
 }
@@ -977,6 +1033,19 @@ button:focus {
     transform: translateX(-100%);
     opacity: 0;
   }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -987,22 +1056,33 @@ button:focus {
   animation: slideInFromLeft 2s ease-out;
 }
 
-.background-box {
-  background-color: rgba(255, 255, 255, 0.226); 
-  padding: 2em; 
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  border-radius: 15px; 
+.slide-in-right {
+  animation: slideInFromRight 2s ease-out;
 }
 
-/* Animation pour faire apparaître les icônes avec un léger déplacement */
+.slide-in-left-title {
+  animation: slideInFromLeft 1.5s ease-out;
+}
+
+.background-box {
+  background-color: rgba(255, 255, 255, 0.226);
+  padding: 2em;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
+}
+
+/* Animation pour faire apparaître les icônes avec léger déplacement */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(20px); /* Départ avec un léger décalage vers le bas */
+    transform: translateY(20px);
+    /* Départ avec un léger décalage vers le bas */
   }
+
   100% {
     opacity: 1;
-    transform: translateY(0); /* Arrivée à la position normale */
+    transform: translateY(0);
+    /* Arrivée à la position normale */
   }
 }
 
@@ -1014,18 +1094,17 @@ button:focus {
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(20px); /* Départ légèrement en bas */
+    transform: translateY(20px);
+    /* Départ légèrement en bas */
   }
+
   100% {
     opacity: 1;
-    transform: translateY(0); /* Fin à la position normale */
+    transform: translateY(0);
+    /* Fin à la position normale */
   }
 }
 
 .fade-in {
   animation: fadeInUp 2s ease forwards;
 }
-
-
-
-

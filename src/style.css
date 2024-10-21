@@ -89,11 +89,13 @@ button:focus {
 /* --------- */
 /* Navbar Section  */
 /* --------- */
+
 /* Sélecteur de langue */
 .language-selector {
   position: relative;
   display: inline-block;
   background: transparent !important;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .dropdown-toggle:hover {
@@ -113,6 +115,7 @@ button:focus {
   background-image: none !important;
   padding-right: 1rem;
   background: #19172ac3 !important;
+  border-radius: 15px !important;
 }
 
 .dropdown-toggle::after {
@@ -126,17 +129,23 @@ button:focus {
   margin-top: 0.5rem;
 }
 
+.dropdown-menu.show {
+  border-radius: 10px;
+}
+
 .dropdown-item {
   color: #ffffff !important;
 }
 
 .dropdown-menu a::after {
   background: transparent !important;
+  color: #ffffff !important;
 }
 
 .dropdown-item:hover {
   color: #ffffff !important;
   background: #757390 !important;
+  border-radius: 10px;
 }
 
 .language-selector select {
@@ -264,6 +273,7 @@ button:focus {
 
 .nav-link {
   padding: 0.8rem 1rem !important;
+  font-family: 'Permanent Marker', cursive;
 }
 
 @media (max-width: 767px) {
@@ -301,6 +311,11 @@ button:focus {
 
 .navbar-nav .nav-item a:hover {
   color: #3d7ef5 !important;
+  transition: all 0.4s ease-out;
+}
+
+.navbar-nav .nav-item .language-selector a:hover {
+  color: #ffffff !important;
   transition: all 0.4s ease-out;
 }
 
@@ -525,7 +540,7 @@ button:focus {
 /* Footer */
 /* --------- */
 .footer {
-  background-color: rgba(0, 0, 0, 0.774) !important;
+  background-color: #171426be !important;
   bottom: 0 !important;
   padding-top: 10px !important;
   padding-bottom: 8px !important;
@@ -572,7 +587,7 @@ button:focus {
 }
 
 .footer a:hover {
-  color: #276DEE !important;
+  color: #286EEF !important;
 }
 
 .blockquote-footer {

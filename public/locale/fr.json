@@ -9,7 +9,7 @@
     "introduction": "INTRODUCTION",
     "description": "Je suis un jeune développeur qui adore programmer, et découvrir de nouvelles fonctionnalités afin d'approfondir mes connaissances techniques !",
     "classic_technologies": "Je parle couramment des classiques comme",
-    "technologies": "Java, Flutter, PHP et Node.js.",
+    "technologies": "React, Java, Flutter, PHP et Node.js.",
     "interests": "Mes centres d'intérêt sont la construction de nouveaux",
     "projects_and_discovery": "Projets et la découverte de nouveaux langages !",
     "passion": "Dans la mesure du possible, j'applique également ma passion pour le développement de projets avec",
@@ -26,7 +26,7 @@
     "tools": "Outils",
     "i_use": "que j'utilise",
     "greeting": "Bonjour à tous, je m'appelle",
-    "from": "et je vis à ",
+    "from": " et je vis à ",
     "current_position1": "Je suis un",
     "current_position2": ", actuellement en",
     "current_position3": ", en alternance.",
@@ -67,7 +67,7 @@
     "video": "Vidéo",
     "portfolio_v2_title": "Portfolio V2",
     "portfolio_v2_description": "Portfolio pour me présenter, me contacter, montrer mes projets ainsi que mon CV.",
-    "apibook_title": "Application Livre",
-    "apibook_description": "Projet de groupe en Master en 2,5 jours, faire un back pour une application web sur les livres avec BDD MySQL, API GoogleBooks.",
+    "library_title": "Application Librairie",
+    "library_description": "Projet de Master, je devais faire une application web avec un back et un front pour une Librairie, avec système de réservation, voir le READ.ME .",
     "rennes": "Rennes, en France"
 }

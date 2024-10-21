@@ -9,7 +9,7 @@ import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import { useTranslation } from 'react-i18next';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-function ResumeNew() {
+function CV() {
   const { t } = useTranslation();
   const [width, setWidth] = useState(1200);
 
@@ -21,11 +21,13 @@ function ResumeNew() {
     <div>
       <Container fluid className="resume-section">
         <Particle />
+        <h1 className="title-font pb-5">{t('mycv')}</h1>
         <Row style={{ justifyContent: "center", position: "relative" }}>
           <Button
             variant="primary"
             href={pdf}
             target="_blank"
+            className="custom-button"
             style={{ maxWidth: "250px" }}
           >
             <AiOutlineDownload />
@@ -44,6 +46,7 @@ function ResumeNew() {
             variant="primary"
             href={pdf}
             target="_blank"
+            className="custom-button"
             style={{ maxWidth: "250px" }}
           >
             <AiOutlineDownload />
@@ -55,4 +58,4 @@ function ResumeNew() {
   );
 }
 
-export default ResumeNew;
+export default CV;

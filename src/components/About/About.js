@@ -8,9 +8,20 @@ import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about/about.webp";
 import Toolstack from "./Toolstack";
 import LevelCircle from "./Utils/LevelCircle"; 
+import { useInView } from 'react-intersection-observer';
 
 function About() {
   const { t } = useTranslation();
+
+  const { ref: refText, inView: textInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: refImg, inView: imgInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
     <Container fluid className="about-section">
@@ -18,12 +29,12 @@ function About() {
       <Container>
         <Row className="d-flex align-items-center justify-content-center py-4">
           <Col md={7} className="text-center text-md-left">
-            <h1 className="pb-3 title-font" style={{ fontSize: "2.5em" }}>
+            <h1 className={`pb-3 title-font ${textInView ? 'slide-in-left-title' : ''}`} style={{ fontSize: "2.5em" }} ref={refText}>
               {t('about_me')} <strong className="blue-title">{t('i_am')}</strong>
             </h1>
             <Aboutcard />
           </Col>
-          <Col md={5} className="d-flex justify-content-center align-items-center about-img">
+          <Col md={5} className={`d-flex justify-content-center align-items-center about-img ${imgInView ? 'slide-in-right' : ''}`} ref={refImg}>
             <img src={laptopImg} alt="about" className="img-fluid" />
           </Col>
         </Row>

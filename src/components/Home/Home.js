@@ -17,7 +17,7 @@ function Home() {
 
   return (
     <section>
-      <Container fluid className="home-section pt-5" id="home">
+      <Container fluid className="home-section pt-0" id="home">
         <Particle />
         <Container className="home-content">
           <Row className="align-items-center">

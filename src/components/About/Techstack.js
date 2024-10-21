@@ -20,6 +20,7 @@ import {
   SiExpress,
   SiCss3,
   SiLaravel,
+  SiNestjs,
   SiFlask
 } from "react-icons/si";
 
@@ -42,7 +43,8 @@ const icons = [
   { component: DiWordpress, name: "Wordpress", level: 1 },
   { component: SiCss3, name: "CSS", level: 2 },
   { component: SiFlask, name: "Flask", level: 0 },
-  { component: SiLaravel, name: "Laravel", level: 0 }
+  { component: SiLaravel, name: "Laravel", level: 0 },
+  { component: SiNestjs, name: "Nest.js", level: 0 }
 ];
 
 function Techstack() {

@@ -15,36 +15,26 @@ function About() {
     <Container fluid className="about-section">
       <Particle />
       <Container>
-        <Row style={{ justifyContent: "center", padding: "10px" }}>
-          <Col
-            md={7}
-            style={{
-              justifyContent: "center",
-              paddingTop: "30px",
-              paddingBottom: "50px",
-            }}
-          >
-            <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
-              {t('about_me')} <strong className="blue">{t('i_am')}</strong>
+        {/* Alignement vertical */}
+        <Row className="d-flex align-items-center justify-content-center py-4">
+          <Col md={7} className="text-center text-md-left">
+            <h1 className="pb-3 title-font" style={{ fontSize: "2.5em" }}>
+              {t('about_me')} <strong className="blue-title">{t('i_am')}</strong>
             </h1>
             <Aboutcard />
           </Col>
-          <Col
-            md={5}
-            style={{ paddingTop: "120px", paddingBottom: "50px" }}
-            className="about-img"
-          >
+          <Col md={5} className="d-flex justify-content-center align-items-center about-img">
             <img src={laptopImg} alt="about" className="img-fluid" />
           </Col>
         </Row>
-        <h1 className="project-heading">
-          <strong className="blue">{t('professional_skills')}</strong> {t('skills')}
+        
+        <h1 className="project-heading text-center mt-5 title-font mb-5">
+          <strong className="blue-title">{t('professional_skills')}</strong> {t('skills')}
         </h1>
-
         <Techstack />
 
-        <h1 className="project-heading">
-          <strong className="blue">{t('tools')}</strong> {t('i_use')}
+        <h1 className="project-heading text-center mt-5 title-font mb-5">
+          <strong className="blue-title">{t('tools')}</strong> {t('i_use')}
         </h1>
         <Toolstack />
 

@@ -45,7 +45,7 @@ function ProjectCards(props) {
         <Card.Text style={{ textAlign: "justify" }}>
           {props.description}
         </Card.Text>
-        <Button variant="primary" href={props.ghLink} target="_blank">
+        <Button className="button-cv" href={props.ghLink} target="_blank">
           <BsGithub /> &nbsp;
           {props.isGitLab ? "GitLab" : "GitHub"}
         </Button>
@@ -55,7 +55,7 @@ function ProjectCards(props) {
 
         {!props.isGitLab && props.youtubeLink && (
           <Button
-            variant="danger"
+            className="button-youtube"
             href={props.youtubeLink}
             target="_blank"
             style={{ marginLeft: "10px" }}

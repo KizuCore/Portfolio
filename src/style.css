@@ -807,6 +807,23 @@ button:focus {
   color: #1c53b8 !important;
 }
 
+.button-youtube {
+  background-color: #bd1903 !important;
+  border: 1px solid white !important;
+  color: white !important;
+  border-radius: 50px !important;
+  transition: all 0.3s ease-in-out !important;
+  font-size: 1.1em !important;
+  max-width: 250px !important;
+  z-index: 1;
+}
+
+.button-youtube:hover {
+  background-color: #d8e6ff !important;
+  border: 2px solid #bd1903 !important;
+  color: #bd1903 !important;
+}
+
 .pdf-container {
   border-radius: 10px;
   overflow: hidden;

@@ -480,6 +480,17 @@ button:focus {
   padding-inline-start: 0 !important;
 }
 
+.gitlab-link{
+  color: #f5921a !important;
+  z-index:'999999';
+}
+
+.gitlab-link:hover{
+  color: #be6b06 !important;
+  z-index:'999999';
+  transition: color 0.3s ease-in-out;
+}
+
 .home-social-icons {
   display: flex !important;
   justify-content: center !important;

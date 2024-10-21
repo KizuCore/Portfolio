@@ -40,7 +40,7 @@ function Toolstack() {
             key={index}
             xs={4}
             md={2}
-            className="tech-icons"
+            className="tech-icons-1"
             data-tip={tool.name}
           >
             <tool.component />

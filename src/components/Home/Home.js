@@ -11,29 +11,31 @@ function Home() {
 
   return (
     <section>
-      <Container fluid className="home-section" id="home">
+      <Container fluid className="home-section pt-5" id="home">
         <Particle />
         <Container className="home-content">
-          <Row>
-            <Col md={7} className="home-header">
-              <h1 style={{ paddingBottom: 15 }} className="heading">
+          <Row className="align-items-center">
+            
+            <Col md={7} className="home-header slide-in-left text-center text-md-left py-5">
+              <h1 className="heading mb-3">
                 {t('hello')}{" "}
                 <span className="wave" role="img" aria-labelledby="wave">
                   👋🏻
                 </span>
               </h1>
 
-              <h1 className="heading-name">
+              <h1 className="heading-name mb-3">
                 {t('iam')}
-                <strong className="main-name"> {t('name')}</strong>
+                <strong className="blue-title"> {t('name')}</strong>
               </h1>
 
-              <div style={{ padding: 50, textAlign: "left" }}>
+              <div className="pt-3 blue-title">
                 <Type />
               </div>
             </Col>
 
-            <Col md={5} style={{ paddingBottom: 20 }}>
+            
+            <Col md={5} className="d-flex justify-content-center py-5">
               <img
                 src={homeLogo}
                 alt="home pic"

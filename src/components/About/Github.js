@@ -33,10 +33,9 @@ function Github() {
             href="https://gitlab.com/Theo35000"
             target="_blank"
             rel="noreferrer"
-            className="gitlab-link d-inline-block"
-            style={{ fontSize: "1.5em", color: "#FC6D27", display: 'inline-block', position: 'relative', zIndex: 2 }} 
+            className="gitlab-link" 
           >
-            <FaGitlab size={70} className="cursor-pointer" style={{ color: '#FC6D27', zIndex:'99999' }}/>
+            <FaGitlab size={70} className="cursor-pointer"/>
           </a>
         </Col>
       </Row>

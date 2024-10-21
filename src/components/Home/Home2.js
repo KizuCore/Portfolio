@@ -19,6 +19,11 @@ function Home2() {
     threshold: 0.1,
   });
 
+  const { ref: refImg, inView: imgInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
@@ -54,7 +59,7 @@ function Home2() {
           </Col>
           <Col md={4} className="atar d-flex justify-content-center"> 
             <Tilt>
-              <img src={myImg} className="img-fluid" alt="Mon Avatar" style={{ height: "16em" }} />
+              <img src={myImg} className={`img-fluid ${imgInView ? 'slide-in-right' : ''}`} ref={refImg} alt="Mon Avatar" style={{ height: "16em" }} />
             </Tilt>
           </Col>
         </Row>

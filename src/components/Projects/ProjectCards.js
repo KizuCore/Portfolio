@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { BsGithub, BsYoutube } from "react-icons/bs";
 import { Row, Col } from "react-bootstrap";
 import { DiBootstrap, DiCss3, DiHtml5, DiJavascript1, DiMysql, DiPhp, DiReact } from "react-icons/di";
-import { SiExpress, SiFlutter, SiKotlin, SiSwagger, SiVuedotjs, SiGoogle} from "react-icons/si";
+import { SiExpress, SiFlutter, SiKotlin, SiSwagger, SiVuedotjs, SiGoogle, SiSequelize} from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
 
@@ -22,7 +22,8 @@ const techIcons = {
   React: <DiReact />,
   Bootstrap: <DiBootstrap />,
   Swagger: <SiSwagger />,
-  ApiGoogleBooks: <SiGoogle />
+  ApiGoogleBooks: <SiGoogle />,
+  Sequelize: <SiSequelize />
 };
 
 function ProjectCards(props) {

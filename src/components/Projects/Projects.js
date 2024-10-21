@@ -12,22 +12,36 @@ import portfolio from "../../Assets/Projects/portfolio.webp";
 import portfoliov2 from "../../Assets/Projects/portfoliov2.webp";
 import apibook from "../../Assets/Projects/apibook.webp";
 import ReactTooltip from "react-tooltip";
+import { useInView } from 'react-intersection-observer'; 
+
 
 function Projects() {
   const { t } = useTranslation();
+  
+  // Hook pour observer quand les cartes deviennent visibles
+  const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref4, inView4] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref5, inView5] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref6, inView6] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref7, inView7] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref8, inView8] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref9, inView9] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <Container fluid className="project-section">
       <Particle />
       <Container>
-        <h1 className="project-heading">
-          {t('my_projects')} <strong className="blue">{t('projects')}</strong>
+        <h1 className="project-heading title-font pb-4" >
+          {t('my_projects')} <strong className="blue-title">{t('projects')}</strong>
         </h1>
-        <p style={{ color: "white" }}>
+        <p style={{ fontSize: "1.2em", color:"white" }}>
           {t('projects_description')}
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          <Col md={4} className="project-card">
+          
+          <Col md={4} className={`project-card ${inView1 ? 'fade-in' : ''}`} ref={ref1}>
             <ProjectCard
               imgPath={lemonmaze}
               title={t('lemonmaze_api_title')}
@@ -37,7 +51,7 @@ function Projects() {
             />
           </Col>
 
-          <Col md={4} className="project-card">
+          <Col md={4} className={`project-card ${inView2 ? 'fade-in' : ''}`} ref={ref2}>
             <ProjectCard
               imgPath={lemonmaze}
               title={t('lemonmaze_title')}
@@ -47,7 +61,7 @@ function Projects() {
             />
           </Col>
 
-          <Col md={4} className="project-card">
+          <Col md={4} className={`project-card ${inView3 ? 'fade-in' : ''}`} ref={ref3}>
             <ProjectCard
               imgPath={cosmiclink}
               title={t('cosmiclink_title')}
@@ -58,7 +72,7 @@ function Projects() {
             />
           </Col>
 
-          <Col md={4} className="project-card">
+          <Col md={4} className={`project-card ${inView4 ? 'fade-in' : ''}`} ref={ref4}>
             <ProjectCard
               imgPath={chrono}
               title={t('minuteur_mobile_title')}
@@ -68,7 +82,7 @@ function Projects() {
             />
           </Col>
 
-          <Col md={4} className="project-card">
+          <Col md={4} className={`project-card ${inView5 ? 'fade-in' : ''}`} ref={ref5}>
             <ProjectCard
               imgPath={breizhcoin}
               title={t('breizhcoin_title')}
@@ -78,7 +92,8 @@ function Projects() {
               techStack={["Php", "Javascript", "Html", "Css"]}
             />
           </Col>
-          <Col md={4} className="project-card">
+
+          <Col md={4} className={`project-card ${inView6 ? 'fade-in' : ''}`} ref={ref6}>
             <ProjectCard
               imgPath={tboi}
               title={t('thebindingofisaac_title')}
@@ -87,7 +102,8 @@ function Projects() {
               techStack={["Java"]}
             />
           </Col>
-          <Col md={4} className="project-card">
+
+          <Col md={4} className={`project-card ${inView7 ? 'fade-in' : ''}`} ref={ref7}>
             <ProjectCard
               imgPath={portfolio}
               title={t('portfolio_v1_title')}
@@ -96,7 +112,8 @@ function Projects() {
               techStack={["Vuejs", "Javascript", "Html", "Css"]}
             />
           </Col>
-          <Col md={4} className="project-card">
+
+          <Col md={4} className={`project-card ${inView8 ? 'fade-in' : ''}`} ref={ref8}>
             <ProjectCard
               imgPath={portfoliov2}
               title={t('portfolio_v2_title')}
@@ -105,16 +122,17 @@ function Projects() {
               techStack={["React", "Bootstrap", "Css"]}
             />
           </Col>
-          
-          <Col md={4} className="project-card">
-              <ProjectCard
-                imgPath={apibook}
-                title={t('library_title')}
-                description={t('library_description')}
-                ghLink="https://github.com/Theo22100/MDS-M1-Librairie"
-                techStack={["Express", "Swagger","MySQL", "React", "Bootstrap", "Sequelize"]}
-              />
-            </Col>
+
+          <Col md={4} className={`project-card ${inView9 ? 'fade-in' : ''}`} ref={ref9}>
+            <ProjectCard
+              imgPath={apibook}
+              title={t('library_title')}
+              description={t('library_description')}
+              ghLink="https://github.com/Theo22100/MDS-M1-Librairie"
+              techStack={["Express", "Swagger","MySQL", "React", "Bootstrap", "Sequelize"]}
+            />
+          </Col>
+
         </Row>
       </Container>
       <ReactTooltip />

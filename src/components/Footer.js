@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from 'react-i18next';
 import {
   AiFillGithub,
+  AiOutlineMail,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
@@ -48,6 +49,17 @@ function Footer() {
                 rel="noopener noreferrer"
               >
                 <FaLinkedinIn />
+              </a>
+            </li>
+
+            <li className="social-icons-footer">
+              <a
+                href="mailto:theo.guerin35000@gmail.com"
+                style={{ color: "white" }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                < AiOutlineMail/>
               </a>
             </li>
 

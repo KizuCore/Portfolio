@@ -10,6 +10,10 @@ html {
   --imp-text-color: #52a4f1;
 }
 
+body {
+  overflow-x: hidden; /* empêche redimensionnement  */
+}
+
 /* Police couleur texte bleu */
 .blue-title {
   color: #276DEE;
@@ -600,6 +604,7 @@ button:focus {
   opacity: 0.9 !important;
   transition: all 0.5s ease 0s !important;
   height: 100% !important;
+  background-color: #ffffff11 !important;
 }
 
 .project-card-view:hover {
@@ -696,7 +701,7 @@ button:focus {
 }
 
 .about-activity a:hover {
-  color: #108dd4 !important;
+  color: #86acf4 !important;
 }
 
 
@@ -819,7 +824,7 @@ button:focus {
 }
 
 .button-youtube:hover {
-  background-color: #d8e6ff !important;
+  background-color: #ffd4cf !important;
   border: 2px solid #bd1903 !important;
   color: #bd1903 !important;
 }
@@ -1045,13 +1050,12 @@ button:focus {
 
 
 /* ANIMATIONS */
-/* Effet gauche */
+
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
     opacity: 0;
   }
-
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -1063,7 +1067,6 @@ button:focus {
     transform: translateX(100%);
     opacity: 0;
   }
-
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -1071,15 +1074,24 @@ button:focus {
 }
 
 .slide-in-left {
-  animation: slideInFromLeft 2s ease-out;
+  animation: slideInFromLeft 1.5s ease-out;
+  will-change: transform, opacity;
+  position: relative; 
+  overflow: hidden;   
 }
 
 .slide-in-right {
-  animation: slideInFromRight 2s ease-out;
+  animation: slideInFromRight 1.5s ease-out;
+  will-change: transform, opacity;
+  position: relative;
+  overflow: hidden;  
 }
 
 .slide-in-left-title {
-  animation: slideInFromLeft 1.5s ease-out;
+  animation: slideInFromLeft 1s ease-out;
+  will-change: transform, opacity;
+  position: relative;
+  overflow: hidden;
 }
 
 .background-box {
@@ -1094,13 +1106,11 @@ button:focus {
   0% {
     opacity: 0;
     transform: translateY(20px);
-    /* Départ avec un léger décalage vers le bas */
   }
 
   100% {
     opacity: 1;
     transform: translateY(0);
-    /* Arrivée à la position normale */
   }
 }
 

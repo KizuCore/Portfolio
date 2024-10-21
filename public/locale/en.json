@@ -69,5 +69,9 @@
     "portfolio_v2_description": "Portfolio to introduce myself, contact me, show my projects and my CV.",
     "apibook_title": "Library Application",
     "apibook_description": "Master's project, I had to create a web application with a backend and a frontend for a library, including a reservation system. Please refer to the README.",
-    "rennes": "Rennes, France"
+    "rennes": "Rennes, France",
+    "gitlab_profile": "GitLab Profile",
+    "novice": "Novice",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
 }

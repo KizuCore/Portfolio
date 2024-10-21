@@ -69,5 +69,9 @@
     "portfolio_v2_description": "Portfolio pour me présenter, me contacter, montrer mes projets ainsi que mon CV.",
     "library_title": "Application Librairie",
     "library_description": "Projet de Master, je devais faire une application web avec un back et un front pour une Librairie, avec système de réservation, voir le READ.ME .",
-    "rennes": "Rennes, en France"
+    "rennes": "Rennes, en France",
+    "gitlab_profile": "Profil GitLab",
+    "novice": "Novice",
+    "intermediate": "Intermédiaire",
+    "advanced": "Expérimenté"
 }

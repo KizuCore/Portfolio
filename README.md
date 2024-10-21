@@ -6,7 +6,7 @@
 
 ## Techno
 
-Portfolio v2
+Portfolio
 
 - React.js
 - Bootstrap

@@ -29,7 +29,7 @@ function Footer() {
         </Col>
         <Col md="4" className="footer-body">
           <ul className="footer-icons">
-            <li className="social-icons">
+            <li className="social-icons-footer">
               <a
                 href="https://github.com/Theo22100"
                 style={{ color: "white" }}
@@ -40,7 +40,7 @@ function Footer() {
               </a>
             </li>
 
-            <li className="social-icons">
+            <li className="social-icons-footer">
               <a
                 href="https://www.linkedin.com/in/théo-guérin-b20630192/"
                 style={{ color: "white" }}

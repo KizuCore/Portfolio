@@ -9,7 +9,7 @@ function RouteSorciere() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setPreloading(false);
-        }, 2000);
+        }, 4000);
         return () => clearTimeout(timer);
     }, []);
 
@@ -25,25 +25,48 @@ function RouteSorciere() {
                         </div>
                     ) : (
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.5, rotate: 360 }}
-                            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                            initial={{
+                                opacity: 0,
+                                scale: 0.3,
+                                rotate: 720,
+                                filter: "blur(20px)", // Initial blur
+                            }}
+                            animate={{
+                                opacity: 1,
+                                scale: 1,
+                                rotate: 0,
+                                filter: "blur(0px)", 
+                                y: [0, -10, 0], 
+                            }}
                             transition={{
-                                duration: 1.5,
+                                duration: 2,
+                                ease: "easeInOut",
+                                times: [0, 0.5, 1],
                                 type: "spring",
                                 stiffness: 80,
                                 damping: 15,
                             }}
-                            className="video-container"
-                            style={{ width: "100%", maxWidth: "800px", height: "auto" }}
+                            style={{
+                                width: "100%",
+                                maxWidth: "1000px",
+                                height: "auto",
+                                overflow: "hidden", 
+                            }}
                         >
-                            <iframe
-                                className="embed-responsive-item"
-                                style={{ width: "100%", height: "auto", aspectRatio: "16/9" }}
-                                src="https://www.youtube.com/watch?v=_PtDZLqqNgQ?autoplay=1" 
-                                title="YouTube video player"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                            ></iframe>
+                            <motion.div
+                                initial={{ filter: "blur(20px)" }}
+                                animate={{ filter: "blur(0px)" }}
+                                transition={{ duration: 1.5, ease: "easeOut" }}
+                            >
+                                <iframe
+                                    className="embed-responsive-item"
+                                    style={{ width: "100%", height: "auto", aspectRatio: "16/9" }}
+                                    src="https://www.youtube.com/embed/_PtDZLqqNgQ?autoplay=1" 
+                                    title="YouTube video player"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                ></iframe>
+                            </motion.div>
                         </motion.div>
                     )}
                 </Container>

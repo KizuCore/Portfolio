@@ -39,7 +39,7 @@ function Gojo() {
                             <iframe
                                 className="embed-responsive-item"
                                 style={{ width: "100%", height: "auto", aspectRatio: "16/9" }}
-                                src="https://www.youtube.com/embed/JTGNRJEptc0"
+                                src="https://www.youtube.com/embed/JTGNRJEptc0?autoplay=1" 
                                 title="YouTube video player"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen

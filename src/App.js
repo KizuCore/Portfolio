@@ -13,6 +13,7 @@ import "./Assets/style/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SeoMeta from "./components/Helmet/react-helmet-seo";
 import Gojo from "./components/Gojo/Gojo";
+import RouteSorciere from "./components/Gojo/Route";
 
 function App() {
   const [load, updateLoad] = useState(true);
@@ -38,6 +39,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/cv" element={<CV />} />
           <Route path="/gojo" element={<Gojo />} />
+          <Route path="/route" element={<RouteSorciere />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />

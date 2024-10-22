@@ -7,11 +7,11 @@ import './i18n';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Suspense fallback={<div></div>}>
+    <Suspense fallback={<div>Loading...</div>}>
       <App />
     </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-reportWebVitals();
+reportWebVitals(console.log);  

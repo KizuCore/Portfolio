@@ -35,7 +35,12 @@ function About() {
             <Aboutcard />
           </Col>
           <Col md={5} className={`d-flex justify-content-center align-items-center about-img ${imgInView ? 'slide-in-right' : ''}`} ref={refImg}>
-            <img src={laptopImg} alt="Théo Guérin travaillant sur un laptop" className="img-fluid" loading="lazy" />
+            <img 
+              src={laptopImg} 
+              alt={t('about_image_alt', { name: 'Théo Guérin' })} 
+              className="img-fluid" 
+              loading="lazy" 
+            />
           </Col>
         </Row>
 

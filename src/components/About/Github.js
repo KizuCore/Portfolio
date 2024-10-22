@@ -34,7 +34,7 @@ function Github() {
             target="_blank"
             rel="noreferrer"
             className="gitlab-link" 
-            aria-label="Voir le profil GitLab de Théo Guérin"
+            aria-label={t('gitlab_profile_seo')}
           >
             <FaGitlab size={70} className="cursor-pointer"/>
           </a>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import ReactTooltip from "react-tooltip";
+import { useTranslation } from 'react-i18next';
 import {
   DiJavascript1,
   DiReact,
@@ -24,7 +25,7 @@ import {
   SiFlask
 } from "react-icons/si";
 
-// Définition des technologies avec leur niveau (0=Novice, 1=Intermédiaire, 2=Expérimenté)
+// Technologies avec niveau (0=Novice, 1=Intermédiaire, 2=Expérimenté)
 const icons = [
   { component: SiFlutter, name: "Flutter", level: 2 },
   { component: DiMysql, name: "MySQL", level: 2 },
@@ -48,6 +49,7 @@ const icons = [
 ];
 
 function Techstack() {
+  const { t } = useTranslation();
   return (
     <div>
       <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
@@ -64,7 +66,8 @@ function Techstack() {
               xs={4}
               md={2}
               className={`tech-icons ${levelClass}`} 
-              data-tip={`${icon.name} - Niveau ${icon.level === 0 ? 'Novice' : icon.level === 1 ? 'Intermédiaire' : 'Expérimenté'}`}
+              data-tip={`${icon.name} - ${t('level')} ${icon.level === 0 ? t('novice') : icon.level === 1 ? t('intermediate') : t('advanced')}`}
+
             >
               <IconComponent aria-label={icon.name} />
             </Col>

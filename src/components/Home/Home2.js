@@ -63,7 +63,7 @@ function Home2() {
                 src={myImg}
                 className={`img-fluid ${imgInView ? 'slide-in-right' : ''}`}
                 ref={refImg}
-                alt="Avatar de Théo Guérin, Développeur Web"
+                alt={t('theo_developer')} 
                 style={{ height: "16em" }}
                 loading="lazy"
               />

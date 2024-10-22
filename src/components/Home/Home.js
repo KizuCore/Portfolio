@@ -42,7 +42,7 @@ function Home() {
             <Col md={5} className={`d-flex justify-content-center py-5 ${imgInView ? 'slide-in-right' : ''}`} ref={refImg}>
               <img
                 src={homeLogo}
-                alt="Illustration de développement web par Théo Guérin"
+                alt={t('web_dev_illustration')} 
                 className="img-fluid"
                 style={{ maxHeight: "90%" }}
               />

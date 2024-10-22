@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Flag from 'react-world-flags';
 import { FaAngleDown } from 'react-icons/fa';
@@ -11,9 +11,14 @@ function LanguageSelector() {
     i18n.changeLanguage(lang);
   };
 
+  // MAJ balise <html lang="">
+  useEffect(() => {
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
+
   return (
     <Dropdown className="language-selector">
-      <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+      <Dropdown.Toggle variant="secondary" id="dropdown-basic" aria-label="Language Selector">
         <Flag code={i18n.language === "fr" ? "FR" : "GB"} height="auto" width="25" style={{ marginBottom: "2px" }} />{' '}
         {i18n.language === "fr" ? "FR" : "EN"} <FaAngleDown />
       </Dropdown.Toggle>

@@ -28,6 +28,10 @@ body {
   color: #88b9f8;
 }
 
+.darkblue {
+  color: #276DEE;
+}
+
 button:focus {
   box-shadow: none !important;
 }

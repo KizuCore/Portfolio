@@ -25,7 +25,7 @@ function Reseaux() {
                         target="_blank"
                         rel="noreferrer"
                         className="icon-colour home-social-icons"
-                        aria-label="GitHub Profile"
+                        aria-label={t('github_profile2')}
                     >
                         <AiFillGithub size={55} />
                     </a>
@@ -36,7 +36,7 @@ function Reseaux() {
                         target="_blank"
                         rel="noreferrer"
                         className="icon-colour home-social-icons"
-                        aria-label="LinkedIn Profile"
+                        aria-label={t('linkedin_profile')}
                     >
                         <FaLinkedinIn size={55} />
                     </a>
@@ -47,7 +47,7 @@ function Reseaux() {
                         target="_blank"
                         rel="noreferrer"
                         className="icon-colour home-social-icons"
-                        aria-label="Email Me"
+                        aria-label={t('email_me')}
                     >
                         <AiOutlineMail size={55} />
                     </a>

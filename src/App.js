@@ -8,7 +8,7 @@ import Footer from "./components/Footer/Footer";
 import CV from "./components/Resume/CV";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import ScrollToTop from "./components/Utils/ScrollToTop";
-import { Helmet } from "react-helmet";
+import SEO_Meta from "./components/SEO/react-helmet-seo"; 
 import "./Assets/style/style.css";
 import "./Assets/style/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -28,10 +28,7 @@ function App() {
     <Router>
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <Helmet>
-          <title>Théo Guérin | Portfolio</title>
-          <meta name="description" content="Bienvenue sur le portfolio de Théo Guérin, développeur fullstack. Explorez ses projets et son CV." />
-        </Helmet>
+        <SEO_Meta />
         <Navbar />
         <ScrollToTop />
         <Routes>

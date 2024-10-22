@@ -17,6 +17,7 @@ function Type() {
           strings: [
             t('fullstack_developer'),
             t('frontend_developer'),
+            t('backend_developer'),
           ],
           autoStart: true,
           loop: true,

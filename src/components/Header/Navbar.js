@@ -39,7 +39,7 @@ function NavBar() {
     >
       <Container>
         <Navbar.Brand href="/" className="d-flex">
-          <img src={logo} className="img-fluid logo" alt="brand" />
+          <img src={logo} className="img-fluid logo" alt={t('brand')} />
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
@@ -54,7 +54,7 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)} aria-label="Home">
+              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)} aria-label={t('home_aria')}>
                 <AiOutlineHome style={{ marginBottom: "2px" }} /> {t('home')}
               </Nav.Link>
             </Nav.Item>
@@ -64,7 +64,7 @@ function NavBar() {
                 as={Link}
                 to="/about"
                 onClick={() => updateExpanded(false)}
-                aria-label="About Me"
+                aria-label={t('about_aria')}
               >
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> {t('about')}
               </Nav.Link>
@@ -75,7 +75,7 @@ function NavBar() {
                 as={Link}
                 to="/project"
                 onClick={() => updateExpanded(false)}
-                aria-label="Projects"
+                aria-label={t('project_aria')}
               >
                 <AiOutlineFundProjectionScreen style={{ marginBottom: "2px" }} /> {t('project')}
               </Nav.Link>
@@ -86,9 +86,9 @@ function NavBar() {
                 as={Link}
                 to="/cv"
                 onClick={() => updateExpanded(false)}
-                aria-label="Resume"
+                aria-label={t('cv_aria')}
               >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> CV
+                <CgFileDocument style={{ marginBottom: "2px" }} /> {t('cv')}
               </Nav.Link>
             </Nav.Item>
 

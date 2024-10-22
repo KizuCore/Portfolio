@@ -4,7 +4,7 @@ function LevelCircle({ color }) {
   return (
     <div
       className="level-circle"
-      style={{ backgroundColor: color }} // Utilisation de la couleur passée en props
+      style={{ backgroundColor: color }} 
     ></div>
   );
 }

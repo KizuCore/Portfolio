@@ -53,7 +53,7 @@ function Home2() {
                 <b className="blue"> {t('projects_and_discovery')}</b>
                 <br />
                 <br />
-                {t('passion')} <b className="blue">{t('nodejs')}</b> {t('reactjs')}
+                {t('passion')} <b className="blue">{t('nodejs')}</b> {t('and')} <b className="blue">{t('reactjs')}</b>.
               </p>
             </div>
           </Col>

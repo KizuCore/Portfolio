@@ -7,11 +7,11 @@ import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer/Footer";
 import CV from "./components/Resume/CV";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
-import ScrollToTop from "./components/Utils/ScrollToTop";
-import SEO_Meta from "./components/SEO/react-helmet-seo"; 
+import ScrollToTop from "./components/Utils/ScrollToTop"; 
 import "./Assets/style/style.css";
 import "./Assets/style/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import SeoMeta from "./components/Helmet/react-helmet-seo";
 
 function App() {
   const [load, updateLoad] = useState(true);
@@ -28,7 +28,7 @@ function App() {
     <Router>
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <SEO_Meta />
+        <SeoMeta />
         <Navbar />
         <ScrollToTop />
         <Routes>

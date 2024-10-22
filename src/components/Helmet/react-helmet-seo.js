@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async"; 
 import { useTranslation } from 'react-i18next';
 
-function SEO_Meta() {
+function SeoMeta() {
   const { t } = useTranslation();
 
   return (
@@ -17,4 +17,4 @@ function SEO_Meta() {
   );
 }
 
-export default SEO_Meta;
+export default SeoMeta;

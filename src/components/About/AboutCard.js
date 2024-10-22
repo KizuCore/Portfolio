@@ -28,7 +28,7 @@ function AboutCard() {
           </p>
 
           {/* Qualifications */}
-          <h3 className="blue-title mt-4" style={{ fontSize: "1.6em" }}>{t('qualifications_title')}</h3>
+          <h3 className="lightblue-title mt-4" style={{ fontSize: "1.6em" }}>{t('qualifications_title')}</h3>
 
           <ul className="mt-3">
             <li className="about-activity mb-2">

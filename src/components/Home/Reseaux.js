@@ -14,7 +14,7 @@ function Reseaux() {
 
     return (
         <Col md={12} className="home-about-social pt-5" ref={ref}>
-            <h2 className="title-font pb-3">{t('social')}</h2>
+            <h2 className="blue-title pt-5 pb-3">{t('social')}</h2>
             <p style={{ fontSize: "1.5em" }} className="py-4">
                 {t('contact')} <span className="blue">{t('contact_me')}</span> !
             </p>

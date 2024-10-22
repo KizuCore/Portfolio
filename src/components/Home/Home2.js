@@ -70,7 +70,7 @@ function Home2() {
             </Tilt>
           </Col>
         </Row>
-        <Row>
+        <Row className="py-5 ">
           <Reseaux/>
         </Row>
       </Container>

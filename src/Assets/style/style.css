@@ -15,8 +15,18 @@ body {
 }
 
 /* Police couleur texte bleu */
+
+.dark-blue {
+  color: #276DEE;
+}
+
 .blue-title {
   color: #276DEE;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.light-blue-title {
+  color: #5c92f5;
   font-family: 'Permanent Marker', cursive;
 }
 

@@ -8,13 +8,13 @@ import { useInView } from 'react-intersection-observer';
 function Reseaux() {
     const { t } = useTranslation();
     const { ref, inView } = useInView({
-        triggerOnce: true, 
-        threshold: 0.5, 
+        triggerOnce: true,
+        threshold: 0.5,
     });
 
     return (
         <Col md={12} className="home-about-social pt-5" ref={ref}>
-            <h1 className="title-font pb-3">{t('social')}</h1>
+            <h2 className="title-font pb-3">{t('social')}</h2>
             <p style={{ fontSize: "1.5em" }} className="py-4">
                 {t('contact')} <span className="blue">{t('contact_me')}</span> !
             </p>
@@ -25,6 +25,7 @@ function Reseaux() {
                         target="_blank"
                         rel="noreferrer"
                         className="icon-colour home-social-icons"
+                        aria-label="GitHub Profile"
                     >
                         <AiFillGithub size={55} />
                     </a>
@@ -35,6 +36,7 @@ function Reseaux() {
                         target="_blank"
                         rel="noreferrer"
                         className="icon-colour home-social-icons"
+                        aria-label="LinkedIn Profile"
                     >
                         <FaLinkedinIn size={55} />
                     </a>
@@ -45,6 +47,7 @@ function Reseaux() {
                         target="_blank"
                         rel="noreferrer"
                         className="icon-colour home-social-icons"
+                        aria-label="Email Me"
                     >
                         <AiOutlineMail size={55} />
                     </a>

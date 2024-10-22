@@ -11,9 +11,9 @@ function Github() {
     <div>
       {/* Section GitHub */}
       <Row className="justify-content-center mb-4">
-        <h1 className="project-heading mb-5">
+        <h2 className="project-heading mb-5">
           <strong className="blue-title">{t('github_profile')}</strong>
-        </h1>
+        </h2>
         <GitHubCalendar
           username="Theo22100"
           blockSize={15}
@@ -25,15 +25,16 @@ function Github() {
 
       {/* Section GitLab */}
       <Row className="justify-content-center my-5">
-        <h1 className="project-heading mb-5">
+        <h2 className="project-heading mb-5">
           <strong className="blue-title">{t('gitlab_profile')}</strong>
-        </h1>
+        </h2>
         <Col md={6} className="text-center">
           <a
             href="https://gitlab.com/Theo35000"
             target="_blank"
             rel="noreferrer"
             className="gitlab-link" 
+            aria-label="Voir le profil GitLab de Théo Guérin"
           >
             <FaGitlab size={70} className="cursor-pointer"/>
           </a>
@@ -44,4 +45,3 @@ function Github() {
 }
 
 export default Github;
-

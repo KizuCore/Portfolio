@@ -35,12 +35,13 @@ function About() {
             <Aboutcard />
           </Col>
           <Col md={5} className={`d-flex justify-content-center align-items-center about-img ${imgInView ? 'slide-in-right' : ''}`} ref={refImg}>
-            <img src={laptopImg} alt="about" className="img-fluid" />
+            <img src={laptopImg} alt="Théo Guérin travaillant sur un laptop" className="img-fluid" loading="lazy" />
           </Col>
         </Row>
-        <h1 className="project-heading text-center mt-5 title-font mb-5">
+
+        <h2 className="project-heading text-center mt-5 title-font mb-5">
           <strong className="blue-title">{t('professional_skills')}</strong> {t('skills')}
-        </h1>
+        </h2>
         
         {/* Section des niveaux */}
         <Row className="text-center mt-5 mb-4">
@@ -63,11 +64,12 @@ function About() {
             </div>
           </Col>
         </Row>
+        
         <Techstack />
 
-        <h1 className="project-heading text-center mt-5 title-font mb-5">
+        <h2 className="project-heading text-center mt-5 title-font mb-5">
           <strong className="blue-title">{t('tools')}</strong> {t('i_use')}
-        </h1>
+        </h2>
         <Toolstack />
 
         <Github />

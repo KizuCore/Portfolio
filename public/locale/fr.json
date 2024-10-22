@@ -75,5 +75,7 @@
     "gitlab_profile": "Profil GitLab",
     "novice": "Novice",
     "intermediate": "Intermédiaire",
-    "advanced": "Expérimenté"
+    "advanced": "Expérimenté",
+    "hobbies_title": "Loisirs",
+    "qualifications_title": "Qualifications"
 }

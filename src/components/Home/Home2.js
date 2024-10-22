@@ -27,20 +27,20 @@ function Home2() {
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
-        <Row className="d-flex align-items-center"> 
+        <Row className="d-flex align-items-center">
           <Col md={8} className="home-about-description">
             <div className={`${titleInView ? 'slide-in-left' : ''} `}>
-              <h1
+              <h2
                 style={{ fontSize: "2.6em" }}
                 ref={titleRef}
               >
                 <span className="blue-title " style={{ fontFamily: 'Permanent Marker, cursive' }}>
                   {t('introduction')}
                 </span>
+              </h2>
 
-              </h1>
               <p
-                className={`home-about-body mt-4 ${paragraphInView ? 'slide-in-left text-justify' : 'text-justify'} background-box` } // Ajout de la classe text-justify
+                className={`home-about-body mt-4 ${paragraphInView ? 'slide-in-left text-justify' : 'text-justify'} background-box`}
                 ref={paragraphRef}
               >
                 {t('description')}
@@ -57,9 +57,16 @@ function Home2() {
               </p>
             </div>
           </Col>
-          <Col md={4} className="atar d-flex justify-content-center"> 
+          <Col md={4} className="atar d-flex justify-content-center">
             <Tilt>
-              <img src={myImg} className={`img-fluid ${imgInView ? 'slide-in-right' : ''}`} ref={refImg} alt="Mon Avatar" style={{ height: "16em" }} />
+              <img
+                src={myImg}
+                className={`img-fluid ${imgInView ? 'slide-in-right' : ''}`}
+                ref={refImg}
+                alt="Avatar de Théo Guérin, Développeur Web"
+                style={{ height: "16em" }}
+                loading="lazy"
+              />
             </Tilt>
           </Col>
         </Row>

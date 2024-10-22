@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Particles from "react-tsparticles";
 
+/* Mobile et Ordi conception */
 function Particle() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <Particles
       id="tsparticles"
+      aria-hidden="true"
+      role="presentation"
       params={{
         particles: {
           number: {
-            value: 300,
+            value: isMobile ? 100 : 300,
             density: {
               enable: true,
               value_area: 1000,

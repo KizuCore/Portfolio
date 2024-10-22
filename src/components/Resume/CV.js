@@ -27,7 +27,8 @@ function CV() {
     <Button
       href={pdf}
       target="_blank"
-      className="button-cv" 
+      className="button-cv"
+      aria-label={t('download_cv')} 
     >
       <AiOutlineDownload />
       &nbsp;{t('downloadcv')}
@@ -37,7 +38,10 @@ function CV() {
   return (
     <Container fluid className="resume-section text-center">
       <Particle />
-      <h1 className="title-font pb-5">{t('my')}{" "}<span className="blue-title pb-5">{t('cv')}</span></h1>
+      <h1 className="title-font pb-5">
+        {t('my')}{" "}
+        <span className="blue-title pb-5">{t('cv')}</span>
+      </h1>
 
       {/* Bouton de téléchargement haut */}
       <Row className="justify-content-center mb-4">
@@ -48,7 +52,7 @@ function CV() {
       <Row className="justify-content-center">
         <Col md={8} className="d-flex justify-content-center">
           <div className="pdf-container">
-            <Document file={pdf}>
+            <Document file={pdf} aria-label={t('cv_alt_description')}>
               <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
             </Document>
           </div>

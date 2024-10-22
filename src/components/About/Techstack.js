@@ -64,9 +64,9 @@ function Techstack() {
               xs={4}
               md={2}
               className={`tech-icons ${levelClass}`} 
-              data-tip={icon.name}
+              data-tip={`${icon.name} - Niveau ${icon.level === 0 ? 'Novice' : icon.level === 1 ? 'Intermédiaire' : 'Expérimenté'}`}
             >
-              <IconComponent />
+              <IconComponent aria-label={icon.name} />
             </Col>
           );
         })}

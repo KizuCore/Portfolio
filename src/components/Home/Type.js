@@ -6,17 +6,24 @@ function Type() {
   const { t } = useTranslation();
 
   return (
-    <Typewriter
-      options={{
-        strings: [
-          t('fullstack_developer'),
-          t('frontend_developer'),
-        ],
-        autoStart: true,
-        loop: true,
-        deleteSpeed: 50,
-      }}
-    />
+    <div aria-live="polite">
+      {/* SEO */}
+      <span style={{ display: "none" }}>
+        Fullstack Developer, Frontend Developer, Backend Developer
+      </span>
+
+      <Typewriter
+        options={{
+          strings: [
+            t('fullstack_developer'),
+            t('frontend_developer'),
+          ],
+          autoStart: true,
+          loop: true,
+          deleteSpeed: 50,
+        }}
+      />
+    </div>
   );
 }
 

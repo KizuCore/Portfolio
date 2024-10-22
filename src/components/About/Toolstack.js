@@ -41,9 +41,9 @@ function Toolstack() {
             xs={4}
             md={2}
             className="tech-icons-1"
-            data-tip={tool.name}
+            data-tip={`${tool.name}`}
           >
-            <tool.component />
+            <tool.component aria-label={tool.name} />
           </Col>
         ))}
       </Row>

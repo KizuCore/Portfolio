@@ -48,9 +48,9 @@ function Home() {
               />
             </Col>
           </Row>
+          <Home2 />
         </Container>
       </Container>
-      <Home2 />
     </section>
   );
 }

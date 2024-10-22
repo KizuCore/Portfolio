@@ -384,6 +384,7 @@ button:focus {
   background-repeat: no-repeat;
   padding-bottom: 80px !important;
   padding-top: 30px !important;
+  background-image: var(--section-background-color) !important;
 }
 
 .home-content {
@@ -451,7 +452,6 @@ button:focus {
 
 .home-about-section {
   position: relative;
-  padding-bottom: 70px !important;
   padding-top: 70px !important;
 }
 

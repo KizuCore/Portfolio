@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Button, Col } from "react-bootstrap";
-import Particle from "../Particle";
+import Particle from "../Utils/Particle";
 import pdf from "../../Assets/../Assets/pdf/CV-Guerin-Theo.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";

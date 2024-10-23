@@ -56,6 +56,7 @@ function NavBar() {
         <Navbar.Brand href="/">
           <Logo isAnimating={isAnimating} handleMouseDown={handleMouseDown} handleMouseUp={handleMouseUp} t={t} />
         </Navbar.Brand>
+        { /* Menu Hamburger */ }
         <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={() => updateExpanded(!expand)}>
           <span></span>
           <span></span>

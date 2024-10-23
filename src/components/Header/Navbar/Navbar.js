@@ -53,7 +53,7 @@ function NavBar() {
     <Navbar expanded={expand} fixed="top" expand="md" className={navColour ? "sticky" : "navbar"}>
       <Container>
         {/* Logo */}
-        <Navbar.Brand href="/">
+        <Navbar.Brand>
           <Logo isAnimating={isAnimating} handleMouseDown={handleMouseDown} handleMouseUp={handleMouseUp} t={t} />
         </Navbar.Brand>
         { /* Menu Hamburger */ }

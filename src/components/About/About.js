@@ -26,10 +26,10 @@ function About() {
             <h1 className="pb-3 title-font" style={{ fontSize: "2.5em" }} >
               {t('about_me')} <strong className="blue-title">{t('i_am')}</strong>
             </h1>
-          <Col md={7} className="text-center text-md-left">
+          <Col md={8} className="text-center text-md-left">
             <Aboutcard />
           </Col>
-          <Col md={5} className={`d-flex justify-content-center align-items-center about-img ${imgInView ? 'slide-in-right' : ''}`} ref={refImg}>
+          <Col md={4} className={`d-flex justify-content-center align-items-center about-img ${imgInView ? 'slide-in-right' : ''}`} ref={refImg}>
             <img 
               src={laptopImg} 
               alt={t('about_image_alt', { name: 'Théo Guérin' })} 

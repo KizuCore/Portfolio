@@ -14,6 +14,7 @@ import {
   SiMamp,
   SiWireshark,
   SiAmazonaws,
+  SiMicrosoftexcel,
 } from "react-icons/si";
 
 const tools = [
@@ -29,6 +30,7 @@ const tools = [
   { component: SiMamp, name: "MAMP / LAMP" },
   { component: SiWireshark, name: "Wireshark" },
   { component: SiAmazonaws, name: "AWS" },
+  { component: SiMicrosoftexcel, name: "Excel" },
 ];
 
 function Toolstack() {

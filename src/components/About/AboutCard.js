@@ -92,7 +92,7 @@ function AboutCard() {
             <li className="about-activity">✈️ • {t('hobby1')}</li>
             <li className="about-activity">🍳 • {t('hobby2')}</li>
             <li className="about-activity">🔭 • {t('hobby3')}</li>
-            <li className="about-activity">🐈‍⬛ • {t('hobby4')}</li>
+            <li className="about-activity">🐈 • {t('hobby4')}</li>
             <li className="about-activity" onClick={handleSecretClick}>🥂 • {t('hobby5')}</li> {/* Ajout de l'événement onClick */}
           </ul>
         </blockquote>

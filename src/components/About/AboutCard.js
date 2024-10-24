@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 import Card from "react-bootstrap/Card";
 import { useInView } from 'react-intersection-observer';
+import secretSound from '../../Assets/sound/voice.mp3'; 
+import SoundPlayer from "../Utils/SoundPlayer";
 
 function AboutCard() {
   const { t } = useTranslation();
+  const { ref: refText, inView: textInView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  const { ref: refText, inView: textInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  
+  const [secretClickCount, setSecretClickCount] = useState(0);// État pour compter les clics
+  const { playSound } = SoundPlayer({ soundSrc: secretSound });
+
+  // Fonction gère les clics
+  const handleSecretClick = () => {
+    setSecretClickCount(prevCount => prevCount + 1);
+  };
+
+  // Effet pour jouer son 3 clics
+  useEffect(() => {
+    if (secretClickCount === 3) {
+      playSound();
+      setSecretClickCount(0); 
+    }
+  }, [secretClickCount, playSound]);
 
   return (
     <Card className="quote-card-view mt-4">
@@ -17,7 +32,8 @@ function AboutCard() {
         <blockquote
           className={`blockquote mb-0 background-box ${textInView ? 'slide-in-left' : ''}`}
           ref={refText}
-        >{/* Présentation */}
+        >
+          {/* Présentation */}
           <h3 className="light-blue-title mb-4" style={{ fontSize: "1.6em" }}>{t('presentation_title')}</h3>
           <p className="text-justify">
             {t('greeting')} <span className="blue">Théo Guérin</span>{t('from')}<span className="blue"> Rennes, France</span>.
@@ -77,7 +93,7 @@ function AboutCard() {
             <li className="about-activity">🍳 • {t('hobby2')}</li>
             <li className="about-activity">🔭 • {t('hobby3')}</li>
             <li className="about-activity">🐈‍⬛ • {t('hobby4')}</li>
-            <li className="about-activity">🥂 • {t('hobby5')}</li>
+            <li className="about-activity" onClick={handleSecretClick}>🥂 • {t('hobby5')}</li> {/* Ajout de l'événement onClick */}
           </ul>
         </blockquote>
       </Card.Body>

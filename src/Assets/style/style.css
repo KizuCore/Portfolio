@@ -491,12 +491,19 @@ button:focus {
 
 .gitlab-link{
   color: #f5921a !important;
-  z-index:'999999';
 }
 
 .gitlab-link:hover{
   color: #be6b06 !important;
-  z-index:'999999';
+  transition: color 0.3s ease-in-out;
+}
+
+.github-link{
+  color: #ffffff !important;
+}
+
+.github-link:hover{
+  color: #dad7d7 !important;
   transition: color 0.3s ease-in-out;
 }
 
@@ -766,7 +773,7 @@ button:focus {
 }
 
 /* Couleurs des bordures selon le niveau */
-.border-blue {
+.border-orange {
   border: 1.7px solid rgb(255, 145, 0) !important;
 }
 
@@ -778,8 +785,12 @@ button:focus {
   border: 1.7px solid rgb(0, 190, 0) !important;
 }
 
+.border-blue {
+  border: 1.7px solid rgb(39, 184, 241) !important;
+}
+
 /* Effet au survol pour chaque niveau */
-.border-blue:hover {
+.border-orange:hover {
   transform: scale(1.05) !important;
   border: 2.2px solid rgba(255, 145, 0, 0.8) !important;
   /* Bleu foncé au survol */
@@ -795,6 +806,12 @@ button:focus {
   transform: scale(1.05) !important;
   border: 2.2px solid rgba(0, 190, 0, 0.8) !important;
   /* Vert foncé au survol */
+}
+
+.border-blue:hover {
+  transform: scale(1.05) !important;
+  border: 2.2px solid rgba(39, 184, 241, 0.8) !important;
+  /* Bleu foncé au survol */
 }
 
 .tech-icon-images {

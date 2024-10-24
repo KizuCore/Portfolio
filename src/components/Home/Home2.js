@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/home/avatar.webp";
+import myImg from "../../Assets/images/home/avatar.webp";
 import Tilt from "react-parallax-tilt";
 import { useInView } from 'react-intersection-observer';
 import Reseaux from "./Reseaux";

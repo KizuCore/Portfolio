@@ -73,10 +73,11 @@ function AboutCard() {
             {t('outside_of_coding')}
           </p>
           <ul className="mt-3">
-            <li className="about-activity">{t('hobby1')}</li>
-            <li className="about-activity">{t('hobby2')}</li>
-            <li className="about-activity">{t('hobby3')}</li>
-            <li className="about-activity">{t('hobby4')}</li>
+            <li className="about-activity">✈️ • {t('hobby1')}</li>
+            <li className="about-activity">🍳 • {t('hobby2')}</li>
+            <li className="about-activity">🔭 • {t('hobby3')}</li>
+            <li className="about-activity">🐈‍⬛ • {t('hobby4')}</li>
+            <li className="about-activity">🥂 • {t('hobby5')}</li>
           </ul>
         </blockquote>
       </Card.Body>

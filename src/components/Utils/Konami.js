@@ -10,7 +10,7 @@ const konamiCode = [
 ];
 
 function useKonamiCode() {
-  const [input, setInput] = useState([]);
+  const [, setInput] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,7 +35,6 @@ function useKonamiCode() {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [navigate]);
-  console.log("Purple ", input);
   return null; 
 }
 

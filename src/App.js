@@ -15,11 +15,11 @@ import useKonamiCode from "./components/Utils/Konami";
 import Gojo from "./components/Easter/Gojo";
 import RouteSorciere from "./components/Easter/Route";
 import NavBar from "./components/Header/Navbar/Navbar";
+import VideoPopup from "./components/Easter/Video";
 
 // Code Konami
 function KonamiComponent() {
   useKonamiCode(); 
-
   return null; 
 }
 
@@ -41,7 +41,8 @@ function App() {
         <SeoMeta />
         <NavBar />
         <ScrollToTop />
-        <KonamiComponent /> 
+        <KonamiComponent />
+        <VideoPopup/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/project" element={<Projects />} />

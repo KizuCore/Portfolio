@@ -15,6 +15,7 @@ import {
   SiWireshark,
   SiAmazonaws,
   SiMicrosoftexcel,
+  SiAxios,
 } from "react-icons/si";
 
 const tools = [
@@ -31,6 +32,7 @@ const tools = [
   { component: SiWireshark, name: "Wireshark" },
   { component: SiAmazonaws, name: "AWS" },
   { component: SiMicrosoftexcel, name: "Excel" },
+  { component: SiAxios, name: "Axios" },
 ];
 
 function Toolstack() {

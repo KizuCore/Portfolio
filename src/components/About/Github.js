@@ -37,7 +37,7 @@ function Github() {
 
       {/* Section GitLab */}
       <Row className="justify-content-center my-5">
-        <h2 className="project-heading mb-5">
+        <h2 className="project-heading mb-4">
           <strong className="blue-title">{t('gitlab_profile')}</strong>
         </h2>
         <Col md={6} className="text-center">

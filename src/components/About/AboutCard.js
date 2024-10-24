@@ -72,7 +72,7 @@ function AboutCard() {
           <p className="text-justify mt-4">
             {t('outside_of_coding')}
           </p>
-          <ul className="list-unstyled mt-3">
+          <ul className="mt-3">
             <li className="about-activity">{t('hobby1')}</li>
             <li className="about-activity">{t('hobby2')}</li>
             <li className="about-activity">{t('hobby3')}</li>

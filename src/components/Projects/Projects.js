@@ -40,6 +40,29 @@ function Projects() {
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           
+
+        <Col md={4} className={`project-card ${inView8 ? 'fade-in' : ''}`} ref={ref8}>
+            <ProjectCard
+              imgPath={portfoliov2}
+              altText={t('portfoliov2_image_alt')}
+              title={t('portfolio_v2_title')}
+              description={t('portfolio_v2_description')}
+              ghLink="https://github.com/Theo22100/Portfolio-v2"
+              techStack={["React", "Bootstrap", "Css"]}
+            />
+          </Col>
+
+          <Col md={4} className={`project-card ${inView9 ? 'fade-in' : ''}`} ref={ref9}>
+            <ProjectCard
+              imgPath={apibook}
+              altText={t('apibook_image_alt')}
+              title={t('library_title')}
+              description={t('library_description')}
+              ghLink="https://github.com/Theo22100/MDS-M1-Librairie"
+              techStack={["Express", "Swagger", "MySQL", "React", "Bootstrap", "Sequelize"]}
+            />
+          </Col>
+
           <Col md={4} className={`project-card ${inView1 ? 'fade-in' : ''}`} ref={ref1}>
             <ProjectCard
               imgPath={lemonmaze}
@@ -61,6 +84,7 @@ function Projects() {
               techStack={["Flutter"]}
             />
           </Col>
+
 
           <Col md={4} className={`project-card ${inView3 ? 'fade-in' : ''}`} ref={ref3}>
             <ProjectCard
@@ -119,27 +143,7 @@ function Projects() {
             />
           </Col>
 
-          <Col md={4} className={`project-card ${inView8 ? 'fade-in' : ''}`} ref={ref8}>
-            <ProjectCard
-              imgPath={portfoliov2}
-              altText={t('portfoliov2_image_alt')}
-              title={t('portfolio_v2_title')}
-              description={t('portfolio_v2_description')}
-              ghLink="https://github.com/Theo22100/Portfolio-v2"
-              techStack={["React", "Bootstrap", "Css"]}
-            />
-          </Col>
-
-          <Col md={4} className={`project-card ${inView9 ? 'fade-in' : ''}`} ref={ref9}>
-            <ProjectCard
-              imgPath={apibook}
-              altText={t('apibook_image_alt')}
-              title={t('library_title')}
-              description={t('library_description')}
-              ghLink="https://github.com/Theo22100/MDS-M1-Librairie"
-              techStack={["Express", "Swagger", "MySQL", "React", "Bootstrap", "Sequelize"]}
-            />
-          </Col>
+          
 
         </Row>
       </Container>

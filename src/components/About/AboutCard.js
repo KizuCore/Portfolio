@@ -8,23 +8,36 @@ import SoundPlayer from "../Utils/SoundPlayer";
 function AboutCard() {
   const { t } = useTranslation();
   const { ref: refText, inView: textInView } = useInView({ triggerOnce: true, threshold: 0.1 });
-
   
-  const [secretClickCount, setSecretClickCount] = useState(0);// État pour compter les clics
+  const [secretClickCount, setSecretClickCount] = useState(0); // État compter les clics
+  const [isCooldown, setIsCooldown] = useState(false); // État gérer le cooldown
   const { playSound } = SoundPlayer({ soundSrc: secretSound });
 
-  // Fonction gère les clics
+  // Fonction gère clics
   const handleSecretClick = () => {
-    setSecretClickCount(prevCount => prevCount + 1);
+    if (!isCooldown) {
+      setSecretClickCount(prevCount => prevCount + 1);
+    }
   };
 
-  // Effet pour jouer son 3 clics
+  // Jouer le son 3 clics
   useEffect(() => {
     if (secretClickCount === 3) {
       playSound();
       setSecretClickCount(0); 
+      setIsCooldown(true); 
     }
   }, [secretClickCount, playSound]);
+
+  // Désactiver cooldown 7sec
+  useEffect(() => {
+    if (isCooldown) {
+      const cooldownTimer = setTimeout(() => {
+        setIsCooldown(false);
+      }, 7000);
+      return () => clearTimeout(cooldownTimer);
+    }
+  }, [isCooldown]);
 
   return (
     <Card className="quote-card-view mt-4">
@@ -93,7 +106,7 @@ function AboutCard() {
             <li className="about-activity">🍳 • {t('hobby2')}</li>
             <li className="about-activity">🔭 • {t('hobby3')}</li>
             <li className="about-activity">🐈 • {t('hobby4')}</li>
-            <li className="about-activity" onClick={handleSecretClick}>🥂 • {t('hobby5')}</li> {/* Ajout de l'événement onClick */}
+            <li className="about-activity"><span  onClick={handleSecretClick}>🥂</span> • {t('hobby5')}</li> 
           </ul>
         </blockquote>
       </Card.Body>

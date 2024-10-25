@@ -47,7 +47,7 @@ function Projects() {
               altText={t('portfoliov2_image_alt')}
               title={t('portfolio_v2_title')}
               description={t('portfolio_v2_description')}
-              ghLink="https://github.com/Theo22100/Portfolio-v2"
+              ghLink="https://github.com/Theo22100/Portfolio"
               techStack={["React", "Bootstrap", "Css"]}
             />
           </Col>
@@ -138,7 +138,7 @@ function Projects() {
               altText={t('portfolio_image_alt')}
               title={t('portfolio_v1_title')}
               description={t('portfolio_v1_description')}
-              ghLink="https://github.com/Theo22100/PortFolio"
+              ghLink="https://github.com/Theo22100/Old-PortFolio"
               techStack={["Vuejs", "Javascript", "Html", "Css"]}
             />
           </Col>

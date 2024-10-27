@@ -7,104 +7,112 @@ html {
 
 /* Global Styles */
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 /* Couleurs de texte */
-.dark-blue, .darkblue {
-  color: #276DEE;
+.dark-blue {
+  color: #276DEE !important;
 }
 
-.blue-title, .title-font {
-  color: #276DEE;
-  font-family: 'Permanent Marker', cursive;
+.blue-title {
+  color: #276DEE !important;
+  font-family: 'Permanent Marker', cursive !important;
 }
 
 .light-blue-title {
-  color: #5c92f5;
-  font-family: 'Permanent Marker', cursive;
+  color: #5c92f5 !important;
+  font-family: 'Permanent Marker', cursive !important;
+}
+
+.title-font {
+  font-family: 'Permanent Marker', cursive !important;
 }
 
 .blue {
-  color: #88b9f8;
+  color: #88b9f8
+}
+
+.darkblue {
+  color: #276DEE !important;
 }
 
 /* Boutons */
 .btn:focus,
 button:focus {
-  outline: none;
-  box-shadow: none;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .button-youtube, .button-cv {
-  border-radius: 50px;
-  color: white;
-  font-size: 1.1em;
-  max-width: 250px;
-  transition: all 0.3s ease-in-out;
-  z-index: 1;
+  border-radius: 50px !important;
+  color: white !important;
+  font-size: 1.1em !important;
+  max-width: 250px !important;
+  transition: all 0.3s ease-in-out !important;
+  z-index: 1 !important;
 }
 
 .button-youtube {
-  background-color: #bd1903;
-  border: 1px solid white;
+  background-color: #bd1903 !important;
+  border: 1px solid white !important;
 }
 
 .button-youtube:hover {
-  background-color: #ffd4cf;
-  border: 2px solid #bd1903;
-  color: #bd1903;
+  background-color: #ffd4cf !important;
+  border: 2px solid #bd1903 !important;
+  color: #bd1903 !important;
 }
 
 .button-cv {
-  background-color: #1c53b8;
-  border: 1px solid white;
+  background-color: #1c53b8 !important;
+  border: 1px solid white !important;
 }
 
 .button-cv:hover {
-  background-color: #d8e6ff;
-  border: 2px solid #1c53b8;
-  color: #1c53b8;
+  background-color: #d8e6ff !important;
+  border: 2px solid #1c53b8 !important;
+  color: #1c53b8 !important;
 }
 
 .text-justify {
-  text-align: justify;
+  text-align: justify !important;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 7px !important;
 }
 
 ::-webkit-scrollbar-track {
-  background: #2d1950;
+  background: #2d1950 !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(121, 151, 216, 0.959);
-  border-radius: 12px;
+  background: rgba(121, 151, 216, 0.959) !important;
+  border-radius: 12px !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(142, 171, 233, 0.911);
-  border-radius: 12px;
+  background: rgba(142, 171, 233, 0.911) !important;
+  border-radius: 12px !important;
 }
 
 /* Sections */
 .about-section {
-  position: relative;
-  padding-top: 150px;
-  padding-bottom: 30px;
-  background-image: var(--section-background-color);
-  color: white;
+  position: relative !important;
+  padding-top: 150px !important;
+  padding-bottom: 30px !important;
+  background-image: var(--section-background-color) !important;
+  color: white !important;
 }
 
 /* Background Box */
 .background-box {
-  background-color: rgba(255, 255, 255, 0.226);
-  padding: 2em;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.226) !important;
+  padding: 2em !important;
+  border: 2px solid rgba(255, 255, 255, 0.6) !important;
+  border-radius: 15px !important;
 }
 
 /* Animations */
@@ -124,30 +132,30 @@ button:focus {
 }
 
 .slide-in-left {
-  animation: slideInFromLeft 1s ease-out forwards;
-  will-change: transform;
+  animation: slideInFromLeft 1s ease-out forwards !important;
+  will-change: transform !important;
 }
 
 .slide-in-right {
-  animation: slideInFromRight 1s ease-out forwards;
-  will-change: transform;
-}
-
-.fade-in {
-  animation: fadeInUp 2s ease forwards;
+  animation: slideInFromRight 1s ease-out forwards !important;
+  will-change: transform !important;
 }
 
 .slide-in-left-title {
-  animation: slideInFromLeft 1s ease-out;
-  will-change: transform, opacity;
+  animation: slideInFromLeft 1s ease-out !important;
+  will-change: transform, opacity !important;
+}
+
+.fade-in {
+  animation: fadeInUp 2s ease forwards !important;
 }
 
 /* Animation pour les icônes de réseaux sociaux */
 .social-icons {
-  opacity: 0;
+  opacity: 0 ;
   animation: fadeInUp 2s ease forwards;
 }
 
-.social-icons:nth-child(1) { animation-delay: 0s; }
-.social-icons:nth-child(2) { animation-delay: 0.2s; }
-.social-icons:nth-child(3) { animation-delay: 0.4s; }
+.social-icons:nth-child(1) { animation-delay: 0s !important; }
+.social-icons:nth-child(2) { animation-delay: 0.2s !important; }
+.social-icons:nth-child(3) { animation-delay: 0.4s !important; }

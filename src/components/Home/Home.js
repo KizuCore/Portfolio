@@ -17,12 +17,15 @@ function Home() {
     threshold: 0.1,
   });
 
+  // Vérifier si mobile
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <section>
       <Container fluid className="about-section pt-0" id="home">
         <Particle />
         <Container className="home-content">
-          <Row className="align-items-center" style={{ paddingBottom: "12em",paddingTop: "6em" }}>
+          <Row className="align-items-center" style={{ paddingBottom: "12em", paddingTop: "6em" }}>
             {/* Colonne pour le texte */}
             <Col md={7} className="home-header slide-in-left d-flex flex-column justify-content-center text-center text-md-left py-5">
               <h1 className="heading mb-3 title-font">
@@ -41,12 +44,11 @@ function Home() {
             </Col>
 
             {/* Colonne pour l'image */}
-            <Col md={5} className={`d-flex justify-content-center py-5 ${imgInView ? 'slide-in-right' : ''}`} ref={refImg}>
+            <Col md={5} className={`d-flex justify-content-center py-5 ${imgInView && !isMobile ? 'slide-in-right' : ''}`} ref={refImg}>
               <Tilt>
                 <img
                   src={myImg}
-                  className={`img-fluid ${imgInView ? 'slide-in-right' : ''}`}
-                  ref={refImg}
+                  className="img-fluid"
                   alt={t('theo_developer')}
                   width="200" 
                   height="300"

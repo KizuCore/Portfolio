@@ -25,12 +25,15 @@ function Home2() {
     threshold: 0.1,
   });
 
+  // Vérifier si l'écran est mobile
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
         <Row className="d-flex align-items-center">
           <Col md={8} className="home-about-description">
-            <div className={`${titleInView ? 'slide-in-left' : ''} `}>
+            <div className={`${titleInView && !isMobile? 'slide-in-left' : ''} `}>
               <h2
                 style={{ fontSize: "2.6em" }}
                 ref={titleRef}
@@ -41,7 +44,7 @@ function Home2() {
               </h2>
 
               <p
-                className={`home-about-body mt-4 ${paragraphInView ? 'slide-in-left text-justify' : 'text-justify'} background-box`}
+                className={`home-about-body mt-4 ${paragraphInView && !isMobile? 'slide-in-left text-justify' : 'text-justify'} background-box`}
                 ref={paragraphRef}
               >
                 {t('description')}
@@ -62,7 +65,7 @@ function Home2() {
             <Tilt>
               <img
                 src={myImg}
-                className={`img-fluid ${imgInView ? 'slide-in-right' : ''}`}
+                className={`img-fluid ${imgInView && !isMobile ? 'slide-in-right' : ''}`}
                 ref={refImg}
                 alt={t('theo_developer')} 
                 width="200"

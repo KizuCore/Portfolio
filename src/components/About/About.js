@@ -18,6 +18,8 @@ function About() {
     triggerOnce: true,
     threshold: 0.1,
   });
+  // Vérifier si mobile
+  const isMobile = window.innerWidth <= 768;
 
   return (
     <Container fluid className="about-section">
@@ -30,7 +32,7 @@ function About() {
           <Col md={8} className="text-center text-md-left">
             <Aboutcard />
           </Col>
-          <Col md={4} className={`d-flex justify-content-center align-items-center about-img ${imgInView ? 'slide-in-right' : ''}`} ref={refImg}>
+          <Col md={4} className={`d-flex justify-content-center align-items-center about-img ${imgInView && !isMobile ? 'slide-in-right' : ''}`} ref={refImg}>
             <img 
               src={laptopImg} 
               alt={t('about_image_alt', { name: 'Théo Guérin' })} 

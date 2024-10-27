@@ -40,11 +40,14 @@ function AboutCard() {
     }
   }, [isCooldown]);
 
+  // Vérifier si mobile
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <Card className="quote-card-view mt-4">
       <Card.Body>
         <blockquote
-          className={`blockquote mb-0 background-box ${textInView ? 'slide-in-left' : ''}`}
+          className={`blockquote mb-0 background-box ${textInView && !isMobile? 'slide-in-left' : ''}`}
           ref={refText}
         >
           {/* Présentation */}

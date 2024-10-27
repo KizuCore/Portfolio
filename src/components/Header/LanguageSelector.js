@@ -25,10 +25,10 @@ function LanguageSelector() {
 
       <Dropdown.Menu>
         <Dropdown.Item onClick={() => changeLanguage("en")}>
-          <Flag code="GB" width="25" height="auto" style={{ marginRight: "10px" }} /> EN
+          <Flag code="GB" width="25" height="auto" style={{ marginRight: "10px" }} alt={i18n('flag_en')} /> EN
         </Dropdown.Item>
         <Dropdown.Item onClick={() => changeLanguage("fr")}>
-          <Flag code="FR" width="25" height="auto" style={{ marginRight: "10px" }} /> FR
+          <Flag code="FR" width="25" height="auto" style={{ marginRight: "10px" }} alt={i18n('flag_fr')} /> FR
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

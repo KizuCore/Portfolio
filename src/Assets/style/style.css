@@ -1,27 +1,21 @@
+/* Variables Globales */
 html {
-  --section-background-color: linear-gradient(to bottom left,
-      rgba(17, 16, 16, 0.582),
-      rgba(12, 8, 24, 0.904));
-
-  --image-gradient: linear-gradient(to bottom left,
-      rgba(17, 16, 16, 0.678),
-      rgba(12, 10, 22, 0.863));
-
+  --section-background-color: linear-gradient(to bottom left, rgba(17, 16, 16, 0.582), rgba(12, 8, 24, 0.904));
+  --image-gradient: linear-gradient(to bottom left, rgba(17, 16, 16, 0.678), rgba(12, 10, 22, 0.863));
   --imp-text-color: #52a4f1;
 }
 
+/* Global Styles */
 body {
   overflow-x: hidden;
-  /* empêche redimensionnement  */
 }
 
-/* Police couleur texte bleu */
-
-.dark-blue {
+/* Couleurs de texte */
+.dark-blue, .darkblue {
   color: #276DEE;
 }
 
-.blue-title {
+.blue-title, .title-font {
   color: #276DEE;
   font-family: 'Permanent Marker', cursive;
 }
@@ -31,142 +25,102 @@ body {
   font-family: 'Permanent Marker', cursive;
 }
 
-.title-font {
-  font-family: 'Permanent Marker', cursive;
-}
-
 .blue {
   color: #88b9f8;
 }
 
-.darkblue {
-  color: #276DEE;
-}
-
+/* Boutons */
+.btn:focus,
 button:focus {
-  box-shadow: none !important;
+  outline: none;
+  box-shadow: none;
 }
 
+.button-youtube, .button-cv {
+  border-radius: 50px;
+  color: white;
+  font-size: 1.1em;
+  max-width: 250px;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
 
+.button-youtube {
+  background-color: #bd1903;
+  border: 1px solid white;
+}
 
+.button-youtube:hover {
+  background-color: #ffd4cf;
+  border: 2px solid #bd1903;
+  color: #bd1903;
+}
 
+.button-cv {
+  background-color: #1c53b8;
+  border: 1px solid white;
+}
 
-/* --------- */
-/*Scrollbar   */
-/* --------- */
+.button-cv:hover {
+  background-color: #d8e6ff;
+  border: 2px solid #1c53b8;
+  color: #1c53b8;
+}
 
+.text-justify {
+  text-align: justify;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 7px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #2d1950;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgba(121, 151, 216, 0.959);
   border-radius: 12px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(142, 171, 233, 0.911);
   border-radius: 12px;
 }
 
-/* UTILES */
-
-.btn:focus {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-
-.button-youtube {
-  background-color: #bd1903 !important;
-  border: 1px solid white !important;
-  color: white !important;
-  border-radius: 50px !important;
-  transition: all 0.3s ease-in-out !important;
-  font-size: 1.1em !important;
-  max-width: 250px !important;
-  z-index: 1;
-}
-
-.button-youtube:hover {
-  background-color: #ffd4cf !important;
-  border: 2px solid #bd1903 !important;
-  color: #bd1903 !important;
-}
-
-.text-justify {
-  text-align: justify !important;
-}
-
-
-/* --------- */
-/* About */
-/* --------- */
-
+/* Sections */
 .about-section {
-  position: relative !important;
-  padding-top: 150px !important;
-  padding-bottom: 30px !important;
-  background-image: var(--section-background-color) !important;
-  color: white !important;
+  position: relative;
+  padding-top: 150px;
+  padding-bottom: 30px;
+  background-image: var(--section-background-color);
+  color: white;
 }
 
-/* CV BUTTON */
-
-.button-cv {
-  background-color: #1c53b8 !important;
-  border: 1px solid white !important;
-  color: white !important;
-  border-radius: 50px !important;
-  transition: all 0.3s ease-in-out !important;
-  font-size: 1.1em !important;
-  max-width: 250px !important;
-  z-index: 1;
+/* Background Box */
+.background-box {
+  background-color: rgba(255, 255, 255, 0.226);
+  padding: 2em;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
 }
 
-.button-cv:hover {
-  background-color: #d8e6ff !important;
-  border: 2px solid #1c53b8 !important;
-  color: #1c53b8 !important;
-}
-
-/* --------- */
-/* Resume */
-/* --------- */
-
-
-
-/* ANIMATIONS */
-
+/* Animations */
 @keyframes slideInFromLeft {
-  0% {
-    transform: translate3d(-100%, 0, 0);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
+  0% { transform: translate3d(-100%, 0, 0); opacity: 0; }
+  100% { transform: translate3d(0, 0, 0); opacity: 1; }
 }
 
 @keyframes slideInFromRight {
-  0% {
-    transform: translate3d(100%, 0, 0);
-    opacity: 0;
-  }
+  0% { transform: translate3d(100%, 0, 0); opacity: 0; }
+  100% { transform: translate3d(0, 0, 0); opacity: 1; }
+}
 
-  100% {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .slide-in-left {
@@ -179,65 +133,21 @@ button:focus {
   will-change: transform;
 }
 
+.fade-in {
+  animation: fadeInUp 2s ease forwards;
+}
 
 .slide-in-left-title {
   animation: slideInFromLeft 1s ease-out;
   will-change: transform, opacity;
 }
 
-.background-box {
-  background-color: rgba(255, 255, 255, 0.226);
-  padding: 2em;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  border-radius: 15px;
-}
-
-/* Animation pour faire apparaître les icônes avec léger déplacement */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Icones contact effet */
+/* Animation pour les icônes de réseaux sociaux */
 .social-icons {
   opacity: 0;
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-    /* Départ légèrement en bas */
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    /* Fin à la position normale */
-  }
-}
-
-.fade-in {
   animation: fadeInUp 2s ease forwards;
 }
 
-/* Animation Icone reseaux */
-
-.social-icons:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.social-icons:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.social-icons:nth-child(3) {
-  animation-delay: 0.4s;
-}
+.social-icons:nth-child(1) { animation-delay: 0s; }
+.social-icons:nth-child(2) { animation-delay: 0.2s; }
+.social-icons:nth-child(3) { animation-delay: 0.4s; }

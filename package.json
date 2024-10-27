@@ -28,6 +28,8 @@
     "react-tooltip": "^4.5.1",
     "react-tsparticles": "^1.42.2",
     "react-world-flags": "^1.6.0",
+    "tsparticles": "^3.5.0",
+    "tsparticles-engine": "^2.12.0",
     "typewriter-effect": "^2.18.2",
     "web-vitals": "^2.1.4"
   },

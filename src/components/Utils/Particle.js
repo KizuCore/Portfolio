@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { loadFull } from "tsparticles";
 import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles"; 
 
 function Particle() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine);
+    await loadFull(engine); 
   }, []);
 
   useEffect(() => {

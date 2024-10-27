@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Utils/Particle";
+import '../../Assets/style/About/About.css';
+// Import direct des images
 import lemonmaze from "../../Assets/images/Projects/LemonMaze.webp";
 import cosmiclink from "../../Assets/images/Projects/CosmicLink.webp";
 import chrono from "../../Assets/images/Projects/chrono.webp";
@@ -11,22 +13,92 @@ import breizhcoin from "../../Assets/images/Projects/breizhcoin.webp";
 import portfolio from "../../Assets/images/Projects/portfolio.webp";
 import portfoliov2 from "../../Assets/images/Projects/portfoliov2.webp";
 import apibook from "../../Assets/images/Projects/apibook.webp";
-import ReactTooltip from "react-tooltip";
-import { useInView } from 'react-intersection-observer';
+
+// Chargement différé de ReactTooltip
+const ReactTooltip = React.lazy(() => import("react-tooltip"));
+
+
+
+// Liste des projets avec leurs détails
+const projects = [
+  {
+    imgPath: portfoliov2,
+    altTextKey: 'portfoliov2_image_alt',
+    titleKey: 'portfolio_v2_title',
+    descriptionKey: 'portfolio_v2_description',
+    ghLink: "https://github.com/Theo22100/Portfolio",
+    techStack: ["React", "Bootstrap", "Css"],
+  },
+  {
+    imgPath: apibook,
+    altTextKey: 'apibook_image_alt',
+    titleKey: 'library_title',
+    descriptionKey: 'library_description',
+    ghLink: "https://github.com/Theo22100/MDS-M1-Librairie",
+    techStack: ["Express", "Swagger", "MySQL", "React", "Bootstrap", "Sequelize"],
+  },
+  {
+    imgPath: lemonmaze,
+    altTextKey: 'lemonmaze_image_alt',
+    titleKey: 'lemonmaze_api_title',
+    descriptionKey: 'lemonmaze_api_description',
+    ghLink: "https://github.com/Theo22100/APILemonMaze",
+    techStack: ["Express", "Swagger", "MySQL"],
+  },
+  {
+    imgPath: lemonmaze,
+    altTextKey: 'lemonmaze_image_alt',
+    titleKey: 'lemonmaze_title',
+    descriptionKey: 'lemonmaze_description',
+    ghLink: "https://github.com/Theo22100/Lemon_Maze",
+    techStack: ["Flutter"],
+  },
+  {
+    imgPath: cosmiclink,
+    altTextKey: 'cosmiclink_image_alt',
+    titleKey: 'cosmiclink_title',
+    descriptionKey: 'cosmiclink_description',
+    ghLink: "https://github.com/Theo22100/CosmicLink",
+    youtubeLink: "https://youtube.com/watch?v=3yVybmKT5d0",
+    techStack: ["Php", "Javascript", "Html", "Css"],
+  },
+  {
+    imgPath: chrono,
+    altTextKey: 'chrono_image_alt',
+    titleKey: 'minuteur_mobile_title',
+    descriptionKey: 'minuteur_mobile_description',
+    ghLink: "https://github.com/Theo22100/MDS-ExamMobile2024",
+    techStack: ["Kotlin"],
+  },
+  {
+    imgPath: breizhcoin,
+    altTextKey: 'breizhcoin_image_alt',
+    titleKey: 'breizhcoin_title',
+    descriptionKey: 'breizhcoin_description',
+    ghLink: "https://github.com/Theo22100/BreizhCoin",
+    youtubeLink: "https://youtu.be/OqgS7SW_8tU",
+    techStack: ["Php", "Javascript", "Html", "Css"],
+  },
+  {
+    imgPath: tboi,
+    altTextKey: 'tboi_image_alt',
+    titleKey: 'thebindingofisaac_title',
+    descriptionKey: 'thebindingofisaac_description',
+    ghLink: "https://github.com/Theo22100/TheBindingOfIsaac",
+    techStack: ["Java"],
+  },
+  {
+    imgPath: portfolio,
+    altTextKey: 'portfolio_image_alt',
+    titleKey: 'portfolio_v1_title',
+    descriptionKey: 'portfolio_v1_description',
+    ghLink: "https://github.com/Theo22100/Old-PortFolio",
+    techStack: ["Vuejs", "Javascript", "Html", "Css"],
+  },
+];
 
 function Projects() {
   const { t } = useTranslation();
-
-  // Hook pour observer quand les cartes deviennent visibles
-  const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [ref4, inView4] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [ref5, inView5] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [ref6, inView6] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [ref7, inView7] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [ref8, inView8] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [ref9, inView9] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <Container fluid className="project-section">
@@ -39,115 +111,28 @@ function Projects() {
           {t('projects_description')}
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          
-
-        <Col md={4} className={`project-card ${inView8 ? 'fade-in' : ''}`} ref={ref8}>
-            <ProjectCard
-              imgPath={portfoliov2}
-              altText={t('portfoliov2_image_alt')}
-              title={t('portfolio_v2_title')}
-              description={t('portfolio_v2_description')}
-              ghLink="https://github.com/Theo22100/Portfolio"
-              techStack={["React", "Bootstrap", "Css"]}
-            />
-          </Col>
-
-          <Col md={4} className={`project-card ${inView9 ? 'fade-in' : ''}`} ref={ref9}>
-            <ProjectCard
-              imgPath={apibook}
-              altText={t('apibook_image_alt')}
-              title={t('library_title')}
-              description={t('library_description')}
-              ghLink="https://github.com/Theo22100/MDS-M1-Librairie"
-              techStack={["Express", "Swagger", "MySQL", "React", "Bootstrap", "Sequelize"]}
-            />
-          </Col>
-
-          <Col md={4} className={`project-card ${inView1 ? 'fade-in' : ''}`} ref={ref1}>
-            <ProjectCard
-              imgPath={lemonmaze}
-              altText={t('lemonmaze_image_alt')}
-              title={t('lemonmaze_api_title')}
-              description={t('lemonmaze_api_description')}
-              ghLink="https://github.com/Theo22100/APILemonMaze"
-              techStack={["Express", "Swagger", "MySQL"]}
-            />
-          </Col>
-
-          <Col md={4} className={`project-card ${inView2 ? 'fade-in' : ''}`} ref={ref2}>
-            <ProjectCard
-              imgPath={lemonmaze}
-              altText={t('lemonmaze_image_alt')}
-              title={t('lemonmaze_title')}
-              description={t('lemonmaze_description')}
-              ghLink="https://github.com/Theo22100/Lemon_Maze"
-              techStack={["Flutter"]}
-            />
-          </Col>
-
-
-          <Col md={4} className={`project-card ${inView3 ? 'fade-in' : ''}`} ref={ref3}>
-            <ProjectCard
-              imgPath={cosmiclink}
-              altText={t('cosmiclink_image_alt')}
-              title={t('cosmiclink_title')}
-              description={t('cosmiclink_description')}
-              ghLink="https://github.com/Theo22100/CosmicLink"
-              youtubeLink="https://youtube.com/watch?v=3yVybmKT5d0"
-              techStack={["Php", "Javascript", "Html", "Css"]}
-            />
-          </Col>
-
-          <Col md={4} className={`project-card ${inView4 ? 'fade-in' : ''}`} ref={ref4}>
-            <ProjectCard
-              imgPath={chrono}
-              altText={t('chrono_image_alt')}
-              title={t('minuteur_mobile_title')}
-              description={t('minuteur_mobile_description')}
-              ghLink="https://github.com/Theo22100/MDS-ExamMobile2024"
-              techStack={["Kotlin"]}
-            />
-          </Col>
-
-          <Col md={4} className={`project-card ${inView5 ? 'fade-in' : ''}`} ref={ref5}>
-            <ProjectCard
-              imgPath={breizhcoin}
-              altText={t('breizhcoin_image_alt')}
-              title={t('breizhcoin_title')}
-              description={t('breizhcoin_description')}
-              ghLink="https://github.com/Theo22100/BreizhCoin"
-              youtubeLink="https://youtu.be/OqgS7SW_8tU"
-              techStack={["Php", "Javascript", "Html", "Css"]}
-            />
-          </Col>
-
-          <Col md={4} className={`project-card ${inView6 ? 'fade-in' : ''}`} ref={ref6}>
-            <ProjectCard
-              imgPath={tboi}
-              altText={t('tboi_image_alt')}
-              title={t('thebindingofisaac_title')}
-              description={t('thebindingofisaac_description')}
-              ghLink="https://github.com/Theo22100/TheBindingOfIsaac"
-              techStack={["Java"]}
-            />
-          </Col>
-
-          <Col md={4} className={`project-card ${inView7 ? 'fade-in' : ''}`} ref={ref7}>
-            <ProjectCard
-              imgPath={portfolio}
-              altText={t('portfolio_image_alt')}
-              title={t('portfolio_v1_title')}
-              description={t('portfolio_v1_description')}
-              ghLink="https://github.com/Theo22100/Old-PortFolio"
-              techStack={["Vuejs", "Javascript", "Html", "Css"]}
-            />
-          </Col>
-
-          
-
+          {projects.map((project, index) => (
+            <Col
+              md={4}
+              key={index}
+              className={`project-card`}
+            >
+              <ProjectCard
+                imgPath={project.imgPath}
+                altText={t(project.altTextKey)}
+                title={t(project.titleKey)}
+                description={t(project.descriptionKey)}
+                ghLink={project.ghLink}
+                youtubeLink={project.youtubeLink}
+                techStack={project.techStack}
+              />
+            </Col>
+          ))}
         </Row>
       </Container>
-      <ReactTooltip />
+      <Suspense fallback={<span>Loading Tooltip...</span>}>
+        <ReactTooltip />
+      </Suspense>
     </Container>
   );
 }

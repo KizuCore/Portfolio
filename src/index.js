@@ -3,18 +3,16 @@ import ReactDOM from 'react-dom';
 import './Assets/style/index.css';
 import App from './App';
 import reportWebVitals from './tests/reportWebVitals';
-import { HelmetProvider } from 'react-helmet-async';
 import './i18n';
+import Pre from './components/Utils/Pre';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Suspense fallback={<div></div>}>
-      <HelmetProvider>
-        <App />
-      </HelmetProvider>
+    <Suspense fallback={<Pre />}>
+      <App />
     </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-reportWebVitals(console.log);  
+reportWebVitals(console.log);

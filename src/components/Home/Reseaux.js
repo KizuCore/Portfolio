@@ -1,10 +1,13 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useTranslation } from 'react-i18next';
 import { Col } from "react-bootstrap";
-import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
 import { useInView } from 'react-intersection-observer';
-import '../../Assets/style/Reseaux/Reseaux.css'; 
+import '../../Assets/style/Reseaux/Reseaux.css';
+
+// Chargement différé des icônes
+const AiFillGithub = React.lazy(() => import("react-icons/ai").then(module => ({ default: module.AiFillGithub })));
+const AiOutlineMail = React.lazy(() => import("react-icons/ai").then(module => ({ default: module.AiOutlineMail })));
+const FaLinkedinIn = React.lazy(() => import("react-icons/fa").then(module => ({ default: module.FaLinkedinIn })));
 
 function Reseaux() {
     const { t } = useTranslation();
@@ -28,7 +31,9 @@ function Reseaux() {
                         className="icon-colour home-social-icons"
                         aria-label={t('github_profile2')}
                     >
-                        <AiFillGithub size={55} />
+                        <Suspense fallback={<span>Loading...</span>}>
+                            <AiFillGithub size={55} />
+                        </Suspense>
                     </a>
                 </li>
                 <li className={`social-icons ${inView ? 'fade-in' : ''}`} style={{ animationDelay: "0.2s" }}>
@@ -39,7 +44,9 @@ function Reseaux() {
                         className="icon-colour home-social-icons"
                         aria-label={t('linkedin_profile')}
                     >
-                        <FaLinkedinIn size={55} />
+                        <Suspense fallback={<span>Loading...</span>}>
+                            <FaLinkedinIn size={55} />
+                        </Suspense>
                     </a>
                 </li>
                 <li className={`social-icons ${inView ? 'fade-in' : ''}`} style={{ animationDelay: "0.4s" }}>
@@ -50,7 +57,9 @@ function Reseaux() {
                         className="icon-colour home-social-icons"
                         aria-label={t('email_me')}
                     >
-                        <AiOutlineMail size={55} />
+                        <Suspense fallback={<span>Loading...</span>}>
+                            <AiOutlineMail size={55} />
+                        </Suspense>
                     </a>
                 </li>
             </ul>

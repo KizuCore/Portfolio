@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Flag from 'react-world-flags';
-import { FaAngleDown } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import '../../Assets/style/Header/header.css';
 
+// Chargement différé des composants Flag et FaAngleDown
+const Flag = React.lazy(() => import('react-world-flags'));
+const FaAngleDown = React.lazy(() => import('react-icons/fa').then(module => ({ default: module.FaAngleDown })));
+
 function LanguageSelector() {
   const { i18n, t } = useTranslation();
-
+  
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
   };
@@ -17,19 +19,37 @@ function LanguageSelector() {
     document.documentElement.lang = i18n.language;
   }, [i18n.language]);
 
+  const currentLanguage = i18n.language === "fr" ? "FR" : "EN";
+  const flagCode = i18n.language === "fr" ? "FR" : "GB";
+
   return (
     <Dropdown className="language-selector">
       <Dropdown.Toggle variant="secondary" id="dropdown-basic" aria-label="Language Selector">
-        <Flag code={i18n.language === "fr" ? "FR" : "GB"} height="auto" width="25" style={{ marginBottom: "2px" }} alt={t(i18n.language === "fr" ? "flag_fr" : "flag_en")} />{' '}
-        {i18n.language === "fr" ? "FR" : "EN"} <FaAngleDown />
+        <Suspense fallback={<span>Loading...</span>}>
+          <Flag
+            code={flagCode}
+            height="auto"
+            width="25"
+            style={{ marginBottom: "2px" }}
+            alt={t(`flag_${i18n.language}`)}
+          />
+          {' '}
+          {currentLanguage} <FaAngleDown />
+        </Suspense>
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
         <Dropdown.Item onClick={() => changeLanguage("en")}>
-          <Flag code="GB" width="25" height="auto" style={{ marginRight: "10px" }} alt={t("flag_en")} /> EN
+          <Suspense fallback={<span>Loading...</span>}>
+            <Flag code="GB" width="25" height="auto" style={{ marginRight: "10px" }} alt={t("flag_en")} />
+          </Suspense>
+          EN
         </Dropdown.Item>
         <Dropdown.Item onClick={() => changeLanguage("fr")}>
-          <Flag code="FR" width="25" height="auto" style={{ marginRight: "10px" }} alt={t("flag_fr")} /> FR
+          <Suspense fallback={<span>Loading...</span>}>
+            <Flag code="FR" width="25" height="auto" style={{ marginRight: "10px" }} alt={t("flag_fr")} />
+          </Suspense>
+          FR
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

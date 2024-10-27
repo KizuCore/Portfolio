@@ -1,4 +1,5 @@
 import React, { useEffect, useState, Suspense } from "react";
+import Pre from "./Pre";
 
 const Particles = React.lazy(() => import("react-tsparticles"));
 
@@ -14,7 +15,7 @@ function Particle() {
   }, []);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Pre />}>
       <Particles
         id="tsparticles"
         aria-hidden="true"

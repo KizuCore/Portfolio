@@ -1,35 +1,34 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { BsGithub, BsYoutube } from "react-icons/bs";
 import { Row, Col } from "react-bootstrap";
-import { DiBootstrap, DiCss3, DiHtml5, DiJavascript1, DiMysql, DiPhp, DiReact } from "react-icons/di";
-import { SiExpress, SiFlutter, SiKotlin, SiSwagger, SiVuedotjs, SiGoogle, SiSequelize } from "react-icons/si";
-import { FaJava } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
-import '../../Assets/style/Projet/Projet.css'; 
+import '../../Assets/style/Projet/Projet.css';
 
+// Chargement différé des icônes
+const BsGithub = React.lazy(() => import("react-icons/bs").then(module => ({ default: module.BsGithub })));
+const BsYoutube = React.lazy(() => import("react-icons/bs").then(module => ({ default: module.BsYoutube })));
 const techIcons = {
-  Flutter: <SiFlutter />,
-  MySQL: <DiMysql />,
-  Express: <SiExpress />,
-  Kotlin: <SiKotlin />,
-  Php: <DiPhp />,
-  Java: <FaJava />,
-  Html: <DiHtml5 />,
-  Css: <DiCss3 />,
-  Javascript: <DiJavascript1 />,
-  Vuejs: <SiVuedotjs />,
-  React: <DiReact />,
-  Bootstrap: <DiBootstrap />,
-  Swagger: <SiSwagger />,
-  ApiGoogleBooks: <SiGoogle />,
-  Sequelize: <SiSequelize />
+  Flutter: React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiFlutter }))),
+  MySQL: React.lazy(() => import("react-icons/di").then(module => ({ default: module.DiMysql }))),
+  Express: React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiExpress }))),
+  Kotlin: React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiKotlin }))),
+  Php: React.lazy(() => import("react-icons/di").then(module => ({ default: module.DiPhp }))),
+  Java: React.lazy(() => import("react-icons/fa").then(module => ({ default: module.FaJava }))),
+  Html: React.lazy(() => import("react-icons/di").then(module => ({ default: module.DiHtml5 }))),
+  Css: React.lazy(() => import("react-icons/di").then(module => ({ default: module.DiCss3 }))),
+  Javascript: React.lazy(() => import("react-icons/di").then(module => ({ default: module.DiJavascript1 }))),
+  Vuejs: React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiVuedotjs }))),
+  React: React.lazy(() => import("react-icons/di").then(module => ({ default: module.DiReact }))),
+  Bootstrap: React.lazy(() => import("react-icons/di").then(module => ({ default: module.DiBootstrap }))),
+  Swagger: React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiSwagger }))),
+  ApiGoogleBooks: React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiGoogle }))),
+  Sequelize: React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiSequelize }))),
 };
 
 function ProjectCards(props) {
   const { t } = useTranslation();
-  
+
   return (
     <Card className="project-card-view">
       <Card.Img variant="top" src={props.imgPath} alt={`${props.title} project image`} loading="lazy" decoding="async"/>
@@ -37,36 +36,45 @@ function ProjectCards(props) {
         <Card.Title><h3><strong className="blue">{props.title}</strong></h3></Card.Title>
 
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          {props.techStack.map((tech, index) => (
-            <Col key={index} xs={4} md={2} className="tech-icons2" data-tip={`${tech}`}>
-              {React.cloneElement(techIcons[tech], { 'aria-label': tech })}
-            </Col>
-          ))}
+          {props.techStack.map((tech, index) => {
+            const IconComponent = techIcons[tech];
+            return (
+              <Col key={index} xs={4} md={2} className="tech-icons2" data-tip={`${tech}`}>
+                <Suspense fallback={<span>Loading...</span>}>
+                  <IconComponent aria-label={tech} />
+                </Suspense>
+              </Col>
+            );
+          })}
         </Row>
 
         <Card.Text style={{ textAlign: "justify" }}>
           {props.description}
         </Card.Text>
 
-        <Button className="button-cv" href={props.ghLink} target="_blank" rel="noopener noreferrer">
-          <BsGithub /> &nbsp;
-          {props.isGitLab ? "GitLab" : "GitHub"}
-        </Button>
+        <Suspense fallback={<span>Loading GitHub...</span>}>
+          <Button className="button-cv" href={props.ghLink} target="_blank" rel="noopener noreferrer">
+            <BsGithub /> &nbsp;
+            {props.isGitLab ? "GitLab" : "GitHub"}
+          </Button>
+        </Suspense>
         
         {"\n"}
         {"\n"}
         {/* Bouton YouTube si disponible */}
         {!props.isGitLab && props.youtubeLink && (
-          <Button
-            className="button-youtube"
-            href={props.youtubeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ marginLeft: "10px" }}
-          >
-            <BsYoutube /> &nbsp;
-            {t('video')}
-          </Button>
+          <Suspense fallback={<span>Loading YouTube...</span>}>
+            <Button
+              className="button-youtube"
+              href={props.youtubeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ marginLeft: "10px" }}
+            >
+              <BsYoutube /> &nbsp;
+              {t('video')}
+            </Button>
+          </Suspense>
         )}
       </Card.Body>
     </Card>

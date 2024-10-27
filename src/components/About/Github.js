@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useTranslation } from 'react-i18next';
-import GitHubCalendar from "react-github-calendar";
 import { Row, Col } from "react-bootstrap";
-import { FaGitlab } from "react-icons/fa";
-import { SiGithub } from "react-icons/si";
-import '../../Assets/style/Git/Git.css'; 
+import '../../Assets/style/Git/Git.css';
+
+// Chargement différé des icônes et de GitHubCalendar
+const FaGitlab = React.lazy(() => import("react-icons/fa").then(module => ({ default: module.FaGitlab })));
+const SiGithub = React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiGithub })));
+const GitHubCalendar = React.lazy(() => import("react-github-calendar"));
 
 function Github() {
   const { t } = useTranslation();
@@ -17,23 +19,27 @@ function Github() {
           <strong className="blue-title">{t('github_profile')}</strong>
         </h2>
         <Col md={6} className="text-center pb-4">
-          <a
-            href="https://github.com/Theo22100/"
-            target="_blank"
-            rel="noreferrer"
-            className="github-link" 
-            aria-label={t('github_profile_seo')}
-          >
-            <SiGithub size={70} className="cursor-pointer"/>
-          </a>
+          <Suspense fallback={<div>Loading GitHub Icon...</div>}>
+            <a
+              href="https://github.com/Theo22100/"
+              target="_blank"
+              rel="noreferrer"
+              className="github-link"
+              aria-label={t('github_profile_seo')}
+            >
+              <SiGithub size={70} className="cursor-pointer" />
+            </a>
+          </Suspense>
         </Col>
-        <GitHubCalendar
-          username="Theo22100"
-          blockSize={15}
-          blockMargin={5}
-          color="#7093fe"
-          fontSize={16}
-        />
+        <Suspense fallback={<div>Loading GitHub Calendar...</div>}>
+          <GitHubCalendar
+            username="Theo22100"
+            blockSize={15}
+            blockMargin={5}
+            color="#7093fe"
+            fontSize={16}
+          />
+        </Suspense>
       </Row>
 
       {/* Section GitLab */}
@@ -42,15 +48,17 @@ function Github() {
           <strong className="blue-title">{t('gitlab_profile')}</strong>
         </h2>
         <Col md={6} className="text-center">
-          <a
-            href="https://gitlab.com/Theo35000"
-            target="_blank"
-            rel="noreferrer"
-            className="gitlab-link" 
-            aria-label={t('gitlab_profile_seo')}
-          >
-            <FaGitlab size={70} className="cursor-pointer"/>
-          </a>
+          <Suspense fallback={<div>Loading GitLab Icon...</div>}>
+            <a
+              href="https://gitlab.com/Theo35000"
+              target="_blank"
+              rel="noreferrer"
+              className="gitlab-link"
+              aria-label={t('gitlab_profile_seo')}
+            >
+              <FaGitlab size={70} className="cursor-pointer" />
+            </a>
+          </Suspense>
         </Col>
       </Row>
     </div>

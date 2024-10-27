@@ -50,7 +50,7 @@ function Home() {
                   src={myImg}
                   className="img-fluid"
                   alt={t('theo_developer')}
-                  width="200" 
+                  width="300" 
                   height="300"
                   loading="eager"
                   decoding="sync"

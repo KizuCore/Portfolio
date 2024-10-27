@@ -68,7 +68,7 @@ function Home2() {
                 className={`img-fluid ${imgInView && !isMobile ? 'slide-in-right' : ''}`}
                 ref={refImg}
                 alt={t('theo_developer')} 
-                width="200"
+                width="300"
                 height="300"
                 decoding="async"
               />

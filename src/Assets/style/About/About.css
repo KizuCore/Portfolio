@@ -1,0 +1,121 @@
+/* ABOUT CARD*/
+.quote-card-view {
+    border: none !important;
+    color: white !important;
+    background-color: transparent !important;
+}
+
+.about-activity {
+    list-style: none !important;
+    text-align: left !important;
+    padding-left: 1px !important;
+}
+
+@media (max-width: 767px) {
+    .about-img {
+        padding-top: 0 !important;
+    }
+}
+
+.tech-icons-1 {
+    font-size: 4.5em !important;
+    margin: 15px !important;
+    padding: 10px !important;
+    opacity: 0.93 !important;
+    border: 1.7px solid rgba(78, 134, 240, 0.637) !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+    border-radius: 5px !important;
+    display: table !important;
+    box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
+    overflow: hidden !important;
+    transition: all 0.4s ease 0s !important;
+    background-color: #f5fafd1a !important;
+}
+
+.about-activity a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease-in-out;
+}
+
+.about-activity a:hover {
+    color: #86acf4 !important;
+}
+
+@media (max-width: 767px) {
+    .tech-icons {
+        margin: 10px !important;
+    }
+}
+
+/* Styles par défaut des icônes */
+.tech-icons {
+    font-size: 4.5em !important;
+    margin: 15px !important;
+    padding: 10px !important;
+    opacity: 0.93 !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+    border-radius: 5px !important;
+    display: table !important;
+    box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
+    overflow: hidden !important;
+    transition: all 0.4s ease 0s !important;
+    background-color: #f5fafd1a !important;
+
+}
+
+/* Couleurs des bordures selon le niveau */
+.border-orange {
+    border: 1.7px solid rgb(255, 145, 0) !important;
+}
+
+.border-yellow {
+    border: 1.7px solid yellow !important;
+}
+
+.border-green {
+    border: 1.7px solid rgb(0, 190, 0) !important;
+}
+
+.border-blue {
+    border: 1.7px solid rgb(39, 184, 241) !important;
+}
+
+/* Effet au survol pour chaque niveau */
+.border-orange:hover {
+    transform: scale(1.05) !important;
+    border: 2.2px solid rgba(255, 145, 0, 0.8) !important;
+    /* Bleu foncé au survol */
+}
+
+.border-yellow:hover {
+    transform: scale(1.05) !important;
+    border: 2.2px solid rgba(255, 255, 0, 0.8) !important;
+    /* Jaune foncé au survol */
+}
+
+.border-green:hover {
+    transform: scale(1.05) !important;
+    border: 2.2px solid rgba(0, 190, 0, 0.8) !important;
+    /* Vert foncé au survol */
+}
+
+.border-blue:hover {
+    transform: scale(1.05) !important;
+    border: 2.2px solid rgba(39, 184, 241, 0.8) !important;
+    /* Bleu foncé au survol */
+}
+
+.tech-icon-images {
+    padding: 20px !important;
+    line-height: 1.6 !important;
+}
+
+.level-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+}

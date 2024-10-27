@@ -4,6 +4,7 @@ import GitHubCalendar from "react-github-calendar";
 import { Row, Col } from "react-bootstrap";
 import { FaGitlab } from "react-icons/fa";
 import { SiGithub } from "react-icons/si";
+import '../../Assets/style/Git/Git.css'; 
 
 function Github() {
   const { t } = useTranslation();

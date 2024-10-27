@@ -17,6 +17,7 @@ import {
   SiMicrosoftexcel,
   SiAxios,
 } from "react-icons/si";
+import '../../Assets/style/About/About.css'; 
 
 const tools = [
   { component: SiWindows, name: "Windows" },

@@ -27,6 +27,7 @@ import {
   SiGnubash,
   SiKotlin
 } from "react-icons/si";
+import '../../Assets/style/About/About.css'; 
 
 // Technologies avec niveau (0=Novice, 1=Intermédiaire, 2=Expérimenté, 3=Favori)
 const icons = [

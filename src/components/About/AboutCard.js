@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import { useInView } from 'react-intersection-observer';
 import secretSound from '../../Assets/sound/voice.mp3'; 
 import SoundPlayer from "../Utils/SoundPlayer";
+import '../../Assets/style/About/About.css'; 
 
 function AboutCard() {
   const { t } = useTranslation();

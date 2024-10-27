@@ -4,228 +4,228 @@
 
 /* Sélecteur de langue */
 .language-selector {
-    position: relative;
-    display: inline-block;
-    background: transparent !important;
-    font-family: 'Permanent Marker', cursive;
-  }
-  
-  .dropdown-toggle:hover {
-    background: #444162 !important;
-    transition: ease-in-out 0.4s !important;
-  }
-  
-  
-  
-  
-  /* Masquer le triangle de la flèche */
-  .dropdown-toggle {
-    padding: 0.8rem 1rem !important;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: none !important;
-    padding-right: 1rem;
-    background: #19172ac3 !important;
-    border-radius: 15px !important;
-  }
-  
-  .dropdown-toggle::after {
-    display: none !important;
-    color: #ffffff;
-  }
-  
-  /* mettre bien bouton language */
-  .dropdown-menu {
-    background: #44416291 !important;
-    margin-top: 0.5rem;
-  }
-  
-  .dropdown-menu.show {
-    border-radius: 10px;
-  }
-  
-  .dropdown-item {
-    color: #ffffff !important;
-  }
-  
-  .dropdown-menu a::after {
-    background: transparent !important;
-    color: #ffffff !important;
-  }
-  
-  .dropdown-item:hover {
-    color: #ffffff !important;
-    background: #757390 !important;
-    border-radius: 10px;
-  }
-  
-  .language-selector select {
-    background-color: transparent;
-    border: 1px solid transparent;
-    color: #ffffff;
-    font-size: 24px;
-    padding: 5px;
-    margin-top: 5px;
-    padding-right: 16px;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    cursor: pointer;
-  }
-  
-  
-  
-  
-  
-  
-  /* Navbar Sticky */
-  .sticky {
-    background-color: #1b1a2ea9 !important;
-    transition: all 0.3s ease-out !important;
-    box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
-    backdrop-filter: blur(15px) !important;
-  }
-  
-  /* Navbar Styles */
+  position: relative;
+  display: inline-block;
+  background: transparent !important;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.dropdown-toggle:hover {
+  background: #444162 !important;
+  transition: ease-in-out 0.4s !important;
+}
+
+
+
+
+/* Masquer le triangle de la flèche */
+.dropdown-toggle {
+  padding: 0.8rem 1rem !important;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none !important;
+  padding-right: 1rem;
+  background: #19172ac3 !important;
+  border-radius: 15px !important;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+  color: #ffffff;
+}
+
+/* mettre bien bouton language */
+.dropdown-menu {
+  background: #44416291 !important;
+  margin-top: 0.5rem;
+}
+
+.dropdown-menu.show {
+  border-radius: 10px;
+}
+
+.dropdown-item {
+  color: #ffffff !important;
+}
+
+.dropdown-menu a::after {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+.dropdown-item:hover {
+  color: #ffffff !important;
+  background: #757390 !important;
+  border-radius: 10px;
+}
+
+.language-selector select {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: #ffffff;
+  font-size: 24px;
+  padding: 5px;
+  margin-top: 5px;
+  padding-right: 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+/* Navbar Sticky */
+.sticky {
+  background-color: #1b1a2ea9 !important;
+  transition: all 0.3s ease-out !important;
+  box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed !important;
+  transition: all 0.3s ease-out !important;
+  padding: 0.3rem 2rem !important;
+  font-size: 1.2rem !important;
+}
+
+/* Navbar Toggler - Hamburger Button */
+.navbar-toggler {
+  position: relative !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.navbar-toggler span {
+  display: block !important;
+  background-color: #5092f4 !important;
+  height: 4px !important;
+  width: 27px !important;
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: 0 !important;
+}
+
+/* Animation du menu hamburger */
+.navbar-toggler span:nth-child(1),
+.navbar-toggler span:nth-child(3) {
+  transition: transform 0.35s ease-in-out !important;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(1) {
+  position: absolute !important;
+  left: 12px !important;
+  top: 10px !important;
+  transform: rotate(135deg) !important;
+  opacity: 0.9 !important;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(2) {
+  height: 12px !important;
+  visibility: hidden !important;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(3) {
+  position: absolute !important;
+  left: 12px !important;
+  top: 10px !important;
+  transform: rotate(-135deg) !important;
+  opacity: 0.9 !important;
+}
+
+/* Styles pour le mobile */
+@media (max-width: 767px) {
   .navbar {
-    position: fixed !important;
-    transition: all 0.3s ease-out !important;
-    padding: 0.3rem 2rem !important;
-    font-size: 1.2rem !important;
+    padding: 1rem 2rem !important;
+    font-size: 1.4rem !important;
+    background-color: #181a27 !important;
   }
-  
-  /* Navbar Toggler - Hamburger Button */
-  .navbar-toggler {
-    position: relative !important;
-    background-color: transparent !important;
-    border-color: transparent !important;
-  }
-  
-  .navbar-toggler span {
-    display: block !important;
-    background-color: #5092f4 !important;
-    height: 4px !important;
-    width: 27px !important;
-    margin-top: 5px !important;
-    margin-bottom: 5px !important;
-  }
-  
-  .navbar-toggler:focus,
-  .navbar-toggler:active {
-    outline: 0 !important;
-  }
-  
-  /* Animation du menu hamburger */
-  .navbar-toggler span:nth-child(1),
-  .navbar-toggler span:nth-child(3) {
-    transition: transform 0.35s ease-in-out !important;
-  }
-  
-  .navbar-toggler:not(.collapsed) span:nth-child(1) {
-    position: absolute !important;
-    left: 12px !important;
-    top: 10px !important;
-    transform: rotate(135deg) !important;
-    opacity: 0.9 !important;
-  }
-  
-  .navbar-toggler:not(.collapsed) span:nth-child(2) {
-    height: 12px !important;
-    visibility: hidden !important;
-  }
-  
-  .navbar-toggler:not(.collapsed) span:nth-child(3) {
-    position: absolute !important;
-    left: 12px !important;
-    top: 10px !important;
-    transform: rotate(-135deg) !important;
-    opacity: 0.9 !important;
-  }
-  
-  /* Styles pour le mobile */
-  @media (max-width: 767px) {
-    .navbar {
-      padding: 1rem 2rem !important;
-      font-size: 1.4rem !important;
-      background-color: #181a27 !important;
-    }
-  
-    .navbar-nav .nav-item a::after {
-      display: none !important;
-    }
-  
-    .language-selector {
-      display: flex;
-      justify-content: center;
-      margin: 0 auto;
-      width: 100%;
-    }
-  
-    .navbar-toggler {
-      margin-left: auto;
-    }
-  }
-  
-  /* Logo et liens de navigation */
-  .navbar-brand {
-    color: rgb(250, 250, 250) !important;
-  }
-  
-  .navbar-nav .nav-link {
-    color: white !important;
-    padding-right: 1rem !important;
-    padding-left: 1rem !important;
-  }
-  
-  .nav-link {
-    padding: 0.8rem 1rem !important;
-    font-family: 'Permanent Marker', cursive;
-  }
-  
-  @media (max-width: 767px) {
-    .nav-link {
-      padding: 0.7rem 1rem !important;
-    }
-  }
-  
-  /* Effet de survol sur les liens nav */
-  .navbar-nav .nav-item {
-    position: relative;
-    margin-left: 20px;
-  }
-  
-  .navbar-nav .nav-item a {
-    font-weight: 400;
-    transition: all 0.3s ease-out;
-    position: relative;
-    z-index: 1;
-  }
-  
+
   .navbar-nav .nav-item a::after {
-    content: "";
-    position: relative;
-    display: block;
-    height: 3px;
-    width: 0;
-    border-radius: 16px;
-    background: #276DEE;
-    bottom: 1px;
-    left: 0;
-    z-index: -1;
-    transition: all 0.3s ease-out;
+    display: none !important;
   }
-  
-  .navbar-nav .nav-item a:hover {
-    color: #3d7ef5 !important;
-    transition: all 0.4s ease-out;
-  }
-  
-  .navbar-nav .nav-item .language-selector a:hover {
-    color: #ffffff !important;
-    transition: all 0.4s ease-out;
-  }
-  
-  .navbar-nav .nav-item a:hover::after {
+
+  .language-selector {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
     width: 100%;
   }
+
+  .navbar-toggler {
+    margin-left: auto;
+  }
+}
+
+/* Logo et liens de navigation */
+.navbar-brand {
+  color: rgb(250, 250, 250) !important;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+}
+
+.nav-link {
+  padding: 0.8rem 1rem !important;
+  font-family: 'Permanent Marker', cursive;
+}
+
+@media (max-width: 767px) {
+  .nav-link {
+    padding: 0.7rem 1rem !important;
+  }
+}
+
+/* Effet de survol sur les liens nav */
+.navbar-nav .nav-item {
+  position: relative;
+  margin-left: 20px;
+}
+
+.navbar-nav .nav-item a {
+  font-weight: 400;
+  transition: all 0.3s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-nav .nav-item a::after {
+  content: "";
+  position: relative;
+  display: block;
+  height: 3px;
+  width: 0;
+  border-radius: 16px;
+  background: #276DEE;
+  bottom: 1px;
+  left: 0;
+  z-index: -1;
+  transition: all 0.3s ease-out;
+}
+
+.navbar-nav .nav-item a:hover {
+  color: #3d7ef5 !important;
+  transition: all 0.4s ease-out;
+}
+
+.navbar-nav .nav-item .language-selector a:hover {
+  color: #ffffff !important;
+  transition: all 0.4s ease-out;
+}
+
+.navbar-nav .nav-item a:hover::after {
+  width: 100%;
+}

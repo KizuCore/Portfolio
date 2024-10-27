@@ -1,0 +1,17 @@
+.resume-section {
+    position: relative !important;
+    padding-top: 110px !important;
+    padding-bottom: 30px !important;
+    background-image: var(--section-background-color) !important;
+    color: white !important;
+}
+
+
+
+
+.pdf-container {
+    border-radius: 10px;
+    overflow: hidden;
+    display: inline-block;
+    margin: 0 auto;
+}

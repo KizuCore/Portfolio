@@ -6,6 +6,7 @@ import {
   AiOutlineMail,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import '../../Assets/style/Footer/Footer.css'; 
 
 function Footer() {
   const { t } = useTranslation();

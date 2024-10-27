@@ -1,0 +1,17 @@
+.gitlab-link {
+  color: #f5921a !important;
+}
+
+.gitlab-link:hover {
+  color: #be6b06 !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.github-link {
+  color: #ffffff !important;
+}
+
+.github-link:hover {
+  color: #dad7d7 !important;
+  transition: color 0.3s ease-in-out;
+}

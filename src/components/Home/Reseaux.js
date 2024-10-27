@@ -4,6 +4,7 @@ import { Col } from "react-bootstrap";
 import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { useInView } from 'react-intersection-observer';
+import '../../Assets/style/Reseaux/Reseaux.css'; 
 
 function Reseaux() {
     const { t } = useTranslation();

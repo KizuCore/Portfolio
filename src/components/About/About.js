@@ -9,6 +9,7 @@ import laptopImg from "../../Assets/images/about/about.webp";
 import Toolstack from "./Toolstack";
 import LevelCircle from "./Utils/LevelCircle"; 
 import { useInView } from 'react-intersection-observer';
+import '../../Assets/style/About/About.css'; 
 
 function About() {
   const { t } = useTranslation();

@@ -5,6 +5,7 @@ import myImg from "../../Assets/images/home/avatar.webp";
 import Tilt from "react-parallax-tilt";
 import { useInView } from 'react-intersection-observer';
 import Reseaux from "./Reseaux";
+import '../../Assets/style/Home/Home.css'; 
 
 function Home2() {
   const { t } = useTranslation();

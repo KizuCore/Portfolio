@@ -6,6 +6,7 @@ import Tilt from "react-parallax-tilt";
 import Particle from "../Utils/Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
+import '../../Assets/style/Home/Home.css'; 
 import { useInView } from 'react-intersection-observer';
 
 function Home() {

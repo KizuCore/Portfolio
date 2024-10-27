@@ -7,6 +7,7 @@ import { DiBootstrap, DiCss3, DiHtml5, DiJavascript1, DiMysql, DiPhp, DiReact } 
 import { SiExpress, SiFlutter, SiKotlin, SiSwagger, SiVuedotjs, SiGoogle, SiSequelize } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
+import '../../Assets/style/Projet/Projet.css'; 
 
 const techIcons = {
   Flutter: <SiFlutter />,

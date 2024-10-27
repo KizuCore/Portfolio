@@ -33,7 +33,7 @@ function Home2() {
       <Container>
         <Row className="d-flex align-items-center">
           <Col md={8} className="home-about-description">
-            <div className={`${titleInView && !isMobile? 'slide-in-left' : ''} text-justify`}>
+            <div className={`${titleInView && !isMobile? 'slide-in-left' : ''} `}>
               <h2
                 style={{ fontSize: "2.6em" }}
                 ref={titleRef}
@@ -44,7 +44,7 @@ function Home2() {
               </h2>
 
               <p
-                className={`home-about-body mt-4 ${paragraphInView && !isMobile? 'slide-in-left text-justify' : 'text-justify'} background-box`}
+                className={`home-about-body mt-4 ${paragraphInView && !isMobile? 'slide-in-left' : ''} text-justify background-box`}
                 ref={paragraphRef}
               >
                 {t('description')}

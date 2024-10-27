@@ -28,9 +28,9 @@ function LogoImage({ isAnimating, t }) {
   return (
     <>
       {/* Logo noir */}
-      <img src={logo} className={`img-fluid logo ${isLogoWhite ? 'fade-out' : 'fade-in'}`} alt={t('brand')} />
+      <img src={logo} className={`img-fluid logo ${isLogoWhite ? 'fade-out' : 'fade-in'}`} alt={t('brand')} loading="lazy" decoding="async"/>
       {/* Logo blanc */}
-      <img src={logoWhite} className={`img-fluid logo logo-white ${isLogoWhite ? 'fade-in' : 'fade-out'}`} alt={t('brand')} />
+      <img src={logoWhite} className={`img-fluid logo logo-white ${isLogoWhite ? 'fade-in' : 'fade-out'}`} alt={t('brand')} loading="lazy" decoding="async" />
     </>
   );
 }

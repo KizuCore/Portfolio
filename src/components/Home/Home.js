@@ -49,6 +49,7 @@ function Home() {
                   alt={t('theo_developer')}
                   style={{ height: "16em" }}
                   loading="lazy"
+                  decoding="async"
                 />
               </Tilt>
             </Col>

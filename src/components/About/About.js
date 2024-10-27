@@ -35,6 +35,7 @@ function About() {
               alt={t('about_image_alt', { name: 'Théo Guérin' })} 
               className="img-fluid" 
               loading="lazy" 
+              decoding="async" 
             />
           </Col>
         </Row>

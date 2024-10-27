@@ -31,8 +31,7 @@ function ProjectCards(props) {
   
   return (
     <Card className="project-card-view">
-      <Card.Img variant="top" src={props.imgPath} alt={`${props.title} project image`} />
-      
+      <Card.Img variant="top" src={props.imgPath} alt={`${props.title} project image`} loading="lazy" decoding="async"/>
       <Card.Body>
         <Card.Title><h3><strong className="blue">{props.title}</strong></h3></Card.Title>
 

@@ -9,7 +9,8 @@ import { CgFileDocument } from "react-icons/cg";
 import LanguageSelector from "../LanguageSelector";
 import Logo from "../Logo/LogoContainer";
 import NavItem from "./NavItem";
-import '../../Easter/style/style_easter.css';
+import '../../../Assets/style/Easter/style_easter.css'; 
+import '../../../Assets/style/Header/header.css';
 
 function NavBar() {
   const { t } = useTranslation();

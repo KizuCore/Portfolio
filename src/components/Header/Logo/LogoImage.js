@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import logo from "../../../Assets/images/logo.webp";
 import logoWhite from "../../../Assets/images/logo_white.webp"; 
-import '../../Easter/style/style_easter.css'
+import '../../../Assets/style/Easter/style_easter.css'; 
+import '../../../Assets/style/Header/header.css';
 
 function LogoImage({ isAnimating, t }) {
   const [isLogoWhite, setIsLogoWhite] = useState(false);

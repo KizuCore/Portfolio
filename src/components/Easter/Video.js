@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import './style/style_easter.css'; 
 import useSequence from '../Utils/Sequence';
+import '../../Assets/style/Easter/style_easter.css'; 
 
 // Fonction décoder URL
 const decodeUrl = () => {

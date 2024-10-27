@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Particle from "../Utils/Particle";
 import { motion } from "framer-motion";
-import './style/style_easter.css'; 
+import '../../Assets/style/Easter/style_easter.css'; 
 
 function Gojo() {
     const [preloading, setPreloading] = useState(true);

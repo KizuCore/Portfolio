@@ -3,6 +3,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Flag from 'react-world-flags';
 import { FaAngleDown } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import '../../Assets/style/Header/header.css';
 
 function LanguageSelector() {
   const { i18n, t } = useTranslation();

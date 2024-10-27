@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/images/logo.webp";
+import myImg from "../../Assets/images/logo_300.webp";
 import Tilt from "react-parallax-tilt";
 import Particle from "../Utils/Particle";
 import Home2 from "./Home2";
@@ -51,7 +51,7 @@ function Home() {
                   className="img-fluid"
                   alt={t('theo_developer')}
                   width="300" 
-                  height="300"
+                  height="296"
                   loading="eager"
                   decoding="sync"
                 />

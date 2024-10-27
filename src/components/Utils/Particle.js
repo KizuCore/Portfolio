@@ -1,13 +1,8 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles"; 
 
 function Particle() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-  const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine); 
-  }, []);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -20,8 +15,9 @@ function Particle() {
   return (
     <Particles
       id="tsparticles"
-      init={particlesInit}
-      options={{
+      aria-hidden="true"
+      role="presentation"
+      params={{
         particles: {
           number: {
             value: isMobile ? 100 : 300,

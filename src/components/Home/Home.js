@@ -49,7 +49,6 @@ function Home() {
                   alt={t('theo_developer')}
                   width="200" 
                   height="300"
-                  loading="lazy"
                   decoding="async"
                 />
               </Tilt>

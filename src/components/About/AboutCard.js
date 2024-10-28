@@ -41,6 +41,7 @@ function AboutCard() {
     }
   }, [isCooldown]);
 
+  const [isMobile] = useState(window.innerWidth <= 768);
 
 
   return (
@@ -66,7 +67,7 @@ function AboutCard() {
           {/* Qualifications */}
           <h3 className="light-blue-title mt-4" style={{ fontSize: "1.4em" }}>{t('qualifications_title')}</h3>
 
-          <ul className="mt-3">
+          <ul className={`mt-3 ${isMobile ? 'list-unstyled ' : ''}`}>
             <li className="about-activity mb-2">
               • <a
                 href="https://istic.univ-rennes.fr/licence-informatique-parcours-informatique"
@@ -108,7 +109,7 @@ function AboutCard() {
           <p className="text-justify mt-4">
             {t('outside_of_coding')}
           </p>
-          <ul className="mt-3">
+          <ul className={`mt-3 ${isMobile ? 'list-unstyled ' : ''}`}>
             <li className="about-activity">✈️ • {t('hobby1')}</li>
             <li className="about-activity">🍳 • {t('hobby2')}</li>
             <li className="about-activity">🔭 • {t('hobby3')}</li>

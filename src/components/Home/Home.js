@@ -25,7 +25,7 @@ function Home() {
         <Container className="home-content">
           <Row className="align-items-center" style={{ paddingBottom: "12em", paddingTop: "6em" }}>
             {/* Colonne pour le texte */}
-            <Col md={7} className="home-header d-flex flex-column justify-content-center text-center text-md-left py-5">
+            <Col md={6} className="home-header d-flex flex-column justify-content-center text-center text-md-left py-5">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}

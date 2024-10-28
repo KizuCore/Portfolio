@@ -53,7 +53,7 @@ function Home() {
             </Col>
 
             {/* Colonne pour l'image */}
-            <Col md={5} className="d-flex justify-content-center py-5">
+            <Col md={6} className="d-flex justify-content-center py-5">
               <Tilt>
                 <motion.img
                   src={myImg}

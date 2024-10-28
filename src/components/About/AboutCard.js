@@ -54,7 +54,7 @@ function AboutCard() {
           ref={refText}
         >
           {/* Présentation */}
-          <h3 className="light-blue-title mb-4" style={{ fontSize: "1.6em" }}>{t('presentation_title')}</h3>
+          <h3 className="light-blue-title mb-4" style={{ fontSize: "1.4em" }}>{t('presentation_title')}</h3>
           <p className="text-justify">
             {t('greeting')} <span className="blue">Théo Guérin</span>{t('from')}<span className="blue"> Rennes, France</span>.
             <br />
@@ -64,7 +64,7 @@ function AboutCard() {
           </p>
 
           {/* Qualifications */}
-          <h3 className="light-blue-title mt-4" style={{ fontSize: "1.6em" }}>{t('qualifications_title')}</h3>
+          <h3 className="light-blue-title mt-4" style={{ fontSize: "1.4em" }}>{t('qualifications_title')}</h3>
 
           <ul className="mt-3">
             <li className="about-activity mb-2">
@@ -103,7 +103,7 @@ function AboutCard() {
           </ul>
 
           {/* Hobbies */}
-          <h3 className="light-blue-title mt-4" style={{ fontSize: "1.6em" }}>{t('hobbies_title')}</h3>
+          <h3 className="light-blue-title mt-4" style={{ fontSize: "1.4em" }}>{t('hobbies_title')}</h3>
 
           <p className="text-justify mt-4">
             {t('outside_of_coding')}

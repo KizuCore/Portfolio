@@ -31,7 +31,7 @@ function Reseaux() {
                         className="icon-colour home-social-icons"
                         aria-label={t('github_profile2')}
                     >
-                        <Suspense fallback={<span>Loading...</span>}>
+                        <Suspense fallback={<span className="loading-icon"></span>}>
                             <AiFillGithub size={55} />
                         </Suspense>
                     </a>
@@ -44,7 +44,7 @@ function Reseaux() {
                         className="icon-colour home-social-icons"
                         aria-label={t('linkedin_profile')}
                     >
-                        <Suspense fallback={<span>Loading...</span>}>
+                        <Suspense fallback={<span className="loading-icon"></span>}>
                             <FaLinkedinIn size={55} />
                         </Suspense>
                     </a>
@@ -57,7 +57,7 @@ function Reseaux() {
                         className="icon-colour home-social-icons"
                         aria-label={t('email_me')}
                     >
-                        <Suspense fallback={<span>Loading...</span>}>
+                        <Suspense fallback={<span className="loading-icon"></span>}>
                             <AiOutlineMail size={55} />
                         </Suspense>
                     </a>

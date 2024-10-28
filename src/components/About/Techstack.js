@@ -54,7 +54,7 @@ function Techstack() {
                 icon.level === 0 ? t("novice") : icon.level === 1 ? t("intermediate") : icon.level === 2 ? t("advanced") : t("favorite")
               }`}
             >
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<span className="loading-icon"></span>}>
                 <IconComponent aria-label={icon.name} />
               </Suspense>
             </Col>

@@ -53,7 +53,7 @@ function Toolstack() {
               className="tech-icons-1"
               data-tip={`${tool.name}`}
             >
-              <Suspense fallback={<span>Loading...</span>}>
+              <Suspense fallback={<span className="loading-icon"></span>}>
                 <IconComponent aria-label={tool.name} />
               </Suspense>
             </Col>

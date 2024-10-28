@@ -25,7 +25,7 @@ function LanguageSelector() {
   return (
     <Dropdown className="language-selector">
       <Dropdown.Toggle variant="secondary" id="dropdown-basic" aria-label="Language Selector">
-        <Suspense fallback={<span>Loading...</span>}>
+        <Suspense fallback={<span className="loading-icon"></span>}>
           <Flag
             code={flagCode}
             height="auto"
@@ -40,13 +40,13 @@ function LanguageSelector() {
 
       <Dropdown.Menu>
         <Dropdown.Item onClick={() => changeLanguage("en")}>
-          <Suspense fallback={<span>Loading...</span>}>
+          <Suspense fallback={<span className="loading-icon"></span>}>
             <Flag code="GB" width="25" height="auto" style={{ marginRight: "10px" }} alt={t("flag_en")} />
           </Suspense>
           EN
         </Dropdown.Item>
         <Dropdown.Item onClick={() => changeLanguage("fr")}>
-          <Suspense fallback={<span>Loading...</span>}>
+          <Suspense fallback={<span className="loading-icon"></span>}>
             <Flag code="FR" width="25" height="auto" style={{ marginRight: "10px" }} alt={t("flag_fr")} />
           </Suspense>
           FR

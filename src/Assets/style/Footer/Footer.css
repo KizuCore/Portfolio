@@ -55,3 +55,23 @@
 .blockquote-footer {
   color: #889cc0 !important;
 }
+
+@media (max-width: 767px) {
+  .footer-copywright,
+  .footer-body {
+    text-align: center !important;
+  }
+
+  .footer h3 {
+    font-size: 1em;
+    margin: 0.3em 0 !important;
+  }
+
+  .footer-icons {
+    font-size: 1.4em;
+  }
+
+  .footer a:hover {
+    color: #286EEF !important;
+  }
+}

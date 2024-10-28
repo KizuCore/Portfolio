@@ -78,15 +78,6 @@
     cursor: grab !important;
 }
 
-/* Transition disparaître logo noir */
-.fade-out {
-    opacity: 0;
-}
-
-/* Transition apparaître logo blanc */
-.fade-in {
-    opacity: 1;
-}
 
 /* Effet bleu après 2 secondes */
 .logo-container.start-border-animation {

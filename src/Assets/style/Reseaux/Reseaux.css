@@ -21,37 +21,26 @@
   width: 80px !important;
   height: 80px !important;
   font-size: 2em !important;
-  background: rgba(255, 255, 255, 0.972) !important;
+  background: #5b93fb !important;
   border-radius: 50% !important;
   transition: 0.5s !important;
-  position: relative !important;
+  border: #ffffff solid 3px !important;
 }
 
-.home-social-icons::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: #0c3986;
-  transition: 0.5s;
-  transform: scale(0.9);
-  z-index: -1;
-}
+
 
 .home-social-icons:hover {
   background: #deeafc !important;
+  border: #0c3986 solid 3px !important;
 }
 
-.home-social-icons:hover::before {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px #b8c9f8;
+
+.icon-colour:hover {
+  color: #0c3986 !important;
 }
 
 .icon-colour {
-  color: #0c3986 !important;
+  color: white !important;
 }
 
 

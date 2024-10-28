@@ -18,9 +18,6 @@ function Home() {
     threshold: 0.1,
   });
 
-  // Vérifier si mobile
-  const isMobile = window.innerWidth <= 768;
-
   return (
     <section>
       <Container fluid className="about-section pt-0" id="home">
@@ -68,7 +65,7 @@ function Home() {
                   loading="eager"
                   decoding="sync"
                   initial={{ opacity: 0, x: 50 }}
-                  animate={imgInView && !isMobile ? { opacity: 1, x: 0 } : {}}
+                  animate={imgInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   style={{ opacity: imgInView ? 1 : 0 }}
                 />

@@ -26,9 +26,6 @@ function Home2() {
     threshold: 0.1,
   });
 
-  // Vérifier si l'écran est mobile
-  const isMobile = window.innerWidth <= 768;
-
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
@@ -37,7 +34,7 @@ function Home2() {
             <motion.div
               ref={titleRef}
               initial={{ opacity: 0, x: -50 }}
-              animate={titleInView && !isMobile ? { opacity: 1, x: 0 } : {}}
+              animate={titleInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, ease: "easeOut" }}
               style={{ opacity: titleInView ? 1 : 0 }}
             >
@@ -51,7 +48,7 @@ function Home2() {
             <motion.p
               ref={paragraphRef}
               initial={{ opacity: 0, x: -50 }}
-              animate={paragraphInView && !isMobile ? { opacity: 1, x: 0 } : {}}
+              animate={paragraphInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
               className="home-about-body mt-4 text-justify background-box"
               style={{ opacity: paragraphInView ? 1 : 0 }}
@@ -81,7 +78,7 @@ function Home2() {
                 height="300"
                 decoding="async"
                 initial={{ opacity: 0, x: 50 }}
-                animate={imgInView && !isMobile ? { opacity: 1, x: 0 } : {}}
+                animate={imgInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 style={{ opacity: imgInView ? 1 : 0 }}
               />

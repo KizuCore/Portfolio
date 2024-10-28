@@ -20,7 +20,6 @@ function About() {
     threshold: 0.1,
   });
 
-  const isMobile = window.innerWidth <= 768;
 
   return (
     <Container fluid className="about-section">
@@ -49,7 +48,7 @@ function About() {
               loading="lazy" 
               decoding="async"
               initial={{ opacity: 0, x: 50 }}
-              animate={imgInView && !isMobile ? { opacity: 1, x: 0 } : {}}
+              animate={imgInView  ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, ease: "easeOut" }}
               style={{ opacity: imgInView ? 1 : 0 }}
             />

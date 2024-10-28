@@ -41,15 +41,14 @@ function AboutCard() {
     }
   }, [isCooldown]);
 
-  // Vérifier si mobile
-  const isMobile = window.innerWidth <= 768;
+
 
   return (
     <Card className="quote-card-view mt-4">
       <Card.Body>
         <motion.blockquote
           initial={{ opacity: 0, x: -50 }}
-          animate={textInView && !isMobile ? { opacity: 1, x: 0 } : {}}
+          animate={textInView  ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="blockquote mb-0 background-box"
           ref={refText}

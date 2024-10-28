@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
+import { motion } from 'framer-motion';
 import myImg from "../../Assets/images/logo_300.webp";
 import Tilt from "react-parallax-tilt";
 import Particle from "../Utils/Particle";
@@ -27,33 +28,49 @@ function Home() {
         <Container className="home-content">
           <Row className="align-items-center" style={{ paddingBottom: "12em", paddingTop: "6em" }}>
             {/* Colonne pour le texte */}
-            <Col md={7} className="home-header slide-in-left d-flex flex-column justify-content-center text-center text-md-left py-5">
-              <h1 className="heading mb-3 title-font">
-                {t('hello')}{" "}
-                <span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
-              </h1>
-              <h2 className="heading-name mb-3 title-font">
-                {t('iam')}
-                <strong className="blue-title"> {t('name')}</strong>
-              </h2>
+            <Col md={7} className="home-header d-flex flex-column justify-content-center text-center text-md-left py-5">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <h1 className="heading mb-3 title-font">
+                  {t('hello')}{" "}
+                  <span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
+                </h1>
+                <h2 className="heading-name mb-3 title-font">
+                  {t('iam')}
+                  <strong className="blue-title"> {t('name')}</strong>
+                </h2>
+              </motion.div>
 
               {/* Développeur... */}
-              <div className="pt-3 blue-title d-flex justify-content-center align-items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                className="pt-3 blue-title d-flex justify-content-center align-items-center"
+              >
                 <Type />
-              </div>
+              </motion.div>
             </Col>
 
             {/* Colonne pour l'image */}
-            <Col md={5} className={`d-flex justify-content-center py-5 ${imgInView && !isMobile ? 'slide-in-right' : ''}`} ref={refImg}>
+            <Col md={5} className="d-flex justify-content-center py-5">
               <Tilt>
-                <img
+                <motion.img
                   src={myImg}
                   className="img-fluid"
+                  ref={refImg}
                   alt={t('theo_developer')}
-                  width="300" 
+                  width="300"
                   height="296"
                   loading="eager"
                   decoding="sync"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={imgInView && !isMobile ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  style={{ opacity: imgInView ? 1 : 0 }}
                 />
               </Tilt>
             </Col>

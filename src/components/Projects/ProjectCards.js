@@ -35,7 +35,7 @@ function ProjectCards(props) {
       <Card.Body>
         <Card.Title><h3><strong className="blue">{props.title}</strong></h3></Card.Title>
 
-        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+        <Row className="pb-2" style={{ justifyContent: "center" }}>
           {props.techStack.map((tech, index) => {
             const IconComponent = techIcons[tech];
             return (
@@ -48,34 +48,32 @@ function ProjectCards(props) {
           })}
         </Row>
 
-        <Card.Text style={{ textAlign: "justify" }}>
+        <Card.Text className="text-justify">
           {props.description}
         </Card.Text>
 
-        <Suspense fallback={<Spinner animation="border" role="status" />}>
-          <Button className="button-cv" href={props.ghLink} target="_blank" rel="noopener noreferrer">
-            <BsGithub /> &nbsp;
-            {props.isGitLab ? "GitLab" : "GitHub"}
-          </Button>
-        </Suspense>
-        
-        {"\n"}
-        {"\n"}
-        {/* Bouton YouTube si disponible */}
-        {!props.isGitLab && props.youtubeLink && (
+        <div className="button-group">
           <Suspense fallback={<Spinner animation="border" role="status" />}>
-            <Button
-              className="button-youtube"
-              href={props.youtubeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ marginLeft: "10px" }}
-            >
-              <BsYoutube /> &nbsp;
-              {t('video')}
+            <Button className="button-cv" href={props.ghLink} target="_blank" rel="noopener noreferrer">
+              <BsGithub /> &nbsp;
+              {props.isGitLab ? "GitLab" : "GitHub"}
             </Button>
           </Suspense>
-        )}
+
+          {!props.isGitLab && props.youtubeLink && (
+            <Suspense fallback={<Spinner animation="border" role="status" />}>
+              <Button
+                className="button-youtube"
+                href={props.youtubeLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BsYoutube /> &nbsp;
+                {t('video')}
+              </Button>
+            </Suspense>
+          )}
+        </div>
       </Card.Body>
     </Card>
   );

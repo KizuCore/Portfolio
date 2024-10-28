@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
+import { motion } from 'framer-motion';
 import myImg from "../../Assets/images/home/avatar.webp";
 import Tilt from "react-parallax-tilt";
 import { useInView } from 'react-intersection-observer';
@@ -33,50 +34,62 @@ function Home2() {
       <Container>
         <Row className="d-flex align-items-center">
           <Col md={8} className="home-about-description">
-            <div className={`${titleInView && !isMobile? 'slide-in-left' : ''} `}>
-              <h2
-                style={{ fontSize: "2.6em" }}
-                ref={titleRef}
-              >
-                <span className="blue-title " style={{ fontFamily: 'Permanent Marker, cursive' }}>
+            <motion.div
+              ref={titleRef}
+              initial={{ opacity: 0, x: -50 }}
+              animate={titleInView && !isMobile ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              style={{ opacity: titleInView ? 1 : 0 }}
+            >
+              <h2 style={{ fontSize: "2.6em" }}>
+                <span className="blue-title" style={{ fontFamily: 'Permanent Marker, cursive' }}>
                   {t('introduction')}
                 </span>
               </h2>
+            </motion.div>
 
-              <p
-                className={`home-about-body mt-4 ${paragraphInView && !isMobile? 'slide-in-left' : ''} text-justify background-box`}
-                ref={paragraphRef}
-              >
-                {t('description')}
-                <br />
-                <br />{t('classic_technologies')}
-                <b className="blue"> {t('technologies')} </b>
-                <br />
-                <br />
-                {t('interests')}
-                <b className="blue"> {t('projects_and_discovery')}</b>
-                <br />
-                <br />
-                {t('passion')} <b className="blue">{t('nodejs')}</b> {t('and')} <b className="blue">{t('reactjs')}</b>.
-              </p>
-            </div>
+            <motion.p
+              ref={paragraphRef}
+              initial={{ opacity: 0, x: -50 }}
+              animate={paragraphInView && !isMobile ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+              className="home-about-body mt-4 text-justify background-box"
+              style={{ opacity: paragraphInView ? 1 : 0 }}
+            >
+              {t('description')}
+              <br />
+              <br />{t('classic_technologies')}
+              <b className="blue"> {t('technologies')} </b>
+              <br />
+              <br />
+              {t('interests')}
+              <b className="blue"> {t('projects_and_discovery')}</b>
+              <br />
+              <br />
+              {t('passion')} <b className="blue">{t('nodejs')}</b> {t('and')} <b className="blue">{t('reactjs')}</b>.
+            </motion.p>
           </Col>
+
           <Col md={4} className="atar d-flex justify-content-center">
             <Tilt>
-              <img
+              <motion.img
                 src={myImg}
-                className={`img-fluid ${imgInView && !isMobile ? 'slide-in-right' : ''}`}
+                className="img-fluid"
                 ref={refImg}
-                alt={t('theo_developer')} 
+                alt={t('theo_developer')}
                 width="300"
                 height="300"
                 decoding="async"
+                initial={{ opacity: 0, x: 50 }}
+                animate={imgInView && !isMobile ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                style={{ opacity: imgInView ? 1 : 0 }}
               />
             </Tilt>
           </Col>
         </Row>
         <Row className="py-5 ">
-          <Reseaux/>
+          <Reseaux />
         </Row>
       </Container>
     </Container>

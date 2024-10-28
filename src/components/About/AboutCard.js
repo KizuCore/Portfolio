@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 import Card from "react-bootstrap/Card";
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import secretSound from '../../Assets/sound/voice.mp3'; 
 import SoundPlayer from "../Utils/SoundPlayer";
@@ -46,8 +47,11 @@ function AboutCard() {
   return (
     <Card className="quote-card-view mt-4">
       <Card.Body>
-        <blockquote
-          className={`blockquote mb-0 background-box ${textInView && !isMobile? 'slide-in-left' : ''}`}
+        <motion.blockquote
+          initial={{ opacity: 0, x: -50 }}
+          animate={textInView && !isMobile ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="blockquote mb-0 background-box"
           ref={refText}
         >
           {/* Présentation */}
@@ -112,7 +116,7 @@ function AboutCard() {
             <li className="about-activity">🐈 • {t('hobby4')}</li>
             <li className="about-activity"><span  onClick={handleSecretClick}>🥂</span> • {t('hobby5')}</li> 
           </ul>
-        </blockquote>
+        </motion.blockquote>
       </Card.Body>
     </Card>
   );

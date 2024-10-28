@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
+import { motion } from 'framer-motion';
 import Particle from "../Utils/Particle";
 import Github from "./Github";
 import Techstack from "./Techstack";
@@ -18,7 +19,7 @@ function About() {
     triggerOnce: true,
     threshold: 0.1,
   });
-  // Vérifier si mobile
+
   const isMobile = window.innerWidth <= 768;
 
   return (
@@ -26,26 +27,43 @@ function About() {
       <Particle />
       <Container>
         <Row className="d-flex align-items-center justify-content-center py-4">
-            <h1 className="pb-3 title-font" style={{ fontSize: "2.5em" }} >
-              {t('about_me')} <strong className="blue-title">{t('i_am')}</strong>
-            </h1>
+          <motion.h1
+            className="pb-3 title-font"
+            style={{ fontSize: "2.5em" }}
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            {t('about_me')} <strong className="blue-title">{t('i_am')}</strong>
+          </motion.h1>
+
           <Col md={8} className="text-center text-md-left">
             <Aboutcard />
           </Col>
-          <Col md={4} className={`d-flex justify-content-center align-items-center about-img ${imgInView && !isMobile ? 'slide-in-right' : ''}`} ref={refImg}>
-            <img 
+
+          <Col md={4} className="d-flex justify-content-center align-items-center about-img" ref={refImg}>
+            <motion.img 
               src={laptopImg} 
               alt={t('about_image_alt', { name: 'Théo Guérin' })} 
               className="img-fluid" 
               loading="lazy" 
-              decoding="async" 
+              decoding="async"
+              initial={{ opacity: 0, x: 50 }}
+              animate={imgInView && !isMobile ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              style={{ opacity: imgInView ? 1 : 0 }}
             />
           </Col>
         </Row>
 
-        <h2 className="project-heading text-center mt-5 title-font mb-5">
+        <motion.h2
+          className="project-heading text-center mt-5 title-font mb-5"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        >
           <strong className="blue-title">{t('professional_skills')}</strong> {t('skills')}
-        </h2>
+        </motion.h2>
         
         {/* Section des niveaux */}
         <Row className="text-center mt-5 mb-4">
@@ -77,11 +95,16 @@ function About() {
         
         <Techstack />
 
-        <h2 className="project-heading text-center mt-5 title-font mb-5">
+        <motion.h2
+          className="project-heading text-center mt-5 title-font mb-5"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+        >
           <strong className="blue-title">{t('tools')}</strong> {t('i_use')}
-        </h2>
-        <Toolstack />
+        </motion.h2>
 
+        <Toolstack />
         <Github />
       </Container>
     </Container>

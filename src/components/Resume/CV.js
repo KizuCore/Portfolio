@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Button, Col } from "react-bootstrap";
+import { Container, Row, Button, Col, Spinner } from "react-bootstrap";
 import Particle from "../Utils/Particle";
 import pdf from "../../Assets/../Assets/pdf/CV-Guerin-Theo.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
@@ -13,6 +13,8 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 function CV() {
   const { t } = useTranslation();
   const [width, setWidth] = useState(window.innerWidth);
+  const [isLoading, setIsLoading] = useState(true); // État pour le chargement du PDF
+  const [error, setError] = useState(null); // État pour les erreurs de chargement
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -53,7 +55,21 @@ function CV() {
       <Row className="justify-content-center">
         <Col md={8} className="d-flex justify-content-center">
           <div className="pdf-container">
-            <Document file={pdf} aria-label={t('cv_alt_description')}>
+            {isLoading && !error && (
+              <div className="d-flex justify-content-center align-items-center" style={{ height: '400px' }}>
+                <Spinner animation="border" role="status" aria-hidden="true" />
+              </div>
+            )}
+            {error && <p className="text-danger">{t('error_loading_pdf')}</p>}
+            <Document
+              file={pdf}
+              onLoadSuccess={() => setIsLoading(false)}
+              onLoadError={(err) => {
+                setError(err);
+                setIsLoading(false);
+              }}
+              aria-label={t('cv_alt_description')}
+            >
               <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
             </Document>
           </div>

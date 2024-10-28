@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { useTranslation } from 'react-i18next';
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Spinner } from "react-bootstrap";
 import '../../Assets/style/Git/Git.css';
 
 // Chargement différé des icônes et de GitHubCalendar
@@ -19,7 +19,7 @@ function Github() {
           <strong className="blue-title">{t('github_profile')}</strong>
         </h2>
         <Col md={6} className="text-center pb-4">
-          <Suspense fallback={<div>Loading GitHub Icon...</div>}>
+          <Suspense fallback={<Spinner animation="border" role="status" />}>
             <a
               href="https://github.com/Theo22100/"
               target="_blank"
@@ -31,7 +31,7 @@ function Github() {
             </a>
           </Suspense>
         </Col>
-        <Suspense fallback={<div>Loading GitHub Calendar...</div>}>
+        <Suspense fallback={<Spinner animation="border" role="status" />}>
           <GitHubCalendar
             username="Theo22100"
             blockSize={15}
@@ -48,7 +48,7 @@ function Github() {
           <strong className="blue-title">{t('gitlab_profile')}</strong>
         </h2>
         <Col md={6} className="text-center">
-          <Suspense fallback={<div>Loading GitLab Icon...</div>}>
+          <Suspense fallback={<Spinner animation="border" role="status" />}>
             <a
               href="https://gitlab.com/Theo35000"
               target="_blank"

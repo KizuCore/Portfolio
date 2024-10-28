@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Spinner } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import "../../Assets/style/About/About.css";
 
@@ -54,14 +54,14 @@ function Techstack() {
                 icon.level === 0 ? t("novice") : icon.level === 1 ? t("intermediate") : icon.level === 2 ? t("advanced") : t("favorite")
               }`}
             >
-              <Suspense fallback={<span className="loading-icon"></span>}>
+              <Suspense fallback={<Spinner animation="border" role="status" />}>
                 <IconComponent aria-label={icon.name} />
               </Suspense>
             </Col>
           );
         })}
       </Row>
-      <Suspense fallback={<div>Loading Tooltip...</div>}>
+      <Suspense fallback={<Spinner animation="border" role="status" />}>
         <ReactTooltip />
       </Suspense>
     </div>

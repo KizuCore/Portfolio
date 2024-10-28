@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Spinner } from "react-bootstrap";
 import '../../Assets/style/About/About.css';
 
 // Chargement différé des icônes
@@ -53,14 +53,14 @@ function Toolstack() {
               className="tech-icons-1"
               data-tip={`${tool.name}`}
             >
-              <Suspense fallback={<span className="loading-icon"></span>}>
+              <Suspense fallback={<Spinner animation="border" role="status" />}>
                 <IconComponent aria-label={tool.name} />
               </Suspense>
             </Col>
           );
         })}
       </Row>
-      <Suspense fallback={<span>Loading Tooltip...</span>}>
+      <Suspense fallback={<Spinner animation="border" role="status" />}>
         <ReactTooltip />
       </Suspense>
     </div>

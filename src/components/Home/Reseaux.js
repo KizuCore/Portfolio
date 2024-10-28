@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { useTranslation } from 'react-i18next';
-import { Col } from "react-bootstrap";
+import { Col, Spinner } from "react-bootstrap";
 import { useInView } from 'react-intersection-observer';
 import '../../Assets/style/Reseaux/Reseaux.css';
 
@@ -31,7 +31,7 @@ function Reseaux() {
                         className="icon-colour home-social-icons"
                         aria-label={t('github_profile2')}
                     >
-                        <Suspense fallback={<span className="loading-icon"></span>}>
+                        <Suspense fallback={<Spinner animation="border" role="status" />}>
                             <AiFillGithub size={55} />
                         </Suspense>
                     </a>
@@ -44,7 +44,7 @@ function Reseaux() {
                         className="icon-colour home-social-icons"
                         aria-label={t('linkedin_profile')}
                     >
-                        <Suspense fallback={<span className="loading-icon"></span>}>
+                        <Suspense fallback={<Spinner animation="border" role="status" />}>
                             <FaLinkedinIn size={55} />
                         </Suspense>
                     </a>
@@ -57,7 +57,7 @@ function Reseaux() {
                         className="icon-colour home-social-icons"
                         aria-label={t('email_me')}
                     >
-                        <Suspense fallback={<span className="loading-icon"></span>}>
+                        <Suspense fallback={<Spinner animation="border" role="status" />}>
                             <AiOutlineMail size={55} />
                         </Suspense>
                     </a>

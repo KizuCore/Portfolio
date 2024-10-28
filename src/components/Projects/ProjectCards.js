@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Spinner } from "react-bootstrap";
 import { useTranslation } from 'react-i18next';
 import '../../Assets/style/Projet/Projet.css';
 
@@ -40,7 +40,7 @@ function ProjectCards(props) {
             const IconComponent = techIcons[tech];
             return (
               <Col key={index} xs={4} md={2} className="tech-icons2" data-tip={`${tech}`}>
-                <Suspense fallback={<span>Loading...</span>}>
+                <Suspense fallback={<Spinner animation="border" role="status" />}>
                   <IconComponent aria-label={tech} />
                 </Suspense>
               </Col>
@@ -52,7 +52,7 @@ function ProjectCards(props) {
           {props.description}
         </Card.Text>
 
-        <Suspense fallback={<span>Loading GitHub...</span>}>
+        <Suspense fallback={<Spinner animation="border" role="status" />}>
           <Button className="button-cv" href={props.ghLink} target="_blank" rel="noopener noreferrer">
             <BsGithub /> &nbsp;
             {props.isGitLab ? "GitLab" : "GitHub"}
@@ -63,7 +63,7 @@ function ProjectCards(props) {
         {"\n"}
         {/* Bouton YouTube si disponible */}
         {!props.isGitLab && props.youtubeLink && (
-          <Suspense fallback={<span>Loading YouTube...</span>}>
+          <Suspense fallback={<Spinner animation="border" role="status" />}>
             <Button
               className="button-youtube"
               href={props.youtubeLink}

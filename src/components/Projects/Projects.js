@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { useTranslation } from 'react-i18next';
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Utils/Particle";
 import '../../Assets/style/About/About.css';
@@ -130,7 +130,7 @@ function Projects() {
           ))}
         </Row>
       </Container>
-      <Suspense fallback={<span>Loading Tooltip...</span>}>
+      <Suspense fallback={<Spinner animation="border" role="status" />}>
         <ReactTooltip />
       </Suspense>
     </Container>

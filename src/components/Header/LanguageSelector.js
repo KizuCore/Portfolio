@@ -2,6 +2,7 @@ import React, { useEffect, Suspense } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useTranslation } from 'react-i18next';
 import '../../Assets/style/Header/header.css';
+import { Spinner } from 'react-bootstrap';
 
 // Chargement différé des composants Flag et FaAngleDown
 const Flag = React.lazy(() => import('react-world-flags'));
@@ -25,7 +26,7 @@ function LanguageSelector() {
   return (
     <Dropdown className="language-selector">
       <Dropdown.Toggle variant="secondary" id="dropdown-basic" aria-label="Language Selector">
-        <Suspense fallback={<span className="loading-icon"></span>}>
+        <Suspense fallback={<Spinner animation="border" role="status" />}>
           <Flag
             code={flagCode}
             height="auto"
@@ -40,13 +41,13 @@ function LanguageSelector() {
 
       <Dropdown.Menu>
         <Dropdown.Item onClick={() => changeLanguage("en")}>
-          <Suspense fallback={<span className="loading-icon"></span>}>
+          <Suspense fallback={<Spinner animation="border" role="status" />}>
             <Flag code="GB" width="25" height="auto" style={{ marginRight: "10px" }} alt={t("flag_en")} />
           </Suspense>
           EN
         </Dropdown.Item>
         <Dropdown.Item onClick={() => changeLanguage("fr")}>
-          <Suspense fallback={<span className="loading-icon"></span>}>
+          <Suspense fallback={<Spinner animation="border" role="status" />}>
             <Flag code="FR" width="25" height="auto" style={{ marginRight: "10px" }} alt={t("flag_fr")} />
           </Suspense>
           FR

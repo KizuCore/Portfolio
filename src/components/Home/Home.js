@@ -23,21 +23,19 @@ function Home() {
       <Container fluid className="about-section pt-0" id="home">
         <Particle />
         <Container className="home-content">
-          <Row className="align-items-center" style={{ paddingBottom: "12em", paddingTop: "6em" }}>
+          <Row className="align-items-center justify-content-center text-center text-md-left" style={{ paddingBottom: "8em", paddingTop: "4em" }}>
             {/* Colonne pour le texte */}
-            <Col md={6} className="home-header d-flex flex-column justify-content-center text-center text-md-left py-5">
+            <Col xs={12} md={6} className="home-header d-flex flex-column justify-content-center text-center text-md-left py-4">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 <h1 className="heading mb-3 title-font">
-                  {t('hello')}{" "}
-                  <span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
+                  {t('hello')}{" "}<span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
                 </h1>
                 <h2 className="heading-name mb-3 title-font">
-                  {t('iam')}
-                  <strong className="blue-title"> {t('name')}</strong>
+                  {t('iam')}<strong className="blue-title"> {t('name')}</strong>
                 </h2>
               </motion.div>
 
@@ -53,7 +51,7 @@ function Home() {
             </Col>
 
             {/* Colonne pour l'image */}
-            <Col md={6} className="d-flex justify-content-center py-5">
+            <Col xs={12} md={6} className="d-flex justify-content-center py-4">
               <Tilt>
                 <motion.img
                   src={myImg}

@@ -60,6 +60,7 @@ function About() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          style={{ fontSize: "2.5em" }}
         >
           <strong className="blue-title">{t('professional_skills')}</strong> {t('skills')}
         </motion.h2>
@@ -99,6 +100,7 @@ function About() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+          style={{ fontSize: "2.5em" }}
         >
           <strong className="blue-title">{t('tools')}</strong> {t('i_use')}
         </motion.h2>

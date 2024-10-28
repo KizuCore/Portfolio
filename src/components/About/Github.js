@@ -15,7 +15,7 @@ function Github() {
     <div>
       {/* Section GitHub */}
       <Row className="justify-content-center mb-4">
-        <h2 className="project-heading mb-4">
+        <h2 className="project-heading mb-4" style={{ fontSize: "2.3em" }}>
           <strong className="blue-title">{t('github_profile')}</strong>
         </h2>
         <Col md={6} className="text-center pb-4">
@@ -44,7 +44,7 @@ function Github() {
 
       {/* Section GitLab */}
       <Row className="justify-content-center my-5">
-        <h2 className="project-heading mb-4">
+        <h2 className="project-heading mb-4"  style={{ fontSize: "2.3em" }}>
           <strong className="blue-title">{t('gitlab_profile')}</strong>
         </h2>
         <Col md={6} className="text-center">

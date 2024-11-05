@@ -23,7 +23,7 @@ function Home() {
       <Container fluid className="about-section pt-0" id="home">
         <Particle />
         <Container className="home-content">
-          <Row className="align-items-center justify-content-center text-center text-md-left" style={{ paddingBottom: "8em", paddingTop: "6em" }}>
+          <Row className="align-items-center justify-content-center text-center text-md-left" style={{ paddingBottom: "12em", paddingTop: "4em" }}>
             {/* Colonne pour le texte */}
             <Col xs={12} md={6} className="home-header d-flex flex-column justify-content-center text-center text-md-left py-5">
               <motion.div

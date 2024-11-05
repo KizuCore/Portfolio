@@ -24,6 +24,8 @@ const techIcons = {
   Swagger: React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiSwagger }))),
   ApiGoogleBooks: React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiGoogle }))),
   Sequelize: React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiSequelize }))),
+  NodeJS: React.lazy(() => import("react-icons/di").then(module => ({ default: module.DiNodejs }))),
+  Axios: React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiAxios }))),
 };
 
 function ProjectCards(props) {

@@ -23,7 +23,7 @@ const projects = [
     titleKey: "portfolio_v2_title",
     descriptionKey: "portfolio_v2_description",
     ghLink: "https://github.com/Theo22100/Portfolio",
-    techStack: ["React", "Bootstrap", "Css"],
+    techStack: ["React", "Bootstrap", "Css", "NodeJS", "Axios"],
   },
   {
     imgPath: apibook,

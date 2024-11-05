@@ -23,7 +23,7 @@ function Home() {
       <Container fluid className="about-section pt-0" id="home">
         <Particle />
         <Container className="home-content">
-          <Row className="align-items-center justify-content-center text-center text-md-left" style={{ paddingBottom: "14em", paddingTop: "10em" }}>
+          <Row className="align-items-center justify-content-center text-center text-md-left" style={{ paddingBottom: "8em", paddingTop: "6em" }}>
             {/* Colonne pour le texte */}
             <Col xs={12} md={6} className="home-header d-flex flex-column justify-content-center text-center text-md-left py-5">
               <motion.div
@@ -51,7 +51,7 @@ function Home() {
             </Col>
 
             {/* Colonne pour l'image */}
-            <Col xs={12} md={6} className="d-flex justify-content-center py-4">
+            <Col xs={12} md={6} className="d-flex justify-content-center align-items-center py-4">
               <Tilt>
                 <motion.img
                   src={myImg}
@@ -59,13 +59,12 @@ function Home() {
                   ref={refImg}
                   alt={t('theo_developer')}
                   width="300"
-                  height="296"
+                  height="300"
                   loading="eager"
                   decoding="sync"
                   initial={{ opacity: 0, x: 50 }}
                   animate={imgInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  style={{ opacity: imgInView ? 1 : 0 }}
                 />
               </Tilt>
             </Col>

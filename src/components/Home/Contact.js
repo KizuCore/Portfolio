@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { Col, Spinner } from "react-bootstrap";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import '../../Assets/style/Reseaux/Reseaux.css';
-import ContactForm from "../Contact/ContactForm";
+import '../../Assets/style/Contact/Contact.css';
+import ContactForm from "./ContactForm";
 
 // Chargement différé des icônes
 const AiFillGithub = React.lazy(() => import("react-icons/ai").then(module => ({ default: module.AiFillGithub })));
 const AiOutlineMail = React.lazy(() => import("react-icons/ai").then(module => ({ default: module.AiOutlineMail })));
 const FaLinkedinIn = React.lazy(() => import("react-icons/fa").then(module => ({ default: module.FaLinkedinIn })));
 
-function Reseaux() {
+function Contact() {
     const { t } = useTranslation();
     const { ref, inView } = useInView({
         triggerOnce: true,
@@ -66,4 +66,4 @@ function Reseaux() {
     );
 }
 
-export default Reseaux;
+export default Contact;

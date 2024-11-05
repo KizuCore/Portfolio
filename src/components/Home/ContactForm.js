@@ -11,6 +11,7 @@ function ContactForm() {
     const [responseVariant, setResponseVariant] = useState(''); // succès ou erreur
     const [hcaptchaToken, setHcaptchaToken] = useState(null); // Stock jeton hCaptcha
     const hcaptchaSiteKey = 'b016c3fe-2d68-429c-a918-c6801962237c'; //Sitekey hcaptcha
+    const AiOutlineMail = React.lazy(() => import("react-icons/ai").then(module => ({ default: module.AiOutlineMail })));
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -68,13 +69,12 @@ function ContactForm() {
                     <p style={{ fontSize: "1.5em" }} className="pb-4">
                         {t('contact')} <span className="blue">{t('contact_me')}</span> !
                     </p>
-
+                    {/* Réponse envoi */}
                     {responseMessage && (
                         <Alert variant={responseVariant} onClose={() => setResponseMessage('')} dismissible>
                             {responseMessage}
                         </Alert>
                     )}
-
                     <Form onSubmit={handleSubmit} className='background-box '>
                         <Row>
                             {/* Champs */}
@@ -136,7 +136,9 @@ function ContactForm() {
                                         {t('sending')}
                                     </>
                                 ) : (
-                                    t('send_message')
+                                    <>
+                                    {t('send_message')} <AiOutlineMail/>
+                                    </>
                                 )}
                             </Button>
                         </div>

@@ -119,7 +119,7 @@
     "email_placeholder": "Enter your email",
     "message": "Message",
     "message_placeholder": "Enter your message",
-    "send_message": "Send Message",
+    "send_message": "Send",
     "sending": "Sending...",
     "message_success": "Message sent successfully!",
     "message_fail": "Failed to send message.",

@@ -120,7 +120,7 @@
     "email_placeholder": "Votre email",
     "message": "Message",
     "message_placeholder": "Votre message",
-    "send_message": "Envoyer mon message",
+    "send_message": "Envoyer",
     "sending": "Envoi...",
     "message_success": "Message envoyé avec succès !",
     "message_fail": "Échec de l'envoi du message.",

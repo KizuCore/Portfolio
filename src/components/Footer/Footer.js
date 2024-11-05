@@ -7,14 +7,14 @@ import "../../Assets/style/Footer/Footer.css";
 
 function Footer() {
   const { t } = useTranslation();
-  let date = new Date();
-  let year = date.getFullYear();
+  const year = new Date().getFullYear();
 
   return (
     <footer className="footer">
       <Container fluid>
-        <Row className="text-center text-md-left">
-          <Col xs="12" md="4" className="footer-copywright py-2">
+        <Row className="text-center align-items-center">
+          {/* Texte de copyright et lien vers GitHub */}
+          <Col xs={12} md={4} className="footer-copywright py-2">
             <h3>
               {t("bytheo1")}{" "}
               <a
@@ -22,47 +22,52 @@ function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t("github_profile_link")}
+                className="footer-link"
               >
                 Theo22100
               </a>
             </h3>
           </Col>
-          <Col xs="12" md="4" className="footer-copywright py-2">
+
+          {/* Copyright */}
+          <Col xs={12} md={4} className="footer-copywright py-2">
             <h3>
               Copyright © {year} - {t("portfolio_theo")}
             </h3>
           </Col>
-          <Col xs="12" md="4" className="footer-body py-2">
-            <ul className="footer-icons">
-              <li className="social-icons-footer">
+
+          {/* Icônes des réseaux sociaux */}
+          <Col xs={12} md={4} className="footer-body py-2">
+            <ul className="footer-icons d-flex justify-content-center justify-content-md-end m-0">
+              <li className="social-icons-footer mx-2">
                 <a
                   href="https://github.com/Theo22100"
-                  style={{ color: "white" }}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={t("github_profile_link")}
+                  className="icon-link"
                 >
                   <AiFillGithub />
                 </a>
               </li>
-              <li className="social-icons-footer">
+              <li className="social-icons-footer mx-2">
                 <a
                   href="https://www.linkedin.com/in/théo-guérin-b20630192/"
-                  style={{ color: "white" }}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={t("linkedin_profile_link")}
+                  className="icon-link"
                 >
                   <FaLinkedinIn />
                 </a>
               </li>
-              <li className="social-icons-footer">
+              <li className="social-icons-footer mx-2">
                 <a
                   href="mailto:theo.guerin35000@gmail.com"
-                  style={{ color: "white" }}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={t("email_link")}
+                  className="icon-link"
                 >
                   <AiOutlineMail />
                 </a>

@@ -4,6 +4,7 @@ import { Col, Spinner } from "react-bootstrap";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import '../../Assets/style/Reseaux/Reseaux.css';
+import ContactForm from "../Contact/ContactForm";
 
 // Chargement différé des icônes
 const AiFillGithub = React.lazy(() => import("react-icons/ai").then(module => ({ default: module.AiFillGithub })));
@@ -34,9 +35,7 @@ function Reseaux() {
     return (
         <Col md={12} className="home-about-social pt-5" ref={ref}>
             <h2 className="blue-title pt-5 pb-3"  style={{ fontSize: "2.6em" }}>{t('social')}</h2>
-            <p style={{ fontSize: "1.5em" }} className="py-4">
-                {t('contact')} <span className="blue">{t('contact_me')}</span> !
-            </p>
+            <ContactForm/>
             {/* GitHub */}
             <ul className="home-about-social-links">
                 <motion.li className="social-icons" custom={0} initial="hidden" animate={inView ? "visible" : "hidden"}variants={iconVariants}>

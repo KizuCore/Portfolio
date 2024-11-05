@@ -35,7 +35,7 @@ function Home() {
                   {t('hello')}{" "}<span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
                 </h1>
                 <h2 className="heading-name mb-3 title-font">
-                  {t('iam')}<strong className="blue-title"> {t('name')}</strong>
+                  {t('iam')}<strong className="blue-title"> {t('nametheo')}</strong>
                 </h2>
               </motion.div>
 

@@ -1,7 +1,7 @@
 {
     "hello": "Bonjour !",
     "iam": "Je m'appelle",
-    "name": "THÉO GUÉRIN",
+    "nametheo": "THÉO GUÉRIN",
     "home": "Accueil",
     "about": "A propos",
     "project": "Projets",
@@ -17,7 +17,7 @@
     "libraries_frameworks": "Librairie & Framework de Javascript",
     "and": "et ",
     "reactjs": "React.js",
-    "social": "RÉSEAUX",
+    "social": "CONTACT",
     "contact": "N'hésitez pas à",
     "contact_me": "me contacter",
     "about_me": "Savoir qui",
@@ -111,5 +111,19 @@
     "seo_twitter_title": "Théo Guérin | Développeur Full-Stack | Portfolio Web",
     "seo_twitter_description": "Découvrez le Portfolio de Théo Guérin. Projets, Contact, et CV.",
     "flag_fr": "Drapeau Français",
-    "flag_en": "Drapeau Royaume-Uni"
+    "flag_en": "Drapeau Royaume-Uni",
+
+    "contact_us": "Discutons-en ensemble",
+    "name": "Nom & Prénom",
+    "name_placeholder": "Votre nom/prénom",
+    "email": "Adresse e-mail",
+    "email_placeholder": "Votre email",
+    "message": "Message",
+    "message_placeholder": "Votre message",
+    "send_message": "Envoyer mon message",
+    "sending": "Envoi...",
+    "message_success": "Message envoyé avec succès !",
+    "message_fail": "Échec de l'envoi du message.",
+    "message_error": "Erreur lors de l'envoi du message. Veuillez réessayer plus tard.",
+    "captcha_required": "Veuillez compléter le captcha !"
 }

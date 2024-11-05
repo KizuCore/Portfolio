@@ -1,7 +1,7 @@
 {
     "hello": "Hello!",
     "iam": "I'm",
-    "name": "THÉO GUÉRIN",
+    "nametheo": "THÉO GUÉRIN",
     "home": "Home",
     "about": "About me",
     "project": "Projects",
@@ -17,7 +17,7 @@
     "libraries_frameworks": "JavaScript libraries and frameworks",
     "and": "and ",
     "reactjs": "React.js",
-    "social": "SOCIAL",
+    "social": "CONTACT",
     "contact": "Feel free to",
     "contact_me": "contact me",
     "about_me": "Know Who",
@@ -111,5 +111,18 @@
     "seo_twitter_title": "Théo Guérin | Full-Stack Developer | Web Portfolio",
     "seo_twitter_description": "Explore Théo Guérin's Portfolio. Projects, Contact, and Resume.",
     "flag_fr": "French Flag",
-    "flag_en": "UK Flag"
+    "flag_en": "UK Flag",
+    "contact_us": "Contact Us",
+    "name": "Name",
+    "name_placeholder": "Enter your name",
+    "email": "Email",
+    "email_placeholder": "Enter your email",
+    "message": "Message",
+    "message_placeholder": "Enter your message",
+    "send_message": "Send Message",
+    "sending": "Sending...",
+    "message_success": "Message sent successfully!",
+    "message_fail": "Failed to send message.",
+    "message_error": "Error sending message. Please try again later.",
+    "captcha_required": "Please complete the captcha!"
 }

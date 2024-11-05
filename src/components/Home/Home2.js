@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import myImg from "../../Assets/images/home/avatar.webp";
 import Tilt from "react-parallax-tilt";
 import { useInView } from 'react-intersection-observer';
-import Reseaux from "./Reseaux";
+import Contact from "./Contact";
 import '../../Assets/style/Home/Home.css'; 
 
 function Home2() {
@@ -29,23 +29,26 @@ function Home2() {
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
-        <Row className="d-flex align-items-center">
-          <Col md={8} className="home-about-description">
+        {/* Introduction */}
+        <Row className="justify-content-center text-center">
+          <motion.div
+            ref={titleRef}
+            initial={{ opacity: 0, y: -20 }}
+            animate={titleInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            style={{ opacity: titleInView ? 1 : 0 }}
+          >
+            <h2 style={{ fontSize: "2.6em" }}>
+              <span className="blue-title" style={{ fontFamily: 'Permanent Marker, cursive' }}>
+                {t('introduction')}
+              </span>
+            </h2>
+          </motion.div>
+        </Row>
+        {/* Ligne pour texte et image */}
+        <Row className="d-flex align-items-center justify-content-center p-0 m-0">
+          <Col md={6} className="d-flex justify-content-center align-items-center home-about-description">
             <motion.div
-              ref={titleRef}
-              initial={{ opacity: 0, x: -50 }}
-              animate={titleInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              style={{ opacity: titleInView ? 1 : 0 }}
-            >
-              <h2 style={{ fontSize: "2.6em" }}>
-                <span className="blue-title" style={{ fontFamily: 'Permanent Marker, cursive' }}>
-                  {t('introduction')}
-                </span>
-              </h2>
-            </motion.div>
-
-            <motion.p
               ref={paragraphRef}
               initial={{ opacity: 0, x: -50 }}
               animate={paragraphInView ? { opacity: 1, x: 0 } : {}}
@@ -64,10 +67,11 @@ function Home2() {
               <br />
               <br />
               {t('passion')} <b className="blue">{t('nodejs')}</b> {t('and')} <b className="blue">{t('reactjs')}</b>.
-            </motion.p>
+            </motion.div>
           </Col>
 
-          <Col md={4} className="atar d-flex justify-content-center">
+          {/* Image */}
+          <Col md={4} className="d-flex justify-content-center align-items-center">
             <Tilt>
               <motion.img
                 src={myImg}
@@ -85,8 +89,10 @@ function Home2() {
             </Tilt>
           </Col>
         </Row>
-        <Row className="py-5 ">
-          <Reseaux />
+        
+        {/* Réseaux sociaux */}
+        <Row className="py-5">
+          <Contact />
         </Row>
       </Container>
     </Container>

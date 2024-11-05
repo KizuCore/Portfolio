@@ -98,7 +98,7 @@ function Gojo() {
                         >
                             <iframe
                                 className="embed-responsive-item"
-                                src="https://www.youtube.com/embed/JTGNRJEptc0?autoplay=1"
+                                src="https://www.youtube.com/embed/JTGNRJEptc0"
                                 title="Sukuna VS Gojo"
                                 allowFullScreen
                             ></iframe>

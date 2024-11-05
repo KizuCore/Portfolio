@@ -61,7 +61,7 @@ function RouteSorciere() {
                                 <iframe
                                     className="embed-responsive-item"
                                     style={{ width: "100%", height: "auto", aspectRatio: "16/9" }}
-                                    src="https://www.youtube.com/embed/_PtDZLqqNgQ?autoplay=1" 
+                                    src="https://www.youtube.com/embed/_PtDZLqqNgQ" 
                                     title="Route Sorcière Agatha"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen

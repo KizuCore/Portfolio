@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../../Assets/style/Contact/Contact.css';
 import {
   Form,
   Button,
@@ -10,12 +11,14 @@ import {
 } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { AiOutlineMail } from "react-icons/ai";
 
 function ContactForm() {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -23,11 +26,6 @@ function ContactForm() {
   const [responseVariant, setResponseVariant] = useState(""); // succès ou erreur
   const [hcaptchaToken, setHcaptchaToken] = useState(null); // Stock jeton hCaptcha
   const hcaptchaSiteKey = "b016c3fe-2d68-429c-a918-c6801962237c"; //Sitekey hcaptcha
-  const AiOutlineMail = React.lazy(() =>
-    import("react-icons/ai").then((module) => ({
-      default: module.AiOutlineMail,
-    }))
-  );
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,7 +62,7 @@ function ContactForm() {
       if (data.success) {
         setResponseMessage(t("message_success"));
         setResponseVariant("success");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", subject: "", message: "" });
         setHcaptchaToken(null);
       } else {
         setResponseMessage(t("message_fail"));
@@ -109,6 +107,7 @@ function ContactForm() {
                     autoComplete="off"
                     required
                     placeholder={t("name_placeholder")}
+                className="custom-form"
                   />
                 </Form.Group>
               </Col>
@@ -124,10 +123,24 @@ function ContactForm() {
                     onChange={handleChange}
                     required
                     placeholder={t("email_placeholder")}
+                className="custom-form"
                   />
                 </Form.Group>
               </Col>
             </Row>
+            <Form.Group controlId="formSubject" className="mb-3">
+              <Form.Label>{t("subject")}</Form.Label>
+              <Form.Control
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                autoComplete="off"
+                required
+                placeholder={t("subject_placeholder")}
+                className="custom-form"
+              />
+            </Form.Group>
 
             <Form.Group controlId="formMessage" className="mb-4">
               <Form.Label>{t("message")}</Form.Label>
@@ -140,6 +153,7 @@ function ContactForm() {
                 rows={4}
                 required
                 placeholder={t("message_placeholder")}
+                className="custom-form"
               />
             </Form.Group>
 

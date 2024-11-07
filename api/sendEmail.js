@@ -6,7 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // Envoie mail avec vérif hCaptcha
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { name, email, message, hcaptchaToken } = req.body;
+    const { name, email, subject, message, hcaptchaToken } = req.body;
 
     // Vérif token hCaptcha
     try {
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
       await resend.emails.send({
         from: 'onboarding@resend.dev',
         to: 'theo.guerin35000@gmail.com',
-        subject: `Portfolio Message | ${name}`,
+        subject: `Portfolio | ${subject}`,
         html: `<p><strong>Nom :</strong> ${name}</p>
                <p><strong>Email :</strong> ${email}</p>
                <p><strong>Message :</strong> ${message}</p>`,

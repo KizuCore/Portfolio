@@ -45,7 +45,7 @@ button:focus {
 }
 
 .button-youtube, .button-cv {
-  border-radius: 50px !important;
+  border-radius: 15px !important;
   color: white !important;
   font-size: 1.1em !important;
   max-width: 250px !important;
@@ -71,7 +71,7 @@ button:focus {
 
 .button-cv:hover {
   background-color: #d8e6ff !important;
-  border: 2px solid #1c53b8 !important;
+  border: 1px solid #1c53b8 !important;
   color: #1c53b8 !important;
 }
 
@@ -109,7 +109,7 @@ button:focus {
 
 /* Background Box */
 .background-box {
-  background-color: rgba(255, 255, 255, 0.226) !important;
+  background-color: rgba(71, 70, 70, 0.267) !important;
   padding: 2em !important;
   border: 2px solid rgba(255, 255, 255, 0.6) !important;
   border-radius: 15px !important;

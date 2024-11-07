@@ -47,3 +47,18 @@
 .social-icons {
   display: inline-block !important;
 }
+
+
+.custom-form {
+  background-color: #3d3a42; 
+  border: 1px solid #888888; 
+  padding: 10px;
+}
+
+.custom-form::placeholder {
+  color: #cccccc; 
+}
+
+
+
+

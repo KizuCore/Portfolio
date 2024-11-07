@@ -117,6 +117,8 @@
     "name_placeholder": "Enter your name",
     "email": "Email",
     "email_placeholder": "Enter your email",
+    "subject": "Subject",
+    "subject_placeholder": "Enter your Subject",
     "message": "Message",
     "message_placeholder": "Enter your message",
     "send_message": "Send",

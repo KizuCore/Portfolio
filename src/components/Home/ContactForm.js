@@ -158,7 +158,7 @@ function ContactForm() {
             </Form.Group>
 
             {/* hCaptcha */}
-            <div className="mb-4">
+            <div className="captcha-container mb-4">
               <HCaptcha
                 sitekey={hcaptchaSiteKey}
                 onVerify={handleHcaptchaVerify}

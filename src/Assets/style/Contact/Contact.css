@@ -59,6 +59,32 @@
   color: #cccccc; 
 }
 
+.custom-form:hover, .custom-form:focus {
+  background-color: #504d57;  
+  transition: all 0.3s ease-in-out !important;
+}
 
+/* Caotcha */
+
+.captcha-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Mobile captcha */
+@media (max-width: 768px) {
+  .captcha-container iframe {
+    transform: scale(0.85); 
+    transform-origin: center; 
+  }
+}
+
+/* Mobile captcha */
+@media (max-width: 480px) {
+  .captcha-container iframe {
+    transform: scale(0.75); 
+    transform-origin: center;
+  }
+}
 
 

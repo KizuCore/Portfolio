@@ -66,12 +66,12 @@ button:focus {
 
 .button-cv {
   background-color: #1c53b8 !important;
-  border: 1px solid white !important;
+  border: 2px solid white !important;
 }
 
 .button-cv:hover {
   background-color: #d8e6ff !important;
-  border: 1px solid #1c53b8 !important;
+  border: 2px solid #1c53b8 !important;
   color: #1c53b8 !important;
 }
 

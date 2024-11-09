@@ -104,7 +104,6 @@ function ContactForm() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    autoComplete="off"
                     required
                     placeholder={t("name_placeholder")}
                 className="custom-form"
@@ -119,7 +118,6 @@ function ContactForm() {
                     type="email"
                     name="email"
                     value={formData.email}
-                    autoComplete="off"
                     onChange={handleChange}
                     required
                     placeholder={t("email_placeholder")}
@@ -135,7 +133,6 @@ function ContactForm() {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                autoComplete="off"
                 required
                 placeholder={t("subject_placeholder")}
                 className="custom-form"
@@ -149,7 +146,6 @@ function ContactForm() {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                autoComplete="off"
                 rows={4}
                 required
                 placeholder={t("message_placeholder")}

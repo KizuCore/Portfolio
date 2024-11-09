@@ -52,21 +52,30 @@
 .custom-form {
   background-color: #3d3a42; 
   border: 1px solid #888888; 
-  color: #cccccc; 
   padding: 10px;
 }
 
 .custom-form::placeholder {
-  color: #cccccc; 
+  background-color: #3d3a42; 
+  color: #cccccc !important; 
 }
 
 .custom-form:hover, .custom-form:focus {
   background-color: #504d57;  
   transition: all 0.3s ease-in-out !important;
-  color: #cccccc; 
+  color: #cccccc !important; 
+}
+.custom-form,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  background-color: #3d3a42 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #3d3a42 inset;
+  -webkit-text-fill-color: #cccccc;
+  color: #cccccc !important; 
 }
 
-/* Caotcha */
+/* Captcha */
 
 .captcha-container {
   display: flex;

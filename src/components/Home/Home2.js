@@ -2,11 +2,11 @@ import React from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from 'framer-motion';
-import myImg from "../../Assets/images/home/avatar.webp";
+import myImg from "@image/home/avatar.webp";
 import Tilt from "react-parallax-tilt";
 import { useInView } from 'react-intersection-observer';
 import Contact from "./Contact";
-import '../../Assets/style/Home/Home.css'; 
+import '@style/Home/Home.css'; 
 
 function Home2() {
   const { t } = useTranslation();

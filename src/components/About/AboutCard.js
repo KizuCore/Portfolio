@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import Card from "react-bootstrap/Card";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import secretSound from '../../Assets/sound/voice.mp3'; 
+import secretSound from '@sound/voice.mp3'; 
 import SoundPlayer from "../Utils/SoundPlayer";
-import '../../Assets/style/About/About.css'; 
+import '@style/About/About.css'; 
 
 function AboutCard() {
   const { t } = useTranslation();

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import logo from "../../../Assets/images/logo.webp";
-import logoWhite from "../../../Assets/images/logo_white.webp"; 
-import '../../../Assets/style/Easter/style_easter.css'; 
-import '../../../Assets/style/Header/header.css';
+import logo from "@image/logo.webp";
+import logoWhite from "@image/logo_white.webp"; 
+import '@style/Easter/style_easter.css'; 
+import '@style/Header/header.css';
 
 function LogoImage({ isAnimating, t }) {
   const [showWhiteLogo, setShowWhiteLogo] = useState(false);

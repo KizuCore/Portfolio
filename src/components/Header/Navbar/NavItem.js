@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import '../../../Assets/style/Header/header.css';
+import '@style/Header/header.css';
 
 function NavItem({ to, icon, label, onClick, ariaLabel }) {
   return (

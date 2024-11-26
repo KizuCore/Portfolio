@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../../Assets/style/Contact/Contact.css';
+import '@style/Contact/Contact.css';
 import {
   Form,
   Button,

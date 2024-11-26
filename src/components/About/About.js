@@ -6,11 +6,11 @@ import Particle from "../Utils/Particle";
 import Github from "./Github";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
-import laptopImg from "../../Assets/images/about/about.webp";
+import laptopImg from "@image/about/about.webp";
 import Toolstack from "./Toolstack";
 import LevelCircle from "./Utils/LevelCircle"; 
 import { useInView } from 'react-intersection-observer';
-import '../../Assets/style/About/About.css'; 
+import '@style/About/About.css'; 
 
 function About() {
   const { t } = useTranslation();

@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Col, Row, Spinner } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import "../../Assets/style/About/About.css";
+import "@style/About/About.css";
 
 // Chargement différé des icônes
 const icons = [

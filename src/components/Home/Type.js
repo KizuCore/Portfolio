@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
 import Typewriter from "typewriter-effect";
-import '../../Assets/style/Home/Home.css'; 
+import '@style/Home/Home.css'; 
 
 function Type() {
   const { t } = useTranslation();

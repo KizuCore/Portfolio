@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { useTranslation } from 'react-i18next';
 import { Row, Col, Spinner } from "react-bootstrap";
-import '../../Assets/style/Git/Git.css';
+import '@style/Git/Git.css';
 
 // Chargement différé des icônes et de GitHubCalendar
 const FaGitlab = React.lazy(() => import("react-icons/fa").then(module => ({ default: module.FaGitlab })));

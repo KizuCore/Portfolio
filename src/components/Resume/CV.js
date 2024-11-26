@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Button, Col, Spinner } from "react-bootstrap";
 import Particle from "../Utils/Particle";
-import pdf from "../../Assets/../Assets/pdf/CV-Guerin-Theo.pdf";
+import pdf from "@pdf/CV-Guerin-Theo.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import { useTranslation } from 'react-i18next';
-import '../../Assets/style/CV/CV.css'; 
+import '@style/CV/CV.css'; 
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 

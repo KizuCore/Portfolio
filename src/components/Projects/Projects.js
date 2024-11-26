@@ -4,15 +4,15 @@ import { Container, Row, Col, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Utils/Particle";
-import "../../Assets/style/About/About.css";
-import lemonmaze from "../../Assets/images/Projects/LemonMaze.webp";
-import cosmiclink from "../../Assets/images/Projects/CosmicLink.webp";
-import chrono from "../../Assets/images/Projects/chrono.webp";
-import tboi from "../../Assets/images/Projects/TBOI.webp";
-import breizhcoin from "../../Assets/images/Projects/breizhcoin.webp";
-import portfolio from "../../Assets/images/Projects/portfolio.webp";
-import portfoliov2 from "../../Assets/images/Projects/portfoliov2.webp";
-import apibook from "../../Assets/images/Projects/apibook.webp";
+import "@style/About/About.css";
+import lemonmaze from "@image/Projects/LemonMaze.webp";
+import cosmiclink from "@image/Projects/CosmicLink.webp";
+import chrono from "@image/Projects/chrono.webp";
+import tboi from "@image/Projects/TBOI.webp";
+import breizhcoin from "@image/Projects/breizhcoin.webp";
+import portfolio from "@image/Projects/portfolio.webp";
+import portfoliov2 from "@image/Projects/portfoliov2.webp";
+import apibook from "@image/Projects/apibook.webp";
 
 const ReactTooltip = React.lazy(() => import("react-tooltip"));
 

@@ -1,7 +1,7 @@
 import React, { useEffect, Suspense } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useTranslation } from 'react-i18next';
-import '../../Assets/style/Header/header.css';
+import '@style/Header/header.css';
 import { Spinner } from 'react-bootstrap';
 
 // Chargement différé des composants Flag et FaAngleDown

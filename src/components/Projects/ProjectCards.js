@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Row, Col, Spinner } from "react-bootstrap";
 import { useTranslation } from 'react-i18next';
-import '../../Assets/style/Projet/Projet.css';
+import '@style/Projet/Projet.css';
 
 // Chargement différé des icônes
 const BsGithub = React.lazy(() => import("react-icons/bs").then(module => ({ default: module.BsGithub })));

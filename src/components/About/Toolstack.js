@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Col, Row, Spinner } from "react-bootstrap";
-import '../../Assets/style/About/About.css';
+import '@style/About/About.css';
 
 // Chargement différé des icônes
 const SiVisualstudiocode = React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiVisualstudiocode })));

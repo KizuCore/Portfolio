@@ -9,8 +9,8 @@ import { CgFileDocument } from "react-icons/cg";
 import LanguageSelector from "../LanguageSelector";
 import Logo from "../Logo/LogoContainer";
 import NavItem from "./NavItem";
-import '../../../Assets/style/Easter/style_easter.css'; 
-import '../../../Assets/style/Header/header.css';
+import '@style/Easter/style_easter.css'; 
+import '@style/Header/header.css';
 
 // Constantes de timing
 const FAST_CLICK_THRESHOLD = 500; // 0.5s = clic rapide

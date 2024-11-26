@@ -2,12 +2,12 @@ import React from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from 'framer-motion';
-import myImg from "../../Assets/images/logo_300.webp";
+import myImg from "@image/logo_300.webp";
 import Tilt from "react-parallax-tilt";
 import Particle from "../Utils/Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
-import '../../Assets/style/Home/Home.css'; 
+import '@style/Home/Home.css'; 
 import { useInView } from 'react-intersection-observer';
 
 function Home() {

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Col, Spinner } from "react-bootstrap";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import '../../Assets/style/Contact/Contact.css';
+import '@style/Contact/Contact.css';
 import ContactForm from "./ContactForm";
 
 // Chargement différé des icônes

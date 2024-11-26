@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Container, Row, Col } from "react-bootstrap";
 import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-import "../../Assets/style/Footer/Footer.css";
+import "@style/Footer/Footer.css";
 
 function Footer() {
   const { t } = useTranslation();

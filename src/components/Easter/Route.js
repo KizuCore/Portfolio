@@ -29,13 +29,11 @@ function RouteSorciere() {
                                 opacity: 0,
                                 scale: 0.3,
                                 rotate: 720,
-                                filter: "blur(20px)", // Initial blur
                             }}
                             animate={{
                                 opacity: 1,
                                 scale: 1,
                                 rotate: 0,
-                                filter: "blur(0px)", 
                                 y: [0, -10, 0], 
                             }}
                             transition={{
@@ -54,8 +52,6 @@ function RouteSorciere() {
                             }}
                         >
                             <motion.div
-                                initial={{ filter: "blur(20px)" }}
-                                animate={{ filter: "blur(0px)" }}
                                 transition={{ duration: 1.5, ease: "easeOut" }}
                             >
                                 <iframe

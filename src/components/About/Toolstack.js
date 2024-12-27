@@ -17,6 +17,7 @@ const SiWireshark = React.lazy(() => import("react-icons/si").then(module => ({ 
 const SiAmazonaws = React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiAmazonaws })));
 const SiMicrosoftexcel = React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiMicrosoftexcel })));
 const SiAxios = React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiAxios })));
+const SiFigma = React.lazy(() => import("react-icons/si").then(module => ({ default: module.SiFigma })));
 
 // Chargement différé de ReactTooltip
 const ReactTooltip = React.lazy(() => import("react-tooltip"));
@@ -37,6 +38,7 @@ const tools = [
   { component: SiAmazonaws, name: "AWS" },
   { component: SiMicrosoftexcel, name: "Excel" },
   { component: SiAxios, name: "Axios" },
+  { component: SiFigma, name: "Figma" },
 ];
 
 function Toolstack() {

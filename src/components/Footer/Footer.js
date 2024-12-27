@@ -32,7 +32,7 @@ function Footer() {
           {/* Copyright */}
           <Col xs={12} md={4} className="footer-copywright py-2">
             <h3>
-              Copyright © {year} - {t("portfolio_theo")}
+              Copyright © 2024-{year} - {t("portfolio_theo")}
             </h3>
           </Col>
 

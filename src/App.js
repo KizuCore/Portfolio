@@ -55,7 +55,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/cv" element={<CV />} />
             <Route path="/gojo" element={<Gojo />} />
-            <Route path="/route" element={<RouteSecret />} />
+            <Route path="/arcane" element={<RouteSecret />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Suspense>

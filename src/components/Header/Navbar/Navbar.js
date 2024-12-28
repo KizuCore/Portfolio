@@ -39,7 +39,7 @@ function useLogoNavigation(navigate) {
     clickTimeoutRef.current = setTimeout(() => {
       setIsLongClick(true); // Clic maintenu
       redirectTimeoutRef.current = setTimeout(() => {
-        navigate("/route"); // Redirection après 9.5s pour long clic
+        navigate("/arcane"); // Redirection après 9.5s pour long clic
       }, LONG_CLICK_REDIRECT_DELAY);
     }, FAST_CLICK_THRESHOLD);
   };

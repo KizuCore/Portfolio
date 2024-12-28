@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Particle from "../Utils/Particle";
 import { motion } from "framer-motion";
-
-function RouteSorciere() {
+import video from "@media/secret.mp4"
+function RouteSecret() {
     const [preloading, setPreloading] = useState(true);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ function RouteSorciere() {
                 <Container className="d-flex justify-content-center align-items-center vh-100">
                     {preloading ? (
                         <div className="preload-message title-font" style={{ fontSize: "2.2em" }}>
-                            Sonne, Sonne, le retour, des sorcières sur la route...
+                            Powder & Ekko...
                         </div>
                     ) : (
                         <motion.div
@@ -61,8 +61,8 @@ function RouteSorciere() {
                                 <iframe
                                     className="embed-responsive-item"
                                     style={{ width: "100%", height: "auto", aspectRatio: "16/9" }}
-                                    src="https://www.youtube.com/embed/_PtDZLqqNgQ" 
-                                    title="Route Sorcière Agatha"
+                                    src= {video}
+                                    title="Ma meilleure ennemie - Pomme & Stromae"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
@@ -75,4 +75,4 @@ function RouteSorciere() {
     );
 }
 
-export default RouteSorciere;
+export default RouteSecret;

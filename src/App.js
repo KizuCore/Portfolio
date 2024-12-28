@@ -18,7 +18,7 @@ const About = lazy(() => import("./components/About/About"));
 const Projects = lazy(() => import("./components/Projects/Projects"));
 const CV = lazy(() => import("./components/Resume/CV"));
 const Gojo = lazy(() => import("./components/Easter/Gojo"));
-const RouteSorciere = lazy(() => import("./components/Easter/Route"));
+const RouteSecret = lazy(() => import("./components/Easter/Route"));
 
 // Code Konami
 function KonamiComponent() {
@@ -55,7 +55,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/cv" element={<CV />} />
             <Route path="/gojo" element={<Gojo />} />
-            <Route path="/route" element={<RouteSorciere />} />
+            <Route path="/route" element={<RouteSecret />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Suspense>

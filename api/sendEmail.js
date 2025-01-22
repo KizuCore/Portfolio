@@ -7,6 +7,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { name, email, subject, message, hcaptchaToken } = req.body;
+    const ip = req.headers['x-forwarded-for']?.split(',')[0] || req.connection.remoteAddress;
 
     // Vérif token hCaptcha
     try {
@@ -34,7 +35,8 @@ export default async function handler(req, res) {
         subject: `Portfolio | ${subject}`,
         html: `<p><strong>Nom :</strong> ${name}</p>
                <p><strong>Email :</strong> ${email}</p>
-               <p><strong>Message :</strong> ${message}</p>`,
+               <p><strong>Message :</strong> ${message}</p>
+               <p><strong>Adresse IP :</strong> ${ip}</p>`,
       });
 
       return res.status(200).json({ success: true, message: 'Email sent successfully' });

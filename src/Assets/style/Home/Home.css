@@ -83,20 +83,20 @@
 
 .Typewriter__wrapper {
   font-size: 2.2em !important;
-  color: #4d99fd !important;
-  font-weight: 600 !important;
+  font-weight: 200 !important;
+  color: #276DEE !important;
+  font-family: 'Courier Prime', serif  !important;
   min-height: 60px !important;
 }
 
 .Typewriter__cursor {
-  font-size: 2.4em !important;
-  color: #39a6d8 !important;
+  font-size: 1.8em !important;
+  color: #276DEE !important;
 }
 
 @media (max-width: 767px) {
   .Typewriter__wrapper {
     font-size: 1.8em !important;
-    font-weight: 500 !important;
 
     display: flex;
     justify-content: center;

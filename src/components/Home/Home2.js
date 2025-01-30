@@ -39,7 +39,7 @@ function Home2() {
             style={{ opacity: titleInView ? 1 : 0 }}
           >
             <h2 style={{ fontSize: "2.6em" }}>
-              <span className="blue-title" style={{ fontFamily: 'Permanent Marker, cursive' }}>
+              <span className="blue-title" style={{ fontFamily: 'Montserrat, serif'  }}>
                 {t('introduction')}
               </span>
             </h2>

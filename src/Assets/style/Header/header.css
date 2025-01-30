@@ -7,7 +7,7 @@
   position: relative;
   display: inline-block;
   background: transparent !important;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Montserrat', serif  !important;
 }
 
 .dropdown-toggle:hover {
@@ -180,7 +180,8 @@
 
 .nav-link {
   padding: 0.8rem 1rem !important;
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Montserrat', serif  !important;
+  font-weight: 500;
 }
 
 @media (max-width: 767px) {

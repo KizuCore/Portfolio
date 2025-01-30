@@ -6,7 +6,7 @@ import myImg from "@image/logo_300.webp";
 import Tilt from "react-parallax-tilt";
 import Particle from "../Utils/Particle";
 import Home2 from "./Home2";
-import Type from "./Type";
+import TypeDev from "./Type";
 import '@style/Home/Home.css'; 
 import { useInView } from 'react-intersection-observer';
 
@@ -47,7 +47,7 @@ function Home() {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
                 className="pt-3 pb-5 blue-title d-flex justify-content-center align-items-center"
               >
-                <Type />
+                <TypeDev />
               </motion.div>
             </Col>
 

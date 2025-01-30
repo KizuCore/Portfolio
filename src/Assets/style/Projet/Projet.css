@@ -11,7 +11,7 @@
 .project-heading {
     color: white !important;
     font-size: 2.3em !important;
-    font-weight: 500 !important;
+    font-weight: 500;
     padding-top: 10px !important;
 }
 

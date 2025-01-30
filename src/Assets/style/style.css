@@ -17,16 +17,19 @@ body {
 
 .blue-title {
   color: #276DEE !important;
-  font-family: 'Permanent Marker', cursive !important;
+  font-family: 'Montserrat', serif  !important;
+  font-weight: 700;
 }
 
 .light-blue-title {
   color: #5c92f5 !important;
-  font-family: 'Permanent Marker', cursive !important;
+  font-family: 'Montserrat', serif  !important;
+  font-weight: 700;
 }
 
 .title-font {
-  font-family: 'Permanent Marker', cursive !important;
+  font-family: 'Montserrat', serif !important;
+  font-weight: 700;
 }
 
 .blue {

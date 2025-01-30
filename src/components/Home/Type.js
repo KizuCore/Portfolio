@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import Typewriter from "typewriter-effect";
 import '@style/Home/Home.css'; 
 
-function Type() {
+function TypeDev() {
   const { t } = useTranslation();
 
   return (
-    <div aria-live="polite">
+    <div aria-live="polite" className="typedev">
       {/* SEO */}
       <span style={{ display: "none" }}>
         Fullstack Developer, Frontend Developer, Backend Developer
@@ -23,10 +23,11 @@ function Type() {
           autoStart: true,
           loop: true,
           deleteSpeed: 50,
+          
         }}
       />
     </div>
   );
 }
 
-export default Type;
+export default TypeDev;

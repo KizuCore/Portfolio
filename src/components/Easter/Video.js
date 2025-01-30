@@ -22,7 +22,7 @@ function VideoPopup() {
       {/* Modal pour afficher vidéo */}
       <Modal show={showModal} onHide={handleClose} size="lg" centered>
         <Modal.Header closeButton className="modal-header-grey">
-          <Modal.Title className='title-font'>Kapaii ?</Modal.Title>
+          <Modal.Title className='title-font-easter'>Bizarre...</Modal.Title>
         </Modal.Header>
         <Modal.Body className='modal-body-grey'>
           <div className="embed-responsive embed-responsive-16by9">

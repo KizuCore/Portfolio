@@ -20,7 +20,7 @@ function RouteSecret() {
 
                 <Container className="d-flex justify-content-center align-items-center vh-100">
                     {preloading ? (
-                        <div className="preload-message title-font" style={{ fontSize: "2.2em" }}>
+                        <div className="preload-message title-font-easter" style={{ fontSize: "2.2em" }}>
                             Powder & Ekko...
                         </div>
                     ) : (

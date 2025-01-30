@@ -32,6 +32,9 @@ body {
   font-weight: 700;
 }
 
+.title-font-easter {
+  font-family: 'Permanent Marker', cursive !important;
+}
 .blue {
   color: #88b9f8
 }

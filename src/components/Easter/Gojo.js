@@ -36,7 +36,7 @@ function Gojo() {
 
                 <Container className="d-flex-center">
                     {preloading ? (
-                        <div className="preload-message title-font blue">
+                        <div className="preload-message title-font-easter blue">
                             Nah, I'd win...
                         </div>
                     ) : !showVideo ? (

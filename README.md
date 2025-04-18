@@ -7,7 +7,7 @@
 
 ## Technologies utilisées
 
-- **React.js** : Framework JavaScript pour la création d'interfaces utilisateur.
+- **React** : Framework pour la création d'interfaces utilisateur.
 - **Bootstrap** : Framework CSS pour un design réactif.
 - **CSS3** : Feuilles de style pour la mise en forme.
 - **Vercel** : Hébergement et déploiement de l'application.

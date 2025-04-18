@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import logo from "@image/LogoDev.svg";
-import logoWhite from "@image/LogoDevWhite.svg"; 
+import logo from "@image/logodev.svg";
+import logoWhite from "@image/logodevwhite.svg"; 
 import '../../../assets/styles/Easter/style_easter.css'; 
 import '../../../assets/styles/Header/header.css';
 

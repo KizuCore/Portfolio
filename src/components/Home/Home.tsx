@@ -2,7 +2,7 @@ import { JSX } from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from 'framer-motion';
-import LogoDeveloper from "@image/logoDev.svg";
+import LogoDeveloper from "@image/logodev.svg";
 import Tilt from "react-parallax-tilt";
 import Particle from "../Utils/Particle.js";
 import Home2 from "./Home2.tsx";

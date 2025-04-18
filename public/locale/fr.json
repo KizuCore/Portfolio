@@ -31,8 +31,8 @@
     "current_position1": "Je suis un",
     "current_position2": ", actuellement en",
     "current_position3": ", en alternance.",
-    "developper23": " développeur web de 23 ans",
-    "firstmaster": "première année de Master Développement web Full-Stack",
+    "developperAge": " développeur web de 24 ans",
+    "firstmaster": "première année de MBA Développement web Full-Stack",
     "qualifications": "J'ai actuellement :",
     "degree1": "Licence Informatique-Electronique (Rennes ISTIC)",
     "degree2": "Bachelor Développeur-Web (Rennes MyDigitalSchool)",
@@ -65,6 +65,7 @@
     "cv": "CV",
     "bytheo1": "Par ",
     "fullstack_developer": "Développeur Web Full-Stack",
+    "fullstack_developer_phone": "Développeur Web \nFull-Stack",
     "frontend_developer": "Développeur Web Front",
     "backend_developer": "Développeur Web Back",
     "github_profile": "Profil GitHub",
@@ -72,7 +73,7 @@
     "portfolio_v2_title": "Portfolio",
     "portfolio_v2_description": "Découvrez mon portfolio multilangue, avec une présentation personnelle, mon CV et les moyens de me contacter. Vous y trouverez des informations sur mes loisirs, les langages que je maîtrise et utilise, ainsi que les projets sur lesquels j'ai travaillé.",
     "library_title": "Application Librairie",
-    "library_description": "Projet de Master, je devais faire une application web avec un back et un front pour une Librairie, avec système de réservation, voir le READ.ME .",
+    "library_description": "Projet de MBA, je devais faire une application web avec un back et un front pour une Librairie, avec système de réservation, voir le READ.ME .",
     "rennes": "Rennes, en France",
     "gitlab_profile": "Profil GitLab",
     "novice": "Niveau Novice",
@@ -126,5 +127,7 @@
     "message_success": "Message envoyé avec succès !",
     "message_fail": "Échec de l'envoi du message.",
     "message_error": "Erreur lors de l'envoi du message. Veuillez réessayer plus tard.",
-    "captcha_required": "Veuillez compléter le captcha !"
+    "captcha_required": "Veuillez compléter le captcha !",
+    "error_loading_pdf": "Erreur lors du chargement du PDF. Veuillez réessayer plus tard.",
+    "cv_alt_description": "CV de Théo Guérin"
 }

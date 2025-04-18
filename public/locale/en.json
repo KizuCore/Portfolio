@@ -30,8 +30,8 @@
     "from": ", and I live in ",
     "current_position1": "I'm a ",
     "current_position2": ", currently in my",
-    "developper23": "23-year-old web developer",
-    "firstmaster": "first year of a Master's program in Full-Stack Web Development",
+    "developperAge": "24-year-old web developer",
+    "firstmaster": "first year of a MBA's program in Full-Stack Web Development",
     "current_position3": ", doing a work-study.",
     "qualifications": "I currently have:",
     "degree1": "Bachelor of Computer Science-Electronics (Rennes ISTIC)",
@@ -65,6 +65,7 @@
     "cv": "CV",
     "bytheo1": "By ",
     "fullstack_developer": "Full-Stack Web Developer",
+    "fullstack_developer_phone": "Full-Stack\nWeb Developer",
     "frontend_developer": "Front-End Web Developer",
     "backend_developer": "Back-End Web Developer",
     "github_profile": "GitHub Profile",
@@ -126,5 +127,7 @@
     "message_success": "Message sent successfully!",
     "message_fail": "Failed to send message.",
     "message_error": "Error sending message. Please try again later.",
-    "captcha_required": "Please complete the captcha!"
+    "captcha_required": "Please complete the captcha!",
+    "error_loading_pdf": "Error loading PDF. Please try again later.",
+    "cv_alt_description": "Théo Guérin's CV"
 }

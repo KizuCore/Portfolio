@@ -1,5 +1,5 @@
 <h2 align="center">
-  Portfolio Website - V 1.4.6<br/>
+  Portfolio Website - V 2.0.0<br/>
   <a href="https://theo-guerin.fr/" target="_blank">theo-guerin.fr</a>
 </h2>
 
@@ -13,6 +13,7 @@
 - **Vercel** : Hébergement et déploiement de l'application.
 - **VSCode** : Éditeur de code.
 - **Axios** : Client HTTP pour les appels d'API.
+- **Vite** : Bundler ultra-rapide pour projets frontend.
 - **hCaptcha** : Service de CAPTCHA pour la protection contre les bots.
 - **ReSend** : Service d'envoi d'emails.
 
@@ -35,10 +36,10 @@
 3. **Lancer l'application** :
 
     ```bash
-    npm run start
+    npm run dev
     ```
 
-    L'application sera accessible sur [http://localhost:3000](http://localhost:3000).
+    L'application sera accessible sur [http://localhost:5173](http://localhost:5173).
 
 ---
 

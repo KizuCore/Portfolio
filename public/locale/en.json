@@ -111,8 +111,8 @@
     "seo_og_description": "Explore Théo Guérin's Portfolio. Projects, Contact, and Resume.",
     "seo_twitter_title": "Théo Guérin | Full-Stack Developer | Portfolio",
     "seo_twitter_description": "Explore Théo Guérin's Portfolio. Projects, Contact, and Resume.",
-    "flag_fr": "French Flag",
-    "flag_en": "UK Flag",
+    "flag_fr": "French flag",
+    "flag_en": "British flag",
     "contact_us": "Contact Us",
     "name": "Name",
     "name_placeholder": "Enter your name",
@@ -129,5 +129,13 @@
     "message_error": "Error sending message. Please try again later.",
     "captcha_required": "Please complete the captcha!",
     "error_loading_pdf": "Error loading PDF. Please try again later.",
-    "cv_alt_description": "Théo Guérin's CV"
+    "cv_alt_description": "Théo Guérin's CV",
+    "portfoliov2_image_alt": "Image of the Portfolio V2 project",
+    "apibook_image_alt": "Image of the API Book project",
+    "lemonmaze_image_alt": "Image of the LemonMaze project",
+    "cosmiclink_image_alt": "Image of the CosmicLink project",
+    "chrono_image_alt": "Image of the Chrono project",
+    "breizhcoin_image_alt": "Image of the BreizhCoin project",
+    "tboi_image_alt": "Image of The Binding of Isaac project",
+    "portfolio_image_alt": "Image of the Portfolio V1 project"
 }

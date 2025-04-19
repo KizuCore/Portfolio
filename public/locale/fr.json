@@ -129,5 +129,13 @@
     "message_error": "Erreur lors de l'envoi du message. Veuillez réessayer plus tard.",
     "captcha_required": "Veuillez compléter le captcha !",
     "error_loading_pdf": "Erreur lors du chargement du PDF. Veuillez réessayer plus tard.",
-    "cv_alt_description": "CV de Théo Guérin"
+    "cv_alt_description": "CV de Théo Guérin",
+    "portfoliov2_image_alt": "Image du projet Portfolio V2",
+    "apibook_image_alt": "Image du projet API Book",
+    "lemonmaze_image_alt": "Image du projet LemonMaze",
+    "cosmiclink_image_alt": "Image du projet CosmicLink",
+    "chrono_image_alt": "Image du projet Chrono",
+    "breizhcoin_image_alt": "Image du projet BreizhCoin",
+    "tboi_image_alt": "Image du projet The Binding of Isaac",
+    "portfolio_image_alt": "Image du projet Portfolio V1"
 }

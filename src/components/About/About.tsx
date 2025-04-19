@@ -71,7 +71,6 @@ function About(): JSX.Element {
             <div className="d-flex justify-content-center align-items-center">
               <LevelCircle color="rgb(255, 145, 0, 0.8)" /> {/* Boule orange */}
               <span>{t('novice')}</span>
-              <span title={t('your_name')}>Théo</span>
             </div>
           </Col>
           <Col md={3}>

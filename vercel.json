@@ -19,7 +19,7 @@
         ]
       },
       {
-        "source": "/static/css/(.*)", 
+        "source": "/static/styles/(.*)", 
         "headers": [
           {
             "key": "Cache-Control",

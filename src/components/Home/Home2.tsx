@@ -38,11 +38,11 @@ function Home2(): JSX.Element {
             transition={{ duration: 0.8, ease: "easeOut" }}
             style={{ opacity: titleInView ? 1 : 0 }}
           >
-            <h2 style={{ fontSize: "2.6em" }}>
+            <div style={{ fontSize: "2.6em" }}>
               <span className="blue-title" style={{ fontFamily: 'Montserrat, serif'  }}>
                 {t('introduction')}
               </span>
-            </h2>
+            </div>
           </motion.div>
         </Row>
         {/* Ligne pour texte et image */}

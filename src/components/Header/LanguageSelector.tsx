@@ -38,7 +38,7 @@ function LanguageSelector(): JSX.Element {
             height="auto"
             width="25"
             style={{ marginBottom: "2px" }}
-            alt={t(`flag_${i18n.language}`)}
+            alt={t(`flag_${lang}`)}
           />
           {' '}
           {currentLanguage} <FaAngleDown />

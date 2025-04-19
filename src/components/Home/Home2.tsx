@@ -31,20 +31,22 @@ function Home2(): JSX.Element {
       <Container>
         {/* Introduction */}
         <Row className="justify-content-center text-center">
-          <motion.div
-            ref={titleRef}
-            initial={{ opacity: 0, y: -20 }}
-            animate={titleInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            style={{ opacity: titleInView ? 1 : 0 }}
-          >
-            <h2 style={{ fontSize: "2.6em" }}>
-              <span className="blue-title" style={{ fontFamily: 'Montserrat, serif'  }}>
-                {t('introduction')}
-              </span>
-            </h2>
-          </motion.div>
+          <Col xs={12}>
+            <motion.div
+              ref={titleRef}
+              initial={{ opacity: 0, y: -20 }}
+              animate={titleInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <h2 style={{ fontSize: "2.6em" }}>
+                <span className="blue-title" style={{ fontFamily: 'Montserrat, serif' }}>
+                  {t('introduction')}
+                </span>
+              </h2>
+            </motion.div>
+          </Col>
         </Row>
+
         {/* Ligne pour texte et image */}
         <Row className="d-flex align-items-center justify-content-center p-0 m-0">
           <Col md={6} className="d-flex justify-content-center align-items-center home-about-description">

@@ -10,13 +10,16 @@ import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
 
-const pdf = "/pdf/CV-Guerin-Theo.pdf";
+const pdf_EN = "/pdf/CV-Guerin-Theo-EN.pdf";
+const pdf_FR = "/pdf/CV-Guerin-Theo-FR.pdf";
 
 function CV() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [width, setWidth] = useState(window.innerWidth);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
+
+  const pdf = i18n.language === "fr" ? pdf_FR : pdf_EN;
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);

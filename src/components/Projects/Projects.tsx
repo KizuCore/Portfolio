@@ -148,7 +148,7 @@ const Projects: React.FC = () => {
         </Row>
       </Container>
       <Suspense fallback={<Spinner animation="border" role="status" />}>
-        <Tooltip id="tooltip" />
+        <Tooltip id="tooltip" anchorSelect=".tech-icons2" place="top" />
       </Suspense>
     </Container>
   );

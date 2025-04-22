@@ -54,7 +54,7 @@ function ProjectCards(props: ProjectCardProps) {
           {props.techStack.map((tech, index) => {
             const IconComponent = techIcons[tech];
             return IconComponent ? (
-              <Col key={index} xs={4} md={2} className="tech-icons2" data-tip={tech}>
+              <Col key={index} xs={4} md={2} className="tech-icons2" data-tooltip-id="tooltip" data-tooltip-content={tech}>
                 <Suspense fallback={<Spinner animation="border" role="status" />}>
                   <IconComponent aria-label={tech} />
                 </Suspense>

@@ -140,10 +140,12 @@
     "breizhcoin_image_alt": "Image of the BreizhCoin project",
     "tboi_image_alt": "Image of The Binding of Isaac project",
     "portfolio_image_alt": "Image of the Portfolio V1 project",
+    "Mon parcours": "My Journey",
 
     "experience_1_title": "Fullstack Web Developer — Nahibu",
     "experience_1_date": "Since March. 2024",
-    "experience_1_description": "Responsible for Nahibu’s infrastructure, interface implementation, design overhaul, SEO, documentation. Stack: Django, Flask, React, PostgreSQL.",
+    "experience_1_description": "Responsible for Nahibu’s infrastructure, interface implementation, design overhaul, SEO, documentation, ...",
+    "experience_1_stack": "Django, Flask, React, PostgreSQL, Axios, AWS, Citry API, Brevo, Jupyter, Django, Wordpress, Wix, LimeSurvey, Docker.",
     
     "experience_2_title": "MBA Full-Stack Web Developer",
     "experience_2_subtitle": "My Digital School",
@@ -158,7 +160,7 @@
     "experience_4_subtitle": "University of Rennes 1 ISTIC",
     "experience_4_date": "Sept. 2020 - July 2023",
   
-    "experience_5_title": "Preparatory Class DCG (Accounting & Management)",
+    "experience_5_title": "Preparatory Class DCG",
     "experience_5_subtitle": "Bréquigny High School, Rennes",
     "experience_5_date": "Sept. 2018 - July 2019",
   

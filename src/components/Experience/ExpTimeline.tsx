@@ -12,7 +12,12 @@ type TimelineItem = {
   diplome?: string;
   date: string;
   description?: string;
+  stack?: string;
 };
+const getIcon = (type: string) => {
+  return type === "C" ? <FaUserGraduate style={{ transform: "translateY(-2px)"}} /> : <FaBriefcase style={{ transform: "translateY(-2px)" }}/>;
+};
+
 
 
 const Experience = () => {
@@ -23,6 +28,7 @@ const Experience = () => {
       title: t("experience_1_title"),
       date: t("experience_1_date"),
       description: t("experience_1_description"),
+      stack: t("experience_1_stack"),
     },
     {
       type: "C",
@@ -60,7 +66,7 @@ const Experience = () => {
     <Container className="py-5">
       <Particle />
 
-      <h2 className="text-center text-light title-font mb-5 pt-5">Parcours</h2>
+      <h2 className="text-center text-light title-font mb-5 pt-5 mt-3">{t("Mon parcours")}</h2>
       <div className="timeline position-relative">
 
         {/* Flèche du haut */}
@@ -88,20 +94,17 @@ const Experience = () => {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       className="bubble left"
                     >
-                      <h5 className="fw-bold text-light d-flex gap-2 justify-content-end">
-                        {item.type === "C" ? <FaUserGraduate className="text-warning" /> : <FaBriefcase className="text-warning" />}
-                        {item.title}
+                      <h5 className="fw-bold text-light gap-2 phone-content-end">
+                        <span className="align-self-start text-warning">
+                          {getIcon(item.type)}
+                        </span>
+                        <span>{item.title}</span>
                       </h5>
-                      {item.subtitle && (
-                        <h6 className="text-light">{item.subtitle}</h6>
-                      )}
                       <p className="text-warning small mb-1">{item.date}</p>
-                      {item.subtitle && (
-                        <h6 className="text-light">{item.diplome}</h6>
-                      )}
-                      {item.description && (
-                        <p className="text-light">{item.description}</p>
-                      )}
+                      {item.subtitle && <h6 className="text-light">{item.subtitle}</h6>}
+                      {item.diplome && <h6 className="text-light">{item.diplome}</h6>}
+                      {item.description && <p className="text-light"><i>{item.description}</i></p>}
+                      {item.stack && <p className="text-light"><b>Stack :</b> {item.stack}</p>}
                     </motion.div>
                   </Col>
                   <Col md={6} />
@@ -116,20 +119,18 @@ const Experience = () => {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       className="bubble right"
                     >
-                      <h5 className="fw-bold text-light d-flex gap-2 justify-content-start align-items-center">
-                        {item.type === "C" ? <FaUserGraduate className="text-warning" /> : <FaBriefcase className="text-warning" />}
-                        {item.title}
+                      <h5 className="fw-bold text-light d-flex gap-2 align-items-start">
+                        <span className="align-self-start text-warning">
+                        {getIcon(item.type)}
+                        </span>
+                        <span>{item.title}</span>
                       </h5>
+
                       <p className="text-warning small mb-1">{item.date}</p>
-                      {item.subtitle && (
-                        <h6 className="text-light">{item.subtitle}</h6>
-                      )}
-                      {item.subtitle && (
-                        <h6 className="text-light">{item.diplome}</h6>
-                      )}
-                      {item.description && (
-                        <p className="text-light">{item.description}</p>
-                      )}
+                      {item.subtitle && <h6 className="text-light">{item.subtitle}</h6>}
+                      {item.diplome && <h6 className="text-light">{item.diplome}</h6>}
+                      {item.description && <p className="text-light"><i>{item.description}</i></p>}
+                      {item.stack && <p className="text-light"><b>Stack :</b> {item.stack}</p>}
                     </motion.div>
                   </Col>
                 </>

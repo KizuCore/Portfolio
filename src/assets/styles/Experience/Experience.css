@@ -93,6 +93,11 @@
     margin-top: 0.2rem;
     z-index: 4;
 }
+.phone-content-end {
+    display: flex;
+    justify-content: end;
+    align-items: start;
+}
 
 
 /* Responsive */
@@ -100,6 +105,11 @@
     .timeline-line {
         left: 12px;
         margin-left: 0.5rem;
+    }
+    .phone-content-end {
+        display: flex;
+        justify-content: start !important;
+        align-items: start;
     }
 
     .bubble {

@@ -140,10 +140,12 @@
     "breizhcoin_image_alt": "Image du projet BreizhCoin",
     "tboi_image_alt": "Image du projet The Binding of Isaac",
     "portfolio_image_alt": "Image du projet Portfolio V1",
+    "Mon parcours": "Mon parcours",
 
     "experience_1_title": "Développeur Web Fullstack — Nahibu",
-    "experience_1_date": "Mars 2024 - Avril 2025",
-    "experience_1_description": "Responsable de l’infrastructure Nahibu, implémentation d’interfaces, refonte graphique, SEO, documentation, stack Django, Flask, React, PostgreSQL.",
+    "experience_1_date": "Depuis Mars. 2024",
+    "experience_1_description": "Responsable de l’infrastructure Nahibu, implémentation d’interfaces, refonte graphique, SEO, documentation, ...",
+    "experience_1_stack": "Django, Flask, React, PostgreSQL, Axios, AWS, Citry API, Brevo, Jupyter, Django, Wordpress, Wix, LimeSurvey, Docker.",
   
     "experience_2_title": "MBA Développeur Web Full-Stack",
     "experience_2_subtitle": "My Digital School Rennes",

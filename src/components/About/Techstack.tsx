@@ -17,6 +17,7 @@ const icons: IconData[] = [
   { component: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiReact }))), name: "React", level: 3 },
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiExpress }))), name: "Express", level: 3 },
   { component: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiNodejs }))), name: "Node.js", level: 3 },
+  { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiSequelize }))), name: "Sequelize - ORM", level: 3 },
 
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiBootstrap }))), name: "Bootstrap", level: 2 },
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiCss3 }))), name: "CSS", level: 2 },

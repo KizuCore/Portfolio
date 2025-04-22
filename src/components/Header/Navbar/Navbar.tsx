@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import { AiOutlineHome, AiOutlineFundProjectionScreen, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineHome, AiOutlineFundProjectionScreen, AiOutlineUser, AiOutlineIdcard } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
 import LanguageSelector from "../LanguageSelector";
 import Logo from "../Logo/LogoContainer";
@@ -69,10 +69,11 @@ function NavBar(): JSX.Element {
   }, []);
 
   const navItems = [
-    { to: "/", icon: <AiOutlineHome />, label: t('home'), ariaLabel: t('home_aria') },
-    { to: "/about", icon: <AiOutlineUser />, label: t('about'), ariaLabel: t('about_aria') },
-    { to: "/project", icon: <AiOutlineFundProjectionScreen />, label: t('project'), ariaLabel: t('project_aria') },
-    { to: "/cv", icon: <CgFileDocument />, label: t('cv'), ariaLabel: t('cv_aria') }
+    { to: "/", icon: <AiOutlineHome style={{ transform: "translateY(-2px)" }} />, label: t('home'), ariaLabel: t('home_aria') },
+    { to: "/about", icon: <AiOutlineUser style={{ transform: "translateY(-2px)" }} />, label: t('about'), ariaLabel: t('about_aria') },
+    { to: "/experience", icon: <AiOutlineIdcard style={{ transform: "translateY(-2px)" }} />, label: t('experience'), ariaLabel: t('about_experience') },
+    { to: "/project", icon: <AiOutlineFundProjectionScreen style={{ transform: "translateY(-2px)" }} />, label: t('project'), ariaLabel: t('project_aria') },
+    { to: "/cv", icon: <CgFileDocument style={{ transform: "translateY(-2px)" }} />, label: t('cv'), ariaLabel: t('cv_aria') }
   ];
 
   return (

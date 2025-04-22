@@ -1,0 +1,156 @@
+.timeline {
+    position: relative;
+    margin-top: 1rem;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: #f5c518;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.bubble {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.2rem;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+    max-width: 90%;
+}
+
+.bubble.left {
+    margin-right: auto;
+    margin-left: 0;
+    text-align: right;
+}
+
+.bubble.right {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: left;
+}
+
+/* Cercle animé en bas */
+.timeline-start-circle {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 18px;
+    background-color: #f5c518;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 10px #f5c51880;
+}
+
+.timeline-start-circle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: rgba(245, 197, 24, 0.2);
+    animation: pulse 1.5s infinite;
+    z-index: -1;
+}
+
+
+/* Flèche et label du haut */
+.timeline-arrow-up-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.timeline-arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 14px solid #f5c518;
+    animation: arrowBounce 1.5s infinite ease-in-out;
+}
+
+
+.timeline-arrow-up-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 0.2rem;
+    z-index: 4;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timeline-line {
+        left: 12px;
+        margin-left: 0.5rem;
+    }
+
+    .bubble {
+        margin-left: 1rem !important;
+        margin-right: 0 !important;
+        text-align: left !important;
+    }
+
+    .bubble.left,
+    .bubble.right {
+        margin-left: 3rem !important;
+        margin-right: 0 !important;
+    }
+
+    .timeline-arrow-up-wrapper {
+        align-items: flex-start;
+        margin-left: 0.6rem;
+    }
+
+    .timeline-arrow-up-label {
+        text-align: left;
+        margin-left: 0.2rem;
+    }
+
+    .timeline-start-circle{
+        left: 0.7rem;
+        transform: none;
+    }
+}
+
+/* Animation keyframes */
+@keyframes arrowBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}

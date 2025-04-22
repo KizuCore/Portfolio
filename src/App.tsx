@@ -17,6 +17,7 @@ import SeoMeta from "./components/Helmet/react-helmet-seo.tsx";
 // Lazy load des composants de page
 const Home = lazy(() => import("./components/Home/Home.tsx"));
 const About = lazy(() => import("./components/About/About.tsx"));
+const Experience = lazy(() => import("./components/Experience/ExpTimeline.tsx"));
 const Projects = lazy(() => import("./components/Projects/Projects.tsx"));
 const CV = lazy(() => import("./components/Resume/CV.tsx"));
 const Gojo = lazy(() => import("./components/Easter/Gojo.tsx"));
@@ -64,6 +65,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/project" element={<Projects />} />
             <Route path="/about" element={<About />} />
+            <Route path="/experience" element={<Experience />} />
             <Route path="/cv" element={<CV />} />
             <Route path="/gojo" element={<Gojo />} />
             <Route path="/arcane" element={<RouteSecret />} />

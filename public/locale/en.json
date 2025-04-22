@@ -4,6 +4,7 @@
     "nametheo": "THÉO GUÉRIN",
     "home": "Home",
     "about": "About me",
+    "experience": "Experiences",
     "project": "Projects",
     "resume": "CV",
     "introduction": "AT A GLANCE",
@@ -102,6 +103,7 @@
     "home_aria": "Home",
     "about_aria": "About Me",
     "project_aria": "Projects",
+    "about_experience": "Experiences",
     "cv_aria": "View my Resume",
     "web_dev_illustration": "Web development illustration Théo Guérin",
     "theo_developer": "Avatar of Théo Guérin, Web Developer",
@@ -137,5 +139,30 @@
     "chrono_image_alt": "Image of the Chrono project",
     "breizhcoin_image_alt": "Image of the BreizhCoin project",
     "tboi_image_alt": "Image of The Binding of Isaac project",
-    "portfolio_image_alt": "Image of the Portfolio V1 project"
+    "portfolio_image_alt": "Image of the Portfolio V1 project",
+
+    "experience_1_title": "Fullstack Web Developer — Nahibu",
+    "experience_1_date": "Since March. 2024",
+    "experience_1_description": "Responsible for Nahibu’s infrastructure, interface implementation, design overhaul, SEO, documentation. Stack: Django, Flask, React, PostgreSQL.",
+    
+    "experience_2_title": "MBA Full-Stack Web Developer",
+    "experience_2_subtitle": "My Digital School",
+    "experience_2_date": "Since Sept. 2024",
+  
+    "experience_3_title": "Bachelor Web Developer",
+    "experience_3_subtitle": "My Digital School Rennes",
+    "experience_3_diplome": "RNCP title 'Application Developer'",
+    "experience_3_date": "Sept. 2023 - July 2024",
+  
+    "experience_4_title": "Bachelor in Computer Science & Electronics",
+    "experience_4_subtitle": "University of Rennes 1 ISTIC",
+    "experience_4_date": "Sept. 2020 - July 2023",
+  
+    "experience_5_title": "Preparatory Class DCG (Accounting & Management)",
+    "experience_5_subtitle": "Bréquigny High School, Rennes",
+    "experience_5_date": "Sept. 2018 - July 2019",
+  
+    "experience_6_title": "Scientific Baccalaureate (SVT)",
+    "experience_6_subtitle": "La Fontaine Des Eaux High School, Dinan",
+    "experience_6_date": "July 2018"
 }

@@ -4,6 +4,7 @@
     "nametheo": "THÉO GUÉRIN",
     "home": "Accueil",
     "about": "A propos",
+    "experience": "Expériences",
     "project": "Projets",
     "resume": "CV",
     "introduction": "EN BREF",
@@ -102,6 +103,7 @@
     "home_aria": "Accueil",
     "about_aria": "À propos de moi",
     "project_aria": "Projets",
+    "about_experience": "Expériences",
     "cv_aria": "Voir mon CV",
     "web_dev_illustration": "Illustration de développement web Théo Guérin",
     "theo_developer": "Avatar de Théo Guérin, Développeur Web",
@@ -137,5 +139,30 @@
     "chrono_image_alt": "Image du projet Chrono",
     "breizhcoin_image_alt": "Image du projet BreizhCoin",
     "tboi_image_alt": "Image du projet The Binding of Isaac",
-    "portfolio_image_alt": "Image du projet Portfolio V1"
+    "portfolio_image_alt": "Image du projet Portfolio V1",
+
+    "experience_1_title": "Développeur Web Fullstack — Nahibu",
+    "experience_1_date": "Mars 2024 - Avril 2025",
+    "experience_1_description": "Responsable de l’infrastructure Nahibu, implémentation d’interfaces, refonte graphique, SEO, documentation, stack Django, Flask, React, PostgreSQL.",
+  
+    "experience_2_title": "MBA Développeur Web Full-Stack",
+    "experience_2_subtitle": "My Digital School Rennes",
+    "experience_2_date": "Depuis Sept. 2024",
+  
+    "experience_3_title": "Bachelor Développeur Web",
+    "experience_3_subtitle": "My Digital School Rennes",
+    "experience_3_diplome": "Obtention Titre RNCP \"Concepteur Développeur d’Application\"",
+    "experience_3_date": "Sept. 2023 - Juil. 2024",
+  
+    "experience_4_title": "Licence Informatique & Électronique",
+    "experience_4_subtitle": "Université Rennes 1 ISTIC",
+    "experience_4_date": "Sept. 2020 - Juil. 2023",
+  
+    "experience_5_title": "Classe préparatoire DCG",
+    "experience_5_subtitle": "Lycée Bréquigny, Rennes",
+    "experience_5_date": "Sept. 2018 - Juil. 2019",
+  
+    "experience_6_title": "Baccalauréat Scientifique SVT",
+    "experience_6_subtitle": "Lycée La Fontaine Des Eaux, Dinan",
+    "experience_6_date": "Juil. 2018"
 }

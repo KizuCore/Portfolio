@@ -27,6 +27,7 @@ const Experience = () => {
       type: "T",
       title: t("experience_1_title"),
       date: t("experience_1_date"),
+      subtitle: t("experience_1_subtitle"),
       description: t("experience_1_description"),
       stack: t("experience_1_stack"),
     },
@@ -58,6 +59,7 @@ const Experience = () => {
     {
       type: "C",
       title: t("experience_6_title"),
+      subtitle: t("experience_6_subtitle"),
       date: t("experience_6_date"),
     },
   ];
@@ -104,7 +106,16 @@ const Experience = () => {
                       {item.subtitle && <h6 className="text-light">{item.subtitle}</h6>}
                       {item.diplome && <h6 className="text-light">{item.diplome}</h6>}
                       {item.description && <p className="text-light"><i>{item.description}</i></p>}
-                      {item.stack && <p className="text-light"><b>Stack :</b> {item.stack}</p>}
+                      {item.stack && (
+                        <div className="stack-tags mt-2">
+                          {item.stack.split(",").map((tech, i) => (
+                            <span key={i} className="stack-badge">
+                              {tech.trim()}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
                     </motion.div>
                   </Col>
                   <Col md={6} />

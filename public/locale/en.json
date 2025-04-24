@@ -144,6 +144,7 @@
 
     "experience_1_title": "Fullstack Web Developer — Nahibu",
     "experience_1_date": "Since March. 2024",
+    "experience_1_subtitle": "Rennes",
     "experience_1_description": "Responsible for Nahibu’s infrastructure, interface implementation, design overhaul, SEO, documentation, ...",
     "experience_1_stack": "Django, Flask, React, PostgreSQL, Axios, AWS, Citry API, Brevo, Jupyter, Django, Wordpress, Wix, LimeSurvey, Docker.",
     

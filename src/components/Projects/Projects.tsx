@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { useTranslation } from "react-i18next";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Utils/Particle";
 import "../../assets/styles/About/About.css";
@@ -111,10 +111,17 @@ const Projects: React.FC = () => {
     <Container fluid className="project-section">
       <Particle />
       <Container>
-        <h1 className="project-heading title-font pb-4">
-          {t("my_projects")} <strong className="blue-title">{t("projects")}</strong>
-        </h1>
-        <p style={{ fontSize: "1.2em", color: "white" }}>{t("projects_description")}</p>
+
+        <motion.h1
+          className="custom-title py-5"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+
+          transition={{ duration: 0.8, ease: easeOut }}
+        >
+          {t("my_projects")}{" "}{t("projects")}
+        </motion.h1>
+        <p className="pb-3" style={{ fontSize: "1.2em", color: "white", textDecoration: "underline" }}>{t("projects_description")}</p>
         <Row className="pb-1" style={{ justifyContent: "center", alignItems: "stretch" }}>
           {projects.map((project, index) => (
             <Col

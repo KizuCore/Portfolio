@@ -46,6 +46,11 @@
 
 }
 
+.opaque-video {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 .embed-responsive-item {
     width: 100%;
     height: auto;

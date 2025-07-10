@@ -131,7 +131,6 @@ const Projects: React.FC = () => {
                   ease: "easeOut",
                   delay: index * 0.1,
                 }}
-                style={{ flex: 1 }}
               >
                 <ProjectCard
                   imgPath={project.imgPath}

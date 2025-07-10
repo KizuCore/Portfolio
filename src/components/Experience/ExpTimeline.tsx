@@ -15,7 +15,7 @@ type TimelineItem = {
   stack?: string;
 };
 const getIcon = (type: string) => {
-  return type === "C" ? <FaUserGraduate style={{ transform: "translateY(-2px)"}} /> : <FaBriefcase style={{ transform: "translateY(-2px)" }}/>;
+  return type === "C" ? <FaUserGraduate style={{ transform: "translateY(-2px)" }} /> : <FaBriefcase style={{ transform: "translateY(-2px)" }} />;
 };
 
 
@@ -63,12 +63,19 @@ const Experience = () => {
       date: t("experience_6_date"),
     },
   ];
-  
+
   return (
     <Container className="py-5">
       <Particle />
+      <motion.h1
+        className="custom-title py-5 mt-5"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        {t("Mon parcours")}
+      </motion.h1>
 
-      <h2 className="text-center text-light title-font mb-5 pt-5 mt-3">{t("Mon parcours")}</h2>
       <div className="timeline position-relative">
 
         {/* Flèche du haut */}
@@ -132,7 +139,7 @@ const Experience = () => {
                     >
                       <h5 className="fw-bold text-light d-flex gap-2 align-items-start">
                         <span className="align-self-start text-warning">
-                        {getIcon(item.type)}
+                          {getIcon(item.type)}
                         </span>
                         <span>{item.title}</span>
                       </h5>

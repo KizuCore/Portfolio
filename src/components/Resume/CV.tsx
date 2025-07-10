@@ -7,6 +7,7 @@ import "react-pdf/dist/Page/AnnotationLayer.css";
 import Particle from "../Utils/Particle.js";
 import "../../assets/styles/CV/CV.css";
 import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+import { easeOut, motion } from "framer-motion";
 pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
 
@@ -29,16 +30,23 @@ function CV() {
 
   const DownloadButton = () => (
     <Button href={pdf} target="_blank" className="button-cv">
-      <AiOutlineDownload /> &nbsp;{t("downloadcv")}
-    </Button>
+      <AiOutlineDownload style={{ marginRight: "5px" }} className="mb-1" />{t("downloadcv")}
+    </Button >
   );
 
   return (
     <Container fluid className="resume-section text-center">
       <Particle />
-      <h1 className="title-font pb-4">
-        {t("my")} <span className="blue-title">{t("cv")}</span>
-      </h1>
+
+      <motion.h1
+        className="custom-title pb-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: easeOut }}
+      >
+        {t('my')}{" "}{t('cv')}
+      </motion.h1>
+
 
       <Row className="justify-content-center mb-4">
         <DownloadButton />
@@ -64,7 +72,7 @@ function CV() {
                 setIsLoading(false);
               }}
             >
-              <Page pageNumber={1} scale={width > 786 ? 1.3 : 0.6} renderMode="canvas" renderTextLayer={false} renderAnnotationLayer={false}/>
+              <Page pageNumber={1} scale={width > 786 ? 1.3 : 0.6} renderMode="canvas" renderTextLayer={false} renderAnnotationLayer={false} />
             </Document>
           </div>
         </Col>

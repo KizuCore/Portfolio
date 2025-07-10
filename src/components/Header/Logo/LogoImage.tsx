@@ -27,7 +27,6 @@ function LogoImage({ isAnimating, t }: LogoImageProps) {
   return (
     <motion.div
       className="logo-container"
-      style={{ position: 'relative' }}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -38,7 +37,6 @@ function LogoImage({ isAnimating, t }: LogoImageProps) {
         className="img-fluid logo"
         loading="lazy"
         decoding="async"
-        style={{ width: '100%', height: 'auto' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}

@@ -28,7 +28,6 @@ function About(): JSX.Element {
         <Row className="d-flex align-items-center justify-content-center py-4">
           <motion.h1
             className="pb-3 title-font"
-            style={{ fontSize: "2.5em" }}
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -50,7 +49,6 @@ function About(): JSX.Element {
               initial={{ opacity: 0, x: 50 }}
               animate={imgInView  ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              style={{ opacity: imgInView ? 1 : 0 }}
             />
           </Col>
         </Row>
@@ -60,7 +58,6 @@ function About(): JSX.Element {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          style={{ fontSize: "2.5em" }}
         >
           <strong className="blue-title">{t('professional_skills')}</strong> {t('skills')}
         </motion.h2>
@@ -100,7 +97,6 @@ function About(): JSX.Element {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          style={{ fontSize: "2.5em" }}
         >
           <strong className="blue-title">{t('tools')}</strong> {t('i_use')}
         </motion.h2>

@@ -57,7 +57,7 @@ function Home(): JSX.Element {
                 <Tilt>
                   <motion.img
                     src={LogoDeveloper}
-                    className="img-fluid "
+                    className="img-fluid"
                     alt={t('theo_developer')}
                     width="400"
                     height="400"

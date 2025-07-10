@@ -13,7 +13,7 @@ import { useInView } from 'react-intersection-observer';
 function Home(): JSX.Element {
   const { t } = useTranslation();
 
-  const { inView: imgInView } = useInView({
+  const { ref, inView: imgInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -52,7 +52,7 @@ function Home(): JSX.Element {
               </motion.div>
             </Col>
             {/* Colonne pour l'image */}
-            <Col xs={12} md={6} className="d-flex justify-content-center align-items-center py-4">
+            <Col ref={ref} xs={12} md={6} className="d-flex justify-content-center align-items-center py-4">
               <div className="logo-wrapper">
                 <Tilt>
                   <motion.img
@@ -70,6 +70,7 @@ function Home(): JSX.Element {
                 </Tilt>
               </div>
             </Col>
+
 
           </Row>
         </Container>

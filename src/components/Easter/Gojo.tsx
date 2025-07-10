@@ -2,7 +2,8 @@ import { useState, useEffect, JSX } from "react";
 import { Container } from "react-bootstrap";
 import Particle from "../Utils/Particle";
 import { motion } from "framer-motion";
-import '../../assets/styles/Easter/style_easter.css'; 
+import '../../assets/styles/Easter/style_easter.css';
+import WavyText from "./WayText";
 
 function Gojo(): JSX.Element {
     const [preloading, setPreloading] = useState(true);
@@ -37,8 +38,9 @@ function Gojo(): JSX.Element {
                 <Container className="d-flex-center">
                     {preloading ? (
                         <div className="preload-message title-font-easter blue">
-                            Nah, I'd win...
+                            <WavyText text="Nah, I'd win..." />
                         </div>
+
                     ) : !showVideo ? (
                         <motion.div
                             initial={{ opacity: 1 }}
@@ -69,6 +71,7 @@ function Gojo(): JSX.Element {
                                 className="sphere blue-sphere"
                             />
                             {/* Purple Sphere */}
+
                             {showPurpleSphere && (
                                 <motion.div
                                     initial={{ scale: 0, opacity: 0 }}
@@ -86,20 +89,21 @@ function Gojo(): JSX.Element {
                         </motion.div>
                     ) : (
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.5, rotate: 360 }}
-                            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                            transition={{
-                                duration: 1.5,
-                                type: "spring",
-                                stiffness: 80,
-                                damping: 15,
+                            animate={{
+                                y: [0, -20, 0, 30, 0],   // léger mouvement haut-bas
+                                rotate: [0, 5, -5, 5, -5, 0],
                             }}
-                            className="video-container"
+                            transition={{
+                                duration: 20,
+                                repeat: Infinity,
+                            }}
+                            className="video-container opaque-video"
                         >
                             <iframe
-                                className="embed-responsive-item"
-                                src="https://www.youtube.com/embed/JTGNRJEptc0"
+                                className="embed-responsive-item pt-5"
+                                src="https://www.youtube.com/embed/JTGNRJEptc0?autoplay=1"
                                 title="Sukuna VS Gojo"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
                             ></iframe>
                         </motion.div>
@@ -109,5 +113,4 @@ function Gojo(): JSX.Element {
         </section>
     );
 }
-
 export default Gojo;

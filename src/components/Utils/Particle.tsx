@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Particles } from "@tsparticles/react";
 import type { MoveDirection, DestroyType } from "@tsparticles/engine";
+import React from "react";
 
 function Particle() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -66,4 +67,4 @@ function Particle() {
   );
 }
 
-export default Particle;
+export default React.memo(Particle);

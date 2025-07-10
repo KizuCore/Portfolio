@@ -1,20 +1,20 @@
 import { JSX } from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
-import { motion } from 'framer-motion';
+import { easeOut, motion } from 'framer-motion';
 import Particle from "../Utils/Particle.js";
 import Github from "./Github";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "@image/about/about.webp";
 import Toolstack from "./Toolstack.tsx";
-import LevelCircle from "../Utils/LevelCircle"; 
+import LevelCircle from "../Utils/LevelCircle";
 import { useInView } from 'react-intersection-observer';
-import '../../assets/styles/About/About.css'; 
+import '../../assets/styles/About/About.css';
 
 function About(): JSX.Element {
   const { t } = useTranslation();
-  
+
   const { ref: refImg, inView: imgInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -26,14 +26,14 @@ function About(): JSX.Element {
       <Particle />
       <Container>
         <Row className="d-flex align-items-center justify-content-center py-4">
+
           <motion.h1
-            className="pb-3 title-font"
-            style={{ fontSize: "2.5em" }}
-            initial={{ opacity: 0, y: -50 }}
+            className="custom-title pt-2 pb-5"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: easeOut }}
           >
-            {t('about_me')} <strong className="blue-title">{t('i_am')}</strong>
+            {t('about_me')}{" "}{t('i_am')}
           </motion.h1>
 
           <Col md={8} className="text-center text-md-left">
@@ -41,32 +41,33 @@ function About(): JSX.Element {
           </Col>
 
           <Col md={4} className="d-flex justify-content-center align-items-center about-img" ref={refImg}>
-            <motion.img 
-              src={laptopImg} 
-              alt={t('about_image_alt', { name: 'Théo Guérin' })} 
-              className="img-fluid" 
-              loading="lazy" 
+            <motion.img
+              src={laptopImg}
+              alt={t('about_image_alt', { name: 'Théo Guérin' })}
+              className="img-fluid"
+              loading="lazy"
               decoding="async"
               initial={{ opacity: 0, x: 50 }}
-              animate={imgInView  ? { opacity: 1, x: 0 } : {}}
+              animate={imgInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              style={{ opacity: imgInView ? 1 : 0 }}
             />
           </Col>
         </Row>
 
+
+
         <motion.h2
-          className="project-heading text-center mt-5 title-font mb-5"
-          initial={{ opacity: 0, y: 50 }}
+          className="custom-title custom-title-1 py-5"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          style={{ fontSize: "2.5em" }}
+
+          transition={{ duration: 0.8, ease: easeOut }}
         >
-          <strong className="blue-title">{t('professional_skills')}</strong> {t('skills')}
+          {t('professional_skills')}{" "}{t('skills')}
         </motion.h2>
-        
+
         {/* Section des niveaux */}
-        <Row className="text-center mt-5 mb-4">
+        <Row className="text-center mt-5 mb-4 pb-4">
           <Col md={3}>
             <div className="d-flex justify-content-center align-items-center">
               <LevelCircle color="rgb(255, 145, 0, 0.8)" /> {/* Boule orange */}
@@ -92,19 +93,8 @@ function About(): JSX.Element {
             </div>
           </Col>
         </Row>
-        
+
         <Techstack />
-
-        <motion.h2
-          className="project-heading text-center mt-5 title-font mb-5"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-          style={{ fontSize: "2.5em" }}
-        >
-          <strong className="blue-title">{t('tools')}</strong> {t('i_use')}
-        </motion.h2>
-
         <Toolstack />
         <Github />
       </Container>

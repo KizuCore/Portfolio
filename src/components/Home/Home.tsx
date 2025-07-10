@@ -2,18 +2,18 @@ import { JSX } from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from 'framer-motion';
-import LogoDeveloper from "@image/logodev.svg";
+
+import LogoDeveloper from "../../assets/images/logodev.svg"
 import Tilt from "react-parallax-tilt";
 import Particle from "../Utils/Particle.js";
-import Home2 from "./Home2.tsx";
 import TypeDev from "./Type.tsx";
-import '../../assets/styles/Home/Home.css'; 
+import '../../assets/styles/Home/Home.css';
 import { useInView } from 'react-intersection-observer';
 
 function Home(): JSX.Element {
   const { t } = useTranslation();
 
-  const { ref: refImg, inView: imgInView } = useInView({
+  const { inView: imgInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -35,9 +35,10 @@ function Home(): JSX.Element {
                 <h1 className="heading mb-3 title-font">
                   {t('hello')}{" "}<span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
                 </h1>
-                <h2 className="heading-name mb-3 title-font">
-                  {t('iam')}<strong className="blue-title"> {t('nametheo')}</strong>
+                <h2 className="heading-name styled-title">
+                  {t('iam')}<span className="gradient-name"> {t('nametheo')}</span>
                 </h2>
+
               </motion.div>
 
               {/* Développeur... */}
@@ -50,27 +51,27 @@ function Home(): JSX.Element {
                 <TypeDev />
               </motion.div>
             </Col>
-
             {/* Colonne pour l'image */}
             <Col xs={12} md={6} className="d-flex justify-content-center align-items-center py-4">
-              <Tilt>
-                <motion.img
-                  src={LogoDeveloper}
-                  className="img-fluid"
-                  ref={refImg}
-                  alt={t('theo_developer')}
-                  width="400"
-                  height="400"
-                  loading="eager"
-                  decoding="sync"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={imgInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                />
-              </Tilt>
+              <div className="logo-wrapper">
+                <Tilt>
+                  <motion.img
+                    src={LogoDeveloper}
+                    className="img-fluid "
+                    alt={t('theo_developer')}
+                    width="400"
+                    height="400"
+                    loading="eager"
+                    decoding="sync"
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={imgInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                  />
+                </Tilt>
+              </div>
             </Col>
+
           </Row>
-          <Home2 />
         </Container>
       </Container>
     </section>

@@ -16,15 +16,70 @@ body {
 }
 
 .blue-title {
-  color: #276DEE !important;
   font-family: 'Montserrat', serif  !important;
   font-weight: 700;
+  background: linear-gradient(90deg, #276DEE, #6C88FF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animateGradient 5s linear infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes animateGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .light-blue-title {
   color: #5c92f5 !important;
   font-family: 'Montserrat', serif  !important;
   font-weight: 700;
+}
+
+.custom-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.2;
+
+  /* Dégradé */
+  background: linear-gradient(90deg, #276DEE, #6C88FF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  /* Glow doux */
+  text-shadow: 0 2px 10px rgba(39, 109, 238, 0.3);
+
+  /* Alignement */
+  text-align: center;
+}
+
+
+
+
+
+.custom-title:hover {
+  /* Légère intensité au hover */
+  text-shadow: 0 4px 20px rgba(39, 109, 238, 0.6);
+  transform: scale(1.02);
+}
+
+.custom-title-1{
+  font-size: 2.7rem !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+}
+
+.custom-title-2{
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
 }
 
 .title-font {
@@ -79,6 +134,7 @@ button:focus {
   background-color: #d8e6ff !important;
   border: 2px solid #1c53b8 !important;
   color: #1c53b8 !important;
+  text-decoration: underline;
 }
 
 .text-justify {

@@ -86,7 +86,7 @@ function ContactForm() {
       <Row className="justify-content-center">
         <Col md={8}>
           <p style={{ fontSize: "1.5em" }} className="pb-4">
-            {t("contact")} <span className="blue">{t("contact_me")}</span> !
+            {t("contact")}{" "}<span className="blue">{t("contact_me")}</span> !
           </p>
 
           {responseMessage && (
@@ -179,7 +179,7 @@ function ContactForm() {
                   </>
                 ) : (
                   <>
-                    {t("send_message")} <AiOutlineMail />
+                    <AiOutlineMail style={{ marginRight: "5px" }} className="mb-1" />{t("send_message")}
                   </>
                 )}
               </Button>

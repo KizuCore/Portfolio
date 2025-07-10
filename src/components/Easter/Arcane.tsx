@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import Particle from "../Utils/Particle";
 import { motion } from "framer-motion";
 import video from "@media/secret.mp4";
+import WavyText from "./WayText";
 
 function RouteSecret(): JSX.Element {
   const [preloading, setPreloading] = useState(true);
@@ -25,7 +26,8 @@ function RouteSecret(): JSX.Element {
               className="preload-message title-font-easter"
               style={{ fontSize: "2.2em" }}
             >
-              Powder & Ekko...
+              <WavyText text="Powder & Ekko..." />
+
             </div>
           ) : (
             <motion.div
@@ -46,13 +48,7 @@ function RouteSecret(): JSX.Element {
                 duration: 2,
                 ease: "easeInOut",
                 times: [0, 0.5, 1],
-                type: "tween", 
-              }}
-              style={{
-                width: "100%",
-                maxWidth: "1000px",
-                height: "auto",
-                overflow: "hidden",
+                type: "tween",
               }}
             >
               <motion.div

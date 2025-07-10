@@ -48,12 +48,6 @@ function RouteSecret(): JSX.Element {
                 times: [0, 0.5, 1],
                 type: "tween", 
               }}
-              style={{
-                width: "100%",
-                maxWidth: "1000px",
-                height: "auto",
-                overflow: "hidden",
-              }}
             >
               <motion.div
                 initial={{ filter: "blur(20px)" }}

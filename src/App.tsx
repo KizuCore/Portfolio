@@ -17,11 +17,12 @@ import SeoMeta from "./components/Helmet/react-helmet-seo.tsx";
 // Lazy load des composants de page
 const Home = lazy(() => import("./components/Home/Home.tsx"));
 const About = lazy(() => import("./components/About/About.tsx"));
+const Contact = lazy(() => import("./components/Contact/Contact.tsx"));
 const Experience = lazy(() => import("./components/Experience/ExpTimeline.tsx"));
 const Projects = lazy(() => import("./components/Projects/Projects.tsx"));
 const CV = lazy(() => import("./components/Resume/CV.tsx"));
 const Gojo = lazy(() => import("./components/Easter/Gojo.tsx"));
-const RouteSecret = lazy(() => import("./components/Easter/Route.tsx"));
+const RouteSecret = lazy(() => import("./components/Easter/Arcane.tsx"));
 
 // Code Konami
 function KonamiComponent() {
@@ -31,25 +32,25 @@ function KonamiComponent() {
 
 function App() {
   const [load, updateLoad] = useState(true);
-  const [showPreloader, setShowPreloader] = useState(true); 
+  const [showPreloader, setShowPreloader] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       updateLoad(false);
-      setTimeout(() => setShowPreloader(false), 500); 
+      setTimeout(() => setShowPreloader(false), 500);
     }, 1200);
 
     return () => clearTimeout(timer);
   }, []);
-  
+
   useEffect(() => {
     initParticlesEngine(async (engine: Engine) => {
       await loadFull(engine);
     });
   }, []);
-  
 
-  
+
+
 
   return (
     <Router>
@@ -67,6 +68,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/cv" element={<CV />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/gojo" element={<Gojo />} />
             <Route path="/arcane" element={<RouteSecret />} />
             <Route path="*" element={<Navigate to="/" />} />

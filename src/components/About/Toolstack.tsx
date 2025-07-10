@@ -1,6 +1,8 @@
 import React, { Suspense, useState } from "react";
 import { Col, Row, Spinner, Button } from "react-bootstrap";
 import "../../assets/styles/About/About.css";
+import { easeOut, motion } from "framer-motion";
+import { t } from "i18next";
 
 const AiOutlineFileExcel = React.lazy(() => import("react-icons/ai").then(module => ({ default: module.AiOutlineFileExcel })));
 const FaBrevo = React.lazy(() => import("react-icons/fa").then(module => ({ default: module.FaPaperPlane })));
@@ -68,7 +70,17 @@ const Toolstack: React.FC = () => {
   const categories = ["All", ...Array.from(new Set(tools.map(t => t.category)))];
 
   return (
+
     <div>
+      <motion.h2
+        className="custom-title custom-title-1 my-5 text-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: easeOut }}
+      >
+        {t('tools')}{" "}{t('i_use')}
+      </motion.h2>
+
       <div className="category-buttons" style={{ textAlign: "center", marginBottom: "20px" }}>
         {categories.map((cat) => (
           <Button
@@ -113,8 +125,3 @@ const Toolstack: React.FC = () => {
 };
 
 export default Toolstack;
-
-
-
-
-

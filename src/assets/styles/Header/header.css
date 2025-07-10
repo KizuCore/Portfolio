@@ -220,6 +220,7 @@
 .navbar-nav .nav-item a:hover {
   background: linear-gradient(90deg, #276DEE, #6C88FF);
   color: #276DEE !important;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent; /* Fallback */
@@ -228,6 +229,7 @@
 .navbar-nav .nav-item .nav-link.active {
   background: linear-gradient(90deg, #276DEE, #6C88FF);
   color: #276DEE !important;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent; /* Fallback */

@@ -19,6 +19,7 @@ body {
   font-family: 'Montserrat', serif  !important;
   font-weight: 700;
   background: linear-gradient(90deg, #276DEE, #6C88FF);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: animateGradient 5s linear infinite;

@@ -65,100 +65,103 @@ const Experience = () => {
   ];
 
   return (
-    <Container className="py-5">
+    <Container fluid className="about-section pt-0" id="home">
       <Particle />
-      <motion.h1
-        className="custom-title py-5 mt-5"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        {t("Mon parcours")}
-      </motion.h1>
+      <Container className="home-content">
+        <Particle />
+        <motion.h1
+          className="custom-title pb-5 pt-3 mb-5"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          {t("Mon parcours")}
+        </motion.h1>
 
-      <div className="timeline position-relative">
+        <div className="timeline position-relative">
 
-        {/* Flèche du haut */}
-        <div className="timeline-arrow-up-wrapper">
-          <div className="timeline-arrow-up" />
-          <motion.div
-            className="timeline-arrow-up-label text-warning text-center"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 }}
-          >
-            <i className="fas fa-arrow-up me-1" />
-          </motion.div>
+          {/* Flèche du haut */}
+          <div className="timeline-arrow-up-wrapper">
+            <div className="timeline-arrow-up" />
+            <motion.div
+              className="timeline-arrow-up-label text-warning text-center"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 }}
+            >
+              <i className="fas fa-arrow-up me-1" />
+            </motion.div>
+          </div>
+          {timelineData.map((item, index) => {
+            const isLeft = index % 2 === 0;
+            return (
+              <Row className="timeline-item" key={index}>
+                {isLeft ? (
+                  <>
+                    <Col md={6}>
+                      <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="bubble left"
+                      >
+                        <h5 className="fw-bold text-light gap-2 phone-content-end">
+                          <span className="align-self-start text-warning">
+                            {getIcon(item.type)}
+                          </span>
+                          <span>{item.title}</span>
+                        </h5>
+                        <p className="text-warning small mb-1">{item.date}</p>
+                        {item.subtitle && <h6 className="text-light">{item.subtitle}</h6>}
+                        {item.diplome && <h6 className="text-light">{item.diplome}</h6>}
+                        {item.description && <p className="text-light"><i>{item.description}</i></p>}
+                        {item.stack && (
+                          <div className="stack-tags mt-2">
+                            {item.stack.split(",").map((tech, i) => (
+                              <span key={i} className="stack-badge">
+                                {tech.trim()}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+
+                      </motion.div>
+                    </Col>
+                    <Col md={6} />
+                  </>
+                ) : (
+                  <>
+                    <Col md={6} />
+                    <Col md={6}>
+                      <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="bubble right"
+                      >
+                        <h5 className="fw-bold text-light d-flex gap-2 align-items-start">
+                          <span className="align-self-start text-warning">
+                            {getIcon(item.type)}
+                          </span>
+                          <span>{item.title}</span>
+                        </h5>
+
+                        <p className="text-warning small mb-1">{item.date}</p>
+                        {item.subtitle && <h6 className="text-light">{item.subtitle}</h6>}
+                        {item.diplome && <h6 className="text-light">{item.diplome}</h6>}
+                        {item.description && <p className="text-light"><i>{item.description}</i></p>}
+                        {item.stack && <p className="text-light"><b>Stack :</b> {item.stack}</p>}
+                      </motion.div>
+                    </Col>
+                  </>
+                )}
+              </Row>
+            );
+          })}
+          <div className="timeline-line"></div>
+          <div className="timeline-start-circle"></div>
         </div>
-        {timelineData.map((item, index) => {
-          const isLeft = index % 2 === 0;
-          return (
-            <Row className="timeline-item" key={index}>
-              {isLeft ? (
-                <>
-                  <Col md={6}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="bubble left"
-                    >
-                      <h5 className="fw-bold text-light gap-2 phone-content-end">
-                        <span className="align-self-start text-warning">
-                          {getIcon(item.type)}
-                        </span>
-                        <span>{item.title}</span>
-                      </h5>
-                      <p className="text-warning small mb-1">{item.date}</p>
-                      {item.subtitle && <h6 className="text-light">{item.subtitle}</h6>}
-                      {item.diplome && <h6 className="text-light">{item.diplome}</h6>}
-                      {item.description && <p className="text-light"><i>{item.description}</i></p>}
-                      {item.stack && (
-                        <div className="stack-tags mt-2">
-                          {item.stack.split(",").map((tech, i) => (
-                            <span key={i} className="stack-badge">
-                              {tech.trim()}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-
-                    </motion.div>
-                  </Col>
-                  <Col md={6} />
-                </>
-              ) : (
-                <>
-                  <Col md={6} />
-                  <Col md={6}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="bubble right"
-                    >
-                      <h5 className="fw-bold text-light d-flex gap-2 align-items-start">
-                        <span className="align-self-start text-warning">
-                          {getIcon(item.type)}
-                        </span>
-                        <span>{item.title}</span>
-                      </h5>
-
-                      <p className="text-warning small mb-1">{item.date}</p>
-                      {item.subtitle && <h6 className="text-light">{item.subtitle}</h6>}
-                      {item.diplome && <h6 className="text-light">{item.diplome}</h6>}
-                      {item.description && <p className="text-light"><i>{item.description}</i></p>}
-                      {item.stack && <p className="text-light"><b>Stack :</b> {item.stack}</p>}
-                    </motion.div>
-                  </Col>
-                </>
-              )}
-            </Row>
-          );
-        })}
-        <div className="timeline-line"></div>
-        <div className="timeline-start-circle"></div>
-      </div>
+      </Container>
     </Container>
   );
 };

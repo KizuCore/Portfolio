@@ -1,7 +1,7 @@
 import { JSX, useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import Card from 'react-bootstrap/Card';
-import { motion } from 'framer-motion';
+import { easeOut, motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/About/About.css';
 import secretSound from '@sound/voice.mp3';
@@ -58,13 +58,13 @@ function AboutCard(): JSX.Element {
           ref={refText}
           initial={{ opacity: 0, x: -50 }}
           animate={textInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.8, ease: easeOut }}
           className="blockquote mb-0 background-box"
         >
           {/* Présentation */}
-          <h3 className="light-blue-title mb-4" style={{ fontSize: '1.4em' }}>
+          <h2 className="mb-4 custom-title custom-title-2">
             {t('presentation_title')}
-          </h3>
+          </h2>
           <p className="text-justify">
             {t('greeting')} <span className="blue">Théo Guérin</span> {t('from')}
             <span className="blue"> Rennes, France</span>.
@@ -76,7 +76,9 @@ function AboutCard(): JSX.Element {
           </p>
 
           {/* Qualifications */}
-          <h3 className="light-blue-title mt-4" style={{ fontSize: '1.4em' }}>{t('qualifications_title')}</h3>
+          <h2 className="mt-4 custom-title custom-title-2">
+            {t('qualifications_title')}
+          </h2>
           <ul className={`mt-3 ${isMobile ? 'list-unstyled' : ''}`}>
             <li className="about-activity mb-2">
               • <a
@@ -108,7 +110,9 @@ function AboutCard(): JSX.Element {
           </ul>
 
           {/* Hobbies */}
-          <h3 className="light-blue-title mt-4" style={{ fontSize: '1.4em' }}>{t('hobbies_title')}</h3>
+          <h2 className="mt-4 custom-title custom-title-2">
+            {t('hobbies_title')}
+          </h2>
           <p className="text-justify mt-4">{t('outside_of_coding')}</p>
           <ul className={`mt-3 ${isMobile ? 'list-unstyled' : ''}`}>
             <li className="about-activity">✈️ • {t('hobby1')}</li>

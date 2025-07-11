@@ -81,6 +81,19 @@ body {
   text-transform: none !important;
 }
 
+@media screen and (max-width: 768px) {
+  .custom-title {
+    font-size: 2.5rem;
+  }
+  .custom-title-1 {
+    font-size: 2.2rem !important;
+  }
+  .custom-title-2 {
+    font-size: 1.8rem !important;
+  }
+  
+}
+
 .title-font {
   font-family: 'Montserrat', serif !important;
   font-weight: 700;

@@ -52,14 +52,14 @@ function AboutCard(): JSX.Element {
   }, [isCooldown]);
 
   return (
-    <Card className="quote-card-view mt-4">
+    <Card className="quote-card-view mt-4 ">
       <Card.Body>
         <motion.blockquote
           ref={refText}
           initial={{ opacity: 0, x: -50 }}
           animate={textInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, ease: easeOut }}
-          className="blockquote mb-0 background-box"
+          className="blockquote mb-0 background-box "
         >
           {/* Présentation */}
           <h2 className="mb-4 custom-title custom-title-2">

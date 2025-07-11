@@ -105,10 +105,11 @@ function Home(): JSX.Element {
                       height="400"
                       loading="eager"
                       decoding="sync"
-                      initial={{ opacity: 0, x: 50 }}
-                      animate={imgInView ? { opacity: 1, x: 0 } : {}}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={imgInView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ duration: 0.8, ease: "easeOut" }}
                     />
+
                   )}
                 </Tilt>
               </div>

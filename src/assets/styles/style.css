@@ -170,8 +170,67 @@ button:focus {
 
 /* Background Box */
 .background-box {
-  background-color: rgba(71, 70, 70, 0.267) !important;
+  background-color: rgba(71, 70, 70, 0.25) !important;
   padding: 2em !important;
   border: 2px solid rgba(255, 255, 255, 0.6) !important;
-  border-radius: 15px !important;
+  border-radius: 16px !important;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
 }
+
+/* Premier cadre animé */
+.background-box::before,
+.background-box::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 18px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(39, 109, 238, 0.3),
+    rgba(255, 255, 255, 0.2),
+    rgba(39, 109, 238, 0.3)
+  );
+  z-index: -1;
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  padding: 3px;
+  box-sizing: border-box;
+  animation: rotateFrame 6s linear infinite;
+}
+
+/* Deuxième cadre animé en sens inverse, plus petit */
+.background-box::after {
+  inset: -6px;
+  border-radius: 22px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(39, 109, 238, 0.2),
+    rgba(255, 255, 255, 0.1)
+  );
+  animation: rotateFrameReverse 10s linear infinite;
+}
+
+@keyframes rotateFrame {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateFrameReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+

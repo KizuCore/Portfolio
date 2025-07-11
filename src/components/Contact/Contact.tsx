@@ -39,9 +39,9 @@ function Contact(): JSX.Element {
   };
 
   return (
-    <Container fluid className="about-section pt-5 mt-5" id="home">
+    <Container fluid className="about-section pt-5" id="home">
       <Particle />
-      <Container className="home-content pt-5"></Container>
+      <Container className="home-content pt-5  mt-5"></Container>
       <Col md={12} className="home-about-social" ref={ref}>
 
         <motion.h1

@@ -16,7 +16,7 @@ function Particle() {
   const particleOptions = {
     particles: {
       number: {
-        value: isMobile ? 50 : 300,
+        value: isMobile ? 100 : 500,
         density: {
           enable: true,
           area: 1000,
@@ -39,7 +39,7 @@ function Particle() {
           enable: true,
           speed: 1.5,
           startValue: "random" as const,
-          destroy: "none"as DestroyType,
+          destroy: "none" as DestroyType,
           sync: false,
         },
       },

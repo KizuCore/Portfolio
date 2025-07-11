@@ -113,7 +113,7 @@ const Projects: React.FC = () => {
       <Container>
 
         <motion.h1
-          className="custom-title py-5"
+          className="custom-title py-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
 

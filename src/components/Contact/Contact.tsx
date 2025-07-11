@@ -39,13 +39,13 @@ function Contact(): JSX.Element {
   };
 
   return (
-    <Container fluid className="about-section pt-0" id="home">
+    <Container fluid className="about-section pt-5 mt-5" id="home">
       <Particle />
       <Container className="home-content pt-5"></Container>
       <Col md={12} className="home-about-social" ref={ref}>
 
         <motion.h1
-          className="custom-title pt-5"
+          className="custom-title"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

@@ -82,10 +82,10 @@ function ContactForm() {
   };
 
   return (
-    <Container className="my-5">
-      <Row className="justify-content-center">
-        <Col md={8}>
-          <p style={{ fontSize: "1.5em" }} className="pb-4">
+    <Container>
+      <Row className="justify-content-center pb-5">
+        <Col md={7}>
+          <p style={{ fontSize: "1.5em" }} className="pb-5">
             {t("contact")}{" "}<span className="blue">{t("contact_me")}</span> !
           </p>
 

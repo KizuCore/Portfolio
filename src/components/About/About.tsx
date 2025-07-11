@@ -1,4 +1,4 @@
-import { JSX } from "react";
+import { JSX, useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
 import { easeOut, motion } from 'framer-motion';
@@ -14,12 +14,19 @@ import '../../assets/styles/About/About.css';
 
 function About(): JSX.Element {
   const { t } = useTranslation();
+  const [isMobile, setIsMobile] = useState(false);
 
   const { ref: refImg, inView: imgInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 767);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <Container fluid className="about-section">
@@ -33,24 +40,34 @@ function About(): JSX.Element {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: easeOut }}
           >
-            {t('about_me')}{" "}{t('i_am')}
+            {t('about_me')} {t('i_am')}
           </motion.h1>
 
-          <Col md={8} className="text-center text-md-left">
+          <Col md={8} className="text-center text-md-left order-2 order-md-1">
             <Aboutcard />
           </Col>
 
-          <Col md={4} className="d-flex justify-content-center align-items-center about-img" ref={refImg}>
-            <motion.img
-              src={laptopImg}
-              alt={t('about_image_alt', { name: 'Théo Guérin' })}
-              className="img-fluid"
-              loading="lazy"
-              decoding="async"
-              initial={{ opacity: 0, x: 50 }}
-              animate={imgInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            />
+          <Col md={4} className="d-flex justify-content-center align-items-center about-img order-1 order-md-2" ref={refImg}>
+            {isMobile ? (
+              <img
+                src={laptopImg}
+                alt={t('about_image_alt', { name: 'Théo Guérin' })}
+                className="img-fluid"
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <motion.img
+                src={laptopImg}
+                alt={t('about_image_alt', { name: 'Théo Guérin' })}
+                className="img-fluid"
+                loading="lazy"
+                decoding="async"
+                initial={{ opacity: 0, x: 50 }}
+                animate={imgInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              />
+            )}
           </Col>
         </Row>
 

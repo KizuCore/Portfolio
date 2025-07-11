@@ -23,8 +23,8 @@ function Home(): JSX.Element {
       setIsMobile(window.innerWidth < 768); // <768px = mobile
     };
 
-    handleResize(); // exécute au chargement
-    window.addEventListener("resize", handleResize); // met à jour si resize
+    handleResize(); // Execute au chargement
+    window.addEventListener("resize", handleResize); // MAJ si resize
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -34,17 +34,17 @@ function Home(): JSX.Element {
       <Container fluid className="about-section pt-0" id="home">
         <Particle />
         <Container className="home-content">
-          <Row className="align-items-center justify-content-center text-center text-md-left" style={{ paddingBottom: "15em", paddingTop: "4em" }}>
+          <Row className="align-items-center justify-content-center text-center text-md-left" style={{ paddingBottom: "15em", paddingTop: "1em" }}>
             {/* Texte */}
-            <Col xs={12} md={6} className="home-header d-flex flex-column justify-content-center text-center text-md-left py-5">
+            <Col xs={12} md={6} className="home-header d-flex flex-column justify-content-center text-center text-md-left py-md-5">
               {isMobile ? (
-                <div className="pb-5">
+                <div className="pb-md-5 pb-0">
                   <h1 className="heading mb-3 title-font">
                     {t('hello')}{" "}
                     <span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
                   </h1>
                   <h2 className="heading-name styled-title">
-                    {t('iam')}<span className="gradient-name"> {t('nametheo')}</span>
+                    {t('iam')}<span className="pr-2 gradient-name">{t('nametheo')}</span>
                   </h2>
                 </div>
               ) : (
@@ -67,7 +67,7 @@ function Home(): JSX.Element {
 
               {/* Développeur... */}
               {isMobile ? (
-                <div className="pt-3 pb-5 blue-title d-flex justify-content-center align-items-center">
+                <div className="pt-3 pb-5 blue-title d-flex justify-content-center align-items-center typewriter-container">
                   <TypeDev />
                 </div>
               ) : (

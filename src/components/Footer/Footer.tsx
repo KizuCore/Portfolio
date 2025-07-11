@@ -38,42 +38,37 @@ function Footer(): JSX.Element {
 
           {/* Icônes des réseaux sociaux */}
           <Col xs={12} md={4} className="footer-body py-2">
-            <ul className="footer-icons d-flex justify-content-center justify-content-md-end m-0">
-              <li className="social-icons-footer mx-2">
-                <a
-                  href="https://github.com/Theo22100"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={t("github_profile_link")}
-                  className="icon-link"
-                >
-                  <AiFillGithub />
-                </a>
-              </li>
-              <li className="social-icons-footer mx-2">
-                <a
-                  href="https://www.linkedin.com/in/théo-guérin-b20630192/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={t("linkedin_profile_link")}
-                  className="icon-link"
-                >
-                  <FaLinkedinIn />
-                </a>
-              </li>
-              <li className="social-icons-footer mx-2">
-                <a
-                  href="mailto:theo.guerin35000@gmail.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={t("email_link")}
-                  className="icon-link"
-                >
-                  <AiOutlineMail />
-                </a>
-              </li>
-            </ul>
+            <div className="footer-icons d-flex justify-content-center justify-content-md-end gap-5" style={{ paddingRight: "20px" }}>
+              <a
+                href="https://github.com/Theo22100"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t("github_profile_link")}
+                className="icon-link"
+              >
+                <AiFillGithub />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/théo-guérin-b20630192/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t("linkedin_profile_link")}
+                className="icon-link"
+              >
+                <FaLinkedinIn />
+              </a>
+              <a
+                href="mailto:theo.guerin35000@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t("email_link")}
+                className="icon-link"
+              >
+                <AiOutlineMail className="" />
+              </a>
+            </div>
           </Col>
+
         </Row>
       </Container>
     </footer>

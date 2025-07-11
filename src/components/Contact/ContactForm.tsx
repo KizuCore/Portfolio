@@ -85,7 +85,7 @@ function ContactForm() {
     <Container>
       <Row className="justify-content-center pb-5">
         <Col md={7}>
-          <p style={{ fontSize: "1.5em" }} className="pb-5">
+          <p style={{ fontSize: "1.5em" }} className="pb-3 pt-3">
             {t("contact")}{" "}<span className="blue">{t("contact_me")}</span> !
           </p>
 

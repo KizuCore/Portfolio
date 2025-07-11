@@ -67,7 +67,6 @@ body {
 .custom-title:hover {
   /* Légère intensité au hover */
   text-shadow: 0 4px 20px rgba(39, 109, 238, 0.6);
-  transform: scale(1.02);
 }
 
 .custom-title-1{

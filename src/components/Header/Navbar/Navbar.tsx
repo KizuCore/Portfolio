@@ -11,7 +11,7 @@ import Logo from "../Logo/LogoContainer";
 import NavItem from "./NavItem";
 import '../../../assets/styles/Easter/style_easter.css';
 import '../../../assets/styles/Header/header.css';
-import { FaEnvelope } from "react-icons/fa";
+import { FaRegEnvelope } from "react-icons/fa";
 
 // Constantes de timing
 const FAST_CLICK_THRESHOLD = 500; // 0.5s = clic rapide
@@ -74,7 +74,7 @@ function NavBar(): JSX.Element {
     { to: "/about", icon: <AiOutlineUser style={{ transform: "translateY(-2px)" }} />, label: t('about'), ariaLabel: t('about_aria') },
     { to: "/experience", icon: <AiOutlineIdcard style={{ transform: "translateY(-2px)" }} />, label: t('experience'), ariaLabel: t('about_experience') },
     { to: "/project", icon: <AiOutlineFundProjectionScreen style={{ transform: "translateY(-2px)" }} />, label: t('project'), ariaLabel: t('project_aria') },
-    { to: "/contact", icon: <FaEnvelope style={{ transform: "translateY(-2px)" }} />, label: t('social'), ariaLabel: t('social') },
+    { to: "/contact", icon: <FaRegEnvelope style={{ transform: "translateY(-2px)" }} />, label: t('social'), ariaLabel: t('social') },
     { to: "/cv", icon: <CgFileDocument style={{ transform: "translateY(-2px)" }} />, label: t('cv'), ariaLabel: t('cv_aria') }
   ];
 

@@ -1,19 +1,105 @@
+/* Preloader container */
 #preloader {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999999;
+  width: 100vw;
+  height: 100vh;
   background-color: #0c0513;
-  background-image: url(../../images/pre.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease;
   opacity: 1;
-  transition: opacity 0.5s ease;
+  pointer-events: all;
 }
 
-#preloader.fade-out {
+#preloader.loaded {
   opacity: 0;
   pointer-events: none;
+}
+
+/* Container logo + halo */
+.preloader-content {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+/* L’image du logo centrée */
+.preloader-logo {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 90px;
+  height: 90px;
+  transform: translate(-50%, -50%);
+  background-image: url(../../images/pre.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 2;
+  animation: fadeInScale 1s ease-in-out forwards;
+}
+
+/* Anneau rotatif */
+.preloader-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid #276dee;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 1.5s linear infinite;
+  z-index: 1;
+}
+
+/* Halo lumineux */
+.preloader-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(39, 109, 238, 0.3), transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulseGlow 2.5s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Animations */
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }

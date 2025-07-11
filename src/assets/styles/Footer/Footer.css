@@ -3,8 +3,8 @@
 /* --------- */
 .footer {
   background-color: #171426be !important;
-  padding-top: 10px !important;
-  padding-bottom: 8px !important;
+  padding-top: 10px;
+  padding-bottom: 8px;
   text-align: center !important;
   z-index: 100 !important;
 }
@@ -13,19 +13,19 @@
 .footer-body {
   text-align: center !important;
 }
-
+.footer-body {
+  padding-right: 40px;
+}
 .footer h3 {
-  font-size: 1.1em;
+  font-size: 1.2em;
   color: white !important;
 }
 
 .footer-icons {
   display: flex;
   justify-content: center;
-  gap: 15px; 
   color: white !important;
-  padding: 0 !important;
-  font-size: 1.6em;
+  font-size: 1.8em;
 }
 
 .footer a {
@@ -40,7 +40,7 @@
 
 @media (max-width: 767px) {
   .footer h3 {
-    font-size: 1em;
+    font-size: 1.1em;
     margin: 0.3em 0 !important;
   }
 
@@ -51,4 +51,8 @@
   .footer-copywright{
     font-size: 0.7em !important;
   }
+  .footer-body {
+  padding-right: 0px;
+  padding-top: 10px;
+}
 }

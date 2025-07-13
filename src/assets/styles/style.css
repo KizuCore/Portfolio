@@ -181,6 +181,15 @@ button:focus {
   color: white !important;
 }
 
+/* Sections */
+.parkour-section {
+  position: relative !important;
+  padding-top: 120px !important;
+  padding-bottom: 30px !important;
+  background-image: var(--section-background-color) !important;
+  color: white !important;
+}
+
 /* Background Box */
 .background-box {
   background-color: rgba(71, 70, 70, 0.25) !important;

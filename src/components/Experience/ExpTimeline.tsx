@@ -65,9 +65,9 @@ const Experience = () => {
   ];
 
   return (
-    <Container fluid className="about-section pt-5 " id="home">
+    <Container fluid className="parkour-section" id="home">
       <Particle />
-      <Container className="home-content pt-5 mt-5">
+      <Container>
         <motion.h1
           className="custom-title pb-5 pt-3 mb-5 mt-5"
           initial={{ opacity: 0, y: 20 }}

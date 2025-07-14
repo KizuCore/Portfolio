@@ -91,14 +91,16 @@
 .Typewriter__wrapper {
   font-size: 2.2em !important;
   font-weight: 200 !important;
-  color: #276DEE !important;
+  background: linear-gradient(90deg, #276DEE, #6C88FF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-family: 'Courier Prime', serif  !important;
   min-height: 60px !important;
 }
 
 .Typewriter__cursor {
   font-size: 1.8em !important;
-  color: #276DEE !important;
 }
 
 @media (max-width: 767px) {
@@ -109,7 +111,6 @@
     min-width: 150px !important;
     height: 120px !important;
   }
-  
 }
 
 
@@ -159,6 +160,17 @@
 }
 
 
+.typewriter-container {
+  display: inline-flex;
+  align-items: center;
+}
+
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
 
 
 /* Texte */

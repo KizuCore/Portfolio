@@ -67,7 +67,7 @@ function Home(): JSX.Element {
 
               {/* Développeur... */}
               {isMobile ? (
-                <div className="pt-3 pb-5 blue-title d-flex justify-content-center align-items-center typewriter-container">
+                <div className="pt-3 pb-5 d-flex justify-content-center align-items-center">
                   <TypeDev />
                 </div>
               ) : (
@@ -75,7 +75,7 @@ function Home(): JSX.Element {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                  className="pt-3 pb-5 blue-title d-flex justify-content-center align-items-center"
+                  className="pt-3 pb-5 d-flex justify-content-center align-items-center"
                 >
                   <TypeDev />
                 </motion.div>

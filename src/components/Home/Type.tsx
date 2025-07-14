@@ -22,18 +22,19 @@ function TypeDev(): JSX.Element {
 
   return (
     <div aria-live="polite" className="typedev">
-      <span style={{ display: "none" }}>
+      <span className="" style={{ display: "none" }}>
         Fullstack Developer, Frontend Developer, Backend Developer
       </span>
-
-      <Typewriter
-        options={{
-          strings,
-          autoStart: true,
-          loop: true,
-          deleteSpeed: 50,
-        }}
-      />
+      <div className="mb-1">
+        <Typewriter
+          options={{
+            strings,
+            autoStart: true,
+            loop: true,
+            deleteSpeed: 50,
+          }}
+        />
+      </div>
     </div>
   );
 }

@@ -9,6 +9,8 @@ import Particle from "../Utils/Particle.js";
 import TypeDev from "./Type.tsx";
 import '../../assets/styles/Home/Home.css';
 import { useInView } from 'react-intersection-observer';
+import HomeButtons from "./HomeButtons.tsx";
+import HomeStats from "./CountUp.tsx";
 
 function Home(): JSX.Element {
   const { t } = useTranslation();
@@ -80,7 +82,7 @@ function Home(): JSX.Element {
                   <TypeDev />
                 </motion.div>
               )}
-
+              <HomeButtons />
             </Col>
             {/* Colonne pour l'image */}
             <Col ref={ref} xs={12} md={6} className="d-flex justify-content-center align-items-center py-4">
@@ -114,6 +116,7 @@ function Home(): JSX.Element {
                 </Tilt>
               </div>
             </Col>
+            <HomeStats />
           </Row>
         </Container>
       </Container>

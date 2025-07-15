@@ -129,11 +129,93 @@
 
 
 
+/* Liste des hobbies en flex-wrap */
+.hobbies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-left: 1rem;
+}
+
+.hobby {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  color: #ccc;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+}
+
+.hobby:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  cursor: default;
+}
 
 
 
+/* Qualifications */
 
+.grid-qualifs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
 
+@media (min-width: 600px) {
+  .grid-qualifs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
+.qualif-link {
+  display: block;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  color: #86acf4;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
 
+.qualif-link:hover {
+  color: white;
+  border-color: #276DEE;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(39, 109, 238, 0.2);
+}
+/* ABOUT */
 
+.about-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-tabs button {
+  background: transparent;
+  border: 2px solid #276DEE;
+  color: #86acf4;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.about-tabs button.active,
+.about-tabs button:hover {
+  background-color: #276DEE;
+  color: white;
+}
+
+.minheight-about{
+    min-height: 290px;
+}

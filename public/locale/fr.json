@@ -7,17 +7,6 @@
     "experience": "Expériences",
     "project": "Projets",
     "resume": "CV",
-    "introduction": "EN BREF",
-    "description": "Curieux de nature, j'aime relever des défis de programmation et je cherche constamment de nouvelles façons d'améliorer mon expertise technique",
-    "classic_technologies": "Je maîtrise des classiques comme",
-    "technologies": "React, Java, Flutter, PHP, Express.js, ...",
-    "interests": "Mes centres d'intérêt sont la construction de nouveaux",
-    "projects_and_discovery": "projets et la découverte de nouveaux langages !",
-    "passion": "Dans la mesure du possible, j'applique également ma passion pour le développement de projets avec",
-    "nodejs": "Express.js",
-    "libraries_frameworks": "Librairie & Framework de Javascript",
-    "and": "et ",
-    "reactjs": "React.js",
     "social": "Contact",
     "contact": "N'hésitez pas à",
     "contact_me": "me contacter",
@@ -141,30 +130,29 @@
     "tboi_image_alt": "Image du projet The Binding of Isaac",
     "portfolio_image_alt": "Image du projet Portfolio V1",
     "Mon parcours": "Mon parcours",
-
     "experience_1_title": "Développeur Web Fullstack — Nahibu",
     "experience_1_date": "Depuis Mars. 2024",
     "experience_1_description": "Responsable de l’infrastructure Nahibu, implémentation d’interfaces, refonte graphique, SEO, documentation, ...",
     "experience_1_stack": "Django, Flask, React, PostgreSQL, Axios, AWS, Citry API, Brevo, Jupyter, Django, Wordpress, Wix, LimeSurvey, Docker.",
-  
     "experience_2_title": "MBA Développeur Web Full-Stack",
     "experience_2_subtitle": "My Digital School Rennes",
     "experience_2_date": "Depuis Sept. 2024",
-  
     "experience_3_title": "Bachelor Développeur Web",
     "experience_3_subtitle": "My Digital School Rennes",
     "experience_3_diplome": "Obtention Titre RNCP \"Concepteur Développeur d’Application\"",
     "experience_3_date": "Sept. 2023 - Juil. 2024",
-  
     "experience_4_title": "Licence Informatique & Électronique",
     "experience_4_subtitle": "Université Rennes 1 ISTIC",
     "experience_4_date": "Sept. 2020 - Juil. 2023",
-  
     "experience_5_title": "Classe préparatoire DCG",
     "experience_5_subtitle": "Lycée Bréquigny, Rennes",
     "experience_5_date": "Sept. 2018 - Juil. 2019",
-  
     "experience_6_title": "Baccalauréat Scientifique SVT",
     "experience_6_subtitle": "Lycée La Fontaine Des Eaux, Dinan",
-    "experience_6_date": "Juil. 2018"
+    "experience_6_date": "Juil. 2018",
+    "years": "Ans",
+    "experience_home": "d’expériences",
+    "studies": "d’études",
+    "completed": "complétés",
+    "technologies": "Technologies"
 }

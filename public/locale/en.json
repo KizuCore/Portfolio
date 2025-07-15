@@ -7,17 +7,6 @@
     "experience": "Experiences",
     "project": "Projects",
     "resume": "CV",
-    "introduction": "AT A GLANCE",
-    "description": "Curious by nature, I thrive on coding challenges and constantly seek out new ways to enhance my technical expertise.",
-    "classic_technologies": "I'm proficient in classics like",
-    "technologies": "React, Java, Flutter, PHP, Express.js,...",
-    "interests": "My interests include building new",
-    "projects_and_discovery": "projects and discovering new languages!",
-    "passion": "Whenever possible, I also apply my passion for developing projects with",
-    "nodejs": "Express.js",
-    "libraries_frameworks": "JavaScript libraries and frameworks",
-    "and": "and ",
-    "reactjs": "React.js",
     "social": "Contact",
     "contact": "Feel free to",
     "contact_me": "contact me",
@@ -141,31 +130,29 @@
     "tboi_image_alt": "Image of The Binding of Isaac project",
     "portfolio_image_alt": "Image of the Portfolio V1 project",
     "Mon parcours": "My Journey",
-
     "experience_1_title": "Fullstack Web Developer — Nahibu",
     "experience_1_date": "Since March. 2024",
     "experience_1_subtitle": "Rennes",
     "experience_1_description": "Responsible for Nahibu’s infrastructure, interface implementation, design overhaul, SEO, documentation, ...",
     "experience_1_stack": "Django, Flask, React, PostgreSQL, Axios, AWS, Citry API, Brevo, Jupyter, Django, Wordpress, Wix, LimeSurvey, Docker.",
-    
     "experience_2_title": "MBA Full-Stack Web Developer",
     "experience_2_subtitle": "My Digital School",
     "experience_2_date": "Since Sept. 2024",
-  
     "experience_3_title": "Bachelor Web Developer",
     "experience_3_subtitle": "My Digital School Rennes",
     "experience_3_diplome": "RNCP title 'Application Developer'",
     "experience_3_date": "Sept. 2023 - July 2024",
-  
     "experience_4_title": "Bachelor in Computer Science & Electronics",
     "experience_4_subtitle": "University of Rennes 1 ISTIC",
     "experience_4_date": "Sept. 2020 - July 2023",
-  
     "experience_5_title": "Preparatory Class DCG",
     "experience_5_subtitle": "Bréquigny High School, Rennes",
     "experience_5_date": "Sept. 2018 - July 2019",
-  
     "experience_6_title": "Scientific Baccalaureate (SVT)",
     "experience_6_subtitle": "La Fontaine Des Eaux High School, Dinan",
-    "experience_6_date": "July 2018"
+    "experience_6_date": "July 2018",
+    "years": "Years",
+    "experience_home": "of experience",
+    "studies": "of studies",
+    "completed": "completed"
 }

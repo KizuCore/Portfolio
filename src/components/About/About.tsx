@@ -47,7 +47,7 @@ function About(): JSX.Element {
             <Aboutcard />
           </Col>
 
-          <Col md={4} className="d-flex justify-content-center align-items-center about-img order-1 order-md-2" ref={refImg}>
+          <Col md={4} className="d-flex justify-content-center align-items-center about-img order-1 order-md-2 pb-4 pb-md-0" ref={refImg}>
             {isMobile ? (
               <img
                 src={laptopImg}

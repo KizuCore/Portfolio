@@ -76,10 +76,11 @@
 }
 
 .home-content {
-  padding: 9rem 0 2rem !important;
+  padding: 8rem 0 2rem !important;
   color: whitesmoke;
   text-align: left;
 }
+
 
 .Typewriter__wrapper {
   font-size: 2.2em !important;
@@ -133,6 +134,9 @@
     white-space: normal;
     /* autorise retour à la ligne si nécessaire */
     text-align: center;
+  }
+  .home-content {
+  padding: 6rem 0 2rem !important;
   }
 }
 

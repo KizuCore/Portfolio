@@ -5,11 +5,12 @@ import { easeOut, motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/About/About.css';
 import secretSound from '@sound/voice.mp3';
+import { FaGraduationCap, FaUser, FaPuzzlePiece } from 'react-icons/fa';
 
 function AboutCard(): JSX.Element {
   const { t } = useTranslation();
-  const { ref: refText, inView: textInView } = useInView({ triggerOnce: true, threshold: 0.1 });
-
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [selectedTab, setSelectedTab] = useState<'presentation' | 'qualifications' | 'hobbies'>('presentation');
   const [secretClickCount, setSecretClickCount] = useState(0);
   const [isCooldown, setIsCooldown] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -17,20 +18,11 @@ function AboutCard(): JSX.Element {
 
   useEffect(() => {
     audioRef.current = new Audio(secretSound);
-  }, []);
-
-  useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const handleSecretClick = () => {
-    if (!isCooldown) {
-      setSecretClickCount((prev) => prev + 1);
-    }
-  };
 
   useEffect(() => {
     if (secretClickCount === 3 && audioRef.current) {
@@ -47,86 +39,79 @@ function AboutCard(): JSX.Element {
     }
   }, [isCooldown]);
 
+  const handleSecretClick = () => {
+    if (!isCooldown) setSecretClickCount((prev) => prev + 1);
+  };
+
   return (
-    <Card className="quote-card-view mt-4">
-      <Card.Body>
-        {isMobile ? (
-          <blockquote
-            ref={refText}
-            className="blockquote mb-0 background-box"
-          >
-            <CardContent t={t} isMobile={isMobile} onSecretClick={handleSecretClick} />
-          </blockquote>
-        ) : (
-          <motion.blockquote
-            ref={refText}
-            initial={{ opacity: 0, x: -50 }}
-            animate={textInView ? { opacity: 1, x: 0 } : {}}
+    <div className='background-box '>
+      <Card className="quote-card-view">
+        <Card.Body>
+          <div className="about-tabs">
+            <button onClick={() => setSelectedTab('presentation')} className={selectedTab === 'presentation' ? 'active' : ''}><FaUser /> {t('presentation_title')}</button>
+            <button onClick={() => setSelectedTab('qualifications')} className={selectedTab === 'qualifications' ? 'active' : ''}><FaGraduationCap /> {t('qualifications_title')}</button>
+            <button onClick={() => setSelectedTab('hobbies')} className={selectedTab === 'hobbies' ? 'active' : ''}><FaPuzzlePiece /> {t('hobbies_title')}</button>
+          </div>
+
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: easeOut }}
-            className="blockquote mb-0 background-box"
+            className="minheight-about"
           >
-            <CardContent t={t} isMobile={isMobile} onSecretClick={handleSecretClick} />
-          </motion.blockquote>
-        )}
-      </Card.Body>
-    </Card>
+            {selectedTab === 'presentation' && <Presentation t={t} />}
+            {selectedTab === 'qualifications' && <Qualifications t={t} />}
+            {selectedTab === 'hobbies' && <Hobbies t={t} onSecretClick={handleSecretClick} />}
+          </motion.div>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 
-function CardContent({
-  t,
-  isMobile,
-  onSecretClick,
-}: {
-  t: any;
-  isMobile: boolean;
-  onSecretClick: () => void;
-}): JSX.Element {
+function Presentation({ t }: { t: any }): JSX.Element {
   return (
     <>
-      <h2 className="mb-4 custom-title custom-title-2">{t('presentation_title')}</h2>
-      <p className="text-justify">
+      <p className="text-justify pt-1 pt-md-4">
         {t('greeting')} <span className="blue">Théo Guérin</span> {t('from')}
         <span className="blue"> Rennes, France</span>.
-        <br />
-        <br />
+        <br /><br />
         {t('current_position1')} <span className="blue">{t('developperAge')}</span>
         {t('current_position2')} <span className="blue">{t('firstmaster')}</span>
         {t('current_position3')}
       </p>
+      <p className="text-justify">
+        {t('present_1')}{' '}<span className="blue">{t('present_2')}</span>{t('present_3')}
+      </p>
+    </>
+  );
+}
 
-      <h2 className="mt-4 custom-title custom-title-2">{t('qualifications_title')}</h2>
-      <ul className={`mt-3 ${isMobile ? 'list-unstyled' : ''}`}>
-        <li className="about-activity mb-2">
-          • <a href="https://istic.univ-rennes.fr/licence-informatique-parcours-informatique" target="_blank" rel="noopener noreferrer" className="text-decoration-none blue">
-            {t('degree1')}
-          </a>
-        </li>
-        <li className="about-activity mb-2">
-          • <a href="https://www.mydigitalschool.com/bachelor-1-2-web" target="_blank" rel="noopener noreferrer" className="text-decoration-none blue">
-            {t('degree2')}
-          </a>
-        </li>
-        <li className="about-activity mb-2">
-          • <a href="https://www.francecompetences.fr/recherche/rncp/37873/" target="_blank" rel="noopener noreferrer" className="text-decoration-none blue">
-            {t('degree3')}
-          </a>
-        </li>
-      </ul>
+function Qualifications({ t }: { t: any }): JSX.Element {
+  return (
+    <div className="grid-qualifs mt-3">
+      <a href="https://istic.univ-rennes.fr/licence-informatique-parcours-informatique" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree1')}</a>
+      <a href="https://www.mydigitalschool.com/bachelor-1-2-web" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree2')}</a>
+      <a href="https://www.francecompetences.fr/recherche/rncp/37873/" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree3')}</a>
+      <a href="https://cyber.gouv.fr/comprendre-la-certification" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree4')}</a>
+    </div>
+  );
+}
 
-      <h2 className="mt-4 custom-title custom-title-2">{t('hobbies_title')}</h2>
-      <p className="text-justify mt-4">{t('outside_of_coding')}</p>
-      <ul className={`mt-3 ${isMobile ? 'list-unstyled' : ''}`}>
-        <li className="about-activity">✈️ • {t('hobby1')}</li>
-        <li className="about-activity">🍳 • {t('hobby2')}</li>
-        <li className="about-activity">🔭 • {t('hobby3')}</li>
-        <li className="about-activity">🐈 • {t('hobby4')}</li>
-        <li className="about-activity">
-          <span onClick={onSecretClick} role="button" style={{ cursor: 'pointer' }}>
-            🥂
-          </span> • {t('hobby5')}
-        </li>
-      </ul>
+function Hobbies({ t, onSecretClick }: { t: any; onSecretClick: () => void }): JSX.Element {
+  return (
+    <>
+      <p className="text-justify mt-4 pt-0 pt-md-4 pb-0 pb-md-4">{t('outside_of_coding')}</p>
+      <div className="hobbies-list">
+        <span className="hobby">✈️ {t('hobby1')}</span>
+        <span className="hobby">🍳 {t('hobby2')}</span>
+        <span className="hobby">🔭 {t('hobby3')}</span>
+        <span className="hobby">🐈 {t('hobby4')}</span>
+        <span className="hobby secret" onClick={onSecretClick} role="button">🥂 {t('hobby5')}</span>
+        <span className="hobby">🎮 {t('hobby6')}</span>
+        <span className="hobby">🍿 {t('hobby7')}</span>
+      </div>
     </>
   );
 }

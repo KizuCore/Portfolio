@@ -105,7 +105,7 @@ function Techstack() {
               <Col
                 key={index}
                 xs={3}
-                md={4}
+                md={2}
                 className={`tech-icons ${levelClass}`}
                 data-tooltip-id="tech-tooltip"
                 data-tooltip-content={`${icon.name} - ${icon.level === 0 ? t("novice") :

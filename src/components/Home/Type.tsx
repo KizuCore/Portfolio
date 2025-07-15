@@ -1,7 +1,7 @@
 import { JSX, useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import Typewriter from "typewriter-effect";
-import '../../assets/styles/Home/Home.css'; 
+import '../../assets/styles/Home/Home.css';
 
 function TypeDev(): JSX.Element {
   const { t } = useTranslation();
@@ -21,7 +21,7 @@ function TypeDev(): JSX.Element {
   ];
 
   return (
-    <div aria-live="polite" className="typedev">
+    <div aria-live="polite" className="typedev pt-5 pt-md-0">
       <span className="" style={{ display: "none" }}>
         Fullstack Developer, Frontend Developer, Backend Developer
       </span>

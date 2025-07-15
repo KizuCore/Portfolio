@@ -36,7 +36,7 @@ function Home(): JSX.Element {
       <Container fluid className="about-section pt-0" id="home">
         <Particle />
         <Container className="home-content">
-          <Row className="align-items-center justify-content-center text-center text-md-left" style={{ paddingBottom: "15em", paddingTop: "1em" }}>
+          <Row className="align-items-center justify-content-center text-center text-md-left padtopbot">
             {/* Texte */}
             <Col xs={12} md={6} className="home-header d-flex flex-column justify-content-center text-center text-md-left py-md-5">
               {isMobile ? (
@@ -86,7 +86,7 @@ function Home(): JSX.Element {
             </Col>
             {/* Colonne pour l'image */}
             <Col ref={ref} xs={12} md={6} className="d-flex justify-content-center align-items-center py-4">
-              <div className="logo-wrapper">
+              <div className="logo-wrapper mt-3 mt-md-0">
                 <Tilt>
                   {isMobile ? (
                     <img

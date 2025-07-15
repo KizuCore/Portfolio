@@ -9,7 +9,7 @@
     left: 50%;
     width: 4px;
     height: 100%;
-    background: #f5c518;
+    background: #276DEE;
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -48,10 +48,14 @@
     transform: translateX(-50%);
     width: 18px;
     height: 18px;
-    background-color: #f5c518;
+    background-color: #276DEE;
     border-radius: 50%;
     z-index: 2;
-    box-shadow: 0 0 10px #f5c51880;
+    box-shadow: 0 0 10px #276dee4d;
+}
+
+.text-warning {
+    color: #276DEE !important;
 }
 
 .timeline-start-circle::after {
@@ -63,7 +67,7 @@
     height: 30px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    background-color: rgba(245, 197, 24, 0.2);
+    background-color: rgba(39, 109, 238, 0.2);
     animation: pulse 1.5s infinite;
     z-index: -1;
 }
@@ -82,7 +86,7 @@
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 14px solid #f5c518;
+    border-bottom: 14px solid #276DEE;
     animation: arrowBounce 1.5s infinite ease-in-out;
 }
 

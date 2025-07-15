@@ -202,7 +202,7 @@
 .about-tabs button {
   background-color: #276dee34;
   border: 2px solid #276DEE;
-  color: #276DEE;
+  color: rgba(255, 255, 255, 0.507);
   padding: 0.6rem 1rem;
   border-radius: 20px;
   font-weight: 600;

@@ -1,51 +1,50 @@
 .home-about-social {
-  text-align: center !important;
+  text-align: center ;
   padding-top: 25px;
-  color: white !important;
+  color: white ;
 }
 
 .home-about-social-links {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 30px !important;
-  padding-top: 15px !important;
-  padding-inline-start: 0 !important;
+  display: flex ;
+  justify-content: center ;
+  align-items: center ;
+  gap: 50px ;
+  padding-top: 15px ;
+  padding-inline-start: 0 ;
 }
 
 
 .home-social-icons {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width: 80px !important;
-  height: 80px !important;
-  font-size: 2em !important;
-  background: #5b93fb !important;
-  border-radius: 50% !important;
-  transition: 0.5s !important;
-  border: #ffffff solid 3px !important;
+  display: flex ;
+  justify-content: center ;
+  align-items: center ;
+  width: 50px ;
+  height: 50px ;
+  background: #5b93fb ;
+  border-radius: 50% ;
+  transition: 0.5s ;
+  border: #ffffff solid 2px ;
 }
 
 
 
 .home-social-icons:hover {
-  background: #deeafc !important;
-  border: #0c3986 solid 3px !important;
+  background: #deeafc4f ;
+  border: #0c3986 solid 2px ;
 }
 
 
 .icon-colour:hover {
-  color: #0c3986 !important;
+  color: #0c3986 ;
 }
 
 .icon-colour {
-  color: white !important;
+  color: white ;
 }
 
 
 .social-icons {
-  display: inline-block !important;
+  display: inline-block ;
 }
 
 
@@ -57,22 +56,22 @@
 
 .custom-form::placeholder {
   background-color: #3d3a42; 
-  color: #cccccc !important; 
+  color: #cccccc ; 
 }
 
 .custom-form:hover, .custom-form:focus {
   background-color: #504d57;  
-  transition: all 0.3s ease-in-out !important;
-  color: #cccccc !important; 
+  transition: all 0.3s ease-in-out ;
+  color: #cccccc ; 
 }
 .custom-form,
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
-  background-color: #3d3a42 !important;
+  background-color: #3d3a42 ;
   -webkit-box-shadow: 0 0 0px 1000px #3d3a42 inset;
   -webkit-text-fill-color: #cccccc;
-  color: #cccccc !important; 
+  color: #cccccc ; 
 }
 
 /* Captcha */
@@ -101,3 +100,13 @@ input:-webkit-autofill:focus {
 
 
 
+.contact-info-box {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: rgba(71, 70, 70, 0.1) !important;
+  border: 2px solid rgba(255, 255, 255, 0.6) !important;
+  color: #ccc;
+  max-width: 400px;
+  margin: auto;
+}

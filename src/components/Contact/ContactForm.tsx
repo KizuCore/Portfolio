@@ -83,21 +83,18 @@ function ContactForm() {
 
   return (
     <Container>
-      <Row className="justify-content-center pb-5">
-        <Col md={7}>
-          <p style={{ fontSize: "1.5em" }} className="pb-3 pt-3">
-            {t("contact")}{" "}<span className="blue">{t("contact_me")}</span> !
-          </p>
 
-          {responseMessage && (
-            <Alert
-              variant={responseVariant}
-              onClose={() => setResponseMessage("")}
-              dismissible
-            >
-              {responseMessage}
-            </Alert>
-          )}
+      {responseMessage && (
+        <Alert
+          variant={responseVariant}
+          onClose={() => setResponseMessage("")}
+          dismissible
+        >
+          {responseMessage}
+        </Alert>
+      )}
+      <Row className="justify-content-center pb-5">
+        <Col md={8} className="p-0 m-0">
 
           <Form onSubmit={handleSubmit} className="background-box">
             <Row>

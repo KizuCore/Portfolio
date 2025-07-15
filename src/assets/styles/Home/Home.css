@@ -371,7 +371,7 @@
 
 .cv-btn:hover {
   background-color: #276DEE;
-  color: black;
+  color: rgba(255, 255, 255, 0.8);
   transition: color 0.5s ease, background-color 0.5s ease;
 }
 
@@ -409,7 +409,7 @@
 
 .icon-btn:hover {
   background-color: #276DEE;
-  color: black;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 

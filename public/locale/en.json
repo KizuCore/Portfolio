@@ -158,7 +158,13 @@
     "experience_home": "of experience",
     "studies": "of studies",
     "completed": "completed",
+    "technologies": "Technologies",
     "present_1": "I started coding in high school, and got back into it seriously in 2017 through the game Minecraft, where I had the opportunity to",
     "present_2": "manage projects, write code, configure servers, and lead a team",
-    "present_3": ". This experience sparked my passion for development, organization, and teamwork."
+    "present_3": ". This experience sparked my passion for development, organization, and teamwork.",
+    "Informations": "Information",
+    "Vous avez un projet ?": "Do you have a project in mind?",
+    "Qu’il s’agisse d’un site vitrine, d’une application, d’une mission freelance ou d’une opportunité professionnelle, ...": "Whether it's a showcase website, an application, a freelance mission or a job opportunity, feel free to reach out!",
+    "N’hésitez pas à me contacter !": "Feel free to get in touch!",
+    "Disponible pour de nouveaux projets": "Available for new projects"
 }

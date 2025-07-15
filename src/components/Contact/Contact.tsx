@@ -1,22 +1,13 @@
 import React, { JSX, Suspense } from "react";
 import { useTranslation } from 'react-i18next';
-import { Col, Container, Spinner } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/Contact/Contact.css';
 import ContactForm from "./ContactForm.tsx";
 import Particle from "../Utils/Particle.js";
 import { motion, easeOut } from 'framer-motion';
-
-// Chargement différé des icônes avec types explicites
-const AiFillGithub = React.lazy(() =>
-  import("react-icons/ai").then(module => ({ default: module.AiFillGithub }))
-);
-const AiOutlineMail = React.lazy(() =>
-  import("react-icons/ai").then(module => ({ default: module.AiOutlineMail }))
-);
-const FaLinkedinIn = React.lazy(() =>
-  import("react-icons/fa").then(module => ({ default: module.FaLinkedinIn }))
-);
+import '../../assets/styles/Home/Home.css';
+import HomeButtons from "../Home/HomeButtons.tsx";
 
 function Contact(): JSX.Element {
   const { t } = useTranslation();
@@ -25,103 +16,41 @@ function Contact(): JSX.Element {
     threshold: 0.5,
   });
 
-  const iconVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.2,
-        duration: 0.6,
-        ease: easeOut,
-      },
-    }),
-  };
-
   return (
     <Container fluid className="about-section pt-5" id="home">
       <Particle />
-      <Container className="home-content pt-md-5 pt-5 mt-3 mt-md-5"></Container>
-      <Col md={12} className="home-about-social" ref={ref}>
-
-        <motion.h1
-          className="custom-title"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          {t('social')}
-        </motion.h1>
-
-
-
-        <ContactForm />
-
-        <ul className="home-about-social-links">
-          {/* GitHub */}
-          <motion.li
-            className="social-icons"
-            custom={0}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            variants={iconVariants}
+      <Container className="home-content pt-md-0 pt-5 mt-3 mt-md-0">
+        <Row className="justify-content-center p-0">
+          <motion.h1
+            className="custom-title pb-5"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <a
-              href="https://github.com/Theo22100"
-              target="_blank"
-              rel="noreferrer"
-              className="icon-colour home-social-icons"
-              aria-label={t('github_profile2')}
-            >
-              <Suspense fallback={<Spinner animation="border" role="status" />}>
-                <AiFillGithub size={55} />
-              </Suspense>
-            </a>
-          </motion.li>
-
-          {/* LinkedIn */}
-          <motion.li
-            className="social-icons"
-            custom={1}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            variants={iconVariants}
-          >
-            <a
-              href="https://www.linkedin.com/in/théo-guérin-b20630192/"
-              target="_blank"
-              rel="noreferrer"
-              className="icon-colour home-social-icons"
-              aria-label={t('linkedin_profile')}
-            >
-              <Suspense fallback={<Spinner animation="border" role="status" />}>
-                <FaLinkedinIn size={55} />
-              </Suspense>
-            </a>
-          </motion.li>
-
-          {/* Mail */}
-          <motion.li
-            className="social-icons"
-            custom={2}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            variants={iconVariants}
-          >
-            <a
-              href="mailto:theo.guerin35000@gmail.com"
-              target="_blank"
-              rel="noreferrer"
-              className="icon-colour home-social-icons"
-              aria-label={t('email_me')}
-            >
-              <Suspense fallback={<Spinner animation="border" role="status" />}>
-                <AiOutlineMail size={55} />
-              </Suspense>
-            </a>
-          </motion.li>
-        </ul>
-      </Col>
+            {t('social')}
+          </motion.h1>
+          <Col md={7} className="home-about-social pt-3" ref={ref}>
+            <ContactForm />
+          </Col>
+          <Col md={5} className="home-about-social pt-3" ref={ref}>
+            <div className="contact-info-box">
+              <p style={{ fontSize: "2rem" }}>📬 {t("Informations")}</p>
+              <p className="text-justify">
+                {t("Vous avez un projet ?")}
+              </p>
+              <p className="text-justify">
+                {t("Qu’il s’agisse d’un site vitrine, d’une application, d’une mission freelance ou d’une opportunité professionnelle, ...")}
+              </p>
+              <p className="text-justify pb-3">
+                {t("N’hésitez pas à me contacter !")}
+              </p>
+              <hr className="pt-3" style={{ opacity: 0.8 }} />
+              <p className="pb-3">🕒 <strong>{t("Disponible pour de nouveaux projets")}</strong></p>
+              <HomeButtons />
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </Container>
   );
 }

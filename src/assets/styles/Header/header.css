@@ -97,18 +97,24 @@
 
 /* Navbar Toggler - Hamburger Button */
 .navbar-toggler {
-  position: relative !important;
-  background-color: transparent !important;
-  border-color: transparent !important;
+  position: relative;
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .navbar-toggler span {
-  display: block !important;
-  background-color: #5092f4 !important;
-  height: 4px !important;
-  width: 27px !important;
-  margin-top: 5px !important;
-  margin-bottom: 5px !important;
+  display: block;
+  background-color: #2776DE;
+  height: 4px;
+  width: 27px;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.navbar-toggler span:nth-child(2) {
+  width: 22px;
+  margin-left: auto !important;
 }
 
 .navbar-toggler:focus,

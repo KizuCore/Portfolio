@@ -53,7 +53,6 @@
 .tech-icons {
     font-size: 4.5em !important;
     margin: 15px !important;
-    padding: 10px !important;
     opacity: 0.93 !important;
     vertical-align: middle !important;
     text-align: center !important;
@@ -63,7 +62,15 @@
     overflow: hidden !important;
     transition: all 0.4s ease 0s !important;
     background-color: #f5fafd1a !important;
+}
 
+@media screen and (max-width: 767px) {
+    .tech-icons,
+    .tech-icons-1 {
+        margin: 10px !important;
+        padding: 0px !important;
+    }
+    
 }
 
 /* Couleurs des bordures selon le niveau */

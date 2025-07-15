@@ -1,17 +1,17 @@
-import React, { JSX, Suspense } from "react";
+import { JSX } from "react";
 import { useTranslation } from 'react-i18next';
-import { Col, Container, Row, Spinner } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/Contact/Contact.css';
 import ContactForm from "./ContactForm.tsx";
 import Particle from "../Utils/Particle.js";
-import { motion, easeOut } from 'framer-motion';
+import { motion } from 'framer-motion';
 import '../../assets/styles/Home/Home.css';
 import HomeButtons from "../Home/HomeButtons.tsx";
 
 function Contact(): JSX.Element {
   const { t } = useTranslation();
-  const { ref, inView } = useInView({
+  const { ref } = useInView({
     triggerOnce: true,
     threshold: 0.5,
   });

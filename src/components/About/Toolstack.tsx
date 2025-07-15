@@ -103,7 +103,7 @@ const Toolstack: React.FC = () => {
             return (
               <Col
                 key={index}
-                xs={4}
+                xs={3}
                 md={2}
                 className="tech-icons-1"
                 data-tooltip-id="tool-tooltip"

@@ -97,23 +97,22 @@ function Techstack() {
             const IconComponent = icon.component;
             const levelClass =
               icon.level === 0 ? "border-orange" :
-              icon.level === 1 ? "border-yellow" :
-              icon.level === 2 ? "border-green" :
-              "border-blue";
+                icon.level === 1 ? "border-yellow" :
+                  icon.level === 2 ? "border-green" :
+                    "border-blue";
 
             return (
               <Col
                 key={index}
-                xs={4}
-                md={2}
+                xs={3}
+                md={4}
                 className={`tech-icons ${levelClass}`}
                 data-tooltip-id="tech-tooltip"
-                data-tooltip-content={`${icon.name} - ${
-                  icon.level === 0 ? t("novice") :
+                data-tooltip-content={`${icon.name} - ${icon.level === 0 ? t("novice") :
                   icon.level === 1 ? t("intermediate") :
-                  icon.level === 2 ? t("advanced") :
-                  t("favorite")
-                }`}
+                    icon.level === 2 ? t("advanced") :
+                      t("favorite")
+                  }`}
               >
                 <Suspense fallback={<Spinner animation="border" role="status" />}>
                   <IconComponent aria-label={icon.name} />

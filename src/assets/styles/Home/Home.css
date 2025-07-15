@@ -288,3 +288,186 @@
 }
 
 
+/* ----- Groupe de boutons (container global) ----- */
+.hero-buttons-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+/* ----- Bouton "MON CV" avec effet glissant ----- */
+.cv-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 34px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 50px;
+  border: 2px solid #276DEE;
+  color: #276DEE;
+  background: transparent;
+  overflow: hidden;
+  z-index: 0;
+  transition: color 0.3s ease;
+}
+
+.cv-btn::before {
+  content: "";
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: inherit;
+  z-index: -1;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.cv-btn:hover::before {
+  transform: translateY(0);
+}
+
+.cv-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  z-index: 1;
+  transition: none;
+}
+
+.cv-btn:hover::after {
+  animation: shine 0.7s ease-in-out;
+}
+
+.cv-btn:hover {
+  background-color: #276DEE;
+  color: black;
+  transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+.cv-icon {
+  font-size: 1rem;
+  z-index: 2;
+}
+
+/* ----- Icônes rondes LinkedIn / GitHub / Email ----- */
+.icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  color: #276DEE;
+  background: transparent;
+  text-decoration: none;
+  border: 2px solid #276DEE;
+  transition: all 0.5s ease;
+}
+
+.icon-btn:hover {
+  background-color: #276DEE;
+  color: black;
+}
+
+
+/* STATS */
+.home-stats {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+
+.stat-item {
+  text-align: center;
+  color: white;
+  font-family: 'Courier Prime', monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+}
+
+.stat-number {
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
+  display: block;
+  line-height: 1;
+}
+
+.bold-number {
+  font-weight: 800;
+  font-size: 4rem;
+  margin-left: 0.2rem;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-top: 0.4rem;
+}
+
+/* Pour les stats avec + */
+.stat-item-combo {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.stat-item-combo .stat-label {
+  margin-top: 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.stat-plus {
+  font-size: 4rem;
+  font-weight: 600;
+  color: white;
+}
+
+
+.stat-item-combo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-label-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.2;
+}

@@ -181,6 +181,11 @@ button:focus {
   color: white !important;
 }
 
+.footer-section {
+  background-image: var(--section-background-color) !important;
+}
+
+
 /* Sections */
 .parkour-section {
   position: relative !important;

@@ -14,7 +14,10 @@ function LogoContainer({ isAnimating, handleMouseDown, handleMouseUp, t }: LogoC
       className={`d-flex logo-container ${isAnimating ? 'start-border-animation' : ''}`}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
+      onMouseLeave={() => {
+        // annule tout sans navigation
+        handleMouseUp();
+      }}
     >
       <LogoImage isAnimating={isAnimating} t={t} />
     </div>

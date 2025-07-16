@@ -21,6 +21,7 @@ const LONG_CLICK_REDIRECT_DELAY = 9500; // 9.5 sec = long clic
 function useLogoNavigation(navigate: ReturnType<typeof useNavigate>) {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isLongClick, setIsLongClick] = useState(false);
+  const [isClickValid, setIsClickValid] = useState(false); // Nouveau flag
 
   const redirectTimeoutRef = useRef<number | null>(null);
   const clickTimeoutRef = useRef<number | null>(null);
@@ -34,6 +35,7 @@ function useLogoNavigation(navigate: ReturnType<typeof useNavigate>) {
 
   const handleMouseDown = () => {
     setIsAnimating(true);
+    setIsClickValid(true); // Marque le clic comme valide
     setIsLongClick(false);
 
     clickTimeoutRef.current = window.setTimeout(() => {
@@ -46,10 +48,15 @@ function useLogoNavigation(navigate: ReturnType<typeof useNavigate>) {
 
   const handleMouseUp = () => {
     setIsAnimating(false);
+
     if (redirectTimeoutRef.current) clearTimeout(redirectTimeoutRef.current);
     if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
 
-    if (!isLongClick) navigate("/");
+    if (!isLongClick && isClickValid) {
+      navigate("/");
+    }
+
+    setIsClickValid(false);
   };
 
   return { isAnimating, handleMouseDown, handleMouseUp };

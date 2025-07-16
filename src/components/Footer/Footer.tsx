@@ -10,8 +10,8 @@ function Footer(): JSX.Element {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="footer">
-      <Container fluid>
+    <footer className="footer-section ">
+      <Container fluid className="footer" >
         <Row className="text-center align-items-center">
           {/* Texte de copyright et lien vers GitHub */}
           <Col xs={12} md={4} className="footer-copywright py-2">

@@ -83,7 +83,7 @@ const Experience = () => {
           <div className="timeline-arrow-up-wrapper">
             <div className="timeline-arrow-up" />
             <motion.div
-              className="timeline-arrow-up-label text-warning text-center"
+              className="timeline-arrow-up-label blue text-center"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
@@ -105,12 +105,12 @@ const Experience = () => {
                         className="bubble left"
                       >
                         <h5 className="fw-bold text-light gap-2 phone-content-end">
-                          <span className="align-self-start text-warning">
+                          <span className="align-self-start blue">
                             {getIcon(item.type)}
                           </span>
                           <span>{item.title}</span>
                         </h5>
-                        <p className="text-warning small mb-1">{item.date}</p>
+                        <p className="blue small mb-1">{item.date}</p>
                         {item.subtitle && <h6 className="text-light">{item.subtitle}</h6>}
                         {item.diplome && <h6 className="text-light">{item.diplome}</h6>}
                         {item.description && <p className="text-light"><i>{item.description}</i></p>}
@@ -139,13 +139,13 @@ const Experience = () => {
                         className="bubble right"
                       >
                         <h5 className="fw-bold text-light d-flex gap-2 align-items-start">
-                          <span className="align-self-start text-warning">
+                          <span className="align-self-start blue">
                             {getIcon(item.type)}
                           </span>
                           <span>{item.title}</span>
                         </h5>
 
-                        <p className="text-warning small mb-1">{item.date}</p>
+                        <p className="blue small mb-1">{item.date}</p>
                         {item.subtitle && <h6 className="text-light">{item.subtitle}</h6>}
                         {item.diplome && <h6 className="text-light">{item.diplome}</h6>}
                         {item.description && <p className="text-light"><i>{item.description}</i></p>}

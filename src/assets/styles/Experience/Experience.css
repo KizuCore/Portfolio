@@ -56,10 +56,6 @@
     box-shadow: 0 0 10px #276dee4d;
 }
 
-.text-warning {
-    color: #276DEE !important;
-}
-
 .timeline-start-circle::after {
     content: "";
     position: absolute;

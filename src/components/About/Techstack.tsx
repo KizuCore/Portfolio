@@ -46,7 +46,7 @@ const icons: IconData[] = [
 
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiGnubash }))), name: "Bash", level: 1, category: "Programming Languages" },
   { component: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiDjango }))), name: "Django", level: 1, category: "Back-End" },
-  { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiPostgresql }))), name: "PostgresSQL", level: 1, category: "Database" },
+  { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiPostgresql }))), name: "PostgreSQL", level: 1, category: "Database" },
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiTailwindcss }))), name: "Tailwind", level: 1, category: "Front-End" },
   { component: React.lazy(() => import("react-icons/fa").then(m => ({ default: m.FaFileExcel }))), name: "VBA", level: 1, category: "Programming Languages" },
   { component: React.lazy(() => import("react-icons/fa").then(m => ({ default: m.FaVuejs }))), name: "Vue.js", level: 1, category: "Front-End" },

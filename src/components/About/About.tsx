@@ -40,7 +40,7 @@ function About(): JSX.Element {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: easeOut }}
           >
-            {t('about_me')} {t('i_am')}
+            {t('about_me')}
           </motion.h1>
 
           <Col md={8} className="text-center text-md-left order-2 order-md-1">

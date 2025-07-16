@@ -201,7 +201,7 @@
 
 .about-tabs button {
   background-color: #276dee34;
-  border: 2px solid #276DEE;
+  border: 1px solid #084ac4;
   color: rgba(255, 255, 255, 0.507);
   padding: 0.6rem 1rem;
   border-radius: 20px;
@@ -214,6 +214,7 @@
 .about-tabs button:hover {
   background-color: #276DEE;
   color: white;
+  border: white 1px solid;
 }
 
 .minheight-about{

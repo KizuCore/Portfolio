@@ -26,6 +26,8 @@
     position: relative;
     z-index: 2;
     max-width: 90%;
+    border: #ffffff1a solid 1px;
+    box-shadow: 0 0 10px rgba(39, 109, 238, 0.2);
 }
 
 .bubble.left {

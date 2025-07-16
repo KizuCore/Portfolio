@@ -82,17 +82,19 @@
 /* Navbar Sticky */
 .sticky {
   background-color: #1b1a2ea9 !important;
-  transition: all 0.3s ease-out !important;
-  box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
-  backdrop-filter: blur(15px) !important;
+  transition: all 0.3s ease-out ;
+  box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) ;
+  backdrop-filter: blur(15px) ;
+  border-radius: 0px 0px 25px 25px ;
+  border-bottom: #ffffff1a solid 1px ;
 }
 
 /* Navbar Styles */
 .navbar {
-  position: fixed !important;
-  transition: all 0.3s ease-out !important;
-  padding: 0.3rem 2rem !important;
-  font-size: 1.2rem !important;
+  position: fixed ;
+  transition: all 0.3s ease-out ;
+  padding: 0.3rem 2rem ;
+  font-size: 1.2rem ;
 }
 
 /* Navbar Toggler - Hamburger Button */
@@ -114,18 +116,18 @@
 
 .navbar-toggler span:nth-child(2) {
   width: 22px;
-  margin-left: auto !important;
+  margin-left: auto ;
 }
 
 .navbar-toggler:focus,
 .navbar-toggler:active {
-  outline: 0 !important;
+  outline: 0 ;
 }
 
 /* Animation du menu hamburger */
 .navbar-toggler span:nth-child(1),
 .navbar-toggler span:nth-child(3) {
-  transition: transform 0.35s ease-in-out !important;
+  transition: transform 0.35s ease-in-out ;
 }
 
 .navbar-toggler:not(.collapsed) span:nth-child(1) {

@@ -23,7 +23,6 @@
 }
 
 .tech-icons2:hover {
-  transform: scale(1.08);
   background-color: rgba(255, 255, 255, 0.08);
   border-color: rgba(78, 134, 240, 0.9);
 }
@@ -48,7 +47,6 @@
 }
 
 .project-card-view:hover {
-  transform: translateY(-6px) scale(1.01);
   box-shadow: 0 8px 20px rgba(59, 133, 255, 0.3);
 }
 

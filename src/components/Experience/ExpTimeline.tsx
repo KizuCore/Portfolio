@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import '../../assets/styles/Experience/Experience.css';
 import Particle from "../Utils/Particle";
 import { FaBriefcase, FaUserGraduate } from "react-icons/fa";
+import { useEffect } from 'react';
 
 type TimelineItem = {
   type: string;
@@ -17,7 +18,9 @@ type TimelineItem = {
 const getIcon = (type: string) => {
   return type === "C" ? <FaUserGraduate style={{ transform: "translateY(-2px)" }} /> : <FaBriefcase style={{ transform: "translateY(-2px)" }} />;
 };
-
+useEffect(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}, []);
 
 
 const Experience = () => {

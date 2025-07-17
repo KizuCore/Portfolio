@@ -49,7 +49,6 @@ const Projects: React.FC = () => {
 
   return (
     <Container fluid className="project-section">
-      {/* Particle désactivé pour éviter le lag */}
       <Particle />
 
       <Container>
@@ -87,11 +86,6 @@ const Projects: React.FC = () => {
           ))}
         </Row>
       </Container>
-
-      {/* Tooltip (léger et async) */}
-      <Suspense fallback={<Spinner animation="border" role="status" />}>
-        <Tooltip id="tooltip" anchorSelect=".tech-icons2" place="top" />
-      </Suspense>
     </Container>
   );
 };

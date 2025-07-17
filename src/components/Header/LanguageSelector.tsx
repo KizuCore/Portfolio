@@ -1,17 +1,15 @@
-import React, { JSX, useEffect, Suspense } from "react";
+import React, { JSX, useEffect, useState, Suspense } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Header/header.css";
 import { Spinner } from "react-bootstrap";
 import Flag from 'react-world-flags';
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 
-// Chargement différé des composants
-const FaAngleDown = React.lazy(() =>
-  import("react-icons/fa").then((module) => ({ default: module.FaAngleDown }))
-);
 
 function LanguageSelector(): JSX.Element {
   const { i18n, t } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
 
   const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
@@ -22,11 +20,14 @@ function LanguageSelector(): JSX.Element {
   }, [i18n.language]);
 
   const lang = i18n.language.slice(0, 2);
-  const currentLanguage = lang.toUpperCase(); 
-  const flagCode = lang === "fr" ? "FR" : "GB"; 
+  const currentLanguage = lang.toUpperCase();
+  const flagCode = lang === "fr" ? "FR" : "GB";
 
   return (
-    <Dropdown className="language-selector">
+    <Dropdown
+      className="language-selector"
+      onToggle={(nextShow) => setIsOpen(nextShow)}
+    >
       <Dropdown.Toggle
         variant="secondary"
         id="dropdown-basic"
@@ -37,11 +38,12 @@ function LanguageSelector(): JSX.Element {
             code={flagCode}
             height="auto"
             width="25"
-            style={{ marginBottom: "2px" }}
+            style={{ marginBottom: "4px" }}
             alt={t(`flag_${lang}`)}
           />
           {' '}
-          {currentLanguage} <FaAngleDown />
+          {currentLanguage}{" "}
+          {isOpen ? <FaAngleUp style={{ marginBottom: "3px" }} /> : <FaAngleDown style={{ marginBottom: "3px" }} />}
         </Suspense>
       </Dropdown.Toggle>
 
@@ -52,7 +54,7 @@ function LanguageSelector(): JSX.Element {
               code="GB"
               width="25"
               height="auto"
-              style={{ marginRight: "10px" }}
+              style={{ marginRight: "8px", marginBottom: "3px" }}
               alt={t("flag_en")}
             />
           </Suspense>
@@ -64,7 +66,7 @@ function LanguageSelector(): JSX.Element {
               code="FR"
               width="25"
               height="auto"
-              style={{ marginRight: "10px" }}
+              style={{ marginRight: "8px", marginBottom: "3px" }}
               alt={t("flag_fr")}
             />
           </Suspense>

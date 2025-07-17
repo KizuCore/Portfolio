@@ -1,4 +1,4 @@
-import React, { JSX, useEffect, useState, Suspense } from "react";
+import { JSX, useEffect, useState, Suspense } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Header/header.css";

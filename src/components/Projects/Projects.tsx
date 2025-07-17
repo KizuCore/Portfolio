@@ -53,11 +53,11 @@ const Projects: React.FC = () => {
     <Container fluid className="project-section">
       <Particle />
       <Container>
-        <motion.h1 className="custom-title pb-3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
+        <motion.h1 className="custom-title pb-5 pt-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
           {t("my_projects")} {t("projects")}
         </motion.h1>
 
-        <div className="filter-buttons d-flex flex-wrap gap-2 justify-content-center mb-4">
+        <div className="filter-buttons d-flex flex-wrap gap-2 justify-content-center mb-5">
           {techFilters.map((filter, index) => (
             <motion.div
               key={filter}

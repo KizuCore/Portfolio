@@ -5,29 +5,31 @@ import Button from "react-bootstrap/Button";
 import { Row, Col } from "react-bootstrap";
 import { useTranslation } from 'react-i18next';
 import '../../assets/styles/Projet/Projet.css';
+import { BsGithub, BsYoutube } from "react-icons/bs";
+import { SiFlutter, SiExpress, SiKotlin, SiSwagger, SiVuedotjs, SiGoogle, SiSequelize, SiAxios } from "react-icons/si";
+import { DiMysql, DiPhp, DiHtml5, DiCss3, DiJavascript1, DiReact, DiBootstrap, DiNodejs } from "react-icons/di";
+import { FaJava } from "react-icons/fa";
 
-const BsGithub = React.lazy(() => import("react-icons/bs").then(module => ({ default: module.BsGithub })));
-const BsYoutube = React.lazy(() => import("react-icons/bs").then(module => ({ default: module.BsYoutube })));
-
-const techIcons: Record<string, React.LazyExoticComponent<React.ComponentType<any>>> = {
-  Flutter: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiFlutter }))),
-  MySQL: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiMysql }))),
-  Express: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiExpress }))),
-  Kotlin: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiKotlin }))),
-  Php: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiPhp }))),
-  Java: React.lazy(() => import("react-icons/fa").then(m => ({ default: m.FaJava }))),
-  Html: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiHtml5 }))),
-  Css: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiCss3 }))),
-  Javascript: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiJavascript1 }))),
-  Vuejs: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiVuedotjs }))),
-  React: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiReact }))),
-  Bootstrap: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiBootstrap }))),
-  Swagger: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiSwagger }))),
-  ApiGoogleBooks: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiGoogle }))),
-  Sequelize: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiSequelize }))),
-  NodeJS: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiNodejs }))),
-  Axios: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiAxios }))),
+const techIcons: Record<string, React.ComponentType<any>> = {
+  Flutter: SiFlutter,
+  MySQL: DiMysql,
+  Express: SiExpress,
+  Kotlin: SiKotlin,
+  Php: DiPhp,
+  Java: FaJava,
+  Html: DiHtml5,
+  Css: DiCss3,
+  Javascript: DiJavascript1,
+  Vuejs: SiVuedotjs,
+  React: DiReact,
+  Bootstrap: DiBootstrap,
+  Swagger: SiSwagger,
+  ApiGoogleBooks: SiGoogle,
+  Sequelize: SiSequelize,
+  NodeJS: DiNodejs,
+  Axios: SiAxios,
 };
+
 interface ProjectCardProps {
   imgPath: string;
   altText: string;
@@ -66,7 +68,6 @@ function ProjectCard(props: ProjectCardProps) {
           variant="top"
           src={props.imgPath}
           alt={props.altText}
-          loading="lazy"
           decoding="async"
           className="project-img"
         />

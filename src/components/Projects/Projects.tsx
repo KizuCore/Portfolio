@@ -17,8 +17,7 @@ import breizhcoin from "@image/Projects/breizhcoin.webp";
 import portfolio from "@image/Projects/portfolio.webp";
 import portfoliov2 from "@image/Projects/portfoliov2.webp";
 import apibook from "@image/Projects/apibook.webp";
-
-const Tooltip = React.lazy(() => import("react-tooltip").then(module => ({ default: module.Tooltip })));
+import { Tooltip } from "react-tooltip";
 
 interface Project {
   imgPath: string;

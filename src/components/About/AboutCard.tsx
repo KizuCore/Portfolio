@@ -43,10 +43,24 @@ function AboutCard(): JSX.Element {
       <Card className="quote-card-view">
         <Card.Body>
           <div className="about-tabs">
-            <button onClick={() => setSelectedTab('presentation')} className={selectedTab === 'presentation' ? 'active' : ''}><FaUser /> {t('presentation_title')}</button>
-            <button onClick={() => setSelectedTab('qualifications')} className={selectedTab === 'qualifications' ? 'active' : ''}><FaGraduationCap /> {t('qualifications_title')}</button>
-            <button onClick={() => setSelectedTab('hobbies')} className={selectedTab === 'hobbies' ? 'active' : ''}><FaPuzzlePiece /> {t('hobbies_title')}</button>
+            {[
+              { key: 'presentation', icon: <FaUser />, label: t('presentation_title') },
+              { key: 'qualifications', icon: <FaGraduationCap />, label: t('qualifications_title') },
+              { key: 'hobbies', icon: <FaPuzzlePiece />, label: t('hobbies_title') },
+            ].map(({ key, icon, label }) => (
+              <motion.button
+                key={key}
+                onClick={() => setSelectedTab(key as typeof selectedTab)}
+                className={selectedTab === key ? 'active' : ''}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, ease: easeOut }}
+              >
+                {icon} {label}
+              </motion.button>
+            ))}
           </div>
+
 
           <motion.div
             ref={ref}

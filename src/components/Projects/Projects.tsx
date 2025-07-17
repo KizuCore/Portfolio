@@ -1,6 +1,8 @@
-import React, { useState, } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import React, { useState, Suspense } from "react";
+import { Container, Row, Col, Spinner, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import Tilt from "react-parallax-tilt";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Utils/Particle";
 import "../../assets/styles/About/About.css";
@@ -15,7 +17,8 @@ import breizhcoin from "@image/Projects/breizhcoin.webp";
 import portfolio from "@image/Projects/portfolio.webp";
 import portfoliov2 from "@image/Projects/portfoliov2.webp";
 import apibook from "@image/Projects/apibook.webp";
-import { motion } from "framer-motion";
+
+const Tooltip = React.lazy(() => import("react-tooltip").then(module => ({ default: module.Tooltip })));
 
 interface Project {
   imgPath: string;
@@ -49,42 +52,54 @@ const Projects: React.FC = () => {
   return (
     <Container fluid className="project-section">
       <Particle />
-
       <Container>
-        <motion.h1 className="custom-title pb-5 pt-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
+        <motion.h1 className="custom-title pb-3 pt-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
           {t("my_projects")} {t("projects")}
         </motion.h1>
 
-        {/* Filtres */}
-        <div className="filter-buttons d-flex flex-wrap gap-2 justify-content-center mb-5">
-          {techFilters.map((filter) => (
-            <Button
+        <div className="filter-buttons d-flex flex-wrap gap-2 justify-content-center mb-4">
+          {techFilters.map((filter, index) => (
+            <motion.div
               key={filter}
-              variant={selectedFilter === filter ? "primary" : "outline-light"}
-              onClick={() => setSelectedFilter(filter)}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              {filter}
-            </Button>
+              <Button
+                variant={selectedFilter === filter ? "primary" : "outline-light"}
+                onClick={() => setSelectedFilter(filter)}
+              >
+                {filter}
+              </Button>
+            </motion.div>
           ))}
         </div>
 
-        {/* Cartes projets */}
+
         <Row className="justify-content-center align-items-stretch">
           {filteredProjects.map((project, index) => (
             <Col xs={12} sm={6} md={4} key={index} className="project-card px-3 py-4">
-              <ProjectCard
-                imgPath={project.imgPath}
-                altText={t(project.altTextKey)}
-                title={t(project.titleKey)}
-                description={t(project.descriptionKey)}
-                ghLink={project.ghLink}
-                youtubeLink={project.youtubeLink}
-                techStack={project.techStack}
-              />
+              <motion.div initial={{ opacity: 0, scale: 0.9, y: 30 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}>
+                <Tilt glareEnable={true} glareMaxOpacity={0.1} scale={1.03} transitionSpeed={2500} tiltMaxAngleX={6} tiltMaxAngleY={6}>
+                  <ProjectCard
+                    imgPath={project.imgPath}
+                    altText={t(project.altTextKey)}
+                    title={t(project.titleKey)}
+                    description={t(project.descriptionKey)}
+                    ghLink={project.ghLink}
+                    youtubeLink={project.youtubeLink}
+                    techStack={project.techStack}
+                  />
+                </Tilt>
+              </motion.div>
             </Col>
           ))}
         </Row>
       </Container>
+
+      <Suspense fallback={<Spinner animation="border" role="status" />}>
+        <Tooltip id="tooltip" anchorSelect=".tech-icons2" place="top" />
+      </Suspense>
     </Container>
   );
 };

@@ -1,3 +1,4 @@
+/// <reference types="@react-three/fiber" />
 import { JSX, useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
@@ -6,11 +7,13 @@ import Particle from "../Utils/Particle.js";
 import Github from "./Github";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
-import laptopImg from "@image/about/about.webp";
 import Toolstack from "./Toolstack.tsx";
 import LevelCircle from "../Utils/LevelCircle";
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/About/About.css';
+import SolarSystem from "../Utils/SolarSystem.tsx";
+
+
 
 function About(): JSX.Element {
   const { t } = useTranslation();
@@ -48,67 +51,34 @@ function About(): JSX.Element {
           </Col>
 
           <Col md={4} className="d-flex justify-content-center align-items-center about-img order-1 order-md-2 pb-4 pb-md-0" ref={refImg}>
-            {isMobile ? (
-              <img
-                src={laptopImg}
-                alt={t('about_image_alt', { name: 'Théo Guérin' })}
-                className="img-fluid"
-                loading="lazy"
-                decoding="async"
-              />
-            ) : (
-              <motion.img
-                src={laptopImg}
-                alt={t('about_image_alt', { name: 'Théo Guérin' })}
-                className="img-fluid"
-                loading="lazy"
-                decoding="async"
+            {!isMobile && (
+              <motion.div
+                className="canvas-container"
                 initial={{ opacity: 0, x: 50 }}
                 animate={imgInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-              />
+              >
+                <SolarSystem />
+              </motion.div>
             )}
+
           </Col>
         </Row>
-
-
 
         <motion.h2
           className="custom-title custom-title-1 py-5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-
           transition={{ duration: 0.8, ease: easeOut }}
         >
-          {t('professional_skills')}{" "}{t('skills')}
+          {t('professional_skills')} {t('skills')}
         </motion.h2>
 
-        {/* Section des niveaux */}
         <Row className="text-center mt-5 mb-4 pb-4">
-          <Col md={3}>
-            <div className="d-flex justify-content-center align-items-center">
-              <LevelCircle color="rgb(255, 145, 0, 0.8)" /> {/* Boule orange */}
-              <span>{t('novice')}</span>
-            </div>
-          </Col>
-          <Col md={3}>
-            <div className="d-flex justify-content-center align-items-center">
-              <LevelCircle color="rgba(255, 255, 0, 0.8)" /> {/* Boule jaune */}
-              <span>{t('intermediate')}</span>
-            </div>
-          </Col>
-          <Col md={3}>
-            <div className="d-flex justify-content-center align-items-center">
-              <LevelCircle color="rgba(0, 190, 0, 0.8)" /> {/* Boule verte */}
-              <span>{t('advanced')}</span>
-            </div>
-          </Col>
-          <Col md={3}>
-            <div className="d-flex justify-content-center align-items-center">
-              <LevelCircle color="rgba(39, 184, 241, 0.8)" /> {/* Boule bleu */}
-              <span>{t('favorite2')}</span>
-            </div>
-          </Col>
+          <Col md={3}><div className="d-flex justify-content-center align-items-center"><LevelCircle color="rgb(255, 145, 0, 0.8)" /><span>{t('novice')}</span></div></Col>
+          <Col md={3}><div className="d-flex justify-content-center align-items-center"><LevelCircle color="rgba(255, 255, 0, 0.8)" /><span>{t('intermediate')}</span></div></Col>
+          <Col md={3}><div className="d-flex justify-content-center align-items-center"><LevelCircle color="rgba(0, 190, 0, 0.8)" /><span>{t('advanced')}</span></div></Col>
+          <Col md={3}><div className="d-flex justify-content-center align-items-center"><LevelCircle color="rgba(39, 184, 241, 0.8)" /><span>{t('favorite2')}</span></div></Col>
         </Row>
 
         <Techstack />

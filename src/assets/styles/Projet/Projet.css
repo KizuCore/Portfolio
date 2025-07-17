@@ -1,117 +1,199 @@
+
+/* === SECTION PROJETS === */
 .project-section {
+  padding: 4rem 0rem;
+  background-image: var(--section-background-color) !important;
   position: relative;
-  padding-top: 150px;
-  padding-bottom: 30px;
-  background-image: var(--section-background-color);
-  backdrop-filter: blur(4px);
+  z-index: 1;
+  padding-top: 130px !important;
+}
+
+/* === CARROUSEL CONTAINER === */
+.project-carousel {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === FLÈCHES DE NAVIGATION === */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: #ffffff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid #ffffff79;
+}
+
+.carousel-arrow.left {
+  left: -85px;
+}
+
+.carousel-arrow.right {
+  right: -85px;
+}
+
+/* === FLÈCHES RESPONSIVES === */
+@media (max-width: 576px) {
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+    top: auto;
+    bottom: 10px;
+    transform: none;
+  }
+
+  .carousel-arrow.left {
+    left: 20px;
+  }
+
+  .carousel-arrow.right {
+    right: 20px;
+  }
+
+  .project-carousel {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3rem;
+  }
 }
 
 
-.tech-icons2 {
-  font-size: 2.3em;
-  margin: 8px;
-  padding: 10px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1.5px solid rgba(78, 134, 240, 0.4);
-  box-shadow: 0 4px 10px rgba(50, 110, 255, 0.1);
-  transition: all 0.3s ease;
+/* === CARTE DE PROJET === */
+.project-card-view {
+  background: #19172a;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(39, 109, 238, 0.1);
+  padding: 1rem;
+  transition: transform 0.3s ease;
+  min-height: 670px;
+  min-width: 300px;
+  height: 100%; /* ← AJOUT ICI */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: help;
+  flex-direction: column; 
+  justify-content: space-between; 
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.project-img-wrapper {
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.project-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* === TECH ICONS === */
+.tech-icons2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin: 0.5rem 0;
+  transition: transform 0.3s ease;
 }
 
 .tech-icons2:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(78, 134, 240, 0.9);
+  transform: scale(1.15);
 }
 
-.project-card {
-  height: 100%;
-}
-
+/* === BOUTONS LIENS === */
 .project-card-view {
-  height: 100%;
-  background: rgba(255, 255, 255, 0.04);
+  background: #19172a;
+  border: none;
   border-radius: 16px;
-  box-shadow: 0 6px 12px rgba(18, 106, 224, 0.15);
-  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 20px rgba(39, 109, 238, 0.1);
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  color: white;
-  transition: all 0.4s ease-in-out;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  min-height: 720px;
-}
-
-.project-card-view:hover {
-  box-shadow: 0 8px 20px rgba(59, 133, 255, 0.3);
-}
-
-.project-card-view .card-body {
+  transition: transform 0.3s ease;
+  height: 100%;
+  min-height: 650px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-grow: 1;
-}
-
-.project-card-view .card-title h3 {
-  font-size: 1.4em;
-  color: #2776de;
-  text-align: center;
-}
-
-.project-card-view .card-text {
-  margin-top: 10px;
-  font-size: 0.95rem;
-  line-height: 1.5;
 }
 
 .button-group {
+  margin-top: auto; /* Pousse les boutons en bas */
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 1rem;
   flex-wrap: wrap;
-}
-
-.button-github,
-.button-youtube {
-  background-color: #2776de;
-  border: 2px solid white;
-  border-radius: 10px;
-  color: white;
-  padding: 8px 16px;
-  font-weight: 600;
-  transition: all 0.3s ease-in-out;
-}
-
-.button-github:hover,
-.button-youtube:hover {
-  background-color: white;
-  color: #2776de;
-  border-color: #2776de;
-  text-decoration: none;
+  gap: 0.5rem;
+  padding-top: 1rem;
 }
 .button-youtube{
-    background-color: #b80404;
-    border: 2px solid white;
+  background-color: #c01313;
+  color: #ffffff;
+  border: 1px solid #ffffffa6;
 }
 .button-youtube:hover {
-  background-color: white;
-  color: #b80404;
-  border-color: #b80404;
-  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.856);
+  color: #c01313;
+  border: 1px solid #c01313;
 }
-.filter-buttons button {
-  border-radius: 30px;
-  padding: 8px 18px;
+.button-github{
+  background-color: #276dee;
+  color: #ffffff;
+  border: 1px solid #ffffffa6;
+}
+.button-github:hover {
+  background-color: rgba(255, 255, 255, 0.856);
+  color: #276dee;
+  border: 1px solid #276dee;
+}
+.button-github,
+.button-youtube {
   font-weight: 500;
-  transition: all 0.3s ease;
+  padding: 0.5rem 1.2rem;
+  margin: 0.25rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
 
-.filter-buttons button:hover {
-  transform: scale(1.05);
+.swiper-pagination-bullet {
+  background-color: #ffffffb7 !important;
+  margin-bottom: 10px !important;
+}
+
+
+/* === TEXTE DU PROJET === */
+.project-card-view h3 {
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+
+.project-card-view .blue {
+  color: #276dee;
+}
+
+.project-card-view .text-justify {
+  color: #ddd;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+.swiper-button-next {
+  color: white !important;
+}
+
+.swiper-button-prev {
+  color: white !important;
 }

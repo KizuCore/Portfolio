@@ -62,7 +62,12 @@ function TechStackIcons({ techStack }: { techStack: string[] }) {
             data-tooltip-id="tooltip"
             data-tooltip-content={tech}
           >
-            <IconComponent aria-label={tech} title={tech} role="img" tabIndex={0} />
+            <IconComponent
+              title={tech}
+              aria-label={tech}
+              role="img"
+              tabIndex={0}
+            />
           </Col>
         ) : null;
       })}

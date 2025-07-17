@@ -18,13 +18,14 @@ type TimelineItem = {
 const getIcon = (type: string) => {
   return type === "C" ? <FaUserGraduate style={{ transform: "translateY(-2px)" }} /> : <FaBriefcase style={{ transform: "translateY(-2px)" }} />;
 };
-useEffect(() => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}, []);
-
 
 const Experience = () => {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   const timelineData: TimelineItem[] = [ /* C = Cours - T = Travail */
     {
       type: "T",

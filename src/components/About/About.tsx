@@ -1,4 +1,3 @@
-/// <reference types="@react-three/fiber" />
 import { JSX, useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";

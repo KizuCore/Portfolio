@@ -1,11 +1,10 @@
-import React, { useState, Suspense } from "react";
-import { Container, Row, Col, Spinner, Button } from "react-bootstrap";
+import React, { useState, } from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Utils/Particle";
 import "../../assets/styles/About/About.css";
 import "../../assets/styles/Projet/Projet.css";
-import { Tooltip } from "react-tooltip";
 
 // Images
 import lemonmaze from "@image/Projects/LemonMaze.webp";

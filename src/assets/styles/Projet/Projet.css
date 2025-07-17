@@ -97,7 +97,16 @@
   border-color: #2776de;
   text-decoration: none;
 }
-
+.button-youtube{
+    background-color: #b80404;
+    border: 2px solid white;
+}
+.button-youtube:hover {
+  background-color: white;
+  color: #b80404;
+  border-color: #b80404;
+  text-decoration: none;
+}
 .filter-buttons button {
   border-radius: 30px;
   padding: 8px 18px;

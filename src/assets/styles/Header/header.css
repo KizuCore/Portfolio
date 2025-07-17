@@ -37,7 +37,7 @@
 
 /* mettre bien bouton language */
 .dropdown-menu {
-  background: #44416291 !important;
+  background: #ffffff23 !important;
   margin-top: 0.5rem;
 }
 
@@ -55,7 +55,7 @@
 }
 
 .dropdown-item:hover {
-  color: #ffffff !important;
+  color: #ffffff;
   background: #757390 !important;
   border-radius: 10px;
 }
@@ -232,8 +232,6 @@
   color: #276DEE !important;
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent; /* Fallback */
   transition: all 0.4s ease-out;
 }
 .navbar-nav .nav-item .nav-link.active {

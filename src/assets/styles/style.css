@@ -7,16 +7,16 @@ html {
 
 /* Global Styles */
 body {
-  overflow-x: hidden !important;
+  overflow-x: hidden ;
 }
 
 /* Couleurs de texte */
 .dark-blue {
-  color: #276DEE !important;
+  color: #276DEE ;
 }
 
 .blue-title {
-  font-family: 'Montserrat', serif  !important;
+  font-family: 'Montserrat', serif  ;
   font-weight: 700;
   background: linear-gradient(90deg, #276DEE, #6C88FF);
   background-clip: text;
@@ -33,8 +33,8 @@ body {
 }
 
 .light-blue-title {
-  color: #5c92f5 !important;
-  font-family: 'Montserrat', serif  !important;
+  color: #5c92f5 ;
+  font-family: 'Montserrat', serif  ;
   font-weight: 700;
 }
 
@@ -45,6 +45,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 1.2;
+  
 
   /* Dégradé */
   background: linear-gradient(90deg, #276DEE, #6C88FF);
@@ -70,15 +71,15 @@ body {
 }
 
 .custom-title-1{
-  font-size: 2.7rem !important;
-  font-weight: 700 !important;
-  text-transform: none !important;
+  font-size: 2.7rem ;
+  font-weight: 700 ;
+  text-transform: none ;
 }
 
 .custom-title-2{
-  font-size: 2rem !important;
-  font-weight: 700 !important;
-  text-transform: none !important;
+  font-size: 2rem ;
+  font-weight: 700 ;
+  text-transform: none ;
 }
 
 @media screen and (max-width: 768px) {
@@ -86,121 +87,107 @@ body {
     font-size: 2.5rem;
   }
   .custom-title-1 {
-    font-size: 2.2rem !important;
+    font-size: 2.2rem ;
   }
   .custom-title-2 {
-    font-size: 1.8rem !important;
+    font-size: 1.8rem ;
   }
   
 }
 
 .title-font {
-  font-family: 'Montserrat', serif !important;
+  font-family: 'Montserrat', serif ;
   font-weight: 700;
 }
 
 .title-font-easter {
-  font-family: 'Permanent Marker', cursive !important;
+  font-family: 'Permanent Marker', cursive ;
 }
 .blue {
   color: #66a7fd
 }
 
 .darkblue {
-  color: #276DEE !important;
+  color: #276DEE ;
 }
 
 /* Boutons */
 .btn:focus,
 button:focus {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-.button-youtube, .button-cv {
-  border-radius: 15px !important;
-  color: white !important;
-  font-size: 1.1em !important;
-  max-width: 250px !important;
-  transition: all 0.3s ease-in-out !important;
-  z-index: 1 !important;
-}
-
-.button-youtube {
-  background-color: #bd1903 !important;
-  border: 1px solid white !important;
-}
-
-.button-youtube:hover {
-  background-color: #ffd4cf !important;
-  border: 2px solid #bd1903 !important;
-  color: #bd1903 !important;
+  outline: none ;
+  box-shadow: none ;
 }
 
 .button-cv {
-  background-color: #1c53b8 !important;
-  border: 2px solid white !important;
+  border-radius: 15px ;
+  color: white ;
+  font-size: 1.1em ;
+  max-width: 250px ;
+  transition: all 0.3s ease-in-out ;
+  z-index: 1 ;
+  background-color: #276DEE ;
+  border: 2px solid white ;
 }
 
 .button-cv:hover {
-  background-color: #d8e6ff !important;
-  border: 2px solid #1c53b8 !important;
-  color: #1c53b8 !important;
+  background-color: #ffffffd7 ;
+  border: 2px solid #276DEE ;
+  color: #276DEE ;
   text-decoration: underline;
 }
 
 .text-justify {
-  text-align: justify !important;
+  text-align: justify ;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px !important;
+  width: 7px ;
 }
 
 ::-webkit-scrollbar-track {
-  background: #2d1950 !important;
+  background: #2d1950 ;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(121, 151, 216, 0.959) !important;
-  border-radius: 12px !important;
+  background: rgba(121, 151, 216, 0.959) ;
+  border-radius: 12px ;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(142, 171, 233, 0.911) !important;
-  border-radius: 12px !important;
+  background: rgba(142, 171, 233, 0.911) ;
+  border-radius: 12px ;
 }
 
 /* Sections */
 .about-section {
-  position: relative !important;
-  padding-top: 150px !important;
-  padding-bottom: 30px !important;
-  background-image: var(--section-background-color) !important;
-  color: white !important;
+  position: relative ;
+  padding-top: 150px ;
+  padding-bottom: 30px ;
+  background-image: var(--section-background-color) ;
+  color: white ;
 }
 
 .footer-section {
-  background-image: var(--section-background-color) !important;
+  background-image: var(--section-background-color) ;
 }
 
 
 /* Sections */
 .parkour-section {
-  position: relative !important;
-  padding-top: 120px !important;
-  padding-bottom: 30px !important;
-  background-image: var(--section-background-color) !important;
-  color: white !important;
+  position: relative ;
+  padding-top: 120px ;
+  padding-bottom: 30px ;
+  background-image: var(--section-background-color) ;
+  color: white ;
 }
 
 /* Background Box */
 .background-box {
-  background-color: rgba(71, 70, 70, 0.25) !important;
-  padding: 2em !important;
-  border: 2px solid rgba(255, 255, 255, 0.6) !important;
-  border-radius: 16px !important;
+  background-color: rgba(71, 70, 70, 0.25) ;
+  padding: 2em ;
+  border: 2px solid rgba(255, 255, 255, 0.6) ;
+  border-radius: 16px ;
   position: relative;
   overflow: hidden;
   z-index: 0;

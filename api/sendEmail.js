@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     // Si hCaptcha vérif, envoie le mail
     try {
       await resend.emails.send({
-        from: 'KizuCore@kizu.com',
+        from: 'onboarding@resend.dev',
         to: 'theo.guerin35000@gmail.com',
         subject: `Portfolio | ${subject}`,
         html: `

@@ -29,7 +29,7 @@ const projects = [
     altTextKey: "portfoliov2_image_alt",
     titleKey: "portfolio_v2_title",
     descriptionKey: "portfolio_v2_description",
-    ghLink: "https://github.com/Theo22100/Portfolio",
+    ghLink: "https://github.com/KizuCore/Portfolio",
     techStack: ["React", "Bootstrap", "Css", "NodeJS", "Axios"],
   },
 
@@ -38,7 +38,7 @@ const projects = [
     altTextKey: "apibook_image_alt",
     titleKey: "library_title",
     descriptionKey: "library_description",
-    ghLink: "https://github.com/Theo22100/MDS-M1-Librairie",
+    ghLink: "https://github.com/KizuCore/MDS-M1-Librairie",
     techStack: [
       "Express",
       "Swagger",
@@ -53,7 +53,7 @@ const projects = [
     altTextKey: "lemonmaze_image_alt",
     titleKey: "lemonmaze_title",
     descriptionKey: "lemonmaze_description",
-    ghLink: "https://github.com/Theo22100/Lemon_Maze",
+    ghLink: "https://github.com/KizuCore/Lemon_Maze",
     techStack: ["Flutter"],
   },
   {
@@ -61,7 +61,7 @@ const projects = [
     altTextKey: "lemonmaze_image_alt",
     titleKey: "lemonmaze_api_title",
     descriptionKey: "lemonmaze_api_description",
-    ghLink: "https://github.com/Theo22100/APILemonMaze",
+    ghLink: "https://github.com/KizuCore/APILemonMaze",
     techStack: ["Express", "Swagger", "MySQL"],
   },
   {
@@ -69,7 +69,7 @@ const projects = [
     altTextKey: "cosmiclink_image_alt",
     titleKey: "cosmiclink_title",
     descriptionKey: "cosmiclink_description",
-    ghLink: "https://github.com/Theo22100/CosmicLink",
+    ghLink: "https://github.com/KizuCore/CosmicLink",
     youtubeLink: "https://youtube.com/watch?v=3yVybmKT5d0",
     techStack: ["Php", "Javascript", "Html", "Css"],
   },
@@ -78,7 +78,7 @@ const projects = [
     altTextKey: "chrono_image_alt",
     titleKey: "minuteur_mobile_title",
     descriptionKey: "minuteur_mobile_description",
-    ghLink: "https://github.com/Theo22100/MDS-ExamMobile2024",
+    ghLink: "https://github.com/KizuCore/MDS-ExamMobile2024",
     techStack: ["Kotlin"],
   },
   {
@@ -86,7 +86,7 @@ const projects = [
     altTextKey: "breizhcoin_image_alt",
     titleKey: "breizhcoin_title",
     descriptionKey: "breizhcoin_description",
-    ghLink: "https://github.com/Theo22100/BreizhCoin",
+    ghLink: "https://github.com/KizuCore/BreizhCoin",
     youtubeLink: "https://youtu.be/OqgS7SW_8tU",
     techStack: ["Php", "Javascript", "Html", "Css"],
   },
@@ -95,7 +95,7 @@ const projects = [
     altTextKey: "tboi_image_alt",
     titleKey: "thebindingofisaac_title",
     descriptionKey: "thebindingofisaac_description",
-    ghLink: "https://github.com/Theo22100/TheBindingOfIsaac",
+    ghLink: "https://github.com/KizuCore/TheBindingOfIsaac",
     techStack: ["Java"],
   },
   {
@@ -103,7 +103,7 @@ const projects = [
     altTextKey: "portfolio_image_alt",
     titleKey: "portfolio_v1_title",
     descriptionKey: "portfolio_v1_description",
-    ghLink: "https://github.com/Theo22100/Old-PortFolio",
+    ghLink: "https://github.com/KizuCore/Old-PortFolio",
     techStack: ["Vuejs", "Javascript", "Html", "Css"],
   },
 ];

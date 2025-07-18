@@ -17,7 +17,7 @@ function HomeButtons() {
 
             {/* Icônes réseaux */}
             <div className="icon-buttons-wrapper">
-                <a href="https://github.com/Theo22100" target="_blank" rel="noopener noreferrer" className="icon-btn" aria-label="GitHub">
+                <a href="https://github.com/KizuCore" target="_blank" rel="noopener noreferrer" className="icon-btn" aria-label="GitHub">
                     <FaGithub size={20} />
                 </a>
                 <a href="https://www.linkedin.com/in/theo-guerin35" target="_blank" rel="noopener noreferrer" className="icon-btn" aria-label="LinkedIn">

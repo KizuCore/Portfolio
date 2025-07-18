@@ -31,7 +31,7 @@ const Github: React.FC = () => {
         <Col md={6} className="text-center pb-4">
           <Suspense fallback={<Spinner animation="border" role="status" />}>
             <a
-              href="https://github.com/Theo22100/"
+              href="https://github.com/KizuCore/"
               target="_blank"
               rel="noreferrer"
               className="github-link"
@@ -43,7 +43,7 @@ const Github: React.FC = () => {
         </Col>
         <Suspense fallback={<Spinner animation="border" role="status" />}>
           <GitHubCalendar
-            username="Theo22100"
+            username="KizuCore"
             blockSize={15}
             blockMargin={5}
             theme={{

@@ -30,7 +30,7 @@ const projects = [
     titleKey: "portfolio_v2_title",
     descriptionKey: "portfolio_v2_description",
     ghLink: "https://github.com/KizuCore/Portfolio",
-    techStack: ["React", "Bootstrap", "Css", "NodeJS", "Axios"],
+    techStack: ["React", "Bootstrap", "Css", "NodeJS", "Axios", "Typescript"],
   },
 
   {

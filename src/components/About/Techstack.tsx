@@ -35,6 +35,7 @@ const icons: IconData[] = [
   { component: React.lazy(() => import("react-icons/fa").then(m => ({ default: m.FaJava }))), name: "Java", level: 2, category: "Programming Languages" },
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiSwift }))), name: "Swift", level: 0, category: "Programming Languages" },
   { component: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiJavascript1 }))), name: "JavaScript", level: 2, category: "Programming Languages" },
+  { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiTypescript }))), name: "TypeScript", level: 2, category: "Programming Languages" },
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiHtml5 }))), name: "HTML", level: 2, category: "Front-End" },
   { component: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiPython }))), name: "Python", level: 2, category: "Programming Languages" },
   { component: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiMysql }))), name: "MySQL", level: 2, category: "Database" },

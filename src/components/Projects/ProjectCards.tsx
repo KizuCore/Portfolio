@@ -7,7 +7,7 @@ import '../../assets/styles/Projet/Projet.css';
 import { BsGithub, BsYoutube } from "react-icons/bs";
 import {
   SiFlutter, SiExpress, SiKotlin, SiSwagger, SiVuedotjs,
-  SiGoogle, SiSequelize, SiAxios
+  SiGoogle, SiSequelize, SiAxios, SiTypescript
 } from "react-icons/si";
 import {
   DiMysql, DiPhp, DiHtml5, DiCss3, DiJavascript1,
@@ -26,6 +26,7 @@ const techIcons: Record<string, React.ComponentType<any>> = {
   Html: DiHtml5,
   Css: DiCss3,
   Javascript: DiJavascript1,
+  Typescript: SiTypescript,
   Vuejs: SiVuedotjs,
   React: DiReact,
   Bootstrap: DiBootstrap,

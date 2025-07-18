@@ -4,6 +4,7 @@ import useScrollProgress from "../Utils/useScrollProgress";
 import { useTimelineData } from "./data/timelineData";
 import TimelineItem from "./TimelineItem.tsx";
 import '../../assets/styles/Experience/Experience.css';
+import Particle from "../Utils/Particle.tsx";
 
 const Experience = () => {
   const timelineData = useTimelineData();
@@ -15,14 +16,17 @@ const Experience = () => {
   }, []);
 
   return (
-    <Container fluid className="timeline-container">
-      <div className="timeline" ref={timelineRef}>
-        <div className="timeline-line" style={{ height: `${scrollPercentage}%` }} />
-        {timelineData.map((item, index) => (
-          <TimelineItem key={index} item={item} isLeft={index % 2 === 0} />
-        ))}
-        <div className="timeline-start-circle" />
-      </div>
+    <Container>
+      <Particle />
+      <Container fluid className="timeline-container">
+        <div className="timeline" ref={timelineRef}>
+          <div className="timeline-line" style={{ height: `${scrollPercentage}%` }} />
+          {timelineData.map((item, index) => (
+            <TimelineItem key={index} item={item} isLeft={index % 2 === 0} />
+          ))}
+          <div className="timeline-start-circle" />
+        </div>
+      </Container>
     </Container>
   );
 };

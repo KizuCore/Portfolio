@@ -23,7 +23,7 @@ const TimelineItem = ({ item, isLeft }: Props) => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className={`bubble ${isLeft ? "left" : "right"}`}
+                className={`bubble ${isLeft ? "right" : "left"}`}
                 role="region"
                 aria-label={`Événement : ${item.title}`}
             >

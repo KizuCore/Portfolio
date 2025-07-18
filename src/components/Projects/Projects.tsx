@@ -114,8 +114,10 @@ const Projects: React.FC = () => {
     projects.forEach((project) => {
       const img = new Image();
       img.src = project.imgPath;
+      img.loading = "eager"; // Force le navigateur à ne pas différer
     });
   }, []);
+
 
   return (
     <Container fluid className="project-section text-center">

@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import useScrollProgress from "../Utils/useScrollProgress";
 import { useTimelineData } from "./data/timelineData";
 import TimelineItem from "./TimelineItem.tsx";
@@ -13,10 +13,6 @@ const Experience = () => {
   const timelineData = useTimelineData();
   const timelineRef = useRef<HTMLDivElement>(null);
   const scrollPercentage = useScrollProgress(timelineRef);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
 
   return (
     <Container>

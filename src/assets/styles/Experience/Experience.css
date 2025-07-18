@@ -21,13 +21,13 @@
     border-radius: 5px;
     margin-top: 15px;
     height: 100%;
-    background: linear-gradient(to bottom, #276DEE, transparent);
+    background: linear-gradient(to bottom, #276DEE, #276DEE);;
     z-index: 1;
 }
 
 .timeline-start-circle {
     position: absolute;
-    bottom: 0;
+    bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
     width: 16px;
@@ -36,8 +36,9 @@
     border-radius: 50%;
     z-index: 2;
     box-shadow: 0 0 10px #276dee4d;
-    
+
 }
+
 .timeline-start-circle::after {
     content: "";
     position: absolute;
@@ -81,8 +82,8 @@
 /* Cercle sur la timeline */
 .timeline-connector {
     position: absolute;
-    top: 1.4rem;
-    left: 50%;
+    top: 1.5rem;
+    left: 49.13%;
     transform: translateX(-50%);
     width: 20px;
     height: 20px;
@@ -96,19 +97,20 @@
 .timeline-branch {
     position: absolute;
     top: 2rem;
+    border-radius: 5px;
     /* centré verticalement avec le connector */
-    height: 2px;
+    height: 3px;
     width: 30px;
     background-color: #92b8ff;
     z-index: 2;
 }
 
 .timeline-branch.left {
-    right: calc(50% + 10px);
+    right: calc(50% + 6px);
 }
 
 .timeline-branch.right {
-    left: calc(50% + 10px);
+    left: calc(50% + 6px);
 }
 
 /* Stack tags */
@@ -128,32 +130,22 @@
 }
 
 .timeline-arrow-up-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
 }
 
 .timeline-chevron {
-  width: 40px;
-  height: 40px;
-  stroke: #276DEE;
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-  animation: arrowPulse 1.8s infinite;
-  filter: drop-shadow(0 0 6px rgba(39, 109, 238, 0.6));
-}
-
-@keyframes arrowPulse {
-  0%, 100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-4px);
-  }
+    width: 40px;
+    height: 40px;
+    stroke: #276DEE;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    animation: arrowPulse 1.8s infinite;
+    filter: drop-shadow(0 0 6px rgba(39, 109, 238, 0.6));
 }
 
 
@@ -165,7 +157,10 @@
         left: 16px;
         transform: none;
     }
-
+    .timeline-arrow-up-wrapper {
+        left:  44%;
+        transform: translateX(-44%);
+    }
     .bubble {
         margin: 1rem 0 2rem 2.5rem !important;
         width: calc(100% - 3rem);
@@ -179,7 +174,7 @@
     }
 
     .timeline-connector {
-        left: 16px;
+        left: 8px;
         transform: none;
     }
 
@@ -190,20 +185,21 @@
     }
 
     .timeline-start-circle {
-        left: 16px;
+        left: 10px;
         transform: none;
     }
 }
 
-@keyframes arrowBounce {
+@keyframes arrowPulse {
 
     0%,
     100% {
         transform: translateY(0);
+        opacity: 1;
     }
 
     50% {
-        transform: translateY(-5px);
+        transform: translateY(-4px);
     }
 }
 

@@ -36,9 +36,6 @@ const Experience = () => {
               <polyline points="6 15 12 9 18 15" />
             </svg>
           </div>
-
-
-
           <div className="timeline-line" style={{ height: `${scrollPercentage}%` }} />
           {timelineData.map((item, index) => (
             <TimelineItem key={index} item={item} isLeft={index % 2 === 0} />

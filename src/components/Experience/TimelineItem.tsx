@@ -17,8 +17,22 @@ type Props = {
 const TimelineItem = ({ item, isLeft }: Props) => {
     return (
         <div style={{ position: "relative" }}>
-            <div className={`timeline-connector ${isLeft ? "left" : "right"}`} />
-            <div className={`timeline-branch ${isLeft ? "left" : "right"}`} />
+
+            <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                className={`timeline-connector ${isLeft ? "left" : "right"}`}
+            />
+
+            {/* Animated branch */}
+            <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: "30px" }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+                className={`timeline-branch ${isLeft ? "left" : "right"}`}
+            />
+
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}

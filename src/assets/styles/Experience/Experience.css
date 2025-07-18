@@ -1,5 +1,5 @@
 .timeline-container {
-    padding-top: 250px !important;
+    padding-top: 175px !important;
     padding: 4rem 1rem;
     position: relative;
     color: white;
@@ -9,7 +9,6 @@
     position: relative;
     margin: 0 auto;
     width: 100%;
-    padding-top: 5rem;
     padding-bottom: 4rem;
 }
 
@@ -19,6 +18,8 @@
     left: 50%;
     transform: translateX(-50%);
     width: 4px;
+    border-radius: 5px;
+    margin-top: 15px;
     height: 100%;
     background: linear-gradient(to bottom, #276DEE, transparent);
     z-index: 1;
@@ -35,6 +36,20 @@
     border-radius: 50%;
     z-index: 2;
     box-shadow: 0 0 10px #276dee4d;
+    
+}
+.timeline-start-circle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: rgba(39, 109, 238, 0.2);
+    animation: pulse 1.5s infinite;
+    z-index: -1;
 }
 
 .bubble {
@@ -73,7 +88,7 @@
     height: 20px;
     background-color: #92b8ff;
     border-radius: 50%;
-    z-index: 2;
+    z-index: 3;
     box-shadow: 0 0 12px rgba(39, 109, 238, 0.4);
 }
 
@@ -112,6 +127,38 @@
     font-size: 0.75rem;
 }
 
+.timeline-arrow-up-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.timeline-chevron {
+  width: 40px;
+  height: 40px;
+  stroke: #276DEE;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  animation: arrowPulse 1.8s infinite;
+  filter: drop-shadow(0 0 6px rgba(39, 109, 238, 0.6));
+}
+
+@keyframes arrowPulse {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+
+
+
 /* Responsive */
 @media (max-width: 768px) {
     .timeline-line {
@@ -145,5 +192,29 @@
     .timeline-start-circle {
         left: 16px;
         transform: none;
+    }
+}
+
+@keyframes arrowBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
     }
 }

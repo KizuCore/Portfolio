@@ -110,6 +110,12 @@ const projects = [
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
+  React.useEffect(() => {
+    projects.forEach((project) => {
+      const img = new Image();
+      img.src = project.imgPath;
+    });
+  }, []);
 
   return (
     <Container fluid className="project-section text-center">
@@ -125,38 +131,44 @@ const Projects: React.FC = () => {
           {t("my_projects")} {t("projects")}
         </motion.h1>
 
-
-        <Swiper
-          modules={[Navigation, Pagination]}
-          spaceBetween={30}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          breakpoints={{
-            768: {
-              slidesPerView: 2,
-            },
-            992: {
-              slidesPerView: 3,
-            },
-          }}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: easeOut, delay: 0.4 }} // petit délai après le titre
         >
-          {projects.map((project, index) => (
-            <SwiperSlide key={index}>
-              <Tilt className="py-5 px-3" glareEnable={true} glareMaxOpacity={0.1} scale={1.01}>
-                <ProjectCard
-                  imgPath={project.imgPath}
-                  altText={t(project.altTextKey)}
-                  title={t(project.titleKey)}
-                  description={t(project.descriptionKey)}
-                  ghLink={project.ghLink}
-                  youtubeLink={project.youtubeLink}
-                  techStack={project.techStack}
-                />
-              </Tilt>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+              },
+              992: {
+                slidesPerView: 3,
+              },
+            }}
+          >
+            {projects.map((project, index) => (
+              <SwiperSlide key={index}>
+                <Tilt className="py-5 px-3" glareEnable={true} glareMaxOpacity={0.1} scale={1.01}>
+                  <ProjectCard
+                    imgPath={project.imgPath}
+                    altText={t(project.altTextKey)}
+                    title={t(project.titleKey)}
+                    description={t(project.descriptionKey)}
+                    ghLink={project.ghLink}
+                    youtubeLink={project.youtubeLink}
+                    techStack={project.techStack}
+                  />
+                </Tilt>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
+
       </Container>
     </Container>
   );

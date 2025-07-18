@@ -1,168 +1,51 @@
-import { motion } from "framer-motion";
-import { Container, Row, Col } from "react-bootstrap";
-import { useTranslation } from "react-i18next";
+import { Container } from "react-bootstrap";
+import { useEffect, useRef } from "react";
+import useScrollProgress from "../Utils/useScrollProgress";
+import { useTimelineData } from "./data/timelineData";
+import TimelineItem from "./TimelineItem.tsx";
 import '../../assets/styles/Experience/Experience.css';
-import Particle from "../Utils/Particle";
-import { FaBriefcase, FaUserGraduate } from "react-icons/fa";
-import { useEffect } from 'react';
-
-type TimelineItem = {
-  type: string;
-  title: string;
-  subtitle?: string;
-  diplome?: string;
-  date: string;
-  description?: string;
-  stack?: string;
-};
-const getIcon = (type: string) => {
-  return type === "C" ? <FaUserGraduate style={{ transform: "translateY(-2px)" }} /> : <FaBriefcase style={{ transform: "translateY(-2px)" }} />;
-};
+import Particle from "../Utils/Particle.tsx";
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const Experience = () => {
   const { t } = useTranslation();
+  const timelineData = useTimelineData();
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const scrollPercentage = useScrollProgress(timelineRef);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const timelineData: TimelineItem[] = [ /* C = Cours - T = Travail */
-    {
-      type: "T",
-      title: t("experience_1_title"),
-      date: t("experience_1_date"),
-      subtitle: t("experience_1_subtitle"),
-      description: t("experience_1_description"),
-      stack: t("experience_1_stack"),
-    },
-    {
-      type: "C",
-      title: t("experience_2_title"),
-      subtitle: t("experience_2_subtitle"),
-      date: t("experience_2_date"),
-    },
-    {
-      type: "C",
-      title: t("experience_3_title"),
-      subtitle: t("experience_3_subtitle"),
-      diplome: t("experience_3_diplome"),
-      date: t("experience_3_date"),
-    },
-    {
-      type: "C",
-      title: t("experience_4_title"),
-      subtitle: t("experience_4_subtitle"),
-      date: t("experience_4_date"),
-    },
-    {
-      type: "C",
-      title: t("experience_5_title"),
-      subtitle: t("experience_5_subtitle"),
-      date: t("experience_5_date"),
-    },
-    {
-      type: "C",
-      title: t("experience_6_title"),
-      subtitle: t("experience_6_subtitle"),
-      date: t("experience_6_date"),
-    },
-  ];
-
   return (
-    <Container fluid className="parkour-section" id="home">
+    <Container>
       <Particle />
-      <Container>
+      <Container fluid className="timeline-container">
         <motion.h1
-          className="custom-title pb-5 pt-3 mb-5 mt-5"
+          className="custom-title pb-5 mb-5"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {t("Mon parcours")}
         </motion.h1>
-
-        <div className="timeline position-relative">
-
-          {/* Flèche du haut */}
+        <div className="timeline" ref={timelineRef}>
           <div className="timeline-arrow-up-wrapper">
-            <div className="timeline-arrow-up" />
-            <motion.div
-              className="timeline-arrow-up-label blue text-center"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-            >
-              <i className="fas fa-arrow-up me-1" />
-            </motion.div>
+            <svg className="timeline-chevron" viewBox="0 0 24 24">
+              <polyline points="6 15 12 9 18 15" />
+            </svg>
           </div>
-          {timelineData.map((item, index) => {
-            const isLeft = index % 2 === 0;
-            return (
-              <Row className="timeline-item" key={index}>
-                {isLeft ? (
-                  <>
-                    <Col md={6}>
-                      <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="bubble left"
-                      >
-                        <h5 className="fw-bold text-light gap-2 phone-content-end">
-                          <span className="align-self-start blue">
-                            {getIcon(item.type)}
-                          </span>
-                          <span>{item.title}</span>
-                        </h5>
-                        <p className="blue small mb-1">{item.date}</p>
-                        {item.subtitle && <h6 className="text-light">{item.subtitle}</h6>}
-                        {item.diplome && <h6 className="text-light">{item.diplome}</h6>}
-                        {item.description && <p className="text-light"><i>{item.description}</i></p>}
-                        {item.stack && (
-                          <div className="stack-tags mt-2">
-                            {item.stack.split(",").map((tech, i) => (
-                              <span key={i} className="stack-badge">
-                                {tech.trim()}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-
-                      </motion.div>
-                    </Col>
-                    <Col md={6} />
-                  </>
-                ) : (
-                  <>
-                    <Col md={6} />
-                    <Col md={6}>
-                      <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="bubble right"
-                      >
-                        <h5 className="fw-bold text-light d-flex gap-2 align-items-start">
-                          <span className="align-self-start blue">
-                            {getIcon(item.type)}
-                          </span>
-                          <span>{item.title}</span>
-                        </h5>
-
-                        <p className="blue small mb-1">{item.date}</p>
-                        {item.subtitle && <h6 className="text-light">{item.subtitle}</h6>}
-                        {item.diplome && <h6 className="text-light">{item.diplome}</h6>}
-                        {item.description && <p className="text-light"><i>{item.description}</i></p>}
-                        {item.stack && <p className="text-light"><b>Stack :</b> {item.stack}</p>}
-                      </motion.div>
-                    </Col>
-                  </>
-                )}
-              </Row>
-            );
-          })}
-          <div className="timeline-line"></div>
-          <div className="timeline-start-circle"></div>
+          <div className="timeline-line" style={{ height: `${scrollPercentage}%` }} />
+          {timelineData.map((item, index) => (
+            <TimelineItem key={index} item={item} isLeft={index % 2 === 0} />
+          ))}
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+            className="timeline-start-circle"
+          />
         </div>
       </Container>
     </Container>

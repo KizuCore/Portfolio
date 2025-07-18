@@ -18,13 +18,13 @@ function Footer(): JSX.Element {
             <h3>
               {t("bytheo1")}{" "}
               <a
-                href="https://github.com/Theo22100"
+                href="https://github.com/KizuCore"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t("github_profile_link")}
                 className="footer-link"
               >
-                Theo22100
+                KizuCore
               </a>
             </h3>
           </Col>
@@ -40,7 +40,7 @@ function Footer(): JSX.Element {
           <Col xs={12} md={4} className="footer-body py-2">
             <div className="footer-icons d-flex justify-content-center justify-content-md-end gap-5" style={{ paddingRight: "20px" }}>
               <a
-                href="https://github.com/Theo22100"
+                href="https://github.com/KizuCore"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t("github_profile_link")}

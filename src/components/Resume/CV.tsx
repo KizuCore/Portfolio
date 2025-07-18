@@ -39,7 +39,7 @@ function CV() {
       <Particle />
 
       <motion.h1
-        className="custom-title pb-4 mt-5 pt-2"
+        className="custom-title pb-4 mt-5 pt-3"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: easeOut }}

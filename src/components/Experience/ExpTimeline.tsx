@@ -40,7 +40,12 @@ const Experience = () => {
           {timelineData.map((item, index) => (
             <TimelineItem key={index} item={item} isLeft={index % 2 === 0} />
           ))}
-          <div className="timeline-start-circle" />
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+            className="timeline-start-circle"
+          />
         </div>
       </Container>
     </Container>

@@ -21,14 +21,14 @@
     border-radius: 5px;
     margin-top: 15px;
     height: 100%;
-    background: linear-gradient(to bottom, #276DEE, #276DEE);;
+    background: linear-gradient(to bottom, #276DEE, #276DEE);
     z-index: 1;
 }
 
 .timeline-start-circle {
     position: absolute;
     bottom: -20px;
-    left: 50%;
+    left: 49.4%;
     transform: translateX(-50%);
     width: 16px;
     height: 16px;
@@ -157,10 +157,15 @@
         left: 16px;
         transform: none;
     }
+
     .timeline-arrow-up-wrapper {
-        left:  44%;
-        transform: translateX(-44%);
+        display: flex;
+        justify-content: flex-start;
+        /* Aligne à gauche */
+        align-items: center;
+        margin-left: -1.8px;
     }
+
     .bubble {
         margin: 1rem 0 2rem 2.5rem !important;
         width: calc(100% - 3rem);

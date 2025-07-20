@@ -61,6 +61,7 @@ function App() {
         <ScrollToTop />
         <KonamiComponent />
         <VideoPopup />
+        <main className="main-content">
         <Suspense fallback={<Preloader />}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -74,6 +75,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Suspense>
+        </main>
         <Footer />
       </div>
     </Router>

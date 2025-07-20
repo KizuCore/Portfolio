@@ -1,6 +1,6 @@
 /* Variables Globales */
 html {
-  --section-background-color: linear-gradient(to bottom left, rgb(0, 0, 0), rgb(0, 0, 0));
+  --section-background-color: linear-gradient(to bottom left, rgb(0, 0, 0,0.97), rgb(0, 0, 0,0.97));
   --imp-text-color: #52a4f1;
 }
 

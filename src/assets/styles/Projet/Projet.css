@@ -2,7 +2,6 @@
 /* === SECTION PROJETS === */
 .project-section {
   padding: 4rem 0rem;
-  background-image: var(--section-background-color) !important;
   position: relative;
   z-index: 1;
   padding-top: 130px !important;

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import logo from "@image/logodev.svg";
-import logoWhite from "@image/logodevwhite.svg"; 
-import '../../../assets/styles/Easter/style_easter.css'; 
+import logoWhite from "@image/logodevwhite.svg";
+import '../../../assets/styles/Easter/style_easter.css';
 import '../../../assets/styles/Header/header.css';
 
 interface LogoImageProps {
@@ -40,6 +40,7 @@ function LogoImage({ isAnimating, t }: LogoImageProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
+        fetchPriority="high"
       />
     </motion.div>
   );

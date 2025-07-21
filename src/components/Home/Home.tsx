@@ -97,6 +97,7 @@ function Home(): JSX.Element {
                       height="400"
                       loading="eager"
                       decoding="sync"
+                      fetchPriority="high"
                     />
                   ) : (
                     <motion.img
@@ -110,6 +111,7 @@ function Home(): JSX.Element {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={imgInView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ duration: 0.8, ease: "easeOut" }}
+                      fetchPriority="high"
                     />
 
                   )}

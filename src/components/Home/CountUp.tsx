@@ -43,7 +43,7 @@ function HomeStats() {
             <div className="stat-item stat-item-combo">
                 <span className="stat-plus">+</span>
                 <span className="stat-number bold-number">
-                    {inView && <CountUp start={0} end={35} duration={2.5} delay={2.1} />}
+                    {inView && <CountUp start={0} end={36} duration={2.5} delay={2.1} />}
                 </span>
                 <div className="stat-label-wrapper">
                     <span className="stat-label">{t('technologies')}</span>

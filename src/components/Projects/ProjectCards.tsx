@@ -7,7 +7,8 @@ import '../../assets/styles/Projet/Projet.css';
 import { BsGithub, BsYoutube } from "react-icons/bs";
 import {
   SiFlutter, SiExpress, SiKotlin, SiSwagger, SiVuedotjs,
-  SiGoogle, SiSequelize, SiAxios, SiTypescript
+  SiGoogle, SiSequelize, SiAxios, SiTypescript,
+  SiGraphql
 } from "react-icons/si";
 import {
   DiMysql, DiPhp, DiHtml5, DiCss3, DiJavascript1,
@@ -35,6 +36,7 @@ const techIcons: Record<string, React.ComponentType<any>> = {
   Sequelize: SiSequelize,
   NodeJS: DiNodejs,
   Axios: SiAxios,
+  GraphQL: SiGraphql,
 };
 
 interface ProjectCardProps {

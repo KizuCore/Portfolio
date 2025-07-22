@@ -29,10 +29,10 @@ function Contact(): JSX.Element {
           >
             {t('social')}
           </motion.h1>
-          <Col md={7} className="home-about-social pt-3" ref={ref}>
+          <Col md={7} className="home-about-social pt-3 order-2 order-md-1" ref={ref}>
             <ContactForm />
           </Col>
-          <Col md={5} className="home-about-social pt-3" ref={ref}>
+          <Col md={5} className="home-about-social pt-3 order-1 order-md-2" ref={ref}>
             <div className="contact-info-box">
               <p style={{ fontSize: "2rem" }}>📬 {t("Informations")}</p>
               <p className="text-justify">

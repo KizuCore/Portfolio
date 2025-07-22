@@ -239,18 +239,18 @@
 }
 
 /* Boutons tech */
-.btn-primary {
+.category-buttons .btn-primary {
     background: #276deec9;
     border-color: white;
 }
 
-.btn-primary:hover {
+.category-buttons .btn-primary:hover {
     border-color: white;
     background: #276deec9;
     cursor: default;
 }
 
-.btn-outline-secondary:hover {
+.category-buttons .btn-outline-secondary:hover {
     border-color: white;
 }
 /* Fin boutons tech */

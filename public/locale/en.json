@@ -166,5 +166,24 @@
     "Vous avez un projet ?": "Do you have a project in mind?",
     "Qu’il s’agisse d’un site vitrine, d’une application, d’une mission freelance ou d’une opportunité professionnelle, ...": "Whether it's a showcase website, an application, a freelance mission or a job opportunity, feel free to reach out!",
     "N’hésitez pas à me contacter !": "Feel free to get in touch!",
-    "Disponible pour de nouveaux projets": "Available for new projects"
+    "Disponible pour de nouveaux projets": "Available for new projects",
+    "all": "All",
+    "categories": {
+        "All": "All",
+        "OS": "Operating Systems",
+        "IDE": "IDEs",
+        "API": "APIs",
+        "Version Control": "Version Control",
+        "Database": "Databases",
+        "Networking": "Networking",
+        "Cloud": "Cloud",
+        "Productivity": "Productivity",
+        "Communication": "Communication",
+        "DevOps": "DevOps",
+        "Design": "Design",
+        "Project Management": "Project Management",
+        "Programming Languages": "Langages",
+        "Hosting": "Hébergement",
+        "CMS": "CMS"
+    }
 }

@@ -164,5 +164,24 @@
     "Vous avez un projet ?": "Vous avez un projet ?",
     "Qu’il s’agisse d’un site vitrine, d’une application, d’une mission freelance ou d’une opportunité professionnelle, ...": "Qu’il s’agisse d’un site vitrine, d’une application, d’une mission freelance ou d’une opportunité professionnelle, n’hésitez pas à me contacter !",
     "N’hésitez pas à me contacter !": "N’hésitez pas à me contacter !",
-    "Disponible pour de nouveaux projets": "Disponible pour de nouveaux projets"
+    "Disponible pour de nouveaux projets": "Disponible pour de nouveaux projets",
+    "all": "Tous",
+    "categories": {
+        "All": "Tous",
+        "OS": "Systèmes",
+        "IDE": "Environnements de développement",
+        "API": "APIs",
+        "Version Control": "Contrôle de version",
+        "Database": "Bases de données",
+        "Networking": "Réseaux",
+        "Cloud": "Cloud",
+        "Productivity": "Productivité",
+        "Communication": "Communication",
+        "DevOps": "DevOps",
+        "Design": "Design",
+        "Project Management": "Gestion de projet",
+        "Programming Languages": "Langages",
+        "Hosting": "Hébergement",
+        "CMS": "CMS"
+    }
 }

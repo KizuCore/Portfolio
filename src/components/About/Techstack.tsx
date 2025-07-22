@@ -64,6 +64,7 @@ const icons: IconData[] = [
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiNetlify }))), name: "Netlify", level: 1, category: "Hosting" },
   { component: React.lazy(() => import("react-icons/fa").then(m => ({ default: m.FaAws }))), name: "AWS", level: 1, category: "Hosting" },
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiHeroku }))), name: "Heroku", level: 0, category: "Hosting" },
+  { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiGraphql }))), name: "GraphQL", level: 0, category: "Back-End" }
 
 ];
 

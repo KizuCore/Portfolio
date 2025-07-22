@@ -1,36 +1,41 @@
 /* ABOUT CARD*/
 .quote-card-view {
-    border: none ;
-    color: white ;
-    background-color: transparent ;
+    border: none;
+    color: white;
+    background-color: transparent;
 }
 
 .about-activity {
-    list-style: none ;
-    text-align: left ;
-    padding-left: 1px ;
+    list-style: none;
+    text-align: left;
+    padding-left: 1px;
 }
 
 @media (max-width: 767px) {
     .about-img {
-        padding-top: 0 ;
+        padding-top: 0;
     }
 }
 
 .tech-icons-1 {
-    font-size: 4.5em ;
-    margin: 15px ;
-    padding: 10px ;
-    opacity: 0.93 ;
-    border: 1.7px solid rgba(78, 134, 240, 0.637) ;
-    vertical-align: middle ;
-    text-align: center ;
-    border-radius: 5px ;
-    display: table ;
-    box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) ;
-    overflow: hidden ;
-    transition: all 0.4s ease 0s ;
-    background-color: #f5fafd1a ;
+    font-size: 4.5em;
+    margin: 15px;
+    padding: 10px;
+    opacity: 0.93;
+    border: 1.7px solid rgba(78, 134, 240, 0.637);
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 5px;
+    display: table;
+    box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137);
+    overflow: hidden;
+    transition: all 0.4s ease 0s;
+    background-color: #f5fafd1a;
+}
+
+.tech-icons-1:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(78, 134, 240, 0.637);
 }
 
 .about-activity a {
@@ -40,87 +45,88 @@
 }
 
 .about-activity a:hover {
-    color: #86acf4 ;
+    color: #86acf4;
 }
 
 @media (max-width: 767px) {
     .tech-icons {
-        margin: 10px ;
+        margin: 10px;
     }
 }
 
 /* Styles par défaut des icônes */
 .tech-icons {
-    font-size: 4.5em ;
-    margin: 15px ;
-    opacity: 0.93 ;
-    vertical-align: middle ;
-    text-align: center ;
-    border-radius: 5px ;
-    display: table ;
-    box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) ;
-    overflow: hidden ;
-    transition: all 0.4s ease 0s ;
-    background-color: #f5fafd1a ;
+    font-size: 4.5em;
+    margin: 15px;
+    opacity: 0.93;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 5px;
+    display: table;
+    box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137);
+    overflow: hidden;
+    transition: all 0.4s ease 0s;
+    background-color: #f5fafd1a;
 }
 
 .tech-icons:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
+
 @media screen and (max-width: 767px) {
 
     .tech-icons,
     .tech-icons-1 {
-        margin: 10px ;
-        padding: 0px ;
+        margin: 10px;
+        padding: 0px;
     }
 
 }
 
 /* Couleurs des bordures selon le niveau */
 .border-orange {
-    border: 1.7px solid rgb(255, 145, 0) ;
+    border: 1.7px solid rgb(255, 145, 0);
 }
 
 .border-yellow {
-    border: 1.7px solid yellow ;
+    border: 1.7px solid yellow;
 }
 
 .border-green {
-    border: 1.7px solid rgb(0, 190, 0) ;
+    border: 1.7px solid rgb(0, 190, 0);
 }
 
 .border-blue {
-    border: 1.7px solid rgb(39, 184, 241) ;
+    border: 1.7px solid rgb(39, 184, 241);
 }
 
 /* Effet au survol pour chaque niveau */
 .border-orange:hover {
-    box-shadow: 0 0 10px rgba(255, 145, 0, 0.4);
-    border: 1.7px solid rgba(255, 145, 0, 0.8) ;
+    box-shadow: 0 0 20px rgba(255, 145, 0, 0.4);
+    border: 1.7px solid rgba(255, 145, 0, 0.8);
     /* Bleu foncé au survol */
 }
 
 .border-yellow:hover {
-    box-shadow: 0 0 10px rgba(251, 255, 0, 0.4);
-    border: 1.7px solid rgba(255, 255, 0, 0.8) ;
+    box-shadow: 0 0 20px rgba(251, 255, 0, 0.4);
+    border: 1.7px solid rgba(255, 255, 0, 0.8);
     /* Jaune foncé au survol */
 }
 
 .border-green:hover {
-    box-shadow: 0 0 10px rgba(43, 255, 0, 0.4);
-    border: 1.7px solid rgba(0, 190, 0, 0.8) ;
+    box-shadow: 0 0 20px rgba(43, 255, 0, 0.4);
+    border: 1.7px solid rgba(0, 190, 0, 0.8);
     /* Vert foncé au survol */
 }
 
 .border-blue:hover {
-    border: 1.7px solid rgba(39, 184, 241, 0.8) ;
+    border: 1.7px solid rgba(39, 184, 241, 0.8);
     /* Bleu foncé au survol */
 }
 
 .tech-icon-images {
-    padding: 20px ;
-    line-height: 1.6 ;
+    padding: 20px;
+    line-height: 1.6;
 }
 
 .level-circle {
@@ -129,6 +135,7 @@
     border-radius: 50%;
     margin-right: 10px;
 }
+
 
 
 
@@ -229,4 +236,92 @@
     width: 100%;
     max-width: 300px;
     height: 300px;
+}
+
+/* Boutons tech */
+.btn-primary {
+    background: #276deec9;
+    border-color: white;
+}
+
+.btn-primary:hover {
+    border-color: white;
+    background: #276deec9;
+    cursor: default;
+}
+
+.btn-outline-secondary:hover {
+    border-color: white;
+}
+/* Fin boutons tech */
+
+/* Niveau de compétence */
+.level-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.level-badge {
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: gray;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  min-width: 180px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.651);
+}
+
+/* Couleurs spécifiques */
+
+
+.level-badge.novice {
+  background-color: rgba(255, 166, 0, 0.74);
+}
+.level-badge.novice:hover {
+  box-shadow: 0 0 10px rgba(255, 166, 0, 0.74);
+}
+.level-badge.intermediate {
+  background-color: rgb(243, 243, 75, 0.74);
+}
+.level-badge.intermediate:hover {
+  box-shadow: 0 0 10px rgba(243, 243, 75, 0.74);
+}
+.level-badge.advanced {
+  background-color: rgb(23, 180, 23, 0.74);
+}
+.level-badge.advanced:hover {
+  box-shadow: 0 0 10px rgba(23, 180, 23, 0.74);
+}
+.level-badge.favorite {
+  background-color: rgb(29, 160, 242, 0.74); 
+}
+.level-badge.favorite:hover {
+  box-shadow: 0 0 10px rgba(29, 160, 242, 0.74);
+}
+
+.level-badge {
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.5;
+}
+
+.level-badge:hover {
+  opacity: 1;
+}
+
+.level-badge.active {
+  border: 1px solid white;
+  opacity: 1;
+}
+.level-badge.active:hover {
+  transform: none;
+  cursor: default;
 }

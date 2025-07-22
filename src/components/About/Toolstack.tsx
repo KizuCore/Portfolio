@@ -2,7 +2,7 @@ import React, { Suspense, useState } from "react";
 import { Col, Row, Spinner, Button } from "react-bootstrap";
 import "../../assets/styles/About/About.css";
 import { easeOut, motion } from "framer-motion";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 const AiOutlineFileExcel = React.lazy(() => import("react-icons/ai").then(module => ({ default: module.AiOutlineFileExcel })));
 const FaBrevo = React.lazy(() => import("react-icons/fa").then(module => ({ default: module.FaPaperPlane })));
@@ -66,6 +66,7 @@ const tools: Tool[] = [
 
 const Toolstack: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const { t } = useTranslation();
 
   const categories = ["All", ...Array.from(new Set(tools.map(t => t.category)))];
 
@@ -82,14 +83,14 @@ const Toolstack: React.FC = () => {
       </motion.h2>
 
       <div className="category-buttons" style={{ textAlign: "center", marginBottom: "20px" }}>
-        {categories.map((cat) => (
+        {[...categories].sort((a, b) => a.localeCompare(b)).map((cat) => (
           <Button
             key={cat}
             variant={selectedCategory === cat ? "primary" : "outline-secondary"}
             onClick={() => setSelectedCategory(cat)}
             style={{ margin: "5px" }}
           >
-            {cat}
+            {t(`categories.${cat}`)}
           </Button>
         ))}
       </div>

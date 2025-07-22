@@ -30,10 +30,21 @@ function Contact(): JSX.Element {
             {t('social')}
           </motion.h1>
           <Col md={7} className="home-about-social pt-3 order-2 order-md-1" ref={ref}>
-            <ContactForm />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <ContactForm />
+            </motion.div>
           </Col>
           <Col md={5} className="home-about-social pt-3 order-1 order-md-2" ref={ref}>
-            <div className="contact-info-box">
+            <motion.div
+              className="contact-info-box"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
               <p style={{ fontSize: "2rem" }}>📬 {t("Informations")}</p>
               <p className="text-justify">
                 {t("Vous avez un projet ?")}
@@ -47,7 +58,7 @@ function Contact(): JSX.Element {
               <hr className="pt-3" style={{ opacity: 0.8 }} />
               <p className="pb-3">🕒 <strong>{t("Disponible pour de nouveaux projets")}</strong></p>
               <HomeButtons />
-            </div>
+            </motion.div>
           </Col>
         </Row>
       </Container>

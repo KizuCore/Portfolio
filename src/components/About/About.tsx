@@ -72,14 +72,6 @@ function About(): JSX.Element {
         >
           {t('professional_skills')} {t('skills')}
         </motion.h2>
-
-        <Row className="text-center mt-5 mb-4 pb-4">
-          <Col md={3}><div className="d-flex justify-content-center align-items-center"><LevelCircle color="rgb(255, 145, 0, 0.8)" /><span>{t('novice')}</span></div></Col>
-          <Col md={3}><div className="d-flex justify-content-center align-items-center"><LevelCircle color="rgba(255, 255, 0, 0.8)" /><span>{t('intermediate')}</span></div></Col>
-          <Col md={3}><div className="d-flex justify-content-center align-items-center"><LevelCircle color="rgba(0, 190, 0, 0.8)" /><span>{t('advanced')}</span></div></Col>
-          <Col md={3}><div className="d-flex justify-content-center align-items-center"><LevelCircle color="rgba(39, 184, 241, 0.8)" /><span>{t('favorite2')}</span></div></Col>
-        </Row>
-
         <Techstack />
         <Toolstack />
         <Github />

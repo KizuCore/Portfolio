@@ -21,7 +21,7 @@ import breizhcoin from "@image/Projects/breizhcoin.webp";
 import portfolio from "@image/Projects/portfolio.webp";
 import portfoliov2 from "@image/Projects/portfoliov2.webp";
 import apibook from "@image/Projects/apibook.webp";
-import flambow from "@image/Projects/flambow.webp";
+import flambow from "@image/Projects/flambowImg.webp";
 import badmintonapi from "@image/Projects/badmintonapi.webp";
 import { easeOut, motion } from "framer-motion";
 

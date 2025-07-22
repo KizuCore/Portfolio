@@ -72,27 +72,78 @@ const Tooltip = React.lazy(() => import("react-tooltip").then(module => ({ defau
 function Techstack() {
   const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [selectedLevel, setSelectedLevel] = useState<number | "All">("All");
 
   return (
+
     <div>
+      <div className="level-legend pb-5">
+        <span
+          className={`level-badge all ${selectedLevel === "All" ? "active" : ""}`}
+          onClick={() => setSelectedLevel("All")}
+        >
+          {t("all")}
+        </span>
+        <span
+          className={`level-badge novice ${selectedLevel === 0 ? "active" : ""}`}
+          onClick={() => setSelectedLevel(0)}
+        >
+          {t("novice")}
+        </span>
+        <span
+          className={`level-badge intermediate ${selectedLevel === 1 ? "active" : ""}`}
+          onClick={() => setSelectedLevel(1)}
+        >
+          {t("intermediate")}
+        </span>
+        <span
+          className={`level-badge advanced ${selectedLevel === 2 ? "active" : ""}`}
+          onClick={() => setSelectedLevel(2)}
+        >
+          {t("advanced")}
+        </span>
+        <span
+          className={`level-badge favorite ${selectedLevel === 3 ? "active" : ""}`}
+          onClick={() => setSelectedLevel(3)}
+        >
+          {t("favorite2")}
+        </span>
+      </div>
+
       {/* Catégories */}
       <div className="category-buttons" style={{ textAlign: "center", marginBottom: "20px" }}>
-        {categories.map((cat) => (
-          <Button
-            key={cat}
-            variant={selectedCategory === cat ? "primary" : "outline-secondary"}
-            onClick={() => setSelectedCategory(cat)}
-            style={{ margin: "5px" }}
-          >
-            {cat}
-          </Button>
-        ))}
+        {categories.map((cat) => {
+          const translatedLabel = ["Back-End", "Front-End"].includes(cat)
+            ? cat
+            : t(`categories.${cat}`);
+
+          return (
+            <Button
+              key={cat}
+              variant={selectedCategory === cat ? "primary" : "outline-secondary"}
+              onClick={() => setSelectedCategory(cat)}
+              style={{ margin: "5px" }}
+            >
+              {translatedLabel}
+            </Button>
+          );
+        })}
       </div>
+
 
       {/* Icônes filtrées */}
       <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
         {icons
-          .filter(icon => selectedCategory === "All" || icon.category === selectedCategory)
+          .filter(icon =>
+            (selectedCategory === "All" || icon.category === selectedCategory) &&
+            (
+              selectedLevel === "All"
+                ? true
+                : selectedLevel === 2
+                  ? icon.level === 2 || icon.level === 3 // inclut favori comme expérimenté
+                  : icon.level === selectedLevel
+            )
+          )
           .sort((a, b) => b.level - a.level)
           .map((icon, index) => {
             const IconComponent = icon.component;

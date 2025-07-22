@@ -7,7 +7,6 @@ import Github from "./Github";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import Toolstack from "./Toolstack.tsx";
-import LevelCircle from "../Utils/LevelCircle";
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/About/About.css';
 import SolarSystem from "../Utils/SolarSystem.tsx";

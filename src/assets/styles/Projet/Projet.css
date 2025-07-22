@@ -144,7 +144,7 @@
   border: 1px solid #ffffffa6;
 }
 .button-youtube:hover {
-  background-color: rgba(255, 255, 255, 0.856);
+  background-color: rgba(255, 255, 255, 0.8);
   color: #c01313;
   border: 1px solid #c01313;
 }
@@ -154,12 +154,23 @@
   border: 1px solid #ffffffa6;
 }
 .button-github:hover {
-  background-color: rgba(255, 255, 255, 0.856);
+  background-color: rgba(255, 255, 255, 0.8);
   color: #276dee;
   border: 1px solid #276dee;
 }
+.button-see{
+  background-color: #309b15;
+  color: #ffffff;
+  border: 1px solid #ffffffa6;
+}
+.button-see:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #309b15;
+  border: 1px solid #309b15;
+}
 .button-github,
-.button-youtube {
+.button-youtube,
+.button-see {
   font-weight: 500;
   padding: 0.5rem 1.2rem;
   margin: 0.25rem;

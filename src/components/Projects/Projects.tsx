@@ -21,6 +21,7 @@ import breizhcoin from "@image/Projects/breizhcoin.webp";
 import portfolio from "@image/Projects/portfolio.webp";
 import portfoliov2 from "@image/Projects/portfoliov2.webp";
 import apibook from "@image/Projects/apibook.webp";
+import flambow from "@image/Projects/flambow.webp";
 import { easeOut, motion } from "framer-motion";
 
 const projects = [
@@ -72,6 +73,15 @@ const projects = [
     ghLink: "https://github.com/KizuCore/CosmicLink",
     youtubeLink: "https://youtube.com/watch?v=3yVybmKT5d0",
     techStack: ["Php", "Javascript", "Html", "Css"],
+  },
+  {
+    imgPath: flambow,
+    altTextKey: "flambow_image_alt",
+    titleKey: "flambow_title",
+    descriptionKey: "flambow_description",
+    ghLink: "https://github.com/KizuCore/Flambow",
+    seeLink: "https://flambow-m7iu4q0gi-theo22100s-projects.vercel.app/",
+    techStack: ["React", "Javascript", "Bootstrap", "Css"],
   },
   {
     imgPath: chrono,
@@ -163,6 +173,7 @@ const Projects: React.FC = () => {
                     description={t(project.descriptionKey)}
                     ghLink={project.ghLink}
                     youtubeLink={project.youtubeLink}
+                    seeLink={project.seeLink}
                     techStack={project.techStack}
                   />
                 </Tilt>

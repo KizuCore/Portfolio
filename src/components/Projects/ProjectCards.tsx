@@ -13,7 +13,7 @@ import {
   DiMysql, DiPhp, DiHtml5, DiCss3, DiJavascript1,
   DiReact, DiBootstrap, DiNodejs
 } from "react-icons/di";
-import { FaJava } from "react-icons/fa";
+import { FaEye, FaJava } from "react-icons/fa";
 
 // Dictionnaire des icônes par techno
 const techIcons: Record<string, React.ComponentType<any>> = {
@@ -45,6 +45,7 @@ interface ProjectCardProps {
   techStack: string[];
   ghLink: string;
   youtubeLink?: string;
+  seeLink?: string;
   isGitLab?: boolean;
 }
 
@@ -119,6 +120,18 @@ function ProjectCard(props: ProjectCardProps) {
             >
               <BsYoutube style={{ marginRight: "5px", marginBottom: "2px" }} />
               {t('video')}
+            </Button>
+          )}
+
+          {props.seeLink && (
+            <Button
+              className="button-see"
+              href={props.seeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaEye style={{ marginRight: "5px", marginBottom: "2px" }} />
+              {t('see')}
             </Button>
           )}
         </div>

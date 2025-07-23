@@ -38,7 +38,7 @@ function Contact(): JSX.Element {
               <ContactForm />
             </motion.div>
           </Col>
-          <Col md={5} className="home-about-social pt-3 order-1 order-md-2" ref={ref}>
+          <Col md={5} className="home-about-social pt-3 order-1 order-md-2 pb-5 pb-md-0" ref={ref}>
             <motion.div
               className="contact-info-box"
               initial={{ opacity: 0, y: 20 }}

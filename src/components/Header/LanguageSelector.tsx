@@ -21,7 +21,7 @@ function LanguageSelector(): JSX.Element {
 
   const lang = i18n.language.slice(0, 2);
   const currentLanguage = lang.toUpperCase();
-  const flagCode = lang === "fr" ? "FR" : "GB";
+  const flagCode = lang === "fr" ? "FR" : lang === "es" ? "ES" : "GB";
 
   return (
     <Dropdown
@@ -72,6 +72,19 @@ function LanguageSelector(): JSX.Element {
           </Suspense>
           FR
         </Dropdown.Item>
+        <Dropdown.Item onClick={() => changeLanguage("es")}>
+          <Suspense fallback={<Spinner animation="border" role="status" />}>
+            <Flag
+              code="ES"
+              width="25"
+              height="auto"
+              style={{ marginRight: "8px", marginBottom: "3px" }}
+              alt={t("flag_es")}
+            />
+          </Suspense>
+          ES
+        </Dropdown.Item>
+
       </Dropdown.Menu>
     </Dropdown>
   );

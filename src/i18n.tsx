@@ -5,21 +5,21 @@ import Backend from 'i18next-http-backend';
 
 // Initialisation d'i18next
 i18n
-  .use(Backend) 
-  
+  .use(Backend)
+
   .use(LanguageDetector) // Détection de la langue navigateur
-  .use(initReactI18next) 
+  .use(initReactI18next)
   .init({
     fallbackLng: 'en', // Langue par défaut si non détectée
     load: 'languageOnly', // Charger uniquement la langue sans le pays (ex: 'en' au lieu de 'en-US')
-    debug: import.meta.env.MODE === 'development', 
+    debug: import.meta.env.MODE === 'development',
 
     backend: {
-      loadPath: '/locale/{{lng}}.json', 
+      loadPath: '/locale/{{lng}}.json',
     },
 
     interpolation: {
-      escapeValue: false, 
+      escapeValue: false,
     },
 
     detection: {

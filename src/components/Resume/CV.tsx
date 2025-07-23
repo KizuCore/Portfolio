@@ -20,7 +20,9 @@ function CV() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  const pdf = i18n.language === "fr" ? pdf_FR : pdf_EN;
+  const lang = i18n.language.slice(0, 2);
+  const pdf = lang === "fr" ? pdf_FR : pdf_EN;
+
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);

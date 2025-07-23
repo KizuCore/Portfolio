@@ -65,5 +65,4 @@ function Contact(): JSX.Element {
     </Container>
   );
 }
-
 export default Contact;

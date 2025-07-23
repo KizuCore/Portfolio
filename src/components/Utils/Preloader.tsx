@@ -1,5 +1,6 @@
 import React from "react";
 import "../../assets/styles/Preloader/Preloader.css";
+import LogoSVG from "./LogoSVG";
 
 interface PreloaderProps {
   load?: boolean;
@@ -14,9 +15,7 @@ const Preloader: React.FC<PreloaderProps> = ({ load = true, className = "" }) =>
       aria-hidden="true"
     >
       <div className="preloader-content">
-        <div className="preloader-glow" />
-        <div className="preloader-ring" />
-        <div className="preloader-logo" />
+        <LogoSVG />
       </div>
     </div>
   );

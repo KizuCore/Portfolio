@@ -6,7 +6,6 @@ import { Spinner } from "react-bootstrap";
 import Flag from 'react-world-flags';
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 
-
 function LanguageSelector(): JSX.Element {
   const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -19,13 +18,38 @@ function LanguageSelector(): JSX.Element {
     document.documentElement.lang = i18n.language;
   }, [i18n.language]);
 
-  const lang = i18n.language.slice(0, 2);
+  const lang = i18n.language.slice(0, 3); // supporte "bzh"
   const currentLanguage = lang.toUpperCase();
-  const flagCode = lang === "fr" ? "FR" : lang === "es" ? "ES" : "GB";
+
+  // === Composant pour afficher le bon drapeau
+  const renderFlag = (langCode: string) => {
+    if (langCode === "bzh") {
+      return (
+        <img
+          src="/images/flags/flag_bzh.svg"
+          width="25"
+          height="auto"
+          style={{ marginBottom: "4px" }}
+          alt={t("flag_bzh")}
+        />
+      );
+    }
+
+    const code = langCode === "fr" ? "FR" : langCode === "es" ? "ES" : "GB";
+    return (
+      <Flag
+        code={code}
+        width="25"
+        height="auto"
+        style={{ marginBottom: "4px" }}
+        alt={t(`flag_${langCode}`)}
+      />
+    );
+  };
 
   return (
     <Dropdown
-      className="language-selector"
+      className="language-selector pb-4 pt-2 pb-md-0 pt-md-0"
       onToggle={(nextShow) => setIsOpen(nextShow)}
     >
       <Dropdown.Toggle
@@ -34,57 +58,25 @@ function LanguageSelector(): JSX.Element {
         aria-label="Language Selector"
       >
         <Suspense fallback={<Spinner animation="border" role="status" />}>
-          <Flag
-            code={flagCode}
-            height="auto"
-            width="25"
-            style={{ marginBottom: "4px" }}
-            alt={t(`flag_${lang}`)}
-          />
-          {' '}
+          {renderFlag(lang)}{" "}
           {currentLanguage}{" "}
           {isOpen ? <FaAngleUp style={{ marginBottom: "3px" }} /> : <FaAngleDown style={{ marginBottom: "3px" }} />}
         </Suspense>
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item onClick={() => changeLanguage("en")}>
-          <Suspense fallback={<Spinner animation="border" role="status" />}>
-            <Flag
-              code="GB"
-              width="25"
-              height="auto"
-              style={{ marginRight: "8px", marginBottom: "3px" }}
-              alt={t("flag_en")}
-            />
-          </Suspense>
-          EN
+        <Dropdown.Item onClick={() => changeLanguage("bzh")}>
+          {renderFlag("bzh")} BZH
         </Dropdown.Item>
-        <Dropdown.Item onClick={() => changeLanguage("fr")}>
-          <Suspense fallback={<Spinner animation="border" role="status" />}>
-            <Flag
-              code="FR"
-              width="25"
-              height="auto"
-              style={{ marginRight: "8px", marginBottom: "3px" }}
-              alt={t("flag_fr")}
-            />
-          </Suspense>
-          FR
+        <Dropdown.Item onClick={() => changeLanguage("en")}>
+          {renderFlag("en")} EN
         </Dropdown.Item>
         <Dropdown.Item onClick={() => changeLanguage("es")}>
-          <Suspense fallback={<Spinner animation="border" role="status" />}>
-            <Flag
-              code="ES"
-              width="25"
-              height="auto"
-              style={{ marginRight: "8px", marginBottom: "3px" }}
-              alt={t("flag_es")}
-            />
-          </Suspense>
-          ES
+          {renderFlag("es")} ES
         </Dropdown.Item>
-
+        <Dropdown.Item onClick={() => changeLanguage("fr")}>
+          {renderFlag("fr")} FR
+        </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

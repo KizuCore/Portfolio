@@ -11,7 +11,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en', // Langue par défaut si non détectée
-    load: 'languageOnly', // Charger uniquement la langue sans le pays (ex: 'en' au lieu de 'en-US')
+    load: 'languageOnly', // Charger uniquement la langue sans le pays
     debug: import.meta.env.MODE === 'development',
 
     backend: {

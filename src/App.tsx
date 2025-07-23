@@ -65,7 +65,6 @@ function App() {
           <Suspense fallback={<Preloader />}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/pre" element={<Preloader />} />
               <Route path="/project" element={<Projects />} />
               <Route path="/about" element={<About />} />
               <Route path="/experience" element={<Experience />} />

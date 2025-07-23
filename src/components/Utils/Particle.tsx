@@ -16,7 +16,7 @@ function Particle() {
   const particleOptions = {
     particles: {
       number: {
-        value: isMobile ? 200 : 500,
+        value: isMobile ? 400 : 500,
         density: {
           enable: true,
           area: 1000,

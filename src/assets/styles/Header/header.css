@@ -7,7 +7,7 @@
   position: relative;
   display: inline-block;
   background: transparent !important;
-  font-family: 'Montserrat', serif  !important;
+  font-family: 'Montserrat', serif !important;
 }
 
 .dropdown-toggle:hover {
@@ -74,7 +74,7 @@
   cursor: pointer;
 }
 
-.language-selector .btn-secondary{
+.language-selector .btn-secondary {
   border-color: rgba(104, 103, 103, 0.466);
 }
 
@@ -82,22 +82,22 @@
 /* Navbar Sticky */
 .sticky {
   background-color: #1b1a2ea9 !important;
-  transition: all 0.8s ease-out ;
-  box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) ;
-  backdrop-filter: blur(15px) ;
-  border-radius: 0px 0px 25px 25px ;
-  border-bottom: #ffffff1a solid 1px ;
-  border-left: #ffffff1a solid 1px ;
-  border-right: #ffffff1a solid 1px ;
+  transition: all 0.8s ease-out;
+  box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171);
+  backdrop-filter: blur(15px);
+  border-radius: 0px 0px 25px 25px;
+  border-bottom: #ffffff1a solid 1px;
+  border-left: #ffffff1a solid 1px;
+  border-right: #ffffff1a solid 1px;
   margin: 0rem 10rem;
 }
 
 /* Navbar Styles */
 .navbar {
-  position: fixed ;
-  transition: all 0.7s ease-out ;
-  padding: 0.3rem 2rem ;
-  font-size: 1.2rem ;
+  position: fixed;
+  transition: all 0.7s ease-out;
+  padding: 0.3rem 2rem;
+  font-size: 1.2rem;
 }
 
 /* Navbar Toggler - Hamburger Button */
@@ -119,18 +119,18 @@
 
 .navbar-toggler span:nth-child(2) {
   width: 22px;
-  margin-left: auto ;
+  margin-left: auto;
 }
 
 .navbar-toggler:focus,
 .navbar-toggler:active {
-  outline: 0 ;
+  outline: 0;
 }
 
 /* Animation du menu hamburger */
 .navbar-toggler span:nth-child(1),
 .navbar-toggler span:nth-child(3) {
-  transition: transform 0.35s ease-in-out ;
+  transition: transform 0.35s ease-in-out;
 }
 
 .navbar-toggler:not(.collapsed) span:nth-child(1) {
@@ -160,8 +160,8 @@
     padding: 1rem 2rem !important;
     font-size: 1.4rem !important;
     background-color: #181a27 !important;
-    border-bottom: #ffffff1a solid 1px ;
-    border-radius: 0px 0px 25px 25px ;
+    border-bottom: #ffffff1a solid 1px;
+    border-radius: 0px 0px 25px 25px;
   }
 
   .navbar-nav .nav-item a::after {
@@ -178,9 +178,7 @@
   .navbar-toggler {
     margin-left: auto;
   }
-  .navbar {
-  margin: 0rem 1rem;
-}
+
 }
 
 /* Logo et liens de navigation */
@@ -196,7 +194,7 @@
 
 .nav-link {
   padding: 0.8rem 1rem !important;
-  font-family: 'Montserrat', serif  !important;
+  font-family: 'Montserrat', serif !important;
   font-weight: 500;
 }
 
@@ -246,9 +244,11 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent; /* Fallback */
+  color: transparent;
+  /* Fallback */
   transition: all 0.4s ease-out;
 }
+
 .navbar-nav .nav-item a:hover::after,
 .navbar-nav .nav-item .nav-link.active::after {
   width: 100%;

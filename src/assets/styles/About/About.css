@@ -278,6 +278,7 @@
   text-align: center;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   border: 1px solid rgba(255, 255, 255, 0.651);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.74);
 }
 
 /* Couleurs spécifiques */
@@ -285,28 +286,24 @@
 
 .level-badge.novice {
   background-color: rgba(255, 166, 0, 0.74);
-}
-.level-badge.novice:hover {
   box-shadow: 0 0 10px rgba(255, 166, 0, 0.74);
 }
+
 .level-badge.intermediate {
   background-color: rgb(243, 243, 75, 0.74);
-}
-.level-badge.intermediate:hover {
   box-shadow: 0 0 10px rgba(243, 243, 75, 0.74);
 }
+
 .level-badge.advanced {
   background-color: rgb(23, 180, 23, 0.74);
-}
-.level-badge.advanced:hover {
   box-shadow: 0 0 10px rgba(23, 180, 23, 0.74);
 }
+
 .level-badge.favorite {
   background-color: rgb(29, 160, 242, 0.74); 
-}
-.level-badge.favorite:hover {
   box-shadow: 0 0 10px rgba(29, 160, 242, 0.74);
 }
+
 
 .level-badge {
   cursor: pointer;

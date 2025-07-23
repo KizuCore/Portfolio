@@ -86,7 +86,7 @@ function NavBar(): JSX.Element {
   ];
 
   return (
-    <Navbar expanded={expand} fixed="top" expand="md" className={navColour ? "sticky" : "navbar"}>
+    <Navbar expanded={expand} fixed="top" expand="md" className={`${navColour ? "sticky" : "navbar"} ${expand ? "menu-open" : ""}`}>
       <Container>
         {/* Logo */}
         <Navbar.Brand>

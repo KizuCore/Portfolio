@@ -15,9 +15,6 @@
   transition: ease-in-out 0.4s !important;
 }
 
-
-
-
 /* Masquer le triangle de la flèche */
 .dropdown-toggle {
   padding: 0.8rem 1rem !important;
@@ -154,42 +151,12 @@
   opacity: 0.9 !important;
 }
 
-/* Styles pour le mobile */
-@media (max-width: 767px) {
-  .navbar {
-    padding: 1rem 2rem !important;
-    font-size: 1.4rem !important;
-    background-color: #181a27 !important;
-    border-bottom: #ffffff1a solid 1px;
-    border-left: #ffffff1a solid 1px;
-    border-right: #ffffff1a solid 1px;
-    border-radius: 0px 0px 25px 25px;
-  }
-
-  .navbar-nav .nav-item a::after {
-    display: none !important;
-  }
-
-  .language-selector {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .navbar-toggler {
-    margin-left: auto;
-  }
-
-  .sticky{
-    margin: 0rem 1.5rem;
-  }
-}
 
 /* Logo et liens de navigation */
 .navbar-brand {
   color: rgb(250, 250, 250) !important;
 }
+
 
 .navbar-nav .nav-link {
   color: white !important;
@@ -201,12 +168,6 @@
   padding: 0.8rem 1rem !important;
   font-family: 'Montserrat', serif !important;
   font-weight: 500;
-}
-
-@media (max-width: 767px) {
-  .nav-link {
-    padding: 0.7rem 1rem !important;
-  }
 }
 
 /* Effet de survol sur les liens nav */
@@ -268,4 +229,47 @@
 
 .navbar-nav .nav-item a:hover::after {
   width: 100%;
+}
+
+/* Styles pour le mobile */
+@media (max-width: 767px) {
+  .navbar {
+    padding: 1rem 2rem !important;
+    font-size: 1.4rem !important;
+    background-color: #181a27 !important;
+    border-bottom: #ffffff1a solid 1px;
+    border-left: #ffffff1a solid 1px;
+    border-right: #ffffff1a solid 1px;
+    border-radius: 0px 0px 25px 25px;
+  }
+
+  .navbar-nav .nav-item a::after {
+    display: none !important;
+  }
+
+  .language-selector {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .navbar-toggler {
+    margin-left: auto;
+  }
+
+  .sticky {
+    margin: 0rem 1.5rem;
+    transition: margin 0.8s ease-out;
+  }
+
+  .sticky.menu-open {
+    margin: 0rem !important;
+    transition: all 0.5s ease-out;
+  }
+
+  .nav-link {
+    padding: 0.7rem 1rem !important;
+  }
+
 }

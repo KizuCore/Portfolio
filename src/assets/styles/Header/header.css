@@ -161,6 +161,8 @@
     font-size: 1.4rem !important;
     background-color: #181a27 !important;
     border-bottom: #ffffff1a solid 1px;
+    border-left: #ffffff1a solid 1px;
+    border-right: #ffffff1a solid 1px;
     border-radius: 0px 0px 25px 25px;
   }
 
@@ -179,6 +181,9 @@
     margin-left: auto;
   }
 
+  .sticky{
+    margin: 0rem 1.5rem;
+  }
 }
 
 /* Logo et liens de navigation */
@@ -238,6 +243,7 @@
   -webkit-background-clip: text;
   transition: all 0.4s ease-out;
 }
+
 .navbar-nav .nav-item .nav-link.active {
   background: linear-gradient(90deg, #276DEE, #6C88FF);
   color: #276DEE !important;

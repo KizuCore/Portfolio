@@ -96,7 +96,6 @@
   padding: 0.3rem 2rem;
   font-size: 1.2rem;
 }
-
 /* Navbar Toggler - Hamburger Button */
 .navbar-toggler {
   position: relative;
@@ -236,7 +235,8 @@
   .navbar {
     padding: 0.3rem 1rem !important;
     font-size: 1.4rem !important;
-    background-color: #181a27 !important;
+    background-color: #1b1827bb !important;
+    backdrop-filter: blur(15px);
     border-bottom: #ffffff1a solid 1px;
     border-left: #ffffff1a solid 1px;
     border-right: #ffffff1a solid 1px;

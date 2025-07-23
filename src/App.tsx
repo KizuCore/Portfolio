@@ -38,7 +38,7 @@ function App() {
     const timer = setTimeout(() => {
       updateLoad(false);
       setTimeout(() => setShowPreloader(false), 500);
-    }, 1200);
+    }, 2900);
 
     return () => clearTimeout(timer);
   }, []);
@@ -62,19 +62,20 @@ function App() {
         <KonamiComponent />
         <VideoPopup />
         <main className="main-content">
-        <Suspense fallback={<Preloader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/project" element={<Projects />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="/cv" element={<CV />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/gojo" element={<Gojo />} />
-            <Route path="/arcane" element={<RouteSecret />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
-        </Suspense>
+          <Suspense fallback={<Preloader />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/pre" element={<Preloader />} />
+              <Route path="/project" element={<Projects />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/cv" element={<CV />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/gojo" element={<Gojo />} />
+              <Route path="/arcane" element={<RouteSecret />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
       </div>

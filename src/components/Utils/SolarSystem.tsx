@@ -65,11 +65,11 @@ function SolarSystem() {
                 <div className="orbit orbit-saturne">
                     <div className="planet planet-saturne" data-name={t("solar_system.saturn")} />
                 </div>
-                <div className="orbit orbit-neptune">
-                    <div className="planet planet-neptune" data-name={t("solar_system.neptune")} />
-                </div>
                 <div className="orbit orbit-uranus">
                     <div className="planet planet-uranus" data-name={t("solar_system.uranus")} />
+                </div>
+                <div className="orbit orbit-neptune">
+                    <div className="planet planet-neptune" data-name={t("solar_system.neptune")} />
                 </div>
             </div>
         </motion.div>

@@ -228,30 +228,15 @@
   z-index: 0;
 }
 
-/* NEPTUNE */
-.orbit-neptune {
-  width: 330px;
-  height: 330px;
-  animation-duration: 84s;
-}
-.planet-neptune {
-  --orbit-radius: 330px;
-  width: 10px;
-  height: 10px;
-  background: radial-gradient(circle, #0077be, #001f4d);
-  box-shadow: 0 0 6px rgba(0, 119, 190, 0.7);
-  opacity: 0.65;
-}
 
 /* URANUS */
 .orbit-uranus {
-  width: 360px;
-  height: 360px;
+  width: 330px;
+  height: 330px;
   animation-duration: 100s;
-  animation-direction: reverse;
 }
 .planet-uranus {
-  --orbit-radius: 360px;
+  --orbit-radius: 330px;
   width: 12px;
   height: 12px;
   background: linear-gradient(135deg, #7fdbff, #39cccc);
@@ -269,6 +254,22 @@
   left: 50%;
   transform: translate(-50%, -50%) rotate(-65deg);
   z-index: 0;
+}
+
+
+/* NEPTUNE */
+.orbit-neptune {
+  width: 360px;
+  height: 360px;
+  animation-duration: 84s;
+}
+.planet-neptune {
+  --orbit-radius: 360px;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, #0077be, #001f4d);
+  box-shadow: 0 0 6px rgba(0, 119, 190, 0.7);
+  opacity: 0.65;
 }
 
 /* CEINTURE ASTEROIDE */

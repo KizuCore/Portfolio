@@ -2,8 +2,34 @@ import { motion } from "framer-motion";
 import '../../assets/styles/About/SolarSystem.css';
 import { useTranslation } from "react-i18next";
 
+function generateAsteroids(count: number) {
+    const asteroids = [];
+
+    for (let i = 0; i < count; i++) {
+        const angle = Math.random() * 360;
+        const radius = 94 + Math.random() * 8;
+
+        const radian = (angle * Math.PI) / 180;
+        const x = Math.cos(radian) * radius;
+        const y = Math.sin(radian) * radius;
+
+        asteroids.push(
+            <div
+                key={i}
+                className="asteroid"
+                style={{
+                    transform: `translate(${x}px, ${y}px)`
+                }}
+            />
+        );
+    }
+
+    return asteroids;
+}
+
 function SolarSystem() {
     const { t } = useTranslation();
+
 
     return (
         <motion.div
@@ -28,11 +54,16 @@ function SolarSystem() {
                 <div className="orbit orbit-mars">
                     <div className="planet planet-mars" data-name={t("solar_system.mars")} />
                 </div>
-                <div className="orbit orbit-saturne">
-                    <div className="planet planet-saturne" data-name={t("solar_system.saturn")} />
+
+                <div className="asteroid-belt">
+                    {generateAsteroids(150)}
                 </div>
+
                 <div className="orbit orbit-jupiter">
                     <div className="planet planet-jupiter" data-name={t("solar_system.jupiter")} />
+                </div>
+                <div className="orbit orbit-saturne">
+                    <div className="planet planet-saturne" data-name={t("solar_system.saturn")} />
                 </div>
                 <div className="orbit orbit-neptune">
                     <div className="planet planet-neptune" data-name={t("solar_system.neptune")} />

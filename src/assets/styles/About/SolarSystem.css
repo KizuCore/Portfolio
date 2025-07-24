@@ -6,6 +6,7 @@
   width: 300px;
   height: 300px;
   position: relative;
+  pointer-events: none;
   
 }
 
@@ -19,17 +20,7 @@
   height: 100%;
   border-radius: 50%;
   background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
-  animation: rotateSystem 60s linear infinite;
   pointer-events: none;
-}
-
-@keyframes rotateSystem {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 /* =======================
@@ -129,6 +120,7 @@
   width: 75px;
   height: 75px;
   animation-duration: 9s;
+  animation-direction: reverse;
 }
 .planet-venus {
   --orbit-radius: 75px;
@@ -195,12 +187,12 @@
 
 /* JUPITER */
 .orbit-jupiter {
-  width: 210px;
-  height: 210px;
+  width: 230px;
+  height: 230px;
   animation-duration: 36s;
 }
 .planet-jupiter {
-  --orbit-radius: 210px;
+  --orbit-radius: 230px;
   width: 18px;
   height: 18px;
   background: radial-gradient(circle, #d9a066, #a05a2c);
@@ -210,12 +202,12 @@
 
 /* SATURNE */
 .orbit-saturne {
-  width: 260px;
-  height: 260px;
-  animation-duration: 24s;
+  width: 280px;
+  height: 280px;
+  animation-duration: 60s;
 }
 .planet-saturne {
-  --orbit-radius: 260px;
+  --orbit-radius: 280px;
   width: 14px;
   height: 14px;
   background-color: #c2b280;
@@ -238,12 +230,12 @@
 
 /* NEPTUNE */
 .orbit-neptune {
-  width: 310px;
-  height: 310px;
-  animation-duration: 30s;
+  width: 330px;
+  height: 330px;
+  animation-duration: 84s;
 }
 .planet-neptune {
-  --orbit-radius: 310px;
+  --orbit-radius: 330px;
   width: 10px;
   height: 10px;
   background: radial-gradient(circle, #0077be, #001f4d);
@@ -253,12 +245,13 @@
 
 /* URANUS */
 .orbit-uranus {
-  width: 340px;
-  height: 340px;
-  animation-duration: 42s;
+  width: 360px;
+  height: 360px;
+  animation-duration: 100s;
+  animation-direction: reverse;
 }
 .planet-uranus {
-  --orbit-radius: 340px;
+  --orbit-radius: 360px;
   width: 12px;
   height: 12px;
   background: linear-gradient(135deg, #7fdbff, #39cccc);
@@ -278,4 +271,35 @@
   z-index: 0;
 }
 
+/* CEINTURE ASTEROIDE */
 
+.asteroid-belt {
+  position: absolute;
+  pointer-events: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 1;
+  animation: rotateAsteroidBelt 120s linear infinite;
+}
+
+@keyframes rotateAsteroidBelt {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.asteroid {
+  position: absolute;
+  pointer-events: auto;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}

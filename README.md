@@ -7,15 +7,11 @@
 
 ## Technologies utilisées
 
-- **React** : Framework pour la création d'interfaces utilisateur.
-- **Bootstrap** : Framework CSS pour un design réactif.
-- **CSS3** : Feuilles de style pour la mise en forme.
-- **Vercel** : Hébergement et déploiement de l'application.
-- **VSCode** : Éditeur de code.
-- **Axios** : Client HTTP pour les appels d'API.
-- **Vite** : Bundler ultra-rapide pour projets frontend.
-- **hCaptcha** : Service de CAPTCHA pour la protection contre les bots.
-- **ReSend** : Service d'envoi d'emails.
+- **Frontend** : React, Bootstrap, CSS3
+- **Outils** : Vite, VSCode
+- **Sécurité** : hCaptcha
+- **Backend/API** : Axios, ReSend
+- **Déploiement** : Vercel
 
 ## Lancer le projet
 
@@ -52,6 +48,8 @@
 
 ## À propos
 
-Ce portfolio est conçu pour mettre en avant mes compétences et mes projets. 
+Ce portfolio a été conçu pour mettre en avant mes compétences en développement web full-stack et mes projets personnels/professionnels.
 
-N'hésitez pas à me contacter pour toute question ou opportunité !
+💬 Je suis toujours ouvert à de nouvelles opportunités ou collaborations.  
+📧 [Contactez-moi](mailto:theo.guerin35000@gmail.com)
+

@@ -162,5 +162,17 @@
         "Programming Languages": "Lenguajes",
         "Hosting": "Alojamiento",
         "CMS": "CMS"
+    },
+    "solar_system": {
+        "sun": "Sol",
+        "mercury": "Mercurio",
+        "venus": "Venus",
+        "earth": "Tierra",
+        "moon": "Luna",
+        "mars": "Marte",
+        "jupiter": "Júpiter",
+        "saturn": "Saturno",
+        "uranus": "Urano",
+        "neptune": "Neptuno"
     }
 }

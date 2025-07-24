@@ -196,5 +196,17 @@
         "portfolio_image_alt": "Image of the Portfolio V1 project",
         "badmintonapi_image_alt": "Image of the Badminton API project",
         "flambow_image_alt": "Image of the Flambow project"
+    },
+    "solar_system": {
+        "sun": "Sun",
+        "mercury": "Mercury",
+        "venus": "Venus",
+        "earth": "Earth",
+        "moon": "Moon",
+        "mars": "Mars",
+        "jupiter": "Jupiter",
+        "saturn": "Saturn",
+        "uranus": "Uranus",
+        "neptune": "Neptune"
     }
 }

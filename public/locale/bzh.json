@@ -194,5 +194,17 @@
         "portfolio_image_alt": "Skeudenn ar raktres Portfolio V1",
         "flambow_image_alt": "Skeudenn ar raktres Flambow",
         "badmintonapi_image_alt": "Skeudenn ar raktres API Badminton"
+    },
+    "solar_system": {
+        "sun": "Heol",
+        "mercury": "Merc'her",
+        "venus": "Gwener",
+        "earth": "Douar",
+        "moon": "Loar",
+        "mars": "Meurzh",
+        "jupiter": "Jupiter",
+        "saturn": "Saturn",
+        "uranus": "Ouranuz",
+        "neptune": "Neptun"
     }
 }

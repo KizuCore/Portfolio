@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import '../../assets/styles/About/SolarSystem.css';
+import { useTranslation } from "react-i18next";
 
 function SolarSystem() {
+    const { t } = useTranslation();
+
     return (
         <motion.div
             className="solar-container pb-5"
@@ -10,32 +13,32 @@ function SolarSystem() {
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
             <div className="solar-system">
-                <div className="sun" />
+                <div className="sun" data-name={t("solar_system.sun")} />
                 <div className="orbit orbit-mercure">
-                    <div className="planet planet-mercure" />
+                    <div className="planet planet-mercure" data-name={t("solar_system.mercury")} />
                 </div>
                 <div className="orbit orbit-venus">
-                    <div className="planet planet-venus" />
+                    <div className="planet planet-venus" data-name={t("solar_system.venus")} />
                 </div>
                 <div className="orbit orbit-earth">
-                    <div className="planet planet-earth">
+                    <div className="planet planet-earth" data-name={t("solar_system.earth")}>
                         <div className="moon"></div>
                     </div>
                 </div>
                 <div className="orbit orbit-mars">
-                    <div className="planet planet-mars" />
+                    <div className="planet planet-mars" data-name={t("solar_system.mars")} />
                 </div>
                 <div className="orbit orbit-saturne">
-                    <div className="planet planet-saturne" />
+                    <div className="planet planet-saturne" data-name={t("solar_system.saturn")} />
                 </div>
                 <div className="orbit orbit-jupiter">
-                    <div className="planet planet-jupiter" />
+                    <div className="planet planet-jupiter" data-name={t("solar_system.jupiter")} />
                 </div>
                 <div className="orbit orbit-neptune">
-                    <div className="planet planet-neptune" />
+                    <div className="planet planet-neptune" data-name={t("solar_system.neptune")} />
                 </div>
                 <div className="orbit orbit-uranus">
-                    <div className="planet planet-uranus" />
+                    <div className="planet planet-uranus" data-name={t("solar_system.uranus")} />
                 </div>
             </div>
         </motion.div>

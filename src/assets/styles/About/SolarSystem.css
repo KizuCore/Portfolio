@@ -120,7 +120,6 @@
   width: 75px;
   height: 75px;
   animation-duration: 9s;
-  animation-direction: reverse;
 }
 .planet-venus {
   --orbit-radius: 75px;
@@ -261,7 +260,7 @@
 .orbit-neptune {
   width: 360px;
   height: 360px;
-  animation-duration: 100s;
+  animation-duration: 120s;
 }
 .planet-neptune {
   --orbit-radius: 360px;

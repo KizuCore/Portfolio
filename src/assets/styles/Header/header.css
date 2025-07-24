@@ -274,3 +274,26 @@
 
 }
 
+.easter-egg-banner {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 90%;
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  border: 1px solid white;
+  z-index: 1050;
+  pointer-events: none;
+
+  background-image: url('/images/flags/flag_bzh.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+}

@@ -1,7 +1,8 @@
 import { useState, JSX } from 'react';
 import { Modal } from 'react-bootstrap';
 import useSequence from '../Utils/Sequence.tsx';
-import '../../assets/styles/Easter/style_easter.css'; 
+import '../../assets/styles/Easter/style_easter.css';
+import { useTranslation } from 'react-i18next';
 
 // Fonction décoder URL
 const decodeUrl = () => {
@@ -18,12 +19,13 @@ function VideoPopup(): JSX.Element {
   const [showModal, setShowModal] = useState(false);
   useSequence(setShowModal);
   const handleClose = () => setShowModal(false);
+  const { t } = useTranslation();
   return (
     <>
       {/* Modal pour afficher vidéo */}
       <Modal show={showModal} onHide={handleClose} size="lg" centered>
         <Modal.Header closeButton className="modal-header-grey">
-          <Modal.Title className='title-font-easter'>Bizarre...</Modal.Title>
+          <Modal.Title className='title-font-easter'>{t("Bizarre")}...</Modal.Title>
         </Modal.Header>
         <Modal.Body className='modal-body-grey'>
           <div className="embed-responsive embed-responsive-16by9">

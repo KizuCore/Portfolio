@@ -233,7 +233,7 @@
 .orbit-uranus {
   width: 330px;
   height: 330px;
-  animation-duration: 100s;
+  animation-duration: 84s;
 }
 .planet-uranus {
   --orbit-radius: 330px;
@@ -261,7 +261,7 @@
 .orbit-neptune {
   width: 360px;
   height: 360px;
-  animation-duration: 84s;
+  animation-duration: 100s;
 }
 .planet-neptune {
   --orbit-radius: 360px;

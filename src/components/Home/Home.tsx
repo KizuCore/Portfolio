@@ -95,7 +95,7 @@ function Home(): JSX.Element {
             <Col ref={ref} xs={12} md={6} className="d-flex justify-content-center align-items-center py-4">
               <div className="logo-wrapper mt-3 mt-md-0">
                 <div className="black-hole-realistic">
-                  <div className="event-horizon"></div>
+                  <div className="event-horizon" />
                 </div>
 
 

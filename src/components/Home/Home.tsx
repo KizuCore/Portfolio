@@ -1,7 +1,7 @@
 import { JSX, useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
-import { motion } from 'framer-motion';
+import { easeOut, motion, spring, useAnimation } from 'framer-motion';
 
 import LogoDeveloper from "../../assets/images/logodev.svg"
 import Tilt from "react-parallax-tilt";
@@ -15,6 +15,7 @@ import HomeStats from "./CountUp.tsx";
 function Home(): JSX.Element {
   const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(false);
+  const controls = useAnimation();
 
   const { ref, inView: imgInView } = useInView({
     triggerOnce: true,
@@ -30,6 +31,12 @@ function Home(): JSX.Element {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    if (imgInView) {
+      controls.start({ opacity: 1, scale: 1 });
+    }
+  }, [imgInView, controls]);
 
   return (
     <section>
@@ -87,6 +94,14 @@ function Home(): JSX.Element {
             {/* Colonne pour l'image */}
             <Col ref={ref} xs={12} md={6} className="d-flex justify-content-center align-items-center py-4">
               <div className="logo-wrapper mt-3 mt-md-0">
+                <div className="black-hole-realistic">
+                  <div className="gravitational-lens"></div>
+                  <div className="accretion-disc"></div>
+                  <div className="event-horizon"></div>
+                </div>
+
+
+
                 <Tilt>
                   {isMobile ? (
                     <img
@@ -106,13 +121,23 @@ function Home(): JSX.Element {
                       alt={t('theo_developer')}
                       width="400"
                       height="400"
-                      loading="eager"
-                      decoding="sync"
+                      drag
+                      dragMomentum={false}
+                      onDragEnd={() => {
+                        controls.start({
+                          x: 0,
+                          y: 0,
+                          transition: { type: spring, stiffness: 500, damping: 20 }
+                        });
+                      }}
+                      animate={controls}
                       initial={{ opacity: 0, scale: 0.95 }}
-                      animate={imgInView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ duration: 0.8, ease: "easeOut" }}
-                      {...{ fetchpriority: "high" } as any}
+                      transition={{ duration: 0.8, ease: easeOut }}
+                      style={{ cursor: "grab" }}
                     />
+
+
+
 
                   )}
                 </Tilt>

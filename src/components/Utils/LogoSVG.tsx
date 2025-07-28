@@ -9,10 +9,9 @@ const LogoSVG = () => (
                 </feMerge>
             </filter>
         </defs>
-        {/* Cercle */}
-        <circle className="svg-path delay-1" cx="297.64" cy="297.64" r="245.43" fill="none" stroke="#1b1c39" />
-        {/* Groupe du logo tracé avec contour/remplissage */}
         <g filter="url(#glow)">
+            {/* Cercle */}
+            <circle className="svg-path delay-1 contour" cx="297.64" cy="297.64" r="270" fill="none" stroke="#1b1c39" />
             {/* PATH 1 - Contour + Remplissage */}
             <path
                 className="svg-path delay-1"

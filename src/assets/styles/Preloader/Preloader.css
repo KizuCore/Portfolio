@@ -86,7 +86,10 @@
   stroke-width: 4px;
   filter: drop-shadow(0 0 5px #276DEE);
 }
+.glow {
 
+  filter: drop-shadow(0 0 7px rgba(39, 109, 238, 0.8));
+}
 .svg-fill-blue {
   fill: #276DEE;
   opacity: 0;

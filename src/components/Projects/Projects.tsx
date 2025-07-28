@@ -163,6 +163,7 @@ const Projects: React.FC = () => {
             slidesPerView={1}
             navigation
             pagination={{ clickable: true }}
+            loop={true}
             breakpoints={{
               768: {
                 slidesPerView: 2,

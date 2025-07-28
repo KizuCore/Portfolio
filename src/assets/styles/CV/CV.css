@@ -11,4 +11,5 @@
 .pdf-container {
     border-radius: 10px;
     overflow: hidden;
+    border: 1px solid #ffffff7e;
 }

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import '../../assets/styles/About/SolarSystem.css';
 import { useTranslation } from "react-i18next";
+import CelestialBody from "./CelestialBody";
 
 function generateAsteroids(count: number) {
     const asteroids = [];
@@ -27,9 +28,9 @@ function generateAsteroids(count: number) {
     return asteroids;
 }
 
+
 function SolarSystem() {
     const { t } = useTranslation();
-
 
     return (
         <motion.div
@@ -39,37 +40,36 @@ function SolarSystem() {
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
             <div className="solar-system">
-                <div className="sun" data-name={t("solar_system.sun")} />
+                <CelestialBody className="sun" name={t("solar_system.sun")} isSun />
+
                 <div className="orbit orbit-mercure">
-                    <div className="planet planet-mercure" data-name={t("solar_system.mercury")} />
+                    <CelestialBody className="planet-mercure" name={t("solar_system.mercury")} />
                 </div>
                 <div className="orbit orbit-venus">
-                    <div className="planet planet-venus" data-name={t("solar_system.venus")} />
+                    <CelestialBody className="planet-venus" name={t("solar_system.venus")} />
                 </div>
                 <div className="orbit orbit-earth">
-                    <div className="planet planet-earth" data-name={t("solar_system.earth")}>
-                        <div className="moon"></div>
-                    </div>
+                    <CelestialBody className="planet-earth" name={t("solar_system.earth")}>
+                        <div className="moon" />
+                    </CelestialBody>
                 </div>
                 <div className="orbit orbit-mars">
-                    <div className="planet planet-mars" data-name={t("solar_system.mars")} />
+                    <CelestialBody className="planet-mars" name={t("solar_system.mars")} />
                 </div>
 
-                <div className="asteroid-belt">
-                    {generateAsteroids(150)}
-                </div>
+                <div className="asteroid-belt">{generateAsteroids(150)}</div>
 
                 <div className="orbit orbit-jupiter">
-                    <div className="planet planet-jupiter" data-name={t("solar_system.jupiter")} />
+                    <CelestialBody className="planet-jupiter" name={t("solar_system.jupiter")} />
                 </div>
                 <div className="orbit orbit-saturne">
-                    <div className="planet planet-saturne" data-name={t("solar_system.saturn")} />
+                    <CelestialBody className="planet-saturne" name={t("solar_system.saturn")} />
                 </div>
                 <div className="orbit orbit-uranus">
-                    <div className="planet planet-uranus" data-name={t("solar_system.uranus")} />
+                    <CelestialBody className="planet-uranus" name={t("solar_system.uranus")} />
                 </div>
                 <div className="orbit orbit-neptune">
-                    <div className="planet planet-neptune" data-name={t("solar_system.neptune")} />
+                    <CelestialBody className="planet-neptune" name={t("solar_system.neptune")} />
                 </div>
             </div>
         </motion.div>

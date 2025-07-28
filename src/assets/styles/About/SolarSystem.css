@@ -79,22 +79,32 @@
   pointer-events: auto;
 }
 
-.planet:hover::after, .sun:hover::after {
-  content: attr(data-name);
+.celestial-body-tooltip {
   position: absolute;
   top: -20px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 10px;
+  font-size: 12px;
   color: white;
   background: rgba(0, 0, 0, 0.6);
   padding: 2px 6px;
   border-radius: 4px;
   white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.4s ease;
   pointer-events: none;
-  opacity: 1;
   z-index: 10;
 }
+
+.celestial-body-tooltip.visible {
+  opacity: 1;
+}
+
+.celestial-body-tooltip.hidden {
+  opacity: 0;
+}
+
+
 
 /* =======================
    STYLES PLANETES
@@ -127,7 +137,6 @@
   height: 8px;
   background: linear-gradient(145deg, #e8c66c, #d8b66c);
   box-shadow: 0 0 6px rgba(232, 198, 108, 0.7);
-  opacity: 0.95;
 }
 
 /* TERRE */
@@ -144,7 +153,6 @@
   box-shadow: 0 0 6px rgba(30, 136, 229, 0.6);
   position: relative;
   z-index: 2;
-  opacity: 0.9;
 }
 
 /* LUNE */
@@ -181,7 +189,6 @@
   height: 12px;
   background: linear-gradient(135deg, #c1440e, #a83232);
   box-shadow: 0 0 8px rgba(193, 68, 14, 0.8);
-  opacity: 0.85;
 }
 
 /* JUPITER */
@@ -196,7 +203,6 @@
   height: 18px;
   background: radial-gradient(circle, #d9a066, #a05a2c);
   box-shadow: 0 0 8px rgba(217, 160, 102, 0.6);
-  opacity: 0.8;
 }
 
 /* SATURNE */
@@ -212,7 +218,6 @@
   background-color: #c2b280;
   box-shadow: 0 0 8px rgba(255, 235, 175, 0.8);
   position: relative;
-  opacity: 0.75;
 }
 .planet-saturne::before {
   content: "";
@@ -238,9 +243,8 @@
   --orbit-radius: 330px;
   width: 12px;
   height: 12px;
-  background: linear-gradient(135deg, #7fdbff, #39cccc);
+  background: linear-gradient(135deg, #3fc2f7, #39cccc);
   box-shadow: 0 0 8px rgba(127, 219, 255, 0.6);
-  opacity: 0.7;
 }
 .planet-uranus::before {
   content: "";
@@ -268,7 +272,6 @@
   height: 10px;
   background: radial-gradient(circle, #0077be, #001f4d);
   box-shadow: 0 0 6px rgba(0, 119, 190, 0.7);
-  opacity: 0.65;
 }
 
 /* CEINTURE ASTEROIDE */

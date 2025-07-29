@@ -1,105 +1,124 @@
+/* ========================
+   SECTION SOCIAL / RÉSEAUX
+======================== */
+
+/* Conteneur principal */
 .home-about-social {
-  text-align: center ;
+  text-align: center;
   padding-top: 25px;
-  color: white ;
+  color: white;
 }
 
+/* Liste des liens sociaux */
 .home-about-social-links {
-  display: flex ;
-  justify-content: center ;
-  align-items: center ;
-  gap: 50px ;
-  padding-top: 15px ;
-  padding-inline-start: 0 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding-top: 15px;
+  padding-inline-start: 0;
 }
 
-
+/* Style des icônes sociales */
 .home-social-icons {
-  display: flex ;
-  justify-content: center ;
-  align-items: center ;
-  width: 50px ;
-  height: 50px ;
-  background: #5b93fb ;
-  border-radius: 50% ;
-  transition: 0.5s ;
-  border: #ffffff solid 2px ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: #5b93fb;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  transition: 0.5s;
 }
 
-
-
+/* Hover des icônes sociales */
 .home-social-icons:hover {
-  background: #deeafc4f ;
-  border: #0c3986 solid 2px ;
+  background: #deeafc4f;
+  border: 2px solid #0c3986;
 }
 
+/* Couleur des icônes */
+.icon-colour {
+  color: white;
+}
 
 .icon-colour:hover {
-  color: #0c3986 ;
+  color: #0c3986;
 }
-
-.icon-colour {
-  color: white ;
-}
-
 
 .social-icons {
-  display: inline-block ;
+  display: inline-block;
 }
 
 
+/* ========================
+   FORMULAIRE DE CONTACT
+======================== */
+
+/* Style principal du champ */
 .custom-form {
-  background-color: #3d3a42; 
-  border: 1px solid #888888; 
+  background-color: #3d3a42;
+  border: 1px solid #888888;
   padding: 10px;
 }
 
+/* Style du placeholder */
 .custom-form::placeholder {
-  background-color: #3d3a42; 
-  color: #cccccc ; 
+  background-color: #3d3a42;
+  color: #cccccc;
 }
 
-.custom-form:hover, .custom-form:focus {
-  background-color: #504d57;  
-  transition: all 0.3s ease-in-out ;
-  color: #cccccc ; 
+/* Hover et focus */
+.custom-form:hover,
+.custom-form:focus {
+  background-color: #504d57;
+  color: #cccccc;
+  transition: all 0.3s ease-in-out;
 }
+
+/* Prise en charge du remplissage automatique */
 .custom-form,
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
-  background-color: #3d3a42 ;
+  background-color: #3d3a42;
   -webkit-box-shadow: 0 0 0px 1000px #3d3a42 inset;
   -webkit-text-fill-color: #cccccc;
-  color: #cccccc ; 
+  color: #cccccc;
 }
 
-/* Captcha */
 
+/* ========================
+   CAPTCHA GOOGLE
+======================== */
+
+/* Conteneur centré */
 .captcha-container {
   display: flex;
   justify-content: center;
 }
 
-/* Mobile captcha */
+/* Responsive : taille réduite sur tablette */
 @media (max-width: 768px) {
   .captcha-container iframe {
-    transform: scale(0.85); 
-    transform-origin: center; 
+    transform: scale(0.85);
+    transform-origin: center;
   }
 }
 
-/* Mobile captcha */
+/* Responsive : encore plus petit sur mobile */
 @media (max-width: 480px) {
   .captcha-container iframe {
-    transform: scale(0.75); 
+    transform: scale(0.75);
     transform-origin: center;
   }
 }
 
 
-
-
+/* ========================
+   BLOC INFOS DE CONTACT
+======================== */
 .contact-info-box {
   text-align: center;
   padding: 2rem;

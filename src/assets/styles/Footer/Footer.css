@@ -1,27 +1,30 @@
-/* --------- */
-/* Footer */
-/* --------- */
+/* ========================
+   FOOTER
+======================== */
 .footer {
   background-color: #1b1827bb;
   padding-top: 10px;
   padding-bottom: 8px;
   text-align: center;
   border-radius: 25px 25px 0 0;
-  border-top: #ffffff1a solid 1px ;
+  border-top: #ffffff1a solid 1px;
+}
+
+.footer h3 {
+  font-size: 1.2em;
+  color: white;
 }
 
 .footer-copywright,
 .footer-body {
   text-align: center;
 }
+
 .footer-body {
   padding-right: 40px;
 }
-.footer h3 {
-  font-size: 1.2em;
-  color: white;
-}
 
+/* Icônes de réseaux sociaux dans le footer */
 .footer-icons {
   display: flex;
   justify-content: center;
@@ -29,6 +32,7 @@
   font-size: 1.8em;
 }
 
+/* Liens dans le footer */
 .footer a {
   text-decoration: none;
   color: inherit;
@@ -39,6 +43,10 @@
   color: #2776DE;
 }
 
+
+/* ========================
+   RESPONSIVE (mobile)
+======================== */
 @media (max-width: 767px) {
   .footer h3 {
     font-size: 1.1em;
@@ -49,15 +57,23 @@
     font-size: 1.4em;
     gap: 12px;
   }
-  .footer-copywright{
+
+  .footer-copywright {
     font-size: 0.7em !important;
   }
+
   .footer-body {
-  padding-right: 0px;
-  padding-top: 10px;
-}
+    padding-right: 0px;
+    padding-top: 10px;
+  }
 }
 
+
+/* ========================
+   STRUCTURE GLOBALE DE LA PAGE
+======================== */
+
+/* Hauteur et structure flex du site */
 html, body, #root, .App {
   height: 100%;
   margin: 0;
@@ -65,7 +81,7 @@ html, body, #root, .App {
   flex-direction: column;
 }
 
-
+/* Contenu principal en flex, pousse le footer en bas */
 .main-content {
   flex: 1;
   display: flex;

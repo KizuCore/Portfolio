@@ -15,6 +15,8 @@ import HomeStats from "./CountUp.tsx";
 function Home(): JSX.Element {
   const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+
   const controls = useAnimation();
 
   const { ref, inView: imgInView } = useInView({
@@ -93,10 +95,12 @@ function Home(): JSX.Element {
             </Col>
             {/* Colonne pour l'image */}
             <Col ref={ref} xs={12} md={6} className="d-flex justify-content-center align-items-center py-4">
-              <div className="logo-wrapper mt-3 mt-md-0">
+              <div className={`logo-wrapper mt-3 mt-md-0 ${isDragging ? 'dragging' : ''}`}>
                 <div className="black-hole-realistic">
+                  <div className="accretion-disk" />
                   <div className="event-horizon" />
                 </div>
+
                 {/* Logo SVG */}
                 <Tilt>
                   {isMobile ? (
@@ -119,7 +123,9 @@ function Home(): JSX.Element {
                       height="400"
                       drag
                       dragMomentum={false}
+                      onDragStart={() => setIsDragging(true)}
                       onDragEnd={() => {
+                        setIsDragging(false);
                         controls.start({
                           x: 0,
                           y: 0,
@@ -131,6 +137,7 @@ function Home(): JSX.Element {
                       transition={{ duration: 0.8, ease: easeOut }}
                       style={{ cursor: "grab" }}
                     />
+
                   )}
                 </Tilt>
               </div>

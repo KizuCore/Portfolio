@@ -189,7 +189,7 @@
   height: 3px;
   width: 0;
   border-radius: 16px;
-  background: linear-gradient(90deg, #276DEE, #6C88FF);
+  background: linear-gradient(90deg, var(--dark-blue), #6C88FF);
   bottom: 1px;
   left: 0;
   z-index: -1;
@@ -197,16 +197,16 @@
 }
 
 .navbar-nav .nav-item a:hover {
-  background: linear-gradient(90deg, #276DEE, #6C88FF);
-  color: #276DEE !important;
+  background: linear-gradient(90deg, var(--dark-blue), #6C88FF);
+  color: var(--dark-blue) !important;
   background-clip: text;
   -webkit-background-clip: text;
   transition: all 0.4s ease-out;
 }
 
 .navbar-nav .nav-item .nav-link.active {
-  background: linear-gradient(90deg, #276DEE, #6C88FF);
-  color: #276DEE !important;
+  background: linear-gradient(90deg, var(--dark-blue), #6C88FF);
+  color: var(--dark-blue) !important;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

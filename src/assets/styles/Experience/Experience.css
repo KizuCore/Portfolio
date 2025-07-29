@@ -21,7 +21,7 @@
     border-radius: 5px;
     margin-top: 15px;
     height: 100%;
-    background: linear-gradient(to bottom, #276DEE, #276DEE);
+    background: linear-gradient(to bottom, var(--dark-blue), var(--dark-blue)); /* revoir */
     z-index: 1;
 }
 
@@ -32,7 +32,7 @@
     transform: translateX(-50%);
     width: 16px;
     height: 16px;
-    background-color: #276DEE;
+    background-color: var(--dark-blue);
     border-radius: 50%;
     z-index: 2;
     box-shadow: 0 0 10px #276dee4d;
@@ -139,7 +139,7 @@
 .timeline-chevron {
     width: 40px;
     height: 40px;
-    stroke: #276DEE;
+    stroke: var(--dark-blue);
     stroke-width: 3;
     stroke-linecap: round;
     stroke-linejoin: round;

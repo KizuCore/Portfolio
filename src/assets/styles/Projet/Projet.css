@@ -149,14 +149,14 @@
   border: 1px solid #c01313;
 }
 .button-github{
-  background-color: #276dee;
+  background-color: var(--dark-blue);
   color: #ffffff;
   border: 1px solid #ffffffa6;
 }
 .button-github:hover {
   background-color: rgba(255, 255, 255, 0.8);
-  color: #276dee;
-  border: 1px solid #276dee;
+  color: var(--dark-blue);
+  border: 1px solid var(--dark-blue);
 }
 .button-see{
   background-color: #309b15;
@@ -191,7 +191,7 @@
 }
 
 .project-card-view .blue {
-  color: #276dee;
+  color: var(--dark-blue);
 }
 
 .project-card-view .text-justify {

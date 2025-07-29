@@ -1,7 +1,7 @@
 /* Variables Globales */
 html {
   --section-background-color: linear-gradient(to bottom left, rgb(0, 0, 0,0.97), rgb(0, 0, 0,0.97));
-  --imp-text-color: #52a4f1;
+  --dark-blue: #276DEE;
 }
 
 /* Global Styles */
@@ -11,13 +11,13 @@ body {
 
 /* Couleurs de texte */
 .dark-blue {
-  color: #276DEE !important;
+  color: var(--dark-blue) !important;
 }
 
 .blue-title {
   font-family: 'Montserrat', serif  !important;
   font-weight: 700;
-  background: linear-gradient(90deg, #276DEE, #6C88FF);
+  background: linear-gradient(90deg, var(--dark-blue), #6C88FF);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -46,7 +46,7 @@ body {
   line-height: 1.2;
 
   /* Dégradé */
-  background: linear-gradient(90deg, #276DEE, #6C88FF);
+  background: linear-gradient(90deg, var(--dark-blue), #6C88FF);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -106,7 +106,7 @@ body {
 }
 
 .darkblue {
-  color: #276DEE !important;
+  color: var(--dark-blue) !important;
 }
 
 /* Boutons */
@@ -123,14 +123,14 @@ button:focus {
   max-width: 250px !important;
   transition: all 0.3s ease-in-out !important;
   z-index: 1 !important;
-  background-color: #276DEE !important;
+  background-color: var(--dark-blue) !important;
   border: 2px solid white !important;
 }
 
 .button-cv:hover {
   background-color: #ffffffd7 !important;
-  border: 2px solid #276DEE !important;
-  color: #276DEE !important;
+  border: 2px solid var(--dark-blue) !important;
+  color: var(--dark-blue) !important;
   text-decoration: underline;
 }
 

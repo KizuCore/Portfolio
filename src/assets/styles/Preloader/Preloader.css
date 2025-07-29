@@ -61,7 +61,7 @@
 /* === TRAÇAGE CERCLE DE FOND === */
 .svg-circle {
   fill: none;
-  stroke: #276DEE;
+  stroke: var(--dark-blue);
   stroke-width: 6px;
   stroke-miterlimit: 10;
 
@@ -84,14 +84,14 @@
 
 .contour{
   stroke-width: 4px;
-  filter: drop-shadow(0 0 5px #276DEE);
+  filter: drop-shadow(0 0 5px var(--dark-blue));
 }
 .glow {
 
   filter: drop-shadow(0 0 7px rgba(39, 109, 238, 0.8));
 }
 .svg-fill-blue {
-  fill: #276DEE;
+  fill: var(--dark-blue);
   opacity: 0;
   animation: fade-fill 0.8s ease forwards;
   animation-delay: 1.9s;
@@ -101,17 +101,17 @@
 /* === DÉLAIS POUR CHAQUE TRAIT === */
 .delay-1 {
   animation-delay: 0.2s;
-  stroke: #276DEE;
+  stroke: var(--dark-blue);
 }
 
 .delay-2 {
   animation-delay: 0.4s;
-  stroke: #276DEE;
+  stroke: var(--dark-blue);
 }
 
 .delay-3 {
   animation-delay: 0.6s;
-  stroke: #276DEE;
+  stroke: var(--dark-blue);
 }
 
 /* === ANIMATIONS === */

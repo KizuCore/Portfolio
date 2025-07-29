@@ -196,7 +196,7 @@
 
 .qualif-link:hover {
     color: white;
-    border-color: #276DEE;
+    border-color: var(--dark-blue);
     transform: translateY(-3px);
     box-shadow: 0 4px 15px rgba(39, 109, 238, 0.2);
 }
@@ -224,7 +224,7 @@
 
 .about-tabs button.active,
 .about-tabs button:hover {
-    background-color: #276DEE;
+    background-color: var(--dark-blue);
     color: white;
     border: white 1px solid;
 }

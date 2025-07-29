@@ -96,10 +96,16 @@ function Home(): JSX.Element {
             {/* Colonne pour l'image */}
             <Col ref={ref} xs={12} md={6} className="d-flex justify-content-center align-items-center py-4">
               <div className={`logo-wrapper mt-3 mt-md-0 ${isDragging ? 'dragging' : ''}`}>
-                <div className="black-hole-realistic">
+                <motion.div
+                  className="black-hole"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+                >
                   <div className="accretion-disk" />
                   <div className="event-horizon" />
-                </div>
+                </motion.div>
+
 
                 {/* Logo SVG */}
                 <Tilt>

@@ -1,42 +1,61 @@
-/* Variables Globales */
+/* ========================
+   VARIABLES GLOBALES
+======================== */
 html {
-  --section-background-color: linear-gradient(to bottom left, rgb(0, 0, 0,0.97), rgb(0, 0, 0,0.97));
+  --section-background-color: linear-gradient(to bottom left, rgba(0, 0, 0, 0.97), rgba(0, 0, 0, 0.97));
   --dark-blue: #276DEE;
 }
 
-/* Global Styles */
+
+/* ========================
+   STYLES GLOBAUX
+======================== */
 body {
   overflow-x: hidden !important;
 }
+
+.text-justify {
+  text-align: justify !important;
+}
+
+
+/* ========================
+   TITRES / TEXTES
+======================== */
 
 /* Couleurs de texte */
 .dark-blue {
   color: var(--dark-blue) !important;
 }
 
+.darkblue {
+  color: var(--dark-blue) !important;
+}
+
+.blue {
+  color: #66a7fd;
+}
+
+/* Titres avec dégradé animé */
 .blue-title {
-  font-family: 'Montserrat', serif  !important;
+  font-family: 'Montserrat', serif !important;
   font-weight: 700;
   background: linear-gradient(90deg, var(--dark-blue), #6C88FF);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: animateGradient 5s linear infinite;
   background-size: 200% 200%;
+  animation: animateGradient 5s linear infinite;
 }
 
-@keyframes animateGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
+/* Sous-titre bleu clair */
 .light-blue-title {
   color: #5c92f5 !important;
-  font-family: 'Montserrat', serif  !important;
+  font-family: 'Montserrat', serif !important;
   font-weight: 700;
 }
 
+/* Titre principal avec effet glow */
 .custom-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
@@ -44,55 +63,36 @@ body {
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 1.2;
+  text-align: center;
 
-  /* Dégradé */
   background: linear-gradient(90deg, var(--dark-blue), #6C88FF);
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
   -webkit-text-fill-color: transparent;
+  color: transparent;
 
-  /* Glow doux */
   text-shadow: 0 2px 10px rgba(39, 109, 238, 0.3);
-
-  /* Alignement */
-  text-align: center;
+  transition: none;
 }
-
-
-
-
 
 .custom-title:hover {
-  /* Légère intensité au hover */
-  text-shadow: 0 4px 20px rgba(39, 109, 238, 0.6);
+  animation: glowPulse 1s ease-in-out infinite;
 }
 
-.custom-title-1{
+/* Variantes de tailles de titre */
+.custom-title-1 {
   font-size: 2.7rem !important;
   font-weight: 700 !important;
   text-transform: none !important;
 }
 
-.custom-title-2{
+.custom-title-2 {
   font-size: 2rem !important;
   font-weight: 700 !important;
   text-transform: none !important;
 }
 
-@media screen and (max-width: 768px) {
-  .custom-title {
-    font-size: 2.5rem;
-  }
-  .custom-title-1 {
-    font-size: 2.2rem !important;
-  }
-  .custom-title-2 {
-    font-size: 1.8rem !important;
-  }
-  
-}
-
+/* Fontes alternatives */
 .title-font {
   font-family: 'Montserrat', serif !important;
   font-weight: 700;
@@ -101,15 +101,29 @@ body {
 .title-font-easter {
   font-family: 'Permanent Marker', cursive !important;
 }
-.blue {
-  color: #66a7fd
+
+
+/* ========================
+   RESPONSIVE (max 768px)
+======================== */
+@media screen and (max-width: 768px) {
+  .custom-title {
+    font-size: 2.5rem;
+  }
+
+  .custom-title-1 {
+    font-size: 2.2rem !important;
+  }
+
+  .custom-title-2 {
+    font-size: 1.8rem !important;
+  }
 }
 
-.darkblue {
-  color: var(--dark-blue) !important;
-}
 
-/* Boutons */
+/* ========================
+   BOUTONS
+======================== */
 .btn:focus,
 button:focus {
   outline: none !important;
@@ -121,10 +135,12 @@ button:focus {
   color: white !important;
   font-size: 1.1em !important;
   max-width: 250px !important;
-  transition: all 0.3s ease-in-out !important;
   z-index: 1 !important;
+
   background-color: var(--dark-blue) !important;
   border: 2px solid white !important;
+
+  transition: all 0.3s ease-in-out !important;
 }
 
 .button-cv:hover {
@@ -134,11 +150,84 @@ button:focus {
   text-decoration: underline;
 }
 
-.text-justify {
-  text-align: justify !important;
+
+/* ========================
+   SECTIONS
+======================== */
+.about-section,
+.parkour-section {
+  position: relative !important;
+  padding-top: 150px !important;
+  padding-bottom: 30px !important;
+  color: white !important;
 }
 
-/* Scrollbar */
+.parkour-section {
+  padding-top: 120px !important;
+}
+
+.footer-section {
+  background-image: var(--section-background-color) !important;
+}
+
+
+/* ========================
+   BOX / CADRES ANIMÉS
+======================== */
+.background-box {
+  background-color: rgba(71, 70, 70, 0.25) !important;
+  padding: 2em !important;
+  border: 2px solid rgba(255, 255, 255, 0.6) !important;
+  border-radius: 16px !important;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Cadre conique animé */
+.background-box::before,
+.background-box::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 18px;
+  z-index: -1;
+  padding: 3px;
+  box-sizing: border-box;
+
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.background-box::before {
+  background: conic-gradient(
+    from 0deg,
+    rgba(39, 109, 238, 0.3),
+    rgba(255, 255, 255, 0.2),
+    rgba(39, 109, 238, 0.3)
+  );
+  animation: rotateFrame 6s linear infinite;
+}
+
+.background-box::after {
+  inset: -6px;
+  border-radius: 22px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(39, 109, 238, 0.2),
+    rgba(255, 255, 255, 0.1)
+  );
+  animation: rotateFrameReverse 10s linear infinite;
+}
+
+
+/* ========================
+   SCROLLBAR CUSTOM
+======================== */
 ::-webkit-scrollbar {
   width: 7px !important;
 }
@@ -154,78 +243,31 @@ button:focus {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(142, 171, 233, 0.911) !important;
-  border-radius: 12px !important;
-}
-
-/* Sections */
-.about-section {
-  position: relative !important;
-  padding-top: 150px !important;
-  padding-bottom: 30px !important;
-  color: white !important;
-}
-
-.footer-section {
-  background-image: var(--section-background-color) !important;
 }
 
 
-/* Sections */
-.parkour-section {
-  position: relative !important;
-  padding-top: 120px !important;
-  padding-bottom: 30px !important;
-  color: white !important;
+/* ========================
+   ANIMATIONS
+======================== */
+
+/* Animation du gradient de fond sur titres */
+@keyframes animateGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Background Box */
-.background-box {
-  background-color: rgba(71, 70, 70, 0.25) !important;
-  padding: 2em !important;
-  border: 2px solid rgba(255, 255, 255, 0.6) !important;
-  border-radius: 16px !important;
-  position: relative;
-  overflow: hidden;
-  z-index: 0;
+/* Lueur pulsante */
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 15px rgba(39, 109, 238, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(39, 109, 238, 0.9);
+  }
 }
 
-/* Premier cadre animé */
-.background-box::before,
-.background-box::after {
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: 18px;
-  background: conic-gradient(
-    from 0deg,
-    rgba(39, 109, 238, 0.3),
-    rgba(255, 255, 255, 0.2),
-    rgba(39, 109, 238, 0.3)
-  );
-  z-index: -1;
-  mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-  padding: 3px;
-  box-sizing: border-box;
-  animation: rotateFrame 6s linear infinite;
-}
-
-/* Deuxième cadre animé en sens inverse, plus petit */
-.background-box::after {
-  inset: -6px;
-  border-radius: 22px;
-  background: conic-gradient(
-    from 0deg,
-    rgba(255, 255, 255, 0.1),
-    rgba(39, 109, 238, 0.2),
-    rgba(255, 255, 255, 0.1)
-  );
-  animation: rotateFrameReverse 10s linear infinite;
-}
-
+/* Rotation cadre animée */
 @keyframes rotateFrame {
   from {
     transform: rotate(0deg);
@@ -243,4 +285,3 @@ button:focus {
     transform: rotate(0deg);
   }
 }
-

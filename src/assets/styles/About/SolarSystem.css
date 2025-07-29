@@ -53,7 +53,9 @@
   border-radius: 50%;
   animation: orbitRotate linear infinite;
   perspective: 1000px;
-  pointer-events: none;
+  pointer-events: none;  
+  --initial-rotation: 0deg;
+  transform: translate(-50%, -50%) rotate(var(--initial-rotation));
 }
 
 @keyframes orbitRotate {

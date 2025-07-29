@@ -66,22 +66,24 @@ function SolarSystem() {
             <div className="solar-system">
                 <CelestialBody className="sun" name={t("solar_system.sun")} isSun />
 
+
                 <div className="orbit orbit-mercure" style={{ animationDelay: delays.mercure }}>
                     <CelestialBody className="planet-mercure" name={t("solar_system.mercury")} />
                 </div>
-
-
                 <div className="orbit orbit-venus" style={{ animationDelay: delays.venus }}>
                     <CelestialBody className="planet-venus" name={t("solar_system.venus")} />
                 </div>
+
                 <div className="orbit orbit-earth" style={{ animationDelay: delays.earth }}>
                     <CelestialBody className="planet-earth" name={t("solar_system.earth")}>
                         <div className="moon" />
                     </CelestialBody>
                 </div>
+
                 <div className="orbit orbit-mars" style={{ animationDelay: delays.mars }}>
                     <CelestialBody className="planet-mars" name={t("solar_system.mars")} />
                 </div>
+
 
                 <div className="asteroid-belt">{generateAsteroidsDynamic(200, 94, 102)}</div>
 

@@ -1,8 +1,10 @@
-/* --------- */
-/* Navbar Section  */
-/* --------- */
+/* ========================
+   NAVBAR SECTION
+======================== */
 
-/* Sélecteur de langue */
+/* ------------------------
+   Langue / Sélecteur
+------------------------ */
 .language-selector {
   position: relative;
   display: inline-block;
@@ -10,21 +12,30 @@
   font-family: 'Montserrat', serif !important;
 }
 
-.dropdown-toggle:hover {
-  background: #4441628a !important;
-  transition: ease-in-out 0.4s !important;
-}
-
-/* Masquer le triangle de la flèche */
-.dropdown-toggle {
-  padding: 0.8rem 1rem !important;
+.language-selector select {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: #ffffff;
+  font-size: 24px;
+  padding: 5px 16px 5px 5px;
+  margin-top: 5px;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: none !important;
-  padding-right: 1rem;
+  cursor: pointer;
+}
+
+.language-selector .btn-secondary {
+  border-color: rgba(104, 103, 103, 0.466);
+}
+
+/* Dropdown stylisé */
+.dropdown-toggle {
+  padding: 0.8rem 1rem !important;
   background: #19172ac3 !important;
   border-radius: 15px !important;
+  background-image: none !important;
+  appearance: none;
 }
 
 .dropdown-toggle::after {
@@ -32,7 +43,11 @@
   color: #ffffff;
 }
 
-/* mettre bien bouton language */
+.dropdown-toggle:hover {
+  background: #4441628a !important;
+  transition: ease-in-out 0.4s !important;
+}
+
 .dropdown-menu {
   background: #ffffff23 !important;
   margin-top: 0.5rem;
@@ -57,50 +72,36 @@
   border-radius: 10px;
 }
 
-.language-selector select {
-  background-color: transparent;
-  border: 1px solid transparent;
-  color: #ffffff;
-  font-size: 24px;
-  padding: 5px;
-  margin-top: 5px;
-  padding-right: 16px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  cursor: pointer;
-}
 
-.language-selector .btn-secondary {
-  border-color: rgba(104, 103, 103, 0.466);
-}
-
-
-/* Navbar Sticky */
-.sticky {
-  background-color: #1b1a2ea9 !important;
-  transition: all 0.8s ease-out;
-  box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171);
-  backdrop-filter: blur(15px);
-  border-radius: 0px 0px 25px 25px;
-  border-bottom: #ffffff1a solid 1px;
-  border-left: #ffffff1a solid 1px;
-  border-right: #ffffff1a solid 1px;
-  margin: 0rem 10rem;
-}
-
-/* Navbar Styles */
+/* ------------------------
+   NAVBAR Sticky / Layout
+------------------------ */
 .navbar {
   position: fixed;
-  transition: all 0.7s ease-out;
   padding: 0.3rem 2rem;
   font-size: 1.2rem;
+  transition: all 0.7s ease-out;
 }
-/* Navbar Toggler - Hamburger Button */
+
+.sticky {
+  background-color: #1b1a2ea9 !important;
+  backdrop-filter: blur(15px);
+  box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171);
+  border-radius: 0px 0px 25px 25px;
+  border: 1px solid #ffffff1a;
+  margin: 0rem 10rem;
+  transition: all 0.8s ease-out;
+}
+
+
+/* ------------------------
+   Bouton Hamburger
+------------------------ */
 .navbar-toggler {
   position: relative;
   background-color: transparent;
   border-color: transparent;
+  margin-left: auto;
 }
 
 .navbar-toggler span {
@@ -109,67 +110,57 @@
   height: 4px;
   width: 27px;
   border-radius: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 5px 0;
 }
 
+/* Barre du milieu plus petite */
 .navbar-toggler span:nth-child(2) {
   width: 22px;
   margin-left: auto;
 }
 
-.navbar-toggler:focus,
-.navbar-toggler:active {
-  outline: 0;
-}
-
-/* Animation du menu hamburger */
+/* Animation menu hamburger */
 .navbar-toggler span:nth-child(1),
 .navbar-toggler span:nth-child(3) {
   transition: transform 0.35s ease-in-out;
 }
 
 .navbar-toggler:not(.collapsed) span:nth-child(1) {
-  position: absolute !important;
-  left: 12px !important;
-  top: 10px !important;
-  transform: rotate(135deg) !important;
-  opacity: 0.9 !important;
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  transform: rotate(135deg);
+  opacity: 0.9;
 }
 
 .navbar-toggler:not(.collapsed) span:nth-child(2) {
-  height: 12px !important;
-  visibility: hidden !important;
+  visibility: hidden;
+  height: 12px;
 }
 
 .navbar-toggler:not(.collapsed) span:nth-child(3) {
-  position: absolute !important;
-  left: 12px !important;
-  top: 10px !important;
-  transform: rotate(-135deg) !important;
-  opacity: 0.9 !important;
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  transform: rotate(-135deg);
+  opacity: 0.9;
 }
 
 
-/* Logo et liens de navigation */
+/* ------------------------
+   Logo et Liens de nav
+------------------------ */
 .navbar-brand {
   color: rgb(250, 250, 250) !important;
 }
 
-
 .navbar-nav .nav-link {
   color: white !important;
-  padding-right: 1rem !important;
-  padding-left: 1rem !important;
-}
-
-.nav-link {
   padding: 0.8rem 1rem !important;
   font-family: 'Montserrat', serif !important;
   font-weight: 500;
 }
 
-/* Effet de survol sur les liens nav */
 .navbar-nav .nav-item {
   position: relative;
   margin-left: 20px;
@@ -182,20 +173,22 @@
   z-index: 1;
 }
 
+/* Ligne animée sous le lien */
 .navbar-nav .nav-item a::after {
   content: "";
-  position: relative;
   display: block;
   height: 3px;
   width: 0;
   border-radius: 16px;
   background: linear-gradient(90deg, var(--dark-blue), #6C88FF);
+  position: relative;
   bottom: 1px;
   left: 0;
   z-index: -1;
   transition: all 0.3s ease-out;
 }
 
+/* Hover et actif */
 .navbar-nav .nav-item a:hover {
   background: linear-gradient(90deg, var(--dark-blue), #6C88FF);
   color: var(--dark-blue) !important;
@@ -206,12 +199,10 @@
 
 .navbar-nav .nav-item .nav-link.active {
   background: linear-gradient(90deg, var(--dark-blue), #6C88FF);
-  color: var(--dark-blue) !important;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  /* Fallback */
   transition: all 0.4s ease-out;
 }
 
@@ -221,59 +212,9 @@
 }
 
 
-.navbar-nav .nav-item .language-selector a:hover {
-  color: #ffffff !important;
-  transition: all 0.4s ease-out;
-}
-
-.navbar-nav .nav-item a:hover::after {
-  width: 100%;
-}
-
-/* Styles pour le mobile */
-@media (max-width: 767px) {
-  .navbar {
-    padding: 0.3rem 1rem !important;
-    font-size: 1.4rem !important;
-    background-color: #1b1827bb !important;
-    backdrop-filter: blur(15px);
-    border-bottom: #ffffff1a solid 1px;
-    border-left: #ffffff1a solid 1px;
-    border-right: #ffffff1a solid 1px;
-    border-radius: 0px 0px 25px 25px;
-  }
-
-  .navbar-nav .nav-item a::after {
-    display: none !important;
-  }
-
-  .language-selector {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .navbar-toggler {
-    margin-left: auto;
-  }
-
-  .sticky {
-    margin: 0rem 1.5rem;
-    transition: margin 0.8s ease-out;
-  }
-
-  .sticky.menu-open {
-    margin: 0rem !important;
-    transition: all 0.5s ease-out;
-  }
-
-  .nav-link {
-    padding: 0.7rem 1rem !important;
-  }
-
-}
-
+/* ------------------------
+   Bannière Easter Egg
+------------------------ */
 .easter-egg-banner {
   position: fixed;
   top: 70px;
@@ -296,4 +237,44 @@
   background-position: center;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
+}
+
+
+/* ========================
+   RESPONSIVE (mobile)
+======================== */
+@media (max-width: 767px) {
+  .navbar {
+    padding: 0.3rem 1rem !important;
+    font-size: 1.4rem !important;
+    background-color: #1b1827bb !important;
+    backdrop-filter: blur(15px);
+    border: 1px solid #ffffff1a;
+    border-radius: 0px 0px 25px 25px;
+  }
+
+  .navbar-nav .nav-item a::after {
+    display: none !important;
+  }
+
+  .language-selector {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .sticky {
+    margin: 0rem 1.5rem;
+    transition: margin 0.8s ease-out;
+  }
+
+  .sticky.menu-open {
+    margin: 0rem !important;
+    transition: all 0.5s ease-out;
+  }
+
+  .nav-link {
+    padding: 0.7rem 1rem !important;
+  }
 }

@@ -103,10 +103,6 @@
     "message_placeholder": "Enter your message",
     "send_message": "Send",
     "sending": "Sending...",
-    "message_success": "Message sent successfully!",
-    "message_fail": "Failed to send message.",
-    "message_error": "Error sending message. Please try again later.",
-    "captcha_required": "Please complete the captcha!",
     "error_loading_pdf": "Error loading PDF. Please try again later.",
     "cv_alt_description": "Théo Guérin's CV",
     "Mon parcours": "My Journey",
@@ -209,5 +205,16 @@
         "saturn": "Saturn",
         "uranus": "Uranus",
         "neptune": "Neptune"
+    },
+    "message_success": "Message sent successfully.",
+    "message_fail": "An error occurred while sending the message.",
+    "message_error": "Server communication error.",
+    "captcha_required": "Please complete the captcha.",
+    "errors": {
+        "hcaptcha_failed": "Captcha validation failed.",
+        "missing_fields": "Please fill in all required fields.",
+        "rate_limited": "Too many attempts. Please try again in a few seconds.",
+        "send_failed": "An error occurred while sending the message.",
+        "method_not_allowed": "Method not allowed."
     }
 }

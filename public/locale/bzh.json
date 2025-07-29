@@ -102,10 +102,6 @@
     "message_placeholder": "Skrivit ho kemennadenn",
     "send_message": "Kas",
     "sending": "O kas...",
-    "message_success": "Kemennadenn kaset gant berzh!",
-    "message_fail": "Kas kemennadenn sac'het.",
-    "message_error": "Fazi e-pad kas ar gemennadenn. Klaskit adarre.",
-    "captcha_required": "Evit echuiñ, echu ar captcha mar plij!",
     "error_loading_pdf": "Fazi e-pad kargañ ar PDF. Klaskit en-dro diwezhatoc'h.",
     "cv_alt_description": "CV Théo Guérin",
     "Mon parcours": "Ma hentad",
@@ -207,5 +203,16 @@
         "saturn": "Saturn",
         "uranus": "Ouranuz",
         "neptune": "Neptun"
+    },
+    "message_success": "Kemennadenn kaset gant berzh.",
+    "message_fail": "Ur fazi zo c'hoarvezet e-pad kas ar c'hemennadenn.",
+    "message_error": "Fazi kevelerezh gant ar servijer.",
+    "captcha_required": "Mar plij, gwiria ar captcha.",
+    "errors": {
+        "hcaptcha_failed": "C'hwitadenn war gwiriañ ar captcha.",
+        "missing_fields": "Leunait an holl vaeziennoù rekis mar plij.",
+        "rate_limited": "Re a c'houlennadoù. Klaskit en-dro a-benn nebeud.",
+        "send_failed": "Ur fazi zo c'hoarvezet e-pad kas ar c'hemennadenn.",
+        "method_not_allowed": "Doare n'eo ket aotreet."
     }
 }

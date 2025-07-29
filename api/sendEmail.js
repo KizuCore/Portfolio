@@ -37,7 +37,7 @@ async function verifyHcaptcha(token) {
 // Envoie l’email via Resend
 async function sendContactEmail({ name, email, subject, message, ip }) {
   return resend.emails.send({
-    from: 'onboarding@resend.dev', // à remplacer si besoin par une adresse vérifiée
+    from: 'onboarding@resend.dev', // à remplacer si besoin
     to: 'theo.guerin35000@gmail.com',
     subject: `Portfolio | ${subject}`,
     html: `
@@ -58,43 +58,60 @@ async function sendContactEmail({ name, email, subject, message, ip }) {
 // Handler API
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, message: 'Méthode non autorisée' });
+    return res.status(405).json({
+      success: false,
+      message: 'Méthode non autorisée',
+      errorCode: 'method_not_allowed',
+    });
   }
 
   const { name, email, subject, message, hcaptchaToken } = req.body;
   const ip = getIp(req);
 
-  // Vérif des champs obligatoires
+  // Vérification des champs
   if (!name || !email || !subject || !message || !hcaptchaToken) {
-    return res.status(400).json({ success: false, message: 'Champs requis manquants' });
+    return res.status(400).json({
+      success: false,
+      message: 'Champs requis manquants',
+      errorCode: 'missing_fields',
+    });
   }
 
-  // Anti-spam (limite une requête toutes les 30s par IP)
+  // Anti-spam
   const now = Date.now();
   const lastRequest = rateLimitMap.get(ip);
   if (lastRequest && now - lastRequest < RATE_LIMIT_WINDOW_MS) {
     return res.status(429).json({
       success: false,
       message: 'Trop de tentatives. Veuillez patienter quelques secondes.',
+      errorCode: 'rate_limited',
     });
   }
   rateLimitMap.set(ip, now);
 
-  // Vérification hCaptcha
+  // Vérification captcha
   const isHuman = await verifyHcaptcha(hcaptchaToken);
   if (!isHuman) {
-    return res.status(400).json({ success: false, message: 'Validation hCaptcha échouée' });
+    return res.status(400).json({
+      success: false,
+      message: 'Validation hCaptcha échouée',
+      errorCode: 'hcaptcha_failed',
+    });
   }
 
   // Envoi de l’email
   try {
     await sendContactEmail({ name, email, subject, message, ip });
-    return res.status(200).json({ success: true, message: 'Email envoyé avec succès' });
+    return res.status(200).json({
+      success: true,
+      message: 'Email envoyé avec succès',
+    });
   } catch (err) {
     console.error('Erreur lors de l’envoi de l’email :', err?.message || err);
     return res.status(500).json({
       success: false,
       message: 'Erreur lors de l’envoi du message',
+      errorCode: 'send_failed',
       error: err?.message || 'Unknown error',
     });
   }

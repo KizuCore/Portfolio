@@ -97,9 +97,7 @@ function Home(): JSX.Element {
                 <div className="black-hole-realistic">
                   <div className="event-horizon" />
                 </div>
-
-
-
+                {/* Logo SVG */}
                 <Tilt>
                   {isMobile ? (
                     <img
@@ -133,10 +131,6 @@ function Home(): JSX.Element {
                       transition={{ duration: 0.8, ease: easeOut }}
                       style={{ cursor: "grab" }}
                     />
-
-
-
-
                   )}
                 </Tilt>
               </div>

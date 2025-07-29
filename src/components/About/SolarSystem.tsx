@@ -52,8 +52,7 @@ function SolarSystem() {
         jupiter: randomOrbitDelay(36),
         saturn: randomOrbitDelay(60),
         uranus: randomOrbitDelay(84),
-        neptune: randomOrbitDelay(120),
-        moon: randomOrbitDelay(6),
+        neptune: randomOrbitDelay(120)
     }), []);
 
 

@@ -1,44 +1,43 @@
 import { Resend } from 'resend';
 import axios from 'axios';
-import type { NextApiRequest, NextApiResponse } from 'next';
 
 // Initialise l’API Resend avec ta clé d’API
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Map de limitation de fréquence par IP (anti-spam)
-const rateLimitMap = new Map<string, number>();
+// Anti-spam simple : IP → timestamp
+const rateLimitMap = new Map();
 const RATE_LIMIT_WINDOW_MS = 30 * 1000; // 30 secondes
 
-// Fonction utilitaire pour récupérer l’adresse IP du client
-function getIp(req: NextApiRequest): string {
+// Récupération IP du client
+function getIp(req) {
   return (
     req.headers['x-forwarded-for']?.toString().split(',')[0] ||
-    req.socket.remoteAddress ||
+    req.socket?.remoteAddress ||
     ''
   ).trim();
 }
 
-// Vérifie le token hCaptcha avec l’API officielle
-async function verifyHcaptcha(token: string): Promise<boolean> {
+// Vérifie le token hCaptcha
+async function verifyHcaptcha(token) {
   try {
     const response = await axios.post(
       'https://hcaptcha.com/siteverify',
       new URLSearchParams({
-        secret: process.env.HCAPTCHA_SECRET_KEY!,
+        secret: process.env.HCAPTCHA_SECRET_KEY,
         response: token,
       })
     );
     return response.data.success;
   } catch (err) {
-    console.error('Erreur lors de la vérification hCaptcha :', err);
+    console.error('Erreur vérification hCaptcha :', err.message);
     return false;
   }
 }
 
-// Envoie un email via Resend contenant les infos du formulaire
-async function sendContactEmail({ name, email, subject, message, ip }: { name: string, email: string, subject: string, message: string, ip: string }) {
+// Envoie l’email via Resend
+async function sendContactEmail({ name, email, subject, message, ip }) {
   return resend.emails.send({
-    from: 'onboarding@resend.dev',
+    from: 'onboarding@resend.dev', // à remplacer si besoin par une adresse vérifiée
     to: 'theo.guerin35000@gmail.com',
     subject: `Portfolio | ${subject}`,
     html: `
@@ -56,30 +55,21 @@ async function sendContactEmail({ name, email, subject, message, ip }: { name: s
   });
 }
 
-// Handler principal de l’API
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  // Autoriser uniquement la méthode POST
+// Handler API
+export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res
-      .status(405)
-      .json({ success: false, message: 'Méthode non autorisée' });
+    return res.status(405).json({ success: false, message: 'Méthode non autorisée' });
   }
 
-  // Récupère les données du formulaire + IP
   const { name, email, subject, message, hcaptchaToken } = req.body;
   const ip = getIp(req);
 
-  // Vérification des champs obligatoires
+  // Vérif des champs obligatoires
   if (!name || !email || !subject || !message || !hcaptchaToken) {
-    return res
-      .status(400)
-      .json({ success: false, message: 'Champs requis manquants' });
+    return res.status(400).json({ success: false, message: 'Champs requis manquants' });
   }
 
-  // Anti-spam : limitation par IP
+  // Anti-spam (limite une requête toutes les 30s par IP)
   const now = Date.now();
   const lastRequest = rateLimitMap.get(ip);
   if (lastRequest && now - lastRequest < RATE_LIMIT_WINDOW_MS) {
@@ -93,31 +83,19 @@ export default async function handler(
   // Vérification hCaptcha
   const isHuman = await verifyHcaptcha(hcaptchaToken);
   if (!isHuman) {
-    return res
-      .status(400)
-      .json({ success: false, message: 'Validation hCaptcha échouée' });
+    return res.status(400).json({ success: false, message: 'Validation hCaptcha échouée' });
   }
 
-  // Envoi du mail
+  // Envoi de l’email
   try {
     await sendContactEmail({ name, email, subject, message, ip });
-    return res
-      .status(200)
-      .json({ success: true, message: 'Email envoyé avec succès' });
+    return res.status(200).json({ success: true, message: 'Email envoyé avec succès' });
   } catch (err) {
-    console.error('Erreur lors de l’envoi de l’email :', err);
-    return res
-      .status(500)
-      .json({ success: false, message: 'Erreur lors de l’envoi du message' });
+    console.error('Erreur lors de l’envoi de l’email :', err?.message || err);
+    return res.status(500).json({
+      success: false,
+      message: 'Erreur lors de l’envoi du message',
+      error: err?.message || 'Unknown error',
+    });
   }
 }
-
-
-
-
-
-
-
-
-
-

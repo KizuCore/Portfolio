@@ -1,221 +1,241 @@
+/* ========================
+   TIMELINE CONTAINER
+======================== */
 .timeline-container {
-    padding-top: 175px !important;
-    padding: 4rem 1rem;
-    position: relative;
-    color: white;
+  padding-top: 175px !important;
+  padding: 4rem 1rem;
+  position: relative;
+  color: white;
 }
 
+/* Ligne verticale principale */
 .timeline {
-    position: relative;
-    margin: 0 auto;
-    width: 100%;
-    padding-bottom: 4rem;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  padding-bottom: 4rem;
 }
 
 .timeline-line {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    border-radius: 5px;
-    margin-top: 15px;
-    height: 100%;
-    background: linear-gradient(to bottom, var(--dark-blue), var(--dark-blue)); /* revoir */
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  margin-top: 15px;
+  border-radius: 5px;
+  background: linear-gradient(to bottom, var(--dark-blue), var(--dark-blue));
+  z-index: 1;
 }
 
-.timeline-start-circle {
-    position: absolute;
-    bottom: -20px;
-    left: 49.35%;
-    transform: translateX(-50%);
-    width: 16px;
-    height: 16px;
-    background-color: var(--dark-blue);
-    border-radius: 50%;
-    z-index: 2;
-    box-shadow: 0 0 10px #276dee4d;
 
+/* ========================
+   TIMELINE DÉBUT / FIN
+======================== */
+.timeline-start-circle {
+  position: absolute;
+  bottom: -20px;
+  left: 49.35%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background-color: var(--dark-blue);
+  border-radius: 50%;
+  box-shadow: 0 0 10px #276dee4d;
+  z-index: 2;
 }
 
 .timeline-start-circle::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 30px;
-    height: 30px;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background-color: rgba(39, 109, 238, 0.2);
-    animation: pulse 1.5s infinite;
-    z-index: -1;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: rgba(39, 109, 238, 0.2);
+  animation: pulse 1.5s infinite;
+  z-index: -1;
 }
 
+
+/* ========================
+   BULLES D’ÉVÉNEMENT
+======================== */
 .bubble {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1.2rem;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 500px;
-    z-index: 4;
-    position: relative;
-    margin-bottom: 3rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  margin-bottom: 3rem;
+  z-index: 4;
 }
 
 .bubble.left {
-    margin-right: auto;
-    text-align: left;
-    margin-left: calc(50% + 30px);
-    /* rapproché de la timeline */
+  margin-left: calc(50% + 30px);
+  margin-right: auto;
+  text-align: left;
 }
 
 .bubble.right {
-    margin-left: auto;
-    text-align: left;
-    margin-right: calc(50% + 30px);
-    /* rapproché de la timeline */
+  margin-right: calc(50% + 30px);
+  margin-left: auto;
+  text-align: left;
 }
 
-/* Cercle sur la timeline */
+
+/* ========================
+   CONNECTEURS & BRANCHES
+======================== */
+
+/* Cercle sur la ligne */
 .timeline-connector {
-    position: absolute;
-    top: 1.5rem;
-    left: 49.13%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
-    background-color: #92b8ff;
-    border-radius: 50%;
-    z-index: 3;
-    box-shadow: 0 0 12px rgba(39, 109, 238, 0.4);
+  position: absolute;
+  top: 1.5rem;
+  left: 49.13%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background-color: #92b8ff;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(39, 109, 238, 0.4);
+  z-index: 3;
 }
 
-/* Branche horizontale qui relie la ligne au bubble */
+/* Trait horizontal vers la bulle */
 .timeline-branch {
-    position: absolute;
-    top: 2rem;
-    border-radius: 5px;
-    /* centré verticalement avec le connector */
-    height: 3px;
-    width: 30px;
-    background-color: #92b8ff;
-    z-index: 2;
+  position: absolute;
+  top: 2rem;
+  height: 3px;
+  width: 30px;
+  background-color: #92b8ff;
+  border-radius: 5px;
+  z-index: 2;
 }
 
 .timeline-branch.left {
-    right: calc(50% + 6px);
+  right: calc(50% + 6px);
 }
 
 .timeline-branch.right {
-    left: calc(50% + 6px);
+  left: calc(50% + 6px);
 }
 
-/* Stack tags */
+
+/* ========================
+   STACKS & TECH BADGES
+======================== */
 .stack-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
 }
 
 .stack-badge {
-    background-color: #2c2c2c;
-    color: white;
-    padding: 0.3rem 0.7rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
+  background-color: #2c2c2c;
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
 }
 
+
+/* ========================
+   FLECHE "UP" INTERACTIVE
+======================== */
 .timeline-arrow-up-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
 }
 
 .timeline-chevron {
-    width: 40px;
-    height: 40px;
-    stroke: var(--dark-blue);
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: none;
-    animation: arrowPulse 1.8s infinite;
-    filter: drop-shadow(0 0 6px rgba(39, 109, 238, 0.6));
+  width: 40px;
+  height: 40px;
+  stroke: var(--dark-blue);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  animation: arrowPulse 1.8s infinite;
+  filter: drop-shadow(0 0 6px rgba(39, 109, 238, 0.6));
 }
 
 
-
-
-/* Responsive */
+/* ========================
+   RESPONSIVE
+======================== */
 @media (max-width: 768px) {
-    .timeline-line {
-        left: 16px;
-        transform: none;
-    }
+  .timeline-line {
+    left: 16px;
+    transform: none;
+  }
 
-    .timeline-arrow-up-wrapper {
-        display: flex;
-        justify-content: flex-start;
-        /* Aligne à gauche */
-        align-items: center;
-        margin-left: -1.8px;
-    }
+  .timeline-start-circle {
+    left: 10px;
+    transform: none;
+  }
 
-    .bubble {
-        margin: 1rem 0 2rem 2.5rem !important;
-        width: calc(100% - 3rem);
-        text-align: left !important;
-    }
+  .timeline-connector {
+    left: 8px;
+    transform: none;
+  }
 
-    .bubble.left,
-    .bubble.right {
-        margin-left: 2.5rem !important;
-        margin-right: 0 !important;
-    }
+  .timeline-branch.left,
+  .timeline-branch.right {
+    left: 24px;
+    right: auto;
+  }
 
-    .timeline-connector {
-        left: 8px;
-        transform: none;
-    }
+  .timeline-arrow-up-wrapper {
+    justify-content: flex-start;
+    margin-left: -1.8px;
+  }
 
-    .timeline-branch.left,
-    .timeline-branch.right {
-        left: 24px;
-        right: auto;
-    }
+  .bubble {
+    margin: 1rem 0 2rem 2.5rem !important;
+    width: calc(100% - 3rem);
+    text-align: left !important;
+  }
 
-    .timeline-start-circle {
-        left: 10px;
-        transform: none;
-    }
+  .bubble.left,
+  .bubble.right {
+    margin-left: 2.5rem !important;
+    margin-right: 0 !important;
+  }
 }
 
+
+/* ========================
+   ANIMATIONS
+======================== */
+
+/* Flèche en haut qui pulse */
 @keyframes arrowPulse {
-
-    0%,
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    50% {
-        transform: translateY(-4px);
-    }
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
+/* Cercle qui pulse autour du départ */
 @keyframes pulse {
-    0% {
-        transform: translate(-50%, -50%) scale(0.9);
-        opacity: 0.7;
-    }
-
-    100% {
-        transform: translate(-50%, -50%) scale(1.5);
-        opacity: 0;
-    }
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
 }

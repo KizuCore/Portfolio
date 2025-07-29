@@ -24,7 +24,7 @@ const useScrollProgress = (ref: React.RefObject<HTMLElement | null>) => {
        * (hauteur de la fenêtre - position top) / (hauteur de l’élément)
        * Puis on le limite entre 0 (pas visible) et 1 (entièrement visible ou plus)
        */
-      const scrolled = Math.min(Math.max((windowHeight - top) / (height * 1.1), 0), 1);
+      const scrolled = Math.min(Math.max((windowHeight - top) / (height * 1.05), 0), 1);
 
       // Met à jour l’état avec une valeur entre 0 et 100
       setScrollPercentage(scrolled * 100);

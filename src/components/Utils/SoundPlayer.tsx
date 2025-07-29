@@ -2,6 +2,7 @@ type SoundPlayerProps = {
   soundSrc: string;
 };
 
+/* Composant pour lire un son */
 function SoundPlayer({ soundSrc }: SoundPlayerProps) {
   const audio = new Audio(soundSrc);
 

@@ -204,6 +204,7 @@
   -webkit-text-fill-color: transparent;
   color: transparent;
   transition: all 0.4s ease-out;
+  color: var(--dark-blue) !important;
 }
 
 .navbar-nav .nav-item a:hover::after,

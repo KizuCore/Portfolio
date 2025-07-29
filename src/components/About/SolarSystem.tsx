@@ -3,6 +3,9 @@ import '../../assets/styles/About/SolarSystem.css';
 import { useTranslation } from "react-i18next";
 import CelestialBody from "../Utils/CelestialBody";
 
+
+/* Génération dynamique des astéroïdes */
+// Cette fonction génère un tableau d'éléments astéroïdes avec des positions et tailles aléatoires
 function generateAsteroidsDynamic(count: number, radiusMin: number, radiusMax: number) {
     const asteroids = [];
 

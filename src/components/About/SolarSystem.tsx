@@ -76,7 +76,6 @@ function SolarSystem() {
                 <div className="orbit orbit-neptune">
                     <CelestialBody className="planet-neptune" name={t("solar_system.neptune")} />
                 </div>
-                {/* Astéroïdes TODO */}
                 <div className="asteroid-belt">{generateAsteroidsDynamic(300, 190, 220)}</div>
 
             </div>

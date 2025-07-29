@@ -1,4 +1,7 @@
+// Import des hooks React et types
 import { useState, ChangeEvent, FormEvent } from "react";
+
+// Styles et dépendances
 import '../../assets/styles/Contact/Contact.css';
 import {
   Form,
@@ -13,6 +16,7 @@ import { useTranslation } from "react-i18next";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { AiOutlineMail } from "react-icons/ai";
 
+// Définition du type pour les champs du formulaire
 interface FormFields {
   name: string;
   email: string;
@@ -22,39 +26,54 @@ interface FormFields {
 
 function ContactForm() {
   const { t } = useTranslation();
+
+  // État pour les champs du formulaire
   const [formData, setFormData] = useState<FormFields>({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+
+  // État pour savoir si le formulaire est en cours de soumission
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // États pour le message de retour et son type (succès/erreur)
   const [responseMessage, setResponseMessage] = useState("");
   const [responseVariant, setResponseVariant] = useState<"success" | "danger" | "">("");
+
+  // État pour le token hCaptcha
   const [hcaptchaToken, setHcaptchaToken] = useState<string | null>(null);
+
+  // Clé publique hCaptcha
   const hcaptchaSiteKey = "b016c3fe-2d68-429c-a918-c6801962237c";
 
+  // MAJ des champs du formulaire
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
+  // Récupère le token hCaptcha après validation
   const handleHcaptchaVerify = (token: string) => {
     setHcaptchaToken(token);
   };
 
+  // Gestion de la soumission du formulaire
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault(); // Empêche le rechargement de la page
 
+    // Vérifie que le captcha est validé
     if (!hcaptchaToken) {
       setResponseMessage(t("captcha_required"));
       setResponseVariant("danger");
       return;
     }
 
-    setIsSubmitting(true);
+    setIsSubmitting(true); // Désactive le bouton pour éviter les doubles clics
 
     try {
+      // Appel à l’API backend avec les données du formulaire
       const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: {
@@ -64,26 +83,32 @@ function ContactForm() {
       });
 
       const data = await response.json();
-      if (data.success) {
-        setResponseMessage(t("message_success"));
+
+      if (response.ok && data.success) {
+        // Succès : affiche message + réinitialise le formulaire
+        setResponseMessage(data.message || t("message_success"));
         setResponseVariant("success");
         setFormData({ name: "", email: "", subject: "", message: "" });
         setHcaptchaToken(null);
       } else {
-        setResponseMessage(t("message_fail"));
+        // Échec côté backend : affiche le message retourné
+        setResponseMessage(data.message || t("message_fail"));
         setResponseVariant("danger");
       }
-    } catch (error) {
-      setResponseMessage(t("message_error"));
+    } catch (error: any) {
+      // Erreur inattendue (réseau, serveur planté, etc.)
+      console.error("Erreur lors de l’envoi du formulaire :", error);
+      setResponseMessage(error?.message || t("message_error"));
       setResponseVariant("danger");
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false); // Réactive le bouton d’envoi
     }
   };
 
+
   return (
     <Container>
-
+      {/* Message de retour (succès ou erreur) */}
       {responseMessage && (
         <Alert
           variant={responseVariant}
@@ -93,11 +118,14 @@ function ContactForm() {
           {responseMessage}
         </Alert>
       )}
+
       <Row className="justify-content-center pb-5">
         <Col md={8} className="p-0 m-0">
 
+          {/* Formulaire principal */}
           <Form onSubmit={handleSubmit} className="background-box">
             <Row>
+              {/* Champ Nom */}
               <Col md={6} className="mb-3">
                 <Form.Group controlId="formName">
                   <Form.Label>{t("name")}</Form.Label>
@@ -113,6 +141,7 @@ function ContactForm() {
                 </Form.Group>
               </Col>
 
+              {/* Champ Email */}
               <Col md={6} className="mb-3">
                 <Form.Group controlId="formEmail">
                   <Form.Label>{t("email")}</Form.Label>
@@ -129,6 +158,7 @@ function ContactForm() {
               </Col>
             </Row>
 
+            {/* Champ Sujet */}
             <Form.Group controlId="formSubject" className="mb-3">
               <Form.Label>{t("subject")}</Form.Label>
               <Form.Control
@@ -142,6 +172,7 @@ function ContactForm() {
               />
             </Form.Group>
 
+            {/* Champ Message */}
             <Form.Group controlId="formMessage" className="mb-4">
               <Form.Label>{t("message")}</Form.Label>
               <Form.Control
@@ -156,6 +187,7 @@ function ContactForm() {
               />
             </Form.Group>
 
+            {/* hCaptcha */}
             <div className="captcha-container mb-4">
               <HCaptcha
                 sitekey={hcaptchaSiteKey}
@@ -163,6 +195,7 @@ function ContactForm() {
               />
             </div>
 
+            {/* Bouton d'envoi */}
             <div>
               <Button
                 type="submit"
@@ -176,7 +209,8 @@ function ContactForm() {
                   </>
                 ) : (
                   <>
-                    <AiOutlineMail style={{ marginRight: "5px" }} className="mb-1" />{t("send_message")}
+                    <AiOutlineMail style={{ marginRight: "5px" }} className="mb-1" />
+                    {t("send_message")}
                   </>
                 )}
               </Button>

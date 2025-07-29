@@ -1,25 +1,28 @@
 import { motion } from "framer-motion";
 import '../../assets/styles/About/SolarSystem.css';
 import { useTranslation } from "react-i18next";
-import CelestialBody from "./CelestialBody";
+import CelestialBody from "../Utils/CelestialBody";
 
-function generateAsteroids(count: number) {
+function generateAsteroidsDynamic(count: number, radiusMin: number, radiusMax: number) {
     const asteroids = [];
 
     for (let i = 0; i < count; i++) {
         const angle = Math.random() * 360;
-        const radius = 94 + Math.random() * 8;
+        const radius = radiusMin + Math.random() * (radiusMax - radiusMin);
 
         const radian = (angle * Math.PI) / 180;
         const x = Math.cos(radian) * radius;
         const y = Math.sin(radian) * radius;
+        const size = 1 + Math.random() * 2;
 
         asteroids.push(
             <div
                 key={i}
                 className="asteroid"
                 style={{
-                    transform: `translate(${x}px, ${y}px)`
+                    transform: `translate(${x}px, ${y}px)`,
+                    width: `${size}px`,
+                    height: `${size}px`
                 }}
             />
         );
@@ -27,6 +30,7 @@ function generateAsteroids(count: number) {
 
     return asteroids;
 }
+
 
 
 function SolarSystem() {
@@ -57,7 +61,8 @@ function SolarSystem() {
                     <CelestialBody className="planet-mars" name={t("solar_system.mars")} />
                 </div>
 
-                <div className="asteroid-belt">{generateAsteroids(150)}</div>
+                <div className="asteroid-belt">{generateAsteroidsDynamic(200, 94, 102)}</div>
+
 
                 <div className="orbit orbit-jupiter">
                     <CelestialBody className="planet-jupiter" name={t("solar_system.jupiter")} />
@@ -72,6 +77,8 @@ function SolarSystem() {
                     <CelestialBody className="planet-neptune" name={t("solar_system.neptune")} />
                 </div>
                 {/* Astéroïdes TODO */}
+                <div className="asteroid-belt">{generateAsteroidsDynamic(300, 190, 220)}</div>
+
             </div>
         </motion.div>
     );

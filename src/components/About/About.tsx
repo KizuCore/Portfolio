@@ -9,7 +9,7 @@ import Aboutcard from "./AboutCard";
 import Toolstack from "./Toolstack.tsx";
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/About/About.css';
-import SolarSystem from "../Utils/SolarSystem.tsx";
+import SolarSystem from "./SolarSystem.tsx";
 
 
 

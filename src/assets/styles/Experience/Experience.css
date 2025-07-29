@@ -25,7 +25,7 @@
   height: 100%;
   margin-top: 15px;
   border-radius: 5px;
-  background: linear-gradient(to bottom, var(--dark-blue), var(--dark-blue));
+  background: linear-gradient(to bottom, var(--dark-blue), #6C88FF);
   z-index: 1;
 }
 
@@ -36,11 +36,11 @@
 .timeline-start-circle {
   position: absolute;
   bottom: -20px;
-  left: 49.35%;
+  left: 49.06%;
   transform: translateX(-50%);
-  width: 16px;
-  height: 16px;
-  background-color: var(--dark-blue);
+  width: 24px;
+  height: 24px;
+  background-color: #6C88FF;
   border-radius: 50%;
   box-shadow: 0 0 10px #276dee4d;
   z-index: 2;
@@ -51,11 +51,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background-color: rgba(39, 109, 238, 0.2);
+  background-color: #6c87ff3b;
   animation: pulse 1.5s infinite;
   z-index: -1;
 }
@@ -97,7 +97,7 @@
 .timeline-connector {
   position: absolute;
   top: 1.5rem;
-  left: 49.13%;
+  left: 49.1%;
   transform: translateX(-50%);
   width: 20px;
   height: 20px;
@@ -157,14 +157,16 @@
 }
 
 .timeline-chevron {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   stroke: var(--dark-blue);
   stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
   animation: arrowPulse 1.8s infinite;
+  margin-bottom: 50px;
+  padding-bottom: 5px;
   filter: drop-shadow(0 0 6px rgba(39, 109, 238, 0.6));
 }
 
@@ -179,12 +181,18 @@
   }
 
   .timeline-start-circle {
-    left: 10px;
+    left: 6.1px;
     transform: none;
   }
 
+  .timeline-chevron {
+    width: 40px;
+    height: 40px;
+    padding-bottom: 0px;
+  }
+
   .timeline-connector {
-    left: 8px;
+    left: 8.1px;
     transform: none;
   }
 
@@ -219,10 +227,13 @@
 
 /* Flèche en haut qui pulse */
 @keyframes arrowPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
     opacity: 1;
   }
+
   50% {
     transform: translateY(-4px);
   }
@@ -234,6 +245,7 @@
     transform: translate(-50%, -50%) scale(0.9);
     opacity: 0.7;
   }
+
   100% {
     transform: translate(-50%, -50%) scale(1.5);
     opacity: 0;

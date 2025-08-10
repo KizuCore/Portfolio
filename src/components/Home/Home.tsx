@@ -114,8 +114,8 @@ function Home(): JSX.Element {
                       src={LogoDeveloper}
                       className="img-fluid"
                       alt={t('theo_developer')}
-                      width="400"
-                      height="400"
+                      width="300"
+                      height="300"
                       loading="eager"
                       decoding="sync"
                       {...{ fetchpriority: "high" } as any}

@@ -15,25 +15,18 @@ import SolarSystem from "./SolarSystem.tsx";
 
 function About(): JSX.Element {
   const { t } = useTranslation();
-  const [isMobile, setIsMobile] = useState(false);
-
   const { ref: refImg, inView: imgInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 767);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+
 
   return (
     <Container fluid className="about-section">
       <Particle />
       <Container>
-        <Row className="d-flex align-items-center justify-content-center py-4">
+        <Row className="d-flex align-items-center justify-content-center pt-4 pb-0">
 
           <motion.h1
             className="custom-title pt-2 pb-5"
@@ -44,27 +37,28 @@ function About(): JSX.Element {
             {t('about_me')}
           </motion.h1>
 
-          <Col md={8} className="text-center text-md-left order-2 order-md-1">
+          <Col md={7} xs={12} className="text-center text-md-left p">
             <Aboutcard />
           </Col>
 
-          <Col md={4} className="d-flex justify-content-center align-items-center about-img order-1 order-md-2 pb-4 pb-md-0" ref={refImg}>
-            {!isMobile && (
-              <motion.div
-                className="canvas-container"
-                initial={{ opacity: 0, x: 50 }}
-                animate={imgInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-              >
-                <SolarSystem />
-              </motion.div>
-            )}
+          <Col md={1} xs={0}>
+          </Col>
+          <Col md={4} xs={12} className="d-flex justify-content-center align-items-center about-img" ref={refImg}>
+
+            <motion.div
+              className="canvas-container"
+              initial={{ opacity: 0 }}
+              animate={imgInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <SolarSystem />
+            </motion.div>
 
           </Col>
         </Row>
 
         <motion.h2
-          className="custom-title custom-title-1 py-5"
+          className="custom-title custom-title-1 py-5 "
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: easeOut }}

@@ -163,10 +163,11 @@
 ======================== */
 .logo-wrapper {
   position: relative;
-  display: inline-block;
-  width: fit-content;
+  display: inline-block;      
   border-radius: 50%;
   isolation: isolate;
+  overflow: hidden;
+  flex: 0 0 auto;
 }
 
 .img-fluid {
@@ -216,6 +217,14 @@
     filter: drop-shadow(0 0 16px rgba(39, 109, 238, 0.8));
   }
 }
+
+
+
+/* ========================
+   AVATAR LOGO
+======================== */
+
+
 
 
 /* ========================

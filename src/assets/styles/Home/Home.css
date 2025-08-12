@@ -164,10 +164,28 @@
 .logo-wrapper {
   position: relative;
   display: inline-block;
-  width: fit-content;
+  width: clamp(180px, 70vw, 320px); 
+  aspect-ratio: 1;                  
   border-radius: 50%;
   isolation: isolate;
 }
+
+.logo-wrapper img {
+  display: block;
+  width: 100%;   
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+
+@media (max-width: 767px) {
+  .logo-wrapper { overflow: hidden; margin: 0 auto; }
+  .home-content { overflow-x: clip; }
+}
+
 
 .img-fluid {
   position: relative;

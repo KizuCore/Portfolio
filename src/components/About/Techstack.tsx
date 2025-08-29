@@ -44,13 +44,14 @@ const icons: IconData[] = [
   { component: React.lazy(() => import("react-icons/fa").then(m => ({ default: m.FaCheck }))), name: "Why3", level: 2, category: "Tools" },
   { component: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiWordpress }))), name: "Wordpress - CMS", level: 2, category: "CMS" },
   { component: React.lazy(() => import("react-icons/fa").then(m => ({ default: m.FaWix }))), name: "Wix - CMS", level: 2, category: "CMS" },
+  { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiNuxtdotjs }))), name: "Nuxt", level: 2, category: "Front-End" },
+  { component: React.lazy(() => import("react-icons/fa").then(m => ({ default: m.FaVuejs }))), name: "Vue.js", level: 2, category: "Front-End" },
 
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiGnubash }))), name: "Bash", level: 1, category: "Programming Languages" },
   { component: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiDjango }))), name: "Django", level: 1, category: "Back-End" },
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiPostgresql }))), name: "PostgreSQL", level: 1, category: "Database" },
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiTailwindcss }))), name: "Tailwind", level: 1, category: "Front-End" },
   { component: React.lazy(() => import("react-icons/fa").then(m => ({ default: m.FaFileExcel }))), name: "VBA", level: 1, category: "Programming Languages" },
-  { component: React.lazy(() => import("react-icons/fa").then(m => ({ default: m.FaVuejs }))), name: "Vue.js", level: 1, category: "Front-End" },
 
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiAngular }))), name: "Angular", level: 0, category: "Front-End" },
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiCplusplus }))), name: "C++", level: 0, category: "Programming Languages" },

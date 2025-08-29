@@ -164,10 +164,28 @@
 .logo-wrapper {
   position: relative;
   display: inline-block;
-  width: fit-content;
+  width: clamp(180px, 70vw, 320px); 
+  aspect-ratio: 1;                  
   border-radius: 50%;
   isolation: isolate;
 }
+
+.logo-wrapper img {
+  display: block;
+  width: 100%;   
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+
+@media (max-width: 767px) {
+  .logo-wrapper { overflow: hidden; margin: 0 auto; }
+  .home-content { overflow-x: clip; }
+}
+
 
 .img-fluid {
   position: relative;
@@ -225,7 +243,6 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 6rem;
   margin-top: 2.5rem;
 }
 
@@ -249,7 +266,6 @@
 .bold-number {
   font-weight: 800;
   font-size: 4rem;
-  margin-left: 0.2rem;
 }
 
 .stat-label {
@@ -262,7 +278,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.5rem;
 }
 
 .stat-item-combo .stat-label {
@@ -276,6 +291,7 @@
   flex-direction: column;
   text-align: left;
   line-height: 1.2;
+  padding-left: 0.5rem;
 }
 
 
@@ -465,7 +481,7 @@
 /* ========================
    TROU NOIR
 ======================== */
-.black-hole-realistic {
+.black-hole {
   position: absolute;
   top: 50%;
   left: 50%;

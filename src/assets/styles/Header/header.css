@@ -212,7 +212,10 @@
   width: 100%;
 }
 
-
+/* évite le retour à la ligne */
+.navbar-nav .nav-item .nav-link {
+  white-space: nowrap;   
+}
 /* ------------------------
    Bannière Easter Egg
 ------------------------ */

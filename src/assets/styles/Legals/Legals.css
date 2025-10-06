@@ -1,0 +1,171 @@
+/* =========================
+   LAYERING / BACKGROUND
+   ========================= */
+
+.about-section {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Empêche particules de passer devant carte */
+.about-section canvas,
+.about-section .particle-layer {
+  z-index: 0 !important;
+}
+
+/* Voile doux derrière carte*/
+.background-dim,
+.legal-dim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(1200px 600px at 50% 0%,
+    rgba(0,0,0,0.25), transparent 60%);
+}
+
+/* =========================
+   CARD 
+   ========================= */
+
+:root {
+  --legal-bg: rgba(20, 20, 24, 0.64);
+  --legal-border: rgba(255, 255, 255, 0.18);
+  --legal-shadow: 0 8px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
+  --legal-link: #88b4ff;
+}
+
+
+/* .background-box- */
+.background-box-2,
+.legal-card {
+  position: relative;
+  z-index: 1; /* au-dessus des particules */
+  margin: 0 auto;
+  padding: clamp(18px, 3vw, 32px);
+  max-width: 920px; /* évite les lignes trop longues */
+  border-radius: 16px;
+  border: 1px solid var(--legal-border);
+  background: var(--legal-bg);
+  box-shadow: var(--legal-shadow);
+  -webkit-backdrop-filter: blur(8px) saturate(110%);
+  backdrop-filter: blur(8px) saturate(110%);
+}
+
+/* Fallback si backdrop-filter non supporté */
+@supports not ((-webkit-backdrop-filter: blur(8px)) or (backdrop-filter: blur(8px))) {
+  .background-box,
+  .background-box-2,
+  .legal-card {
+    background: color-mix(in srgb, var(--legal-bg) 85%, transparent);
+  }
+}
+
+/* =========================
+   TYPO / RYTHME
+   ========================= */
+
+.background-box h1,
+.background-box-2 h1,
+.legal-card h1,
+.background-box h2,
+.background-box-2 h2,
+.legal-card h2 {
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+.background-box h1,
+.background-box-2 h1,
+.legal-card h1 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin: 0 0 1rem;
+  font-weight: 700;
+}
+
+.background-box h2.h4,
+.background-box-2 h2.h4,
+.legal-card h2.h4,
+.background-box h2,
+.background-box-2 h2,
+.legal-card h2 {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  margin: 1.25rem 0 0.5rem;
+  font-weight: 600;
+}
+
+.background-box p,
+.background-box-2 p,
+.legal-card p,
+.background-box li,
+.background-box-2 li,
+.legal-card li {
+  margin: 0.25rem 0 0.75rem;
+  line-height: 1.65;
+  text-align: left; /* lisibilité */
+}
+
+/* Listes un peu plus aérées */
+.background-box ul,
+.background-box-2 ul,
+.legal-card ul {
+  padding-left: 1.1rem;
+  margin: 0.25rem 0 0.75rem;
+}
+
+/* Liens visibles sur fond sombre + accessibilité focus */
+.background-box a,
+.background-box-2 a,
+.legal-card a {
+  color: var(--legal-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.background-box a:hover,
+.background-box-2 a:hover,
+.legal-card a:hover {
+  text-decoration-thickness: 2px;
+}
+.background-box a:focus-visible,
+.background-box-2 a:focus-visible,
+.legal-card a:focus-visible,
+.background-box button:focus-visible,
+.background-box-2 button:focus-visible,
+.legal-card button:focus-visible {
+  outline: 2px solid var(--legal-link);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Séparateur subtil */
+.background-box hr,
+.background-box-2 hr,
+.legal-card hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  margin-top: 1.25rem;
+}
+
+/* =========================
+   RESPONSIVE / MOTION
+   ========================= */
+
+@media (max-width: 576px) {
+  .background-box,
+  .background-box-2,
+  .legal-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  .background-box h1,
+  .background-box-2 h1,
+  .legal-card h1 {
+    margin-bottom: .75rem;
+  }
+}
+
+
+.text-muted {
+  color: rgba(255, 255, 255, 0.534) !important;
+}

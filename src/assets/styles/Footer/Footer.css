@@ -15,6 +15,10 @@
   color: white;
 }
 
+.footer-legal-links {
+  color: rgba(255, 255, 255, 0.534);
+}
+
 .footer-copywright,
 .footer-body {
   text-align: center;
@@ -38,6 +42,11 @@
   color: inherit;
   transition: color 0.3s ease-in-out;
 }
+.footer button {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease-in-out;
+}
 
 .footer a:hover {
   color: #2776DE;
@@ -50,6 +59,10 @@
 @media (max-width: 767px) {
   .footer h3 {
     font-size: 1.1em;
+    margin: 0.3em 0 !important;
+  }
+  .footer button {
+    font-size: 1em;
     margin: 0.3em 0 !important;
   }
 

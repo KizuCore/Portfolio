@@ -10,10 +10,10 @@ function Footer(): JSX.Element {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="footer-section ">
-      <Container fluid className="footer" >
+    <footer className="footer-section">
+      <Container fluid className="footer">
         <Row className="text-center align-items-center">
-          {/* Texte de copyright et lien vers GitHub */}
+          {/* Signature & lien GitHub */}
           <Col xs={12} md={4} className="footer-copywright py-2">
             <h3>
               {t("bytheo1")}{" "}
@@ -29,16 +29,39 @@ function Footer(): JSX.Element {
             </h3>
           </Col>
 
-          {/* Copyright */}
-          <Col xs={12} md={4} className="footer-copywright py-2">
+          {/* Copyright + Liens légaux */}
+          <Col xs={12} md={4} className="footer-copywright py-2 d-flex flex-column">
             <h3>
-              Copyright © 2024-{year} - {t("portfolio_theo")}
+              © 2024-{year} — {t("portfolio_theo")}
             </h3>
+            <div className="footer-legal-links mt-2 ">
+              <a href="/mentions-legales" className="footer-link mx-2" aria-label={t("footer_links.aria_legal")}>
+                {t("footer_links.legal")}
+              </a>
+              |
+              <a href="/politique-de-confidentialite" className="footer-link mx-2" aria-label={t("footer_links.aria_privacy")}>
+                {t("footer_links.privacy")}
+              </a>
+              |
+              <button
+                type="button"
+                className="footer-link mx-2 btn btn-link p-0 align-baseline"
+                onClick={() => window.openCookiePreferences?.()}
+                aria-label={t("footer_links.aria_cookies")}
+              >
+                {t("footer_links.cookies")}
+              </button>
+
+
+            </div>
           </Col>
 
-          {/* Icônes des réseaux sociaux */}
+          {/* Réseaux sociaux */}
           <Col xs={12} md={4} className="footer-body py-2">
-            <div className="footer-icons d-flex justify-content-center justify-content-md-end gap-5" style={{ paddingRight: "20px" }}>
+            <div
+              className="footer-icons d-flex justify-content-center justify-content-md-end gap-5"
+              style={{ paddingRight: "20px" }}
+            >
               <a
                 href="https://github.com/KizuCore"
                 target="_blank"
@@ -64,11 +87,10 @@ function Footer(): JSX.Element {
                 aria-label={t("email_link")}
                 className="icon-link"
               >
-                <AiOutlineMail className="" />
+                <AiOutlineMail />
               </a>
             </div>
           </Col>
-
         </Row>
       </Container>
     </footer>

@@ -13,6 +13,10 @@ import VideoPopup from "./components/Easter/Video.tsx";
 import NavBar from "./components/Header/Navbar/Navbar.tsx";
 import Footer from "./components/Footer/Footer.tsx";
 import SeoMeta from "./components/Helmet/react-helmet-seo.tsx";
+import MentionsLegales from "./components/Legal/MentionsLegales.tsx";
+import PolitiqueConfidentialite from "./components/Legal/PolitiqueConfidentialite.tsx";
+import CookieBanner from "./components/Legal/CookieBanner.tsx";
+import CookiePreferencesModal from "./components/Legal/CookiePreferencesModal.tsx";
 
 // Lazy load des composants de page
 const Home = lazy(() => import("./components/Home/Home.tsx"));
@@ -63,6 +67,9 @@ function App() {
         <VideoPopup />
         <main className="main-content">
           <Suspense fallback={<Preloader />}>
+            {/* Bannière consent sur toutes les pages */}
+            <CookieBanner />
+            <CookiePreferencesModal />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/project" element={<Projects />} />
@@ -70,6 +77,8 @@ function App() {
               <Route path="/experience" element={<Experience />} />
               <Route path="/cv" element={<CV />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/mentions-legales" element={<MentionsLegales />} />
+              <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
               <Route path="/gojo" element={<Gojo />} />
               <Route path="/arcane" element={<RouteSecret />} />
               <Route path="*" element={<Navigate to="/" />} />

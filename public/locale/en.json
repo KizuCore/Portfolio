@@ -216,5 +216,146 @@
         "rate_limited": "Too many attempts. Please try again in a few seconds.",
         "send_failed": "An error occurred while sending the message.",
         "method_not_allowed": "Method not allowed."
+    },
+    "mentions_legales": {
+        "title": "Legal Notice",
+        "last_update": "Last updated: {{date}}",
+        "editor": {
+            "title": "1. Site Publisher",
+            "site": "Site: theo-guerin.fr",
+            "publisher": "Publisher: Théo Guérin (personal portfolio)",
+            "address": "Address: Not published. In accordance with French law (LCEN), the host retains identifying information and may disclose it to the competent authorities upon request.",
+            "contact": "Contact: theo.guerin35000@gmail.com",
+            "director": "Publication director: Théo Guérin"
+        },
+        "host": {
+            "title": "2. Hosting",
+            "name": "Host: Vercel Inc.",
+            "address": "Address: 340 S Lemon Ave #4133, Walnut, CA 91789, USA",
+            "website": "Website: vercel.com",
+            "email": "Email: support@vercel.com"
+        },
+        "domain": {
+            "title": "3. Domain Name",
+            "registrar": "Registrar: OVHcloud",
+            "registrar_address": "Address: 2 rue Kellermann, 59100 Roubaix, France",
+            "registrar_site": "Website: ovhcloud.com"
+        },
+        "status": {
+            "title": "4. Website Status",
+            "text": "This website is a personal portfolio with no direct commercial purpose. It does not offer online sales or an account area. In the absence of professional activity, no SIREN/SIRET number is required."
+        },
+        "ip": {
+            "title": "5. Intellectual Property",
+            "text": "Unless otherwise stated, all content on this site (texts, images, logos, videos, code, graphic resources) is the exclusive property of Théo Guérin. Any reproduction, representation, modification or adaptation, in whole or in part, is prohibited without prior written authorization."
+        },
+        "links": {
+            "title": "6. External Links",
+            "text": "Hyperlinks to other websites do not entail the publisher’s responsibility. Access to third-party sites is at your own risk."
+        },
+        "privacy": {
+            "title": "7. Personal Data",
+            "p1": "This site may collect personal data via the contact form (if present) and via audience measurement tools.",
+            "p2": "You have the rights of access, rectification, erasure, objection, restriction and data portability. To exercise your rights: theo.guerin35000@gmail.com.",
+            "p3": "For more information, please see the Privacy Policy."
+        },
+        "cookies": {
+            "title": "8. Cookies and Analytics",
+            "p1": "This site uses Google Analytics 4 only after your consent. Until you accept, no non-essential analytics cookies are set and no data is sent to Google.",
+            "p2": "Legal basis: consent (Article 6(1)(a) GDPR). You can change your preferences at any time via “Manage my cookies”.",
+            "p3": "Google Ireland Limited acts as a processor. Data transfers outside the EU may occur and are governed by the EU Standard Contractual Clauses. GA4 anonymizes IP addresses by default."
+        },
+        "security": {
+            "title": "9. Security",
+            "text": "Reasonable measures are implemented to ensure the site’s security. The publisher cannot be held liable in the event of intrusion or malware."
+        },
+        "law": {
+            "title": "10. Governing Law",
+            "text": "This legal notice is governed by French law. In the event of a dispute and failing an amicable settlement, French courts shall have exclusive jurisdiction."
+        },
+        "contact": {
+            "title": "11. Contact",
+            "text": "For any request: theo.guerin35000@gmail.com"
+        },
+        "reference_clause": "In case of discrepancy between translations, the French version shall prevail."
+    },
+    "politique_confidentialite": {
+        "title": "Privacy Policy",
+        "last_update": "Last updated: {{date}}",
+        "controller": {
+            "title": "1. Data Controller",
+            "intro": "The controller of personal data collected on this website is:",
+            "name_line": "Théo Guérin",
+            "email_label": "Email",
+            "site_label": "Website"
+        },
+        "data": {
+            "title": "2. Data Collected and Purposes",
+            "intro": "Data on this site are collected solely for:",
+            "contact_form": "Contact form: name, email, message. Purpose: to respond to your request.",
+            "analytics": "Audience measurement: via Google Analytics 4 (GA4). Purpose: anonymized statistics to improve the site.",
+            "legal_basis_intro": "Legal basis:",
+            "legal_basis_contact": "Legitimate interest for handling messages received via the contact form.",
+            "legal_basis_analytics": "Explicit consent for enabling Google Analytics."
+        },
+        "ga4": {
+            "title": "3. Google Analytics (GA4)",
+            "p1": "This site uses Google Analytics 4 only after your consent. Google Ireland Limited acts as a processor. Data transfers outside the EU may occur and are governed by the EU Standard Contractual Clauses.",
+            "p2": "IP addresses are anonymized by default and data are stored for a limited period, in line with CNIL recommendations. You can change your preferences at any time via the panel below or the “Manage my cookies” link in the footer.",
+            "manage_button": "Manage my cookies"
+        },
+        "recipients": {
+            "title": "4. Data Recipients",
+            "text": "Data collected via the form are accessible only to the site owner. Audience data are sent to Google as the analytics provider."
+        },
+        "rights": {
+            "title": "5. Your Rights",
+            "intro": "In accordance with the GDPR, you have the following rights:",
+            "access": "Right of access",
+            "rectification": "Right to rectification",
+            "erasure": "Right to erasure",
+            "restriction": "Right to restriction of processing",
+            "objection": "Right to object",
+            "portability": "Right to data portability",
+            "exercise": "To exercise your rights, please write to:"
+        },
+        "security": {
+            "title": "6. Security",
+            "text": "Appropriate technical and organizational measures are implemented to protect personal data from loss, unauthorized access or disclosure. However, no system is completely secure."
+        },
+        "changes": {
+            "title": "7. Changes",
+            "text": "This policy may be updated as the site or regulations evolve. Any significant change will be indicated on this page."
+        },
+        "contact_update": {
+            "title": "8. Contact & Update",
+            "text": "For any question about this policy, please write to:"
+        }
+    },
+    "cookie_prefs": {
+        "title": "Privacy Preferences",
+        "intro_1": "Manage your consent for cookies and similar technologies.",
+        "intro_2": "for anonymized statistics.",
+        "analytics_label": "Audience measurement (Google Analytics)",
+        "note": "Enabled only with your consent. You can change this at any time."
+    },
+    "cookie_banner": {
+        "text": "This site uses Google Analytics only with your consent for anonymized statistics.",
+        "learn_more": "Learn more",
+        "decline": "Decline",
+        "accept": "Accept",
+        "manage": "Manage my cookies"
+    },
+    "common": {
+        "cancel": "Cancel",
+        "save": "Save"
+    },
+    "footer_links": {
+        "legal": "Legal notice",
+        "privacy": "Privacy policy",
+        "cookies": "Manage my cookies",
+        "aria_legal": "Legal notice",
+        "aria_privacy": "Privacy policy",
+        "aria_cookies": "Manage my cookies"
     }
 }

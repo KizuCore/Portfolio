@@ -214,5 +214,146 @@
         "rate_limited": "Re a c'houlennadoù. Klaskit en-dro a-benn nebeud.",
         "send_failed": "Ur fazi zo c'hoarvezet e-pad kas ar c'hemennadenn.",
         "method_not_allowed": "Doare n'eo ket aotreet."
+    },
+    "mentions_legales": {
+        "title": "Menegoù lezennel",
+        "last_update": "Hizivaat diwezhañ : {{date}}",
+        "editor": {
+            "title": "1. Embanner al lec'hienn",
+            "site": "Lec'hienn : theo-guerin.fr",
+            "publisher": "Embanner : Théo Guérin (portfolio personel)",
+            "address": "Chomlec'h : n'eo ket embannet. Hervez lezenn C'hall (LCEN), an ostiz a zalc'h an titouroù identelezh hag a c'hall o reiñ d'an aotrouniezioù war goulenn.",
+            "contact": "Darempred : theo.guerin35000@gmail.com",
+            "director": "Rener an embann : Théo Guérin"
+        },
+        "host": {
+            "title": "2. Ostiz",
+            "name": "Ostiz : Vercel Inc.",
+            "address": "Chomlec'h : 340 S Lemon Ave #4133, Walnut, CA 91789, SUA",
+            "website": "Lec'hienn : vercel.com",
+            "email": "Postel : support@vercel.com"
+        },
+        "domain": {
+            "title": "3. Anv-domani",
+            "registrar": "Enroller an anv-domani : OVHcloud",
+            "registrar_address": "Chomlec'h : 2 rue Kellermann, 59100 Roubaix, Frañs",
+            "registrar_site": "Lec'hienn : ovhcloud.com"
+        },
+        "status": {
+            "title": "4. Statud al lec'hienn",
+            "text": "Ur portfolio personel eo al lec'hienn-mañ, hep pal kenwerzhel eeun. N'eus na gwerzh enlinenn na gkontoù implijer. Hep obererezh micherel, n'eus ket ezhomm a niver SIREN/SIRET."
+        },
+        "ip": {
+            "title": "5. Gwirioù-perchennañ war ar spered",
+            "text": "Nemetañ ma vo merket, an holl endalc'hadoù war al lec'hienn (skridoù, skeudennoù, logoioù, videoioù, kod, loazioù grafek) zo perc'henniezh nemetañ da Théo Guérin. Difennet eo an adstampañ pe an daskemmañ hep aotre skrivet a-raok."
+        },
+        "links": {
+            "title": "6. Liammoù diavaez",
+            "text": "Ne gemer ket an embanner e zlead war al liammoù etrezek lec'hiennoù all. Mont d'al lec'hiennoù trede a reer dindan ho riskl hoc'h-unan."
+        },
+        "privacy": {
+            "title": "7. Roadennoù personel",
+            "p1": "Gallout a ra al lec'hienn dastum roadennoù dre ar furmskrid daremprediñ (m'emañ) ha dre binvioù muzuliañ ar boblañs.",
+            "p2": "Hoc'h eus ar gwirioù moned, reizhañ, diverkañ, enebiñ, bevenniñ hag heñchañ (portabilite). Evit o c'houlenniñ : theo.guerin35000@gmail.com.",
+            "p3": "Evit muioc'h a ditouroù, gwelit ar Bolitikerezh prevezded."
+        },
+        "cookies": {
+            "title": "8. Toupinoù (cookies) ha muzuliñ ar boblañs",
+            "p1": "Implijet e vez Google Analytics 4 nemet goude ho asant. Ken na asantit, ne vo lakaet toupin analiz ebet ha ne vo kaset roadenn ebet da Google.",
+            "p2": "Diazez lezennel : asant (artikl 6(1)(a) RGPD). Gallout a rit kemmañ ho gwellvezioù forzh pegoulz dre « Merañ ma zoupinoù ».",
+            "p3": "Google Ireland Limited zo evel prenadour-implij. Gall a ra bezañ treuzkasadennoù e-diavaez an UE, renet gant ar C'homenadoù Kendivizel Skouer. GA4 a zianonimezañ an IP dre ziouer."
+        },
+        "security": {
+            "title": "9. Surentez",
+            "text": "Mijoù dereat a vez lakaet e plas evit gwareziñ al lec'hienn. Ne c'hall ket an embanner bezañ dalc'het da zispign pa'z eus un enankadenn pe ur viros."
+        },
+        "law": {
+            "title": "10. Lezenn a denn",
+            "text": "Menegoù lezennel-mañ a zo dindan lezenn Frañs. E kasez a dabutoù, mar bez hep kendiviz, e vo barnet gant lez-varn Frañs."
+        },
+        "contact": {
+            "title": "11. Darempred",
+            "text": "Evit pep goulenn : theo.guerin35000@gmail.com"
+        },
+        "reference_clause": "Ma vez diforc'h etre an troidigezhioù, ar stumm galleg a ra feur."
+    },
+    "politique_confidentialite": {
+        "title": "Politikerezh prevezded",
+        "last_update": "Hizivaat diwezhañ : {{date}}",
+        "controller": {
+            "title": "1. An den karg ouzh an treterezh",
+            "intro": "An den karg ouzh treterezh ar roadennoù personel war al lec'hienn-mañ eo :",
+            "name_line": "Théo Guérin",
+            "email_label": "Postel",
+            "site_label": "Lec'hienn"
+        },
+        "data": {
+            "title": "2. Roadennoù dastumet ha palioù",
+            "intro": "Dastumet e vez ar roadennoù war al lec'hienn evit :",
+            "contact_form": "Furmskrid daremprediñ : anv, postel, kemennadenn. Pal : respont d'ho koulenn.",
+            "analytics": "Muzuliñ ar boblañs : dre Google Analytics 4 (GA4). Pal : stadegoù dianon evit gwellaat al lec'hienn.",
+            "legal_basis_intro": "Diazez lezennel :",
+            "legal_basis_contact": "Interest talvoudus evit merañ ar c'hemennadennoù dre ar furmskrid.",
+            "legal_basis_analytics": "Asant splann evit gweredekaat Google Analytics."
+        },
+        "ga4": {
+            "title": "3. Google Analytics (GA4)",
+            "p1": "Implijet e vez GA4 nemet goude ho asant. Google Ireland Limited a zo prenadour-implij. Gallout a ra bezañ treuzkasadennoù e-diavaez an UE, renet gant ar C'homenadoù Kendivizel Skouer.",
+            "p2": "Anv-an-dreist (IP) a vez dianoniet dre ziouer ha miret e vez ar roadennoù e-pad ur prantad strizh. Gallout a rit kemmañ ho gwellvezioù forzh pegoulz dre ar banell dindan pe al liamm « Merañ ma zoupinoù » er foñz pajenn.",
+            "manage_button": "Merañ ma zoupinoù"
+        },
+        "recipients": {
+            "title": "4. Degemererien ar roadennoù",
+            "text": "Ar roadennoù kaset dre ar furmskrid a vez tennet-gwered gant perc'henn al lec'hienn hepken. Ar roadennoù stadegel a vez kaset da Google evel pourchaser analiz."
+        },
+        "rights": {
+            "title": "5. Ho gwirioù",
+            "intro": "Hervez ar RGPD, hoc'h eus ar gwirioù da-heul :",
+            "access": "Gwir moned",
+            "rectification": "Gwir reizhañ",
+            "erasure": "Gwir diverkañ",
+            "restriction": "Gwir bevenniñ an treterezh",
+            "objection": "Gwir enebiñ",
+            "portability": "Gwir heñchañ (portabilite)",
+            "exercise": "Evit goulenn implij ho gwirioù, skrivait da :"
+        },
+        "security": {
+            "title": "6. Surentez",
+            "text": "Mijoù teknik hag aozadel a vez lakaet e plas evit gwareziñ ar roadennoù. Koulskoude, n'eus reizhiad ebet kalet-da-vat."
+        },
+        "changes": {
+            "title": "7. Kemmoù",
+            "text": "Gallout a ra ar bolitikerezh-mañ bezañ hizivaet hervez diorren al lec'hienn pe al lezenn. Kemmoù pouezus a vo menegeret amañ."
+        },
+        "contact_update": {
+            "title": "8. Darempred & hizivadenn",
+            "text": "Evit goulennoù diwar-benn ar bolitikerezh-mañ, skrivait da :"
+        }
+    },
+    "cookie_prefs": {
+        "title": "Gwellvezioù prevezded",
+        "intro_1": "Merit ho asant evit an toupinoù ha teknologiezh heñvel.",
+        "intro_2": "evit stadegoù dianon.",
+        "analytics_label": "Muzuliñ ar boblañs (Google Analytics)",
+        "note": "Gweredekaet nemet gant hoc'h asant. Gallout a rit kemmañ kement-se forzh pegoulz."
+    },
+    "cookie_banner": {
+        "text": "Al lec'hienn-mañ a implij Google Analytics nemet gant hoc'h asant evit stadegoù dianon.",
+        "learn_more": "Gouzout hiroc'h",
+        "decline": "Nac'hañ",
+        "accept": "Asantiñ",
+        "manage": "Merañ ma zoupinoù"
+    },
+    "common": {
+        "cancel": "Nullañ",
+        "save": "Enrollañ"
+    },
+    "footer_links": {
+        "legal": "Menegoù lezennel",
+        "privacy": "Politikerezh prevezded",
+        "cookies": "Merañ ma zoupinoù",
+        "aria_legal": "Menegoù lezennel",
+        "aria_privacy": "Politikerezh prevezded",
+        "aria_cookies": "Merañ ma zoupinoù"
     }
 }

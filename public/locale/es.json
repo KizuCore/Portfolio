@@ -182,5 +182,146 @@
         "rate_limited": "Demasiados intentos. Inténtalo de nuevo en unos segundos.",
         "send_failed": "Se produjo un error al enviar el mensaje.",
         "method_not_allowed": "Método no permitido."
+    },
+    "mentions_legales": {
+        "title": "Aviso legal",
+        "last_update": "Última actualización: {{date}}",
+        "editor": {
+            "title": "1. Editor del sitio",
+            "site": "Sitio: theo-guerin.fr",
+            "publisher": "Editor: Théo Guérin (portafolio personal)",
+            "address": "Dirección: No publicada. De conformidad con la ley francesa (LCEN), el alojador conserva la información de identificación y puede comunicarla a las autoridades competentes previa solicitud.",
+            "contact": "Contacto: theo.guerin35000@gmail.com",
+            "director": "Director de la publicación: Théo Guérin"
+        },
+        "host": {
+            "title": "2. Alojamiento",
+            "name": "Alojador: Vercel Inc.",
+            "address": "Dirección: 340 S Lemon Ave #4133, Walnut, CA 91789, USA",
+            "website": "Sitio web: vercel.com",
+            "email": "Correo: support@vercel.com"
+        },
+        "domain": {
+            "title": "3. Nombre de dominio",
+            "registrar": "Registrador: OVHcloud",
+            "registrar_address": "Dirección: 2 rue Kellermann, 59100 Roubaix, Francia",
+            "registrar_site": "Sitio web: ovhcloud.com"
+        },
+        "status": {
+            "title": "4. Estado del sitio",
+            "text": "Este sitio es un portafolio personal sin finalidad comercial directa. No ofrece ventas en línea ni área de cuenta. En ausencia de actividad profesional, no se requiere número SIREN/SIRET."
+        },
+        "ip": {
+            "title": "5. Propiedad intelectual",
+            "text": "Salvo indicación contraria, todos los contenidos de este sitio (textos, imágenes, logotipos, vídeos, código, recursos gráficos) son propiedad exclusiva de Théo Guérin. Cualquier reproducción, representación, modificación o adaptación, total o parcial, está prohibida sin autorización previa por escrito."
+        },
+        "links": {
+            "title": "6. Enlaces externos",
+            "text": "Los hipervínculos a otros sitios no comprometen la responsabilidad del editor. El acceso a sitios de terceros se realiza bajo su propia responsabilidad."
+        },
+        "privacy": {
+            "title": "7. Datos personales",
+            "p1": "Este sitio puede recopilar datos personales a través del formulario de contacto (si existe) y mediante herramientas de medición de audiencia.",
+            "p2": "Usted dispone de los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad. Para ejercer sus derechos: theo.guerin35000@gmail.com.",
+            "p3": "Para más información, consulte la Política de privacidad."
+        },
+        "cookies": {
+            "title": "8. Cookies y medición de audiencia",
+            "p1": "Este sitio utiliza Google Analytics 4 únicamente tras su consentimiento. Hasta que acepte, no se instalan cookies de analítica no esenciales ni se envían datos a Google.",
+            "p2": "Base jurídica: consentimiento (art. 6(1)(a) RGPD). Puede cambiar sus preferencias en cualquier momento a través de «Gestionar mis cookies».",
+            "p3": "Google Ireland Limited actúa como encargado del tratamiento. Pueden producirse transferencias de datos fuera de la UE, amparadas por las Cláusulas Contractuales Tipo. GA4 anonimiza las direcciones IP por defecto."
+        },
+        "security": {
+            "title": "9. Seguridad",
+            "text": "Se implementan medidas razonables para garantizar la seguridad del sitio. El editor no se hace responsable en caso de intrusión o malware."
+        },
+        "law": {
+            "title": "10. Ley aplicable",
+            "text": "El presente aviso legal se rige por la legislación francesa. En caso de litigio y a falta de acuerdo amistoso, los tribunales franceses serán los competentes."
+        },
+        "contact": {
+            "title": "11. Contacto",
+            "text": "Para cualquier solicitud: theo.guerin35000@gmail.com"
+        },
+        "reference_clause": "En caso de discrepancia entre las traducciones, prevalece la versión francesa."
+    },
+    "politique_confidentialite": {
+        "title": "Política de privacidad",
+        "last_update": "Última actualización: {{date}}",
+        "controller": {
+            "title": "1. Responsable del tratamiento",
+            "intro": "El responsable del tratamiento de los datos personales recogidos en este sitio es:",
+            "name_line": "Théo Guérin",
+            "email_label": "Correo",
+            "site_label": "Sitio web"
+        },
+        "data": {
+            "title": "2. Datos recogidos y finalidades",
+            "intro": "Los datos en este sitio se recogen únicamente para:",
+            "contact_form": "Formulario de contacto: nombre, correo, mensaje. Finalidad: responder a su solicitud.",
+            "analytics": "Medición de audiencia: mediante Google Analytics 4 (GA4). Finalidad: estadísticas anonimizadas para mejorar el sitio.",
+            "legal_basis_intro": "Base jurídica:",
+            "legal_basis_contact": "Interés legítimo para gestionar los mensajes recibidos mediante el formulario.",
+            "legal_basis_analytics": "Consentimiento explícito para habilitar Google Analytics."
+        },
+        "ga4": {
+            "title": "3. Google Analytics (GA4)",
+            "p1": "Este sitio utiliza Google Analytics 4 únicamente tras su consentimiento. Google Ireland Limited actúa como encargado del tratamiento. Pueden producirse transferencias de datos fuera de la UE, regidas por las Cláusulas Contractuales Tipo.",
+            "p2": "Las direcciones IP se anonimizan por defecto y los datos se conservan durante un periodo limitado, conforme a las recomendaciones de la CNIL. Puede cambiar sus preferencias en cualquier momento desde el panel inferior o el enlace «Gestionar mis cookies» en el pie de página.",
+            "manage_button": "Gestionar mis cookies"
+        },
+        "recipients": {
+            "title": "4. Destinatarios de los datos",
+            "text": "Los datos recogidos mediante el formulario solo son accesibles por el propietario del sitio. Los datos de audiencia se envían a Google como proveedor de analítica."
+        },
+        "rights": {
+            "title": "5. Sus derechos",
+            "intro": "De conformidad con el RGPD, usted dispone de los siguientes derechos:",
+            "access": "Derecho de acceso",
+            "rectification": "Derecho de rectificación",
+            "erasure": "Derecho de supresión",
+            "restriction": "Derecho a la limitación del tratamiento",
+            "objection": "Derecho de oposición",
+            "portability": "Derecho a la portabilidad",
+            "exercise": "Para ejercer sus derechos, escriba a:"
+        },
+        "security": {
+            "title": "6. Seguridad",
+            "text": "Se aplican medidas técnicas y organizativas adecuadas para proteger los datos personales contra la pérdida, el acceso no autorizado o la divulgación. Sin embargo, ningún sistema es completamente seguro."
+        },
+        "changes": {
+            "title": "7. Modificaciones",
+            "text": "Esta política puede actualizarse en función de la evolución del sitio o de la normativa. Cualquier cambio significativo se indicará en esta página."
+        },
+        "contact_update": {
+            "title": "8. Contacto y actualización",
+            "text": "Para cualquier pregunta sobre esta política, escriba a:"
+        }
+    },
+    "cookie_prefs": {
+        "title": "Preferencias de privacidad",
+        "intro_1": "Gestione su consentimiento para cookies y tecnologías similares.",
+        "intro_2": "para estadísticas anonimizadas.",
+        "analytics_label": "Medición de audiencia (Google Analytics)",
+        "note": "Activación solo con su consentimiento. Puede cambiarlo en cualquier momento."
+    },
+    "cookie_banner": {
+        "text": "Este sitio usa Google Analytics solo con su consentimiento para estadísticas anonimizadas.",
+        "learn_more": "Más información",
+        "decline": "Rechazar",
+        "accept": "Aceptar",
+        "manage": "Gestionar mis cookies"
+    },
+    "common": {
+        "cancel": "Cancelar",
+        "save": "Guardar"
+    },
+    "footer_links": {
+        "legal": "Aviso legal",
+        "privacy": "Política de privacidad",
+        "cookies": "Gestionar mis cookies",
+        "aria_legal": "Aviso legal",
+        "aria_privacy": "Política de privacidad",
+        "aria_cookies": "Gestionar mis cookies"
     }
 }

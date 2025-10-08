@@ -130,9 +130,6 @@
     "studies": "d’études",
     "completed": "complétés",
     "technologies": "Technologies",
-    "present_1": "J’ai commencé à coder au lycée, puis j’ai repris sérieusement via le jeu Minecraft en 2017 jusqu'à maintenant, où j’ai eu l’occasion de",
-    "present_2": "gérer des projets, coder, configurer des serveurs et gérer une équipe",
-    "present_3": ". Cette expérience m’a donné le goût du développement, de l’organisation et du travail en équipe.",
     "Informations": "Informations",
     "Vous avez un projet ?": "Vous avez un projet ?",
     "Qu’il s’agisse d’un site vitrine, d’une application, d’une mission freelance ou d’une opportunité professionnelle, ...": "Qu’il s’agisse d’un site vitrine, d’une application, d’une mission freelance ou d’une opportunité professionnelle, n’hésitez pas à me contacter !",
@@ -140,6 +137,17 @@
     "Disponible pour de nouveaux projets": "Disponible pour de nouveaux projets",
     "Bizarre": "Bizarre",
     "all": "Tous",
+    "presentation": {
+        "text_1": "J’ai commencé à coder au lycée, puis j’ai réellement plongé dans le développement en ",
+        "text_bold_1": "2017 grâce à Minecraft",
+        "text_2": ". Ce jeu m’a permis de ",
+        "text_bold_2": "mener des projets, administrer des serveurs et coordonner une équipe",
+        "text_3": ". C’est cette expérience qui a éveillé ma ",
+        "text_bold_3": "passion pour le code",
+        "text_4": ", l’organisation et le ",
+        "text_bold_4": "travail en équipe",
+        "text_5": ", et qui m’a donné envie d’en faire mon domaine de prédilection."
+    },
     "categories": {
         "All": "Tous",
         "OS": "Systèmes",

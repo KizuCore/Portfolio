@@ -91,7 +91,7 @@ function Presentation({ t }: { t: any }): JSX.Element {
         {t('current_position3')}
       </p>
       <p className="text-justify">
-        {t('present_1')}{' '}<span className="blue">{t('present_2')}</span>{t('present_3')}
+        {t('presentation.text_1')}<span className="blue">{t('presentation.text_bold_1')}</span>{t('presentation.text_2')}<span className="blue">{t('presentation.text_bold_2')}</span>{t('presentation.text_3')}<span className="blue">{t('presentation.text_bold_3')}</span>{t('presentation.text_4')}<span className="blue">{t('presentation.text_bold_4')}</span>{t('presentation.text_5')}
       </p>
     </>
   );

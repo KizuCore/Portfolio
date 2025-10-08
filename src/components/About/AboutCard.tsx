@@ -52,9 +52,8 @@ function AboutCard(): JSX.Element {
                 key={key}
                 onClick={() => setSelectedTab(key as typeof selectedTab)}
                 className={selectedTab === key ? 'active' : ''}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, ease: easeOut }}
+                initial={false}
+                animate={inView ? { opacity: 1 } : {}}
               >
                 {icon} {label}
               </motion.button>
@@ -64,9 +63,8 @@ function AboutCard(): JSX.Element {
 
           <motion.div
             ref={ref}
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: easeOut }}
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
             className="minheight-about"
           >
             {selectedTab === 'presentation' && <Presentation t={t} />}

@@ -82,7 +82,7 @@
     "web_dev_illustration": "Illustration de développement web Théo Guérin",
     "theo_developer": "Avatar de Théo Guérin, Développeur Web",
     "seo_title": "Théo Guérin | Développeur Full-Stack | Portfolio",
-    "seo_description": "Portfolio de Théo Guérin, développeur full-stack, spécialisé en React, Express.js et Flutter. Découvrez mes projets, mon CV et mes compétences.",
+    "seo_description": "Portfolio de Théo Guérin, développeur full-stack, spécialisé en React, Node.js et Flutter. Découvrez mes projets, mon CV et mes compétences.",
     "seo_og_title": "Théo Guérin | Développeur Full-Stack | Portfolio",
     "seo_og_description": "Découvrez le portfolio de Théo Guérin, développeur web passionné. Projets web, technologies maîtrisées, CV en ligne et formulaire de contact.",
     "seo_twitter_title": "Théo Guérin | Développeur Full-Stack | Portfolio",
@@ -168,7 +168,7 @@
     },
     "categories_projects": {
         "lemonmaze_api_title": "LemonMaze API",
-        "lemonmaze_api_description": "API en RESTful sous express.js pour communiquer avec l'application mobile LemonMaze via requêtes HTTP.",
+        "lemonmaze_api_description": "API en RESTful sous node.js pour communiquer avec l'application mobile LemonMaze via requêtes HTTP.",
         "lemonmaze_title": "LemonMaze",
         "lemonmaze_description": "LemonMaze est une application mobile sous Flutter, qui a pour but de faire découvrir Rennes sous une sorte de suites d'énigmes en fonction d'un parcours, avec des récompenses à la clé.",
         "cosmiclink_title": "CosmicLink",

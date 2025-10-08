@@ -27,7 +27,6 @@ const categories = [
 const icons: IconData[] = [
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiFlutter }))), name: "Flutter", level: 3, category: "Front-End" },
   { component: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiReact }))), name: "React", level: 3, category: "Front-End" },
-  { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiExpress }))), name: "Express", level: 3, category: "Back-End" },
   { component: React.lazy(() => import("react-icons/di").then(m => ({ default: m.DiNodejs }))), name: "Node.js", level: 3, category: "Back-End" },
 
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiBootstrap }))), name: "Bootstrap", level: 2, category: "Front-End" },
@@ -53,7 +52,7 @@ const icons: IconData[] = [
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiTailwindcss }))), name: "Tailwind", level: 1, category: "Front-End" },
   { component: React.lazy(() => import("react-icons/fa").then(m => ({ default: m.FaFileExcel }))), name: "VBA", level: 1, category: "Programming Languages" },
 
-  { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiAngular }))), name: "Angular", level: 0, category: "Front-End" },
+  { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiAngular }))), name: "Angular", level: 1, category: "Front-End" },
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiCplusplus }))), name: "C++", level: 0, category: "Programming Languages" },
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiFlask }))), name: "Flask", level: 0, category: "Back-End" },
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiKotlin }))), name: "Kotlin", level: 0, category: "Programming Languages" },
@@ -65,7 +64,8 @@ const icons: IconData[] = [
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiNetlify }))), name: "Netlify", level: 1, category: "Hosting" },
   { component: React.lazy(() => import("react-icons/fa").then(m => ({ default: m.FaAws }))), name: "AWS", level: 1, category: "Hosting" },
   { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiHeroku }))), name: "Heroku", level: 0, category: "Hosting" },
-  { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiGraphql }))), name: "GraphQL", level: 0, category: "Back-End" }
+  { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiGraphql }))), name: "GraphQL", level: 0, category: "Back-End" },
+  { component: React.lazy(() => import("react-icons/si").then(m => ({ default: m.SiRust }))), name: "Rust", level: 0, category: "Back-End" }
 
 ];
 

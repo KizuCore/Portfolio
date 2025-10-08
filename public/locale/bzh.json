@@ -82,7 +82,7 @@
     "web_dev_illustration": "Skeudenn diorroerezh web gant Théo Guérin",
     "theo_developer": "Avatar Théo Guérin, Diorroer Web",
     "seo_title": "Théo Guérin | Diorroer Full-Stack | Portfolio",
-    "seo_description": "Portfolio gant Théo Guérin, diorroer full-stack e React, Express.js ha Flutter. Kit da zizoloiñ ma raktresoù, CV ha barregezhioù.",
+    "seo_description": "Portfolio gant Théo Guérin, diorroer full-stack e React, Node.js ha Flutter. Kit da zizoloiñ ma raktresoù, CV ha barregezhioù.",
     "seo_og_title": "Théo Guérin | Diorroer Full-Stack | Portfolio",
     "seo_og_description": "Kit da welout portfolio Théo Guérin. Raktresoù, Daremprediñ, ha CV.",
     "seo_twitter_title": "Théo Guérin | Diorroer Full-Stack | Portfolio",
@@ -168,7 +168,7 @@
     },
     "categories_projects": {
         "lemonmaze_api_title": "API LemonMaze",
-        "lemonmaze_api_description": "API RESTful gant express.js evit kevreañ ouzh ar meziant LemonMaze dre c'houlennadoù HTTP.",
+        "lemonmaze_api_description": "API RESTful gant node.js evit kevreañ ouzh ar meziant LemonMaze dre c'houlennadoù HTTP.",
         "lemonmaze_title": "LemonMaze",
         "lemonmaze_description": "LemonMaze zo ur meziant hezoug savet gant Flutter evit dizoloiñ Roazhon dre enigmaoù war un hentad, gant profoù da echuiñ.",
         "cosmiclink_title": "CosmicLink",

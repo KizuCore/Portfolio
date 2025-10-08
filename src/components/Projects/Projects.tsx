@@ -41,7 +41,7 @@ const projects = [
     descriptionKey: "categories_projects.library_description",
     ghLink: "https://github.com/KizuCore/MDS-M1-Librairie",
     techStack: [
-      "Express",
+      "NodeJS",
       "Swagger",
       "MySQL",
       "React",
@@ -63,7 +63,7 @@ const projects = [
     titleKey: "categories_projects.lemonmaze_api_title",
     descriptionKey: "categories_projects.lemonmaze_api_description",
     ghLink: "https://github.com/KizuCore/APILemonMaze",
-    techStack: ["Express", "Swagger", "MySQL"],
+    techStack: ["NodeJS", "Swagger", "MySQL"],
   },
   {
     imgPath: badmintonapi,
@@ -71,7 +71,7 @@ const projects = [
     titleKey: "categories_projects.badmintonapi_title",
     descriptionKey: "categories_projects.badmintonapi_description",
     ghLink: "https://github.com/KizuCore/projet-api-badminton",
-    techStack: ["Express", "Swagger", "MySQL", "GraphQL"],
+    techStack: ["NodeJS", "Swagger", "MySQL", "GraphQL"],
   },
   {
     imgPath: cosmiclink,

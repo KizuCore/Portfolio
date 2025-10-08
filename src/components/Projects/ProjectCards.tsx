@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import '../../assets/styles/Projet/Projet.css';
 import { BsGithub, BsYoutube } from "react-icons/bs";
 import {
-  SiFlutter, SiExpress, SiKotlin, SiSwagger, SiVuedotjs,
+  SiFlutter, SiKotlin, SiSwagger, SiVuedotjs,
   SiGoogle, SiSequelize, SiAxios, SiTypescript,
   SiGraphql
 } from "react-icons/si";
@@ -20,7 +20,6 @@ import { FaEye, FaJava } from "react-icons/fa";
 const techIcons: Record<string, React.ComponentType<any>> = {
   Flutter: SiFlutter,
   MySQL: DiMysql,
-  Express: SiExpress,
   Kotlin: SiKotlin,
   Php: DiPhp,
   Java: FaJava,

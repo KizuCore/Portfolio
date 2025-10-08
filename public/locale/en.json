@@ -170,7 +170,7 @@
     },
     "categories_projects": {
         "lemonmaze_api_title": "LemonMaze API",
-        "lemonmaze_api_description": "RESTful API in Express.js to communicate with the LemonMaze mobile app via HTTP requests.",
+        "lemonmaze_api_description": "RESTful API in Node.js to communicate with the LemonMaze mobile app via HTTP requests.",
         "lemonmaze_title": "LemonMaze",
         "lemonmaze_description": "LemonMaze is a Flutter mobile app designed to explore Rennes through a series of puzzles based on a route, with rewards at the end.",
         "cosmiclink_title": "CosmicLink",

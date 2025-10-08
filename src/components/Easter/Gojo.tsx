@@ -98,8 +98,7 @@ export default function GojoCursedTechnique() {
                     <AnimatePresence>
                         {(phase === "converge" || phase === "fuse") && (
                             <motion.div
-                                className="jk-stage"
-                                style={{ filter: "url(#goo)" }}
+                                className="jk-stage has-goo"
                                 initial={{ opacity: 1 }}
                                 animate={{ opacity: phase === "fuse" ? 0.9 : 1 }}
                                 exit={{ opacity: 0, transition: { duration: 0.5 } }}

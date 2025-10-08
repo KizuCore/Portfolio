@@ -174,3 +174,4 @@
   background: #000;
 }
 
+.has-goo { filter: url(#goo); }

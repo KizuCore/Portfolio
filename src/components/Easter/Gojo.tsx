@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Container } from "react-bootstrap";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import "../../assets/styles/Easter/style_easter.css";
-import "../../assets/styles/Easter/Gojo/gojo.css";
+import "../../assets/styles/Easter/Gojo/pojo.css";
 import Particle from "../../utils/Particle";
 
 // Durées clés timeline

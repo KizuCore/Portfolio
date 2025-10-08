@@ -4,10 +4,10 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/Contact/Contact.css';
 import ContactForm from "./ContactForm.tsx";
-import Particle from "../Utils/Particle.js";
 import { motion } from 'framer-motion';
 import '../../assets/styles/Home/Home.css';
 import HomeButtons from "../Home/HomeButtons.tsx";
+import Particle from "../../utils/Particle.tsx";
 
 function Contact(): JSX.Element {
   const { t } = useTranslation();

@@ -2,7 +2,6 @@ import { JSX } from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
 import { easeOut, motion } from 'framer-motion';
-import Particle from "../Utils/Particle.js";
 import Github from "./Github";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
@@ -10,6 +9,7 @@ import Toolstack from "./Toolstack.tsx";
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/About/About.css';
 import SolarSystem from "./SolarSystem.tsx";
+import Particle from "../../utils/Particle.tsx";
 
 
 

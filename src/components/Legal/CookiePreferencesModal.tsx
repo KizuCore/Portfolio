@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { getConsent, updateConsent } from "../Utils/consent";
+import { getConsent, updateConsent } from "../../utils/consent";
 
 export default function CookiePreferencesModal() {
     const { t } = useTranslation();

@@ -1,12 +1,12 @@
 import { Container } from "react-bootstrap";
 import { useRef } from "react";
-import useScrollProgress from "../Utils/useScrollProgress";
 import { useTimelineData } from "./data/timelineData";
 import TimelineItem from "./TimelineItem.tsx";
 import '../../assets/styles/Experience/Experience.css';
-import Particle from "../Utils/Particle.tsx";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import useScrollProgress from "../../utils/useScrollProgress.ts";
+import Particle from "../../utils/Particle.tsx";
 
 const Experience = () => {
   const { t } = useTranslation();

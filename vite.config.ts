@@ -12,7 +12,7 @@ export default defineConfig({
       '@pdf': path.resolve(__dirname, 'src/assets/pdf'),
       '@sound': path.resolve(__dirname, 'src/assets/sound'),
       '@component': path.resolve(__dirname, 'src/components'),
-      '@utils': path.resolve(__dirname, 'src/components/Utils'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
       '@media': path.resolve(__dirname, 'src/assets/media'),
     }
   }

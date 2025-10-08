@@ -3,13 +3,11 @@ import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import Tilt from "react-parallax-tilt";
 import ProjectCard from "./ProjectCards";
-import Particle from "../Utils/Particle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 
 import "../../assets/styles/About/About.css";
 import "../../assets/styles/Projet/Projet.css";
-
 import '../../assets/styles/swiper-global.css';
 
 // Images
@@ -24,6 +22,7 @@ import apibook from "@image/Projects/apibook.webp";
 import flambow from "@image/Projects/flambowImg.webp";
 import badmintonapi from "@image/Projects/badmintonapi.webp";
 import { easeOut, motion } from "framer-motion";
+import Particle from "../../utils/Particle";
 
 const projects = [
   {

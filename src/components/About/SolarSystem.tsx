@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import '../../assets/styles/About/SolarSystem.css';
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import CelestialBody from "../Utils/CelestialBody";
+import CelestialBody from "../../utils/CelestialBody";
 
 
 /* Génération dynamique des astéroïdes */

@@ -4,10 +4,10 @@ import { Document, Page, pdfjs } from "react-pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { useTranslation } from "react-i18next";
 import "react-pdf/dist/Page/AnnotationLayer.css";
-import Particle from "../Utils/Particle.js";
 import "../../assets/styles/CV/CV.css";
 import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import { easeOut, motion } from "framer-motion";
+import Particle from "../../utils/Particle";
 pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
 

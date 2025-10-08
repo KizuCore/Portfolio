@@ -1,8 +1,8 @@
 import { JSX } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import Particle from "../Utils/Particle";
 import "../../assets/styles/Legals/Legals.css";
+import Particle from "../../utils/Particle";
 
 function MentionsLegales(): JSX.Element {
     const { t } = useTranslation();

@@ -5,12 +5,12 @@ import { easeOut, motion, spring, useAnimation } from 'framer-motion';
 
 import LogoDeveloper from "../../assets/images/logodev.svg"
 import Tilt from "react-parallax-tilt";
-import Particle from "../Utils/Particle.js";
 import TypeDev from "./Type.tsx";
 import '../../assets/styles/Home/Home.css';
 import { useInView } from 'react-intersection-observer';
 import HomeButtons from "./HomeButtons.tsx";
 import HomeStats from "./CountUp.tsx";
+import Particle from "../../utils/Particle.tsx";
 
 function Home(): JSX.Element {
   const { t } = useTranslation();

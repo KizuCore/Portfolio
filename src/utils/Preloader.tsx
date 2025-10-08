@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/styles/Preloader/Preloader.css";
+import "../assets/styles/Preloader/Preloader.css";
 import LogoSVG from "./LogoSVG";
 
 interface PreloaderProps {

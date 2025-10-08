@@ -1,14 +1,11 @@
 import { useState, useEffect, Suspense, lazy } from "react";
-import Preloader from "./components/Utils/Preloader.tsx";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import type { Engine } from "@tsparticles/engine";
-import ScrollToTop from "./components/Utils/ScrollToTop.tsx";
 import "./assets/styles/style.css";
 import "./assets/styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import useKonamiCode from "./components/Utils/Konami.tsx";
 import VideoPopup from "./components/Easter/Video.tsx";
 import NavBar from "./components/Header/Navbar/Navbar.tsx";
 import Footer from "./components/Footer/Footer.tsx";
@@ -17,6 +14,9 @@ import MentionsLegales from "./components/Legal/MentionsLegales.tsx";
 import PolitiqueConfidentialite from "./components/Legal/PolitiqueConfidentialite.tsx";
 import CookieBanner from "./components/Legal/CookieBanner.tsx";
 import CookiePreferencesModal from "./components/Legal/CookiePreferencesModal.tsx";
+import Preloader from "./utils/Preloader.tsx";
+import ScrollToTop from "./utils/ScrollToTop.tsx";
+import useKonamiCode from "./utils/Konami.tsx";
 
 // Lazy load des composants de page
 const Home = lazy(() => import("./components/Home/Home.tsx"));

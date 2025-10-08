@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { updateConsent } from "../Utils/consent";
+import { updateConsent } from "../../utils/consent";
 
 const LS_KEY = "cookie-consent";
 

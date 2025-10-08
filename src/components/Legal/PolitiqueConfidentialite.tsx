@@ -10,17 +10,15 @@ function PolitiqueConfidentialite(): JSX.Element {
     const email = "theo.guerin35000@gmail.com";
 
     return (
-        <Container fluid className="about-section mt-5" id="politique-confidentialite">
+        <Container fluid className="about-section pt-5 mb-4" id="mentions-legales">
             <Particle />
-            <div className="background-dim" />
             <Container className="home-content pt-md-0 pt-5 mt-3 mt-md-0">
                 <Row className="justify-content-center p-0">
+                    <h1 className="custom-title pb-5 pt-5 mt-5">
+                        {t("politique_confidentialite.title")}
+                    </h1>
                     <Col md={10} lg={9}>
                         <div className="background-box-2">
-                            <h1 className="custom-title pb-3">
-                                {t("politique_confidentialite.title")}
-                            </h1>
-
                             <div className="contact-info-box">
                                 {/* 1. Responsable */}
                                 <section className="mb-4">

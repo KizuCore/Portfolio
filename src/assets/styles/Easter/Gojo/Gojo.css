@@ -1,0 +1,176 @@
+/* ========================
+   CONTENEUR / FOND / VIGNETTE
+======================== */
+.jk-wrapper {
+  position: relative;
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.jk-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(1200px 800px at 50% 20%, rgba(140, 79, 255, 0.12), transparent 50%),
+    radial-gradient(800px 600px at 20% 80%, rgba(40, 120, 255, 0.08), transparent 60%),
+    radial-gradient(1000px 600px at 80% 70%, rgba(255, 60, 160, 0.06), transparent 60%),
+    #0b0b12;
+  animation: jk-bg-pan 22s linear infinite;
+  mix-blend-mode: screen;
+}
+@keyframes jk-bg-pan {
+  0% { transform: translateY(0) }
+  50% { transform: translateY(-1.2%) }
+  100% { transform: translateY(0) }
+}
+
+.jk-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 100%);
+}
+
+.jk-pretitle { text-align: center; z-index: 2; position: relative; }
+
+/* ========================
+   STAGES / LAYERS
+======================== */
+.jk-stage, .jk-center, .jk-video { position: relative; z-index: 2; }
+.jk-stage { width: min(1200px, 92vw); height: min(520px, 60vh); }
+
+/* Debug */
+/* .jk-stage { outline: 1px dashed rgba(255,255,255,.25); }
+.sphere { outline: 1px solid rgba(255,255,255,.2); } */
+
+/* ========================
+   FLASH / SHOCKWAVE / SHAKE
+======================== */
+.jk-center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.jk-flash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.9), rgba(255,255,255,0.0));
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.jk-shockwave {
+  position: absolute;
+  left: calc(50% - 75px);
+  top: calc(50% - 75px);
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  border: 3px solid rgba(168, 65, 255, 0.9);
+  border-radius: 50%;
+  box-shadow:
+    0 0 40px rgba(168, 65, 255, 0.9),
+    inset 0 0 40px rgba(255, 255, 255, 0.25);
+  filter: blur(0.3px);
+}
+
+
+.jk-shake-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ========================
+   GLITCH TEXTE
+======================== */
+.jk-glitch {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.jk-glitch::before,
+.jk-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  clip-path: inset(0 0 0 0);
+  opacity: 0.65;
+}
+.jk-glitch::before { transform: translate(1px, -1px); mix-blend-mode: screen; text-shadow: -1px 0 #8ad; }
+.jk-glitch::after { transform: translate(-1px, 1px); mix-blend-mode: screen; text-shadow: 1px 0 #f7a; }
+
+/* ========================
+   TRAÎNÉES
+======================== */
+.jk-trail { position: absolute; inset: 0; }
+.jk-trail-dot { opacity: 0.18; filter: blur(0.2px); }
+
+/* ========================
+   SPHÈRES
+======================== */
+.sphere {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.45);
+  left: calc(50% - 75px);
+  top: calc(50% - 75px);
+}
+
+/* Rouge */
+.red-sphere {
+  width: 110px; height: 110px;
+  background:
+    radial-gradient(circle at 30% 30%, #f77986, #e21c1c 55%, #8a0404 100%);
+  box-shadow:
+    0 0 28px rgba(255, 50, 50, 0.7),
+    inset 0 0 12px rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255,255,255,0.18);
+}
+
+/* Bleu */
+.blue-sphere {
+  width: 110px; height: 110px;
+  background:
+    radial-gradient(circle at 30% 30%, #9dd0ff, #2b6fe6 55%, #052d78 100%);
+  box-shadow:
+    0 0 28px rgba(30, 111, 255, 0.7),
+    inset 0 0 12px rgba(255,255,255,0.3);
+  border: 2px solid rgba(255,255,255,0.18);
+}
+
+/* Violette (noyau) */
+.purple-sphere {
+  width: 160px; height: 160px;
+  left: calc(50% - 100px); top: calc(50% - 100px);
+  background:
+    radial-gradient(circle at 35% 35%, #e1b2ff, #8738ee 55%, #5b06c8 100%);
+  box-shadow:
+    0 0 28px rgba(165, 34, 252, 0.6),
+    inset 0 0 18px rgba(255,255,255,0.35);
+  border: 2px solid rgba(255,255,255,0.22);
+}
+
+/* ========================
+   VIDÉO
+======================== */
+.jk-video { will-change: transform, filter, opacity; }
+.video-container iframe {
+  width: min(960px, 88vw);
+  height: min(540px, 50vh);
+  border: none;
+  border-radius: 16px;
+  box-shadow:
+    0 16px 60px rgba(120, 60, 200, 0.45),
+    0 8px 22px rgba(0,0,0,0.35);
+  background: #000;
+}
+

@@ -5,47 +5,6 @@
   font-size: 2.5em;
 }
 
-
-/* ========================
-   SPHÈRES COLORÉES ANIMÉES
-======================== */
-.sphere {
-  position: absolute;
-  border-radius: 50%;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-}
-
-/* Sphère rouge */
-.red-sphere {
-  width: 100px;
-  height: 100px;
-  left: calc(50% - 100px);
-  background: radial-gradient(circle at 30% 30%, #f56470, #dd1a1a, #990202);
-  box-shadow: 0px 0px 25px rgba(255, 46, 46, 0.8), inset 0px 0px 10px rgba(255, 255, 255, 0.3);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Sphère bleue */
-.blue-sphere {
-  width: 100px;
-  height: 100px;
-  right: calc(50% - 100px);
-  background: radial-gradient(circle at 30% 30%, #95caff, #2a6ad8, #02266e);
-  box-shadow: 0px 0px 25px rgba(30, 111, 255, 0.8), inset 0px 0px 10px rgba(255, 255, 255, 0.3);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Sphère violette */
-.purple-sphere {
-  width: 150px;
-  height: 150px;
-  left: calc(50% - 75px);
-  background: radial-gradient(circle at 30% 30%, #d28eff, #7826ca, #5a02c5);
-  box-shadow: 0px 0px 25px #a522fc8e, inset 0px 0px 15px rgba(255, 255, 255, 0.3);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-
 /* ========================
    VIDÉO RESPONSIVE
 ======================== */
@@ -98,12 +57,12 @@
   cursor: grab !important;
 }
 
-/* Lance l'animation après 2 secondes */
+/* Lance animation après 2 sec */
 .logo-container.start-border-animation {
   animation: imgTurn 8s linear infinite 2s;
 }
 
-/* Animation de rotation autour du logo */
+/* Animation rotation autour du logo */
 @keyframes imgTurn {
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -114,7 +73,7 @@
    POPUP / MODALE
 ======================== */
 
-/* En-tête et pied de modale (arc-en-ciel) */
+/* En-tête et pied modale */
 .modal-header-grey,
 .modal-footer-grey {
   background: linear-gradient(
@@ -130,7 +89,7 @@
   color: white;
 }
 
-/* Contenu de la modale (arc-en-ciel transparent) */
+/* Contenu modale */
 .modal-body-grey {
   background: linear-gradient(
     90deg,
@@ -144,7 +103,7 @@
   );
 }
 
-/* Bouton de fermeture de la modale */
+/* Bouton fermeture modale */
 .modal-header .btn-close {
   padding-left: 2em;
   opacity: 0.7;

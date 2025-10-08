@@ -2,8 +2,8 @@ import { JSX, useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
 import video from "@media/secret.mp4";
-import WavyText from "./WayText";
 import Particle from "../../utils/Particle";
+import WavyText from "./WavyText";
 
 function RouteSecret(): JSX.Element {
   const [preloading, setPreloading] = useState(true);

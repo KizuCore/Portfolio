@@ -1,7 +1,7 @@
 import { JSX, useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import Card from 'react-bootstrap/Card';
-import { easeOut, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/About/About.css';
 import secretSound from '@sound/voice.mp3';

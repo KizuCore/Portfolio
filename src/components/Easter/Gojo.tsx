@@ -19,6 +19,8 @@ export default function GojoCursedTechnique() {
     const prefersReduced = useReducedMotion();
     const [phase, setPhase] = useState<"preload" | "converge" | "fuse" | "shock" | "video">("preload");
 
+
+
     // Lance timeline une fois
     useEffect(() => {
         let t1: any, t2: any, t3: any, t4: any;
@@ -103,35 +105,33 @@ export default function GojoCursedTechnique() {
                                 animate={{ opacity: phase === "fuse" ? 0.9 : 1 }}
                                 exit={{ opacity: 0, transition: { duration: 0.5 } }}
                             >
-                                {/* Traînées */}
-                                <Trail colorClass="red-sphere" side="left" />
-                                <Trail colorClass="blue-sphere" side="right" />
 
-                                {/* Sphère rouge */}
                                 <motion.div
                                     className="sphere red-sphere"
+                                    style={{ position: "absolute", top: "50%", left: "50%", y: "-50%", x: "-50%" }}  // <-- centre fixe
                                     {...sphereBase}
-                                    initial={{ x: "-28vw", scale: 0.9, opacity: 0.85 }}
+                                    initial={{ x: "calc(-50% - 28vw)", scale: 0.9, opacity: 0.85 }}  // part à gauche
                                     animate={{
-                                        x: 0,
+                                        x: "-50%",  // revient au centre sans toucher Y
                                         scale: phase === "fuse" ? 1.15 : 1,
                                         opacity: phase === "fuse" ? 0.9 : 1,
                                         transition: { duration: T.converge / 1000, ease: "easeInOut" },
                                     }}
                                 />
 
-                                {/* Sphère bleue */}
                                 <motion.div
                                     className="sphere blue-sphere"
+                                    style={{ position: "absolute", top: "50%", left: "50%", y: "-50%", x: "-50%" }}
                                     {...sphereBase}
-                                    initial={{ x: "28vw", scale: 0.9, opacity: 0.85 }}
+                                    initial={{ x: "calc(-50% + 28vw)", scale: 0.9, opacity: 0.85 }}  // part à droite
                                     animate={{
-                                        x: 0,
+                                        x: "-50%",
                                         scale: phase === "fuse" ? 1.15 : 1,
                                         opacity: phase === "fuse" ? 0.9 : 1,
                                         transition: { duration: T.converge / 1000, ease: "easeInOut" },
                                     }}
                                 />
+
                             </motion.div>
                         )}
                     </AnimatePresence>
@@ -160,6 +160,7 @@ export default function GojoCursedTechnique() {
                                 {/* Purple core avec bloom + pulsation */}
                                 <motion.div
                                     className="sphere purple-sphere jk-bloom"
+                                    style={{ position: "absolute", top: "50%", left: "50%", x: "-50%", y: "-50%" }}
                                     initial={{ scale: 0, opacity: 0 }}
                                     animate={{
                                         scale: phase === "fuse" ? [0.2, 1.15, 1] : [1, 1.03, 1],
@@ -178,19 +179,31 @@ export default function GojoCursedTechnique() {
                                     }}
                                 />
 
+
                                 {/* Anneau de choc */}
                                 <AnimatePresence>
+                                    {/* Shockwave */}
                                     {phase === "shock" && (
                                         <motion.div
                                             className="jk-shockwave"
+                                            style={{
+                                                position: "absolute",
+                                                top: "50%",
+                                                left: "50%",
+                                                x: "-50%",
+                                                y: "-50%",
+                                                transformOrigin: "50% 50%",
+                                                boxSizing: "border-box",
+                                            }}
                                             initial={{ scale: 0.2, opacity: 0.9 }}
                                             animate={{ scale: 12, opacity: 0 }}
                                             transition={{ duration: T.shock / 1000, ease: "easeOut" }}
                                         />
                                     )}
+
                                 </AnimatePresence>
 
-                                {/* Camera shake subtil pendant le choc */}
+                                {/* Camera shake  */}
                                 {phase === "shock" && (
                                     <motion.div
                                         className="jk-shake-overlay"
@@ -239,7 +252,7 @@ export default function GojoCursedTechnique() {
 
 /* ———————— Sous-composants —————————— */
 
-// Texte glitch léger pour le preload
+// Texte glitch léger
 function GlitchText({ text }: { text: string }) {
     return (
         <span className="jk-glitch" data-text={text}>
@@ -248,20 +261,4 @@ function GlitchText({ text }: { text: string }) {
     );
 }
 
-// Traînée dynamique à gauche/droite pendant la convergence
-function Trail({ colorClass, side }: { colorClass: "red-sphere" | "blue-sphere"; side: "left" | "right" }) {
-    const offset = side === "left" ? -1 : 1;
-    return (
-        <div className="jk-trail">
-            {Array.from({ length: 4 }).map((_, i) => (
-                <motion.div
-                    key={i}
-                    className={`sphere ${colorClass} jk-trail-dot`}
-                    initial={{ x: `${offset * (32 - i * 6)}vw`, scale: 0.8 - i * 0.06, opacity: 0.16 + i * 0.14 }}
-                    animate={{ x: 0 }}
-                    transition={{ duration: 1.2 + i * 0.08, ease: "easeOut" }}
-                />
-            ))}
-        </div>
-    );
-}
+

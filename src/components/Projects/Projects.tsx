@@ -122,6 +122,7 @@ const projects = [
     titleKey: "categories_projects.portfolio_v1_title",
     descriptionKey: "categories_projects.portfolio_v1_description",
     ghLink: "https://github.com/KizuCore/Old-PortFolio",
+    seeLink: "https://theo-guerin.netlify.app/",
     techStack: ["Vuejs", "Javascript", "Html", "Css"],
   },
 ];

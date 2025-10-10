@@ -197,11 +197,11 @@
         "last_update": "Última actualización: {{date}}",
         "editor": {
             "title": "1. Editor del sitio",
-            "site": "Sitio: theo-guerin.fr",
-            "publisher": "Editor: Théo Guérin (portafolio personal)",
-            "address": "Dirección: No publicada. De conformidad con la ley francesa (LCEN), el alojador conserva la información de identificación y puede comunicarla a las autoridades competentes previa solicitud.",
-            "contact": "Contacto: theo.guerin35000@gmail.com",
-            "director": "Director de la publicación: Théo Guérin"
+            "site": "Sitio web: theo-guerin.fr",
+            "publisher": "Editor: Théo Guérin – Empresario individual (KizuCore)",
+            "address": "Dirección no publicada, conforme al artículo 6 III-2 de la ley francesa n°2004-575. El alojamiento conserva los datos completos.",
+            "contact": "Correo electrónico: theo.guerin35000@gmail.com",
+            "director": "Director de publicación: Théo Guérin"
         },
         "host": {
             "title": "2. Alojamiento",
@@ -252,7 +252,8 @@
             "title": "11. Contacto",
             "text": "Para cualquier solicitud: theo.guerin35000@gmail.com"
         },
-        "reference_clause": "En caso de discrepancia entre las traducciones, prevalece la versión francesa."
+        "reference_clause": "En caso de discrepancia entre las traducciones, prevalece la versión francesa.",
+        "business_info": "KizuCore es una marca utilizada por Théo Guérin en el marco de su actividad de empresario individual registrada bajo el SIRET 992 406 397 00016."
     },
     "politique_confidentialite": {
         "title": "Política de privacidad",

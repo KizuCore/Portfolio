@@ -230,8 +230,8 @@
         "editor": {
             "title": "1. Éditeur du site",
             "site": "Site : theo-guerin.fr",
-            "publisher": "Éditeur : Théo Guérin (site personnel / portfolio)",
-            "address": "Adresse : Adresse non publiée. Conformément à la LCEN, l’hébergeur détient les informations d’identification et peut les communiquer aux autorités compétentes sur réquisition.",
+            "publisher": "Éditeur : Théo Guérin – Entrepreneur individuel (KizuCore)",
+            "address": "Adresse non publiée, conformément à l’article 6 III-2 de la loi n°2004-575 du 21 juin 2004. L’hébergeur détient les informations complètes.",
             "contact": "Contact : theo.guerin35000@gmail.com",
             "director": "Directeur de la publication : Théo Guérin"
         },
@@ -284,7 +284,8 @@
             "title": "11. Contact",
             "text": "Pour toute demande : theo.guerin35000@gmail.com"
         },
-        "reference_clause": "En cas de divergence entre les traductions, la version française fait foi."
+        "reference_clause": "En cas de divergence entre les traductions, la version française fait foi.",
+        "business_info": "KizuCore est une marque commerciale utilisée par Théo Guérin dans le cadre de son activité d'entrepreneur individuel enregistrée sous le SIRET 992 406 397 00016."
     },
     "politique_confidentialite": {
         "title": "Politique de confidentialité",

@@ -25,7 +25,7 @@ function MentionsLegales(): JSX.Element {
                                     <h2 className="h4">{t("mentions_legales.editor.title")}</h2>
                                     <p>{t("mentions_legales.editor.site")}</p>
                                     <p>{t("mentions_legales.editor.publisher")}</p>
-                                    <p className="text-justify">{t("mentions_legales.editor.address")}</p>
+                                    <p>{t("mentions_legales.editor.address")}</p>
                                     <p>{t("mentions_legales.editor.contact")}</p>
                                     <p>{t("mentions_legales.editor.director")}</p>
                                 </section>
@@ -50,55 +50,55 @@ function MentionsLegales(): JSX.Element {
                                 {/* 4. Statut du site */}
                                 <section className="mb-4">
                                     <h2 className="h4">{t("mentions_legales.status.title")}</h2>
-                                    <p className="text-justify">{t("mentions_legales.status.text")}</p>
+                                    <p>{t("mentions_legales.status.text")}</p>
                                 </section>
 
                                 {/* 5. Propriété intellectuelle */}
                                 <section className="mb-4 ">
                                     <h2 className="h4">{t("mentions_legales.ip.title")}</h2>
-                                    <p className="text-justify">{t("mentions_legales.ip.text")}</p>
+                                    <p>{t("mentions_legales.ip.text")}</p>
                                 </section>
 
                                 {/* 6. Liens externes */}
                                 <section className="mb-4">
                                     <h2 className="h4">{t("mentions_legales.links.title")}</h2>
-                                    <p className="text-justify">{t("mentions_legales.links.text")}</p>
+                                    <p>{t("mentions_legales.links.text")}</p>
                                 </section>
 
                                 {/* 7. Données personnelles */}
                                 <section className="mb-4">
                                     <h2 className="h4">{t("mentions_legales.privacy.title")}</h2>
-                                    <p className="text-justify">{t("mentions_legales.privacy.p1")}</p>
-                                    <p className="text-justify">{t("mentions_legales.privacy.p2")}</p>
-                                    <p className="text-justify">{t("mentions_legales.privacy.p3")}</p>
+                                    <p>{t("mentions_legales.privacy.p1")}</p>
+                                    <p>{t("mentions_legales.privacy.p2")}</p>
+                                    <p>{t("mentions_legales.privacy.p3")}</p>
                                 </section>
 
                                 {/* 8. Cookies & Analytics */}
                                 <section className="mb-4">
                                     <h2 className="h4">{t("mentions_legales.cookies.title")}</h2>
-                                    <p className="text-justify">{t("mentions_legales.cookies.p1")}</p>
-                                    <p className="text-justify">{t("mentions_legales.cookies.p2")}</p>
-                                    <p className="text-justify">{t("mentions_legales.cookies.p3")}</p>
+                                    <p>{t("mentions_legales.cookies.p1")}</p>
+                                    <p>{t("mentions_legales.cookies.p2")}</p>
+                                    <p>{t("mentions_legales.cookies.p3")}</p>
                                 </section>
 
                                 {/* 9. Sécurité */}
                                 <section className="mb-4">
                                     <h2 className="h4">{t("mentions_legales.security.title")}</h2>
-                                    <p className="text-justify">{t("mentions_legales.security.text")}</p>
+                                    <p>{t("mentions_legales.security.text")}</p>
                                 </section>
 
                                 {/* 10. Droit applicable */}
                                 <section className="mb-4">
                                     <h2 className="h4">{t("mentions_legales.law.title")}</h2>
-                                    <p className="text-justify">{t("mentions_legales.law.text")}</p>
+                                    <p>{t("mentions_legales.law.text")}</p>
                                 </section>
 
                                 {/* 11. Contact */}
                                 <section className="mb-2">
                                     <h2 className="h4">{t("mentions_legales.contact.title")}</h2>
-                                    <p className="text-justify">{t("mentions_legales.contact.text")}</p>
+                                    <p>{t("mentions_legales.contact.text")}</p>
                                 </section>
-                                <p className="mt-5 text-justify">{t("mentions_legales.business_info")}</p>
+                                <p className="mt-5">{t("mentions_legales.business_info")}</p>
 
                                 {/* Clause de référence */}
                                 <p className="mt-3">

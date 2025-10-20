@@ -1,31 +1,35 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import Backend from 'i18next-http-backend';
 
-// Initialisation d'i18next
-i18n
-  .use(Backend)
+import fr from './locale/fr.json';
+import en from './locale/en.json';
+import es from './locale/es.json';
 
-  .use(LanguageDetector) // Détection de la langue navigateur
-  .use(initReactI18next)
-  .init({
-    fallbackLng: 'en', // Langue par défaut si non détectée
-    load: 'languageOnly', // Charger uniquement la langue sans le pays
-    debug: import.meta.env.MODE === 'development',
-
-    backend: {
-      loadPath: '/locale/{{lng}}.json',
-    },
-
-    interpolation: {
-      escapeValue: false,
-    },
-
-    detection: {
-      order: ['localStorage', 'navigator'],
-      caches: ['localStorage'],
-    },
-  });
+if (!i18n.isInitialized) {
+  i18n
+    .use(LanguageDetector)
+    .use(initReactI18next)
+    .init({
+      resources: {
+        fr: { translation: fr },
+        en: { translation: en },
+        es: { translation: es },
+      },
+      supportedLngs: ['fr', 'en', 'es'],
+      fallbackLng: 'en',
+      load: 'languageOnly',
+      debug: import.meta.env.MODE === 'development',
+      interpolation: { escapeValue: false },
+      detection: {
+        order: ['path', 'localStorage', 'navigator'],
+        caches: ['localStorage'],
+        lookupFromPathIndex: 0, 
+      },
+      react: {
+        useSuspense: false,
+      },
+    });
+}
 
 export default i18n;

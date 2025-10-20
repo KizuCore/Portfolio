@@ -5,6 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import fr from './locale/fr.json';
 import en from './locale/en.json';
 import es from './locale/es.json';
+import bzh from './locale/bzh.json';
 
 if (!i18n.isInitialized) {
   i18n
@@ -15,8 +16,9 @@ if (!i18n.isInitialized) {
         fr: { translation: fr },
         en: { translation: en },
         es: { translation: es },
+        bzh: { translation: bzh },
       },
-      supportedLngs: ['fr', 'en', 'es'],
+      supportedLngs: ['fr', 'en', 'es','bzh'],
       fallbackLng: 'en',
       load: 'languageOnly',
       debug: import.meta.env.MODE === 'development',

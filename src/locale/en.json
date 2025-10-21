@@ -354,7 +354,8 @@
         "learn_more": "Learn more",
         "decline": "Decline",
         "accept": "Accept",
-        "manage": "Manage my cookies"
+        "manage": "Manage my cookies",
+        "aria-label":"Cookie management banner"
     },
     "common": {
         "cancel": "Cancel",

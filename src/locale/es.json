@@ -320,7 +320,8 @@
         "learn_more": "Más información",
         "decline": "Rechazar",
         "accept": "Aceptar",
-        "manage": "Gestionar mis cookies"
+        "manage": "Gestionar mis cookies",
+        "aria-label":"Banner de gestión de cookies"
     },
     "common": {
         "cancel": "Cancelar",

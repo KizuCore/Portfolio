@@ -352,7 +352,8 @@
         "learn_more": "Gouzout hiroc'h",
         "decline": "Nac'hañ",
         "accept": "Asantiñ",
-        "manage": "Merañ ma zoupinoù"
+        "manage": "Merañ ma zoupinoù",
+        "aria-label":"Bann titour diwar-benn ar c’houkedoù"
     },
     "common": {
         "cancel": "Nullañ",

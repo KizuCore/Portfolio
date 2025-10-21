@@ -352,7 +352,8 @@
         "learn_more": "En savoir plus",
         "decline": "Refuser",
         "accept": "Accepter",
-        "manage": "Gérer mes cookies"
+        "manage": "Gérer mes cookies",
+        "aria-label":"Bandeau de gestion des cookies"
     },
     "common": {
         "cancel": "Annuler",

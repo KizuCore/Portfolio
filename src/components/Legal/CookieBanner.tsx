@@ -19,9 +19,9 @@ export default function CookieBanner() {
   return (
     <div
       className="cookie-banner"
-      role="dialog"
+      role="region"
       aria-live="polite"
-      aria-label="Bandeau d'information sur les cookies"
+      aria-label={t("cookie_banner.aria_label", "Bandeau d'information sur les cookies")}
       style={{
         position: "fixed",
         left: 0,
@@ -40,8 +40,9 @@ export default function CookieBanner() {
             href="/politique-de-confidentialite"
             className="ms-2 text-decoration-underline"
             style={{ color: "#ddd" }}
+            aria-label={t("footer_links.privacy", "Politique de confidentialité")}
           >
-            {t("cookie_banner.learn_more")}
+            {t("footer_links.privacy", "Politique de confidentialité")}
           </a>
         </div>
 
@@ -55,6 +56,7 @@ export default function CookieBanner() {
           >
             {t("cookie_banner.decline")}
           </button>
+
           <button
             className="btn btn-primary btn-sm"
             onClick={() => {

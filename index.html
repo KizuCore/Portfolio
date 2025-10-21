@@ -14,97 +14,91 @@
   <link rel="icon" href="/images/favicon/android-chrome-512x512.png" sizes="512x512" type="image/png" />
   <!-- Manifest -->
   <link rel="manifest" href="/images/favicon/site.webmanifest" />
+  <!-- LCP image -->
   <link rel="preload" as="image" href="./src/assets/images/logodev.svg" fetchpriority="high" />
-
-
-  
 
   <!-- Meta Tags -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
 
-  <!-- Description SEO par défaut FR (modif via react = MVR) -->
+  <!-- SEO par défaut FR -->
   <meta name="description" content="Portfolio de Théo Guérin, développeur full-stack, spécialisé en React, Node.js et Flutter. Découvrez mes projets, mon CV et mes compétences.">
   <meta name="robots" content="index, follow">
-  
-  <!-- Canonical URL -->
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://theo-guerin.fr" />
 
-  <!-- Titre par défaut FR (MVR) -->
   <title>Théo Guérin | Développeur Full-Stack | Portfolio</title>
 
-  <!-- Open Graph Tags par défaut (MVR) -->
-  <!-- Google / Search Engine Tags -->
+  <!-- Open Graph / Twitter -->
   <meta itemprop="name" content="Théo Guérin | Développeur Full-Stack | Portfolio">
   <meta itemprop="description" content="Découvrez le Portfolio de Théo Guérin, développeur full-stack. Projets, Contact, CV, et plus encore.">
   <meta itemprop="image" content="https://theo-guerin.fr/images/preview/previewsite.png">
-
-  <!-- Facebook Meta Tags -->
   <meta property="og:url" content="https://theo-guerin.fr">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Théo Guérin | Développeur Full-Stack | Portfolio">
-  <meta property="og:description" content="Découvrez le portfolio de Théo Guérin, développeur web passionné. Projets web, technologies maîtrisées, CV en ligne et formulaire de contact.">
+  <meta property="og:description" content="Découvrez le portfolio de Théo Guérin, développeur web passionné. Projets web, technologies maîtrisées, CV en ligne et formulaire de contact.
+  ">
   <meta property="og:image" content="https://theo-guerin.fr/images/preview/previewsite.png">
-
-  <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Théo Guérin | Développeur Full-Stack | Portfolio">
   <meta name="twitter:description" content="Découvrez le portfolio de Théo Guérin, développeur web passionné. Projets web, technologies maîtrisées, CV en ligne et formulaire de contact.">
   <meta name="twitter:image" content="https://theo-guerin.fr/images/preview/previewsite.png">
 
-  <!-- Preload Google Fonts -->
+  <!-- Google Fonts : preconnect + link (swap) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&display=swap" rel="stylesheet">
-  
-  <!-- Google tag (gtag.js) -->
+
+  <!-- CSS principal : preload + print-swap pour éviter le blocage de rendu -->
+  <link rel="preload" as="style" href="/assets/index-BSTny23I.css">
+  <link rel="stylesheet" href="/assets/index-BSTny23I.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/assets/index-BSTny23I.css"></noscript>
+
+  <!-- Google Analytics (GA4) + Consent Mode (par défaut: denied) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+
+    // Consent par défaut : tout refusé (sauf security_storage)
+    gtag('consent','default',{
+      ad_storage:'denied',
+      analytics_storage:'denied',
+      functionality_storage:'denied',
+      personalization_storage:'denied',
+      security_storage:'granted'
+    });
+  </script>
+  <!-- Charge gtag.js UNE SEULE FOIS, avec le vrai ID -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V5X3P7LFL6"></script>
-<!-- Google Analytics (GA4) + Consent Mode (par défaut: denied) -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-V5X3P7LFL6');
 
-  // Consent par défaut : rien
-  gtag('consent','default',{
-    ad_storage:'denied',
-    analytics_storage:'denied',
-    functionality_storage:'denied',
-    personalization_storage:'denied',
-    security_storage:'granted'
-  });
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-
-  // Réapplique le choix utilisateur si déjà enregistré
-  (function(){
-    try {
-      var saved = localStorage.getItem('cookie-consent');
-      if (saved === 'granted') {
-        gtag('consent','update',{
-          ad_storage:'denied',
-          analytics_storage:'granted',
-          functionality_storage:'granted',
-          personalization_storage:'denied',
-          security_storage:'granted'
-        });
-      } else if (saved === 'denied') {
-        gtag('consent','update',{
-          ad_storage:'denied',
-          analytics_storage:'denied',
-          functionality_storage:'denied',
-          personalization_storage:'denied',
-          security_storage:'granted'
-        });
-      }
-    } catch(e){}
-  })();
-</script>
-
-
-
+    // Réapplique le choix utilisateur si déjà enregistré
+    (function(){
+      try {
+        var saved = localStorage.getItem('cookie-consent');
+        if (saved === 'granted') {
+          gtag('consent','update',{
+            ad_storage:'denied',
+            analytics_storage:'granted',
+            functionality_storage:'granted',
+            personalization_storage:'denied',
+            security_storage:'granted'
+          });
+        } else if (saved === 'denied') {
+          gtag('consent','update',{
+            ad_storage:'denied',
+            analytics_storage:'denied',
+            functionality_storage:'denied',
+            personalization_storage:'denied',
+            security_storage:'granted'
+          });
+        }
+      } catch(e){}
+    })();
+  </script>
 </head>
 
 <body>

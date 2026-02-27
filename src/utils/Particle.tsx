@@ -1,5 +1,6 @@
 import { useEffect, useId, useMemo, useState } from "react";
 import React from "react";
+import { createPortal } from "react-dom";
 import { Particles, initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import type { DestroyType, ISourceOptions, MoveDirection } from "@tsparticles/engine";
@@ -106,14 +107,15 @@ function Particle() {
     [isMobile]
   );
 
-  if (!isReady || prefersReducedMotion) {
+  if (!isReady || prefersReducedMotion || typeof document === "undefined") {
     return null;
   }
 
-  return (
+  return createPortal(
     <div className="particles-layer" aria-hidden="true">
       <Particles id={`particles-${particleId}`} options={particleOptions} />
-    </div>
+    </div>,
+    document.body
   );
 }
 

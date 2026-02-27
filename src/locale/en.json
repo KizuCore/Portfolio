@@ -361,6 +361,36 @@
         "cancel": "Cancel",
         "save": "Save"
     },
+    "a11y": {
+        "skip_to_content": "Skip to content",
+        "back_to_top": "Back to top",
+        "nav_menu_toggle": "Open or close navigation menu",
+        "loading_content": "Loading content"
+    },
+    "services": {
+        "eyebrow": "What I deliver",
+        "title": "Services",
+        "subtitle": "I design and build robust, accessible and high-performance web products from strategy to launch.",
+        "cta": "Discuss your project",
+        "items": {
+            "websites": {
+                "title": "Premium websites",
+                "description": "Landing pages and company sites focused on speed, SEO and conversion."
+            },
+            "apps": {
+                "title": "React web apps",
+                "description": "Modern interfaces, maintainable components and smooth UX on desktop and mobile."
+            },
+            "api": {
+                "title": "API & backend",
+                "description": "Node.js architecture, auth, database design and clean endpoints for a solid foundation."
+            },
+            "optimization": {
+                "title": "Technical SEO",
+                "description": "One-time SEO setup (tags, structure, performance)."
+            }
+        }
+    },
     "footer_links": {
         "legal": "Legal notice",
         "privacy": "Privacy policy",
@@ -370,3 +400,4 @@
         "aria_cookies": "Manage my cookies"
     }
 }
+

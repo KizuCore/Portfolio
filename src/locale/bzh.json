@@ -359,6 +359,35 @@
         "cancel": "Nullañ",
         "save": "Enrollañ"
     },
+    "a11y": {
+        "skip_to_content": "Mont d'an danvez",
+        "back_to_top": "Distreiñ d'ar penn",
+        "nav_menu_toggle": "Digeriñ pe serriñ lañser ar menu",
+        "loading_content": "O kargañ an danvez"
+    },
+    "services": {
+        "title": "Servijoù",
+        "subtitle": "Sevel a ran produioù web kreñv, aes da implijout ha buan, eus an idea betek ar produadur.",
+        "cta": "Kaozeal diwar-benn ho raktres",
+        "items": {
+            "websites": {
+                "title": "Lec'hiennoù premium",
+                "description": "Landing pages ha lec'hiennoù embregerezh a-feson SEO, buander ha konversión."
+            },
+            "apps": {
+                "title": "Arloadoù React",
+                "description": "Etrezasoù modern, komponentoù padus hag ur prantad implijer flour war urzhiataer pe hezoug."
+            },
+            "api": {
+                "title": "API ha backend",
+                "description": "Savadur Node.js, autentifikadur, stlennvon ha endpoints glan evit ur soliad talvoudus."
+            },
+            "optimization": {
+                "title": "Gwellaat padus",
+                "description": "Audit perfformañs, aesaat implijout, SEO teknik ha heuliañ kalite goude al lakaat en linenn."
+            }
+        }
+    },
     "footer_links": {
         "legal": "Menegoù lezennel",
         "privacy": "Politikerezh prevezded",
@@ -368,3 +397,4 @@
         "aria_cookies": "Merañ ma zoupinoù"
     }
 }
+

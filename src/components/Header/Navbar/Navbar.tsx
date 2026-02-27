@@ -99,7 +99,12 @@ function NavBar(): JSX.Element {
         </Navbar.Brand>
 
         {/* Burger menu */}
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={() => setExpand(!expand)}>
+        <Navbar.Toggle
+          aria-controls="responsive-navbar-nav"
+          aria-label={t("a11y.nav_menu_toggle", { defaultValue: "Ouvrir ou fermer le menu" })}
+          aria-expanded={expand}
+          onClick={() => setExpand(!expand)}
+        >
           <span></span>
           <span></span>
           <span></span>

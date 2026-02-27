@@ -10,6 +10,7 @@ import '../../assets/styles/Home/Home.css';
 import { useInView } from 'react-intersection-observer';
 import HomeButtons from "./HomeButtons.tsx";
 import HomeStats from "./CountUp.tsx";
+import Services from "./Services.tsx";
 import Particle from "../../utils/Particle.tsx";
 
 function Home(): JSX.Element {
@@ -150,6 +151,7 @@ function Home(): JSX.Element {
             </Col>
             <HomeStats />
           </Row>
+          <Services />
         </Container>
       </Container>
     </section>

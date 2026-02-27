@@ -326,6 +326,35 @@
     "common": {
         "cancel": "Cancelar",
         "save": "Guardar"
+    },    "a11y": {
+        "skip_to_content": "Ir al contenido",
+        "back_to_top": "Volver arriba",
+        "nav_menu_toggle": "Abrir o cerrar el menú de navegación",
+        "loading_content": "Cargando contenido"
+    },
+    "services": {
+        "eyebrow": "Lo que ofrezco",
+        "title": "Servicios",
+        "subtitle": "Diseño y desarrollo productos web sólidos, accesibles y de alto rendimiento, desde la estrategia hasta su publicación.",
+        "cta": "Hablar de tu proyecto",
+        "items": {
+            "websites": {
+                "title": "Sitios web premium",
+                "description": "Landing pages y sitios corporativos optimizados para SEO, velocidad y conversión."
+            },
+            "apps": {
+                "title": "Aplicaciones web con React",
+                "description": "Interfaces modernas, componentes mantenibles y una experiencia fluida tanto en escritorio como en móvil."
+            },
+            "api": {
+                "title": "API y backend",
+                "description": "Arquitectura en Node.js, autenticación segura, bases de datos bien estructuradas y endpoints limpios y escalables."
+            },
+            "optimization": {
+                "title": "SEO técnico",
+                "description": "Configuración SEO puntual (etiquetas, estructura y rendimiento)."
+            }
+        }
     },
     "footer_links": {
         "legal": "Aviso legal",
@@ -336,3 +365,4 @@
         "aria_cookies": "Gestionar mis cookies"
     }
 }
+

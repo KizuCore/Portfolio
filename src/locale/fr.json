@@ -359,6 +359,36 @@
         "cancel": "Annuler",
         "save": "Enregistrer"
     },
+    "a11y": {
+        "skip_to_content": "Aller au contenu",
+        "back_to_top": "Retour en haut",
+        "nav_menu_toggle": "Ouvrir ou fermer le menu",
+        "loading_content": "Chargement du contenu"
+    },
+    "services": {
+        "eyebrow": "Ce que je propose",
+        "title": "Services",
+        "subtitle": "Je conçois et développe des solutions web solides, accessibles et performantes, de la réflexion jusqu’à la mise en ligne.",
+        "cta": "Parler de votre projet",
+        "items": {
+            "websites": {
+                "title": "Sites vitrines",
+                "description": "Landing pages et sites institutionnels rapides, référencables et pensés conversion."
+            },
+            "apps": {
+                "title": "Applications web React",
+                "description": "Interfaces, composants maintenables et expérience utilisateur fluide sur desktop et mobile."
+            },
+            "api": {
+                "title": "API & backend",
+                "description": "Architecture Node.js, authentification, base de données et endpoints propres pour un socle solide."
+            },
+            "optimization": {
+                "title": "SEO technique",
+                "description": "Optimisation SEO technique : structure des pages, balises essentielles et performances pour améliorer votre visibilité sur Google."
+            }
+        }
+    },
     "footer_links": {
         "legal": "Mentions légales",
         "privacy": "Politique de confidentialité",
@@ -368,3 +398,4 @@
         "aria_cookies": "Gérer mes cookies"
     }
 }
+

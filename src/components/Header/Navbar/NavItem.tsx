@@ -22,9 +22,13 @@ function NavItem({ to, icon, label, onClick, ariaLabel }: NavItemProps) {
         to={to}
         onClick={onClick}
         aria-label={ariaLabel}
+        aria-current={isActive ? "page" : undefined}
         className={isActive ? 'active' : ''}
       >
-        {icon} {label}
+        <span className="nav-icon" aria-hidden="true">
+          {icon}
+        </span>
+        <span className="nav-label">{label}</span>
       </Nav.Link>
     </Nav.Item>
   );

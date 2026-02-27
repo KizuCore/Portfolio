@@ -7,71 +7,117 @@
 ------------------------ */
 .language-selector {
   position: relative;
-  display: inline-block;
-  background: transparent !important;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.5rem;
   font-family: 'Montserrat', serif !important;
 }
 
-.language-selector select {
-  background-color: transparent;
-  border: 1px solid transparent;
-  color: #ffffff;
-  font-size: 24px;
-  padding: 5px 16px 5px 5px;
-  margin-top: 5px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  cursor: pointer;
+.language-selector .lang-toggle {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.72rem !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(162, 204, 255, 0.36) !important;
+  color: #f2f8ff !important;
+  background: linear-gradient(145deg, rgba(13, 28, 51, 0.94), rgba(20, 48, 89, 0.86)) !important;
+  box-shadow: 0 8px 20px rgba(2, 9, 22, 0.32), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease;
 }
 
-.language-selector .btn-secondary {
-  border-color: rgba(104, 103, 103, 0.466);
+.language-selector .lang-toggle:hover,
+.language-selector .lang-toggle:focus-visible,
+.language-selector.show .lang-toggle {
+  border-color: rgba(203, 227, 255, 0.9) !important;
+  box-shadow: 0 10px 24px rgba(3, 12, 28, 0.42), 0 0 20px rgba(78, 161, 255, 0.28);
+  transform: translateY(-1px);
 }
 
-/* Dropdown stylisé */
-.dropdown-toggle {
-  padding: 0.8rem 1rem !important;
-  background: #19172ac3 !important;
-  border-radius: 15px !important;
-  background-image: none !important;
-  appearance: none;
-}
-
-.dropdown-toggle::after {
+.language-selector .lang-toggle::after {
   display: none !important;
-  color: #ffffff;
 }
 
-.dropdown-toggle:hover {
-  background: #4441628a !important;
-  transition: ease-in-out 0.4s !important;
+.language-selector .lang-flag-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.dropdown-menu {
-  background: #ffffff23 !important;
-  margin-top: 0.5rem;
+.language-selector .lang-flag {
+  width: 22px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.24);
 }
 
-.dropdown-menu.show {
+.language-selector .lang-code {
+  min-width: 2.2ch;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.language-selector .lang-chevron {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.84rem;
+  color: rgba(223, 237, 255, 0.95);
+}
+
+.language-selector .lang-menu {
+  margin-top: 0.55rem !important;
+  min-width: 210px;
+  padding: 0.42rem;
+  border-radius: 14px;
+  border: 1px solid rgba(163, 206, 255, 0.34) !important;
+  background: linear-gradient(165deg, rgba(10, 19, 35, 0.98), rgba(14, 32, 60, 0.96)) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 34px rgba(2, 8, 19, 0.48);
+}
+
+.language-selector .lang-item {
+  display: grid;
+  grid-template-columns: 26px 36px 1fr;
+  align-items: center;
+  gap: 0.42rem;
   border-radius: 10px;
+  color: #eaf4ff !important;
+  padding: 0.48rem 0.56rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.dropdown-item {
+.language-selector .lang-item:hover,
+.language-selector .lang-item:focus-visible {
+  background: rgba(114, 174, 255, 0.22) !important;
   color: #ffffff !important;
 }
 
-.dropdown-menu a::after {
-  background: transparent !important;
+.language-selector .lang-item.is-active,
+.language-selector .lang-item.active {
+  background: linear-gradient(120deg, rgba(43, 112, 205, 0.72), rgba(94, 162, 255, 0.62)) !important;
   color: #ffffff !important;
 }
 
-.dropdown-item:hover {
-  color: #ffffff;
-  background: #757390 !important;
-  border-radius: 10px;
+.language-selector .lang-item-flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.language-selector .lang-item-code {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  opacity: 0.94;
+}
+
+.language-selector .lang-item-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
 
 /* ------------------------
    NAVBAR Sticky / Layout
@@ -296,8 +342,16 @@
 
   .language-selector {
     display: flex;
+    justify-content: flex-start;
+    margin: 0.45rem 0 0;
+  }
+
+  .language-selector .lang-toggle {
+    width: 100%;
     justify-content: center;
-    margin: 0 auto;
+  }
+
+  .language-selector .lang-menu {
     width: 100%;
   }
 

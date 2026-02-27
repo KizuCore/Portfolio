@@ -80,17 +80,17 @@
   position: fixed;
   padding: 0.3rem 2rem;
   font-size: 1.2rem;
-  transition: all 0.7s ease-out;
+  transition: all 0.45s ease-out;
 }
 
 .sticky {
-  background-color: #1b1a2ea9 !important;
-  backdrop-filter: blur(15px);
-  box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171);
+  background: linear-gradient(180deg, rgba(13, 21, 39, 0.92), rgba(10, 19, 33, 0.82)) !important;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 30px rgba(1, 5, 14, 0.32);
   border-radius: 0px 0px 25px 25px;
-  border: 1px solid #ffffff1a;
-  margin: 0rem 10rem;
-  transition: all 0.8s ease-out;
+  border: 1px solid rgba(159, 198, 255, 0.14);
+  margin: 0rem 2rem;
+  transition: all 0.45s ease-out;
 }
 
 
@@ -270,12 +270,12 @@
 
   .sticky {
     margin: 0rem 1.5rem;
-    transition: margin 0.8s ease-out;
+    transition: margin 0.45s ease-out;
   }
 
   .sticky.menu-open {
     margin: 0rem !important;
-    transition: all 0.5s ease-out;
+    transition: all 0.35s ease-out;
   }
 
   .nav-link {

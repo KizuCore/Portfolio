@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { updateConsent } from "../../utils/consent";
 
 const LS_KEY = "cookie-consent";
@@ -33,13 +34,13 @@ export default function CookieBanner() {
             <Container className="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2">
                 <div>
                     {t("cookie_banner.text")}
-                    <a
-                        href="/politique-de-confidentialite"
+                    <Link
+                        to="/politique-de-confidentialite"
                         className="ms-2 text-decoration-underline"
                         style={{ color: "#ddd" }}
                     >
                         {t("cookie_banner.learn_more")}
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="d-flex align-items-center gap-2">

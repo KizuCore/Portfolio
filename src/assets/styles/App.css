@@ -2,11 +2,10 @@
   text-align: center;
 }
 
-#tsparticles {
+.particles-layer {
   pointer-events: none;
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: 0;
 }
 

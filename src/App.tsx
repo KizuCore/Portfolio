@@ -1,8 +1,5 @@
 import { useState, useEffect, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
-import { initParticlesEngine } from "@tsparticles/react";
-import { loadFull } from "tsparticles";
-import type { Engine } from "@tsparticles/engine";
 import "./assets/styles/style.css";
 import "./assets/styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -46,15 +43,6 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    initParticlesEngine(async (engine: Engine) => {
-      await loadFull(engine);
-    });
-  }, []);
-
-
-
 
   return (
     <Router>

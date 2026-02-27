@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
+import { HelmetProvider } from 'react-helmet-async';
 import './assets/styles/index.css';
 import App from './App';
 import reportWebVitals from './tests/reportWebVitals.tsx';
@@ -11,9 +12,11 @@ if (rootElement) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <React.StrictMode>
-      <Suspense fallback={<Preloader />}>
-        <App />
-      </Suspense>
+      <HelmetProvider>
+        <Suspense fallback={<Preloader />}>
+          <App />
+        </Suspense>
+      </HelmetProvider>
     </React.StrictMode>
   );
 }

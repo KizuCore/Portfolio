@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Container, Row, Col } from "react-bootstrap";
 import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "../../assets/styles/Footer/Footer.css";
 
 function Footer(): JSX.Element {
@@ -35,13 +36,13 @@ function Footer(): JSX.Element {
               © 2024-{year} — {t("portfolio_theo")}
             </h3>
             <div className="footer-legal-links mt-2 ">
-              <a href="/mentions-legales" className="footer-link mx-2" aria-label={t("footer_links.aria_legal")}>
+              <Link to="/mentions-legales" className="footer-link mx-2" aria-label={t("footer_links.aria_legal")}>
                 {t("footer_links.legal")}
-              </a>
+              </Link>
               |
-              <a href="/politique-de-confidentialite" className="footer-link mx-2" aria-label={t("footer_links.aria_privacy")}>
+              <Link to="/politique-de-confidentialite" className="footer-link mx-2" aria-label={t("footer_links.aria_privacy")}>
                 {t("footer_links.privacy")}
-              </a>
+              </Link>
               |
               <button
                 type="button"
@@ -72,7 +73,7 @@ function Footer(): JSX.Element {
                 <AiFillGithub />
               </a>
               <a
-                href="https://www.linkedin.com/in/théo-guérin-b20630192/"
+                href="https://www.linkedin.com/in/theo-guerin35/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t("linkedin_profile_link")}

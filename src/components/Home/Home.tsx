@@ -1,4 +1,4 @@
-import { JSX, useEffect, useState } from "react";
+﻿import { JSX, useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
 import { easeOut, motion, spring, useAnimation } from 'framer-motion';
@@ -14,7 +14,7 @@ import Particle from "../../utils/Particle.tsx";
 
 function Home(): JSX.Element {
   const { t } = useTranslation();
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
   const [isDragging, setIsDragging] = useState(false);
 
   const controls = useAnimation();
@@ -52,7 +52,7 @@ function Home(): JSX.Element {
                 <div className="pb-md-5 pb-0">
                   <h1 className="heading mb-3 title-font">
                     {t('hello')}{" "}
-                    <span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
+                    <span className="wave" role="img" aria-label="waving hand">{"\u{1F44B}\u{1F3FB}"}</span>
                   </h1>
                   <h2 className="heading-name styled-title">
                     {t('iam')}<span className="pr-2 gradient-name">{t('nametheo')}</span>
@@ -67,7 +67,7 @@ function Home(): JSX.Element {
                 >
                   <h1 className="heading mb-3 title-font">
                     {t('hello')}{" "}
-                    <span className="wave" role="img" aria-labelledby="wave">👋🏻</span>
+                    <span className="wave" role="img" aria-label="waving hand">{"\u{1F44B}\u{1F3FB}"}</span>
                   </h1>
                   <h2 className="heading-name styled-title">
                     {t('iam')}<span className="gradient-name"> {t('nametheo')}</span>
@@ -76,7 +76,7 @@ function Home(): JSX.Element {
               )}
 
 
-              {/* Développeur... */}
+              {/* DÃ©veloppeur... */}
               {isMobile ? (
                 <div className="pt-3 pb-5 d-flex justify-content-center align-items-center">
                   <TypeDev />
@@ -118,7 +118,7 @@ function Home(): JSX.Element {
                       height="300"
                       loading="eager"
                       decoding="sync"
-                      {...{ fetchpriority: "high" } as any}
+                      fetchPriority="high"
                     />
                   ) : (
                     <motion.img
@@ -157,3 +157,4 @@ function Home(): JSX.Element {
 }
 
 export default Home;
+

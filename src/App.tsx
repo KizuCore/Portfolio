@@ -1,5 +1,6 @@
 import { useState, useEffect, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./assets/styles/style.css";
 import "./assets/styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,6 +14,8 @@ import CookieBanner from "./components/Legal/CookieBanner.tsx";
 import CookiePreferencesModal from "./components/Legal/CookiePreferencesModal.tsx";
 import Preloader from "./utils/Preloader.tsx";
 import ScrollToTop from "./utils/ScrollToTop.tsx";
+import ScrollProgress from "./utils/ScrollProgress.tsx";
+import BackToTop from "./utils/BackToTop.tsx";
 import useKonamiCode from "./utils/Konami.tsx";
 
 // Lazy load des composants de page
@@ -32,6 +35,7 @@ function KonamiComponent() {
 }
 
 function App() {
+  const { t } = useTranslation();
   const [load, updateLoad] = useState(true);
   const [showPreloader, setShowPreloader] = useState(true);
 
@@ -46,6 +50,10 @@ function App() {
 
   return (
     <Router>
+      <a className="skip-link" href="#main-content">
+        {t("a11y.skip_to_content", { defaultValue: "Aller au contenu" })}
+      </a>
+      <ScrollProgress />
       {showPreloader && <Preloader load={load} className={load ? "" : "fade-out"} />} {/* Affichage conditionnel Preloader */}
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <SeoMeta />
@@ -53,7 +61,7 @@ function App() {
         <ScrollToTop />
         <KonamiComponent />
         <VideoPopup />
-        <main className="main-content">
+        <main className="main-content" id="main-content" tabIndex={-1}>
           <Suspense fallback={<Preloader />}>
             {/* Bannière consent sur toutes les pages */}
             <CookieBanner />
@@ -73,6 +81,7 @@ function App() {
             </Routes>
           </Suspense>
         </main>
+        <BackToTop />
         <Footer />
       </div>
     </Router>

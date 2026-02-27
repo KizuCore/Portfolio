@@ -23,31 +23,20 @@ export default function CookieBanner() {
       role="region"
       aria-live="polite"
       aria-label={t("cookie_banner.aria_label", "Bandeau d'information sur les cookies")}
-      style={{
-        position: "fixed",
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 1000,
-        background: "rgba(0,0,0,0.92)",
-        color: "#fff",
-        padding: "12px 0",
-      }}
     >
-      <Container className="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2">
-        <div>
+      <Container className="cookie-banner-inner">
+        <p className="cookie-banner-text mb-0">
           {t("cookie_banner.text")}
           <Link
             to="/politique-de-confidentialite"
-            className="ms-2 text-decoration-underline"
-            style={{ color: "#ddd" }}
+            className="cookie-banner-link"
             aria-label={t("footer_links.aria_privacy", "Politique de confidentialite")}
           >
             {t("footer_links.privacy", "Politique de confidentialite")}
           </Link>
-        </div>
+        </p>
 
-        <div className="d-flex align-items-center gap-2">
+        <div className="cookie-banner-actions">
           <button
             className="btn btn-light btn-sm"
             onClick={() => {
@@ -70,8 +59,7 @@ export default function CookieBanner() {
 
           <button
             type="button"
-            className="btn btn-link btn-sm ms-2 p-0 align-baseline text-decoration-underline"
-            style={{ color: "#ddd" }}
+            className="btn btn-link btn-sm p-0 align-baseline cookie-banner-link"
             onClick={() => window.openCookiePreferences?.()}
             aria-label={t("cookie_banner.manage")}
           >

@@ -6,33 +6,6 @@ export default defineConfig({
   plugins: [react()],
   build: {
     sourcemap: false,
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes("node_modules")) {
-            if (/node_modules[\\/](react|react-dom|scheduler|react-router|react-router-dom)[\\/]/.test(id)) {
-              return "vendor-react";
-            }
-
-            if (id.includes("react-pdf") || id.includes("pdfjs-dist")) {
-              return "vendor-pdf";
-            }
-
-            if (id.includes("@tsparticles") || id.includes("tsparticles")) {
-              return "vendor-particles";
-            }
-
-            if (id.includes("framer-motion") || id.includes("motion")) {
-              return "vendor-motion";
-            }
-
-            return undefined;
-          }
-
-          return undefined;
-        },
-      },
-    },
   },
   resolve: {
     alias: {

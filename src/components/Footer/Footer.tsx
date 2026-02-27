@@ -12,7 +12,7 @@ function Footer(): JSX.Element {
 
   return (
     <footer className="footer-section">
-      <Container fluid className="footer">
+      <Container fluid className="footer px-0">
         <Row className="text-center align-items-center">
           <Col xs={12} md={4} className="footer-copywright py-2">
             <h3>

@@ -1,13 +1,29 @@
 /* ========================
    FOOTER
 ======================== */
+.footer-section {
+  background: transparent !important;
+  padding-inline: 0;
+  width: 100%;
+}
+
 .footer {
-  background-color: #1b1827bb;
+  background: rgba(9, 17, 31, 0.62);
   padding-top: 10px;
   padding-bottom: 8px;
   text-align: center;
+  margin-top: -1px;
+  width: 100%;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
   border-radius: 25px 25px 0 0;
-  border-top: #ffffff1a solid 1px;
+  border: 1px solid rgba(145, 191, 255, 0.14);
+  border-bottom: 0;
+}
+
+.footer .row {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .footer h3 {
@@ -112,6 +128,7 @@
 /* Hauteur et structure flex du site */
 html, body, #root, .App {
   height: 100%;
+  width: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -122,5 +139,5 @@ html, body, #root, .App {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-image: var(--section-background-color);
+  background: transparent;
 }

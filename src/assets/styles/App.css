@@ -1,5 +1,21 @@
 .App {
   text-align: center;
+  position: relative;
+  isolation: isolate;
+  min-height: 100%;
+  width: 100%;
+}
+
+.App::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 0% 15%, rgba(72, 129, 255, 0.24), transparent 42%),
+    radial-gradient(circle at 100% 0%, rgba(88, 196, 255, 0.16), transparent 35%),
+    linear-gradient(160deg, #05080f 0%, #090f1f 40%, #121d34 100%);
 }
 
 .particles-layer {

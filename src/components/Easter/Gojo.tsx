@@ -217,7 +217,7 @@ export default function GojoCursedTechnique() {
                   <div className="jk-video-head">Hollow Purple</div>
                   <iframe
                     className="jk-video-frame"
-                    src="https://www.youtube.com/embed/JTGNRJEptc0?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0"
+                    src="https://www.youtube.com/embed/JTGNRJEptc0?autoplay=1&mute=0&controls=1&modestbranding=1&rel=0"
                     title="Sukuna VS Gojo"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

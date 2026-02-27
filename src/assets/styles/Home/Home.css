@@ -601,71 +601,34 @@
    CV BUTTON 
 ======================== */
 .cv-btn {
-  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 34px;
-  font-size: 1.2rem;
+  gap: 0.55rem;
+  min-height: 44px;
+  padding: 0.62rem 1.3rem;
+  font-size: 1rem;
   font-weight: 600;
+  letter-spacing: 0.01em;
   text-decoration: none;
-  border-radius: 50px;
-  border: 2px solid var(--dark-blue);
-  color: var(--dark-blue);
-  background: transparent;
-  overflow: hidden;
-  z-index: 0;
-  transition: color 0.3s ease;
-}
-
-.cv-btn::before {
-  content: "";
-  position: absolute;
-  bottom: -100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
-  border-radius: inherit;
-  z-index: -1;
-  transform: translateY(100%);
-  transition: transform 0.4s ease;
-}
-
-.cv-btn:hover::before {
-  transform: translateY(0);
-}
-
-.cv-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
-  transform: skewX(-25deg);
-  z-index: 1;
-}
-
-.cv-btn:hover::after {
-  animation: shine 0.7s ease-in-out;
+  border-radius: 999px;
+  border: 1px solid var(--btn-border);
+  color: var(--btn-text);
+  background: var(--btn-bg);
+  box-shadow: var(--btn-shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .cv-btn:hover {
-  background-color: var(--dark-blue);
-  color: rgba(255, 255, 255, 0.8);
-  transition: color 0.5s ease, background-color 0.5s ease;
+  transform: translateY(-1px);
+  color: #ffffff;
+  border-color: var(--btn-border-hover);
+  background: var(--btn-bg-hover);
+  box-shadow: var(--btn-shadow-hover);
+  text-decoration: none;
 }
 
 .cv-icon {
-  font-size: 1rem;
-  z-index: 2;
-}
-
-@keyframes shine {
-  0%   { left: -75%; }
-  100% { left: 125%; }
+  font-size: 0.95rem;
 }
 
 
@@ -673,24 +636,27 @@
    ICON BOUTONS (Social)
 ======================== */
 .icon-btn {
-  position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   font-size: 1.1rem;
-  border: 2px solid var(--dark-blue);
-  color: var(--dark-blue);
+  border: 1px solid var(--btn-border);
+  color: var(--btn-text);
   border-radius: 50%;
-  background: transparent;
+  background: linear-gradient(145deg, rgba(10, 24, 46, 0.95), rgba(31, 83, 158, 0.85));
+  box-shadow: 0 10px 22px rgba(2, 10, 24, 0.36), 0 0 16px rgba(66, 149, 255, 0.18);
   text-decoration: none;
-  transition: all 0.5s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .icon-btn:hover {
-  background-color: var(--dark-blue);
-  color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
+  border-color: var(--btn-border-hover);
+  color: #ffffff;
+  background: linear-gradient(145deg, rgba(15, 35, 68, 0.98), rgba(42, 109, 204, 0.92));
+  box-shadow: 0 14px 28px rgba(2, 10, 24, 0.44), 0 0 22px rgba(78, 161, 255, 0.32);
 }
 
 

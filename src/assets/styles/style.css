@@ -6,6 +6,13 @@
   --text-muted: #b6c2da;
   --dark-blue: #2e7bff;
   --dark-blue-2: #69b3ff;
+  --btn-text: #edf6ff;
+  --btn-border: rgba(170, 211, 255, 0.44);
+  --btn-border-hover: rgba(211, 233, 255, 0.92);
+  --btn-bg: linear-gradient(140deg, rgba(13, 32, 60, 0.95), rgba(36, 97, 181, 0.9));
+  --btn-bg-hover: linear-gradient(140deg, rgba(17, 42, 79, 0.98), rgba(52, 128, 230, 0.92));
+  --btn-shadow: 0 10px 24px rgba(3, 12, 27, 0.38), 0 0 18px rgba(68, 146, 255, 0.16);
+  --btn-shadow-hover: 0 14px 30px rgba(3, 12, 27, 0.5), 0 0 24px rgba(83, 161, 255, 0.34);
   --section-background-color: linear-gradient(145deg, #05080f 0%, #0b1221 44%, #121d34 100%);
   --glow: 0 0 40px rgba(64, 144, 255, 0.2);
 }
@@ -133,22 +140,110 @@ button:focus {
   box-shadow: none !important;
 }
 
+.btn:not(.lang-toggle) {
+  border-radius: 999px !important;
+  border: 1px solid var(--btn-border) !important;
+  color: var(--btn-text) !important;
+  background: var(--btn-bg) !important;
+  font-family: 'Montserrat', serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em;
+  backdrop-filter: blur(6px);
+  box-shadow: var(--btn-shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease, background 0.25s ease !important;
+}
+
+.btn:not(.lang-toggle):hover {
+  transform: translateY(-1px);
+  border-color: var(--btn-border-hover) !important;
+  color: #ffffff !important;
+  background: var(--btn-bg-hover) !important;
+  box-shadow: var(--btn-shadow-hover);
+}
+
+.btn:not(.lang-toggle):active {
+  transform: translateY(0);
+}
+
+.btn:not(.lang-toggle):disabled,
+.btn:not(.lang-toggle).disabled {
+  opacity: 0.55;
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn.btn-sm:not(.lang-toggle) {
+  min-height: 36px;
+  padding: 0.34rem 0.9rem !important;
+  font-size: 0.84rem;
+}
+
+.btn.btn-light:not(.lang-toggle) {
+  color: #08294f !important;
+  border-color: rgba(207, 230, 255, 0.85) !important;
+  background: linear-gradient(140deg, rgba(236, 246, 255, 0.96), rgba(199, 227, 255, 0.92)) !important;
+  box-shadow: 0 10px 22px rgba(2, 12, 28, 0.28);
+}
+
+.btn.btn-light:not(.lang-toggle):hover {
+  color: #051f3d !important;
+  background: linear-gradient(140deg, rgba(248, 252, 255, 0.98), rgba(221, 238, 255, 0.94)) !important;
+}
+
+.btn.btn-outline-secondary:not(.lang-toggle) {
+  color: rgba(224, 240, 255, 0.94) !important;
+  border-color: rgba(162, 206, 255, 0.4) !important;
+  background: linear-gradient(140deg, rgba(9, 23, 45, 0.86), rgba(15, 41, 78, 0.72)) !important;
+  box-shadow: 0 10px 20px rgba(2, 10, 24, 0.3);
+}
+
+.btn.btn-outline-secondary:not(.lang-toggle):hover {
+  color: #ffffff !important;
+  border-color: rgba(205, 230, 255, 0.85) !important;
+  background: linear-gradient(140deg, rgba(14, 35, 67, 0.92), rgba(24, 63, 119, 0.82)) !important;
+}
+
+.btn.btn-link:not(.lang-toggle) {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: #9bccff !important;
+  box-shadow: none !important;
+  min-height: auto;
+  padding: 0 !important;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.btn.btn-link:not(.lang-toggle):hover {
+  color: #d0e7ff !important;
+  text-decoration-thickness: 2px;
+}
+
 .button-cv {
-  border-radius: 15px !important;
-  color: white !important;
-  font-size: 1.1em !important;
-  max-width: 250px !important;
+  min-height: 44px;
+  border-radius: 999px !important;
+  color: var(--btn-text) !important;
+  font-size: 1rem !important;
+  max-width: 320px !important;
+  padding: 0.6rem 1.2rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em;
   z-index: 1 !important;
-  background-color: var(--dark-blue) !important;
-  border: 2px solid white !important;
+  background: var(--btn-bg) !important;
+  border: 1px solid var(--btn-border) !important;
+  box-shadow: var(--btn-shadow);
   transition: all 0.3s ease-in-out !important;
 }
 
 .button-cv:hover {
-  background-color: #ffffffde !important;
-  border: 2px solid var(--dark-blue) !important;
-  color: var(--dark-blue) !important;
-  text-decoration: underline;
+  background: var(--btn-bg-hover) !important;
+  border-color: var(--btn-border-hover) !important;
+  color: #ffffff !important;
+  box-shadow: var(--btn-shadow-hover);
+  transform: translateY(-1px);
+  text-decoration: none;
 }
 
 .about-section,

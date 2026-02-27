@@ -139,43 +139,52 @@
   padding-top: 1rem;
 }
 .button-youtube{
-  background-color: #c01313;
   color: #ffffff;
-  border: 1px solid #ffffffa6;
+  border: 1px solid rgba(255, 195, 208, 0.46);
+  background: linear-gradient(135deg, rgba(255, 96, 130, 0.72), rgba(74, 20, 34, 0.95));
 }
 .button-youtube:hover {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #c01313;
-  border: 1px solid #c01313;
+  color: #ffffff;
+  border-color: rgba(255, 225, 233, 0.92);
+  background: linear-gradient(135deg, rgba(255, 116, 146, 0.82), rgba(98, 27, 45, 0.98));
 }
 .button-github{
-  background-color: var(--dark-blue);
   color: #ffffff;
-  border: 1px solid #ffffffa6;
+  border: 1px solid rgba(173, 213, 255, 0.5);
+  background: linear-gradient(135deg, rgba(59, 139, 255, 0.78), rgba(15, 39, 80, 0.95));
 }
 .button-github:hover {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: var(--dark-blue);
-  border: 1px solid var(--dark-blue);
+  color: #ffffff;
+  border-color: rgba(218, 236, 255, 0.95);
+  background: linear-gradient(135deg, rgba(86, 160, 255, 0.86), rgba(20, 50, 103, 0.98));
 }
 .button-see{
-  background-color: #309b15;
   color: #ffffff;
-  border: 1px solid #ffffffa6;
+  border: 1px solid rgba(191, 246, 227, 0.46);
+  background: linear-gradient(135deg, rgba(74, 205, 163, 0.68), rgba(14, 65, 54, 0.95));
 }
 .button-see:hover {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #309b15;
-  border: 1px solid #309b15;
+  color: #ffffff;
+  border-color: rgba(225, 255, 245, 0.95);
+  background: linear-gradient(135deg, rgba(92, 223, 181, 0.78), rgba(17, 81, 67, 0.98));
 }
 .button-github,
 .button-youtube,
 .button-see {
-  font-weight: 500;
-  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  padding: 0.5rem 1.15rem;
   margin: 0.25rem;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
+  border-radius: 999px;
+  min-height: 40px;
+  box-shadow: 0 10px 22px rgba(2, 10, 24, 0.36);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.button-github:hover,
+.button-youtube:hover,
+.button-see:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(2, 10, 24, 0.46);
 }
 
 .swiper-pagination-bullet {

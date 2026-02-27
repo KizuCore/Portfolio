@@ -391,6 +391,9 @@
             }
         }
     },
+    "pride_mode_title": "Pride mode active",
+    "pride_mode_badge": "Rainbow vibe unlocked",
+    "pride_mode_video_title": "Pride easter egg video",
     "footer_links": {
         "legal": "Legal notice",
         "privacy": "Privacy policy",

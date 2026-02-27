@@ -112,3 +112,139 @@
 .modal-header .btn-close:hover {
   opacity: 1;
 }
+
+/* ========================
+   PRIDE EASTER EGG
+======================== */
+.pride-modal-dialog {
+  max-width: min(920px, 94vw);
+}
+
+.pride-modal-content {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+  background: linear-gradient(160deg, rgba(7, 11, 21, 0.96), rgba(12, 20, 38, 0.94));
+  box-shadow: 0 24px 58px rgba(1, 4, 12, 0.58);
+}
+
+.pride-modal-header,
+.pride-modal-footer {
+  border: 0;
+  color: #f8fbff;
+  background: linear-gradient(
+    90deg,
+    #e40303,
+    #ff8c00,
+    #ffed00,
+    #008026,
+    #2440ff,
+    #732982,
+    #e40303
+  );
+  background-size: 220% 100%;
+  animation: prideShift 7s linear infinite;
+}
+
+.pride-modal-title {
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+.pride-modal-body {
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(255, 109, 109, 0.16), transparent 42%),
+    radial-gradient(circle at 90% 12%, rgba(112, 158, 255, 0.16), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(124, 255, 171, 0.1), transparent 45%),
+    #060b16;
+}
+
+.pride-video-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: #060b16;
+  box-shadow: 0 18px 40px rgba(1, 4, 12, 0.5);
+}
+
+.pride-video-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(
+    115deg,
+    rgba(228, 3, 3, 0.22),
+    rgba(255, 140, 0, 0.22),
+    rgba(255, 237, 0, 0.2),
+    rgba(0, 128, 38, 0.2),
+    rgba(36, 64, 255, 0.2),
+    rgba(115, 41, 130, 0.22)
+  );
+  background-size: 220% 100%;
+  mix-blend-mode: screen;
+  animation: prideShift 6s linear infinite;
+}
+
+.pride-video-badge {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  z-index: 2;
+  padding: 0.28rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #f9fbff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  backdrop-filter: blur(3px);
+  background: rgba(8, 13, 26, 0.45);
+}
+
+.pride-video-embed {
+  position: relative;
+  z-index: 0;
+  display: block;
+}
+
+.pride-flash {
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(1.14);
+  transition: opacity 0.32s ease, transform 0.42s ease;
+  z-index: 1090;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(228, 3, 3, 0.75),
+    rgba(255, 140, 0, 0.75),
+    rgba(255, 237, 0, 0.75),
+    rgba(0, 128, 38, 0.75),
+    rgba(36, 64, 255, 0.75),
+    rgba(115, 41, 130, 0.75),
+    rgba(228, 3, 3, 0.75)
+  );
+  mix-blend-mode: screen;
+  filter: blur(32px);
+}
+
+.pride-flash.is-active {
+  opacity: 0.26;
+  transform: scale(1);
+}
+
+@keyframes prideShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 220% 50%;
+  }
+}

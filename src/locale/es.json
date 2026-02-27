@@ -356,6 +356,9 @@
             }
         }
     },
+    "pride_mode_title": "Modo Pride activado",
+    "pride_mode_badge": "Vibra arcoíris desbloqueada",
+    "pride_mode_video_title": "Vídeo easter egg Pride",
     "footer_links": {
         "legal": "Aviso legal",
         "privacy": "Política de privacidad",

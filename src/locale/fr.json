@@ -389,6 +389,9 @@
             }
         }
     },
+    "pride_mode_title": "Mode Pride activé",
+    "pride_mode_badge": "Ambiance arc-en-ciel débloquée",
+    "pride_mode_video_title": "Vidéo Easter egg Pride",
     "footer_links": {
         "legal": "Mentions légales",
         "privacy": "Politique de confidentialité",

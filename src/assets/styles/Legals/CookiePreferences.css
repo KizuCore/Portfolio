@@ -1,0 +1,23 @@
+.cookie-prefs-modal .modal-content {
+  background: linear-gradient(160deg, rgba(14, 22, 39, 0.98), rgba(10, 17, 30, 0.98));
+  color: #eaf2ff;
+  border: 1px solid rgba(135, 176, 255, 0.22);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.cookie-prefs-modal .modal-header,
+.cookie-prefs-modal .modal-footer {
+  border-color: rgba(135, 176, 255, 0.16);
+}
+
+.cookie-prefs-modal .btn-close {
+  filter: invert(1) brightness(1.2);
+}
+
+.cookie-prefs-modal .form-check-label {
+  color: #eaf2ff;
+}
+
+.cookie-prefs-modal .text-muted {
+  color: rgba(225, 236, 255, 0.75) !important;
+}

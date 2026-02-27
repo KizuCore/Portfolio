@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { getConsent, updateConsent } from "../../utils/consent";
+import "../../assets/styles/Legals/CookiePreferences.css";
 
 export default function CookiePreferencesModal() {
     const { t } = useTranslation();
@@ -24,7 +25,7 @@ export default function CookiePreferencesModal() {
     };
 
     return (
-        <Modal show={show} onHide={() => setShow(false)} centered aria-labelledby="cookie-prefs-title">
+        <Modal show={show} onHide={() => setShow(false)} centered aria-labelledby="cookie-prefs-title" className="cookie-prefs-modal">
             <Modal.Header closeButton>
                 <Modal.Title id="cookie-prefs-title">
                     {t("cookie_prefs.title")}

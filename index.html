@@ -2,40 +2,81 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#070b12" />
+  <meta name="color-scheme" content="dark light" />
   <meta name="author" content="Théo Guérin" />
+  <meta name="application-name" content="Théo Guérin Portfolio" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
 
   <title>Théo Guérin | Développeur Full-Stack | Portfolio</title>
-  <meta name="description" content="Portfolio de Théo Guérin, développeur full-stack spécialisé en React, Node.js et Flutter." />
-  <meta name="robots" content="index, follow" />
+  <meta
+    name="description"
+    content="Portfolio de Théo Guérin, développeur full-stack spécialisé en React, Node.js et Flutter. Projets, expériences, CV et contact."
+  />
   <link rel="canonical" href="https://theo-guerin.fr/" />
 
-  <link rel="icon" href="/images/favicon/favicon.ico" sizes="any" />
-  <link rel="icon" href="/images/favicon/icon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png" />
+  <link rel="alternate" href="https://theo-guerin.fr/" hreflang="fr" />
+  <link rel="alternate" href="https://theo-guerin.fr/" hreflang="en" />
+  <link rel="alternate" href="https://theo-guerin.fr/" hreflang="es" />
+  <link rel="alternate" href="https://theo-guerin.fr/" hreflang="br" />
+  <link rel="alternate" href="https://theo-guerin.fr/" hreflang="x-default" />
+
+  <link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/images/favicon/icon.svg" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="/images/favicon/site.webmanifest" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Théo Guérin | Portfolio" />
+  <meta property="og:locale" content="fr_FR" />
   <meta property="og:url" content="https://theo-guerin.fr/" />
   <meta property="og:title" content="Théo Guérin | Développeur Full-Stack | Portfolio" />
-  <meta property="og:description" content="Découvrez mon portfolio: projets, compétences, expériences et contact." />
+  <meta
+    property="og:description"
+    content="Découvrez mon portfolio : projets, compétences, expériences, CV et contact."
+  />
   <meta property="og:image" content="https://theo-guerin.fr/images/preview/previewsite.png" />
+  <meta property="og:image:alt" content="Aperçu du portfolio de Théo Guérin" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Théo Guérin | Développeur Full-Stack | Portfolio" />
-  <meta name="twitter:description" content="Découvrez mon portfolio: projets, compétences, expériences et contact." />
+  <meta
+    name="twitter:description"
+    content="Découvrez mon portfolio : projets, compétences, expériences, CV et contact."
+  />
   <meta name="twitter:image" content="https://theo-guerin.fr/images/preview/previewsite.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&display=swap" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&display=swap"
+  />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Théo Guérin",
+      "jobTitle": "Développeur Full-Stack",
+      "url": "https://theo-guerin.fr/",
+      "image": "https://theo-guerin.fr/images/preview/previewsite.png",
+      "sameAs": [
+        "https://github.com/KizuCore",
+        "https://www.linkedin.com/in/theo-guerin35/"
+      ]
+    }
+  </script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-V5X3P7LFL6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { window.dataLayer.push(arguments); }
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
     window.gtag = window.gtag || gtag;
 
     gtag("consent", "default", {
@@ -75,7 +116,7 @@
   </script>
 </head>
 <body>
-  <noscript>Vous devez activer JavaScript pour voir le portfolio.</noscript>
+  <noscript>Vous devez activer JavaScript pour afficher ce site.</noscript>
   <div id="root"></div>
   <script type="module" src="/src/index.tsx"></script>
 </body>

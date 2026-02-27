@@ -21,7 +21,7 @@ const ROUTE_SEO: Record<string, RouteSeo> = {
     titleKey: "politique_confidentialite.title",
     descriptionKey: "seo_routes.privacy_description",
   },
-  "/gojo": { titleKey: "Bizarre", noindex: true },
+  "/gojo": { titleKey: "Nah I'd win", noindex: true },
   "/arcane": { titleKey: "Bizarre", noindex: true },
 };
 

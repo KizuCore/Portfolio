@@ -1,264 +1,233 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import "../../assets/styles/Easter/style_easter.css";
 import "../../assets/styles/Easter/Gojo/Gojo.css";
 import Particle from "../../utils/Particle";
 
-// Durées clés timeline
+type GojoPhase = "prelude" | "duality" | "compression" | "purple" | "video";
+
 const T = {
-    preload: 2200,
-    converge: 1800,
-    fuse: 800,
-    shock: 900,
-    hold: 700,
-    toVideo: 800,
+  prelude: 1600,
+  duality: 1900,
+  compression: 900,
+  purple: 1000,
+  hold: 500,
 };
 
 export default function GojoCursedTechnique() {
-    const prefersReduced = useReducedMotion();
-    const [phase, setPhase] = useState<"preload" | "converge" | "fuse" | "shock" | "video">("preload");
+  const prefersReducedMotion = useReducedMotion();
+  const [phase, setPhase] = useState<GojoPhase>("prelude");
 
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setPhase("video");
+      return;
+    }
 
-
-    // Lance timeline une fois
-    useEffect(() => {
-        let t1: any, t2: any, t3: any, t4: any;
-
-        t1 = setTimeout(() => setPhase("converge"), T.preload);
-        t2 = setTimeout(() => setPhase("fuse"), T.preload + T.converge);
-        t3 = setTimeout(() => setPhase("shock"), T.preload + T.converge + T.fuse);
-        t4 = setTimeout(() => setPhase("video"), T.preload + T.converge + T.fuse + T.shock + T.hold);
-
-        return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
-    }, []);
-
-    const sphereBase = useMemo(
-        () => ({
-            initial: { opacity: 0, scale: 0.8, filter: "brightness(1)" },
-            animate: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-            exit: { opacity: 0, scale: 0.9, transition: { duration: 0.4 } },
-        }),
-        []
+    const t1 = window.setTimeout(() => setPhase("duality"), T.prelude);
+    const t2 = window.setTimeout(() => setPhase("compression"), T.prelude + T.duality);
+    const t3 = window.setTimeout(() => setPhase("purple"), T.prelude + T.duality + T.compression);
+    const t4 = window.setTimeout(
+      () => setPhase("video"),
+      T.prelude + T.duality + T.compression + T.purple + T.hold
     );
 
-    const shakeKeyframes = prefersReduced
-        ? { x: 0, y: 0, rotate: 0 }
-        : {
-            x: [0, -6, 5, -4, 3, 0],
-            y: [0, 3, -2, 2, -1, 0],
-            rotate: [0, -1.5, 1.2, -1, 0.8, 0],
-        };
+    return () => {
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      window.clearTimeout(t3);
+      window.clearTimeout(t4);
+    };
+  }, [prefersReducedMotion]);
 
-    return (
-        <section>
-            <Container fluid className="about-section" id="home">
-                <Particle />
-                {/* Défs SVG (Gooey + Bloom) */}
-                <svg width="0" height="0">
-                    <defs>
-                        <filter id="goo">
-                            <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
-                            <feColorMatrix
-                                in="blur"
-                                type="matrix"
-                                values="
-                  1 0 0 0 0
-                  0 1 0 0 0
-                  0 0 1 0 0
-                  0 0 0 24 -15"
-                            />
-                        </filter>
-                        <filter id="bloom">
-                            <feGaussianBlur stdDeviation="6" result="soft" />
-                            <feBlend in="SourceGraphic" in2="soft" mode="screen" />
-                        </filter>
-                    </defs>
-                </svg>
+  return (
+    <section className="gojo-route" aria-label="Gojo Hollow Purple easter egg">
+      <Container fluid className="gojo-shell p-0" id="home">
+        <Particle />
 
-                <div className="jk-wrapper">
-                    {/* Vignette + fond animé */}
-                    <div className="jk-bg" />
-                    <div className="jk-vignette" />
+        <div className="jk-wrapper">
+          <div className="jk-bg" aria-hidden="true" />
+          <div className="jk-vignette" aria-hidden="true" />
 
-                    {/* Message préload */}
-                    <AnimatePresence>
-                        {phase === "preload" && (
-                            <motion.div
-                                className="preload-message title-font-easter blue jk-pretitle"
-                                initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
-                                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                                exit={{ opacity: 0, y: -8, filter: "blur(6px)" }}
-                                transition={{ duration: 0.6 }}
-                            >
-                                <GlitchText text="Nah, I'd win..." />
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+          <AnimatePresence mode="wait">
+            {phase === "prelude" && (
+              <motion.div
+                key="prelude"
+                className="preload-message title-font-easter jk-pretitle"
+                initial={{ opacity: 0, y: 14, filter: "blur(5px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: -10, filter: "blur(8px)" }}
+                transition={{ duration: 0.48, ease: "easeOut" }}
+              >
+                <p className="jk-kicker">CURSED TECHNIQUE</p>
+                <h1 className="jk-title">Blue + Red</h1>
+                <p className="jk-subtitle">Hollow Purple</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
-                    {/* Stage 1–2 : convergence rouge/bleu */}
-                    <AnimatePresence>
-                        {(phase === "converge" || phase === "fuse") && (
-                            <motion.div
-                                className="jk-stage has-goo"
-                                initial={{ opacity: 1 }}
-                                animate={{ opacity: phase === "fuse" ? 0.9 : 1 }}
-                                exit={{ opacity: 0, transition: { duration: 0.5 } }}
-                            >
-
-                                <motion.div
-                                    className="sphere red-sphere"
-                                    style={{ position: "absolute", top: "50%", left: "50%", y: "-50%", x: "-50%" }}  // <-- centre fixe
-                                    {...sphereBase}
-                                    initial={{ x: "calc(-50% - 28vw)", scale: 0.9, opacity: 0.85 }}  // part à gauche
-                                    animate={{
-                                        x: "-50%",  // revient au centre sans toucher Y
-                                        scale: phase === "fuse" ? 1.15 : 1,
-                                        opacity: phase === "fuse" ? 0.9 : 1,
-                                        transition: { duration: T.converge / 1000, ease: "easeInOut" },
-                                    }}
-                                />
-
-                                <motion.div
-                                    className="sphere blue-sphere"
-                                    style={{ position: "absolute", top: "50%", left: "50%", y: "-50%", x: "-50%" }}
-                                    {...sphereBase}
-                                    initial={{ x: "calc(-50% + 28vw)", scale: 0.9, opacity: 0.85 }}  // part à droite
-                                    animate={{
-                                        x: "-50%",
-                                        scale: phase === "fuse" ? 1.15 : 1,
-                                        opacity: phase === "fuse" ? 0.9 : 1,
-                                        transition: { duration: T.converge / 1000, ease: "easeInOut" },
-                                    }}
-                                />
-
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-
-                    {/* Stage 3 : fusion → sphère violette + flash + anneau de choc + shake */}
-                    <AnimatePresence>
-                        {(phase === "fuse" || phase === "shock") && (
-                            <motion.div
-                                className="jk-center"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                            >
-                                {/* Flash court */}
-                                <AnimatePresence>
-                                    {phase === "fuse" && (
-                                        <motion.div
-                                            className="jk-flash"
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            exit={{ opacity: 0 }}
-                                            transition={{ duration: 0.18 }}
-                                        />
-                                    )}
-                                </AnimatePresence>
-
-                                {/* Purple core avec bloom + pulsation */}
-                                <motion.div
-                                    className="sphere purple-sphere jk-bloom"
-                                    style={{ position: "absolute", top: "50%", left: "50%", x: "-50%", y: "-50%" }}
-                                    initial={{ scale: 0, opacity: 0 }}
-                                    animate={{
-                                        scale: phase === "fuse" ? [0.2, 1.15, 1] : [1, 1.03, 1],
-                                        opacity: 1,
-                                        boxShadow: [
-                                            "0 0 25px rgba(165,34,252,0.55)",
-                                            "0 0 60px rgba(165,34,252,0.85)",
-                                            "0 0 38px rgba(165,34,252,0.7)",
-                                        ],
-                                    }}
-                                    transition={{
-                                        duration: phase === "fuse" ? T.fuse / 1000 : 1.2,
-                                        ease: "easeOut",
-                                        repeat: phase === "shock" ? Infinity : 0,
-                                        repeatType: "mirror",
-                                    }}
-                                />
-
-
-                                {/* Anneau de choc */}
-                                <AnimatePresence>
-                                    {/* Shockwave */}
-                                    {phase === "shock" && (
-                                        <motion.div
-                                            className="jk-shockwave"
-                                            style={{
-                                                position: "absolute",
-                                                top: "50%",
-                                                left: "50%",
-                                                x: "-50%",
-                                                y: "-50%",
-                                                transformOrigin: "50% 50%",
-                                                boxSizing: "border-box",
-                                            }}
-                                            initial={{ scale: 0.2, opacity: 0.9 }}
-                                            animate={{ scale: 12, opacity: 0 }}
-                                            transition={{ duration: T.shock / 1000, ease: "easeOut" }}
-                                        />
-                                    )}
-
-                                </AnimatePresence>
-
-                                {/* Camera shake  */}
-                                {phase === "shock" && (
-                                    <motion.div
-                                        className="jk-shake-overlay"
-                                        animate={shakeKeyframes}
-                                        transition={{ duration: 0.45, ease: "easeOut" }}
-                                    />
-                                )}
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-
-                    {/* Stage 4 : intro vidéo flottante */}
-                    <AnimatePresence>
-                        {phase === "video" && (
-                            <motion.div
-                                className="video-container opaque-video jk-video"
-                                initial={{ opacity: 0, y: 18, scale: 0.98, filter: "blur(6px)" }}
-                                animate={{
-                                    opacity: 1,
-                                    y: [0, -16, 0, 12, 0],
-                                    rotate: [0, 2.5, -2, 2, -1.5, 0],
-                                    scale: 1,
-                                    filter: "blur(0px)",
-                                }}
-                                transition={{
-                                    opacity: { duration: T.toVideo / 1000 },
-                                    y: { duration: 20, repeat: Infinity },
-                                    rotate: { duration: 18, repeat: Infinity },
-                                }}
-                            >
-                                <iframe
-                                    className="embed-responsive-item pt-5"
-                                    src="https://www.youtube.com/embed/JTGNRJEptc0?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0"
-                                    title="Sukuna VS Gojo"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                />
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+          <AnimatePresence>
+            {(phase === "duality" || phase === "compression") && (
+              <motion.div
+                key="duality"
+                className="jk-arena"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, transition: { duration: 0.32 } }}
+              >
+                <div className="jk-center-anchor">
+                  <motion.div
+                    className="jk-orb jk-orb-red"
+                    initial={{ x: "-36vw", y: 8, opacity: 0, rotate: -10, scale: 0.86 }}
+                    animate={
+                      phase === "duality"
+                        ? {
+                            x: ["-36vw", "-20vw", "-16vw"],
+                            y: [8, 0, -6],
+                            opacity: [0, 1, 0.95],
+                            rotate: [-10, -5, -2],
+                            scale: [0.86, 1.04, 1],
+                          }
+                        : {
+                            x: "-5.2vw",
+                            y: 0,
+                            opacity: [0.95, 1, 0.88],
+                            rotate: [-2, 0, -1],
+                            scale: [1, 1.12, 1],
+                          }
+                    }
+                    transition={{
+                      duration: phase === "duality" ? T.duality / 1000 : T.compression / 1000,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <span className="jk-tech-label">Red</span>
+                  </motion.div>
                 </div>
-            </Container>
-        </section>
-    );
+
+                <div className="jk-center-anchor">
+                  <motion.div
+                    className="jk-orb jk-orb-blue"
+                    initial={{ x: "36vw", y: -8, opacity: 0, rotate: 10, scale: 0.86 }}
+                    animate={
+                      phase === "duality"
+                        ? {
+                            x: ["36vw", "20vw", "16vw"],
+                            y: [-8, 0, 6],
+                            opacity: [0, 1, 0.95],
+                            rotate: [10, 5, 2],
+                            scale: [0.86, 1.04, 1],
+                          }
+                        : {
+                            x: "5.2vw",
+                            y: 0,
+                            opacity: [0.95, 1, 0.88],
+                            rotate: [2, 0, 1],
+                            scale: [1, 1.12, 1],
+                          }
+                    }
+                    transition={{
+                      duration: phase === "duality" ? T.duality / 1000 : T.compression / 1000,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <span className="jk-tech-label">Blue</span>
+                  </motion.div>
+                </div>
+
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <AnimatePresence>
+            {phase === "purple" && (
+              <motion.div
+                key="purple"
+                className="jk-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <motion.div
+                  className="jk-purple-flash"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0, 1, 0] }}
+                  transition={{ duration: 0.34, ease: "easeOut" }}
+                />
+
+                <motion.div
+                  className="jk-purple-halo"
+                  initial={{ scale: 0.2, opacity: 0.8 }}
+                  animate={{ scale: 4.8, opacity: 0 }}
+                  transition={{ duration: T.purple / 1000, ease: "easeOut" }}
+                />
+
+                <motion.div
+                  className="jk-purple-core"
+                  initial={{ scale: 0.2, opacity: 0 }}
+                  animate={{
+                    scale: [0.2, 1.24, 1],
+                    opacity: [0, 1, 1],
+                    boxShadow: [
+                      "0 0 28px rgba(152,82,255,0.55)",
+                      "0 0 90px rgba(181,115,255,0.95)",
+                      "0 0 52px rgba(166,94,255,0.72)",
+                    ],
+                  }}
+                  transition={{ duration: T.purple / 1000, ease: "easeOut" }}
+                />
+
+                <motion.div
+                  className="jk-shockwave jk-shockwave-1"
+                  initial={{ scale: 0.15, opacity: 0.95 }}
+                  animate={{ scale: 9.2, opacity: 0 }}
+                  transition={{ duration: T.purple / 1000, ease: "easeOut" }}
+                />
+
+                <motion.div
+                  className="jk-shockwave jk-shockwave-2"
+                  initial={{ scale: 0.15, opacity: 0.7 }}
+                  animate={{ scale: 7.3, opacity: 0 }}
+                  transition={{ duration: T.purple / 1000, ease: "easeOut", delay: 0.08 }}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <AnimatePresence>
+            {phase === "video" && (
+              <motion.div
+                key="video"
+                className="jk-video"
+                initial={{ opacity: 0, y: 24, scale: 0.96, filter: "blur(8px)" }}
+                animate={{
+                  opacity: 1,
+                  y: [0, -12, 0],
+                  scale: 1,
+                  filter: "blur(0px)",
+                }}
+                transition={{
+                  opacity: { duration: 0.62 },
+                  y: { duration: 6.8, repeat: Infinity, ease: "easeInOut" },
+                  scale: { duration: 0.62 },
+                }}
+              >
+                <div className="jk-video-shell">
+                  <div className="jk-video-head">Hollow Purple</div>
+                  <iframe
+                    className="jk-video-frame"
+                    src="https://www.youtube.com/embed/JTGNRJEptc0?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0"
+                    title="Sukuna VS Gojo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </Container>
+    </section>
+  );
 }
-
-/* ———————— Sous-composants —————————— */
-
-// Texte glitch léger
-function GlitchText({ text }: { text: string }) {
-    return (
-        <span className="jk-glitch" data-text={text}>
-            {text}
-        </span>
-    );
-}
-
-

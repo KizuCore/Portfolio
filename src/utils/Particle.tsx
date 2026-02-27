@@ -62,7 +62,7 @@ function Particle() {
       detectRetina: true,
       particles: {
         number: {
-          value: isMobile ? 45 : 95,
+          value: isMobile ? 50 : 105,
           density: {
             enable: true,
             area: 1100,
@@ -77,20 +77,20 @@ function Particle() {
           outModes: { default: "out" },
         },
         size: {
-          value: { min: 0.8, max: 2.2 },
+          value: { min: 0.85, max: 2.35 },
         },
         opacity: {
-          value: { min: 0.15, max: 0.55 },
+          value: { min: 0.28, max: 0.82 },
           animation: {
             enable: true,
-            speed: 0.4,
+            speed: 0.45,
             startValue: "random",
             destroy: "none" as DestroyType,
             sync: false,
           },
         },
         color: {
-          value: ["#7cc6ff", "#3f8cff", "#c5deff"],
+          value: ["#f5fbff", "#cfe4ff", "#9dccff"],
         },
       },
       interactivity: {

@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import { useRef } from "react";
+import { useRef, type CSSProperties } from "react";
 import { useTimelineData } from "./data/timelineData";
 import TimelineItem from "./TimelineItem.tsx";
 import '../../assets/styles/Experience/Experience.css';
@@ -15,24 +15,25 @@ const Experience = () => {
   const scrollPercentage = useScrollProgress(timelineRef);
 
   return (
-    <Container>
+    <Container fluid className="timeline-page">
       <Particle />
-      <Container fluid className="timeline-container">
+      <Container className="timeline-container">
         <motion.h1
-          className="custom-title pb-5 mb-5"
+          className="custom-title pb-4 mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          {t("Mon parcours")}
+          {t("about_experience")}
         </motion.h1>
+
         <div className="timeline" ref={timelineRef}>
-          <div className="timeline-arrow-up-wrapper">
-            <svg className="timeline-chevron" viewBox="0 0 24 24">
-              <polyline points="6 15 12 9 18 15" />
-            </svg>
-          </div>
-          <div className="timeline-line" style={{ height: `${scrollPercentage}%` }} />
+          <div className="timeline-head-dot" />
+          <div className="timeline-line-track" />
+          <div
+            className="timeline-line-progress"
+            style={{ "--timeline-progress": `${scrollPercentage / 100}` } as CSSProperties}
+          />
           {timelineData.map((item, index) => (
             <TimelineItem key={index} item={item} isLeft={index % 2 === 0} />
           ))}
@@ -40,7 +41,7 @@ const Experience = () => {
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.3, delay: 0.1 }}
-            className="timeline-start-circle"
+            className="timeline-tail-dot"
           />
         </div>
       </Container>

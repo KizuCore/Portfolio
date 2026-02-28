@@ -53,7 +53,7 @@ interface ProjectCardProps {
 // Affichage des icônes technologiques
 function TechStackIcons({ techStack }: { techStack: string[] }) {
   return (
-    <Row className="pb-2 justify-content-center">
+    <Row className="project-tech-row pb-2 justify-content-center">
       {techStack.map((tech, index) => {
         const IconComponent = techIcons[tech];
         return IconComponent ? (
@@ -95,14 +95,16 @@ function ProjectCard(props: ProjectCardProps) {
         />
       </div>
 
-      <Card.Body>
-        <Card.Title>
-          <h3><strong className="blue">{props.title}</strong></h3>
+      <Card.Body className="project-card-body">
+        <Card.Title className="project-card-title">
+          <h3 className="project-title-text">
+            <strong className="blue">{props.title}</strong>
+          </h3>
         </Card.Title>
 
         <TechStackIcons techStack={props.techStack} />
 
-        <Card.Text className="text-justify">
+        <Card.Text className="project-description text-justify">
           {props.description}
         </Card.Text>
 

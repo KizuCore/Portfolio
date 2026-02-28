@@ -158,6 +158,7 @@ const Projects: React.FC = () => {
           transition={{ duration: 0.8, ease: easeOut, delay: 0.4 }} // petit délai après le titre
         >
           <Swiper
+            className="project-carousel-swiper"
             modules={[Navigation, Pagination]}
             spaceBetween={30}
             slidesPerView={1}
@@ -175,7 +176,7 @@ const Projects: React.FC = () => {
           >
             {projects.map((project, index) => (
               <SwiperSlide key={index}>
-                <Tilt className="py-5 px-3" glareEnable={true} glareMaxOpacity={0.1} scale={1.01}>
+                <Tilt className="project-tilt" glareEnable={true} glareMaxOpacity={0.1} scale={1.01}>
                   <ProjectCard
                     imgPath={project.imgPath}
                     altText={t(project.altTextKey)}

@@ -90,7 +90,8 @@ function ProjectCard(props: ProjectCardProps) {
           src={props.imgPath}
           alt={props.altText}
           decoding="async"
-          loading="eager"
+          loading="lazy"
+          fetchPriority="low"
           className="project-img"
         />
       </div>

@@ -17,22 +17,40 @@ function Home(): JSX.Element {
   const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
   const [isDragging, setIsDragging] = useState(false);
+  const [isFinePointer, setIsFinePointer] = useState(() =>
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches
+  );
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
 
   const controls = useAnimation();
+  const enableTilt = !isMobile && isFinePointer && !prefersReducedMotion;
 
   const { ref, inView: imgInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
   useEffect(() => {
+    const pointerMedia = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const motionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
+
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768); // <768px = mobile
+      setIsFinePointer(pointerMedia.matches);
+      setPrefersReducedMotion(motionMedia.matches);
     };
 
     handleResize(); // Execute au chargement
     window.addEventListener("resize", handleResize); // MAJ si resize
+    pointerMedia.addEventListener("change", handleResize);
+    motionMedia.addEventListener("change", handleResize);
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      pointerMedia.removeEventListener("change", handleResize);
+      motionMedia.removeEventListener("change", handleResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -109,44 +127,92 @@ function Home(): JSX.Element {
 
 
                 {/* Logo SVG */}
-                <Tilt>
-                  {isMobile ? (
-                    <img
-                      src={LogoDeveloper}
-                      className="img-fluid"
-                      alt={t('theo_developer')}
-                      width="300"
-                      height="300"
-                      loading="eager"
-                      decoding="sync"
-                      fetchPriority="high"
-                    />
-                  ) : (
-                    <motion.img
-                      src={LogoDeveloper}
-                      className="img-fluid"
-                      alt={t('theo_developer')}
-                      width="400"
-                      height="400"
-                      drag
-                      dragMomentum={false}
-                      onDragStart={() => setIsDragging(true)}
-                      onDragEnd={() => {
-                        setIsDragging(false);
-                        controls.start({
-                          x: 0,
-                          y: 0,
-                          transition: { type: spring, stiffness: 500, damping: 20 }
-                        });
-                      }}
-                      animate={controls}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.8, ease: easeOut }}
-                      style={{ cursor: "grab" }}
-                    />
+                {enableTilt ? (
+                  <Tilt
+                    tiltMaxAngleX={6}
+                    tiltMaxAngleY={6}
+                    transitionSpeed={360}
+                    scale={1.01}
+                    perspective={950}
+                    glareEnable={false}
+                  >
+                    {isMobile ? (
+                      <img
+                        src={LogoDeveloper}
+                        className="img-fluid"
+                        alt={t('theo_developer')}
+                        width="300"
+                        height="300"
+                        loading="eager"
+                        decoding="sync"
+                        fetchPriority="high"
+                      />
+                    ) : (
+                      <motion.img
+                        src={LogoDeveloper}
+                        className="img-fluid"
+                        alt={t('theo_developer')}
+                        width="400"
+                        height="400"
+                        drag
+                        dragMomentum={false}
+                        onDragStart={() => setIsDragging(true)}
+                        onDragEnd={() => {
+                          setIsDragging(false);
+                          controls.start({
+                            x: 0,
+                            y: 0,
+                            transition: { type: spring, stiffness: 500, damping: 20 }
+                          });
+                        }}
+                        animate={controls}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        transition={{ duration: 0.8, ease: easeOut }}
+                        style={{ cursor: "grab" }}
+                      />
 
-                  )}
-                </Tilt>
+                    )}
+                  </Tilt>
+                ) : (
+                  <div>
+                    {isMobile ? (
+                      <img
+                        src={LogoDeveloper}
+                        className="img-fluid"
+                        alt={t('theo_developer')}
+                        width="300"
+                        height="300"
+                        loading="eager"
+                        decoding="sync"
+                        fetchPriority="high"
+                      />
+                    ) : (
+                      <motion.img
+                        src={LogoDeveloper}
+                        className="img-fluid"
+                        alt={t('theo_developer')}
+                        width="400"
+                        height="400"
+                        drag
+                        dragMomentum={false}
+                        onDragStart={() => setIsDragging(true)}
+                        onDragEnd={() => {
+                          setIsDragging(false);
+                          controls.start({
+                            x: 0,
+                            y: 0,
+                            transition: { type: spring, stiffness: 500, damping: 20 }
+                          });
+                        }}
+                        animate={controls}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        transition={{ duration: 0.8, ease: easeOut }}
+                        style={{ cursor: "grab" }}
+                      />
+
+                    )}
+                  </div>
+                )}
               </div>
             </Col>
             <HomeStats />

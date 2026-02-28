@@ -45,12 +45,12 @@ function AppContent({ load, showPreloader }: AppContentProps) {
   const reduceMotion = useReducedMotion();
 
   const routeInitial = reduceMotion
-    ? { opacity: 1, y: 0, filter: "blur(0px)" }
-    : { opacity: 0, y: 12, filter: "blur(3px)" };
-  const routeAnimate = { opacity: 1, y: 0, filter: "blur(0px)" };
+    ? { opacity: 1, y: 0 }
+    : { opacity: 0, y: 12 };
+  const routeAnimate = { opacity: 1, y: 0 };
   const routeExit = reduceMotion
-    ? { opacity: 1, y: 0, filter: "blur(0px)" }
-    : { opacity: 0, y: -8, filter: "blur(2px)" };
+    ? { opacity: 1, y: 0 }
+    : { opacity: 0, y: -8 };
   const routeTransition = reduceMotion
     ? { duration: 0 }
     : { duration: 0.34, ease: [0.22, 1, 0.36, 1] as const };

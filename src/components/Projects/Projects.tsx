@@ -8,7 +8,7 @@ import { Navigation, Pagination } from "swiper/modules";
 
 import "../../assets/styles/About/About.css";
 import "../../assets/styles/Projet/Projet.css";
-import '../../assets/styles/swiper-global.css';
+import "../../assets/styles/swiper-global.css";
 
 // Images
 import lemonmaze from "@image/Projects/LemonMaze.webp";
@@ -33,21 +33,13 @@ const projects = [
     ghLink: "https://github.com/KizuCore/Portfolio",
     techStack: ["React", "Bootstrap", "Css", "NodeJS", "Axios", "Typescript"],
   },
-
   {
     imgPath: apibook,
     altTextKey: "categories_projects.apibook_image_alt",
     titleKey: "categories_projects.library_title",
     descriptionKey: "categories_projects.library_description",
     ghLink: "https://github.com/KizuCore/MDS-M1-Librairie",
-    techStack: [
-      "NodeJS",
-      "Swagger",
-      "MySQL",
-      "React",
-      "Bootstrap",
-      "Sequelize",
-    ],
+    techStack: ["NodeJS", "Swagger", "MySQL", "React", "Bootstrap", "Sequelize"],
   },
   {
     imgPath: lemonmaze,
@@ -129,14 +121,32 @@ const projects = [
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
-  React.useEffect(() => {
-    projects.forEach((project) => {
-      const img = new Image();
-      img.src = project.imgPath;
-      img.loading = "eager"; // Force le navigateur à ne pas différer
-    });
-  }, []);
+  const [isFinePointer, setIsFinePointer] = React.useState(() =>
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches
+  );
+  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(() =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+  const enableTilt = isFinePointer && !prefersReducedMotion;
 
+  React.useEffect(() => {
+    const pointerMedia = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const motionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const updateInteractionMode = () => {
+      setIsFinePointer(pointerMedia.matches);
+      setPrefersReducedMotion(motionMedia.matches);
+    };
+
+    updateInteractionMode();
+    pointerMedia.addEventListener("change", updateInteractionMode);
+    motionMedia.addEventListener("change", updateInteractionMode);
+
+    return () => {
+      pointerMedia.removeEventListener("change", updateInteractionMode);
+      motionMedia.removeEventListener("change", updateInteractionMode);
+    };
+  }, []);
 
   return (
     <Container fluid className="project-section text-center">
@@ -155,7 +165,7 @@ const Projects: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: easeOut, delay: 0.4 }} // petit délai après le titre
+          transition={{ duration: 0.8, ease: easeOut, delay: 0.4 }}
         >
           <Swiper
             className="project-carousel-swiper"
@@ -176,23 +186,45 @@ const Projects: React.FC = () => {
           >
             {projects.map((project, index) => (
               <SwiperSlide key={index}>
-                <Tilt className="project-tilt" glareEnable={true} glareMaxOpacity={0.1} scale={1.01}>
-                  <ProjectCard
-                    imgPath={project.imgPath}
-                    altText={t(project.altTextKey)}
-                    title={t(project.titleKey)}
-                    description={t(project.descriptionKey)}
-                    ghLink={project.ghLink}
-                    youtubeLink={project.youtubeLink}
-                    seeLink={project.seeLink}
-                    techStack={project.techStack}
-                  />
-                </Tilt>
+                {enableTilt ? (
+                  <Tilt
+                    className="project-tilt"
+                    tiltMaxAngleX={5}
+                    tiltMaxAngleY={5}
+                    transitionSpeed={350}
+                    scale={1.005}
+                    perspective={1100}
+                    glareEnable={false}
+                  >
+                    <ProjectCard
+                      imgPath={project.imgPath}
+                      altText={t(project.altTextKey)}
+                      title={t(project.titleKey)}
+                      description={t(project.descriptionKey)}
+                      ghLink={project.ghLink}
+                      youtubeLink={project.youtubeLink}
+                      seeLink={project.seeLink}
+                      techStack={project.techStack}
+                    />
+                  </Tilt>
+                ) : (
+                  <div className="project-tilt">
+                    <ProjectCard
+                      imgPath={project.imgPath}
+                      altText={t(project.altTextKey)}
+                      title={t(project.titleKey)}
+                      description={t(project.descriptionKey)}
+                      ghLink={project.ghLink}
+                      youtubeLink={project.youtubeLink}
+                      seeLink={project.seeLink}
+                      techStack={project.techStack}
+                    />
+                  </div>
+                )}
               </SwiperSlide>
             ))}
           </Swiper>
         </motion.div>
-
       </Container>
     </Container>
   );

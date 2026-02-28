@@ -355,7 +355,10 @@
 }
 
 .services-title {
+  display: block !important;
+  width: 100%;
   margin-bottom: 0.4rem;
+  margin-top: 0.2rem;
   text-transform: none !important;
   text-align: left !important;
   font-size: clamp(1.95rem, 1.2rem + 2.3vw, 2.7rem) !important;

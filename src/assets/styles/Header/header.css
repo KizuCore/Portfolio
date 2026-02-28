@@ -276,6 +276,11 @@
   gap: 0.35rem;
 }
 
+.navbar-nav .nav-item .nav-link .nav-label {
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
 .navbar-nav .nav-item .nav-link .nav-icon {
   display: inline-flex;
   align-items: center;
@@ -367,5 +372,16 @@
 
   .nav-link {
     padding: 0.7rem 1rem !important;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 767px) {
+    .navbar-nav .nav-item a:hover .nav-label,
+    .navbar-nav .nav-item .nav-link.active .nav-label {
+      background: none !important;
+      -webkit-text-fill-color: currentColor !important;
+      color: #7ab4ff !important;
+    }
   }
 }

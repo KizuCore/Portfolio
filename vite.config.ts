@@ -2,8 +2,25 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path'; 
 
+function asyncEntryCss() {
+  return {
+    name: 'async-entry-css',
+    apply: 'build' as const,
+    enforce: 'post' as const,
+    transformIndexHtml(html: string) {
+      return html.replace(
+        /<link rel="stylesheet" crossorigin href="([^"]+\.css)">/g,
+        (_match, href: string) =>
+          `<link rel="preload" as="style" href="${href}" crossorigin>` +
+          `<link rel="stylesheet" href="${href}" media="print" onload="this.media='all'" crossorigin>` +
+          `<noscript><link rel="stylesheet" href="${href}" crossorigin></noscript>`
+      );
+    }
+  };
+}
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), asyncEntryCss()],
   build: {
     sourcemap: false,
   },

@@ -1,7 +1,7 @@
 import { JSX, useCallback, useEffect, useRef, useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
-import Flag from "react-world-flags";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { FaAngleDown } from "@react-icons/all-files/fa/FaAngleDown";
+import { FaAngleUp } from "@react-icons/all-files/fa/FaAngleUp";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Header/header.css";
@@ -80,8 +80,12 @@ function LanguageSelector(): JSX.Element {
       return <img src="/images/flags/flag_bzh.svg" className={className} alt={t("flag_bzh")} />;
     }
 
-    const code = langCode === "fr" ? "FR" : langCode === "es" ? "ES" : "GB";
-    return <Flag code={code} className={className} alt={t(`flag_${langCode}`)} />;
+    const emoji = langCode === "fr" ? "🇫🇷" : langCode === "es" ? "🇪🇸" : "🇬🇧";
+    return (
+      <span className={`${className} lang-flag-emoji`} role="img" aria-label={t(`flag_${langCode}`)}>
+        {emoji}
+      </span>
+    );
   };
 
   return (

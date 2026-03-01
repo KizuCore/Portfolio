@@ -1,8 +1,9 @@
 import { JSX } from "react";
 import { useTranslation } from "react-i18next";
 import { Container, Row, Col } from "react-bootstrap";
-import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
+import { AiFillGithub } from "@react-icons/all-files/ai/AiFillGithub";
+import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
+import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn";
 import { Link } from "react-router-dom";
 import "../../assets/styles/Footer/Footer.css";
 

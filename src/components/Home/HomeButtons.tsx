@@ -1,4 +1,7 @@
-import { FaDownload, FaLinkedin, FaEnvelope, FaGithub } from "react-icons/fa";
+import { FaDownload } from "@react-icons/all-files/fa/FaDownload";
+import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin";
+import { FaEnvelope } from "@react-icons/all-files/fa/FaEnvelope";
+import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 

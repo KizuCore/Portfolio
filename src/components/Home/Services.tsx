@@ -2,7 +2,10 @@ import { JSX } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { FiCode, FiLayers, FiServer, FiTrendingUp } from "react-icons/fi";
+import { FiCode } from "@react-icons/all-files/fi/FiCode";
+import { FiLayers } from "@react-icons/all-files/fi/FiLayers";
+import { FiServer } from "@react-icons/all-files/fi/FiServer";
+import { FiTrendingUp } from "@react-icons/all-files/fi/FiTrendingUp";
 
 type ServiceItem = {
   key: string;

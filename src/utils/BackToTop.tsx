@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { AiOutlineArrowUp } from "react-icons/ai";
+import { AiOutlineArrowUp } from "@react-icons/all-files/ai/AiOutlineArrowUp";
 
 function BackToTop() {
   const { t } = useTranslation();
@@ -8,7 +8,10 @@ function BackToTop() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsVisible(window.scrollY > 520);
+      const nextVisibility = window.scrollY > 520;
+      setIsVisible((previousVisibility) =>
+        previousVisibility === nextVisibility ? previousVisibility : nextVisibility
+      );
     };
 
     handleScroll();

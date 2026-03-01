@@ -4,14 +4,17 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import { AiOutlineHome, AiOutlineFundProjectionScreen, AiOutlineUser, AiOutlineIdcard } from "react-icons/ai";
-import { CgFileDocument } from "react-icons/cg";
+import { AiOutlineHome } from "@react-icons/all-files/ai/AiOutlineHome";
+import { AiOutlineFundProjectionScreen } from "@react-icons/all-files/ai/AiOutlineFundProjectionScreen";
+import { AiOutlineUser } from "@react-icons/all-files/ai/AiOutlineUser";
+import { AiOutlineIdcard } from "@react-icons/all-files/ai/AiOutlineIdcard";
+import { CgFileDocument } from "@react-icons/all-files/cg/CgFileDocument";
 import LanguageSelector from "../LanguageSelector";
 import Logo from "../Logo/LogoContainer";
 import NavItem from "./NavItem";
 import '../../../assets/styles/Easter/style_easter.css';
 import '../../../assets/styles/Header/header.css';
-import { FaRegEnvelope } from "react-icons/fa";
+import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope";
 
 // Constantes de timing
 const FAST_CLICK_THRESHOLD = 500; // 0.5s = clic rapide
@@ -71,8 +74,13 @@ function NavBar(): JSX.Element {
   const { isAnimating, handleMouseDown, handleMouseUp } = useLogoNavigation(navigate);
 
   useEffect(() => {
-    const scrollHandler = () => setNavColour(window.scrollY >= 20);
-    window.addEventListener("scroll", scrollHandler);
+    const scrollHandler = () => {
+      const shouldUseStickyStyle = window.scrollY >= 20;
+      setNavColour((previous) => (previous === shouldUseStickyStyle ? previous : shouldUseStickyStyle));
+    };
+
+    scrollHandler();
+    window.addEventListener("scroll", scrollHandler, { passive: true });
     return () => window.removeEventListener("scroll", scrollHandler);
   }, []);
 

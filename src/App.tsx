@@ -8,8 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/Header/Navbar/Navbar.tsx";
 import Footer from "./components/Footer/Footer.tsx";
 import SeoMeta from "./components/Helmet/react-helmet-seo.tsx";
-import MentionsLegales from "./components/Legal/MentionsLegales.tsx";
-import PolitiqueConfidentialite from "./components/Legal/PolitiqueConfidentialite.tsx";
+import Home from "./components/Home/Home.tsx";
 import CookieBanner from "./components/Legal/CookieBanner.tsx";
 import CookiePreferencesModal from "./components/Legal/CookiePreferencesModal.tsx";
 import Preloader from "./utils/Preloader.tsx";
@@ -20,7 +19,6 @@ import RouteSkeleton from "./utils/RouteSkeleton.tsx";
 import useKonamiCode from "./utils/Konami.tsx";
 
 const VideoPopup = lazy(() => import("./components/Easter/Video.tsx"));
-const Home = lazy(() => import("./components/Home/Home.tsx"));
 const About = lazy(() => import("./components/About/About.tsx"));
 const Contact = lazy(() => import("./components/Contact/Contact.tsx"));
 const Experience = lazy(() => import("./components/Experience/ExpTimeline.tsx"));
@@ -28,6 +26,8 @@ const Projects = lazy(() => import("./components/Projects/Projects.tsx"));
 const CV = lazy(() => import("./components/Resume/CV.tsx"));
 const Gojo = lazy(() => import("./components/Easter/Gojo.tsx"));
 const RouteSecret = lazy(() => import("./components/Easter/Arcane.tsx"));
+const MentionsLegales = lazy(() => import("./components/Legal/MentionsLegales.tsx"));
+const PolitiqueConfidentialite = lazy(() => import("./components/Legal/PolitiqueConfidentialite.tsx"));
 
 function KonamiComponent() {
   useKonamiCode();
@@ -43,6 +43,7 @@ function AppContent({ load, showPreloader }: AppContentProps) {
   const { t } = useTranslation();
   const location = useLocation();
   const reduceMotion = useReducedMotion();
+  const [loadVideoPopup, setLoadVideoPopup] = useState(false);
 
   const routeInitial = reduceMotion
     ? { opacity: 1, y: 0 }
@@ -54,6 +55,23 @@ function AppContent({ load, showPreloader }: AppContentProps) {
   const routeTransition = reduceMotion
     ? { duration: 0 }
     : { duration: 0.34, ease: [0.22, 1, 0.36, 1] as const };
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setLoadVideoPopup(true);
+    }, 4000);
+
+    const onFirstKeyDown = () => {
+      setLoadVideoPopup(true);
+    };
+
+    window.addEventListener("keydown", onFirstKeyDown, { once: true });
+
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("keydown", onFirstKeyDown);
+    };
+  }, []);
 
   return (
     <>
@@ -68,9 +86,11 @@ function AppContent({ load, showPreloader }: AppContentProps) {
         <NavBar />
         <ScrollToTop />
         <KonamiComponent />
-        <Suspense fallback={null}>
-          <VideoPopup />
-        </Suspense>
+        {loadVideoPopup ? (
+          <Suspense fallback={null}>
+            <VideoPopup />
+          </Suspense>
+        ) : null}
 
         <main className="main-content" id="main-content" tabIndex={-1}>
           <CookieBanner />

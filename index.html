@@ -28,6 +28,13 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="/images/favicon/site.webmanifest" />
+  <link
+    rel="preload"
+    href="/images/logodev.svg"
+    as="image"
+    type="image/svg+xml"
+    fetchpriority="high"
+  />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Théo Guérin | Portfolio" />
@@ -49,12 +56,24 @@
   />
   <meta name="twitter:image" content="https://theo-guerin.fr/images/preview/previewsite.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&display=swap"
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&family=Sora:wght@400&display=swap"
   />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&family=Sora:wght@400&display=swap"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&family=Sora:wght@400&display=swap"
+    />
+  </noscript>
 
   <script type="application/ld+json">
     {

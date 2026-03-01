@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
 import { easeOut, motion, spring, useAnimation } from 'framer-motion';
 
-import LogoDeveloper from "../../assets/images/logodev.svg"
 import Tilt from "react-parallax-tilt";
 import TypeDev from "./Type.tsx";
 import '../../assets/styles/Home/Home.css';
@@ -12,6 +11,8 @@ import HomeButtons from "./HomeButtons.tsx";
 import HomeStats from "./CountUp.tsx";
 import Services from "./Services.tsx";
 import Particle from "../../utils/Particle.tsx";
+
+const LOGO_DEVELOPER_SRC = "/images/logodev.svg";
 
 function Home(): JSX.Element {
   const { t } = useTranslation();
@@ -138,7 +139,7 @@ function Home(): JSX.Element {
                   >
                     {isMobile ? (
                       <img
-                        src={LogoDeveloper}
+                        src={LOGO_DEVELOPER_SRC}
                         className="img-fluid"
                         alt={t('theo_developer')}
                         width="300"
@@ -149,11 +150,14 @@ function Home(): JSX.Element {
                       />
                     ) : (
                       <motion.img
-                        src={LogoDeveloper}
+                        src={LOGO_DEVELOPER_SRC}
                         className="img-fluid"
                         alt={t('theo_developer')}
                         width="400"
                         height="400"
+                        loading="eager"
+                        decoding="sync"
+                        fetchPriority="high"
                         drag
                         dragMomentum={false}
                         onDragStart={() => setIsDragging(true)}
@@ -177,7 +181,7 @@ function Home(): JSX.Element {
                   <div>
                     {isMobile ? (
                       <img
-                        src={LogoDeveloper}
+                        src={LOGO_DEVELOPER_SRC}
                         className="img-fluid"
                         alt={t('theo_developer')}
                         width="300"
@@ -188,11 +192,14 @@ function Home(): JSX.Element {
                       />
                     ) : (
                       <motion.img
-                        src={LogoDeveloper}
+                        src={LOGO_DEVELOPER_SRC}
                         className="img-fluid"
                         alt={t('theo_developer')}
                         width="400"
                         height="400"
+                        loading="eager"
+                        decoding="sync"
+                        fetchPriority="high"
                         drag
                         dragMomentum={false}
                         onDragStart={() => setIsDragging(true)}

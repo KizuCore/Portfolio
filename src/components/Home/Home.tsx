@@ -6,12 +6,12 @@ import Tilt from "react-parallax-tilt";
 import '../../assets/styles/Home/Home.css';
 import { useInView } from 'react-intersection-observer';
 import HomeButtons from "./HomeButtons.tsx";
+import TypeDev from "./Type.tsx";
+import HomeStats from "./CountUp.tsx";
+import Services from "./Services.tsx";
 
 const LOGO_DEVELOPER_SRC = "/images/logodev.svg";
 const Particle = lazy(() => import("../../utils/Particle.tsx"));
-const TypeDev = lazy(() => import("./Type.tsx"));
-const HomeStats = lazy(() => import("./CountUp.tsx"));
-const Services = lazy(() => import("./Services.tsx"));
 
 function Home(): JSX.Element {
   const { t } = useTranslation();
@@ -27,12 +27,6 @@ function Home(): JSX.Element {
 
   const controls = useAnimation();
   const enableTilt = !isMobile && isFinePointer && !prefersReducedMotion;
-  const typeFallbackText = t(isMobile ? "fullstack_developer_phone" : "fullstack_developer");
-  const typeFallback = (
-    <span className="Typewriter__wrapper" aria-hidden="true">
-      {typeFallbackText}
-    </span>
-  );
 
   const { ref, inView: imgInView } = useInView({
     triggerOnce: true,
@@ -117,9 +111,7 @@ function Home(): JSX.Element {
               {/* DÃ©veloppeur... */}
               {isMobile ? (
                 <div className="pt-3 pb-5 d-flex justify-content-center align-items-center">
-                  <Suspense fallback={typeFallback}>
-                    <TypeDev />
-                  </Suspense>
+                  <TypeDev />
                 </div>
               ) : (
                 <motion.div
@@ -128,9 +120,7 @@ function Home(): JSX.Element {
                   transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
                   className="pt-3 pb-5 d-flex justify-content-center align-items-center"
                 >
-                  <Suspense fallback={typeFallback}>
-                    <TypeDev />
-                  </Suspense>
+                  <TypeDev />
                 </motion.div>
               )}
               <HomeButtons />
@@ -244,13 +234,9 @@ function Home(): JSX.Element {
                 )}
               </div>
             </div>
-            <Suspense fallback={null}>
-              <HomeStats />
-            </Suspense>
+            <HomeStats />
           </div>
-          <Suspense fallback={null}>
-            <Services />
-          </Suspense>
+          <Services />
         </div>
       </div>
     </section>

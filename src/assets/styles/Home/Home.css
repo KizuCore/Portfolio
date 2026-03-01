@@ -259,6 +259,9 @@
 
 .stat-number,
 .stat-plus {
+  display: inline-block;
+  min-width: 2.4ch;
+  text-align: right;
   font-size: 4rem;
   font-weight: 700;
   color: #ffffff;

@@ -1,23 +1,112 @@
-.cookie-prefs-modal .modal-content {
+.cookie-prefs-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.cookie-prefs-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  background: rgba(2, 7, 15, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.cookie-prefs-dialog {
+  position: relative;
+  width: min(560px, 95vw);
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  border-radius: 14px;
+}
+
+.cookie-prefs-content {
   background: linear-gradient(160deg, rgba(14, 22, 39, 0.98), rgba(10, 17, 30, 0.98));
   color: #eaf2ff;
   border: 1px solid rgba(135, 176, 255, 0.22);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 
-.cookie-prefs-modal .modal-header,
-.cookie-prefs-modal .modal-footer {
+.cookie-prefs-header,
+.cookie-prefs-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.9rem 1rem;
   border-color: rgba(135, 176, 255, 0.16);
 }
 
-.cookie-prefs-modal .btn-close {
-  filter: invert(1) brightness(1.2);
+.cookie-prefs-header {
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(135, 176, 255, 0.16);
 }
 
-.cookie-prefs-modal .form-check-label {
+.cookie-prefs-title {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.cookie-prefs-close {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 8px;
   color: #eaf2ff;
+  background: rgba(123, 169, 255, 0.12);
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
-.cookie-prefs-modal .text-muted {
-  color: rgba(225, 236, 255, 0.75) !important;
+.cookie-prefs-close:hover {
+  background: rgba(123, 169, 255, 0.22);
+}
+
+.cookie-prefs-body {
+  padding: 0.95rem 1rem;
+  text-align: left;
+}
+
+.cookie-prefs-form {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.cookie-prefs-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.96rem;
+}
+
+.cookie-prefs-toggle .form-check-input {
+  margin: 0;
+}
+
+.cookie-prefs-note {
+  color: rgba(225, 236, 255, 0.75);
+  font-size: 0.86rem;
+}
+
+.cookie-prefs-footer {
+  justify-content: flex-end;
+  border-top: 1px solid rgba(135, 176, 255, 0.16);
+}
+
+.cookie-prefs-close:focus-visible,
+.cookie-prefs-backdrop:focus-visible,
+.cookie-prefs-footer .btn:focus-visible {
+  outline: 2px solid rgba(170, 209, 255, 0.95);
+  outline-offset: 3px;
 }

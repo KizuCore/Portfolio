@@ -1,5 +1,4 @@
 import React from 'react';
-import { Nav } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import '../../../assets/styles/Header/header.css';
 
@@ -16,21 +15,20 @@ function NavItem({ to, icon, label, onClick, ariaLabel }: NavItemProps) {
   const isActive = location.pathname === to;
 
   return (
-    <Nav.Item>
-      <Nav.Link
-        as={Link}
+    <li className="nav-item">
+      <Link
         to={to}
         onClick={onClick}
         aria-label={ariaLabel}
         aria-current={isActive ? "page" : undefined}
-        className={isActive ? 'active' : ''}
+        className={`nav-link${isActive ? ' active' : ''}`}
       >
         <span className="nav-icon" aria-hidden="true">
           {icon}
         </span>
         <span className="nav-label">{label}</span>
-      </Nav.Link>
-    </Nav.Item>
+      </Link>
+    </li>
   );
 }
 

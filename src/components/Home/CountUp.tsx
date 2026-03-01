@@ -1,7 +1,6 @@
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
-import { Row, Col } from 'react-bootstrap';
 
 function HomeStats() {
   const { ref, inView } = useInView({ triggerOnce: true });
@@ -9,8 +8,8 @@ function HomeStats() {
 
   return (
     <div className="home-stats" ref={ref}>
-      <Row className="g-3 g-md-5 justify-content-center">
-        <Col xs={12} md={3} className="d-flex justify-content-center">
+      <div className="row g-3 g-md-5 justify-content-center">
+        <div className="col-12 col-md-3 d-flex justify-content-center">
           <div className="stat-item stat-item-combo">
             <span className="stat-number bold-number">
               {inView && <CountUp start={0} end={2} duration={1.5} delay={1.5} />}
@@ -20,9 +19,9 @@ function HomeStats() {
               <span className="stat-label">{t('experience_home')}</span>
             </div>
           </div>
-        </Col>
+        </div>
 
-        <Col xs={12} md={3} className="d-flex justify-content-center">
+        <div className="col-12 col-md-3 d-flex justify-content-center">
           <div className="stat-item stat-item-combo">
             <span className="stat-number">
               {inView && <CountUp start={0} end={5} duration={1.5} delay={1.7} />}
@@ -32,9 +31,9 @@ function HomeStats() {
               <span className="stat-label">{t('studies')}</span>
             </div>
           </div>
-        </Col>
+        </div>
 
-        <Col xs={12} md={3} className="d-flex justify-content-center">
+        <div className="col-12 col-md-3 d-flex justify-content-center">
           <div className="stat-item stat-item-combo">
             <span className="stat-plus">+</span>
             <span className="stat-number bold-number">
@@ -45,9 +44,9 @@ function HomeStats() {
               <span className="stat-label">{t('completed')}</span>
             </div>
           </div>
-        </Col>
+        </div>
 
-        <Col xs={12} md={3} className="d-flex justify-content-center">
+        <div className="col-12 col-md-3 d-flex justify-content-center">
           <div className="stat-item stat-item-combo">
             <span className="stat-plus">+</span>
             <span className="stat-number bold-number">
@@ -57,8 +56,8 @@ function HomeStats() {
               <span className="stat-label">{t('technologies')}</span>
             </div>
           </div>
-        </Col>
-      </Row>
+        </div>
+      </div>
     </div>
   );
 }

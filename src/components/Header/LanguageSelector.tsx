@@ -1,5 +1,4 @@
-import { JSX, useCallback, useEffect, useRef, useState } from "react";
-import Dropdown from "react-bootstrap/Dropdown";
+﻿import { JSX, useCallback, useEffect, useRef, useState } from "react";
 import { FaAngleDown } from "@react-icons/all-files/fa/FaAngleDown";
 import { FaAngleUp } from "@react-icons/all-files/fa/FaAngleUp";
 import { motion, AnimatePresence } from "framer-motion";
@@ -7,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import "../../assets/styles/Header/header.css";
 
 type SupportedLanguage = "en" | "es" | "fr";
+type LanguageCode = SupportedLanguage | "bzh";
 
 const LANGUAGE_OPTIONS: ReadonlyArray<{ code: SupportedLanguage; label: string }> = [
   { code: "en", label: "English" },
@@ -14,10 +14,18 @@ const LANGUAGE_OPTIONS: ReadonlyArray<{ code: SupportedLanguage; label: string }
   { code: "fr", label: "Francais" },
 ];
 
+const FLAG_SOURCES: Readonly<Record<LanguageCode, string>> = {
+  en: "/images/flags/flag_en.svg",
+  es: "/images/flags/flag_es.svg",
+  fr: "/images/flags/flag_fr.svg",
+  bzh: "/images/flags/flag_bzh.svg",
+};
+
 function LanguageSelector(): JSX.Element {
   const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [showBanner, setShowBanner] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
   const sequenceRef = useRef("");
   const bannerTimeoutRef = useRef<number | null>(null);
 
@@ -31,6 +39,32 @@ function LanguageSelector(): JSX.Element {
   useEffect(() => {
     document.documentElement.lang = i18n.language;
   }, [i18n.language]);
+
+  useEffect(() => {
+    const handleDocumentClick = (event: MouseEvent) => {
+      if (!isOpen) {
+        return;
+      }
+
+      if (!dropdownRef.current?.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleDocumentClick);
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", handleDocumentClick);
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
@@ -72,60 +106,62 @@ function LanguageSelector(): JSX.Element {
     };
   }, [changeLanguage]);
 
-  const normalizedLanguage = i18n.language.startsWith("bzh") ? "bzh" : i18n.language.slice(0, 2);
+  const detectedLanguageCode = i18n.language.slice(0, 2) as SupportedLanguage;
+  const normalizedLanguage: LanguageCode = i18n.language.startsWith("bzh")
+    ? "bzh"
+    : (LANGUAGE_OPTIONS.some((option) => option.code === detectedLanguageCode) ? detectedLanguageCode : "en");
   const currentLanguage = normalizedLanguage.toUpperCase();
 
-  const renderFlag = (langCode: string, className = "lang-flag") => {
-    if (langCode === "bzh") {
-      return <img src="/images/flags/flag_bzh.svg" className={className} alt={t("flag_bzh")} />;
-    }
-
-    const emoji = langCode === "fr" ? "🇫🇷" : langCode === "es" ? "🇪🇸" : "🇬🇧";
-    return (
-      <span className={`${className} lang-flag-emoji`} role="img" aria-label={t(`flag_${langCode}`)}>
-        {emoji}
-      </span>
-    );
+  const renderFlag = (langCode: LanguageCode, className = "lang-flag") => {
+    const src = FLAG_SOURCES[langCode] ?? FLAG_SOURCES.en;
+    return <img src={src} className={className} alt={t(`flag_${langCode}`)} />;
   };
 
   return (
     <>
-      <Dropdown className="language-selector" align="end" onToggle={(nextShow) => setIsOpen(nextShow)}>
-        <Dropdown.Toggle
-          variant="secondary"
+      <div className={`language-selector${isOpen ? " show" : ""}`} ref={dropdownRef}>
+        <button
+          type="button"
           id="language-selector-toggle"
           className="lang-toggle"
           aria-label={t("a11y.language_selector", { defaultValue: "Choose language" })}
+          aria-expanded={isOpen}
+          aria-haspopup="menu"
+          onClick={() => setIsOpen((previousValue) => !previousValue)}
         >
           <span className="lang-flag-wrap">{renderFlag(normalizedLanguage)}</span>
           <span className="lang-code">{currentLanguage}</span>
           <span className="lang-chevron" aria-hidden="true">
             {isOpen ? <FaAngleUp /> : <FaAngleDown />}
           </span>
-        </Dropdown.Toggle>
+        </button>
 
-        <Dropdown.Menu className="lang-menu">
-          {LANGUAGE_OPTIONS.map((option) => {
-            const isActive = normalizedLanguage === option.code;
+        {isOpen ? (
+          <div className="lang-menu" role="menu" aria-labelledby="language-selector-toggle">
+            {LANGUAGE_OPTIONS.map((option) => {
+              const isActive = normalizedLanguage === option.code;
 
-            return (
-              <Dropdown.Item
-                key={option.code}
-                className={`lang-item${isActive ? " is-active" : ""}`}
-                active={isActive}
-                onClick={() => {
-                  changeLanguage(option.code);
-                  setIsOpen(false);
-                }}
-              >
-                <span className="lang-item-flag">{renderFlag(option.code, "lang-flag")}</span>
-                <span className="lang-item-code">{option.code.toUpperCase()}</span>
-                <span className="lang-item-label">{option.label}</span>
-              </Dropdown.Item>
-            );
-          })}
-        </Dropdown.Menu>
-      </Dropdown>
+              return (
+                <button
+                  type="button"
+                  key={option.code}
+                  role="menuitemradio"
+                  aria-checked={isActive}
+                  className={`lang-item${isActive ? " is-active active" : ""}`}
+                  onClick={() => {
+                    changeLanguage(option.code);
+                    setIsOpen(false);
+                  }}
+                >
+                  <span className="lang-item-flag">{renderFlag(option.code, "lang-flag")}</span>
+                  <span className="lang-item-code">{option.code.toUpperCase()}</span>
+                  <span className="lang-item-label">{option.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        ) : null}
+      </div>
 
       <AnimatePresence>
         {showBanner && (

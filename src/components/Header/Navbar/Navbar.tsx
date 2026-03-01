@@ -1,7 +1,4 @@
 import { JSX, useState, useEffect, useRef } from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { AiOutlineHome } from "@react-icons/all-files/ai/AiOutlineHome";
@@ -94,20 +91,25 @@ function NavBar(): JSX.Element {
   ];
 
   return (
-    <Navbar expanded={expand} fixed="top" expand="md" className={`${navColour ? "sticky" : "navbar"} ${expand ? "menu-open" : ""}`}>
-      <Container>
+    <nav
+      className={`navbar navbar-expand-md fixed-top ${navColour ? "sticky" : ""} ${expand ? "menu-open" : ""}`}
+      aria-label={t("a11y.nav_menu_toggle", { defaultValue: "Navigation principale" })}
+    >
+      <div className="container">
         {/* Logo */}
-        <Navbar.Brand>
+        <div className="navbar-brand">
           <Logo
             isAnimating={isAnimating}
             handleMouseDown={handleMouseDown}
             handleMouseUp={handleMouseUp}
             t={t}
           />
-        </Navbar.Brand>
+        </div>
 
         {/* Burger menu */}
-        <Navbar.Toggle
+        <button
+          type="button"
+          className={`navbar-toggler ${expand ? "" : "collapsed"}`}
           aria-controls="responsive-navbar-nav"
           aria-label={t("a11y.nav_menu_toggle", { defaultValue: "Ouvrir ou fermer le menu" })}
           aria-expanded={expand}
@@ -116,11 +118,11 @@ function NavBar(): JSX.Element {
           <span></span>
           <span></span>
           <span></span>
-        </Navbar.Toggle>
+        </button>
 
         {/* Menu */}
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto pt-2" defaultActiveKey="#home">
+        <div id="responsive-navbar-nav" className={`collapse navbar-collapse${expand ? " show" : ""}`}>
+          <ul className="navbar-nav ms-auto pt-2">
             {navItems.map((item, index) => (
               <NavItem
                 key={index}
@@ -131,13 +133,13 @@ function NavBar(): JSX.Element {
                 ariaLabel={item.ariaLabel}
               />
             ))}
-            <Nav.Item>
+            <li className="nav-item">
               <LanguageSelector />
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
 

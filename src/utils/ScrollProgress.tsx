@@ -4,21 +4,53 @@ function ScrollProgress() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const updateProgress = () => {
-      const scrollTop = window.scrollY;
-      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const nextProgress = scrollableHeight <= 0 ? 0 : Math.min(scrollTop / scrollableHeight, 1);
+    let rafId = 0;
+    let scrollableHeight = 0;
 
-      setProgress(nextProgress);
+    const refreshScrollableHeight = () => {
+      scrollableHeight = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
     };
 
+    const updateProgress = () => {
+      const scrollTop = window.scrollY;
+      const nextProgress = scrollableHeight <= 0 ? 0 : Math.min(scrollTop / scrollableHeight, 1);
+      setProgress((previous) => (previous === nextProgress ? previous : nextProgress));
+    };
+
+    const scheduleUpdate = () => {
+      if (rafId !== 0) {
+        return;
+      }
+      rafId = window.requestAnimationFrame(() => {
+        rafId = 0;
+        updateProgress();
+      });
+    };
+
+    const handleResize = () => {
+      refreshScrollableHeight();
+      scheduleUpdate();
+    };
+
+    refreshScrollableHeight();
     updateProgress();
-    window.addEventListener("scroll", updateProgress, { passive: true });
-    window.addEventListener("resize", updateProgress);
+
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", handleResize);
+
+    const resizeObserver = typeof ResizeObserver !== "undefined"
+      ? new ResizeObserver(handleResize)
+      : null;
+
+    resizeObserver?.observe(document.body);
 
     return () => {
-      window.removeEventListener("scroll", updateProgress);
-      window.removeEventListener("resize", updateProgress);
+      if (rafId !== 0) {
+        window.cancelAnimationFrame(rafId);
+      }
+      resizeObserver?.disconnect();
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 

@@ -1,5 +1,4 @@
 ﻿import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { updateConsent } from "../../utils/consent";
@@ -24,7 +23,7 @@ export default function CookieBanner() {
       aria-live="polite"
       aria-label={t("cookie_banner.aria_label", "Bandeau d'information sur les cookies")}
     >
-      <Container className="cookie-banner-inner">
+      <div className="container cookie-banner-inner">
         <p className="cookie-banner-text mb-0">
           {t("cookie_banner.text")}
           <Link
@@ -66,7 +65,7 @@ export default function CookieBanner() {
             {t("cookie_banner.manage")}
           </button>
         </div>
-      </Container>
+      </div>
     </div>
   );
 }

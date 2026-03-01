@@ -1,18 +1,17 @@
 ﻿import { JSX, Suspense, lazy, useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
-import { Container, Row, Col } from "react-bootstrap";
 import { easeOut, motion, spring, useAnimation } from 'framer-motion';
 
 import Tilt from "react-parallax-tilt";
-import TypeDev from "./Type.tsx";
 import '../../assets/styles/Home/Home.css';
 import { useInView } from 'react-intersection-observer';
 import HomeButtons from "./HomeButtons.tsx";
-import HomeStats from "./CountUp.tsx";
-import Services from "./Services.tsx";
 
 const LOGO_DEVELOPER_SRC = "/images/logodev.svg";
 const Particle = lazy(() => import("../../utils/Particle.tsx"));
+const TypeDev = lazy(() => import("./Type.tsx"));
+const HomeStats = lazy(() => import("./CountUp.tsx"));
+const Services = lazy(() => import("./Services.tsx"));
 
 function Home(): JSX.Element {
   const { t } = useTranslation();
@@ -28,6 +27,12 @@ function Home(): JSX.Element {
 
   const controls = useAnimation();
   const enableTilt = !isMobile && isFinePointer && !prefersReducedMotion;
+  const typeFallbackText = t(isMobile ? "fullstack_developer_phone" : "fullstack_developer");
+  const typeFallback = (
+    <span className="Typewriter__wrapper" aria-hidden="true">
+      {typeFallbackText}
+    </span>
+  );
 
   const { ref, inView: imgInView } = useInView({
     triggerOnce: true,
@@ -71,16 +76,16 @@ function Home(): JSX.Element {
 
   return (
     <section>
-      <Container fluid className="about-section pt-0" id="home">
+      <div className="container-fluid about-section pt-0" id="home">
         {showParticle ? (
           <Suspense fallback={null}>
             <Particle />
           </Suspense>
         ) : null}
-        <Container className="home-content">
-          <Row className="align-items-center justify-content-center text-center text-md-left padtopbot">
+        <div className="container home-content">
+          <div className="row align-items-center justify-content-center text-center text-md-left padtopbot">
             {/* Texte */}
-            <Col xs={12} md={6} className="home-header d-flex flex-column justify-content-center text-center text-md-left py-md-5">
+            <div className="col-12 col-md-6 home-header d-flex flex-column justify-content-center text-center text-md-left py-md-5">
               {isMobile ? (
                 <div className="pb-md-5 pb-0">
                   <h1 className="heading mb-3 title-font">
@@ -112,7 +117,9 @@ function Home(): JSX.Element {
               {/* DÃ©veloppeur... */}
               {isMobile ? (
                 <div className="pt-3 pb-5 d-flex justify-content-center align-items-center">
-                  <TypeDev />
+                  <Suspense fallback={typeFallback}>
+                    <TypeDev />
+                  </Suspense>
                 </div>
               ) : (
                 <motion.div
@@ -121,13 +128,15 @@ function Home(): JSX.Element {
                   transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
                   className="pt-3 pb-5 d-flex justify-content-center align-items-center"
                 >
-                  <TypeDev />
+                  <Suspense fallback={typeFallback}>
+                    <TypeDev />
+                  </Suspense>
                 </motion.div>
               )}
               <HomeButtons />
-            </Col>
+            </div>
             {/* Colonne pour l'image */}
-            <Col ref={ref} xs={12} md={6} className="d-flex justify-content-center align-items-center py-4">
+            <div ref={ref} className="col-12 col-md-6 d-flex justify-content-center align-items-center py-4">
               <div className={`logo-wrapper mt-3 mt-md-0 ${isDragging ? 'dragging' : ''}`}>
                 <motion.div
                   className="black-hole"
@@ -234,12 +243,16 @@ function Home(): JSX.Element {
                   </div>
                 )}
               </div>
-            </Col>
-            <HomeStats />
-          </Row>
-          <Services />
-        </Container>
-      </Container>
+            </div>
+            <Suspense fallback={null}>
+              <HomeStats />
+            </Suspense>
+          </div>
+          <Suspense fallback={null}>
+            <Services />
+          </Suspense>
+        </div>
+      </div>
     </section>
   );
 }

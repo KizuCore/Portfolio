@@ -1,6 +1,5 @@
 import { JSX } from "react";
 import { useTranslation } from "react-i18next";
-import { Container, Row, Col } from "react-bootstrap";
 import { AiFillGithub } from "@react-icons/all-files/ai/AiFillGithub";
 import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
 import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn";
@@ -13,9 +12,9 @@ function Footer(): JSX.Element {
 
   return (
     <footer className="footer-section">
-      <Container fluid className="footer px-0">
-        <Row className="text-center align-items-center">
-          <Col xs={12} md={4} className="footer-copywright py-2">
+      <div className="container-fluid footer px-0">
+        <div className="row text-center align-items-center">
+          <div className="col-12 col-md-4 footer-copywright py-2">
             <h3>
               {t("bytheo1")}{" "}
               <a
@@ -28,9 +27,9 @@ function Footer(): JSX.Element {
                 KizuCore
               </a>
             </h3>
-          </Col>
+          </div>
 
-          <Col xs={12} md={4} className="footer-copywright py-2 d-flex flex-column">
+          <div className="col-12 col-md-4 footer-copywright py-2 d-flex flex-column">
             <h3>
               {"\u00A9"} 2024-{year} {"\u2014"} {t("portfolio_theo")}
             </h3>
@@ -56,9 +55,9 @@ function Footer(): JSX.Element {
                 {t("footer_links.cookies")}
               </button>
             </div>
-          </Col>
+          </div>
 
-          <Col xs={12} md={4} className="footer-body py-2">
+          <div className="col-12 col-md-4 footer-body py-2">
             <div
               className="footer-icons d-flex justify-content-center justify-content-md-end gap-5"
               style={{ paddingRight: "20px" }}
@@ -91,9 +90,9 @@ function Footer(): JSX.Element {
                 <AiOutlineMail />
               </a>
             </div>
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }

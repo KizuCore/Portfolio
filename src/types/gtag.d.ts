@@ -2,8 +2,8 @@ export {};
 
 declare global {
   interface Window {
-    dataLayer: any[];
-    gtag: (...args: any[]) => void;
+    dataLayer: unknown[];
+    gtag: (command: string, ...args: unknown[]) => void;
     openCookiePreferences?: () => void;
   }
 }

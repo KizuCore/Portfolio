@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
 import { Document, Page, pdfjs } from "react-pdf";
-import { AiOutlineDownload } from "react-icons/ai";
+import { AiOutlineDownload } from "@react-icons/all-files/ai/AiOutlineDownload";
 import { useTranslation } from "react-i18next";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "../../assets/styles/CV/CV.css";
@@ -31,7 +31,7 @@ function CV() {
   }, []);
 
   const DownloadButton = () => (
-    <Button href={pdf} target="_blank" className="button-cv">
+    <Button href={pdf} target="_blank" rel="noopener noreferrer" className="button-cv">
       <AiOutlineDownload style={{ marginRight: "5px" }} className="mb-1" />{t("downloadcv")}
     </Button >
   );

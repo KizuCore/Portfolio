@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import { AiOutlineMail } from "react-icons/ai";
+import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
 
 interface FormFields {
   name: string;
@@ -89,7 +89,7 @@ function ContactForm() {
         setResponseMessage(translated);
         setResponseVariant("danger");
       }
-    } catch (error: any) {
+    } catch {
       setResponseMessage(t("message_error"));
       setResponseVariant("danger");
     } finally {

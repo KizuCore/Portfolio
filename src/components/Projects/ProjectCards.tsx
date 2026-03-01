@@ -1,23 +1,32 @@
-import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Row, Col } from "react-bootstrap";
 import { useTranslation } from 'react-i18next';
 import '../../assets/styles/Projet/Projet.css';
-import { BsGithub, BsYoutube } from "react-icons/bs";
-import {
-  SiFlutter, SiKotlin, SiSwagger, SiVuedotjs,
-  SiGoogle, SiSequelize, SiAxios, SiTypescript,
-  SiGraphql
-} from "react-icons/si";
-import {
-  DiMysql, DiPhp, DiHtml5, DiCss3, DiJavascript1,
-  DiReact, DiBootstrap, DiNodejs
-} from "react-icons/di";
-import { FaEye, FaJava } from "react-icons/fa";
+import type { IconType } from "react-icons";
+import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
+import { FaYoutube } from "@react-icons/all-files/fa/FaYoutube";
+import { FaExchangeAlt } from "@react-icons/all-files/fa/FaExchangeAlt";
+import { SiFlutter } from "@react-icons/all-files/si/SiFlutter";
+import { SiKotlin } from "@react-icons/all-files/si/SiKotlin";
+import { SiSwagger } from "@react-icons/all-files/si/SiSwagger";
+import { SiVueDotJs } from "@react-icons/all-files/si/SiVueDotJs";
+import { SiGoogle } from "@react-icons/all-files/si/SiGoogle";
+import { SiTypescript } from "@react-icons/all-files/si/SiTypescript";
+import { SiGraphql } from "@react-icons/all-files/si/SiGraphql";
+import { DiMysql } from "@react-icons/all-files/di/DiMysql";
+import { DiPhp } from "@react-icons/all-files/di/DiPhp";
+import { DiHtml5 } from "@react-icons/all-files/di/DiHtml5";
+import { DiCss3 } from "@react-icons/all-files/di/DiCss3";
+import { DiJavascript1 } from "@react-icons/all-files/di/DiJavascript1";
+import { DiReact } from "@react-icons/all-files/di/DiReact";
+import { DiBootstrap } from "@react-icons/all-files/di/DiBootstrap";
+import { DiNodejs } from "@react-icons/all-files/di/DiNodejs";
+import { FaEye } from "@react-icons/all-files/fa/FaEye";
+import { FaJava } from "@react-icons/all-files/fa/FaJava";
 
 // Dictionnaire des icônes par techno
-const techIcons: Record<string, React.ComponentType<any>> = {
+const techIcons: Record<string, IconType> = {
   Flutter: SiFlutter,
   MySQL: DiMysql,
   Kotlin: SiKotlin,
@@ -27,14 +36,14 @@ const techIcons: Record<string, React.ComponentType<any>> = {
   Css: DiCss3,
   Javascript: DiJavascript1,
   Typescript: SiTypescript,
-  Vuejs: SiVuedotjs,
+  Vuejs: SiVueDotJs,
   React: DiReact,
   Bootstrap: DiBootstrap,
   Swagger: SiSwagger,
   ApiGoogleBooks: SiGoogle,
-  Sequelize: SiSequelize,
+  Sequelize: DiMysql,
   NodeJS: DiNodejs,
-  Axios: SiAxios,
+  Axios: FaExchangeAlt,
   GraphQL: SiGraphql,
 };
 
@@ -111,7 +120,7 @@ function ProjectCard(props: ProjectCardProps) {
 
         <div className="button-group">
           <Button className="button-github" href={props.ghLink} target="_blank" rel="noopener noreferrer">
-            <BsGithub style={{ marginRight: "5px", marginBottom: "2px" }} />
+            <FaGithub style={{ marginRight: "5px", marginBottom: "2px" }} />
             {props.isGitLab ? "GitLab" : "GitHub"}
           </Button>
 
@@ -122,7 +131,7 @@ function ProjectCard(props: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <BsYoutube style={{ marginRight: "5px", marginBottom: "2px" }} />
+              <FaYoutube style={{ marginRight: "5px", marginBottom: "2px" }} />
               {t('video')}
             </Button>
           )}

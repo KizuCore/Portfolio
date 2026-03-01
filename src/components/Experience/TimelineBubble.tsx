@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { TimelineItem } from "./data/timelineData";
-import { FaBriefcase, FaUserGraduate } from "react-icons/fa";
+import { FaBriefcase } from "@react-icons/all-files/fa/FaBriefcase";
+import { FaUserGraduate } from "@react-icons/all-files/fa/FaUserGraduate";
 
 const getIcon = (type: string) =>
     type === "C" ? (

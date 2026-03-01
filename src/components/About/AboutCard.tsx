@@ -1,11 +1,14 @@
 import { JSX, useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import type { TFunction } from "i18next";
 import Card from 'react-bootstrap/Card';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/About/About.css';
 import secretSound from '@sound/voice.mp3';
-import { FaGraduationCap, FaUser, FaPuzzlePiece } from 'react-icons/fa';
+import { FaGraduationCap } from "@react-icons/all-files/fa/FaGraduationCap";
+import { FaUser } from "@react-icons/all-files/fa/FaUser";
+import { FaPuzzlePiece } from "@react-icons/all-files/fa/FaPuzzlePiece";
 
 function AboutCard(): JSX.Element {
   const { t } = useTranslation();
@@ -77,7 +80,7 @@ function AboutCard(): JSX.Element {
   );
 }
 
-function Presentation({ t }: { t: any }): JSX.Element {
+function Presentation({ t }: { t: TFunction }): JSX.Element {
   return (
     <>
       <p className="text-justify pt-1 pt-md-4">
@@ -95,7 +98,7 @@ function Presentation({ t }: { t: any }): JSX.Element {
   );
 }
 
-function Qualifications({ t }: { t: any }): JSX.Element {
+function Qualifications({ t }: { t: TFunction }): JSX.Element {
   return (
     <div className="grid-qualifs mt-3">
       <a href="https://istic.univ-rennes.fr/licence-informatique-parcours-informatique" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree1')}</a>
@@ -106,7 +109,7 @@ function Qualifications({ t }: { t: any }): JSX.Element {
   );
 }
 
-function Hobbies({ t, onSecretClick }: { t: any; onSecretClick: () => void }): JSX.Element {
+function Hobbies({ t, onSecretClick }: { t: TFunction; onSecretClick: () => void }): JSX.Element {
   return (
     <>
       <p className="text-justify mt-4 pt-0 pt-md-4 pb-0 pb-md-4">{t('outside_of_coding')}</p>

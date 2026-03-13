@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { FiMail } from "@react-icons/all-files/fi/FiMail";
 import { FiMapPin } from "@react-icons/all-files/fi/FiMapPin";
 import { FiGithub } from "@react-icons/all-files/fi/FiGithub";
+import { FiGitlab } from "@react-icons/all-files/fi/FiGitlab";
 import { FiLinkedin } from "@react-icons/all-files/fi/FiLinkedin";
 import { Link } from "react-router-dom";
 import logo from "@image/logodev.svg";
@@ -72,6 +73,18 @@ function Footer(): JSX.Element {
                 >
                   <FiGithub aria-hidden="true" style={{ marginRight: "0.45rem", verticalAlign: "middle" }} />
                   GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://gitlab.com/Theo35000"
+                  className="footer-nav-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t("gitlab_profile_link", { defaultValue: "Profil GitLab" })}
+                >
+                  <FiGitlab aria-hidden="true" style={{ marginRight: "0.45rem", verticalAlign: "middle" }} />
+                  GitLab
                 </a>
               </li>
               <li>

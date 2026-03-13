@@ -313,6 +313,38 @@
             "text": "Para cualquier pregunta sobre esta política, escriba a:"
         }
     },
+    "cookie_policy": {
+        "title": "Política de cookies",
+        "last_update": "Última actualización: {{date}}",
+        "what": {
+            "title": "1. ¿Qué es una cookie?",
+            "p1": "Una cookie es un pequeño archivo de texto almacenado en su dispositivo al visitar un sitio web.",
+            "p2": "Puede utilizarse para recordar preferencias de navegación o medir la audiencia del sitio."
+        },
+        "types": {
+            "title": "2. Tipos de cookies utilizadas",
+            "necessary": "Cookies estrictamente necesarias: indispensables para el funcionamiento técnico del sitio.",
+            "analytics": "Cookies de analítica: Google Analytics (GA4), solo activadas tras su consentimiento."
+        },
+        "use": {
+            "title": "3. Finalidades",
+            "p1": "Las cookies técnicas permiten el correcto funcionamiento de determinadas funcionalidades.",
+            "p2": "Las cookies de analítica permiten comprender el uso del sitio y mejorar su contenido."
+        },
+        "duration": {
+            "title": "4. Plazo de conservación",
+            "p1": "Las preferencias de consentimiento se conservan hasta 6 meses. Los datos de audiencia se conservan durante un periodo limitado según las recomendaciones aplicables."
+        },
+        "manage": {
+            "title": "5. Gestionar su consentimiento",
+            "p1": "Puede aceptar o rechazar las cookies de analítica en cualquier momento.",
+            "button": "Gestionar mis cookies"
+        },
+        "update": {
+            "title": "6. Actualización de esta política",
+            "p1": "Esta política puede actualizarse por cambios legales o técnicos."
+        }
+    },
     "cookie_prefs": {
         "title": "Preferencias de privacidad",
         "intro_1": "Gestione su consentimiento para cookies y tecnologías similares.",
@@ -369,9 +401,11 @@
         "legal": "Aviso legal",
         "privacy": "Política de privacidad",
         "cookies": "Gestionar mis cookies",
+        "cookies_policy": "Política de cookies",
         "aria_legal": "Aviso legal",
         "aria_privacy": "Política de privacidad",
-        "aria_cookies": "Gestionar mis cookies"
+        "aria_cookies": "Gestionar mis cookies",
+        "aria_cookies_policy": "Política de cookies"
     },
     "seo_keywords": "Théo Guérin, desarrollador full-stack, React, Django, Python, Node.js, Flutter, portafolio, Rennes, desarrollador web",
     "seo_routes": {
@@ -382,6 +416,7 @@
         "contact_description": "Contacta a Théo Guérin para un proyecto web, misión freelance u oportunidad profesional. Basado en Rennes, disponible.",
         "cv_description": "Consulta o descarga el CV de Théo Guérin, desarrollador Full-Stack especializado en React, Django y Python, con sede en Rennes.",
         "legal_description": "Aviso legal del portafolio de Théo Guérin, desarrollador web Full-Stack con sede en Rennes.",
-        "privacy_description": "Política de privacidad del portafolio de Théo Guérin — tratamiento de datos, cookies y tus derechos."
+        "privacy_description": "Política de privacidad del portafolio de Théo Guérin — tratamiento de datos, cookies y tus derechos.",
+        "cookies_description": "Política de cookies del portafolio de Théo Guérin: tipos de cookies, finalidades, conservación y gestión del consentimiento."
     }
 }

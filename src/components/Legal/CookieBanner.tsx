@@ -27,11 +27,11 @@ export default function CookieBanner() {
         <p className="cookie-banner-text mb-0">
           {t("cookie_banner.text")}
           <Link
-            to="/politique-de-confidentialite"
+            to="/politique-des-cookies"
             className="cookie-banner-link"
-            aria-label={t("footer_links.aria_privacy", "Politique de confidentialite")}
+            aria-label={t("footer_links.aria_cookies_policy", "Politique des cookies")}
           >
-            {t("footer_links.privacy", "Politique de confidentialite")}
+            {t("footer_links.cookies_policy", "Politique des cookies")}
           </Link>
         </p>
 

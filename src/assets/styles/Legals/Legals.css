@@ -122,6 +122,61 @@
   color: rgba(255, 255, 255, 0.6) !important;
 }
 
+/* Cookie policy gets a denser reading layout than generic legal pages. */
+.legal-cookie-page .background-box-2 {
+  max-width: 820px;
+  padding: clamp(22px, 3.2vw, 36px);
+}
+
+.legal-cookie-page .background-box-2 h2 {
+  text-align: left;
+  font-size: clamp(1.12rem, 1.9vw, 1.34rem);
+  margin: 0 0 0.55rem;
+}
+
+.legal-cookie-page .legal-info-box {
+  font-size: clamp(1.01rem, 1.2vw, 1.06rem);
+}
+
+.legal-cookie-page .background-box-2 p,
+.legal-cookie-page .background-box-2 li {
+  text-align: left;
+  line-height: 1.75;
+  color: rgba(236, 243, 255, 0.92);
+}
+
+.legal-cookie-page .background-box-2 section {
+  margin-bottom: 1.35rem !important;
+}
+
+.legal-cookie-page .background-box-2 section + section {
+  padding-top: 0.95rem;
+  border-top: 1px solid rgba(157, 195, 255, 0.2);
+}
+
+.legal-cookie-page .background-box-2 ul {
+  padding-left: 1.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.legal-cookie-page .background-box-2 li::marker {
+  color: #9dc3ff;
+}
+
+.legal-cookie-page .cookie-policy-manage-btn {
+  min-width: 180px;
+  border-radius: 999px;
+  border-color: rgba(136, 180, 255, 0.65);
+  color: #eaf2ff;
+  background: linear-gradient(180deg, rgba(136, 180, 255, 0.2), rgba(136, 180, 255, 0.08));
+}
+
+.legal-cookie-page .cookie-policy-manage-btn:hover {
+  border-color: rgba(136, 180, 255, 0.95);
+  color: #ffffff;
+  background: linear-gradient(180deg, rgba(136, 180, 255, 0.35), rgba(136, 180, 255, 0.14));
+}
+
 /* =========================
    SKIP LINK
    ========================= */

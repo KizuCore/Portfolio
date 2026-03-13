@@ -107,14 +107,9 @@ function Footer(): JSX.Element {
                 </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  className="footer-nav-link footer-link-button"
-                  onClick={() => window.openCookiePreferences?.()}
-                  aria-label={t("footer_links.aria_cookies")}
-                >
-                  {t("footer_links.cookies")}
-                </button>
+                <Link to="/politique-des-cookies" className="footer-nav-link" aria-label={t("footer_links.aria_cookies_policy")}>
+                  {t("footer_links.cookies_policy")}
+                </Link>
               </li>
             </ul>
           </div>

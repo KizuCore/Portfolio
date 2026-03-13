@@ -28,6 +28,7 @@ const Gojo = lazy(() => import("./components/Easter/Gojo.tsx"));
 const RouteSecret = lazy(() => import("./components/Easter/Arcane.tsx"));
 const MentionsLegales = lazy(() => import("./components/Legal/MentionsLegales.tsx"));
 const PolitiqueConfidentialite = lazy(() => import("./components/Legal/PolitiqueConfidentialite.tsx"));
+const PolitiqueCookies = lazy(() => import("./components/Legal/PolitiqueCookies.tsx"));
 
 function KonamiComponent() {
   useKonamiCode();
@@ -115,6 +116,7 @@ function AppContent({ load, showPreloader }: AppContentProps) {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/mentions-legales" element={<MentionsLegales />} />
                   <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
+                  <Route path="/politique-des-cookies" element={<PolitiqueCookies />} />
                   <Route path="/gojo" element={<Gojo />} />
                   <Route path="/arcane" element={<RouteSecret />} />
                   <Route path="*" element={<Navigate to="/" />} />

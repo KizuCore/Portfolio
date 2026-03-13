@@ -256,7 +256,7 @@
         },
         "status": {
             "title": "4. Statut du site",
-            "text": "Ce site constitue un portfolio personnel et n’a pas vocation commerciale directe. Il ne propose ni vente en ligne ni espace client. En l’absence d’activité professionnelle, aucun numéro SIREN/SIRET n’est requis."
+            "text": "Ce site constitue un portfolio personnel présentant l’activité professionnelle de l’éditeur. Il ne propose ni vente en ligne ni espace client. L’activité est enregistrée sous un numéro SIRET, indiqué en bas de cette page."
         },
         "ip": {
             "title": "5. Propriété intellectuelle",
@@ -315,7 +315,7 @@
         "ga4": {
             "title": "3. Google Analytics (GA4)",
             "p1": "Ce site utilise Google Analytics 4 uniquement après votre consentement. Google Ireland Limited agit en tant que sous-traitant. Des transferts hors UE peuvent avoir lieu ; ils sont encadrés par les clauses contractuelles types de la Commission européenne.",
-            "p2": "Les adresses IP sont anonymisées par défaut et les données sont conservées pendant une durée limitée, conforme aux recommandations de la CNIL. Vous pouvez modifier vos préférences à tout moment via le panneau ci-dessous ou depuis le lien « Gérer mes cookies » en pied de page.",
+            "p2": "Le détail des cookies, de leur durée de conservation et des modalités de gestion du consentement est présenté dans la Politique des cookies.",
             "manage_button": "Gérer mes cookies"
         },
         "recipients": {
@@ -344,6 +344,38 @@
         "contact_update": {
             "title": "8. Contact & mise à jour",
             "text": "Pour toute question concernant cette politique, vous pouvez écrire à :"
+        }
+    },
+    "cookie_policy": {
+        "title": "Politique des cookies",
+        "last_update": "Dernière mise à jour : {{date}}",
+        "what": {
+            "title": "1. Qu’est-ce qu’un cookie ?",
+            "p1": "Un cookie est un petit fichier texte déposé sur votre appareil lorsque vous consultez un site web.",
+            "p2": "Il permet notamment de mémoriser des informations de navigation ou de mesurer l’audience du site."
+        },
+        "types": {
+            "title": "2. Types de cookies utilisés",
+            "necessary": "Cookies strictement nécessaires : indispensables au fonctionnement technique du site.",
+            "analytics": "Cookies de mesure d’audience : Google Analytics (GA4), uniquement après votre consentement."
+        },
+        "use": {
+            "title": "3. Finalités",
+            "p1": "Les cookies techniques servent au bon fonctionnement de certaines fonctionnalités du site.",
+            "p2": "Les cookies de mesure d’audience servent à comprendre l’usage du site et améliorer son contenu."
+        },
+        "duration": {
+            "title": "4. Durée de conservation",
+            "p1": "Les préférences de consentement sont conservées pendant 6 mois maximum. Les données d’audience sont conservées pour une durée limitée, conforme aux recommandations en vigueur."
+        },
+        "manage": {
+            "title": "5. Gérer votre consentement",
+            "p1": "Vous pouvez accepter ou refuser les cookies de mesure d’audience à tout moment.",
+            "button": "Gérer mes cookies"
+        },
+        "update": {
+            "title": "6. Mise à jour de cette politique",
+            "p1": "Cette politique peut évoluer en fonction des obligations légales ou techniques."
         }
     },
     "cookie_prefs": {
@@ -402,9 +434,11 @@
         "legal": "Mentions légales",
         "privacy": "Politique de confidentialité",
         "cookies": "Gérer mes cookies",
+        "cookies_policy": "Politique des cookies",
         "aria_legal": "Mentions légales",
         "aria_privacy": "Politique de confidentialité",
-        "aria_cookies": "Gérer mes cookies"
+        "aria_cookies": "Gérer mes cookies",
+        "aria_cookies_policy": "Politique des cookies"
     },
     "seo_keywords": "Théo Guérin, développeur full-stack, React, Django, Python, Node.js, Flutter, portfolio, Rennes, développeur web",
     "seo_routes": {
@@ -415,6 +449,7 @@
         "contact_description": "Contactez Théo Guérin pour un projet web, une mission freelance ou une opportunité professionnelle. Basé à Rennes, disponible.",
         "cv_description": "Consultez ou téléchargez le CV de Théo Guérin, développeur Full-Stack spécialisé en React, Django et Python, basé à Rennes.",
         "legal_description": "Mentions légales du portfolio de Théo Guérin, développeur web Full-Stack basé à Rennes.",
-        "privacy_description": "Politique de confidentialité du portfolio de Théo Guérin — traitement des données, cookies et vos droits."
+        "privacy_description": "Politique de confidentialité du portfolio de Théo Guérin — traitement des données, cookies et vos droits.",
+        "cookies_description": "Politique des cookies du portfolio de Théo Guérin : types de cookies, finalités, durée de conservation et gestion du consentement."
     }
 }

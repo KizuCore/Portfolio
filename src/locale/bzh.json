@@ -346,6 +346,38 @@
             "text": "Evit goulennoù diwar-benn ar bolitikerezh-mañ, skrivait da :"
         }
     },
+    "cookie_policy": {
+        "title": "Politikerezh toupinoù",
+        "last_update": "Hizivaat diwezhañ : {{date}}",
+        "what": {
+            "title": "1. Petra eo un toupin?",
+            "p1": "Un toupin zo ur restr testenn bihan enrollet war ho trevnad pa welit ul lec'hienn web.",
+            "p2": "Gallout a ra bezañ implijet evit derc'hel soñj eus gwellvezioù merdeiñ pe evit muzuliñ an ergerzhadeg war al lec'hienn."
+        },
+        "types": {
+            "title": "2. Rizhioù toupinoù implijet",
+            "necessary": "Toupinoù strizh-ret : ret evit mont en-dro teknik al lec'hienn.",
+            "analytics": "Toupinoù stadelerezh : Google Analytics (GA4), gweredekaet nemet goude hoc'h asant."
+        },
+        "use": {
+            "title": "3. Palioù",
+            "p1": "An toupinoù teknik a servij d'ar fonksionoù pennañ da vont en-dro mat.",
+            "p2": "An toupinoù stadelerezh a servij da gompren implij al lec'hienn ha gwellaat an danvez."
+        },
+        "duration": {
+            "title": "4. Pad miret",
+            "p1": "Miret e vez ar gwellvezioù asant betek 6 miz. Ar roadennoù boblañs a vez miret e-pad ur prantad bevennet hervez ar c'hinnigoù e pleustr."
+        },
+        "manage": {
+            "title": "5. Merañ hoc'h asant",
+            "p1": "Gallout a rit asantiñ pe nac'hañ an toupinoù stadelerezh forzh pegoulz.",
+            "button": "Merañ ma zoupinoù"
+        },
+        "update": {
+            "title": "6. Hizivadenn ar bolitikerezh-mañ",
+            "p1": "Gallout a ra ar bolitikerezh bezañ kemmet hervez kemmoù lezennel pe teknik."
+        }
+    },
     "cookie_prefs": {
         "title": "Gwellvezioù prevezded",
         "intro_1": "Merit ho asant evit an toupinoù ha teknologiezh heñvel.",
@@ -401,9 +433,11 @@
         "legal": "Menegoù lezennel",
         "privacy": "Politikerezh prevezded",
         "cookies": "Merañ ma zoupinoù",
+        "cookies_policy": "Politikerezh toupinoù",
         "aria_legal": "Menegoù lezennel",
         "aria_privacy": "Politikerezh prevezded",
-        "aria_cookies": "Merañ ma zoupinoù"
+        "aria_cookies": "Merañ ma zoupinoù",
+        "aria_cookies_policy": "Politikerezh toupinoù"
     },
     "seo_keywords": "Théo Guérin, diorroer full-stack, React, Django, Python, Node.js, Flutter, portfolio, Roazhon, diorroer web",
     "seo_routes": {
@@ -414,6 +448,7 @@
         "contact_description": "Kit e darempred gant Théo Guérin evit ur raktres web, un eured franch pe ur c'hinnig micherel. E Roazhon, hegerz.",
         "cv_description": "Gwelout pe pellgargañ CV Théo Guérin, diorroer Full-Stack spesilizet e React, Django ha Python, e Roazhon.",
         "legal_description": "Menegoù lezennel portfolio Théo Guérin, diorroer web Full-Stack e Roazhon.",
-        "privacy_description": "Politikerezh prevezded portfolio Théo Guérin — tratamant roadennoù, toupinoù ha ho gwirioù."
+        "privacy_description": "Politikerezh prevezded portfolio Théo Guérin — tratamant roadennoù, toupinoù ha ho gwirioù.",
+        "cookies_description": "Politikerezh toupinoù portfolio Théo Guérin: seurtioù toupinoù, palioù, pad miret ha merañ an asant."
     }
 }

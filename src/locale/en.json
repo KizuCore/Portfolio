@@ -257,7 +257,7 @@
         },
         "status": {
             "title": "4. Website Status",
-            "text": "This website is a personal portfolio with no direct commercial purpose. It does not offer online sales or an account area. In the absence of professional activity, no SIREN/SIRET number is required."
+            "text": "This website is a personal portfolio presenting the publisher's professional activity. It does not offer online sales or an account area. The activity is registered under a SIRET number, displayed at the bottom of this page."
         },
         "ip": {
             "title": "5. Intellectual Property",
@@ -316,7 +316,7 @@
         "ga4": {
             "title": "3. Google Analytics (GA4)",
             "p1": "This site uses Google Analytics 4 only after your consent. Google Ireland Limited acts as a processor. Data transfers outside the EU may occur and are governed by the EU Standard Contractual Clauses.",
-            "p2": "IP addresses are anonymized by default and data are stored for a limited period, in line with CNIL recommendations. You can change your preferences at any time via the panel below or the “Manage my cookies” link in the footer.",
+            "p2": "Details about cookie types, retention period, and consent management are provided in the Cookie Policy page.",
             "manage_button": "Manage my cookies"
         },
         "recipients": {
@@ -345,6 +345,38 @@
         "contact_update": {
             "title": "8. Contact & Update",
             "text": "For any question about this policy, please write to:"
+        }
+    },
+    "cookie_policy": {
+        "title": "Cookie Policy",
+        "last_update": "Last updated: {{date}}",
+        "what": {
+            "title": "1. What is a cookie?",
+            "p1": "A cookie is a small text file stored on your device when you browse a website.",
+            "p2": "It can be used to remember browsing preferences or to measure website traffic."
+        },
+        "types": {
+            "title": "2. Types of cookies used",
+            "necessary": "Strictly necessary cookies: required for the technical operation of the website.",
+            "analytics": "Analytics cookies: Google Analytics (GA4), enabled only after your consent."
+        },
+        "use": {
+            "title": "3. Purposes",
+            "p1": "Technical cookies are used to ensure some website features work properly.",
+            "p2": "Analytics cookies are used to understand site usage and improve content quality."
+        },
+        "duration": {
+            "title": "4. Retention period",
+            "p1": "Consent preferences are stored for up to 6 months. Audience data are retained for a limited period, in line with applicable recommendations."
+        },
+        "manage": {
+            "title": "5. Manage your consent",
+            "p1": "You can accept or decline analytics cookies at any time.",
+            "button": "Manage my cookies"
+        },
+        "update": {
+            "title": "6. Policy updates",
+            "p1": "This policy may be updated according to legal or technical changes."
         }
     },
     "cookie_prefs": {
@@ -403,9 +435,11 @@
         "legal": "Legal notice",
         "privacy": "Privacy policy",
         "cookies": "Manage my cookies",
+        "cookies_policy": "Cookie policy",
         "aria_legal": "Legal notice",
         "aria_privacy": "Privacy policy",
-        "aria_cookies": "Manage my cookies"
+        "aria_cookies": "Manage my cookies",
+        "aria_cookies_policy": "Cookie policy"
     },
     "seo_keywords": "Théo Guérin, full-stack developer, React, Django, Python, Node.js, Flutter, portfolio, Rennes, web developer",
     "seo_routes": {
@@ -416,6 +450,7 @@
         "contact_description": "Contact Théo Guérin for a web project, freelance mission or professional opportunity. Based in Rennes, available.",
         "cv_description": "View or download Théo Guérin's resume, Full-Stack developer specialized in React, Django and Python, based in Rennes.",
         "legal_description": "Legal notice for Théo Guérin's portfolio, Full-Stack web developer based in Rennes.",
-        "privacy_description": "Privacy policy for Théo Guérin's portfolio — data processing, cookies and your rights."
+        "privacy_description": "Privacy policy for Théo Guérin's portfolio — data processing, cookies and your rights.",
+        "cookies_description": "Cookie policy for Théo Guérin's portfolio: cookie types, purposes, retention and consent management."
     }
 }

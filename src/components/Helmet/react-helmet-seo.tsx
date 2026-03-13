@@ -21,6 +21,10 @@ const ROUTE_SEO: Record<string, RouteSeo> = {
     titleKey: "politique_confidentialite.title",
     descriptionKey: "seo_routes.privacy_description",
   },
+  "/politique-des-cookies": {
+    titleKey: "cookie_policy.title",
+    descriptionKey: "seo_routes.cookies_description",
+  },
   "/gojo": { titleKey: "Nah I'd win", noindex: true },
   "/arcane": { titleKey: "Bizarre", noindex: true },
 };
@@ -38,14 +42,26 @@ function getShortLocale(input: string): "fr" | "en" | "es" | "bzh" {
   return "fr";
 }
 
+function mapLegalLocale(lang: "fr" | "en" | "es" | "bzh"): "fr" | "en" {
+  if (lang === "es") return "en";
+  if (lang === "bzh") return "fr";
+  return lang === "en" ? "en" : "fr";
+}
+
 function SeoMeta(): JSX.Element {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const location = useLocation();
   const pathname = normalizePath(location.pathname);
   const siteUrl = (import.meta.env.VITE_SITE_URL ?? "https://theo-guerin.fr").replace(/\/+$/, "");
   const currentRoute = ROUTE_SEO[pathname];
   const lang = getShortLocale(i18n.resolvedLanguage ?? i18n.language ?? "fr");
-  const htmlLang = lang === "bzh" ? "br" : lang;
+  const isLegalRoute =
+    pathname === "/mentions-legales" ||
+    pathname === "/politique-de-confidentialite" ||
+    pathname === "/politique-des-cookies";
+  const contentLang = isLegalRoute ? mapLegalLocale(lang) : lang;
+  const htmlLang = contentLang === "bzh" ? "br" : contentLang;
+  const tx = i18n.getFixedT(contentLang);
 
   const localeMap: Record<"fr" | "en" | "es" | "bzh", string> = {
     fr: "fr_FR",
@@ -54,13 +70,13 @@ function SeoMeta(): JSX.Element {
     bzh: "br_FR",
   };
 
-  const baseTitle = t("seo_title");
-  const pageTitle = currentRoute ? t(currentRoute.titleKey) : "";
+  const baseTitle = tx("seo_title");
+  const pageTitle = currentRoute ? tx(currentRoute.titleKey) : "";
   const fullTitle = pageTitle ? `${pageTitle} | ${baseTitle}` : baseTitle;
 
   const description = currentRoute?.descriptionKey
-    ? t(currentRoute.descriptionKey, { defaultValue: t("seo_description") })
-    : t("seo_description");
+    ? tx(currentRoute.descriptionKey, { defaultValue: tx("seo_description") })
+    : tx("seo_description");
 
   const canonicalUrl = `${siteUrl}${pathname}`;
   const imageUrl = `${siteUrl}/images/preview/previewsite.png`;
@@ -68,7 +84,7 @@ function SeoMeta(): JSX.Element {
   const robotsContent = isNoindex
     ? "noindex, nofollow"
     : "index, follow, max-image-preview:large";
-  const keywords = t("seo_keywords", {
+  const keywords = tx("seo_keywords", {
     defaultValue: "Théo Guérin, développeur full-stack, React, Django, Python, portfolio",
   });
 
@@ -125,14 +141,14 @@ function SeoMeta(): JSX.Element {
       {/* Open Graph */}
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Théo Guérin | Portfolio" />
-      <meta property="og:locale" content={localeMap[lang]} />
+      <meta property="og:locale" content={localeMap[contentLang]} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={imageUrl} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={t("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
+      <meta property="og:image:alt" content={tx("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -140,7 +156,7 @@ function SeoMeta(): JSX.Element {
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
-      <meta name="twitter:image:alt" content={t("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
+      <meta name="twitter:image:alt" content={tx("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
 
       {/* Structured data */}
       <script type="application/ld+json">{JSON.stringify(personSchema)}</script>

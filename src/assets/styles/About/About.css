@@ -337,6 +337,13 @@
 }
 
 /* Couleurs spécifiques */
+.level-badge.all {
+  background-color: rgba(25, 40, 68, 0.9);
+  border-color: rgba(204, 226, 255, 0.92);
+  color: #f4f8ff;
+  box-shadow: 0 0 10px rgba(88, 140, 224, 0.45);
+}
+
 .level-badge.novice {
   background-color: rgba(255, 166, 0, 0.74);
   box-shadow: 0 0 10px rgba(255, 166, 0, 0.74);

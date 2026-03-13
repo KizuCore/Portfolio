@@ -19,9 +19,11 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
+  height: 100%;
   overflow-x: hidden !important;
   color: var(--text-primary);
   background:
@@ -282,9 +284,7 @@ button:focus {
   padding-top: 120px !important;
 }
 
-.footer-section {
-  background-image: var(--section-background-color) !important;
-}
+
 
 .background-box {
   background-color: rgba(255, 255, 255, 0.05) !important;

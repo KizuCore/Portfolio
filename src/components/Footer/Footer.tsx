@@ -48,7 +48,7 @@ function Footer(): JSX.Element {
           </div>
 
           <div className="footer-link-column">
-            <h3>{t("footer_products_title", { defaultValue: "Pages" })}</h3>
+            <p className="footer-column-title">{t("footer_products_title", { defaultValue: "Pages" })}</p>
             <ul className="footer-pages-list">
               {pageLinks.map((link) => (
                 <li key={link.to}>
@@ -61,7 +61,7 @@ function Footer(): JSX.Element {
           </div>
 
           <div className="footer-link-column">
-            <h3>{t("footer_social_title", { defaultValue: "Réseaux" })}</h3>
+            <p className="footer-column-title">{t("footer_social_title", { defaultValue: "Réseaux" })}</p>
             <ul>
               <li>
                 <a
@@ -103,7 +103,7 @@ function Footer(): JSX.Element {
           </div>
 
           <div className="footer-link-column">
-            <h3>{t("footer_legal_title", { defaultValue: "Légal" })}</h3>
+            <p className="footer-column-title">{t("footer_legal_title", { defaultValue: "Légal" })}</p>
             <ul>
               <li>
                 <Link to="/mentions-legales" className="footer-nav-link" aria-label={t("footer_links.aria_legal")}>

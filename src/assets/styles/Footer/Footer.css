@@ -95,7 +95,7 @@
   min-width: 16px;
 }
 
-.footer-link-column h3 {
+.footer-column-title {
   margin: 0 0 0.75rem;
   font-size: clamp(1rem, 0.96rem + 0.12vw, 1.1rem);
   font-weight: 700;
@@ -203,7 +203,7 @@
     max-width: 100%;
   }
 
-  .footer-link-column h3 {
+  .footer-column-title {
     margin-bottom: 0.6rem;
   }
 

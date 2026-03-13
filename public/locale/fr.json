@@ -105,7 +105,7 @@
     "error_loading_pdf": "Erreur lors du chargement du PDF. Veuillez réessayer plus tard.",
     "cv_alt_description": "CV de Théo Guérin",
     "Mon parcours": "Mon parcours",
-    "experience_1_title": "Développeur Web Fullstack — Nahibu",
+    "experience_1_title": "Développeur Web Fullstack - Nahibu",
     "experience_1_date": "Depuis Mars. 2024",
     "experience_1_description": "Responsable de l’infrastructure Nahibu, implémentation d’interfaces, refonte graphique, SEO, documentation, ...",
     "experience_1_stack": "Django, Flask, React, PostgreSQL, Axios, AWS, Citry API, Brevo, Jupyter, Django, Wordpress, Wix, LimeSurvey, Docker, Nuxt",
@@ -353,7 +353,7 @@
         "decline": "Refuser",
         "accept": "Accepter",
         "manage": "Gérer mes cookies",
-        "aria-label":"Bandeau de gestion des cookies"
+        "aria-label": "Bandeau de gestion des cookies"
     },
     "common": {
         "cancel": "Annuler",

@@ -106,7 +106,7 @@
     "error_loading_pdf": "Error al cargar el PDF. Inténtalo de nuevo más tarde.",
     "cv_alt_description": "CV de Théo Guérin",
     "Mon parcours": "Mi trayectoria",
-    "experience_1_title": "Desarrollador Web Fullstack — Nahibu",
+    "experience_1_title": "Desarrollador Web Fullstack - Nahibu",
     "experience_1_date": "Desde marzo de 2024",
     "experience_1_subtitle": "Rennes",
     "experience_1_description": "Responsable de la infraestructura de Nahibu, implementación de interfaz, rediseño, SEO, documentación, ...",
@@ -321,7 +321,7 @@
         "decline": "Rechazar",
         "accept": "Aceptar",
         "manage": "Gestionar mis cookies",
-        "aria-label":"Banner de gestión de cookies"
+        "aria-label": "Banner de gestión de cookies"
     },
     "common": {
         "cancel": "Cancelar",

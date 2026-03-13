@@ -104,6 +104,7 @@ function NavBar(): JSX.Element {
             handleMouseUp={handleMouseUp}
             t={t}
           />
+          <span className="navbar-brand-text" aria-hidden="true">KizuCore</span>
         </div>
 
         {/* Burger menu */}
@@ -122,7 +123,7 @@ function NavBar(): JSX.Element {
 
         {/* Menu */}
         <div id="responsive-navbar-nav" className={`collapse navbar-collapse${expand ? " show" : ""}`}>
-          <ul className="navbar-nav ms-auto pt-2">
+          <ul className="navbar-nav navbar-menu-items">
             {navItems.map((item, index) => (
               <NavItem
                 key={index}

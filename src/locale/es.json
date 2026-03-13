@@ -284,7 +284,8 @@
             "title": "3. Google Analytics (GA4)",
             "p1": "Este sitio utiliza Google Analytics 4 únicamente tras su consentimiento. Google Ireland Limited actúa como encargado del tratamiento. Pueden producirse transferencias de datos fuera de la UE, regidas por las Cláusulas Contractuales Tipo.",
             "p2": "Las direcciones IP se anonimizan por defecto y los datos se conservan durante un periodo limitado, conforme a las recomendaciones de la CNIL. Puede cambiar sus preferencias en cualquier momento desde el panel inferior o el enlace «Gestionar mis cookies» en el pie de página.",
-            "manage_button": "Gestionar mis cookies"
+            "manage_button": "Gestionar mis cookies",
+            "manage_button_aria": "Abrir preferencias de cookies"
         },
         "recipients": {
             "title": "4. Destinatarios de los datos",
@@ -359,17 +360,21 @@
         "decline": "Rechazar",
         "accept": "Aceptar",
         "manage": "Gestionar mis cookies",
-        "aria-label": "Banner de gestión de cookies"
+        "aria-label": "Banner de gestión de cookies",
+        "aria_label": "Banner de gestión de cookies"
     },
     "common": {
         "cancel": "Cancelar",
-        "save": "Guardar"
+        "save": "Guardar",
+        "skip_to_content": "Saltar al contenido",
+        "close": "Cerrar"
     },
     "a11y": {
         "skip_to_content": "Ir al contenido",
         "back_to_top": "Volver arriba",
         "nav_menu_toggle": "Abrir o cerrar el menú de navegación",
-        "loading_content": "Cargando contenido"
+        "loading_content": "Cargando contenido",
+        "language_selector": "Elegir idioma"
     },
     "services": {
         "eyebrow": "Lo que ofrezco",
@@ -419,5 +424,46 @@
         "legal_description": "Aviso legal del portafolio de Théo Guérin, desarrollador web Full-Stack con sede en Rennes.",
         "privacy_description": "Política de privacidad del portafolio de Théo Guérin — tratamiento de datos, cookies y tus derechos.",
         "cookies_description": "Política de cookies del portafolio de Théo Guérin: tipos de cookies, finalidades, conservación y gestión del consentimiento."
-    }
+    },
+    "gitlab_profile_link": "Perfil de GitLab",
+    "seo_og_image_alt": "Vista previa del portafolio de Théo Guérin",
+    "categories_projects": {
+        "lemonmaze_api_title": "LemonMaze API",
+        "lemonmaze_api_description": "API RESTful en Node.js para comunicar la aplicación móvil LemonMaze mediante peticiones HTTP.",
+        "lemonmaze_title": "LemonMaze",
+        "lemonmaze_description": "LemonMaze es una aplicación móvil en Flutter cuyo objetivo es descubrir Rennes a través de una serie de acertijos según una ruta, con recompensas al final.",
+        "cosmiclink_title": "CosmicLink",
+        "cosmiclink_description": "CosmicLink es una red social con panel de administración en formato de estrellas/constelaciones, desarrollada en PHP nativo.",
+        "minuteur_mobile_title": "Temporizador móvil",
+        "minuteur_mobile_description": "Aplicación móvil en Kotlin que ofrece tres temporizadores para huevos, reiniciables y reutilizables, además de temporizadores personalizables que se pueden editar y eliminar con notificación sonora.",
+        "breizhcoin_title": "BreizhCoin",
+        "breizhcoin_description": "Proyecto de segundo curso en PHP donde debíamos desarrollar el backend de un sitio tipo Leboncoin, además de una pequeña parte de frontend.",
+        "thebindingofisaac_title": "TheBindingOfIsaac",
+        "thebindingofisaac_description": "Proyecto de segundo curso que consistía en crear un juego similar a The Binding of Isaac en Java.",
+        "portfolio_v1_title": "Portafolio antiguo",
+        "portfolio_v1_description": "Portafolio anterior para probar Vue.js con diseño responsive.",
+        "flambow_title": "Flambow",
+        "flambow_description": "Esta aplicación web responsive, desarrollada con React, Bootstrap y CSS personalizado, es el primer prototipo de Flambow: una plataforma que facilita el intercambio de habilidades entre generaciones.",
+        "badmintonapi_title": "API Badminton",
+        "badmintonapi_description": "API Badminton es una API RESTful en Node.js que permite gestionar reservas de pistas, con autenticación, roles y documentación Swagger. También incluye una interfaz GraphQL.",
+        "portfolio_v2_title": "Portafolio",
+        "portfolio_v2_description": "Descubre mi portafolio multilingüe, con presentación personal, CV y formas de contacto. Encontrarás información sobre mis aficiones, los lenguajes que uso y domino, y los proyectos en los que he trabajado.",
+        "library_title": "Aplicación Librería",
+        "library_description": "Proyecto del MBA en el que debía crear una aplicación web con backend y frontend para una librería, con sistema de reservas. Consulta el README.",
+        "portfoliov2_image_alt": "Imagen del proyecto Portafolio V2",
+        "apibook_image_alt": "Imagen del proyecto API Book",
+        "lemonmaze_image_alt": "Imagen del proyecto LemonMaze",
+        "cosmiclink_image_alt": "Imagen del proyecto CosmicLink",
+        "chrono_image_alt": "Imagen del proyecto Chrono",
+        "breizhcoin_image_alt": "Imagen del proyecto BreizhCoin",
+        "tboi_image_alt": "Imagen del proyecto The Binding of Isaac",
+        "portfolio_image_alt": "Imagen del proyecto Portafolio V1",
+        "flambow_image_alt": "Imagen del proyecto Flambow",
+        "badmintonapi_image_alt": "Imagen del proyecto API Badminton"
+    },
+    "footer_navigation": "Navegación del pie de página",
+    "footer_products_title": "Páginas",
+    "footer_social_title": "Redes",
+    "footer_legal_title": "Legal",
+    "footer_rights": "Todos los derechos reservados."
 }

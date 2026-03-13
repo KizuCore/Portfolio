@@ -61,6 +61,7 @@
     "presentation_title": "Présentation",
     "portfolio_theo": "Portfolio de Théo Guérin",
     "github_profile_link": "Lien vers le profil GitHub de Théo Guérin",
+    "gitlab_profile_link": "Profil GitLab",
     "linkedin_profile_link": "Lien vers le profil LinkedIn de Théo Guérin",
     "email_link": "Envoyer un email à Théo Guérin",
     "about_image_alt": "Développeur sur un ordinateur portable",
@@ -85,6 +86,7 @@
     "seo_description": "Portfolio de Théo Guérin, développeur full-stack, spécialisé en React, Node.js et Flutter. Découvrez mes projets, mon CV et mes compétences.",
     "seo_og_title": "Théo Guérin | Développeur Full-Stack | Portfolio",
     "seo_og_description": "Découvrez le portfolio de Théo Guérin, développeur web passionné. Projets web, technologies maîtrisées, CV en ligne et formulaire de contact.",
+    "seo_og_image_alt": "Aperçu du portfolio de Théo Guérin",
     "seo_twitter_title": "Théo Guérin | Développeur Full-Stack | Portfolio",
     "seo_twitter_description": "Découvrez le portfolio de Théo Guérin, développeur web passionné. Projets web, technologies maîtrisées, CV en ligne et formulaire de contact.",
     "flag_fr": "Drapeau Français",
@@ -317,7 +319,8 @@
             "title": "3. Google Analytics (GA4)",
             "p1": "Ce site utilise Google Analytics 4 uniquement après votre consentement. Google Ireland Limited agit en tant que sous-traitant. Des transferts hors UE peuvent avoir lieu ; ils sont encadrés par les clauses contractuelles types de la Commission européenne.",
             "p2": "Le détail des cookies, de leur durée de conservation et des modalités de gestion du consentement est présenté dans la Politique des cookies.",
-            "manage_button": "Gérer mes cookies"
+            "manage_button": "Gérer mes cookies",
+            "manage_button_aria": "manage button aria"
         },
         "recipients": {
             "title": "4. Destinataires des données",
@@ -392,15 +395,19 @@
         "decline": "Refuser",
         "accept": "Accepter",
         "manage": "Gérer mes cookies",
-        "aria-label": "Bandeau de gestion des cookies"
+        "aria-label": "Bandeau de gestion des cookies",
+        "aria_label": "Bandeau de gestion des cookies"
     },
     "common": {
         "cancel": "Annuler",
-        "save": "Enregistrer"
+        "save": "Enregistrer",
+        "skip_to_content": "Passer le contenu",
+        "close": "Fermer"
     },
     "a11y": {
         "skip_to_content": "Aller au contenu",
         "back_to_top": "Retour en haut",
+        "language_selector": "Choisir la langue",
         "nav_menu_toggle": "Ouvrir ou fermer le menu",
         "loading_content": "Chargement du contenu"
     },
@@ -431,6 +438,11 @@
     "pride_mode_title": "Mode Pride activé",
     "pride_mode_badge": "Ambiance arc-en-ciel débloquée",
     "pride_mode_video_title": "Vidéo Easter egg Pride",
+    "footer_navigation": "Navigation de pied de page",
+    "footer_products_title": "Pages",
+    "footer_social_title": "Réseaux",
+    "footer_legal_title": "Légal",
+    "footer_rights": "Tous droits réservés.",
     "footer_links": {
         "legal": "Mentions légales",
         "privacy": "Politique de confidentialité",

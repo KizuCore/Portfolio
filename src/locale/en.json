@@ -318,7 +318,8 @@
             "title": "3. Google Analytics (GA4)",
             "p1": "This site uses Google Analytics 4 only after your consent. Google Ireland Limited acts as a processor. Data transfers outside the EU may occur and are governed by the EU Standard Contractual Clauses.",
             "p2": "Details about cookie types, retention period, and consent management are provided in the Cookie Policy page.",
-            "manage_button": "Manage my cookies"
+            "manage_button": "Manage my cookies",
+            "manage_button_aria": "Open cookie preferences"
         },
         "recipients": {
             "title": "4. Data Recipients",
@@ -393,17 +394,21 @@
         "decline": "Decline",
         "accept": "Accept",
         "manage": "Manage my cookies",
-        "aria-label": "Cookie management banner"
+        "aria-label": "Cookie management banner",
+        "aria_label": "Cookie management banner"
     },
     "common": {
         "cancel": "Cancel",
-        "save": "Save"
+        "save": "Save",
+        "skip_to_content": "Skip to content",
+        "close": "Close"
     },
     "a11y": {
         "skip_to_content": "Skip to content",
         "back_to_top": "Back to top",
         "nav_menu_toggle": "Open or close navigation menu",
-        "loading_content": "Loading content"
+        "loading_content": "Loading content",
+        "language_selector": "Choose language"
     },
     "services": {
         "eyebrow": "What I deliver",
@@ -453,5 +458,12 @@
         "legal_description": "Legal notice for Théo Guérin's portfolio, Full-Stack web developer based in Rennes.",
         "privacy_description": "Privacy policy for Théo Guérin's portfolio — data processing, cookies and your rights.",
         "cookies_description": "Cookie policy for Théo Guérin's portfolio: cookie types, purposes, retention and consent management."
-    }
+    },
+    "gitlab_profile_link": "GitLab profile",
+    "seo_og_image_alt": "Preview of Théo Guérin's portfolio",
+    "footer_navigation": "Footer navigation",
+    "footer_products_title": "Pages",
+    "footer_social_title": "Social links",
+    "footer_legal_title": "Legal",
+    "footer_rights": "All rights reserved."
 }

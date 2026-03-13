@@ -317,7 +317,8 @@
             "title": "3. Google Analytics (GA4)",
             "p1": "Implijet e vez GA4 nemet goude ho asant. Google Ireland Limited a zo prenadour-implij. Gallout a ra bezañ treuzkasadennoù e-diavaez an UE, renet gant ar C'homenadoù Kendivizel Skouer.",
             "p2": "Anv-an-dreist (IP) a vez dianoniet dre ziouer ha miret e vez ar roadennoù e-pad ur prantad strizh. Gallout a rit kemmañ ho gwellvezioù forzh pegoulz dre ar banell dindan pe al liamm « Merañ ma zoupinoù » er foñz pajenn.",
-            "manage_button": "Merañ ma zoupinoù"
+            "manage_button": "Merañ ma zoupinoù",
+            "manage_button_aria": "Digeriñ gwellvezioù an toupinoù"
         },
         "recipients": {
             "title": "4. Degemererien ar roadennoù",
@@ -392,17 +393,21 @@
         "decline": "Nac'hañ",
         "accept": "Asantiñ",
         "manage": "Merañ ma zoupinoù",
-        "aria-label": "Bann titour diwar-benn ar c’houkedoù"
+        "aria-label": "Bann titour diwar-benn ar c’houkedoù",
+        "aria_label": "Bann merañ an toupinoù"
     },
     "common": {
         "cancel": "Nullañ",
-        "save": "Enrollañ"
+        "save": "Enrollañ",
+        "skip_to_content": "Mont d'an danvez",
+        "close": "Serriñ"
     },
     "a11y": {
         "skip_to_content": "Mont d'an danvez",
         "back_to_top": "Distreiñ d'ar penn",
         "nav_menu_toggle": "Digeriñ pe serriñ lañser ar menu",
-        "loading_content": "O kargañ an danvez"
+        "loading_content": "O kargañ an danvez",
+        "language_selector": "Dibab ar yezh"
     },
     "services": {
         "title": "Servijoù",
@@ -425,7 +430,8 @@
                 "title": "Gwellaat padus",
                 "description": "Audit perfformañs, aesaat implijout, SEO teknik ha heuliañ kalite goude al lakaat en linenn."
             }
-        }
+        },
+        "eyebrow": "Ce que je propose"
     },
     "pride_mode_title": "Mod Pride gweredekaet",
     "pride_mode_badge": "Aergelc'h livioù erc'het",
@@ -451,5 +457,12 @@
         "legal_description": "Menegoù lezennel portfolio Théo Guérin, diorroer web Full-Stack e Roazhon.",
         "privacy_description": "Politikerezh prevezded portfolio Théo Guérin — tratamant roadennoù, toupinoù ha ho gwirioù.",
         "cookies_description": "Politikerezh toupinoù portfolio Théo Guérin: seurtioù toupinoù, palioù, pad miret ha merañ an asant."
-    }
+    },
+    "gitlab_profile_link": "Profil GitLab",
+    "seo_og_image_alt": "Rakwelet portfolio Théo Guérin",
+    "footer_navigation": "Merdeiñ troad ar bajenn",
+    "footer_products_title": "Pajennoù",
+    "footer_social_title": "Rouedadoù",
+    "footer_legal_title": "Lezennel",
+    "footer_rights": "An holl wirioù miret."
 }

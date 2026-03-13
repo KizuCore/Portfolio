@@ -128,7 +128,7 @@
 
 .timeline-card {
   width: 100%;
-  max-width: 520px;
+  max-width: 560px;
   border-radius: 18px;
   border: 1px solid rgba(153, 199, 255, 0.26);
   background: linear-gradient(
@@ -209,10 +209,10 @@
 }
 
 .timeline-card-rncp {
-  margin: 0.42rem 0 0;
+  margin: 0.48rem 0 0;
   color: rgba(233, 244, 255, 0.95);
-  font-size: 1.02rem;
-  line-height: 1.45;
+  font-size: 0.98rem;
+  line-height: 1.42;
 }
 
 .timeline-card-diploma-label {
@@ -259,6 +259,16 @@
   text-align: left;
 }
 
+.timeline-card-detailed .timeline-card-title {
+  font-size: clamp(1.2rem, 1.02rem + 0.44vw, 1.45rem);
+}
+
+.timeline-card-detailed .timeline-card-description {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
 .timeline-card-list {
   margin: 0.72rem 0 0;
   padding-left: 0;
@@ -268,6 +278,14 @@
   color: rgba(234, 244, 255, 0.95);
   font-size: 1rem;
   line-height: 1.5;
+}
+
+.timeline-card-detailed .timeline-card-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1.1rem;
+  row-gap: 0.36rem;
+  font-size: 0.94rem;
+  line-height: 1.42;
 }
 
 .timeline-card-list li {
@@ -294,6 +312,14 @@
   font-style: italic;
   font-size: 1.04rem;
   line-height: 1.45;
+}
+
+.timeline-card-detailed .timeline-stack-inline {
+  margin-top: 0.74rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(160, 206, 255, 0.24);
+  font-size: 0.98rem;
+  line-height: 1.38;
 }
 
 .timeline-stack-tags {
@@ -336,6 +362,10 @@
 
   .timeline-card {
     max-width: 460px;
+  }
+
+  .timeline-card-detailed .timeline-card-list {
+    grid-template-columns: 1fr;
   }
 }
 

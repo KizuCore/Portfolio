@@ -47,6 +47,12 @@
   display: block;
   position: relative;
   cursor: grab !important;
+  transition: filter 0.55s ease;
+}
+
+.logo-turn-white {
+  /* Desaturate + boost luminance: blue becomes white while dark areas stay dark */
+  filter: grayscale(1) brightness(2.35) contrast(1.2);
 }
 
 .logo-white {

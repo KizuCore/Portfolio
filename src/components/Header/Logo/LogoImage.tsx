@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import logo from "@image/logodev.svg";
-import logoWhite from "@image/logodevwhite.svg";
 import '../../../assets/styles/Easter/style_easter.css';
 import '../../../assets/styles/Header/header.css';
 
@@ -32,9 +31,9 @@ function LogoImage({ isAnimating, t }: LogoImageProps) {
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       <motion.img
-        src={showWhiteLogo ? logoWhite : logo}
+        src={logo}
         alt={t('brand')}
-        className="img-fluid logo"
+        className={`img-fluid logo ${showWhiteLogo ? "logo-turn-white" : ""}`}
         loading="lazy"
         decoding="async"
         initial={{ opacity: 0 }}

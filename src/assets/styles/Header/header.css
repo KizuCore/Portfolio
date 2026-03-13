@@ -24,7 +24,7 @@
   color: #f2f8ff !important;
   background: linear-gradient(145deg, rgba(13, 28, 51, 0.94), rgba(20, 48, 89, 0.86)) !important;
   box-shadow: 0 8px 20px rgba(2, 9, 22, 0.32), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease;
+  transition: border-color 0.2s ease, box-shadow 0.25s ease;
 }
 
 .language-selector .lang-toggle:hover,
@@ -32,7 +32,6 @@
 .language-selector.show .lang-toggle {
   border-color: rgba(203, 227, 255, 0.9) !important;
   box-shadow: 0 10px 24px rgba(3, 12, 28, 0.42), 0 0 20px rgba(78, 161, 255, 0.28);
-  transform: translateY(-1px);
 }
 
 .language-selector .lang-toggle::after {
@@ -299,7 +298,6 @@
 }
 
 .navbar-nav .nav-item .nav-link:hover {
-  transform: translateY(-1px);
   border-color: rgba(174, 213, 255, 0.45);
   background: linear-gradient(135deg, rgba(26, 62, 112, 0.46), rgba(17, 42, 80, 0.3));
 }
@@ -370,13 +368,12 @@
   justify-content: center;
   font-size: 0.98rem;
   color: rgba(223, 239, 255, 0.95);
-  transition: color 0.2s ease-out, transform 0.2s ease-out;
+  transition: color 0.2s ease-out;
 }
 
 .navbar-nav .nav-item .nav-link:hover .nav-icon,
 .navbar-nav .nav-item .nav-link.active .nav-icon {
   color: #dff0ff;
-  transform: translateY(-1px);
 }
 
 .navbar-nav .nav-item .nav-link .nav-label {

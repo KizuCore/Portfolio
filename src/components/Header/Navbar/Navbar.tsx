@@ -82,12 +82,12 @@ function NavBar(): JSX.Element {
   }, []);
 
   const navItems = [
-    { to: "/", icon: <AiOutlineHome style={{ transform: "translateY(-2px)" }} />, label: t('home'), ariaLabel: t('home_aria') },
-    { to: "/about", icon: <AiOutlineUser style={{ transform: "translateY(-2px)" }} />, label: t('about'), ariaLabel: t('about_aria') },
-    { to: "/experience", icon: <AiOutlineIdcard style={{ transform: "translateY(-2px)" }} />, label: t('experience'), ariaLabel: t('about_experience') },
-    { to: "/project", icon: <AiOutlineFundProjectionScreen style={{ transform: "translateY(-2px)" }} />, label: t('project'), ariaLabel: t('project_aria') },
-    { to: "/contact", icon: <FaRegEnvelope style={{ transform: "translateY(-2px)" }} />, label: t('social'), ariaLabel: t('social') },
-    { to: "/cv", icon: <CgFileDocument style={{ transform: "translateY(-2px)" }} />, label: t('cv'), ariaLabel: t('cv_aria') }
+    { to: "/", icon: <AiOutlineHome />, label: t('home'), ariaLabel: t('home_aria') },
+    { to: "/about", icon: <AiOutlineUser />, label: t('about'), ariaLabel: t('about_aria') },
+    { to: "/experience", icon: <AiOutlineIdcard />, label: t('experience'), ariaLabel: t('about_experience') },
+    { to: "/project", icon: <AiOutlineFundProjectionScreen />, label: t('project'), ariaLabel: t('project_aria') },
+    { to: "/contact", icon: <FaRegEnvelope />, label: t('social'), ariaLabel: t('social') },
+    { to: "/cv", icon: <CgFileDocument />, label: t('cv'), ariaLabel: t('cv_aria') }
   ];
 
   return (

@@ -50,7 +50,7 @@ const TimelineItem = ({ item, isLeft }: Props) => {
           <span className="timeline-card-icon blue" aria-hidden="true">
             {getIcon(item.type)}
           </span>
-          <h3 className="timeline-card-title">{item.title}</h3>
+          <h2 className="timeline-card-title">{item.title}</h2>
         </header>
 
         <p className="timeline-card-date">{item.date}</p>

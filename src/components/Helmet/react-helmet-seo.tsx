@@ -26,7 +26,7 @@ const ROUTE_SEO: Record<string, RouteSeo> = {
     descriptionKey: "seo_routes.cookies_description",
   },
   "/gojo": { titleKey: "Nah I'd win", noindex: true },
-  "/arcane": { titleKey: "Bizarre", noindex: true },
+  "/arcane": { titleKey: "Rewind 4 Seconds", noindex: true },
 };
 
 function normalizePath(pathname: string): string {

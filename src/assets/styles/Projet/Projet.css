@@ -5,6 +5,74 @@
   padding: 8rem 0 4.5rem;
 }
 
+.projects-intro {
+  margin: 0.65rem auto 0;
+  max-width: 760px;
+  color: rgba(222, 236, 255, 0.84);
+  font-size: clamp(1rem, 0.9rem + 0.35vw, 1.14rem);
+  line-height: 1.55;
+  text-wrap: balance;
+}
+
+.project-filter-shell {
+  margin: 1.4rem auto 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.project-filter-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid rgba(148, 196, 255, 0.24);
+  background: linear-gradient(140deg, rgba(8, 20, 41, 0.88), rgba(12, 30, 61, 0.72));
+  border-radius: 999px;
+  padding: 0.35rem;
+  box-shadow: 0 16px 30px rgba(2, 10, 24, 0.3);
+}
+
+.project-filter-chip {
+  border: 1px solid transparent;
+  background: transparent;
+  color: rgba(224, 239, 255, 0.85);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: 999px;
+  padding: 0.45rem 0.95rem;
+  min-height: 38px;
+  transition: background 0.24s ease, color 0.24s ease, border-color 0.24s ease, transform 0.2s ease;
+}
+
+.project-filter-chip:hover {
+  color: #ffffff;
+  border-color: rgba(194, 224, 255, 0.44);
+  transform: translateY(-1px);
+}
+
+.project-filter-chip.active {
+  color: #ffffff;
+  border-color: rgba(222, 236, 255, 0.78);
+  background: linear-gradient(135deg, rgba(76, 153, 255, 0.92), rgba(20, 51, 100, 0.96));
+  box-shadow: 0 9px 20px rgba(7, 23, 48, 0.4);
+}
+
+.project-filter-count {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(159, 205, 255, 0.3);
+  padding: 0.38rem 0.92rem;
+  font-weight: 600;
+  color: rgba(227, 240, 255, 0.88);
+  background: rgba(11, 26, 50, 0.72);
+}
+
 .project-carousel-swiper {
   overflow: visible;
   padding: 0.75rem 0 2.9rem;
@@ -20,6 +88,10 @@
   width: 100%;
   padding: 1.15rem 0.7rem 1.9rem;
   display: flex;
+}
+
+.project-tilt.is-featured {
+  filter: drop-shadow(0 0 14px rgba(92, 162, 255, 0.17));
 }
 
 .project-tilt > * {
@@ -74,6 +146,30 @@
   box-shadow:
     0 24px 42px rgba(3, 12, 28, 0.56),
     0 0 34px rgba(79, 157, 255, 0.24);
+}
+
+.project-card-featured {
+  border-color: rgba(186, 224, 255, 0.66) !important;
+  background: linear-gradient(
+    160deg,
+    rgba(14, 30, 56, 0.97) 0%,
+    rgba(18, 41, 80, 0.95) 62%,
+    rgba(11, 27, 54, 0.95) 100%
+  ) !important;
+}
+
+.project-featured-pill {
+  align-self: center;
+  margin-bottom: 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #eaf5ff;
+  border-radius: 999px;
+  padding: 0.32rem 0.64rem;
+  border: 1px solid rgba(204, 231, 255, 0.58);
+  background: linear-gradient(135deg, rgba(75, 152, 255, 0.82), rgba(22, 52, 101, 0.96));
 }
 
 .project-card-body {
@@ -253,9 +349,13 @@
 
 .project-carousel-swiper .swiper-button-next::after,
 .project-carousel-swiper .swiper-button-prev::after {
-  font-size: 1.7rem;
-  font-weight: 600;
-  line-height: 1;
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-top: 2px solid #e5f2ff;
+  border-right: 2px solid #e5f2ff;
+  box-sizing: border-box;
 }
 
 .project-carousel-swiper .swiper-button-next::before,
@@ -271,11 +371,13 @@
 }
 
 .project-carousel-swiper .swiper-button-prev::after {
-  content: "\2039";
+  transform: rotate(-135deg);
+  margin-left: 3px;
 }
 
 .project-carousel-swiper .swiper-button-next::after {
-  content: "\203A";
+  transform: rotate(45deg);
+  margin-right: 3px;
 }
 
 .project-carousel-swiper .swiper-button-next:hover,
@@ -320,6 +422,27 @@
 @media (max-width: 767px) {
   .project-section {
     padding: 7.2rem 0 4rem;
+  }
+
+  .project-filter-shell {
+    gap: 0.58rem;
+    margin-top: 1.1rem;
+  }
+
+  .project-filter-bar {
+    border-radius: 16px;
+  }
+
+  .project-filter-chip {
+    min-height: 36px;
+    padding: 0.38rem 0.76rem;
+    font-size: 0.93rem;
+  }
+
+  .project-filter-count {
+    font-size: 0.9rem;
+    min-height: 35px;
+    padding: 0.32rem 0.76rem;
   }
 
   .project-tilt {

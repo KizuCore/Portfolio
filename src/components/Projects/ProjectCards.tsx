@@ -57,6 +57,8 @@ interface ProjectCardProps {
   youtubeLink?: string;
   seeLink?: string;
   isGitLab?: boolean;
+  featured?: boolean;
+  featuredLabel?: string;
 }
 
 // Affichage des icônes technologiques
@@ -92,7 +94,7 @@ function ProjectCard(props: ProjectCardProps) {
   const { t } = useTranslation();
 
   return (
-    <Card className="project-card-view">
+    <Card className={`project-card-view ${props.featured ? "project-card-featured" : ""}`}>
       <div className="project-img-wrapper">
         <Card.Img
           variant="top"
@@ -106,6 +108,10 @@ function ProjectCard(props: ProjectCardProps) {
       </div>
 
       <Card.Body className="project-card-body">
+        {props.featured && (
+          <span className="project-featured-pill">{props.featuredLabel || "Top Pick"}</span>
+        )}
+
         <Card.Title className="project-card-title">
           <h3 className="project-title-text">
             <strong className="blue">{props.title}</strong>

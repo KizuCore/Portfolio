@@ -24,7 +24,23 @@ import badmintonapi from "@image/Projects/badmintonapi.webp";
 import { easeOut, motion } from "framer-motion";
 import Particle from "../../utils/Particle";
 
-const projects = [
+type ProjectCategory = "web" | "mobile" | "api" | "game";
+type ProjectFilter = "all" | ProjectCategory;
+
+interface ProjectItem {
+  imgPath: string;
+  altTextKey: string;
+  titleKey: string;
+  descriptionKey: string;
+  ghLink: string;
+  youtubeLink?: string;
+  seeLink?: string;
+  techStack: string[];
+  category: ProjectCategory;
+  featured?: boolean;
+}
+
+const projects: ProjectItem[] = [
   {
     imgPath: portfoliov2,
     altTextKey: "categories_projects.portfoliov2_image_alt",
@@ -32,6 +48,8 @@ const projects = [
     descriptionKey: "categories_projects.portfolio_v2_description",
     ghLink: "https://github.com/KizuCore/Portfolio",
     techStack: ["React", "Bootstrap", "Css", "NodeJS", "Axios", "Typescript"],
+    category: "web",
+    featured: true,
   },
   {
     imgPath: apibook,
@@ -40,6 +58,8 @@ const projects = [
     descriptionKey: "categories_projects.library_description",
     ghLink: "https://github.com/KizuCore/MDS-M1-Librairie",
     techStack: ["NodeJS", "Swagger", "MySQL", "React", "Bootstrap", "Sequelize"],
+    category: "api",
+    featured: true,
   },
   {
     imgPath: lemonmaze,
@@ -48,6 +68,8 @@ const projects = [
     descriptionKey: "categories_projects.lemonmaze_description",
     ghLink: "https://github.com/KizuCore/Lemon_Maze",
     techStack: ["Flutter"],
+    category: "mobile",
+    featured: true,
   },
   {
     imgPath: lemonmaze,
@@ -56,6 +78,7 @@ const projects = [
     descriptionKey: "categories_projects.lemonmaze_api_description",
     ghLink: "https://github.com/KizuCore/APILemonMaze",
     techStack: ["NodeJS", "Swagger", "MySQL"],
+    category: "api",
   },
   {
     imgPath: badmintonapi,
@@ -64,6 +87,7 @@ const projects = [
     descriptionKey: "categories_projects.badmintonapi_description",
     ghLink: "https://github.com/KizuCore/projet-api-badminton",
     techStack: ["NodeJS", "Swagger", "MySQL", "GraphQL"],
+    category: "api",
   },
   {
     imgPath: cosmiclink,
@@ -73,6 +97,7 @@ const projects = [
     ghLink: "https://github.com/KizuCore/CosmicLink",
     youtubeLink: "https://youtube.com/watch?v=3yVybmKT5d0",
     techStack: ["Php", "Javascript", "Html", "Css"],
+    category: "web",
   },
   {
     imgPath: flambow,
@@ -82,6 +107,7 @@ const projects = [
     ghLink: "https://github.com/KizuCore/Flambow",
     seeLink: "https://flambow-m7iu4q0gi-theo22100s-projects.vercel.app/",
     techStack: ["React", "Javascript", "Bootstrap", "Css"],
+    category: "web",
   },
   {
     imgPath: chrono,
@@ -90,6 +116,7 @@ const projects = [
     descriptionKey: "categories_projects.minuteur_mobile_description",
     ghLink: "https://github.com/KizuCore/MDS-ExamMobile2024",
     techStack: ["Kotlin"],
+    category: "mobile",
   },
   {
     imgPath: breizhcoin,
@@ -99,6 +126,7 @@ const projects = [
     ghLink: "https://github.com/KizuCore/BreizhCoin",
     youtubeLink: "https://youtu.be/OqgS7SW_8tU",
     techStack: ["Php", "Javascript", "Html", "Css"],
+    category: "web",
   },
   {
     imgPath: tboi,
@@ -107,6 +135,7 @@ const projects = [
     descriptionKey: "categories_projects.thebindingofisaac_description",
     ghLink: "https://github.com/KizuCore/TheBindingOfIsaac",
     techStack: ["Java"],
+    category: "game",
   },
   {
     imgPath: portfolio,
@@ -116,11 +145,53 @@ const projects = [
     ghLink: "https://github.com/KizuCore/Old-PortFolio",
     seeLink: "https://theo-guerin.netlify.app/",
     techStack: ["Vuejs", "Javascript", "Html", "Css"],
+    category: "web",
   },
 ];
 
+const filterOrder: ProjectFilter[] = ["all", "web", "mobile", "api", "game"];
+
+const filterLabels: Record<string, Record<ProjectFilter, string>> = {
+  fr: {
+    all: "Tous",
+    web: "Web",
+    mobile: "Mobile",
+    api: "API",
+    game: "Jeu",
+  },
+  en: {
+    all: "All",
+    web: "Web",
+    mobile: "Mobile",
+    api: "API",
+    game: "Game",
+  },
+  es: {
+    all: "Todo",
+    web: "Web",
+    mobile: "Movil",
+    api: "API",
+    game: "Juego",
+  },
+  bzh: {
+    all: "Holl",
+    web: "Web",
+    mobile: "Hezoug",
+    api: "API",
+    game: "C'hoari",
+  },
+};
+
+const featuredPillLabel: Record<string, string> = {
+  fr: "Selection",
+  en: "Top Pick",
+  es: "Seleccion",
+  bzh: "Dibabet",
+};
+
 const Projects: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [activeFilter, setActiveFilter] = React.useState<ProjectFilter>("all");
   const [isFinePointer, setIsFinePointer] = React.useState(() =>
     window.matchMedia("(hover: hover) and (pointer: fine)").matches
   );
@@ -128,6 +199,22 @@ const Projects: React.FC = () => {
     window.matchMedia("(prefers-reduced-motion: reduce)").matches
   );
   const enableTilt = isFinePointer && !prefersReducedMotion;
+  const currentLanguage = (i18n.resolvedLanguage || i18n.language || "en").split("-")[0];
+  const currentFilterLabels = filterLabels[currentLanguage] || filterLabels.en;
+  const currentFeaturedPillLabel = featuredPillLabel[currentLanguage] || featuredPillLabel.en;
+
+  const sortedProjects = React.useMemo(
+    () => [...projects].sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured))),
+    []
+  );
+
+  const filteredProjects = React.useMemo(() => {
+    if (activeFilter === "all") {
+      return sortedProjects;
+    }
+
+    return sortedProjects.filter((project) => project.category === activeFilter);
+  }, [activeFilter, sortedProjects]);
 
   React.useEffect(() => {
     const pointerMedia = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -162,6 +249,43 @@ const Projects: React.FC = () => {
           {t("my_projects")} {t("projects")}
         </motion.h1>
 
+        <motion.p
+          className="projects-intro"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: easeOut, delay: 0.2 }}
+        >
+          {t("projects_description")}
+        </motion.p>
+
+        <motion.div
+          className="project-filter-shell"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: easeOut, delay: 0.3 }}
+        >
+          <div className="project-filter-bar" role="tablist" aria-label={t("project_aria")}>
+            {filterOrder.map((filter) => {
+              const isActive = filter === activeFilter;
+
+              return (
+                <button
+                  key={filter}
+                  type="button"
+                  className={`project-filter-chip ${isActive ? "active" : ""}`}
+                  aria-pressed={isActive}
+                  onClick={() => setActiveFilter(filter)}
+                >
+                  {currentFilterLabels[filter]}
+                </button>
+              );
+            })}
+          </div>
+          <div className="project-filter-count">
+            {filteredProjects.length} {t("projects")}
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -174,7 +298,7 @@ const Projects: React.FC = () => {
             slidesPerView={1}
             navigation
             pagination={{ clickable: true }}
-            loop={true}
+            loop={filteredProjects.length > 3}
             breakpoints={{
               768: {
                 slidesPerView: 2,
@@ -184,11 +308,11 @@ const Projects: React.FC = () => {
               },
             }}
           >
-            {projects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
               <SwiperSlide key={index}>
                 {enableTilt ? (
                   <Tilt
-                    className="project-tilt"
+                    className={`project-tilt ${project.featured ? "is-featured" : ""}`}
                     tiltMaxAngleX={5}
                     tiltMaxAngleY={5}
                     transitionSpeed={350}
@@ -205,10 +329,12 @@ const Projects: React.FC = () => {
                       youtubeLink={project.youtubeLink}
                       seeLink={project.seeLink}
                       techStack={project.techStack}
+                      featured={project.featured}
+                      featuredLabel={currentFeaturedPillLabel}
                     />
                   </Tilt>
                 ) : (
-                  <div className="project-tilt">
+                  <div className={`project-tilt ${project.featured ? "is-featured" : ""}`}>
                     <ProjectCard
                       imgPath={project.imgPath}
                       altText={t(project.altTextKey)}
@@ -218,6 +344,8 @@ const Projects: React.FC = () => {
                       youtubeLink={project.youtubeLink}
                       seeLink={project.seeLink}
                       techStack={project.techStack}
+                      featured={project.featured}
+                      featuredLabel={currentFeaturedPillLabel}
                     />
                   </div>
                 )}

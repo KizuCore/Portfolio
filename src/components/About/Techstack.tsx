@@ -38,6 +38,7 @@ import { SiGraphql } from "@react-icons/all-files/si/SiGraphql";
 import { SiRust } from "@react-icons/all-files/si/SiRust";
 import { SiLaravel } from "@react-icons/all-files/si/SiLaravel";
 import { SiSwift } from "@react-icons/all-files/si/SiSwift";
+import { SiMariadb } from "@react-icons/all-files/si/SiMariadb";
 import "../../assets/styles/About/About.css";
 
 type IconData = {
@@ -84,6 +85,7 @@ const icons: IconData[] = [
   { component: SiGnubash, name: "Bash", level: 1, category: "Programming Languages" },
   { component: DiDjango, name: "Django", level: 2, category: "Back-End" },
   { component: SiPostgresql, name: "PostgreSQL", level: 1, category: "Database" },
+  { component: SiMariadb, name: "MariaDB", level: 0, category: "Database" },
   { component: FaFileExcel, name: "VBA", level: 1, category: "Programming Languages" },
   { component: SiAngular, name: "Angular", level: 1, category: "Front-End" },
   { component: SiNetlify, name: "Netlify", level: 1, category: "Hosting" },
@@ -97,7 +99,7 @@ const icons: IconData[] = [
   { component: SiGraphql, name: "GraphQL", level: 0, category: "Back-End" },
   { component: SiRust, name: "Rust", level: 0, category: "Back-End" },
   { component: SiLaravel, name: "Laravel", level: 0, category: "Back-End" },
-  { component: DiNodejs, name: "Nest.js", level: 0, category: "Back-End" },
+  { component: DiNodejs, name: "Next.js", level: 1, category: "Back-End" },
   { component: SiSwift, name: "Swift", level: 0, category: "Mobile" },
 ];
 
@@ -190,17 +192,19 @@ function Techstack() {
                 md={2}
                 className={`tech-icons ${levelClass}`}
                 data-tooltip-id="tech-tooltip"
-                data-tooltip-content={`${icon.name} - ${
-                  icon.level === 0
-                    ? t("novice")
-                    : icon.level === 1
-                      ? t("intermediate")
-                      : icon.level === 2
-                        ? t("advanced")
-                        : t("favorite")
-                }`}
+                data-tooltip-content={`${icon.name} - ${icon.level === 0
+                  ? t("novice")
+                  : icon.level === 1
+                    ? t("intermediate")
+                    : icon.level === 2
+                      ? t("advanced")
+                      : t("favorite")
+                  }`}
               >
-                <IconComponent aria-label={icon.name} />
+                <div className="tech-icon-glyph">
+                  <IconComponent aria-hidden="true" />
+                </div>
+                <div className="tech-icon-label">{icon.name}</div>
               </Col>
             );
           })}

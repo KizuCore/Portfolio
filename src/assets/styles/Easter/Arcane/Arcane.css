@@ -116,15 +116,28 @@
   transform: translate(-50%, -50%);
 }
 
+.arcane-anchor-track {
+  z-index: 1;
+}
+
+.arcane-anchor-character {
+  z-index: 3;
+}
+
+.arcane-anchor-gate {
+  z-index: 4;
+}
+
 .arcane-character-card {
   position: relative;
+  z-index: 3;
   width: clamp(148px, 17vw, 230px);
   aspect-ratio: 4 / 5;
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid rgba(227, 241, 255, 0.28);
   box-shadow: 0 16px 38px rgba(2, 8, 20, 0.52);
-  backdrop-filter: blur(2px);
+  background-color: #0a1222;
 }
 
 .arcane-character-card::before {
@@ -146,14 +159,14 @@
 
 .arcane-character-powder {
   background:
-    radial-gradient(circle at 22% 26%, rgba(255, 210, 233, 0.58), transparent 48%),
-    linear-gradient(150deg, rgba(255, 122, 188, 0.8), rgba(101, 26, 73, 0.92));
+    radial-gradient(circle at 22% 26%, rgba(255, 210, 233, 0.62), rgba(216, 86, 157, 0.98) 55%),
+    linear-gradient(150deg, rgb(222, 87, 160), rgb(93, 26, 71));
 }
 
 .arcane-character-ekko {
   background:
-    radial-gradient(circle at 74% 26%, rgba(208, 241, 255, 0.58), transparent 48%),
-    linear-gradient(150deg, rgba(95, 212, 255, 0.78), rgba(15, 53, 100, 0.94));
+    radial-gradient(circle at 74% 26%, rgba(208, 241, 255, 0.62), rgba(78, 183, 225, 0.98) 55%),
+    linear-gradient(150deg, rgb(79, 188, 228), rgb(16, 58, 110));
 }
 
 .arcane-character-tag {
@@ -176,6 +189,7 @@
 
 .arcane-rewind-track {
   position: relative;
+  z-index: 1;
   width: clamp(280px, 40vw, 560px);
   height: 4px;
   border-radius: 999px;
@@ -207,6 +221,7 @@
 
 .arcane-time-gate {
   position: relative;
+  z-index: 4;
   width: clamp(124px, 12vw, 170px);
   aspect-ratio: 1;
   display: grid;

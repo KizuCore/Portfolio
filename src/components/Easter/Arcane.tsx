@@ -53,10 +53,10 @@ function RouteSecret(): JSX.Element {
           animate={
             phase === "burst" && !prefersReducedMotion
               ? {
-                  x: [0, -4, 4, -3, 2, 0],
-                  y: [0, 2, -2, 1, -1, 0],
-                  rotate: [0, -0.4, 0.35, -0.2, 0.1, 0],
-                }
+                x: [0, -4, 4, -3, 2, 0],
+                y: [0, 2, -2, 1, -1, 0],
+                rotate: [0, -0.4, 0.35, -0.2, 0.1, 0],
+              }
               : { x: 0, y: 0, rotate: 0 }
           }
           transition={{ duration: 0.45, ease: "easeOut" }}
@@ -87,26 +87,26 @@ function RouteSecret(): JSX.Element {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, transition: { duration: 0.3 } }}
               >
-                <div className="arcane-center-anchor">
+                <div className="arcane-center-anchor arcane-anchor-character">
                   <motion.div
                     className="arcane-character-card arcane-character-powder"
                     initial={{ x: "-42vw", y: 14, opacity: 0, rotate: -12 }}
                     animate={
                       phase === "rewind"
                         ? {
-                            x: ["-42vw", "-19vw", "-16vw"],
-                            y: [14, 6, 0],
-                            opacity: [0, 1, 0.95],
-                            rotate: [-12, -6, -4],
-                            scale: [0.92, 1.04, 1],
-                          }
+                          x: ["-42vw", "-19vw", "-16vw"],
+                          y: [14, 6, 0],
+                          opacity: [0, 1, 1],
+                          rotate: [-12, -6, -4],
+                          scale: [0.92, 1.04, 1],
+                        }
                         : {
-                            x: "-8vw",
-                            y: -2,
-                            opacity: 0.42,
-                            rotate: -2,
-                            scale: 0.96,
-                          }
+                          x: "-8vw",
+                          y: -2,
+                          opacity: 0.88,
+                          rotate: -2,
+                          scale: 0.96,
+                        }
                     }
                     transition={{
                       duration: phase === "rewind" ? TIMELINE.rewind / 1000 : TIMELINE.burst / 1000,
@@ -117,26 +117,26 @@ function RouteSecret(): JSX.Element {
                   </motion.div>
                 </div>
 
-                <div className="arcane-center-anchor">
+                <div className="arcane-center-anchor arcane-anchor-character">
                   <motion.div
                     className="arcane-character-card arcane-character-ekko"
                     initial={{ x: "42vw", y: -14, opacity: 0, rotate: 12 }}
                     animate={
                       phase === "rewind"
                         ? {
-                            x: ["42vw", "19vw", "16vw"],
-                            y: [-14, -6, 0],
-                            opacity: [0, 1, 0.95],
-                            rotate: [12, 6, 4],
-                            scale: [0.92, 1.04, 1],
-                          }
+                          x: ["42vw", "19vw", "16vw"],
+                          y: [-14, -6, 0],
+                          opacity: [0, 1, 1],
+                          rotate: [12, 6, 4],
+                          scale: [0.92, 1.04, 1],
+                        }
                         : {
-                            x: "8vw",
-                            y: 2,
-                            opacity: 0.42,
-                            rotate: 2,
-                            scale: 0.96,
-                          }
+                          x: "8vw",
+                          y: 2,
+                          opacity: 0.88,
+                          rotate: 2,
+                          scale: 0.96,
+                        }
                     }
                     transition={{
                       duration: phase === "rewind" ? TIMELINE.rewind / 1000 : TIMELINE.burst / 1000,
@@ -147,7 +147,7 @@ function RouteSecret(): JSX.Element {
                   </motion.div>
                 </div>
 
-                <div className="arcane-center-anchor">
+                <div className="arcane-center-anchor arcane-anchor-track">
                   <motion.div
                     className="arcane-rewind-track"
                     initial={{ scaleX: 0.2, opacity: 0 }}
@@ -163,22 +163,22 @@ function RouteSecret(): JSX.Element {
                   />
                 </div>
 
-                <div className="arcane-center-anchor">
+                <div className="arcane-center-anchor arcane-anchor-gate">
                   <motion.div
                     className="arcane-time-gate"
                     initial={{ scale: 0.6, opacity: 0, rotate: -12 }}
                     animate={
                       phase === "rewind"
                         ? {
-                            scale: [0.6, 1.08, 1],
-                            opacity: [0, 1, 0.94],
-                            rotate: [-12, 4, 0],
-                          }
+                          scale: [0.6, 1.08, 1],
+                          opacity: [0, 1, 0.94],
+                          rotate: [-12, 4, 0],
+                        }
                         : {
-                            scale: [1, 1.2, 0.78],
-                            opacity: [0.94, 0.8, 0],
-                            rotate: [0, 10, 18],
-                          }
+                          scale: [1, 1.2, 0.78],
+                          opacity: [0.94, 0.8, 0],
+                          rotate: [0, 10, 18],
+                        }
                     }
                     transition={{
                       duration: phase === "rewind" ? TIMELINE.rewind / 1000 : TIMELINE.burst / 1000,

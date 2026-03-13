@@ -29,17 +29,12 @@ function normalizePath(pathname: string): string {
   if (pathname.length > 1 && pathname.endsWith("/")) {
     return pathname.slice(0, -1);
   }
-
   return pathname;
 }
 
 function getShortLocale(input: string): "fr" | "en" | "es" | "bzh" {
   const value = input.split("-")[0].toLowerCase();
-
-  if (value === "en" || value === "es" || value === "bzh") {
-    return value;
-  }
-
+  if (value === "en" || value === "es" || value === "bzh") return value;
   return "fr";
 }
 
@@ -51,6 +46,7 @@ function SeoMeta(): JSX.Element {
   const currentRoute = ROUTE_SEO[pathname];
   const lang = getShortLocale(i18n.resolvedLanguage ?? i18n.language ?? "fr");
   const htmlLang = lang === "bzh" ? "br" : lang;
+
   const localeMap: Record<"fr" | "en" | "es" | "bzh", string> = {
     fr: "fr_FR",
     en: "en_US",
@@ -61,30 +57,58 @@ function SeoMeta(): JSX.Element {
   const baseTitle = t("seo_title");
   const pageTitle = currentRoute ? t(currentRoute.titleKey) : "";
   const fullTitle = pageTitle ? `${pageTitle} | ${baseTitle}` : baseTitle;
+
   const description = currentRoute?.descriptionKey
     ? t(currentRoute.descriptionKey, { defaultValue: t("seo_description") })
     : t("seo_description");
+
   const canonicalUrl = `${siteUrl}${pathname}`;
   const imageUrl = `${siteUrl}/images/preview/previewsite.png`;
-  const robotsContent = currentRoute?.noindex
+  const isNoindex = currentRoute?.noindex ?? false;
+  const robotsContent = isNoindex
     ? "noindex, nofollow"
     : "index, follow, max-image-preview:large";
+  const keywords = t("seo_keywords", {
+    defaultValue: "Théo Guérin, développeur full-stack, React, Django, Python, portfolio",
+  });
 
-  const structuredData = {
+  const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Théo Guérin",
     jobTitle: "Développeur Full-Stack",
     url: siteUrl,
     image: imageUrl,
+    email: "theo.guerin35000@gmail.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Rennes",
+      postalCode: "35700",
+      addressCountry: "FR",
+    },
     sameAs: [
       "https://github.com/KizuCore",
       "https://www.linkedin.com/in/theo-guerin35/",
     ],
+    knowsAbout: ["React", "Django", "Python", "Node.js", "Flutter", "PostgreSQL", "Docker", "TypeScript"],
+    alumniOf: [
+      { "@type": "CollegeOrUniversity", name: "Université Rennes 1 ISTIC" },
+      { "@type": "CollegeOrUniversity", name: "My Digital School Rennes" },
+    ],
     worksFor: {
       "@type": "Organization",
-      name: "KizuCore",
+      name: "Nahibu",
+      url: "https://nahibu.com",
     },
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Théo Guérin | Portfolio",
+    url: siteUrl,
+    author: { "@type": "Person", name: "Théo Guérin" },
+    inLanguage: ["fr", "en", "es"],
   };
 
   return (
@@ -93,9 +117,12 @@ function SeoMeta(): JSX.Element {
       <title>{fullTitle}</title>
 
       <meta name="description" content={description} />
+      <meta name="author" content="Théo Guérin" />
+      {!isNoindex && <meta name="keywords" content={keywords} />}
       <meta name="robots" content={robotsContent} />
       <link rel="canonical" href={canonicalUrl} />
 
+      {/* Open Graph */}
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Théo Guérin | Portfolio" />
       <meta property="og:locale" content={localeMap[lang]} />
@@ -103,13 +130,23 @@ function SeoMeta(): JSX.Element {
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={t("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
 
+      {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@KizuCore" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image:alt" content={t("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
 
-      <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+      {/* Structured data */}
+      <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
+      {pathname === "/" && (
+        <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
+      )}
     </Helmet>
   );
 }

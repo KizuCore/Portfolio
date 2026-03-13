@@ -404,5 +404,16 @@
         "aria_legal": "Menegoù lezennel",
         "aria_privacy": "Politikerezh prevezded",
         "aria_cookies": "Merañ ma zoupinoù"
+    },
+    "seo_keywords": "Théo Guérin, diorroer full-stack, React, Django, Python, Node.js, Flutter, portfolio, Roazhon, diorroer web",
+    "seo_routes": {
+        "home_description": "Portfolio Théo Guérin, diorroer Full-Stack e Roazhon. Spesializet e React, Django, Python, Flutter ha diorroerezh web modern.",
+        "about_description": "Deskit diwar benn Théo Guérin: diorroer Full-Stack e Roazhon, e blijadurioù, e diplômoù ha e hentad micherel.",
+        "experience_description": "Hentad Théo Guérin: stummadur micherel Full-Stack e Nahibu, MBA Web Full-Stack, Bachelor ha Lizenn Enformadeg e Roazhon.",
+        "project_description": "Raktresoù web Théo Guérin: arloadoù React, API REST Django, arloadoù Flutter ha lec'hiennoù savet e-pad e stummadur.",
+        "contact_description": "Kit e darempred gant Théo Guérin evit ur raktres web, un eured franch pe ur c'hinnig micherel. E Roazhon, hegerz.",
+        "cv_description": "Gwelout pe pellgargañ CV Théo Guérin, diorroer Full-Stack spesilizet e React, Django ha Python, e Roazhon.",
+        "legal_description": "Menegoù lezennel portfolio Théo Guérin, diorroer web Full-Stack e Roazhon.",
+        "privacy_description": "Politikerezh prevezded portfolio Théo Guérin — tratamant roadennoù, toupinoù ha ho gwirioù."
     }
 }

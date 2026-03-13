@@ -372,5 +372,16 @@
         "aria_legal": "Aviso legal",
         "aria_privacy": "Política de privacidad",
         "aria_cookies": "Gestionar mis cookies"
+    },
+    "seo_keywords": "Théo Guérin, desarrollador full-stack, React, Django, Python, Node.js, Flutter, portafolio, Rennes, desarrollador web",
+    "seo_routes": {
+        "home_description": "Portafolio de Théo Guérin, desarrollador Full-Stack basado en Rennes. Especializado en React, Django, Python, Flutter y desarrollo web moderno.",
+        "about_description": "Descubre a Théo Guérin: desarrollador Full-Stack apasionado con sede en Rennes, sus aficiones, cualificaciones y trayectoria profesional.",
+        "experience_description": "Trayectoria de Théo Guérin: formación dual Full-Stack en Nahibu, MBA Web Full-Stack, Bachelor y Licenciatura en Informática en Rennes.",
+        "project_description": "Proyectos web de Théo Guérin: aplicaciones React, APIs REST con Django, apps Flutter y sitios vitrina realizados en prácticas y formación.",
+        "contact_description": "Contacta a Théo Guérin para un proyecto web, misión freelance u oportunidad profesional. Basado en Rennes, disponible.",
+        "cv_description": "Consulta o descarga el CV de Théo Guérin, desarrollador Full-Stack especializado en React, Django y Python, con sede en Rennes.",
+        "legal_description": "Aviso legal del portafolio de Théo Guérin, desarrollador web Full-Stack con sede en Rennes.",
+        "privacy_description": "Política de privacidad del portafolio de Théo Guérin — tratamiento de datos, cookies y tus derechos."
     }
 }

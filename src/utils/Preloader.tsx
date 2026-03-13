@@ -16,6 +16,10 @@ const Preloader: React.FC<PreloaderProps> = ({ load = true, className = "" }) =>
     >
       <div className="preloader-content">
         <LogoSVG />
+        <p className="preloader-wordmark" aria-label="KizuCore">
+          <span className="preloader-wordmark-main">KizuCore</span>
+          <span className="preloader-wordmark-sub">Full-Stack Web Developer</span>
+        </p>
       </div>
     </div>
   );

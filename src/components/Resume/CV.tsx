@@ -16,19 +16,28 @@ const pdf_FR = "/pdf/CV-Guerin-Theo-FR.pdf";
 
 function CV() {
   const { t, i18n } = useTranslation();
-  const [width, setWidth] = useState(window.innerWidth);
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
   const lang = i18n.language.slice(0, 2);
   const pdf = lang === "fr" ? pdf_FR : pdf_EN;
+  const pdfWidth = viewportWidth < 768
+    ? Math.max(300, viewportWidth - 24)
+    : Math.min(1020, Math.max(720, viewportWidth - 280));
 
 
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
+    const handleResize = () => setViewportWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    // Reset loading state whenever selected file changes (e.g. language switch)
+    setIsLoading(true);
+    setError(null);
+  }, [pdf]);
 
   const DownloadButton = () => (
     <Button href={pdf} target="_blank" rel="noopener noreferrer" className="button-cv">
@@ -55,7 +64,7 @@ function CV() {
       </Row>
 
       <Row className="justify-content-center">
-        <Col md={8} className="d-flex justify-content-center">
+        <Col md={12} lg={11} xl={10} className="d-flex justify-content-center">
           <div className="pdf-container">
             {isLoading && !error && (
               <div
@@ -67,14 +76,22 @@ function CV() {
             )}
             {error && <p className="text-danger">{t("error_loading_pdf")}</p>}
             <Document
+              key={pdf}
               file={pdf}
+              loading={null}
               onLoadSuccess={() => setIsLoading(false)}
               onLoadError={(err) => {
                 setError(err);
                 setIsLoading(false);
               }}
             >
-              <Page pageNumber={1} scale={width > 786 ? 1.3 : 0.6} renderMode="canvas" renderTextLayer={false} renderAnnotationLayer={false} />
+              <Page
+                pageNumber={1}
+                width={pdfWidth}
+                renderMode="canvas"
+                renderTextLayer={false}
+                renderAnnotationLayer={false}
+              />
             </Document>
           </div>
         </Col>

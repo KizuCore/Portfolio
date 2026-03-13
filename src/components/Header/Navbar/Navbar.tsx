@@ -1,17 +1,17 @@
 import { JSX, useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import { AiOutlineHome } from "@react-icons/all-files/ai/AiOutlineHome";
-import { AiOutlineFundProjectionScreen } from "@react-icons/all-files/ai/AiOutlineFundProjectionScreen";
-import { AiOutlineUser } from "@react-icons/all-files/ai/AiOutlineUser";
-import { AiOutlineIdcard } from "@react-icons/all-files/ai/AiOutlineIdcard";
-import { CgFileDocument } from "@react-icons/all-files/cg/CgFileDocument";
+import { FiBriefcase } from "@react-icons/all-files/fi/FiBriefcase";
+import { FiFileText } from "@react-icons/all-files/fi/FiFileText";
+import { FiFolder } from "@react-icons/all-files/fi/FiFolder";
+import { FiHome } from "@react-icons/all-files/fi/FiHome";
+import { FiMail } from "@react-icons/all-files/fi/FiMail";
+import { FiUser } from "@react-icons/all-files/fi/FiUser";
 import LanguageSelector from "../LanguageSelector";
 import Logo from "../Logo/LogoContainer";
 import NavItem from "./NavItem";
 import '../../../assets/styles/Easter/style_easter.css';
 import '../../../assets/styles/Header/header.css';
-import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope";
 
 // Constantes de timing
 const FAST_CLICK_THRESHOLD = 500; // 0.5s = clic rapide
@@ -82,12 +82,12 @@ function NavBar(): JSX.Element {
   }, []);
 
   const navItems = [
-    { to: "/", icon: <AiOutlineHome />, label: t('home'), ariaLabel: t('home_aria') },
-    { to: "/about", icon: <AiOutlineUser />, label: t('about'), ariaLabel: t('about_aria') },
-    { to: "/experience", icon: <AiOutlineIdcard />, label: t('experience'), ariaLabel: t('about_experience') },
-    { to: "/project", icon: <AiOutlineFundProjectionScreen />, label: t('project'), ariaLabel: t('project_aria') },
-    { to: "/contact", icon: <FaRegEnvelope />, label: t('social'), ariaLabel: t('social') },
-    { to: "/cv", icon: <CgFileDocument />, label: t('cv'), ariaLabel: t('cv_aria') }
+    { to: "/", icon: <FiHome />, label: t('home'), ariaLabel: t('home_aria') },
+    { to: "/about", icon: <FiUser />, label: t('about'), ariaLabel: t('about_aria') },
+    { to: "/experience", icon: <FiBriefcase />, label: t('experience'), ariaLabel: t('about_experience') },
+    { to: "/project", icon: <FiFolder />, label: t('project'), ariaLabel: t('project_aria') },
+    { to: "/contact", icon: <FiMail />, label: t('social'), ariaLabel: t('social') },
+    { to: "/cv", icon: <FiFileText />, label: t('cv'), ariaLabel: t('cv_aria') }
   ];
 
   return (

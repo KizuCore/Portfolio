@@ -108,11 +108,13 @@
     "Mon parcours": "My Journey",
     "experience_1_title": "Fullstack Web Developer — Nahibu",
     "experience_1_date": "Since March. 2024",
-    "experience_1_subtitle": "Rennes",
-    "experience_1_description": "Responsible for Nahibu’s infrastructure, interface implementation, design overhaul, SEO, documentation, ...",
-    "experience_1_stack": "Django, Flask, React, PostgreSQL, Axios, AWS, Citry API, Brevo, Jupyter, Django, Wordpress, Wix, LimeSurvey, Docker, Nuxt",
+    "experience_1_subtitle": "Nahibu - Rennes",
+    "experience_1_description": "Design and evolution of the Nahibu platform.",
+    "experience_1_highlights": "Development of React interfaces for the Nahibu platform||Implementation of microbiome reports and data visualizations with Django||Development and maintenance of REST APIs with Django and Flask||Design and management of databases (PostgreSQL, MySQL)||Integration of external services: WooCommerce, Systempay, Brevo, LimeSurvey||Participation in deployment using Docker and CI/CD||Setup of automated tests with Playwright, Jest and Bruno",
+    "experience_1_stack": "Python, Django, Flask, React, PostgreSQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
     "experience_2_title": "MBA Full-Stack Web Developer",
     "experience_2_subtitle": "My Digital School",
+    "experience_2_diplome": "Master's degree in Full-Stack Web Development",
     "experience_2_date": "Since Sept. 2024",
     "experience_3_title": "Bachelor Web Developer",
     "experience_3_subtitle": "My Digital School Rennes",
@@ -120,13 +122,16 @@
     "experience_3_date": "Sept. 2023 - July 2024",
     "experience_4_title": "Bachelor in Computer Science & Electronics",
     "experience_4_subtitle": "University of Rennes 1 ISTIC",
+    "experience_4_diplome": "Bachelor's degree in Computer Science & Electronics",
     "experience_4_date": "Sept. 2020 - July 2023",
     "experience_5_title": "Preparatory Class DCG",
     "experience_5_subtitle": "Bréquigny High School, Rennes",
     "experience_5_date": "Sept. 2018 - July 2019",
     "experience_6_title": "Scientific Baccalaureate (SVT)",
     "experience_6_subtitle": "La Fontaine Des Eaux High School, Dinan",
+    "experience_6_diplome": "Scientific Baccalaureate diploma (SVT)",
     "experience_6_date": "July 2018",
+    "experience_diploma_label": "Degree obtained",
     "years": "Years",
     "experience_home": "of experience",
     "studies": "of studies",
@@ -355,7 +360,7 @@
         "decline": "Decline",
         "accept": "Accept",
         "manage": "Manage my cookies",
-        "aria-label":"Cookie management banner"
+        "aria-label": "Cookie management banner"
     },
     "common": {
         "cancel": "Cancel",
@@ -403,4 +408,3 @@
         "aria_cookies": "Manage my cookies"
     }
 }
-

@@ -204,14 +204,96 @@
 }
 
 .timeline-card-diploma {
-  margin-top: 0.15rem;
+  margin-top: 0.5rem;
   color: rgba(239, 247, 255, 0.95);
+}
+
+.timeline-card-rncp {
+  margin: 0.42rem 0 0;
+  color: rgba(233, 244, 255, 0.95);
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+.timeline-card-diploma-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  min-height: 1.9rem;
+  padding: 0.28rem 0.68rem;
+  border-radius: 999px;
+  border: 1px solid rgba(127, 238, 176, 0.62);
+  background: linear-gradient(140deg, rgba(19, 88, 56, 0.32), rgba(13, 58, 39, 0.68));
+  color: #7ff0b7;
+  font-weight: 700;
+  font-size: 0.84rem;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  box-shadow: 0 0 14px rgba(87, 214, 138, 0.24), inset 0 0 0 1px rgba(151, 248, 192, 0.12);
+}
+
+.timeline-card-diploma-label::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #c5ffe2, #62e5a3 70%, #34ba79 100%);
+  box-shadow: 0 0 9px rgba(92, 230, 160, 0.58);
 }
 
 .timeline-card-description {
   margin-top: 0.62rem;
   font-size: 1rem;
   color: rgba(208, 225, 248, 0.94);
+}
+
+.timeline-card-detailed {
+  border-color: rgba(183, 221, 255, 0.42);
+  background: linear-gradient(
+    160deg,
+    rgba(13, 27, 50, 0.94) 0%,
+    rgba(15, 35, 66, 0.92) 58%,
+    rgba(20, 42, 78, 0.92) 100%
+  );
+  text-align: left;
+}
+
+.timeline-card-list {
+  margin: 0.72rem 0 0;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.42rem;
+  color: rgba(234, 244, 255, 0.95);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.timeline-card-list li {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.timeline-card-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: #8fc2ff;
+  box-shadow: 0 0 8px rgba(116, 188, 255, 0.48);
+}
+
+.timeline-stack-inline {
+  margin: 0.88rem 0 0;
+  color: rgba(196, 223, 255, 0.96);
+  font-style: italic;
+  font-size: 1.04rem;
+  line-height: 1.45;
 }
 
 .timeline-stack-tags {
@@ -325,6 +407,11 @@
   .timeline-card-description,
   .timeline-card-date {
     font-size: 0.96rem;
+  }
+
+  .timeline-card-list,
+  .timeline-stack-inline {
+    font-size: 0.95rem;
   }
 }
 

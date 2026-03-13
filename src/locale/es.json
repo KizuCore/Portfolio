@@ -108,11 +108,13 @@
     "Mon parcours": "Mi trayectoria",
     "experience_1_title": "Desarrollador Web Fullstack — Nahibu",
     "experience_1_date": "Desde marzo de 2024",
-    "experience_1_subtitle": "Rennes",
-    "experience_1_description": "Responsable de la infraestructura de Nahibu, implementación de interfaz, rediseño, SEO, documentación, ...",
-    "experience_1_stack": "Django, Flask, React, PostgreSQL, Axios, AWS, Citry API, Brevo, Jupyter, Django, Wordpress, Wix, LimeSurvey, Docker, Nuxt",
+    "experience_1_subtitle": "Nahibu - Rennes",
+    "experience_1_description": "Diseno y evolucion de la plataforma Nahibu.",
+    "experience_1_highlights": "Desarrollo de interfaces React para la plataforma Nahibu||Implementacion de informes de microbiota y visualizaciones de datos con Django||Desarrollo y mantenimiento de API REST con Django y Flask||Diseno y gestion de bases de datos (PostgreSQL, MySQL)||Integracion de servicios externos: WooCommerce, Systempay, Brevo, LimeSurvey||Participacion en despliegue con Docker y CI/CD||Implementacion de pruebas automatizadas con Playwright, Jest y Bruno",
+    "experience_1_stack": "Python, Django, Flask, React, PostgreSQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
     "experience_2_title": "MBA Desarrollador Full-Stack",
     "experience_2_subtitle": "My Digital School",
+    "experience_2_diplome": "Diploma de Master en Desarrollo Web Full-Stack",
     "experience_2_date": "Desde septiembre de 2024",
     "experience_3_title": "Licenciatura en Desarrollo Web",
     "experience_3_subtitle": "My Digital School Rennes",
@@ -120,13 +122,16 @@
     "experience_3_date": "Septiembre 2023 - Julio 2024",
     "experience_4_title": "Licenciatura en Informática y Electrónica",
     "experience_4_subtitle": "Universidad de Rennes 1 ISTIC",
+    "experience_4_diplome": "Diploma de Licenciatura en Informatica y Electronica",
     "experience_4_date": "Septiembre 2020 - Julio 2023",
     "experience_5_title": "Clase preparatoria DCG",
     "experience_5_subtitle": "Liceo Bréquigny, Rennes",
     "experience_5_date": "Septiembre 2018 - Julio 2019",
     "experience_6_title": "Bachillerato Científico (SVT)",
     "experience_6_subtitle": "Liceo La Fontaine Des Eaux, Dinan",
+    "experience_6_diplome": "Diploma de Bachillerato Cientifico (SVT)",
     "experience_6_date": "Julio 2018",
+    "experience_diploma_label": "Diploma obtenido",
     "years": "Años",
     "experience_home": "de experiencia",
     "studies": "de estudios",
@@ -321,12 +326,13 @@
         "decline": "Rechazar",
         "accept": "Aceptar",
         "manage": "Gestionar mis cookies",
-        "aria-label":"Banner de gestión de cookies"
+        "aria-label": "Banner de gestión de cookies"
     },
     "common": {
         "cancel": "Cancelar",
         "save": "Guardar"
-    },    "a11y": {
+    },
+    "a11y": {
         "skip_to_content": "Ir al contenido",
         "back_to_top": "Volver arriba",
         "nav_menu_toggle": "Abrir o cerrar el menú de navegación",
@@ -368,4 +374,3 @@
         "aria_cookies": "Gestionar mis cookies"
     }
 }
-

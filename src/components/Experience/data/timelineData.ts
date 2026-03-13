@@ -8,10 +8,23 @@ export type TimelineItem = {
   date: string;
   description?: string;
   stack?: string;
+  highlights?: string[];
 };
 
 export const useTimelineData = (): TimelineItem[] => {
   const { t } = useTranslation();
+  const parseHighlights = (key: string): string[] => {
+    const value = t(key);
+
+    if (!value || value === key) {
+      return [];
+    }
+
+    return value
+      .split("||")
+      .map((item) => item.trim())
+      .filter(Boolean);
+  };
 
   return [
     {
@@ -20,12 +33,14 @@ export const useTimelineData = (): TimelineItem[] => {
       date: t("experience_1_date"),
       subtitle: t("experience_1_subtitle"),
       description: t("experience_1_description"),
+      highlights: parseHighlights("experience_1_highlights"),
       stack: t("experience_1_stack"),
     },
     {
       type: "C",
       title: t("experience_2_title"),
       subtitle: t("experience_2_subtitle"),
+      diplome: t("experience_2_diplome"),
       date: t("experience_2_date"),
     },
     {
@@ -39,6 +54,7 @@ export const useTimelineData = (): TimelineItem[] => {
       type: "C",
       title: t("experience_4_title"),
       subtitle: t("experience_4_subtitle"),
+      diplome: t("experience_4_diplome"),
       date: t("experience_4_date"),
     },
     {
@@ -51,6 +67,7 @@ export const useTimelineData = (): TimelineItem[] => {
       type: "C",
       title: t("experience_6_title"),
       subtitle: t("experience_6_subtitle"),
+      diplome: t("experience_6_diplome"),
       date: t("experience_6_date"),
     },
   ];

@@ -108,10 +108,13 @@
     "experience_home": "a skiant-prenet",
     "experience_1_title": "Diorroer Web a-bezh — Nahibu",
     "experience_1_date": "Adalek Meurzh 2024",
-    "experience_1_description": "Evezhier war infrakañad Nahibu, sevenadur a-berzh an etrefasoù, adframmadur grafek, SEO, teuliadur, ...",
-    "experience_1_stack": "Django, Flask, React, PostgreSQL, Axios, AWS, Citry API, Brevo, Jupyter, Django, Wordpress, Wix, LimeSurvey, Docker, Nuxt",
+    "experience_1_subtitle": "Nahibu - Roazhon",
+    "experience_1_description": "Diorren ha kempenn ar bladenn Nahibu.",
+    "experience_1_highlights": "Diorren etrefasoù React evit ar bladenn Nahibu||Implij raportoù microbiot hag heweladur roadennoù gant Django||Diorren ha kempenn API REST gant Django ha Flask||Krouidigezh ha merañ stlennvonioù (PostgreSQL, MySQL)||Enframmañ servijoù diavaez: WooCommerce, Systempay, Brevo, LimeSurvey||Kemer perzh er deployment gant Docker ha CI/CD||Sevel amprouadennoù emgefreek gant Playwright, Jest ha Bruno",
+    "experience_1_stack": "Python, Django, Flask, React, PostgreSQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
     "experience_2_title": "MBA Diorroer Web a-bezh",
     "experience_2_subtitle": "My Digital School Roazhon",
+    "experience_2_diplome": "Diplom Master e diorroerezh web a-bezh",
     "experience_2_date": "Adalek Gwengolo 2024",
     "experience_3_title": "Bachelor Diorroer Web",
     "experience_3_subtitle": "My Digital School Roazhon",
@@ -119,13 +122,16 @@
     "experience_3_date": "Gwengolo 2023 - Gouere 2024",
     "experience_4_title": "Lizenn Enformadeg & Elektronegiezh",
     "experience_4_subtitle": "Skol-Veur Roazhon 1 ISTIC",
+    "experience_4_diplome": "Diplom Lizenn Enformadeg & Elektronegiezh",
     "experience_4_date": "Gwengolo 2020 - Gouere 2023",
     "experience_5_title": "Klask Preparatori DCG",
     "experience_5_subtitle": "Lise Bréquigny, Roazhon",
     "experience_5_date": "Gwengolo 2018 - Gouere 2019",
     "experience_6_title": "Bak Sianik SVT",
     "experience_6_subtitle": "Lise La Fontaine Des Eaux, Dinan",
+    "experience_6_diplome": "Diplom Bak Sianik SVT",
     "experience_6_date": "Gouere 2018",
+    "experience_diploma_label": "Diplom tapet",
     "years": "bloaz",
     "studies": "a studi",
     "completed": "echuet",
@@ -353,7 +359,7 @@
         "decline": "Nac'hañ",
         "accept": "Asantiñ",
         "manage": "Merañ ma zoupinoù",
-        "aria-label":"Bann titour diwar-benn ar c’houkedoù"
+        "aria-label": "Bann titour diwar-benn ar c’houkedoù"
     },
     "common": {
         "cancel": "Nullañ",
@@ -400,4 +406,3 @@
         "aria_cookies": "Merañ ma zoupinoù"
     }
 }
-

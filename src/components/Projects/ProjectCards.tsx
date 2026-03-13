@@ -113,9 +113,9 @@ function ProjectCard(props: ProjectCardProps) {
         )}
 
         <Card.Title className="project-card-title">
-          <h3 className="project-title-text">
+          <h2 className="project-title-text">
             <strong className="blue">{props.title}</strong>
-          </h3>
+          </h2>
         </Card.Title>
 
         <TechStackIcons techStack={props.techStack} />

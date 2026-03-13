@@ -264,7 +264,7 @@ const Projects: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.3 }}
         >
-          <div className="project-filter-bar" role="tablist" aria-label={t("project_aria")}>
+          <div className="project-filter-bar" aria-label={t("project_aria")}>
             {filterOrder.map((filter) => {
               const isActive = filter === activeFilter;
 

@@ -244,6 +244,7 @@
     "captcha_required": "Mar plij, gwiria ar captcha.",
     "errors": {
         "hcaptcha_failed": "C'hwitadenn war gwiriañ ar captcha.",
+        "captcha_failed": "C'hwitadenn war gwiriañ ar captcha.",
         "missing_fields": "Leunait an holl vaeziennoù rekis mar plij.",
         "rate_limited": "Re a c'houlennadoù. Klaskit en-dro a-benn nebeud.",
         "send_failed": "Ur fazi zo c'hoarvezet e-pad kas ar c'hemennadenn.",

@@ -211,6 +211,7 @@
     "captcha_required": "Por favor, completa el captcha.",
     "errors": {
         "hcaptcha_failed": "La validación del captcha falló.",
+        "captcha_failed": "La validación del captcha falló.",
         "missing_fields": "Por favor, rellena todos los campos obligatorios.",
         "rate_limited": "Demasiados intentos. Inténtalo de nuevo en unos segundos.",
         "send_failed": "Se produjo un error al enviar el mensaje.",

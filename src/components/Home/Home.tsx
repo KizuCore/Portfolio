@@ -158,7 +158,6 @@ function Home(): JSX.Element {
                         height="300"
                         loading="eager"
                         decoding="sync"
-                        fetchPriority="high"
                       />
                     ) : (
                       <motion.img
@@ -169,7 +168,6 @@ function Home(): JSX.Element {
                         height="400"
                         loading="eager"
                         decoding="sync"
-                        fetchPriority="high"
                         drag
                         dragMomentum={false}
                         onDragStart={() => setIsDragging(true)}
@@ -200,7 +198,6 @@ function Home(): JSX.Element {
                         height="300"
                         loading="eager"
                         decoding="sync"
-                        fetchPriority="high"
                       />
                     ) : (
                       <motion.img
@@ -211,7 +208,6 @@ function Home(): JSX.Element {
                         height="400"
                         loading="eager"
                         decoding="sync"
-                        fetchPriority="high"
                         drag
                         dragMomentum={false}
                         onDragStart={() => setIsDragging(true)}

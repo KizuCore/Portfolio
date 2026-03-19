@@ -102,7 +102,6 @@ function ProjectCard(props: ProjectCardProps) {
           alt={props.altText}
           decoding="async"
           loading="lazy"
-          fetchPriority="low"
           className="project-img"
         />
       </div>

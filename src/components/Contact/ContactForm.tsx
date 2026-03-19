@@ -8,7 +8,7 @@ import {
   Spinner,
 } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
 import "../../assets/styles/Contact/Contact.css";
 
@@ -30,18 +30,18 @@ function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
   const [responseVariant, setResponseVariant] = useState<"success" | "danger" | "">("");
-  const [hcaptchaToken, setHcaptchaToken] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
-  const hcaptchaSiteKey = "b016c3fe-2d68-429c-a918-c6801962237c";
-  const hcaptchaRef = useRef<HCaptcha | null>(null);
+  const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
+  const turnstileRef = useRef<TurnstileInstance>();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleHcaptchaVerify = (token: string) => {
-    setHcaptchaToken(token);
+  const handleTurnstileVerify = (token: string) => {
+    setTurnstileToken(token);
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -53,7 +53,7 @@ function ContactForm() {
       return;
     }
 
-    if (!hcaptchaToken) {
+    if (!turnstileToken) {
       setResponseMessage(t("captcha_required"));
       setResponseVariant("danger");
       return;
@@ -65,7 +65,7 @@ function ContactForm() {
       const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, hcaptchaToken }),
+        body: JSON.stringify({ ...formData, turnstileToken }),
       });
 
       const data = await response.json();
@@ -74,8 +74,8 @@ function ContactForm() {
         setResponseMessage(t("message_success"));
         setResponseVariant("success");
         setFormData({ name: "", email: "", subject: "", message: "" });
-        setHcaptchaToken(null);
-        hcaptchaRef.current?.resetCaptcha();
+        setTurnstileToken(null);
+        turnstileRef.current?.reset();
       } else {
         const fallback = data.message || t("message_fail");
         const translated = data.errorCode ? t(`errors.${data.errorCode}`) : fallback;
@@ -176,7 +176,14 @@ function ContactForm() {
         </Row>
 
         <div className="captcha-container mt-4 mb-4">
-          <HCaptcha sitekey={hcaptchaSiteKey} onVerify={handleHcaptchaVerify} ref={hcaptchaRef} />
+          <Turnstile
+            ref={turnstileRef}
+            siteKey={turnstileSiteKey}
+            onSuccess={handleTurnstileVerify}
+            onExpire={() => setTurnstileToken(null)}
+            onError={() => setTurnstileToken(null)}
+            options={{ theme: "dark", size: "normal" }}
+          />
         </div>
 
         <Button type="submit" className="button-cv contact-submit-btn" disabled={isSubmitting}>

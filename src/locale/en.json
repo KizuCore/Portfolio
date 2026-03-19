@@ -245,6 +245,7 @@
     "captcha_required": "Please complete the captcha.",
     "errors": {
         "hcaptcha_failed": "Captcha validation failed.",
+        "captcha_failed": "Captcha validation failed.",
         "missing_fields": "Please fill in all required fields.",
         "rate_limited": "Too many attempts. Please try again in a few seconds.",
         "send_failed": "An error occurred while sending the message.",

@@ -1,14 +1,14 @@
 import { Resend } from 'resend';
 import axios from 'axios';
 
-// Initialise l’API Resend avec ta clé d’API
+// Initialise l'API Resend avec ta cle d'API
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Anti-spam simple : IP → timestamp
+// Anti-spam simple : IP -> timestamp
 const rateLimitMap = new Map();
 const RATE_LIMIT_WINDOW_MS = 30 * 1000; // 30 secondes
 
-// Récupération IP du client
+// Recuperation IP du client
 function getIp(req) {
   return (
     req.headers['x-forwarded-for']?.toString().split(',')[0] ||
@@ -17,24 +17,31 @@ function getIp(req) {
   ).trim();
 }
 
-// Vérifie le token hCaptcha
-async function verifyHcaptcha(token) {
+// Verifie le token Cloudflare Turnstile
+async function verifyTurnstile(token, ip) {
   try {
+    if (!process.env.TURNSTILE_SECRET_KEY) {
+      console.error('TURNSTILE_SECRET_KEY manquante');
+      return false;
+    }
+
     const response = await axios.post(
-      'https://hcaptcha.com/siteverify',
+      'https://challenges.cloudflare.com/turnstile/v0/siteverify',
       new URLSearchParams({
-        secret: process.env.HCAPTCHA_SECRET_KEY,
+        secret: process.env.TURNSTILE_SECRET_KEY,
         response: token,
+        remoteip: ip || '',
       })
     );
-    return response.data.success;
+
+    return Boolean(response.data?.success);
   } catch (err) {
-    console.error('Erreur vérification hCaptcha :', err.message);
+    console.error('Erreur verification Turnstile :', err.message);
     return false;
   }
 }
 
-// Envoie l’email via Resend
+// Envoie l'email via Resend
 async function sendContactEmail({ name, email, subject, message, ip }) {
   return resend.emails.send({
     from: 'onboarding@resend.dev', // à remplacer si besoin
@@ -65,11 +72,12 @@ export default async function handler(req, res) {
     });
   }
 
-  const { name, email, subject, message, hcaptchaToken } = req.body;
+  const { name, email, subject, message, turnstileToken, hcaptchaToken } = req.body;
+  const captchaToken = turnstileToken || hcaptchaToken; // compat temporaire
   const ip = getIp(req);
 
-  // Vérification des champs
-  if (!name || !email || !subject || !message || !hcaptchaToken) {
+  // Verification des champs
+  if (!name || !email || !subject || !message || !captchaToken) {
     return res.status(400).json({
       success: false,
       message: 'Champs requis manquants',
@@ -89,28 +97,28 @@ export default async function handler(req, res) {
   }
   rateLimitMap.set(ip, now);
 
-  // Vérification captcha
-  const isHuman = await verifyHcaptcha(hcaptchaToken);
+  // Verification captcha
+  const isHuman = await verifyTurnstile(captchaToken, ip);
   if (!isHuman) {
     return res.status(400).json({
       success: false,
-      message: 'Validation hCaptcha échouée',
-      errorCode: 'hcaptcha_failed',
+      message: 'Validation captcha echouee',
+      errorCode: 'captcha_failed',
     });
   }
 
-  // Envoi de l’email
+  // Envoi de l'email
   try {
     await sendContactEmail({ name, email, subject, message, ip });
     return res.status(200).json({
       success: true,
-      message: 'Email envoyé avec succès',
+      message: 'Email envoye avec succes',
     });
   } catch (err) {
-    console.error('Erreur lors de l’envoi de l’email :', err?.message || err);
+    console.error("Erreur lors de l'envoi de l'email :", err?.message || err);
     return res.status(500).json({
       success: false,
-      message: 'Erreur lors de l’envoi du message',
+      message: "Erreur lors de l'envoi du message",
       errorCode: 'send_failed',
       error: err?.message || 'Unknown error',
     });

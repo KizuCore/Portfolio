@@ -246,6 +246,7 @@
     "captcha_required": "Merci de valider le captcha.",
     "errors": {
         "hcaptcha_failed": "Échec de validation du captcha.",
+        "captcha_failed": "Échec de validation du captcha.",
         "missing_fields": "Veuillez remplir tous les champs.",
         "rate_limited": "Trop de tentatives. Réessayez dans quelques secondes.",
         "send_failed": "Erreur lors de l’envoi du message.",

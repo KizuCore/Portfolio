@@ -1,17 +1,16 @@
-import { useState, useRef, ChangeEvent, FormEvent } from "react";
-import '../../assets/styles/Contact/Contact.css';
+﻿import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import {
-  Form,
-  Button,
   Alert,
-  Spinner,
-  Container,
-  Row,
+  Button,
   Col,
+  Form,
+  Row,
+  Spinner,
 } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
+import "../../assets/styles/Contact/Contact.css";
 
 interface FormFields {
   name: string;
@@ -22,23 +21,18 @@ interface FormFields {
 
 function ContactForm() {
   const { t } = useTranslation();
-
   const [formData, setFormData] = useState<FormFields>({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
   const [responseVariant, setResponseVariant] = useState<"success" | "danger" | "">("");
   const [hcaptchaToken, setHcaptchaToken] = useState<string | null>(null);
 
-  // Clé publique hCaptcha
   const hcaptchaSiteKey = "b016c3fe-2d68-429c-a918-c6801962237c";
-
-  // Ref pour le composant hCaptcha (pour reset)
   const hcaptchaRef = useRef<HCaptcha | null>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -53,7 +47,6 @@ function ContactForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Vérification front côté JS
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
       setResponseMessage(t("errors.missing_fields"));
       setResponseVariant("danger");
@@ -82,7 +75,7 @@ function ContactForm() {
         setResponseVariant("success");
         setFormData({ name: "", email: "", subject: "", message: "" });
         setHcaptchaToken(null);
-        hcaptchaRef.current?.resetCaptcha(); // reset du captcha visuellement
+        hcaptchaRef.current?.resetCaptcha();
       } else {
         const fallback = data.message || t("message_fail");
         const translated = data.errorCode ? t(`errors.${data.errorCode}`) : fallback;
@@ -98,53 +91,60 @@ function ContactForm() {
   };
 
   return (
-    <Container>
+    <div className="contact-form-card background-box">
+      <header className="contact-form-header">
+        <h2 className="contact-form-title">{t("contact_form_title")}</h2>
+        <p className="contact-form-subtitle">{t("contact_form_subtitle")}</p>
+        <p className="contact-form-required">{t("contact_form_required_hint")}</p>
+      </header>
+
       {responseMessage && (
         <Alert
           variant={responseVariant}
           onClose={() => setResponseMessage("")}
           dismissible
+          className="contact-form-alert"
         >
           {responseMessage}
         </Alert>
       )}
 
-      <Row className="justify-content-center pb-5">
-        <Col md={8} className="p-0 m-0">
-          <Form onSubmit={handleSubmit} className="background-box">
-            <Row>
-              <Col md={6} className="mb-3">
-                <Form.Group controlId="formName">
-                  <Form.Label>{t("name")}</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder={t("name_placeholder")}
-                    className="custom-form"
-                  />
-                </Form.Group>
-              </Col>
+      <Form onSubmit={handleSubmit} noValidate>
+        <Row className="g-3">
+          <Col md={6}>
+            <Form.Group controlId="formName">
+              <Form.Label>{t("name")}</Form.Label>
+              <Form.Control
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                autoComplete="name"
+                placeholder={t("name_placeholder")}
+                className="custom-form"
+              />
+            </Form.Group>
+          </Col>
 
-              <Col md={6} className="mb-3">
-                <Form.Group controlId="formEmail">
-                  <Form.Label>{t("email")}</Form.Label>
-                  <Form.Control
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder={t("email_placeholder")}
-                    className="custom-form"
-                  />
-                </Form.Group>
-              </Col>
-            </Row>
+          <Col md={6}>
+            <Form.Group controlId="formEmail">
+              <Form.Label>{t("email")}</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                autoComplete="email"
+                placeholder={t("email_placeholder")}
+                className="custom-form"
+              />
+            </Form.Group>
+          </Col>
 
-            <Form.Group controlId="formSubject" className="mb-3">
+          <Col xs={12}>
+            <Form.Group controlId="formSubject">
               <Form.Label>{t("subject")}</Form.Label>
               <Form.Control
                 type="text"
@@ -156,52 +156,44 @@ function ContactForm() {
                 className="custom-form"
               />
             </Form.Group>
+          </Col>
 
-            <Form.Group controlId="formMessage" className="mb-4">
+          <Col xs={12}>
+            <Form.Group controlId="formMessage">
               <Form.Label>{t("message")}</Form.Label>
               <Form.Control
                 as="textarea"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                rows={4}
                 required
+                rows={5}
                 placeholder={t("message_placeholder")}
                 className="custom-form"
               />
             </Form.Group>
+          </Col>
+        </Row>
 
-            <div className="captcha-container mb-4">
-              <HCaptcha
-                sitekey={hcaptchaSiteKey}
-                onVerify={handleHcaptchaVerify}
-                ref={hcaptchaRef}
-              />
-            </div>
+        <div className="captcha-container mt-4 mb-4">
+          <HCaptcha sitekey={hcaptchaSiteKey} onVerify={handleHcaptchaVerify} ref={hcaptchaRef} />
+        </div>
 
-            <div>
-              <Button
-                type="submit"
-                className="button-cv p-3"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  <>
-                    <Spinner animation="border" size="sm" className="me-2" />
-                    {t("sending")}
-                  </>
-                ) : (
-                  <>
-                    <AiOutlineMail style={{ marginRight: "5px" }} className="mb-1" />
-                    {t("send_message")}
-                  </>
-                )}
-              </Button>
-            </div>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+        <Button type="submit" className="button-cv contact-submit-btn" disabled={isSubmitting}>
+          {isSubmitting ? (
+            <>
+              <Spinner animation="border" size="sm" className="me-2" />
+              {t("sending")}
+            </>
+          ) : (
+            <>
+              <AiOutlineMail className="mb-1" style={{ marginRight: "6px" }} />
+              {t("send_message")}
+            </>
+          )}
+        </Button>
+      </Form>
+    </div>
   );
 }
 

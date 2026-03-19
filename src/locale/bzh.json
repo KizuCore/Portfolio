@@ -288,13 +288,13 @@
         },
         "privacy": {
             "title": "7. Roadennoù personel",
-            "p1": "Gallout a ra al lec'hienn dastum roadennoù dre ar furmskrid daremprediñ (m'emañ) ha dre binvioù muzuliañ ar boblañs.",
+            "p1": "Gallout a ra al lec'hienn dastum roadenno dre ar furmskrid darempredin (m'eman), dre ur gwirian anti-abuz Turnstile (Cloudflare), ha dre binvio muzulian ar boblans.",
             "p2": "Hoc'h eus ar gwirioù moned, reizhañ, diverkañ, enebiñ, bevenniñ hag heñchañ (portabilite). Evit o c'houlenniñ : theo.guerin35000@gmail.com.",
             "p3": "Evit muioc'h a ditouroù, gwelit ar Bolitikerezh prevezded."
         },
         "cookies": {
             "title": "8. Toupinoù (cookies) ha muzuliñ ar boblañs",
-            "p1": "Implijet e vez Google Analytics 4 nemet goude ho asant. Ken na asantit, ne vo lakaet toupin analiz ebet ha ne vo kaset roadenn ebet da Google.",
+            "p1": "Implijet e vez Google Analytics 4 nemet goude ho asant. Ken na asantit, ne vo lakaet toupin analiz ebet ha ne vo kaset roadenn ebet da Google. Ar furmskrid darempredin a implij ivez Cloudflare Turnstile evit difenn ouzh ar spam teknik.",
             "p2": "Diazez lezennel : asant (artikl 6(1)(a) RGPD). Gallout a rit kemmañ ho gwellvezioù forzh pegoulz dre « Merañ ma zoupinoù ».",
             "p3": "Google Ireland Limited zo evel prenadour-implij. Gall a ra bezañ treuzkasadennoù e-diavaez an UE, renet gant ar C'homenadoù Kendivizel Skouer. GA4 a zianonimezañ an IP dre ziouer."
         },
@@ -326,10 +326,10 @@
         "data": {
             "title": "2. Roadennoù dastumet ha palioù",
             "intro": "Dastumet e vez ar roadennoù war al lec'hienn evit :",
-            "contact_form": "Furmskrid daremprediñ : anv, postel, kemennadenn. Pal : respont d'ho koulenn.",
+            "contact_form": "Furmskrid darempredin : anv, postel, kemennadenn ha jeton teknik Turnstile. Pal : respont d'ho koulenn ha prevenin kasadenno emgefreek re-abuz.",
             "analytics": "Muzuliñ ar boblañs : dre Google Analytics 4 (GA4). Pal : stadegoù dianon evit gwellaat al lec'hienn.",
             "legal_basis_intro": "Diazez lezennel :",
-            "legal_basis_contact": "Interest talvoudus evit merañ ar c'hemennadennoù dre ar furmskrid.",
+            "legal_basis_contact": "Interest talvoudus evit meran ar c'hemennadenno dre ar furmskrid ha prevenin spam/abuz.",
             "legal_basis_analytics": "Asant splann evit gweredekaat Google Analytics."
         },
         "ga4": {
@@ -341,7 +341,7 @@
         },
         "recipients": {
             "title": "4. Degemererien ar roadennoù",
-            "text": "Ar roadennoù kaset dre ar furmskrid a vez tennet-gwered gant perc'henn al lec'hienn hepken. Ar roadennoù stadegel a vez kaset da Google evel pourchaser analiz."
+            "text": "Ar roadenno kaset dre ar furmskrid a vez tennet-gwered gant perc'henn al lec'hienn hepken. Ar roadenno stadegel a vez kaset da Google evel pourchaser analiz. Ar roadenno teknik anti-bot a vez trezet gant Cloudflare (Turnstile)."
         },
         "rights": {
             "title": "5. Ho gwirioù",
@@ -377,7 +377,7 @@
         },
         "types": {
             "title": "2. Rizhioù toupinoù implijet",
-            "necessary": "Toupinoù strizh-ret : ret evit mont en-dro teknik al lec'hienn.",
+            "necessary": "Toupino strizh-ret : ret evit mont en-dro teknik al lec'hienn, en o zouez difenn anti-abuz Turnstile war ar furmskrid darempredin.",
             "analytics": "Toupinoù stadelerezh : Google Analytics (GA4), gweredekaet nemet goude hoc'h asant."
         },
         "use": {

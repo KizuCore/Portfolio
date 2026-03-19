@@ -289,13 +289,13 @@
         },
         "privacy": {
             "title": "7. Personal Data",
-            "p1": "This site may collect personal data via the contact form (if present) and via audience measurement tools.",
+            "p1": "This site may collect personal data via the contact form (if present), via Cloudflare Turnstile anti-abuse checks, and via audience measurement tools.",
             "p2": "You have the rights of access, rectification, erasure, objection, restriction and data portability. To exercise your rights: theo.guerin35000@gmail.com.",
             "p3": "For more information, please see the Privacy Policy."
         },
         "cookies": {
             "title": "8. Cookies and Analytics",
-            "p1": "This site uses Google Analytics 4 only after your consent. Until you accept, no non-essential analytics cookies are set and no data is sent to Google.",
+            "p1": "This site uses Google Analytics 4 only after your consent. Until you accept, no non-essential analytics cookies are set and no data is sent to Google. The contact form also uses Cloudflare Turnstile as a technical anti-spam protection mechanism.",
             "p2": "Legal basis: consent (Article 6(1)(a) GDPR). You can change your preferences at any time via “Manage my cookies”.",
             "p3": "Google Ireland Limited acts as a processor. Data transfers outside the EU may occur and are governed by the EU Standard Contractual Clauses. GA4 anonymizes IP addresses by default."
         },
@@ -327,10 +327,10 @@
         "data": {
             "title": "2. Data Collected and Purposes",
             "intro": "Data on this site are collected solely for:",
-            "contact_form": "Contact form: name, email, message. Purpose: to respond to your request.",
+            "contact_form": "Contact form: name, email, message, and Turnstile technical token. Purpose: to respond to your request and prevent abusive automated submissions.",
             "analytics": "Audience measurement: via Google Analytics 4 (GA4). Purpose: anonymized statistics to improve the site.",
             "legal_basis_intro": "Legal basis:",
-            "legal_basis_contact": "Legitimate interest for handling messages received via the contact form.",
+            "legal_basis_contact": "Legitimate interest for handling messages received via the contact form and preventing spam/abuse.",
             "legal_basis_analytics": "Explicit consent for enabling Google Analytics."
         },
         "ga4": {
@@ -342,7 +342,7 @@
         },
         "recipients": {
             "title": "4. Data Recipients",
-            "text": "Data collected via the form are accessible only to the site owner. Audience data are sent to Google as the analytics provider."
+            "text": "Data collected via the form are accessible only to the site owner. Audience data are sent to Google as the analytics provider. Technical anti-bot verification data are processed by Cloudflare (Turnstile)."
         },
         "rights": {
             "title": "5. Your Rights",
@@ -378,7 +378,7 @@
         },
         "types": {
             "title": "2. Types of cookies used",
-            "necessary": "Strictly necessary cookies: required for the technical operation of the website.",
+            "necessary": "Strictly necessary cookies: required for the technical operation of the website, including Turnstile anti-abuse protection on the contact form.",
             "analytics": "Analytics cookies: Google Analytics (GA4), enabled only after your consent."
         },
         "use": {

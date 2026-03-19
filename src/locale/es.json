@@ -255,13 +255,13 @@
         },
         "privacy": {
             "title": "7. Datos personales",
-            "p1": "Este sitio puede recopilar datos personales a través del formulario de contacto (si existe) y mediante herramientas de medición de audiencia.",
+            "p1": "Este sitio puede recopilar datos personales a traves del formulario de contacto (si existe), mediante el control antiabuso Turnstile (Cloudflare) y mediante herramientas de medicion de audiencia.",
             "p2": "Usted dispone de los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad. Para ejercer sus derechos: theo.guerin35000@gmail.com.",
             "p3": "Para más información, consulte la Política de privacidad."
         },
         "cookies": {
             "title": "8. Cookies y medición de audiencia",
-            "p1": "Este sitio utiliza Google Analytics 4 únicamente tras su consentimiento. Hasta que acepte, no se instalan cookies de analítica no esenciales ni se envían datos a Google.",
+            "p1": "Este sitio utiliza Google Analytics 4 unicamente tras su consentimiento. Hasta que acepte, no se instalan cookies de analitica no esenciales ni se envian datos a Google. El formulario de contacto tambien utiliza Cloudflare Turnstile como mecanismo tecnico anti-spam.",
             "p2": "Base jurídica: consentimiento (art. 6(1)(a) RGPD). Puede cambiar sus preferencias en cualquier momento a través de «Gestionar mis cookies».",
             "p3": "Google Ireland Limited actúa como encargado del tratamiento. Pueden producirse transferencias de datos fuera de la UE, amparadas por las Cláusulas Contractuales Tipo. GA4 anonimiza las direcciones IP por defecto."
         },
@@ -293,10 +293,10 @@
         "data": {
             "title": "2. Datos recogidos y finalidades",
             "intro": "Los datos en este sitio se recogen únicamente para:",
-            "contact_form": "Formulario de contacto: nombre, correo, mensaje. Finalidad: responder a su solicitud.",
+            "contact_form": "Formulario de contacto: nombre, correo, mensaje y token tecnico de Turnstile. Finalidad: responder a su solicitud y prevenir envios automatizados abusivos.",
             "analytics": "Medición de audiencia: mediante Google Analytics 4 (GA4). Finalidad: estadísticas anonimizadas para mejorar el sitio.",
             "legal_basis_intro": "Base jurídica:",
-            "legal_basis_contact": "Interés legítimo para gestionar los mensajes recibidos mediante el formulario.",
+            "legal_basis_contact": "Interes legitimo para gestionar los mensajes recibidos mediante el formulario y prevenir spam/abusos.",
             "legal_basis_analytics": "Consentimiento explícito para habilitar Google Analytics."
         },
         "ga4": {
@@ -308,7 +308,7 @@
         },
         "recipients": {
             "title": "4. Destinatarios de los datos",
-            "text": "Los datos recogidos mediante el formulario solo son accesibles por el propietario del sitio. Los datos de audiencia se envían a Google como proveedor de analítica."
+            "text": "Los datos recogidos mediante el formulario solo son accesibles por el propietario del sitio. Los datos de audiencia se envian a Google como proveedor de analitica. Los datos tecnicos de verificacion anti-bot son tratados por Cloudflare (Turnstile)."
         },
         "rights": {
             "title": "5. Sus derechos",
@@ -344,7 +344,7 @@
         },
         "types": {
             "title": "2. Tipos de cookies utilizadas",
-            "necessary": "Cookies estrictamente necesarias: indispensables para el funcionamiento técnico del sitio.",
+            "necessary": "Cookies estrictamente necesarias: indispensables para el funcionamiento tecnico del sitio, incluida la proteccion antiabuso Turnstile en el formulario de contacto.",
             "analytics": "Cookies de analítica: Google Analytics (GA4), solo activadas tras su consentimiento."
         },
         "use": {

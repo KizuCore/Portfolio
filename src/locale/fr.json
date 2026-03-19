@@ -290,13 +290,13 @@
         },
         "privacy": {
             "title": "7. Données personnelles",
-            "p1": "Ce site peut collecter des données personnelles via le formulaire de contact (si présent) et via des outils de mesure d’audience.",
+            "p1": "Ce site peut collecter des données personnelles via le formulaire de contact (si présent), via un mecanisme anti-abus Turnstile (Cloudflare) et via des outils de mesure d'audience.",
             "p2": "Vous disposez des droits d’accès, de rectification, d’effacement, d’opposition, de limitation et de portabilité de vos données. Pour exercer vos droits : theo.guerin35000@gmail.com.",
             "p3": "Pour plus d’informations, consultez la Politique de confidentialité."
         },
         "cookies": {
             "title": "8. Cookies et mesure d’audience",
-            "p1": "Ce site utilise Google Analytics (GA4) uniquement après votre consentement. Tant que vous n’avez pas accepté, aucun cookie de mesure d’audience non essentiel n’est déposé et aucune donnée n’est envoyée à Google.",
+            "p1": "Ce site utilise Google Analytics (GA4) uniquement après votre consentement. Tant que vous n'avez pas accepté, aucun cookie de mesure d'audience non essentiel n'est déposé et aucune donnée n'est envoyée à Google. Le formulaire de contact utilise aussi Turnstile (Cloudflare), un dispositif technique de protection anti-spam.",
             "p2": "Base légale : consentement (article 6(1)(a) RGPD). Vous pouvez modifier vos préférences à tout moment via « Gérer mes cookies ».",
             "p3": "Google Ireland Limited agit en tant que sous-traitant. Des transferts hors UE peuvent intervenir, encadrés par les clauses contractuelles types. GA4 anonymise les adresses IP par défaut."
         },
@@ -328,10 +328,10 @@
         "data": {
             "title": "2. Données collectées et finalités",
             "intro": "Les données collectées sur ce site le sont uniquement pour :",
-            "contact_form": "Formulaire de contact : nom, email, message. Finalité : répondre à votre demande.",
+            "contact_form": "Formulaire de contact : nom, email, message et jeton technique Turnstile. Finalite : repondre a votre demande et prevenir les envois automatises abusifs.",
             "analytics": "Mesure d’audience : via Google Analytics (GA4). Finalité : statistiques anonymisées de fréquentation pour améliorer le site.",
             "legal_basis_intro": "Base légale du traitement :",
-            "legal_basis_contact": "Intérêt légitime pour la gestion des messages reçus via le formulaire.",
+            "legal_basis_contact": "Interet legitime pour la gestion des messages recus via le formulaire et la prevention du spam/abus.",
             "legal_basis_analytics": "Consentement explicite pour l’activation de Google Analytics."
         },
         "ga4": {
@@ -343,7 +343,7 @@
         },
         "recipients": {
             "title": "4. Destinataires des données",
-            "text": "Les données collectées via le formulaire sont uniquement accessibles par l’éditeur du site. Les données d’audience sont transmises à Google en tant que prestataire d’analyse."
+            "text": "Les donnees collectees via le formulaire sont uniquement accessibles par l'editeur du site. Les donnees d'audience sont transmises a Google en tant que prestataire d'analyse. Les donnees techniques liees a la verification anti-bot sont traitees par Cloudflare (Turnstile)."
         },
         "rights": {
             "title": "5. Vos droits",
@@ -379,7 +379,7 @@
         },
         "types": {
             "title": "2. Types de cookies utilisés",
-            "necessary": "Cookies strictement nécessaires : indispensables au fonctionnement technique du site.",
+            "necessary": "Cookies strictement necessaires : indispensables au fonctionnement technique du site, incluant la protection anti-abus Turnstile sur le formulaire de contact.",
             "analytics": "Cookies de mesure d’audience : Google Analytics (GA4), uniquement après votre consentement."
         },
         "use": {

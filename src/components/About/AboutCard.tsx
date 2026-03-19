@@ -42,7 +42,7 @@ function AboutCard(): JSX.Element {
   };
 
   return (
-    <div className="background-box">
+    <div className="background-box about-card-shell">
       <Card className="quote-card-view">
         <Card.Body>
           <div className="about-tabs">

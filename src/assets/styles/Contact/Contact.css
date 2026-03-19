@@ -26,6 +26,11 @@
   padding: 1.7rem !important;
 }
 
+.contact-form-card.background-box::before,
+.contact-form-card.background-box::after {
+  content: none !important;
+}
+
 .contact-form-header {
   margin-bottom: 1.1rem;
 }
@@ -200,6 +205,10 @@ textarea.custom-form {
   font-size: 1rem;
 }
 
+.contact-meta-item > div {
+  min-width: 0;
+}
+
 .contact-meta-item span {
   display: block;
   color: rgba(181, 211, 248, 0.88);
@@ -257,12 +266,79 @@ textarea.custom-form {
 }
 
 @media (max-width: 767px) {
+  .contact-layout {
+    width: min(100%, 96%);
+  }
+
+  .contact-header {
+    margin-bottom: 1rem;
+  }
+
+  .contact-header .custom-title {
+    font-size: 2rem !important;
+    line-height: 1.1;
+  }
+
   .contact-form-card {
     padding: 1.25rem !important;
   }
 
   .contact-lead {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .contact-form-title {
+    font-size: 1.35rem;
+  }
+
+  .contact-form-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .contact-form-required {
+    font-size: 0.82rem;
+  }
+
+  .contact-panel-title {
+    font-size: 1.15rem;
+  }
+
+  .contact-panel-description {
+    font-size: 0.96rem;
+    line-height: 1.5;
+  }
+
+  .contact-points {
+    gap: 0.72rem;
+  }
+
+  .contact-points li {
     font-size: 0.97rem;
+    line-height: 1.45;
+    padding-left: 1.45rem;
+  }
+
+  .contact-meta-grid {
+    gap: 0.76rem;
+  }
+
+  .contact-actions {
+    gap: 0.7rem;
+  }
+
+  .contact-quick-link {
+    width: 100%;
+    min-height: 44px;
+    font-size: 0.98rem;
+  }
+
+  .contact-meta-item {
+    padding: 0.72rem 0.78rem;
+  }
+
+  .contact-meta-item strong {
+    font-size: 0.92rem;
   }
 
   .contact-submit-btn {
@@ -270,18 +346,99 @@ textarea.custom-form {
   }
 
   .contact-info-box {
-    padding: 1.15rem;
+    padding: 1.28rem;
+    gap: 1.08rem;
+  }
+
+  .captcha-container {
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.18rem;
+  }
+
+  .captcha-container::-webkit-scrollbar {
+    height: 5px;
   }
 
   .captcha-container iframe {
     transform: scale(0.86);
-    transform-origin: center;
+    transform-origin: left center;
   }
 }
 
 @media (max-width: 480px) {
+  .contact-layout {
+    width: min(100%, 97%);
+  }
+
+  .contact-header .custom-title {
+    font-size: 1.8rem !important;
+  }
+
+  .contact-form-card {
+    padding: 1rem !important;
+  }
+
+  .contact-form-title {
+    font-size: 1.22rem;
+  }
+
+  .contact-form-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .contact-form-required {
+    font-size: 0.8rem;
+  }
+
+  .contact-panel-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .contact-panel-title {
+    font-size: 1.1rem;
+  }
+
+  .contact-panel-description {
+    font-size: 0.94rem;
+    line-height: 1.5;
+  }
+
+  .contact-points {
+    gap: 0.66rem;
+  }
+
+  .contact-points li {
+    font-size: 0.94rem;
+    line-height: 1.43;
+  }
+
+  .contact-meta-grid {
+    gap: 0.66rem;
+  }
+
+  .contact-meta-item {
+    padding: 0.66rem 0.72rem;
+  }
+
+  .contact-meta-item span {
+    font-size: 0.79rem;
+  }
+
+  .contact-meta-item strong {
+    font-size: 0.9rem;
+  }
+
+  .contact-quick-link {
+    min-height: 42px;
+    font-size: 0.94rem;
+  }
+
   .captcha-container iframe {
     transform: scale(0.78);
-    transform-origin: center;
+    transform-origin: left center;
   }
 }

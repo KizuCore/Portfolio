@@ -71,13 +71,13 @@ function Particle() {
   const particleOptions = useMemo<ISourceOptions>(
     () => ({
       fullScreen: { enable: false },
-      fpsLimit: isLowPerfDevice ? 36 : 48,
+      fpsLimit: prefersReducedMotion ? 30 : isLowPerfDevice ? 36 : 48,
       detectRetina: !isLowPerfDevice,
       pauseOnBlur: true,
       pauseOnOutsideViewport: true,
       particles: {
         number: {
-          value: isMobile ? 22 : isLowPerfDevice ? 34 : 56,
+          value: isMobile ? 30 : isLowPerfDevice ? 34 : 56,
           density: {
             enable: true,
             area: 1100,
@@ -88,7 +88,7 @@ function Particle() {
         },
         move: {
           direction: "none" as MoveDirection,
-          speed: isLowPerfDevice ? 0.12 : 0.15,
+          speed: prefersReducedMotion ? 0 : isLowPerfDevice ? 0.12 : 0.15,
           outModes: { default: "out" },
         },
         size: {
@@ -97,7 +97,7 @@ function Particle() {
         opacity: {
           value: { min: 0.28, max: 0.82 },
           animation: {
-            enable: !isLowPerfDevice,
+            enable: !isLowPerfDevice && !prefersReducedMotion,
             speed: 0.4,
             startValue: "random",
             destroy: "none" as DestroyType,
@@ -118,10 +118,10 @@ function Particle() {
         },
       },
     }),
-    [isLowPerfDevice, isMobile]
+    [isLowPerfDevice, isMobile, prefersReducedMotion]
   );
 
-  if (!isReady || prefersReducedMotion || typeof document === "undefined") {
+  if (!isReady || typeof document === "undefined") {
     return null;
   }
 

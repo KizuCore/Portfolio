@@ -28,6 +28,11 @@
   color: #86acf4;
 }
 
+.about-card-shell.background-box::before,
+.about-card-shell.background-box::after {
+  content: none !important;
+}
+
 
 /* ========================
    TECH ICONS (Génériques)

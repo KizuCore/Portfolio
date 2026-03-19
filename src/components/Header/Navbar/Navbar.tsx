@@ -104,7 +104,18 @@ function NavBar(): JSX.Element {
             handleMouseUp={handleMouseUp}
             t={t}
           />
-          <span className="navbar-brand-text" aria-hidden="true">KizuCore</span>
+          <button
+            type="button"
+            className="navbar-brand-text navbar-brand-home-btn"
+            aria-label={t("home_aria")}
+            onClick={() => {
+              setExpand(false);
+              navigate("/");
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            }}
+          >
+            KizuCore
+          </button>
         </div>
 
         {/* Burger menu */}

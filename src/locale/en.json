@@ -118,7 +118,7 @@
     "message_placeholder": "Enter your message",
     "send_message": "Send",
     "contact_form_title": "Tell me what you need",
-    "contact_form_subtitle": "The more precise your message is, the more useful my answer will be.",
+    "contact_form_subtitle": "Share a few details about your needs, and I will reply quickly.",
     "contact_form_required_hint": "All fields are required.",
     "sending": "Sending...",
     "error_loading_pdf": "Error loading PDF. Please try again later.",

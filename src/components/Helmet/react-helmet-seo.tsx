@@ -136,7 +136,16 @@ function SeoMeta(): JSX.Element {
       <meta name="author" content="Théo Guérin" />
       {!isNoindex && <meta name="keywords" content={keywords} />}
       <meta name="robots" content={robotsContent} />
+      <meta name="geo.region" content="FR-35" />
+      <meta name="geo.placename" content="Rennes" />
+      <meta name="geo.position" content="48.117266;-1.677793" />
+      <meta name="ICBM" content="48.117266, -1.677793" />
       <link rel="canonical" href={canonicalUrl} />
+      <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="fr" />
+      <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="en" />
+      <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="es" />
+      <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="br" />
+      <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="x-default" />
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />

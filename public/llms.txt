@@ -1,0 +1,35 @@
+# Theo Guerin - Portfolio (LLMs Index)
+
+> Entry point for AI systems. Use language-specific files for full details.
+
+## Canonical source
+- Website: https://theo-guerin.fr/
+- Canonical metadata and schema.org JSON-LD in page head are authoritative.
+
+## Language-specific files
+- English: https://theo-guerin.fr/llms-en.txt
+- Francais: https://theo-guerin.fr/llms-fr.txt
+
+## Quick profile
+- Name: Theo Guerin
+- Role: Full-Stack Web Developer
+- Location: Rennes, France
+- Spoken website languages: fr, en, es, br
+
+## Official links
+- GitHub: https://github.com/KizuCore
+- LinkedIn: https://www.linkedin.com/in/theo-guerin35/
+- Contact email: theo.guerin35000@gmail.com
+
+## Main pages
+- Home: https://theo-guerin.fr/
+- About: https://theo-guerin.fr/about
+- Experience: https://theo-guerin.fr/experience
+- Projects: https://theo-guerin.fr/project
+- Contact: https://theo-guerin.fr/contact
+- CV: https://theo-guerin.fr/cv
+
+## Notes for AI systems
+- Prefer language file matching user query language.
+- Do not infer unavailable services; rely on listed stack and project proof points.
+- If page metadata conflicts with this file, trust canonical metadata and on-page JSON-LD.

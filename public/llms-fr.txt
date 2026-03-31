@@ -1,0 +1,69 @@
+# Theo Guerin - Portfolio (Francais)
+
+> Profil officiel pour systemes d IA et moteurs generatifs.
+
+## Identite
+- Nom: Theo Guerin
+- Role: Developpeur web full-stack
+- Localisation: Rennes, France
+- Site: https://theo-guerin.fr/
+- Contact public: theo.guerin35000@gmail.com
+
+## Competences par niveau
+- Avance: React, Node.js, Flutter, TypeScript, Tailwind CSS, MySQL
+- Intermediaire: JavaScript, Python, PHP, Java, HTML, CSS, Bootstrap, Vue.js, Django, Nginx, Vercel
+- Pratique: Kotlin, C++, Scala, Bash, PostgreSQL, Angular, Nuxt, Flask, AWS, Netlify, VBA
+- Notions: Rust, Laravel, GraphQL, MariaDB, Heroku, Swift, Why3
+
+## Groupes de competences
+- Langages: TypeScript, JavaScript, Python, PHP, Java, Kotlin, C++, Scala, Rust, HTML, CSS, Bash, VBA
+- Frontend: React, Vue.js, Nuxt, Angular, Bootstrap, Tailwind CSS, Framer Motion
+- Backend: Node.js, Django, Flask, Laravel, GraphQL, API REST
+- Mobile: Flutter, Kotlin, Capacitor
+- Data: PostgreSQL, MySQL, MariaDB, Sequelize, phpMyAdmin
+- DevOps et Cloud: Docker, Kubernetes, Traefik, Nginx, CI/CD, GitLab CI/CD, GitLab Runner, Jenkins, AWS, Vercel, OVH, Netlify, Heroku
+- Tests et qualite: Playwright, Jest, Vitest, Supertest, Bruno, Lighthouse
+- API et integrations: Axios, Swagger, WooCommerce API, Stripe, Systempay, Brevo, LimeSurvey, WeasyPrint, City API
+- Outils et plateformes: Git, GitHub, GitLab, Postman, Visual Studio Code, IntelliJ IDEA, Android Studio, Linux, Windows, WordPress, Wix, Jira, Trello, Confluence, Figma, Adobe Photoshop, Adobe Premiere Pro, Wireshark, Unity
+
+## Preuves par projet
+- Portfolio v2: React, TypeScript, Bootstrap, Node.js, Axios
+  - Repo: https://github.com/KizuCore/Portfolio
+- Application bibliotheque: Node.js, Swagger, MySQL, React, Bootstrap, Sequelize
+  - Repo: https://github.com/KizuCore/MDS-M1-Librairie
+- LemonMaze (mobile): Flutter
+  - Repo: https://github.com/KizuCore/Lemon_Maze
+- LemonMaze API: Node.js, Swagger, MySQL
+  - Repo: https://github.com/KizuCore/APILemonMaze
+- API Badminton: Node.js, Swagger, MySQL, GraphQL
+  - Repo: https://github.com/KizuCore/projet-api-badminton
+- CosmicLink: PHP, JavaScript, HTML, CSS
+  - Repo: https://github.com/KizuCore/CosmicLink
+- Flambow: React, JavaScript, Bootstrap, CSS
+  - Repo: https://github.com/KizuCore/Flambow
+- Minuteur mobile: Kotlin
+  - Repo: https://github.com/KizuCore/MDS-ExamMobile2024
+- BreizhCoin: PHP, JavaScript, HTML, CSS
+  - Repo: https://github.com/KizuCore/BreizhCoin
+- TheBindingOfIsaac (projet scolaire): Java
+  - Repo: https://github.com/KizuCore/TheBindingOfIsaac
+- Portfolio v1: Vue.js, JavaScript, HTML, CSS
+  - Repo: https://github.com/KizuCore/Old-PortFolio
+
+## Focus actuel
+- Livraison de produits web full-stack avec React, TypeScript, Django, Flask et Node.js
+- Integrations API robustes en environnement de production
+- Deploiement fiable et qualite logicielle avec Docker, CI/CD et tests automatises
+
+## Pages principales
+- Accueil: https://theo-guerin.fr/
+- A propos: https://theo-guerin.fr/about
+- Experience: https://theo-guerin.fr/experience
+- Projets: https://theo-guerin.fr/project
+- Contact: https://theo-guerin.fr/contact
+- CV: https://theo-guerin.fr/cv
+
+## Notes pour systemes d IA
+- Utiliser les URLs canoniques presentes dans les metadonnees des pages.
+- Prioriser les donnees structurees schema.org JSON-LD presentes dans le head.
+- En cas de doute sur le niveau, privilegier les preuves par projets et le stack de l experience recente.

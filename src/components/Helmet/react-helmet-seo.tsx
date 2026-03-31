@@ -29,6 +29,18 @@ const ROUTE_SEO: Record<string, RouteSeo> = {
   "/arcane": { titleKey: "Rewind 4 Seconds", noindex: true },
 };
 
+const ROUTE_SCHEMA_TYPE: Record<string, string> = {
+  "/": "WebPage",
+  "/about": "AboutPage",
+  "/experience": "CollectionPage",
+  "/project": "CollectionPage",
+  "/contact": "ContactPage",
+  "/cv": "ProfilePage",
+  "/mentions-legales": "WebPage",
+  "/politique-de-confidentialite": "WebPage",
+  "/politique-des-cookies": "WebPage",
+};
+
 function normalizePath(pathname: string): string {
   if (pathname.length > 1 && pathname.endsWith("/")) {
     return pathname.slice(0, -1);
@@ -127,6 +139,25 @@ function SeoMeta(): JSX.Element {
     inLanguage: ["fr", "en", "es"],
   };
 
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": ROUTE_SCHEMA_TYPE[pathname] ?? "WebPage",
+    name: fullTitle,
+    description,
+    url: canonicalUrl,
+    inLanguage: htmlLang,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Théo Guérin | Portfolio",
+      url: siteUrl,
+    },
+    about: {
+      "@type": "Person",
+      name: "Théo Guérin",
+      url: siteUrl,
+    },
+  };
+
   return (
     <Helmet>
       <html lang={htmlLang} />
@@ -136,11 +167,16 @@ function SeoMeta(): JSX.Element {
       <meta name="author" content="Théo Guérin" />
       {!isNoindex && <meta name="keywords" content={keywords} />}
       <meta name="robots" content={robotsContent} />
+      <meta name="googlebot" content={robotsContent} />
+      <meta name="bingbot" content={robotsContent} />
       <meta name="geo.region" content="FR-35" />
       <meta name="geo.placename" content="Rennes" />
       <meta name="geo.position" content="48.117266;-1.677793" />
       <meta name="ICBM" content="48.117266, -1.677793" />
       <link rel="canonical" href={canonicalUrl} />
+      <link rel="alternate" type="text/markdown" href={`${siteUrl}/llms.txt`} />
+      <link rel="alternate" type="text/markdown" href={`${siteUrl}/llms-en.txt`} hrefLang="en" />
+      <link rel="alternate" type="text/markdown" href={`${siteUrl}/llms-fr.txt`} hrefLang="fr" />
       <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="fr" />
       <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="en" />
       <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="es" />
@@ -157,6 +193,7 @@ function SeoMeta(): JSX.Element {
       <meta property="og:image" content={imageUrl} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+      <meta property="og:image:type" content="image/png" />
       <meta property="og:image:alt" content={tx("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
 
       {/* Twitter */}
@@ -169,6 +206,7 @@ function SeoMeta(): JSX.Element {
 
       {/* Structured data */}
       <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>
       {pathname === "/" && (
         <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
       )}

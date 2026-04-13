@@ -1,16 +1,12 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import Tilt from "react-parallax-tilt";
 import ProjectCard from "./ProjectCards";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { easeOut, motion } from "framer-motion";
 
 import "../../assets/styles/About/About.css";
 import "../../assets/styles/Projet/Projet.css";
-import "../../assets/styles/swiper-global.css";
 
-// Images
 import lemonmaze from "@image/Projects/LemonMaze.webp";
 import cosmiclink from "@image/Projects/CosmicLink.webp";
 import chrono from "@image/Projects/chrono.webp";
@@ -20,8 +16,8 @@ import portfolio from "@image/Projects/portfolio.webp";
 import portfoliov2 from "@image/Projects/portfoliov2.webp";
 import apibook from "@image/Projects/apibook.webp";
 import flambow from "@image/Projects/flambowImg.webp";
+import flambowFrontend from "@image/Projects/FlambowFrontEnd.png";
 import badmintonapi from "@image/Projects/badmintonapi.webp";
-import { easeOut, motion } from "framer-motion";
 import Particle from "../../utils/Particle";
 
 type ProjectCategory = "web" | "mobile" | "api" | "game";
@@ -33,11 +29,14 @@ interface ProjectItem {
   titleKey: string;
   descriptionKey: string;
   ghLink: string;
+  isGitLab?: boolean;
   youtubeLink?: string;
   seeLink?: string;
   techStack: string[];
   category: ProjectCategory;
   featured?: boolean;
+  pinTop?: boolean;
+  imageMode?: "cover" | "contain";
 }
 
 const projects: ProjectItem[] = [
@@ -106,8 +105,23 @@ const projects: ProjectItem[] = [
     descriptionKey: "categories_projects.flambow_description",
     ghLink: "https://github.com/KizuCore/Flambow",
     seeLink: "https://flambow-m7iu4q0gi-theo22100s-projects.vercel.app/",
-    techStack: ["React", "Javascript", "Bootstrap", "Css"],
+    techStack: ["React", "Javascript", "Bootstrap", "Css", "Axios"],
     category: "web",
+  },
+  {
+    imgPath: flambowFrontend,
+    altTextKey: "categories_projects.flambow_frontend_image_alt",
+    titleKey: "categories_projects.flambow_frontend_title",
+    descriptionKey: "categories_projects.flambow_frontend_description",
+    ghLink: "https://gitlab.com/Theo22100/flambow-front",
+    isGitLab: true,
+    youtubeLink: "https://youtu.be/-TLaRV4pO2s?si=MLq_zy-hdlk9pjF3",
+    seeLink: "https://flambow.fr",
+    techStack: ["React", "Typescript", "Vite", "Docker", "GitLab CI", "Playwright", "Vitest"],
+    category: "web",
+    featured: true,
+    pinTop: true,
+    imageMode: "contain",
   },
   {
     imgPath: chrono,
@@ -189,22 +203,65 @@ const featuredPillLabel: Record<string, string> = {
   bzh: "Dibabet",
 };
 
+const explorerLabels: Record<
+  string,
+  {
+    browse: string;
+    previous: string;
+    next: string;
+    empty: string;
+    position: string;
+  }
+> = {
+  fr: {
+    browse: "Parcourir les projets",
+    previous: "Precedent",
+    next: "Suivant",
+    empty: "Aucun projet pour ce filtre.",
+    position: "Projet {{current}} sur {{total}}",
+  },
+  en: {
+    browse: "Browse projects",
+    previous: "Previous",
+    next: "Next",
+    empty: "No project for this filter.",
+    position: "Project {{current}} of {{total}}",
+  },
+  es: {
+    browse: "Explorar proyectos",
+    previous: "Anterior",
+    next: "Siguiente",
+    empty: "No hay proyectos para este filtro.",
+    position: "Proyecto {{current}} de {{total}}",
+  },
+  bzh: {
+    browse: "Furchal ar raktresoù",
+    previous: "Kent",
+    next: "War-lerc'h",
+    empty: "N'eus raktres ebet evit ar sil-se.",
+    position: "Raktres {{current}} diwar {{total}}",
+  },
+};
+
 const Projects: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [activeFilter, setActiveFilter] = React.useState<ProjectFilter>("all");
-  const [isFinePointer, setIsFinePointer] = React.useState(() =>
-    window.matchMedia("(hover: hover) and (pointer: fine)").matches
-  );
-  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(() =>
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  );
-  const enableTilt = isFinePointer && !prefersReducedMotion;
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
   const currentLanguage = (i18n.resolvedLanguage || i18n.language || "en").split("-")[0];
   const currentFilterLabels = filterLabels[currentLanguage] || filterLabels.en;
   const currentFeaturedPillLabel = featuredPillLabel[currentLanguage] || featuredPillLabel.en;
+  const currentExplorerLabels = explorerLabels[currentLanguage] || explorerLabels.en;
 
   const sortedProjects = React.useMemo(
-    () => [...projects].sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured))),
+    () =>
+      [...projects].sort((a, b) => {
+        const pinTopPriority = Number(Boolean(b.pinTop)) - Number(Boolean(a.pinTop));
+        if (pinTopPriority !== 0) {
+          return pinTopPriority;
+        }
+
+        return Number(Boolean(b.featured)) - Number(Boolean(a.featured));
+      }),
     []
   );
 
@@ -217,23 +274,20 @@ const Projects: React.FC = () => {
   }, [activeFilter, sortedProjects]);
 
   React.useEffect(() => {
-    const pointerMedia = window.matchMedia("(hover: hover) and (pointer: fine)");
-    const motionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setSelectedIndex(0);
+  }, [activeFilter]);
 
-    const updateInteractionMode = () => {
-      setIsFinePointer(pointerMedia.matches);
-      setPrefersReducedMotion(motionMedia.matches);
-    };
+  React.useEffect(() => {
+    if (selectedIndex >= filteredProjects.length) {
+      setSelectedIndex(Math.max(filteredProjects.length - 1, 0));
+    }
+  }, [filteredProjects, selectedIndex]);
 
-    updateInteractionMode();
-    pointerMedia.addEventListener("change", updateInteractionMode);
-    motionMedia.addEventListener("change", updateInteractionMode);
+  const selectedProject = filteredProjects[selectedIndex] || null;
 
-    return () => {
-      pointerMedia.removeEventListener("change", updateInteractionMode);
-      motionMedia.removeEventListener("change", updateInteractionMode);
-    };
-  }, []);
+  const positionText = currentExplorerLabels.position
+    .replace("{{current}}", String(selectedProject ? selectedIndex + 1 : 0))
+    .replace("{{total}}", String(filteredProjects.length));
 
   return (
     <Container fluid className="project-section text-center">
@@ -287,71 +341,87 @@ const Projects: React.FC = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          className="project-explorer"
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: easeOut, delay: 0.4 }}
+          transition={{ duration: 0.7, ease: easeOut, delay: 0.35 }}
         >
-          <Swiper
-            className="project-carousel-swiper"
-            modules={[Navigation, Pagination]}
-            spaceBetween={30}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            loop={filteredProjects.length > 3}
-            breakpoints={{
-              768: {
-                slidesPerView: 2,
-              },
-              992: {
-                slidesPerView: 3,
-              },
-            }}
-          >
-            {filteredProjects.map((project, index) => (
-              <SwiperSlide key={index}>
-                {enableTilt ? (
-                  <Tilt
-                    className={`project-tilt ${project.featured ? "is-featured" : ""}`}
-                    tiltMaxAngleX={5}
-                    tiltMaxAngleY={5}
-                    transitionSpeed={350}
-                    scale={1.005}
-                    perspective={1100}
-                    glareEnable={false}
+          <aside className="project-nav" aria-label={currentExplorerLabels.browse}>
+            <p className="project-nav-title">{currentExplorerLabels.browse}</p>
+            <div className="project-nav-list">
+              {filteredProjects.map((project, index) => {
+                const isSelected = selectedIndex === index;
+                return (
+                  <button
+                    key={`${project.ghLink}-${index}`}
+                    type="button"
+                    className={`project-nav-item ${isSelected ? "active" : ""}`}
+                    onClick={() => setSelectedIndex(index)}
+                    aria-current={isSelected ? "true" : undefined}
                   >
-                    <ProjectCard
-                      imgPath={project.imgPath}
-                      altText={t(project.altTextKey)}
-                      title={t(project.titleKey)}
-                      description={t(project.descriptionKey)}
-                      ghLink={project.ghLink}
-                      youtubeLink={project.youtubeLink}
-                      seeLink={project.seeLink}
-                      techStack={project.techStack}
-                      featured={project.featured}
-                      featuredLabel={currentFeaturedPillLabel}
-                    />
-                  </Tilt>
-                ) : (
-                  <div className={`project-tilt ${project.featured ? "is-featured" : ""}`}>
-                    <ProjectCard
-                      imgPath={project.imgPath}
-                      altText={t(project.altTextKey)}
-                      title={t(project.titleKey)}
-                      description={t(project.descriptionKey)}
-                      ghLink={project.ghLink}
-                      youtubeLink={project.youtubeLink}
-                      seeLink={project.seeLink}
-                      techStack={project.techStack}
-                      featured={project.featured}
-                      featuredLabel={currentFeaturedPillLabel}
-                    />
+                    <span className="project-nav-name">{t(project.titleKey)}</span>
+                    {project.featured && (
+                      <span className="project-nav-featured">{currentFeaturedPillLabel}</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </aside>
+
+          <div className="project-detail">
+            {selectedProject ? (
+              <>
+                <div className="project-detail-toolbar">
+                  <p className="project-detail-position">{positionText}</p>
+                  <div className="project-detail-switches">
+                    <button
+                      type="button"
+                      className="project-switch-btn"
+                      onClick={() => setSelectedIndex((prev) => Math.max(prev - 1, 0))}
+                      disabled={selectedIndex === 0}
+                    >
+                      {currentExplorerLabels.previous}
+                    </button>
+                    <button
+                      type="button"
+                      className="project-switch-btn"
+                      onClick={() =>
+                        setSelectedIndex((prev) => Math.min(prev + 1, filteredProjects.length - 1))
+                      }
+                      disabled={selectedIndex === filteredProjects.length - 1}
+                    >
+                      {currentExplorerLabels.next}
+                    </button>
                   </div>
-                )}
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                </div>
+
+                <motion.div
+                  key={selectedProject.ghLink}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, ease: easeOut }}
+                >
+                  <ProjectCard
+                    imgPath={selectedProject.imgPath}
+                    altText={t(selectedProject.altTextKey)}
+                    title={t(selectedProject.titleKey)}
+                    description={t(selectedProject.descriptionKey)}
+                    ghLink={selectedProject.ghLink}
+                    isGitLab={selectedProject.isGitLab}
+                    youtubeLink={selectedProject.youtubeLink}
+                    seeLink={selectedProject.seeLink}
+                    techStack={selectedProject.techStack}
+                    featured={selectedProject.featured}
+                    featuredLabel={currentFeaturedPillLabel}
+                    imageMode={selectedProject.imageMode}
+                  />
+                </motion.div>
+              </>
+            ) : (
+              <p className="project-empty">{currentExplorerLabels.empty}</p>
+            )}
+          </div>
         </motion.div>
       </Container>
     </Container>

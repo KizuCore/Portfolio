@@ -1,51 +1,10 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { Row, Col } from "react-bootstrap";
-import { useTranslation } from 'react-i18next';
-import '../../assets/styles/Projet/Projet.css';
-import type { IconType } from "react-icons";
+import { useTranslation } from "react-i18next";
+import "../../assets/styles/Projet/Projet.css";
 import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import { FaYoutube } from "@react-icons/all-files/fa/FaYoutube";
-import { FaExchangeAlt } from "@react-icons/all-files/fa/FaExchangeAlt";
-import { SiFlutter } from "@react-icons/all-files/si/SiFlutter";
-import { SiKotlin } from "@react-icons/all-files/si/SiKotlin";
-import { SiSwagger } from "@react-icons/all-files/si/SiSwagger";
-import { SiVueDotJs } from "@react-icons/all-files/si/SiVueDotJs";
-import { SiGoogle } from "@react-icons/all-files/si/SiGoogle";
-import { SiTypescript } from "@react-icons/all-files/si/SiTypescript";
-import { SiGraphql } from "@react-icons/all-files/si/SiGraphql";
-import { DiMysql } from "@react-icons/all-files/di/DiMysql";
-import { DiPhp } from "@react-icons/all-files/di/DiPhp";
-import { DiHtml5 } from "@react-icons/all-files/di/DiHtml5";
-import { DiCss3 } from "@react-icons/all-files/di/DiCss3";
-import { DiJavascript1 } from "@react-icons/all-files/di/DiJavascript1";
-import { DiReact } from "@react-icons/all-files/di/DiReact";
-import { DiBootstrap } from "@react-icons/all-files/di/DiBootstrap";
-import { DiNodejs } from "@react-icons/all-files/di/DiNodejs";
 import { FaEye } from "@react-icons/all-files/fa/FaEye";
-import { FaJava } from "@react-icons/all-files/fa/FaJava";
-
-// Dictionnaire des icônes par techno
-const techIcons: Record<string, IconType> = {
-  Flutter: SiFlutter,
-  MySQL: DiMysql,
-  Kotlin: SiKotlin,
-  Php: DiPhp,
-  Java: FaJava,
-  Html: DiHtml5,
-  Css: DiCss3,
-  Javascript: DiJavascript1,
-  Typescript: SiTypescript,
-  Vuejs: SiVueDotJs,
-  React: DiReact,
-  Bootstrap: DiBootstrap,
-  Swagger: SiSwagger,
-  ApiGoogleBooks: SiGoogle,
-  Sequelize: DiMysql,
-  NodeJS: DiNodejs,
-  Axios: FaExchangeAlt,
-  GraphQL: SiGraphql,
-};
 
 interface ProjectCardProps {
   imgPath: string;
@@ -59,39 +18,82 @@ interface ProjectCardProps {
   isGitLab?: boolean;
   featured?: boolean;
   featuredLabel?: string;
+  imageMode?: "cover" | "contain";
 }
 
-// Affichage des icônes technologiques
-function TechStackIcons({ techStack }: { techStack: string[] }) {
-  return (
-    <Row className="project-tech-row pb-2 justify-content-center">
-      {techStack.map((tech, index) => {
-        const IconComponent = techIcons[tech];
-        return IconComponent ? (
-          <Col
-            key={index}
-            xs={4}
-            md={2}
-            className="tech-icons2"
-            data-tooltip-id="tooltip"
-            data-tooltip-content={tech}
-          >
-            <IconComponent
-              title={tech}
-              aria-label={tech}
-              role="img"
-              tabIndex={0}
-            />
-          </Col>
-        ) : null;
-      })}
-    </Row>
-  );
+type SupportedLang = "fr" | "en" | "es" | "bzh";
+
+const sectionLabels: Record<
+  SupportedLang,
+  {
+    context: string;
+    stack: string;
+    result: string;
+    githubOnly: string;
+    liveAndCode: string;
+    videoAndCode: string;
+    liveVideoAndCode: string;
+  }
+> = {
+  fr: {
+    context: "Contexte",
+    stack: "Stack",
+    result: "Resultat",
+    githubOnly: "Code source disponible et versionne sur GitHub.",
+    liveAndCode: "Application en ligne accessible, avec code source public.",
+    videoAndCode: "Demonstration video disponible avec code source public.",
+    liveVideoAndCode: "Demo en ligne et video disponibles, avec code source public.",
+  },
+  en: {
+    context: "Context",
+    stack: "Stack",
+    result: "Outcome",
+    githubOnly: "Source code is available and versioned on GitHub.",
+    liveAndCode: "Live demo is available, with public source code.",
+    videoAndCode: "Video walkthrough is available, with public source code.",
+    liveVideoAndCode: "Live demo and video walkthrough are available, with public source code.",
+  },
+  es: {
+    context: "Contexto",
+    stack: "Stack",
+    result: "Resultado",
+    githubOnly: "Codigo fuente disponible y versionado en GitHub.",
+    liveAndCode: "Demo en linea disponible, con codigo fuente publico.",
+    videoAndCode: "Demo en video disponible, con codigo fuente publico.",
+    liveVideoAndCode: "Demo en linea y video disponibles, con codigo fuente publico.",
+  },
+  bzh: {
+    context: "Kenderc'hel",
+    stack: "Stack",
+    result: "Disoc'h",
+    githubOnly: "Ar c'hod orin a zo hegerz war GitHub.",
+    liveAndCode: "Ur demo enlinenn a zo hegerz, gant ar c'hod orin foran.",
+    videoAndCode: "Ur video demo a zo hegerz, gant ar c'hod orin foran.",
+    liveVideoAndCode: "Demo enlinenn ha video a zo hegerz, gant ar c'hod orin foran.",
+  },
+};
+
+function resolveResultText(labels: (typeof sectionLabels)[SupportedLang], hasLiveDemo: boolean, hasVideo: boolean) {
+  if (hasLiveDemo && hasVideo) {
+    return labels.liveVideoAndCode;
+  }
+
+  if (hasLiveDemo) {
+    return labels.liveAndCode;
+  }
+
+  if (hasVideo) {
+    return labels.videoAndCode;
+  }
+
+  return labels.githubOnly;
 }
 
-// Carte de projet
 function ProjectCard(props: ProjectCardProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = (i18n.resolvedLanguage || i18n.language || "en").split("-")[0];
+  const labels = sectionLabels[(currentLang as SupportedLang) || "en"] || sectionLabels.en;
+  const resultText = resolveResultText(labels, Boolean(props.seeLink), Boolean(props.youtubeLink));
 
   return (
     <Card className={`project-card-view ${props.featured ? "project-card-featured" : ""}`}>
@@ -102,7 +104,7 @@ function ProjectCard(props: ProjectCardProps) {
           alt={props.altText}
           decoding="async"
           loading="lazy"
-          className="project-img"
+          className={`project-img ${props.imageMode === "contain" ? "project-img-contain" : ""}`}
         />
       </div>
 
@@ -117,11 +119,26 @@ function ProjectCard(props: ProjectCardProps) {
           </h2>
         </Card.Title>
 
-        <TechStackIcons techStack={props.techStack} />
+        <div className="project-panel">
+          <h3 className="project-panel-title">{labels.context}</h3>
+          <Card.Text className="project-description">{props.description}</Card.Text>
+        </div>
 
-        <Card.Text className="project-description text-justify">
-          {props.description}
-        </Card.Text>
+        <div className="project-panel">
+          <h3 className="project-panel-title">{labels.stack}</h3>
+          <div className="project-tech-badges">
+            {props.techStack.map((tech) => (
+              <span key={`${props.title}-${tech}`} className="project-tech-badge">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="project-panel">
+          <h3 className="project-panel-title">{labels.result}</h3>
+          <p className="project-result">{resultText}</p>
+        </div>
 
         <div className="button-group">
           <Button className="button-github" href={props.ghLink} target="_blank" rel="noopener noreferrer">
@@ -137,19 +154,14 @@ function ProjectCard(props: ProjectCardProps) {
               rel="noopener noreferrer"
             >
               <FaYoutube style={{ marginRight: "5px", marginBottom: "2px" }} />
-              {t('video')}
+              {t("video")}
             </Button>
           )}
 
           {props.seeLink && (
-            <Button
-              className="button-see"
-              href={props.seeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Button className="button-see" href={props.seeLink} target="_blank" rel="noopener noreferrer">
               <FaEye style={{ marginRight: "5px", marginBottom: "2px" }} />
-              {t('see')}
+              {t("see")}
             </Button>
           )}
         </div>
@@ -159,3 +171,4 @@ function ProjectCard(props: ProjectCardProps) {
 }
 
 export default ProjectCard;
+

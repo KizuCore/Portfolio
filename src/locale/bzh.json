@@ -207,8 +207,10 @@
         "thebindingofisaac_description": "Projed L2 evit krouiñ ur c'hoari gant Java a zo heñvel ouzh TheBindingOfIsaac.",
         "portfolio_v1_title": "Portfolio kozh",
         "portfolio_v1_description": "Kentañ Portfolio evit amprouiñ Vue.js gant ur respont d’an endro.",
-        "flambow_title": "Flambow",
-        "flambow_description": "Meziant web respont savet gant React, Bootstrap ha CSS personelaet. Ar raktres kentañ evit Flambow, un diaz evit eskemm skiant-prenet etre rummadoù.",
+        "flambow_title": "Flambow Landing Page",
+        "flambow_description": "Landing page Flambow evit kinnig ar mennozh, displegañ ar value proposition ha dastum leadoù kentañ.",
+        "flambow_frontend_title": "Flambow Frontend",
+        "flambow_frontend_description": "Talbenn benna Flambow, ur bladenn eskemm etrerummad. Savet gant React + TypeScript, framm modulael, testo Vitest/Playwright, pipeline sur GitLab CI ha deploy Docker war OVH.",
         "badmintonapi_title": "API Badminton",
         "badmintonapi_description": "API RESTful e Node.js evit merañ prenadennoù salioù badminton, gant autentifikadur, rolloù ha GraphQL.",
         "portfolio_v2_title": "Portfolio",
@@ -223,7 +225,8 @@
         "breizhcoin_image_alt": "Skeudenn ar raktres BreizhCoin",
         "tboi_image_alt": "Skeudenn ar raktres The Binding of Isaac",
         "portfolio_image_alt": "Skeudenn ar raktres Portfolio V1",
-        "flambow_image_alt": "Skeudenn ar raktres Flambow",
+        "flambow_image_alt": "Skeudenn ar raktres Flambow Landing Page",
+        "flambow_frontend_image_alt": "Skeudenn ar raktres Flambow Frontend",
         "badmintonapi_image_alt": "Skeudenn ar raktres API Badminton"
     },
     "solar_system": {

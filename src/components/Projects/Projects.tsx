@@ -163,6 +163,7 @@ const projects: ProjectItem[] = [
   },
 ];
 
+// Ordre fixe des filtres affiches dans la barre.
 const filterOrder: ProjectFilter[] = ["all", "web", "mobile", "api", "game"];
 
 const filterLabels: Record<string, Record<ProjectFilter, string>> = {
@@ -247,12 +248,16 @@ const Projects: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [activeFilter, setActiveFilter] = React.useState<ProjectFilter>("all");
   const [selectedIndex, setSelectedIndex] = React.useState(0);
+  // Normalise la locale i18n (fr-FR -> fr) pour retrouver les labels locaux.
   const currentLanguage = (i18n.resolvedLanguage || i18n.language || "en").split("-")[0];
   const currentFilterLabels = filterLabels[currentLanguage] || filterLabels.en;
   const currentFeaturedPillLabel = featuredPillLabel[currentLanguage] || featuredPillLabel.en;
   const currentExplorerLabels = explorerLabels[currentLanguage] || explorerLabels.en;
 
   const sortedProjects = React.useMemo(
+    // Priorite d'affichage:
+    // 1) pinTop (epingle en haut)
+    // 2) featured (projets mis en avant)
     () =>
       [...projects].sort((a, b) => {
         const pinTopPriority = Number(Boolean(b.pinTop)) - Number(Boolean(a.pinTop));
@@ -266,6 +271,8 @@ const Projects: React.FC = () => {
   );
 
   const filteredProjects = React.useMemo(() => {
+    // "all" conserve le tri principal; les autres filtres ne gardent
+    // que la categorie demandee en preservant cet ordre.
     if (activeFilter === "all") {
       return sortedProjects;
     }
@@ -274,10 +281,12 @@ const Projects: React.FC = () => {
   }, [activeFilter, sortedProjects]);
 
   React.useEffect(() => {
+    // Quand on change de filtre, on revient sur le 1er projet du filtre.
     setSelectedIndex(0);
   }, [activeFilter]);
 
   React.useEffect(() => {
+    // Evite un index hors limites si la liste filtree raccourcit.
     if (selectedIndex >= filteredProjects.length) {
       setSelectedIndex(Math.max(filteredProjects.length - 1, 0));
     }
@@ -286,6 +295,7 @@ const Projects: React.FC = () => {
   const selectedProject = filteredProjects[selectedIndex] || null;
 
   const positionText = currentExplorerLabels.position
+    // Injecte la position courante dans le label localise.
     .replace("{{current}}", String(selectedProject ? selectedIndex + 1 : 0))
     .replace("{{total}}", String(filteredProjects.length));
 

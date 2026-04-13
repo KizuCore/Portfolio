@@ -74,6 +74,7 @@ const sectionLabels: Record<
 };
 
 function resolveResultText(labels: (typeof sectionLabels)[SupportedLang], hasLiveDemo: boolean, hasVideo: boolean) {
+  // Texte resultat adapte selon les liens reels du projet.
   if (hasLiveDemo && hasVideo) {
     return labels.liveVideoAndCode;
   }
@@ -91,6 +92,7 @@ function resolveResultText(labels: (typeof sectionLabels)[SupportedLang], hasLiv
 
 function ProjectCard(props: ProjectCardProps) {
   const { t, i18n } = useTranslation();
+  // Locale simplifiee pour reutiliser le meme mapping de labels.
   const currentLang = (i18n.resolvedLanguage || i18n.language || "en").split("-")[0];
   const labels = sectionLabels[(currentLang as SupportedLang) || "en"] || sectionLabels.en;
   const resultText = resolveResultText(labels, Boolean(props.seeLink), Boolean(props.youtubeLink));
@@ -98,6 +100,7 @@ function ProjectCard(props: ProjectCardProps) {
   return (
     <Card className={`project-card-view ${props.featured ? "project-card-featured" : ""}`}>
       <div className="project-img-wrapper">
+        {/* imageMode permet un rendu "contain" pour les screenshots verticaux */}
         <Card.Img
           variant="top"
           src={props.imgPath}
@@ -126,6 +129,7 @@ function ProjectCard(props: ProjectCardProps) {
 
         <div className="project-panel">
           <h3 className="project-panel-title">{labels.stack}</h3>
+          {/* Affichage lisible de la stack en badges texte */}
           <div className="project-tech-badges">
             {props.techStack.map((tech) => (
               <span key={`${props.title}-${tech}`} className="project-tech-badge">

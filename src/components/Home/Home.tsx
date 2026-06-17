@@ -1,4 +1,4 @@
-﻿import { JSX, Suspense, lazy, useEffect, useState } from "react";
+﻿import { JSX, useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { easeOut, motion, spring, useAnimation } from 'framer-motion';
 
@@ -9,9 +9,9 @@ import HomeButtons from "./HomeButtons.tsx";
 import TypeDev from "./Type.tsx";
 import HomeStats from "./CountUp.tsx";
 import Services from "./Services.tsx";
+import Particle from "../../utils/Particle.tsx";
 
 const LOGO_DEVELOPER_SRC = "/images/logodev.svg";
-const Particle = lazy(() => import("../../utils/Particle.tsx"));
 
 function Home(): JSX.Element {
   const { t } = useTranslation();
@@ -23,7 +23,6 @@ function Home(): JSX.Element {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
     window.matchMedia("(prefers-reduced-motion: reduce)").matches
   );
-  const [showParticle, setShowParticle] = useState(false);
 
   const controls = useAnimation();
   const enableTilt = !isMobile && isFinePointer && !prefersReducedMotion;
@@ -32,6 +31,7 @@ function Home(): JSX.Element {
     triggerOnce: true,
     threshold: 0.1,
   });
+
   useEffect(() => {
     const pointerMedia = window.matchMedia("(hover: hover) and (pointer: fine)");
     const motionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -60,22 +60,10 @@ function Home(): JSX.Element {
     }
   }, [imgInView, controls]);
 
-  useEffect(() => {
-    const timer = window.setTimeout(() => {
-      setShowParticle(true);
-    }, 3200);
-
-    return () => window.clearTimeout(timer);
-  }, []);
-
   return (
     <section>
       <div className="container-fluid about-section pt-0" id="home">
-        {showParticle ? (
-          <Suspense fallback={null}>
-            <Particle />
-          </Suspense>
-        ) : null}
+        <Particle />
         <div className="container home-content">
           <div className="row align-items-center justify-content-center text-center text-md-left padtopbot">
             {/* Texte */}
@@ -108,7 +96,7 @@ function Home(): JSX.Element {
               )}
 
 
-              {/* DÃ©veloppeur... */}
+              {/* Developpeur... */}
               {isMobile ? (
                 <div className="pt-3 pb-5 d-flex justify-content-center align-items-center">
                   <TypeDev />
@@ -240,5 +228,4 @@ function Home(): JSX.Element {
 }
 
 export default Home;
-
 

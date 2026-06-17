@@ -121,13 +121,16 @@ function Particle() {
     [isLowPerfDevice, isMobile, prefersReducedMotion]
   );
 
-  if (!isReady || typeof document === "undefined") {
+  if (typeof document === "undefined") {
     return null;
   }
 
   return createPortal(
-    <div className="particles-layer" aria-hidden="true">
-      <Particles id={`particles-${particleId}`} options={particleOptions} />
+    <div
+      className={`particles-layer ${isReady ? "particles-layer--ready" : "particles-layer--loading"}`}
+      aria-hidden="true"
+    >
+      {isReady ? <Particles id={`particles-${particleId}`} options={particleOptions} /> : null}
     </div>,
     document.body
   );

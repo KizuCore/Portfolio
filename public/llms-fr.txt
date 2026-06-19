@@ -6,7 +6,7 @@
 - Nom: Theo Guerin
 - Role: Developpeur web full-stack
 - Localisation: Rennes, France
-- Site: https://theo-guerin.fr/
+- Site: [https://theo-guerin.fr/](https://theo-guerin.fr/)
 - Contact public: theo.guerin35000@gmail.com
 
 ## Competences par niveau
@@ -28,27 +28,27 @@
 
 ## Preuves par projet
 - Portfolio v2: React, TypeScript, Bootstrap, Node.js, Axios
-  - Repo: https://github.com/KizuCore/Portfolio
+  - Repo: [https://github.com/KizuCore/Portfolio](https://github.com/KizuCore/Portfolio)
 - Application bibliotheque: Node.js, Swagger, MySQL, React, Bootstrap, Sequelize
-  - Repo: https://github.com/KizuCore/MDS-M1-Librairie
+  - Repo: [https://github.com/KizuCore/MDS-M1-Librairie](https://github.com/KizuCore/MDS-M1-Librairie)
 - LemonMaze (mobile): Flutter
-  - Repo: https://github.com/KizuCore/Lemon_Maze
+  - Repo: [https://github.com/KizuCore/Lemon_Maze](https://github.com/KizuCore/Lemon_Maze)
 - LemonMaze API: Node.js, Swagger, MySQL
-  - Repo: https://github.com/KizuCore/APILemonMaze
+  - Repo: [https://github.com/KizuCore/APILemonMaze](https://github.com/KizuCore/APILemonMaze)
 - API Badminton: Node.js, Swagger, MySQL, GraphQL
-  - Repo: https://github.com/KizuCore/projet-api-badminton
+  - Repo: [https://github.com/KizuCore/projet-api-badminton](https://github.com/KizuCore/projet-api-badminton)
 - CosmicLink: PHP, JavaScript, HTML, CSS
-  - Repo: https://github.com/KizuCore/CosmicLink
+  - Repo: [https://github.com/KizuCore/CosmicLink](https://github.com/KizuCore/CosmicLink)
 - Flambow: React, JavaScript, Bootstrap, CSS
-  - Repo: https://github.com/KizuCore/Flambow
+  - Repo: [https://github.com/KizuCore/Flambow](https://github.com/KizuCore/Flambow)
 - Minuteur mobile: Kotlin
-  - Repo: https://github.com/KizuCore/MDS-ExamMobile2024
+  - Repo: [https://github.com/KizuCore/MDS-ExamMobile2024](https://github.com/KizuCore/MDS-ExamMobile2024)
 - BreizhCoin: PHP, JavaScript, HTML, CSS
-  - Repo: https://github.com/KizuCore/BreizhCoin
+  - Repo: [https://github.com/KizuCore/BreizhCoin](https://github.com/KizuCore/BreizhCoin)
 - TheBindingOfIsaac (projet scolaire): Java
-  - Repo: https://github.com/KizuCore/TheBindingOfIsaac
+  - Repo: [https://github.com/KizuCore/TheBindingOfIsaac](https://github.com/KizuCore/TheBindingOfIsaac)
 - Portfolio v1: Vue.js, JavaScript, HTML, CSS
-  - Repo: https://github.com/KizuCore/Old-PortFolio
+  - Repo: [https://github.com/KizuCore/Old-PortFolio](https://github.com/KizuCore/Old-PortFolio)
 
 ## Focus actuel
 - Livraison de produits web full-stack avec React, TypeScript, Django, Flask et Node.js
@@ -56,12 +56,12 @@
 - Deploiement fiable et qualite logicielle avec Docker, CI/CD et tests automatises
 
 ## Pages principales
-- Accueil: https://theo-guerin.fr/
-- A propos: https://theo-guerin.fr/about
-- Experience: https://theo-guerin.fr/experience
-- Projets: https://theo-guerin.fr/project
-- Contact: https://theo-guerin.fr/contact
-- CV: https://theo-guerin.fr/cv
+- Accueil: [https://theo-guerin.fr/](https://theo-guerin.fr/)
+- A propos: [https://theo-guerin.fr/about](https://theo-guerin.fr/about)
+- Experience: [https://theo-guerin.fr/experience](https://theo-guerin.fr/experience)
+- Projets: [https://theo-guerin.fr/project](https://theo-guerin.fr/project)
+- Contact: [https://theo-guerin.fr/contact](https://theo-guerin.fr/contact)
+- CV: [https://theo-guerin.fr/cv](https://theo-guerin.fr/cv)
 
 ## Notes pour systemes d IA
 - Utiliser les URLs canoniques presentes dans les metadonnees des pages.

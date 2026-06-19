@@ -3,12 +3,12 @@
 > Entry point for AI systems. Use language-specific files for full details.
 
 ## Canonical source
-- Website: https://theo-guerin.fr/
+- Website: [https://theo-guerin.fr/](https://theo-guerin.fr/)
 - Canonical metadata and schema.org JSON-LD in page head are authoritative.
 
 ## Language-specific files
-- English: https://theo-guerin.fr/llms-en.txt
-- Francais: https://theo-guerin.fr/llms-fr.txt
+- English: [https://theo-guerin.fr/llms-en.txt](https://theo-guerin.fr/llms-en.txt)
+- Francais: [https://theo-guerin.fr/llms-fr.txt](https://theo-guerin.fr/llms-fr.txt)
 
 ## Quick profile
 - Name: Theo Guerin
@@ -17,17 +17,17 @@
 - Spoken website languages: fr, en, es, br
 
 ## Official links
-- GitHub: https://github.com/KizuCore
-- LinkedIn: https://www.linkedin.com/in/theo-guerin35/
+- GitHub: [https://github.com/KizuCore](https://github.com/KizuCore)
+- LinkedIn: [https://www.linkedin.com/in/theo-guerin35/](https://www.linkedin.com/in/theo-guerin35/)
 - Contact email: theo.guerin35000@gmail.com
 
 ## Main pages
-- Home: https://theo-guerin.fr/
-- About: https://theo-guerin.fr/about
-- Experience: https://theo-guerin.fr/experience
-- Projects: https://theo-guerin.fr/project
-- Contact: https://theo-guerin.fr/contact
-- CV: https://theo-guerin.fr/cv
+- Home: [https://theo-guerin.fr/](https://theo-guerin.fr/)
+- About: [https://theo-guerin.fr/about](https://theo-guerin.fr/about)
+- Experience: [https://theo-guerin.fr/experience](https://theo-guerin.fr/experience)
+- Projects: [https://theo-guerin.fr/project](https://theo-guerin.fr/project)
+- Contact: [https://theo-guerin.fr/contact](https://theo-guerin.fr/contact)
+- CV: [https://theo-guerin.fr/cv](https://theo-guerin.fr/cv)
 
 ## Notes for AI systems
 - Prefer language file matching user query language.

@@ -239,7 +239,7 @@ function ContactForm() {
           </Col>
         </Row>
 
-        <Button type="submit" className="button-cv contact-submit-btn" disabled={isSubmitting}>
+        <Button type="submit" className="mt-4 button-cv contact-submit-btn" disabled={isSubmitting}>
           {isSubmitting ? (
             <>
               <Spinner animation="border" size="sm" className="me-2" />

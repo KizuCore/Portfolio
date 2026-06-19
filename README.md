@@ -9,7 +9,7 @@
 
 - **Frontend** : React, Vite, Bootstrap, CSS3
 - **i18n** : react-i18next (FR / EN / ES)
-- **Sécurité** : Cloudflare Turnstile
+- **Sécurité** : Google reCAPTCHA v3
 - **Mesure d’audience** : Google Analytics 4 (Consent Mode v2, bannière de consentement)
 - **Backend/API** : Axios, Resend
 - **Déploiement** : Vercel
@@ -65,8 +65,9 @@ npm run preview   # Prévisualiser le build localement
 
 ```
 RESEND_API_KEY=              # Clé API Resend
-TURNSTILE_SECRET_KEY=        # Secret Cloudflare Turnstile (backend)
-VITE_TURNSTILE_SITE_KEY=     # Site key Turnstile (frontend)
+RECAPTCHA_SECRET_KEY=        # Secret Google reCAPTCHA v3 (backend)
+RECAPTCHA_MIN_SCORE=0.5      # Score minimal accepté (0.0 à 1.0)
+VITE_RECAPTCHA_SITE_KEY=     # Site key Google reCAPTCHA v3 (frontend)
 ```
 
 ---
@@ -74,7 +75,7 @@ VITE_TURNSTILE_SITE_KEY=     # Site key Turnstile (frontend)
 ## ✨ Fonctionnalités principales
 
 - Portfolio + **CV téléchargeable**
-- Formulaire de contact sécurisé via **Cloudflare Turnstile**
+- Formulaire de contact sécurisé via **Google reCAPTCHA v3**
 - **Interface multilingue** (FR / EN / ES)
 - **Mentions légales** & **Politique de confidentialité** accessibles en footer
 - **Bannière cookies** (GA4) avec **Consent Mode v2** et panneau « Gérer mes cookies »

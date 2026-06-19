@@ -1,4 +1,4 @@
-﻿import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import {
   Alert,
   Button,
@@ -8,15 +8,78 @@ import {
   Spinner,
 } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
 import "../../assets/styles/Contact/Contact.css";
+
+declare global {
+  interface Window {
+    grecaptcha?: {
+      ready: (callback: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
 
 interface FormFields {
   name: string;
   email: string;
   subject: string;
   message: string;
+}
+
+const RECAPTCHA_ACTION = "contact";
+const RECAPTCHA_SCRIPT_ID = "google-recaptcha-v3";
+
+let recaptchaScriptPromise: Promise<void> | null = null;
+
+function loadRecaptcha(siteKey: string) {
+  if (window.grecaptcha) {
+    return Promise.resolve();
+  }
+
+  if (recaptchaScriptPromise) {
+    return recaptchaScriptPromise;
+  }
+
+  recaptchaScriptPromise = new Promise<void>((resolve, reject) => {
+    const existingScript = document.getElementById(RECAPTCHA_SCRIPT_ID);
+
+    if (existingScript) {
+      existingScript.addEventListener("load", () => resolve(), { once: true });
+      existingScript.addEventListener("error", () => reject(new Error("recaptcha_load_failed")), { once: true });
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.id = RECAPTCHA_SCRIPT_ID;
+    script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(siteKey)}`;
+    script.async = true;
+    script.defer = true;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error("recaptcha_load_failed"));
+
+    document.head.appendChild(script);
+  });
+
+  return recaptchaScriptPromise;
+}
+
+async function getRecaptchaToken(siteKey: string) {
+  await loadRecaptcha(siteKey);
+
+  return new Promise<string>((resolve, reject) => {
+    if (!window.grecaptcha) {
+      reject(new Error("recaptcha_unavailable"));
+      return;
+    }
+
+    window.grecaptcha.ready(() => {
+      window.grecaptcha
+        ?.execute(siteKey, { action: RECAPTCHA_ACTION })
+        .then(resolve)
+        .catch(reject);
+    });
+  });
 }
 
 function ContactForm() {
@@ -30,18 +93,20 @@ function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
   const [responseVariant, setResponseVariant] = useState<"success" | "danger" | "">("");
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
-  const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
-  const turnstileRef = useRef<TurnstileInstance>();
+  const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
+
+  useEffect(() => {
+    if (!recaptchaSiteKey) {
+      return;
+    }
+
+    void loadRecaptcha(recaptchaSiteKey).catch(() => undefined);
+  }, [recaptchaSiteKey]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleTurnstileVerify = (token: string) => {
-    setTurnstileToken(token);
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -53,8 +118,8 @@ function ContactForm() {
       return;
     }
 
-    if (!turnstileToken) {
-      setResponseMessage(t("captcha_required"));
+    if (!recaptchaSiteKey) {
+      setResponseMessage(t("errors.captcha_failed"));
       setResponseVariant("danger");
       return;
     }
@@ -62,10 +127,11 @@ function ContactForm() {
     setIsSubmitting(true);
 
     try {
+      const recaptchaToken = await getRecaptchaToken(recaptchaSiteKey);
       const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, turnstileToken }),
+        body: JSON.stringify({ ...formData, recaptchaToken }),
       });
 
       const data = await response.json();
@@ -74,8 +140,6 @@ function ContactForm() {
         setResponseMessage(t("message_success"));
         setResponseVariant("success");
         setFormData({ name: "", email: "", subject: "", message: "" });
-        setTurnstileToken(null);
-        turnstileRef.current?.reset();
       } else {
         const fallback = data.message || t("message_fail");
         const translated = data.errorCode ? t(`errors.${data.errorCode}`) : fallback;
@@ -174,17 +238,6 @@ function ContactForm() {
             </Form.Group>
           </Col>
         </Row>
-
-        <div className="captcha-container mt-4 mb-4">
-          <Turnstile
-            ref={turnstileRef}
-            siteKey={turnstileSiteKey}
-            onSuccess={handleTurnstileVerify}
-            onExpire={() => setTurnstileToken(null)}
-            onError={() => setTurnstileToken(null)}
-            options={{ theme: "dark", size: "normal" }}
-          />
-        </div>
 
         <Button type="submit" className="button-cv contact-submit-btn" disabled={isSubmitting}>
           {isSubmitting ? (

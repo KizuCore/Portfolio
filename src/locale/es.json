@@ -255,13 +255,13 @@
         },
         "privacy": {
             "title": "7. Datos personales",
-            "p1": "Este sitio puede recopilar datos personales a traves del formulario de contacto (si existe), mediante el control antiabuso Turnstile (Cloudflare) y mediante herramientas de medicion de audiencia.",
+            "p1": "Este sitio puede recopilar datos personales a traves del formulario de contacto (si existe), mediante el control antiabuso reCAPTCHA v3 (Google) y mediante herramientas de medicion de audiencia.",
             "p2": "Usted dispone de los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad. Para ejercer sus derechos: theo.guerin35000@gmail.com.",
             "p3": "Para más información, consulte la Política de privacidad."
         },
         "cookies": {
             "title": "8. Cookies y medición de audiencia",
-            "p1": "Este sitio utiliza Google Analytics 4 unicamente tras su consentimiento. Hasta que acepte, no se instalan cookies de analitica no esenciales ni se envian datos a Google. El formulario de contacto tambien utiliza Cloudflare Turnstile como mecanismo tecnico anti-spam.",
+            "p1": "Este sitio utiliza Google Analytics 4 unicamente tras su consentimiento. Hasta que acepte, no se instalan cookies de analitica no esenciales ni se envian datos a Google. El formulario de contacto tambien utiliza Google reCAPTCHA v3 como mecanismo tecnico anti-spam.",
             "p2": "Base jurídica: consentimiento (art. 6(1)(a) RGPD). Puede cambiar sus preferencias en cualquier momento a través de «Gestionar mis cookies».",
             "p3": "Google Ireland Limited actúa como encargado del tratamiento. Pueden producirse transferencias de datos fuera de la UE, amparadas por las Cláusulas Contractuales Tipo. GA4 anonimiza las direcciones IP por defecto."
         },
@@ -293,7 +293,7 @@
         "data": {
             "title": "2. Datos recogidos y finalidades",
             "intro": "Los datos en este sitio se recogen únicamente para:",
-            "contact_form": "Formulario de contacto: nombre, correo, mensaje y token tecnico de Turnstile. Finalidad: responder a su solicitud y prevenir envios automatizados abusivos.",
+            "contact_form": "Formulario de contacto: nombre, correo, mensaje y token tecnico de reCAPTCHA. Finalidad: responder a su solicitud y prevenir envios automatizados abusivos.",
             "analytics": "Medición de audiencia: mediante Google Analytics 4 (GA4). Finalidad: estadísticas anonimizadas para mejorar el sitio.",
             "legal_basis_intro": "Base jurídica:",
             "legal_basis_contact": "Interes legitimo para gestionar los mensajes recibidos mediante el formulario y prevenir spam/abusos.",
@@ -308,7 +308,7 @@
         },
         "recipients": {
             "title": "4. Destinatarios de los datos",
-            "text": "Los datos recogidos mediante el formulario solo son accesibles por el propietario del sitio. Los datos de audiencia se envian a Google como proveedor de analitica. Los datos tecnicos de verificacion anti-bot son tratados por Cloudflare (Turnstile)."
+            "text": "Los datos recogidos mediante el formulario solo son accesibles por el propietario del sitio. Los datos de audiencia se envian a Google como proveedor de analitica. Los datos tecnicos de verificacion anti-bot son tratados por Google (reCAPTCHA)."
         },
         "rights": {
             "title": "5. Sus derechos",
@@ -344,7 +344,7 @@
         },
         "types": {
             "title": "2. Tipos de cookies utilizadas",
-            "necessary": "Cookies estrictamente necesarias: indispensables para el funcionamiento tecnico del sitio, incluida la proteccion antiabuso Turnstile en el formulario de contacto.",
+            "necessary": "Cookies estrictamente necesarias: indispensables para el funcionamiento tecnico del sitio, incluida la proteccion antiabuso reCAPTCHA en el formulario de contacto.",
             "analytics": "Cookies de analítica: Google Analytics (GA4), solo activadas tras su consentimiento."
         },
         "use": {
@@ -468,7 +468,7 @@
         "badmintonapi_title": "API Badminton",
         "badmintonapi_description": "API de reserva de pistas con JWT, roles usuario/admin, reglas de disponibilidad, documentacion Swagger, entorno Docker y endpoint GraphQL.",
         "portfolio_v2_title": "Portfolio V2",
-        "portfolio_v2_description": "Portfolio personal multilingue (React + TypeScript) con SEO tecnico, formulario protegido con Turnstile, analitica con consentimiento y despliegue en Vercel.",
+        "portfolio_v2_description": "Portfolio personal multilingue (React + TypeScript) con SEO tecnico, formulario protegido con reCAPTCHA v3, analitica con consentimiento y despliegue en Vercel.",
         "library_title": "Aplicación Librería",
         "library_description": "Aplicacion full-stack para gestion de biblioteca con autenticacion JWT, catalogo de libros, flujos de prestamos/reservas, panel admin y persistencia MySQL con Sequelize.",
         "portfoliov2_image_alt": "Imagen del proyecto Portafolio V2",

@@ -17,26 +17,34 @@ function getIp(req) {
   ).trim();
 }
 
-// Verifie le token Cloudflare Turnstile
-async function verifyTurnstile(token, ip) {
+// Verifie le token Google reCAPTCHA v3
+async function verifyRecaptcha(token, ip, expectedAction) {
   try {
-    if (!process.env.TURNSTILE_SECRET_KEY) {
-      console.error('TURNSTILE_SECRET_KEY manquante');
+    if (!process.env.RECAPTCHA_SECRET_KEY) {
+      console.error('RECAPTCHA_SECRET_KEY manquante');
       return false;
     }
 
     const response = await axios.post(
-      'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+      'https://www.google.com/recaptcha/api/siteverify',
       new URLSearchParams({
-        secret: process.env.TURNSTILE_SECRET_KEY,
+        secret: process.env.RECAPTCHA_SECRET_KEY,
         response: token,
         remoteip: ip || '',
       })
     );
 
-    return Boolean(response.data?.success);
+    const minScore = Number(process.env.RECAPTCHA_MIN_SCORE || '0.5');
+    const score = Number(response.data?.score);
+
+    return (
+      Boolean(response.data?.success) &&
+      response.data?.action === expectedAction &&
+      Number.isFinite(score) &&
+      score >= minScore
+    );
   } catch (err) {
-    console.error('Erreur verification Turnstile :', err.message);
+    console.error('Erreur verification reCAPTCHA :', err.message);
     return false;
   }
 }
@@ -72,12 +80,12 @@ export default async function handler(req, res) {
     });
   }
 
-  const { name, email, subject, message, turnstileToken, hcaptchaToken } = req.body;
-  const captchaToken = turnstileToken || hcaptchaToken; // compat temporaire
+  const { name, email, subject, message, recaptchaToken } = req.body;
+  const expectedRecaptchaAction = 'contact';
   const ip = getIp(req);
 
   // Verification des champs
-  if (!name || !email || !subject || !message || !captchaToken) {
+  if (!name || !email || !subject || !message || !recaptchaToken) {
     return res.status(400).json({
       success: false,
       message: 'Champs requis manquants',
@@ -98,7 +106,11 @@ export default async function handler(req, res) {
   rateLimitMap.set(ip, now);
 
   // Verification captcha
-  const isHuman = await verifyTurnstile(captchaToken, ip);
+  const isHuman = await verifyRecaptcha(
+    recaptchaToken,
+    ip,
+    expectedRecaptchaAction
+  );
   if (!isHuman) {
     return res.status(400).json({
       success: false,

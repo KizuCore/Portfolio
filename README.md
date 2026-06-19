@@ -1,5 +1,5 @@
 <h2 align="center">
-  Portfolio Website – v4.1.1<br/>
+  Portfolio Website – v4.3.0<br/>
   <a href="https://theo-guerin.fr/" target="_blank">theo-guerin.fr</a>
 </h2>
 

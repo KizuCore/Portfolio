@@ -92,6 +92,8 @@ function SeoMeta(): JSX.Element {
 
   const canonicalUrl = `${siteUrl}${pathname}`;
   const imageUrl = `${siteUrl}/images/preview/previewsite.png`;
+  const personId = `${siteUrl}/#person`;
+  const websiteId = `${siteUrl}/#website`;
   const isNoindex = currentRoute?.noindex ?? false;
   const robotsContent = isNoindex
     ? "noindex, nofollow"
@@ -103,6 +105,7 @@ function SeoMeta(): JSX.Element {
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": personId,
     name: "Théo Guérin",
     jobTitle: "Développeur Full-Stack",
     url: siteUrl,
@@ -133,6 +136,7 @@ function SeoMeta(): JSX.Element {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": websiteId,
     name: "Théo Guérin | Portfolio",
     url: siteUrl,
     author: { "@type": "Person", name: "Théo Guérin" },
@@ -148,6 +152,7 @@ function SeoMeta(): JSX.Element {
     inLanguage: htmlLang,
     isPartOf: {
       "@type": "WebSite",
+      "@id": websiteId,
       name: "Théo Guérin | Portfolio",
       url: siteUrl,
     },
@@ -156,6 +161,19 @@ function SeoMeta(): JSX.Element {
       name: "Théo Guérin",
       url: siteUrl,
     },
+    ...(pathname === "/cv"
+      ? {
+          mainEntity: {
+            "@type": "Person",
+            "@id": personId,
+            name: personSchema.name,
+            jobTitle: personSchema.jobTitle,
+            url: siteUrl,
+            image: imageUrl,
+            sameAs: personSchema.sameAs,
+          },
+        }
+      : {}),
   };
 
   return (

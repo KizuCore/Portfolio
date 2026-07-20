@@ -178,6 +178,7 @@ const projects: ProjectItem[] = [
 
 // Ordre fixe des filtres affiches dans la barre.
 const filterOrder: ProjectFilter[] = ["all", "web", "mobile", "api", "game"];
+const projectImageSources = Array.from(new Set(projects.map((project) => project.imgPath)));
 
 const filterLabels: Record<string, Record<ProjectFilter, string>> = {
   fr: {
@@ -306,6 +307,39 @@ const Projects: React.FC = () => {
   }, [filteredProjects, selectedIndex]);
 
   const selectedProject = filteredProjects[selectedIndex] || null;
+
+  React.useEffect(() => {
+    if (!selectedProject) {
+      return;
+    }
+
+    const selectedImage = new Image();
+    selectedImage.decoding = "async";
+    selectedImage.src = selectedProject.imgPath;
+  }, [selectedProject]);
+
+  React.useEffect(() => {
+    const preloadImages = () => {
+      projectImageSources.forEach((src) => {
+        const image = new Image();
+        image.decoding = "async";
+        image.src = src;
+      });
+    };
+
+    const win = window as Window & {
+      requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+      cancelIdleCallback?: (handle: number) => void;
+    };
+
+    if (win.requestIdleCallback) {
+      const handle = win.requestIdleCallback(preloadImages, { timeout: 1000 });
+      return () => win.cancelIdleCallback?.(handle);
+    }
+
+    const handle = window.setTimeout(preloadImages, 150);
+    return () => window.clearTimeout(handle);
+  }, []);
 
   const positionText = currentExplorerLabels.position
     // Injecte la position courante dans le label localise.

@@ -457,7 +457,8 @@
 .project-img-wrapper {
   position: relative;
   overflow: hidden;
-  align-self: start;
+  align-self: center;
+  width: 100%;
   border-radius: 16px;
   margin-bottom: 0;
   padding: 1.35rem 0 0;
@@ -470,7 +471,7 @@
 }
 
 .project-img-wrapper-contain {
-  align-self: start;
+  align-self: center;
   display: flex;
   justify-content: center;
   align-items: flex-start;

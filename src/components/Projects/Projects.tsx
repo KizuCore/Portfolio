@@ -138,7 +138,6 @@ const projects: ProjectItem[] = [
     ghLink: "https://gitlab.com/Theo22100/flambow-front",
     isGitLab: true,
     youtubeLink: "https://youtu.be/-TLaRV4pO2s?si=MLq_zy-hdlk9pjF3",
-    seeLink: "https://flambow.fr",
     techStack: ["React", "Typescript", "Vite", "Docker", "GitLab CI", "Playwright", "Vitest"],
     category: "web",
     featured: true,
@@ -413,7 +412,10 @@ const Projects: React.FC = () => {
           transition={{ duration: 0.7, ease: easeOut, delay: 0.35 }}
         >
           <aside className="project-nav" aria-label={currentExplorerLabels.browse}>
-            <p className="project-nav-title">{currentExplorerLabels.browse}</p>
+            <div className="project-nav-header">
+              <p className="project-nav-title">{currentExplorerLabels.browse}</p>
+              <span className="project-nav-count">{filteredProjects.length}</span>
+            </div>
             <div className="project-nav-list">
               {filteredProjects.map((project, index) => {
                 const isSelected = selectedIndex === index;
@@ -425,10 +427,16 @@ const Projects: React.FC = () => {
                     onClick={() => setSelectedIndex(index)}
                     aria-current={isSelected ? "true" : undefined}
                   >
-                    <span className="project-nav-name">{t(project.titleKey)}</span>
-                    {project.featured && (
-                      <span className="project-nav-featured">{currentFeaturedPillLabel}</span>
-                    )}
+                    <span className="project-nav-index">{String(index + 1).padStart(2, "0")}</span>
+                    <span className="project-nav-copy">
+                      <span className="project-nav-name">{t(project.titleKey)}</span>
+                      <span className="project-nav-meta">
+                        {currentFilterLabels[project.category]}
+                        {project.featured && (
+                          <span className="project-nav-featured">{currentFeaturedPillLabel}</span>
+                        )}
+                      </span>
+                    </span>
                   </button>
                 );
               })}

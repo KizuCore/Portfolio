@@ -28,7 +28,7 @@ function Services() {
         <div className="services-header">
           <div className="services-intro">
             <span className="services-eyebrow">
-              {t("services.eyebrow", { defaultValue: "Ce que je propose" })}
+              {t("services.eyebrow")}
             </span>
 
             <motion.h2

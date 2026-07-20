@@ -93,7 +93,7 @@ function NavBar(): JSX.Element {
   return (
     <nav
       className={`navbar navbar-expand-md fixed-top ${navColour ? "sticky" : ""} ${expand ? "menu-open" : ""}`}
-      aria-label={t("a11y.nav_menu_toggle", { defaultValue: "Navigation principale" })}
+      aria-label={t("a11y.nav_menu_toggle")}
     >
       <div className="container">
         {/* Logo */}
@@ -123,7 +123,7 @@ function NavBar(): JSX.Element {
           type="button"
           className={`navbar-toggler ${expand ? "" : "collapsed"}`}
           aria-controls="responsive-navbar-nav"
-          aria-label={t("a11y.nav_menu_toggle", { defaultValue: "Ouvrir ou fermer le menu" })}
+          aria-label={t("a11y.nav_menu_toggle")}
           aria-expanded={expand}
           onClick={() => setExpand(!expand)}
         >

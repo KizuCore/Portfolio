@@ -188,94 +188,11 @@ const projects: ProjectItem[] = [
 const filterOrder: ProjectFilter[] = ["all", "web", "mobile", "api", "game"];
 const projectImageSources = Array.from(new Set(projects.map((project) => project.imgPath)));
 
-const filterLabels: Record<string, Record<ProjectFilter, string>> = {
-  fr: {
-    all: "Tous",
-    web: "Web",
-    mobile: "Mobile",
-    api: "API",
-    game: "Jeu",
-  },
-  en: {
-    all: "All",
-    web: "Web",
-    mobile: "Mobile",
-    api: "API",
-    game: "Game",
-  },
-  es: {
-    all: "Todo",
-    web: "Web",
-    mobile: "Movil",
-    api: "API",
-    game: "Juego",
-  },
-  bzh: {
-    all: "Holl",
-    web: "Web",
-    mobile: "Hezoug",
-    api: "API",
-    game: "C'hoari",
-  },
-};
-
-const featuredPillLabel: Record<string, string> = {
-  fr: "Sélection",
-  en: "Top Pick",
-  es: "Seleccion",
-  bzh: "Dibabet",
-};
-
-const explorerLabels: Record<
-  string,
-  {
-    browse: string;
-    previous: string;
-    next: string;
-    empty: string;
-    position: string;
-  }
-> = {
-  fr: {
-    browse: "Parcourir les projets",
-    previous: "Précédent",
-    next: "Suivant",
-    empty: "Aucun projet pour ce filtre.",
-    position: "Projet {{current}} sur {{total}}",
-  },
-  en: {
-    browse: "Browse projects",
-    previous: "Previous",
-    next: "Next",
-    empty: "No project for this filter.",
-    position: "Project {{current}} of {{total}}",
-  },
-  es: {
-    browse: "Explorar proyectos",
-    previous: "Anterior",
-    next: "Siguiente",
-    empty: "No hay proyectos para este filtro.",
-    position: "Proyecto {{current}} de {{total}}",
-  },
-  bzh: {
-    browse: "Furchal ar raktresoù",
-    previous: "Kent",
-    next: "War-lerc'h",
-    empty: "N'eus raktres ebet evit ar sil-se.",
-    position: "Raktres {{current}} diwar {{total}}",
-  },
-};
-
 const Projects: React.FC = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = React.useState<ProjectFilter>("all");
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const preloadedImagesRef = React.useRef<HTMLImageElement[]>([]);
-  // Normalise la locale i18n (fr-FR -> fr) pour retrouver les labels locaux.
-  const currentLanguage = (i18n.resolvedLanguage || i18n.language || "en").split("-")[0];
-  const currentFilterLabels = filterLabels[currentLanguage] || filterLabels.en;
-  const currentFeaturedPillLabel = featuredPillLabel[currentLanguage] || featuredPillLabel.en;
-  const currentExplorerLabels = explorerLabels[currentLanguage] || explorerLabels.en;
 
   const sortedProjects = React.useMemo(
     // Priorite d'affichage:
@@ -374,10 +291,11 @@ const Projects: React.FC = () => {
     };
   }, []);
 
-  const positionText = currentExplorerLabels.position
-    // Injecte la position courante dans le label localise.
-    .replace("{{current}}", String(selectedProject ? selectedIndex + 1 : 0))
-    .replace("{{total}}", String(filteredProjects.length));
+  const featuredPillLabel = t("project_featured_label");
+  const positionText = t("project_explorer.position", {
+    current: selectedProject ? selectedIndex + 1 : 0,
+    total: filteredProjects.length,
+  });
 
   return (
     <Container fluid className="project-section text-center">
@@ -420,7 +338,7 @@ const Projects: React.FC = () => {
                   aria-pressed={isActive}
                   onClick={() => setActiveFilter(filter)}
                 >
-                  {currentFilterLabels[filter]}
+                  {t(`project_filters.${filter}`)}
                 </button>
               );
             })}
@@ -436,9 +354,9 @@ const Projects: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.35 }}
         >
-          <aside className="project-nav" aria-label={currentExplorerLabels.browse}>
+          <aside className="project-nav" aria-label={t("project_explorer.browse")}>
             <div className="project-nav-header">
-              <p className="project-nav-title">{currentExplorerLabels.browse}</p>
+              <p className="project-nav-title">{t("project_explorer.browse")}</p>
               <span className="project-nav-count">{filteredProjects.length}</span>
             </div>
             <div className="project-nav-list">
@@ -456,9 +374,9 @@ const Projects: React.FC = () => {
                     <span className="project-nav-copy">
                       <span className="project-nav-name">{t(project.titleKey)}</span>
                       <span className="project-nav-meta">
-                        {currentFilterLabels[project.category]}
+                        {t(`project_filters.${project.category}`)}
                         {project.featured && (
-                          <span className="project-nav-featured">{currentFeaturedPillLabel}</span>
+                          <span className="project-nav-featured">{featuredPillLabel}</span>
                         )}
                       </span>
                     </span>
@@ -480,7 +398,7 @@ const Projects: React.FC = () => {
                       onClick={() => setSelectedIndex((prev) => Math.max(prev - 1, 0))}
                       disabled={selectedIndex === 0}
                     >
-                      {currentExplorerLabels.previous}
+                      {t("project_explorer.previous")}
                     </button>
                     <button
                       type="button"
@@ -490,7 +408,7 @@ const Projects: React.FC = () => {
                       }
                       disabled={selectedIndex === filteredProjects.length - 1}
                     >
-                      {currentExplorerLabels.next}
+                      {t("project_explorer.next")}
                     </button>
                   </div>
                 </div>
@@ -512,13 +430,13 @@ const Projects: React.FC = () => {
                     seeLink={selectedProject.seeLink}
                     techStack={selectedProject.techStack}
                     featured={selectedProject.featured}
-                    featuredLabel={currentFeaturedPillLabel}
+                    featuredLabel={featuredPillLabel}
                     imageMode={selectedProject.imageMode}
                   />
                 </motion.div>
               </>
             ) : (
-              <p className="project-empty">{currentExplorerLabels.empty}</p>
+              <p className="project-empty">{t("project_explorer.empty")}</p>
             )}
           </div>
         </motion.div>

@@ -65,7 +65,7 @@ const TimelineItem = ({ item, isLeft }: Props) => {
         {item.description && <p className="timeline-card-description">{item.description}</p>}
 
         {hasHighlights && (
-          <ul className="timeline-card-list" aria-label="Missions principales">
+          <ul className="timeline-card-list" aria-label={t("experience_main_missions_aria")}>
             {item.highlights?.map((point, index) => (
               <li key={index}>{point}</li>
             ))}
@@ -76,7 +76,7 @@ const TimelineItem = ({ item, isLeft }: Props) => {
           hasHighlights ? (
             <p className="timeline-stack-inline mt-2">{item.stack}</p>
           ) : (
-            <div className="timeline-stack-tags mt-2" aria-label="Technologies">
+            <div className="timeline-stack-tags mt-2" aria-label={t("technologies")}>
               {item.stack.split(",").map((tech, i) => (
                 <span key={i} className="timeline-stack-badge">
                   {tech.trim()}

@@ -21,81 +21,26 @@ interface ProjectCardProps {
   imageMode?: "cover" | "contain";
 }
 
-type SupportedLang = "fr" | "en" | "es" | "bzh";
-
-const sectionLabels: Record<
-  SupportedLang,
-  {
-    context: string;
-    stack: string;
-    result: string;
-    githubOnly: string;
-    liveAndCode: string;
-    videoAndCode: string;
-    liveVideoAndCode: string;
-  }
-> = {
-  fr: {
-    context: "Contexte",
-    stack: "Stack",
-    result: "Résultat",
-    githubOnly: "Code source disponible et versionné sur GitHub.",
-    liveAndCode: "Application en ligne accessible, avec code source public.",
-    videoAndCode: "Démonstration vidéo disponible avec code source public.",
-    liveVideoAndCode: "Démo en ligne et vidéo disponibles, avec code source public.",
-  },
-  en: {
-    context: "Context",
-    stack: "Stack",
-    result: "Outcome",
-    githubOnly: "Source code is available and versioned on GitHub.",
-    liveAndCode: "Live demo is available, with public source code.",
-    videoAndCode: "Video walkthrough is available, with public source code.",
-    liveVideoAndCode: "Live demo and video walkthrough are available, with public source code.",
-  },
-  es: {
-    context: "Contexto",
-    stack: "Stack",
-    result: "Resultado",
-    githubOnly: "Codigo fuente disponible y versionado en GitHub.",
-    liveAndCode: "Demo en linea disponible, con codigo fuente publico.",
-    videoAndCode: "Demo en video disponible, con codigo fuente publico.",
-    liveVideoAndCode: "Demo en linea y video disponibles, con codigo fuente publico.",
-  },
-  bzh: {
-    context: "Kenderc'hel",
-    stack: "Stack",
-    result: "Disoc'h",
-    githubOnly: "Ar c'hod orin a zo hegerz war GitHub.",
-    liveAndCode: "Ur demo enlinenn a zo hegerz, gant ar c'hod orin foran.",
-    videoAndCode: "Ur video demo a zo hegerz, gant ar c'hod orin foran.",
-    liveVideoAndCode: "Demo enlinenn ha video a zo hegerz, gant ar c'hod orin foran.",
-  },
-};
-
-function resolveResultText(labels: (typeof sectionLabels)[SupportedLang], hasLiveDemo: boolean, hasVideo: boolean) {
+function resolveResultKey(hasLiveDemo: boolean, hasVideo: boolean) {
   // Texte resultat adapte selon les liens reels du projet.
   if (hasLiveDemo && hasVideo) {
-    return labels.liveVideoAndCode;
+    return "project_card.result_live_video_and_code";
   }
 
   if (hasLiveDemo) {
-    return labels.liveAndCode;
+    return "project_card.result_live_and_code";
   }
 
   if (hasVideo) {
-    return labels.videoAndCode;
+    return "project_card.result_video_and_code";
   }
 
-  return labels.githubOnly;
+  return "project_card.result_github_only";
 }
 
 function ProjectCard(props: ProjectCardProps) {
-  const { t, i18n } = useTranslation();
-  // Locale simplifiee pour reutiliser le meme mapping de labels.
-  const currentLang = (i18n.resolvedLanguage || i18n.language || "en").split("-")[0];
-  const labels = sectionLabels[(currentLang as SupportedLang) || "en"] || sectionLabels.en;
-  const resultText = resolveResultText(labels, Boolean(props.seeLink), Boolean(props.youtubeLink));
+  const { t } = useTranslation();
+  const resultText = t(resolveResultKey(Boolean(props.seeLink), Boolean(props.youtubeLink)));
 
   return (
     <Card className={`project-card-view ${props.featured ? "project-card-featured" : ""}`}>
@@ -113,7 +58,7 @@ function ProjectCard(props: ProjectCardProps) {
 
       <Card.Body className="project-card-body">
         {props.featured && (
-          <span className="project-featured-pill">{props.featuredLabel || "Top Pick"}</span>
+          <span className="project-featured-pill">{props.featuredLabel || t("project_featured_label")}</span>
         )}
 
         <Card.Title className="project-card-title">
@@ -123,13 +68,13 @@ function ProjectCard(props: ProjectCardProps) {
         </Card.Title>
 
         <div className="project-panel project-context-panel">
-          <h3 className="project-panel-title">{labels.context}</h3>
+          <h3 className="project-panel-title">{t("project_card.context")}</h3>
           <Card.Text className="project-description">{props.description}</Card.Text>
         </div>
 
         <div className="project-info-grid">
           <div className="project-panel">
-            <h3 className="project-panel-title">{labels.stack}</h3>
+            <h3 className="project-panel-title">{t("project_card.stack")}</h3>
             {/* Affichage lisible de la stack en badges texte */}
             <div className="project-tech-badges">
               {props.techStack.map((tech) => (
@@ -141,7 +86,7 @@ function ProjectCard(props: ProjectCardProps) {
           </div>
 
           <div className="project-panel">
-            <h3 className="project-panel-title">{labels.result}</h3>
+            <h3 className="project-panel-title">{t("project_card.result")}</h3>
             <p className="project-result">{resultText}</p>
           </div>
         </div>

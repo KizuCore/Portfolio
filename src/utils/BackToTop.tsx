@@ -29,7 +29,7 @@ function BackToTop() {
       type="button"
       className="back-to-top"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      aria-label={t("a11y.back_to_top", { defaultValue: "Retour en haut" })}
+      aria-label={t("a11y.back_to_top")}
     >
       <AiOutlineArrowUp aria-hidden="true" />
     </button>

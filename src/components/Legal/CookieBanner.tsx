@@ -21,7 +21,7 @@ export default function CookieBanner() {
       className="cookie-banner"
       role="region"
       aria-live="polite"
-      aria-label={t("cookie_banner.aria_label", "Bandeau d'information sur les cookies")}
+      aria-label={t("cookie_banner.aria_label")}
     >
       <div className="container cookie-banner-inner">
         <p className="cookie-banner-text mb-0">
@@ -29,9 +29,9 @@ export default function CookieBanner() {
           <Link
             to="/politique-des-cookies"
             className="cookie-banner-link"
-            aria-label={t("footer_links.aria_cookies_policy", "Politique des cookies")}
+            aria-label={t("footer_links.aria_cookies_policy")}
           >
-            {t("footer_links.cookies_policy", "Politique des cookies")}
+            {t("footer_links.cookies_policy")}
           </Link>
         </p>
 

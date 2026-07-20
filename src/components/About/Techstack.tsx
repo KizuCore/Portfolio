@@ -147,7 +147,7 @@ function Techstack() {
 
       <div className="category-buttons" style={{ textAlign: "center", marginBottom: "20px" }}>
         {categories.map((cat) => {
-          const translatedLabel = ["Back-End", "Front-End"].includes(cat) ? cat : t(`categories.${cat}`);
+          const translatedLabel = t(`categories.${cat}`);
 
           return (
             <Button

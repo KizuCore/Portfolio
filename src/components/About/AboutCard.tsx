@@ -85,7 +85,7 @@ function Presentation({ t }: { t: TFunction }): JSX.Element {
     <>
       <p className="text-justify pt-1 pt-md-4">
         {t('greeting')} <span className="blue">Théo Guérin</span> {t('from')}
-        <span className="blue"> Rennes, France</span>.
+        <span className="blue"> {t('rennes')}</span>.
         <br /><br />
         {t('current_position1')} <span className="blue">{t('developperAge')}</span>
         {t('current_position2')} <span className="blue">{t('firstmaster')}</span>

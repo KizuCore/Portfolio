@@ -17,7 +17,7 @@ function PolitiqueConfidentialite(): JSX.Element {
   return (
     <Container fluid className="legal-page legal-cookie-page py-5 mb-4" id="politique-confidentialite">
       <a href="#main-content" className="skip-link">
-        {tx("common.skip_to_content", "Aller au contenu")}
+        {tx("common.skip_to_content")}
       </a>
 
       <div aria-hidden="true" role="presentation">
@@ -83,7 +83,7 @@ function PolitiqueConfidentialite(): JSX.Element {
                     <button
                       type="button"
                       className="btn btn-outline-secondary btn-sm"
-                      aria-label={tx("politique_confidentialite.ga4.manage_button_aria", "Gérer les préférences de cookies")}
+                      aria-label={tx("politique_confidentialite.ga4.manage_button_aria")}
                       onClick={() => window.openCookiePreferences?.()}
                     >
                       {tx("politique_confidentialite.ga4.manage_button")}

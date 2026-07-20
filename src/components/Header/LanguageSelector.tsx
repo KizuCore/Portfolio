@@ -11,10 +11,10 @@ import flagFr from "../../assets/images/flags/flag_fr.svg";
 type SupportedLanguage = "en" | "es" | "fr";
 type LanguageCode = SupportedLanguage | "bzh";
 
-const LANGUAGE_OPTIONS: ReadonlyArray<{ code: SupportedLanguage; label: string }> = [
-  { code: "en", label: "English" },
-  { code: "es", label: "Espanol" },
-  { code: "fr", label: "Francais" },
+const LANGUAGE_OPTIONS: ReadonlyArray<{ code: SupportedLanguage }> = [
+  { code: "en" },
+  { code: "es" },
+  { code: "fr" },
 ];
 
 const FLAG_SOURCES: Readonly<Record<LanguageCode, string>> = {
@@ -115,7 +115,7 @@ function LanguageSelector(): JSX.Element {
         type="button"
         id="language-selector-toggle"
         className="lang-toggle"
-        aria-label={t("a11y.language_selector", { defaultValue: "Choose language" })}
+        aria-label={t("a11y.language_selector")}
         aria-expanded={isOpen}
         aria-haspopup="menu"
         onClick={() => setIsOpen((previousValue) => !previousValue)}
@@ -146,7 +146,7 @@ function LanguageSelector(): JSX.Element {
               >
                 <span className="lang-item-flag">{renderFlag(option.code, "lang-flag")}</span>
                 <span className="lang-item-code">{option.code.toUpperCase()}</span>
-                <span className="lang-item-label">{option.label}</span>
+                <span className="lang-item-label">{t(`language_options.${option.code}`)}</span>
               </button>
             );
           })}

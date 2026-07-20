@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { TimelineItem } from "./data/timelineData";
 import { FaBriefcase } from "@react-icons/all-files/fa/FaBriefcase";
 import { FaUserGraduate } from "@react-icons/all-files/fa/FaUserGraduate";
+import { useTranslation } from "react-i18next";
 
 const getIcon = (type: string) =>
     type === "C" ? (
@@ -16,6 +17,8 @@ type Props = {
 };
 
 const TimelineBubble = ({ item, isLeft }: Props) => {
+    const { t } = useTranslation();
+
     return (
         <div style={{ position: "relative" }}>
             <div className={`timeline-connector ${isLeft ? "left" : "right"}`} />
@@ -26,7 +29,7 @@ const TimelineBubble = ({ item, isLeft }: Props) => {
                 transition={{ duration: 0.5 }}
                 className={`bubble ${isLeft ? "left" : "right"}`}
                 role="region"
-                aria-label={`Événement : ${item.title}`}
+                aria-label={t("experience_event_aria", { title: item.title })}
             >
                 <h5 className="fw-bold text-light d-flex gap-2 align-items-start">
                     <span className="align-self-start blue">{getIcon(item.type)}</span>

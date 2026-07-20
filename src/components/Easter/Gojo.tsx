@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import "../../assets/styles/Easter/style_easter.css";
 import "../../assets/styles/Easter/Gojo/Gojo.css";
 import Particle from "../../utils/Particle";
@@ -16,6 +17,7 @@ const T = {
 };
 
 export default function GojoCursedTechnique() {
+  const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
   const [phase, setPhase] = useState<GojoPhase>("prelude");
 
@@ -42,7 +44,7 @@ export default function GojoCursedTechnique() {
   }, [prefersReducedMotion]);
 
   return (
-    <section className="gojo-route" aria-label="Gojo Hollow Purple easter egg">
+    <section className="gojo-route" aria-label={t("easter.gojo.aria_label")}>
       <Container fluid className="gojo-shell p-0" id="home">
         <Particle />
 
@@ -60,9 +62,9 @@ export default function GojoCursedTechnique() {
                 exit={{ opacity: 0, y: -10, filter: "blur(8px)" }}
                 transition={{ duration: 0.48, ease: "easeOut" }}
               >
-                <p className="jk-kicker">CURSED TECHNIQUE</p>
-                <h1 className="jk-title">Blue + Red</h1>
-                <p className="jk-subtitle">Hollow Purple</p>
+                <p className="jk-kicker">{t("easter.gojo.kicker")}</p>
+                <h1 className="jk-title">{t("easter.gojo.title")}</h1>
+                <p className="jk-subtitle">{t("easter.gojo.subtitle")}</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -102,7 +104,7 @@ export default function GojoCursedTechnique() {
                       ease: "easeInOut",
                     }}
                   >
-                    <span className="jk-tech-label">Red</span>
+                    <span className="jk-tech-label">{t("easter.gojo.red")}</span>
                   </motion.div>
                 </div>
 
@@ -132,7 +134,7 @@ export default function GojoCursedTechnique() {
                       ease: "easeInOut",
                     }}
                   >
-                    <span className="jk-tech-label">Blue</span>
+                    <span className="jk-tech-label">{t("easter.gojo.blue")}</span>
                   </motion.div>
                 </div>
 
@@ -214,7 +216,7 @@ export default function GojoCursedTechnique() {
                 }}
               >
                 <div className="jk-video-shell">
-                  <div className="jk-video-head">Hollow Purple</div>
+                  <div className="jk-video-head">{t("easter.gojo.subtitle")}</div>
                   <iframe
                     className="jk-video-frame"
                     src="https://www.youtube.com/embed/JTGNRJEptc0?autoplay=1&mute=0&controls=1&modestbranding=1&rel=0"

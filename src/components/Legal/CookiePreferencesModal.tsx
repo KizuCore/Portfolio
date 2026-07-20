@@ -55,7 +55,7 @@ export default function CookiePreferencesModal() {
       <button
         type="button"
         className="cookie-prefs-backdrop"
-        aria-label={t("common.close", { defaultValue: "Fermer" })}
+        aria-label={t("common.close")}
         onClick={() => setShow(false)}
       />
 
@@ -74,7 +74,7 @@ export default function CookiePreferencesModal() {
               type="button"
               className="cookie-prefs-close"
               onClick={() => setShow(false)}
-              aria-label={t("common.close", { defaultValue: "Fermer" })}
+              aria-label={t("common.close")}
             >
               <span aria-hidden="true">&times;</span>
             </button>

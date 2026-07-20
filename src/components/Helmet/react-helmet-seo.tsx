@@ -25,8 +25,8 @@ const ROUTE_SEO: Record<string, RouteSeo> = {
     titleKey: "cookie_policy.title",
     descriptionKey: "seo_routes.cookies_description",
   },
-  "/gojo": { titleKey: "Nah I'd win", noindex: true },
-  "/arcane": { titleKey: "Rewind 4 Seconds", noindex: true },
+  "/gojo": { titleKey: "easter.gojo.seo_title", noindex: true },
+  "/arcane": { titleKey: "easter.arcane.seo_title", noindex: true },
 };
 
 const ROUTE_SCHEMA_TYPE: Record<string, string> = {
@@ -86,9 +86,7 @@ function SeoMeta(): JSX.Element {
   const pageTitle = currentRoute ? tx(currentRoute.titleKey) : "";
   const fullTitle = pageTitle ? `${pageTitle} | ${baseTitle}` : baseTitle;
 
-  const description = currentRoute?.descriptionKey
-    ? tx(currentRoute.descriptionKey, { defaultValue: tx("seo_description") })
-    : tx("seo_description");
+  const description = currentRoute?.descriptionKey ? tx(currentRoute.descriptionKey) : tx("seo_description");
 
   const canonicalUrl = `${siteUrl}${pathname}`;
   const imageUrl = `${siteUrl}/images/preview/previewsite.png`;
@@ -98,9 +96,7 @@ function SeoMeta(): JSX.Element {
   const robotsContent = isNoindex
     ? "noindex, nofollow"
     : "index, follow, max-image-preview:large";
-  const keywords = tx("seo_keywords", {
-    defaultValue: "Théo Guérin, développeur full-stack, React, Django, Python, portfolio",
-  });
+  const keywords = tx("seo_keywords");
 
   const personSchema = {
     "@context": "https://schema.org",
@@ -212,7 +208,7 @@ function SeoMeta(): JSX.Element {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:type" content="image/png" />
-      <meta property="og:image:alt" content={tx("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
+      <meta property="og:image:alt" content={tx("seo_og_image_alt")} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -220,7 +216,7 @@ function SeoMeta(): JSX.Element {
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
-      <meta name="twitter:image:alt" content={tx("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
+      <meta name="twitter:image:alt" content={tx("seo_og_image_alt")} />
 
       {/* Structured data */}
       <script type="application/ld+json">{JSON.stringify(personSchema)}</script>

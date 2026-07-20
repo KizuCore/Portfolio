@@ -38,12 +38,42 @@
     "my_projects": "Ma",
     "projects": "Raktresoù",
     "projects_description": "Setu raktresoù am eus labouret warno:",
+    "language_options": {
+        "en": "Saozneg",
+        "es": "Spagnoleg",
+        "fr": "Galleg"
+    },
+    "project_filters": {
+        "all": "Holl",
+        "web": "Web",
+        "mobile": "Hezoug",
+        "api": "API",
+        "game": "C'hoari"
+    },
+    "project_featured_label": "Dibabet",
+    "project_explorer": {
+        "browse": "Furchal ar raktresoù",
+        "previous": "Kent",
+        "next": "War-lerc'h",
+        "empty": "N'eus raktres ebet evit ar sil-se.",
+        "position": "Raktres {{current}} diwar {{total}}"
+    },
+    "project_card": {
+        "context": "Kenderc'hel",
+        "stack": "Stack",
+        "result": "Disoc'h",
+        "result_github_only": "Ar c'hod orin a zo hegerz war GitHub.",
+        "result_live_and_code": "Ur demo enlinenn a zo hegerz, gant ar c'hod orin foran.",
+        "result_video_and_code": "Ur video demo a zo hegerz, gant ar c'hod orin foran.",
+        "result_live_video_and_code": "Demo enlinenn ha video a zo hegerz, gant ar c'hod orin foran."
+    },
     "see": "Gwelout",
     "downloadcv": "Pellgargañ",
     "my": "Ma",
     "cv": "CV",
     "bytheo1": "Gant ",
     "fullstack_developer": "Diorroer Web Full-Stack",
+    "preloader_subtitle": "Diorroer Web Full-Stack",
     "fullstack_developer_phone": "Diorroer Web\nFull-Stack",
     "frontend_developer": "Diorroer Web Dirakenn",
     "backend_developer": "Diorroer Web Drekenn",
@@ -150,6 +180,8 @@
     "experience_6_diplome": "Diplom Bak Sianik SVT",
     "experience_6_date": "Gouere 2018",
     "experience_diploma_label": "Diplom tapet",
+    "experience_main_missions_aria": "Kefridioù pennañ",
+    "experience_event_aria": "Darvoud: {{title}}",
     "years": "bloaz",
     "studies": "a studi",
     "completed": "echuet",
@@ -188,6 +220,8 @@
         "Design": "Stummañ",
         "Project Management": "Merañ raktresoù",
         "Programming Languages": "Yezhoù raktresañ",
+        "Front-End": "Dirakenn",
+        "Back-End": "Drekleur",
         "Hosting": "Degemer",
         "Mobile": "Hezoug",
         "CMS": "CMS"
@@ -436,6 +470,27 @@
         "nav_menu_toggle": "Digeriñ pe serriñ lañser ar menu",
         "loading_content": "O kargañ an danvez",
         "language_selector": "Dibab ar yezh"
+    },
+    "easter": {
+        "gojo": {
+            "seo_title": "Hollow Purple",
+            "aria_label": "Easter egg Gojo Hollow Purple",
+            "kicker": "TEKNIK MALLAOZET",
+            "title": "Glas + Ruz",
+            "subtitle": "Hollow Purple",
+            "red": "Ruz",
+            "blue": "Glas"
+        },
+        "arcane": {
+            "seo_title": "Distreiñ 4 eilenn",
+            "aria_label": "Easter egg Powder hag Ekko",
+            "kicker": "EASTER EGG",
+            "title": "Powder & Ekko",
+            "subtitle": "Distreiñ d'ar mare. Adskrivañ an disoc'h.",
+            "powder": "Powder",
+            "ekko": "Ekko",
+            "rewind": "DISTREIÑ"
+        }
     },
     "services": {
         "title": "Servijoù",

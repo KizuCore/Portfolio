@@ -58,7 +58,7 @@ function AppContent({ load, showPreloader }: AppContentProps) {
   return (
     <>
       <a className="skip-link" href="#main-content">
-        {t("a11y.skip_to_content", { defaultValue: "Aller au contenu" })}
+        {t("a11y.skip_to_content")}
       </a>
       <ScrollProgress />
       {showPreloader && <Preloader load={load} className={load ? "" : "fade-out"} />}

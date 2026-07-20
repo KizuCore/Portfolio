@@ -38,12 +38,42 @@
     "my_projects": "Mis",
     "projects": "Proyectos",
     "projects_description": "Una seleccion de proyectos que refleja enfoque producto, arquitectura limpia y entrega full-stack.",
+    "language_options": {
+        "en": "Inglés",
+        "es": "Español",
+        "fr": "Francés"
+    },
+    "project_filters": {
+        "all": "Todo",
+        "web": "Web",
+        "mobile": "Móvil",
+        "api": "API",
+        "game": "Juego"
+    },
+    "project_featured_label": "Selección",
+    "project_explorer": {
+        "browse": "Explorar proyectos",
+        "previous": "Anterior",
+        "next": "Siguiente",
+        "empty": "No hay proyectos para este filtro.",
+        "position": "Proyecto {{current}} de {{total}}"
+    },
+    "project_card": {
+        "context": "Contexto",
+        "stack": "Stack",
+        "result": "Resultado",
+        "result_github_only": "Código fuente disponible y versionado en GitHub.",
+        "result_live_and_code": "Demo en línea disponible, con código fuente público.",
+        "result_video_and_code": "Demo en vídeo disponible, con código fuente público.",
+        "result_live_video_and_code": "Demo en línea y vídeo disponibles, con código fuente público."
+    },
     "see": "Ver",
     "downloadcv": "Descargar",
     "my": "Mi",
     "cv": "CV",
     "bytheo1": "Por ",
     "fullstack_developer": "Desarrollador Web Full-Stack",
+    "preloader_subtitle": "Desarrollador Web Full-Stack",
     "fullstack_developer_phone": "Desarrollador Web\nFull-Stack",
     "frontend_developer": "Desarrollador Front-End",
     "backend_developer": "Desarrollador Back-End",
@@ -149,6 +179,8 @@
     "experience_6_diplome": "Diploma de Bachillerato Cientifico (SVT)",
     "experience_6_date": "Julio 2018",
     "experience_diploma_label": "Diploma obtenido",
+    "experience_main_missions_aria": "Misiones principales",
+    "experience_event_aria": "Evento: {{title}}",
     "years": "Años",
     "experience_home": "de experiencia",
     "studies": "de estudios",
@@ -188,6 +220,8 @@
         "Design": "Diseño",
         "Project Management": "Gestión de Proyectos",
         "Programming Languages": "Lenguajes",
+        "Front-End": "Front-End",
+        "Back-End": "Back-End",
         "Hosting": "Alojamiento",
         "Mobile": "Móvil",
         "CMS": "CMS"
@@ -393,6 +427,27 @@
         "nav_menu_toggle": "Abrir o cerrar el menú de navegación",
         "loading_content": "Cargando contenido",
         "language_selector": "Elegir idioma"
+    },
+    "easter": {
+        "gojo": {
+            "seo_title": "Hollow Purple",
+            "aria_label": "Easter egg Gojo Hollow Purple",
+            "kicker": "TÉCNICA MALDITA",
+            "title": "Azul + Rojo",
+            "subtitle": "Hollow Purple",
+            "red": "Rojo",
+            "blue": "Azul"
+        },
+        "arcane": {
+            "seo_title": "Retroceder 4 segundos",
+            "aria_label": "Easter egg Powder y Ekko",
+            "kicker": "EASTER EGG",
+            "title": "Powder & Ekko",
+            "subtitle": "Rebobinar el momento. Reescribir el resultado.",
+            "powder": "Powder",
+            "ekko": "Ekko",
+            "rewind": "REBOBINAR"
+        }
     },
     "services": {
         "eyebrow": "Lo que ofrezco",

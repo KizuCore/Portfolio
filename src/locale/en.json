@@ -38,12 +38,42 @@
     "my_projects": "My",
     "projects": "Projects",
     "projects_description": "A curated selection of projects showcasing product thinking, clean architecture, and full-stack delivery.",
+    "language_options": {
+        "en": "English",
+        "es": "Spanish",
+        "fr": "French"
+    },
+    "project_filters": {
+        "all": "All",
+        "web": "Web",
+        "mobile": "Mobile",
+        "api": "API",
+        "game": "Game"
+    },
+    "project_featured_label": "Top Pick",
+    "project_explorer": {
+        "browse": "Browse projects",
+        "previous": "Previous",
+        "next": "Next",
+        "empty": "No project for this filter.",
+        "position": "Project {{current}} of {{total}}"
+    },
+    "project_card": {
+        "context": "Context",
+        "stack": "Stack",
+        "result": "Outcome",
+        "result_github_only": "Source code is available and versioned on GitHub.",
+        "result_live_and_code": "Live demo is available, with public source code.",
+        "result_video_and_code": "Video walkthrough is available, with public source code.",
+        "result_live_video_and_code": "Live demo and video walkthrough are available, with public source code."
+    },
     "see": "See",
     "downloadcv": "Download",
     "my": "My",
     "cv": "CV",
     "bytheo1": "By ",
     "fullstack_developer": "Full-Stack Web Developer",
+    "preloader_subtitle": "Full-Stack Web Developer",
     "fullstack_developer_phone": "Full-Stack\nWeb Developer",
     "frontend_developer": "Front-End Web Developer",
     "backend_developer": "Back-End Web Developer",
@@ -149,6 +179,8 @@
     "experience_6_diplome": "Scientific Baccalaureate diploma (SVT)",
     "experience_6_date": "July 2018",
     "experience_diploma_label": "Degree obtained",
+    "experience_main_missions_aria": "Main missions",
+    "experience_event_aria": "Event: {{title}}",
     "years": "Years",
     "experience_home": "of experience",
     "studies": "of studies",
@@ -187,8 +219,10 @@
         "Testing": "Testing & QA",
         "Design": "Design",
         "Project Management": "Project Management",
-        "Programming Languages": "Langages",
-        "Hosting": "Hébergement",
+        "Programming Languages": "Programming Languages",
+        "Front-End": "Front-End",
+        "Back-End": "Back-End",
+        "Hosting": "Hosting",
         "Mobile": "Mobile",
         "CMS": "CMS"
     },
@@ -436,6 +470,27 @@
         "nav_menu_toggle": "Open or close navigation menu",
         "loading_content": "Loading content",
         "language_selector": "Choose language"
+    },
+    "easter": {
+        "gojo": {
+            "seo_title": "Hollow Purple",
+            "aria_label": "Gojo Hollow Purple easter egg",
+            "kicker": "CURSED TECHNIQUE",
+            "title": "Blue + Red",
+            "subtitle": "Hollow Purple",
+            "red": "Red",
+            "blue": "Blue"
+        },
+        "arcane": {
+            "seo_title": "Rewind 4 Seconds",
+            "aria_label": "Powder and Ekko easter egg",
+            "kicker": "EASTER EGG",
+            "title": "Powder & Ekko",
+            "subtitle": "Rewind the moment. Rewrite the outcome.",
+            "powder": "Powder",
+            "ekko": "Ekko",
+            "rewind": "REWIND"
+        }
     },
     "services": {
         "eyebrow": "What I deliver",

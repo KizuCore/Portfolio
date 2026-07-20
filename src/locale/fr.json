@@ -38,12 +38,42 @@
     "my_projects": "Mes",
     "projects": "Projets",
     "projects_description": "Une selection de projets representatifs de mon approche: architecture, UX, API et livraison web/mobile.",
+    "language_options": {
+        "en": "Anglais",
+        "es": "Espagnol",
+        "fr": "Français"
+    },
+    "project_filters": {
+        "all": "Tous",
+        "web": "Web",
+        "mobile": "Mobile",
+        "api": "API",
+        "game": "Jeu"
+    },
+    "project_featured_label": "Sélection",
+    "project_explorer": {
+        "browse": "Parcourir les projets",
+        "previous": "Précédent",
+        "next": "Suivant",
+        "empty": "Aucun projet pour ce filtre.",
+        "position": "Projet {{current}} sur {{total}}"
+    },
+    "project_card": {
+        "context": "Contexte",
+        "stack": "Stack",
+        "result": "Résultat",
+        "result_github_only": "Code source disponible et versionné sur GitHub.",
+        "result_live_and_code": "Application en ligne accessible, avec code source public.",
+        "result_video_and_code": "Démonstration vidéo disponible avec code source public.",
+        "result_live_video_and_code": "Démo en ligne et vidéo disponibles, avec code source public."
+    },
     "see": "Voir",
     "downloadcv": "Télécharger",
     "my": "Mon",
     "cv": "CV",
     "bytheo1": "Par ",
     "fullstack_developer": "Développeur Web Full-Stack",
+    "preloader_subtitle": "Développeur Web Full-Stack",
     "fullstack_developer_phone": "Développeur Web \nFull-Stack",
     "frontend_developer": "Développeur Web Front",
     "backend_developer": "Développeur Web Back",
@@ -151,6 +181,8 @@
     "experience_6_diplome": "Baccalaureat Scientifique SVT",
     "experience_6_date": "Juil. 2018",
     "experience_diploma_label": "Diplôme obtenu",
+    "experience_main_missions_aria": "Missions principales",
+    "experience_event_aria": "Événement : {{title}}",
     "years": "Ans",
     "experience_home": "d’expériences",
     "studies": "d’études",
@@ -190,6 +222,8 @@
         "Design": "Design",
         "Project Management": "Gestion de projet",
         "Programming Languages": "Langages",
+        "Front-End": "Front-End",
+        "Back-End": "Back-End",
         "Hosting": "Hébergement",
         "Mobile": "Mobile",
         "CMS": "CMS"
@@ -348,7 +382,7 @@
             "p1": "Ce site utilise Google Analytics 4 uniquement après votre consentement. Google Ireland Limited agit en tant que sous-traitant. Des transferts hors UE peuvent avoir lieu ; ils sont encadrés par les clauses contractuelles types de la Commission européenne.",
             "p2": "Le détail des cookies, de leur durée de conservation et des modalités de gestion du consentement est présenté dans la Politique des cookies.",
             "manage_button": "Gérer mes cookies",
-            "manage_button_aria": "manage button aria"
+            "manage_button_aria": "Gérer les préférences de cookies"
         },
         "recipients": {
             "title": "4. Destinataires des données",
@@ -438,6 +472,27 @@
         "language_selector": "Choisir la langue",
         "nav_menu_toggle": "Ouvrir ou fermer le menu",
         "loading_content": "Chargement du contenu"
+    },
+    "easter": {
+        "gojo": {
+            "seo_title": "Hollow Purple",
+            "aria_label": "Easter egg Gojo Hollow Purple",
+            "kicker": "TECHNIQUE MAUDITE",
+            "title": "Bleu + Rouge",
+            "subtitle": "Hollow Purple",
+            "red": "Rouge",
+            "blue": "Bleu"
+        },
+        "arcane": {
+            "seo_title": "Retour de 4 secondes",
+            "aria_label": "Easter egg Powder et Ekko",
+            "kicker": "EASTER EGG",
+            "title": "Powder & Ekko",
+            "subtitle": "Remonter le moment. Réécrire l'issue.",
+            "powder": "Powder",
+            "ekko": "Ekko",
+            "rewind": "RETOUR"
+        }
     },
     "services": {
         "eyebrow": "Ce que je propose",

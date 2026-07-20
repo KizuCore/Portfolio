@@ -14,21 +14,21 @@ function Footer(): JSX.Element {
   const year = new Date().getFullYear();
 
   const pageLinks = [
-    { to: "/", label: t("home", { defaultValue: "Accueil" }) },
-    { to: "/about", label: t("about", { defaultValue: "A propos" }) },
-    { to: "/project", label: t("project", { defaultValue: "Projets" }) },
-    { to: "/experience", label: t("experience", { defaultValue: "Experience" }) },
-    { to: "/cv", label: t("resume", { defaultValue: "CV" }) },
-    { to: "/contact", label: t("social", { defaultValue: "Contact" }) },
+    { to: "/", label: t("home") },
+    { to: "/about", label: t("about") },
+    { to: "/project", label: t("project") },
+    { to: "/experience", label: t("experience") },
+    { to: "/cv", label: t("resume") },
+    { to: "/contact", label: t("social") },
   ];
 
   return (
     <footer className="footer-section">
       <div className="footer-shell">
-        <div className="footer-grid" role="navigation" aria-label={t("footer_navigation", { defaultValue: "Navigation de pied de page" })}>
+        <div className="footer-grid" role="navigation" aria-label={t("footer_navigation")}>
           <div className="footer-brand-column">
             <div className="footer-brand-title-wrap">
-              <img src={logo} alt={t("brand", { defaultValue: "KizuCore" })} className="footer-brand-logo" loading="lazy" decoding="async" />
+              <img src={logo} alt={t("brand")} className="footer-brand-logo" loading="lazy" decoding="async" />
               <span className="footer-brand-title">KizuCore</span>
             </div>
 
@@ -48,7 +48,7 @@ function Footer(): JSX.Element {
           </div>
 
           <div className="footer-link-column">
-            <p className="footer-column-title">{t("footer_products_title", { defaultValue: "Pages" })}</p>
+            <p className="footer-column-title">{t("footer_products_title")}</p>
             <ul className="footer-pages-list">
               {pageLinks.map((link) => (
                 <li key={link.to}>
@@ -61,7 +61,7 @@ function Footer(): JSX.Element {
           </div>
 
           <div className="footer-link-column">
-            <p className="footer-column-title">{t("footer_social_title", { defaultValue: "Réseaux" })}</p>
+            <p className="footer-column-title">{t("footer_social_title")}</p>
             <ul>
               <li>
                 <a
@@ -69,7 +69,7 @@ function Footer(): JSX.Element {
                   className="footer-nav-link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={t("github_profile_link", { defaultValue: "Profil GitHub" })}
+                  aria-label={t("github_profile_link")}
                 >
                   <FiGithub aria-hidden="true" style={{ marginRight: "0.45rem", verticalAlign: "middle" }} />
                   GitHub
@@ -81,7 +81,7 @@ function Footer(): JSX.Element {
                   className="footer-nav-link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={t("gitlab_profile_link", { defaultValue: "Profil GitLab" })}
+                  aria-label={t("gitlab_profile_link")}
                 >
                   <FiGitlab aria-hidden="true" style={{ marginRight: "0.45rem", verticalAlign: "middle" }} />
                   GitLab
@@ -93,7 +93,7 @@ function Footer(): JSX.Element {
                   className="footer-nav-link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={t("linkedin_profile_link", { defaultValue: "Profil LinkedIn" })}
+                  aria-label={t("linkedin_profile_link")}
                 >
                   <FiLinkedin aria-hidden="true" style={{ marginRight: "0.45rem", verticalAlign: "middle" }} />
                   LinkedIn
@@ -103,7 +103,7 @@ function Footer(): JSX.Element {
           </div>
 
           <div className="footer-link-column">
-            <p className="footer-column-title">{t("footer_legal_title", { defaultValue: "Légal" })}</p>
+            <p className="footer-column-title">{t("footer_legal_title")}</p>
             <ul>
               <li>
                 <Link to="/mentions-legales" className="footer-nav-link" aria-label={t("footer_links.aria_legal")}>
@@ -130,7 +130,7 @@ function Footer(): JSX.Element {
 
         <div className="footer-bottom">
           <p>
-            {"\u00A9"} 2024-{year} KizuCore. {t("footer_rights", { defaultValue: "Tous droits réservés." })}
+            {"\u00A9"} 2024-{year} KizuCore. {t("footer_rights")}
           </p>
         </div>
       </div>

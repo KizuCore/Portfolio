@@ -1,6 +1,7 @@
 import { JSX, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import video from "@media/secret.mp4";
 import Particle from "../../utils/Particle";
 import "../../assets/styles/Easter/Arcane/Arcane.css";
@@ -16,6 +17,7 @@ const TIMELINE = {
 const SHARD_COUNT = 12;
 
 function RouteSecret(): JSX.Element {
+  const { t } = useTranslation();
   const prefersReducedMotion = useReducedMotion();
   const [phase, setPhase] = useState<ArcanePhase>("prelude");
 
@@ -40,7 +42,7 @@ function RouteSecret(): JSX.Element {
   }, [prefersReducedMotion]);
 
   return (
-    <section className="arcane-route" aria-label="Powder and Ekko easter egg">
+    <section className="arcane-route" aria-label={t("easter.arcane.aria_label")}>
       <Particle />
 
       <Container fluid className="arcane-shell">
@@ -71,9 +73,9 @@ function RouteSecret(): JSX.Element {
                 exit={{ opacity: 0, y: -8, filter: "blur(8px)" }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <p className="arcane-kicker">EASTER EGG</p>
-                <h1 className="title-font-easter arcane-title">Powder &amp; Ekko</h1>
-                <p className="arcane-subtitle">Rewind the moment. Rewrite the outcome.</p>
+                <p className="arcane-kicker">{t("easter.arcane.kicker")}</p>
+                <h1 className="title-font-easter arcane-title">{t("easter.arcane.title")}</h1>
+                <p className="arcane-subtitle">{t("easter.arcane.subtitle")}</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -113,7 +115,7 @@ function RouteSecret(): JSX.Element {
                       ease: "easeInOut",
                     }}
                   >
-                    <span className="arcane-character-tag">Powder</span>
+                    <span className="arcane-character-tag">{t("easter.arcane.powder")}</span>
                   </motion.div>
                 </div>
 
@@ -143,7 +145,7 @@ function RouteSecret(): JSX.Element {
                       ease: "easeInOut",
                     }}
                   >
-                    <span className="arcane-character-tag">Ekko</span>
+                    <span className="arcane-character-tag">{t("easter.arcane.ekko")}</span>
                   </motion.div>
                 </div>
 
@@ -185,7 +187,7 @@ function RouteSecret(): JSX.Element {
                       ease: "easeInOut",
                     }}
                   >
-                    <span className="arcane-gate-symbol">REWIND</span>
+                    <span className="arcane-gate-symbol">{t("easter.arcane.rewind")}</span>
                   </motion.div>
                 </div>
 
@@ -253,8 +255,8 @@ function RouteSecret(): JSX.Element {
 
                 <div className="arcane-video-frame">
                   <div className="arcane-video-head">
-                    <span className="arcane-chip arcane-chip-powder">Powder</span>
-                    <span className="arcane-chip arcane-chip-ekko">Ekko</span>
+                    <span className="arcane-chip arcane-chip-powder">{t("easter.arcane.powder")}</span>
+                    <span className="arcane-chip arcane-chip-ekko">{t("easter.arcane.ekko")}</span>
                   </div>
 
                   <video src={video} autoPlay controls playsInline className="arcane-video" />

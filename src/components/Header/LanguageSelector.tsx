@@ -3,6 +3,10 @@ import { FaAngleDown } from "@react-icons/all-files/fa/FaAngleDown";
 import { FaAngleUp } from "@react-icons/all-files/fa/FaAngleUp";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Header/header.css";
+import flagBzh from "../../assets/images/flags/flag_bzh.svg";
+import flagEn from "../../assets/images/flags/flag_en.svg";
+import flagEs from "../../assets/images/flags/flag_es.svg";
+import flagFr from "../../assets/images/flags/flag_fr.svg";
 
 type SupportedLanguage = "en" | "es" | "fr";
 type LanguageCode = SupportedLanguage | "bzh";
@@ -14,10 +18,10 @@ const LANGUAGE_OPTIONS: ReadonlyArray<{ code: SupportedLanguage; label: string }
 ];
 
 const FLAG_SOURCES: Readonly<Record<LanguageCode, string>> = {
-  en: "/images/flags/flag_en.svg",
-  es: "/images/flags/flag_es.svg",
-  fr: "/images/flags/flag_fr.svg",
-  bzh: "/images/flags/flag_bzh.svg",
+  en: flagEn,
+  es: flagEs,
+  fr: flagFr,
+  bzh: flagBzh,
 };
 
 function LanguageSelector(): JSX.Element {
@@ -102,7 +106,7 @@ function LanguageSelector(): JSX.Element {
 
   const renderFlag = (langCode: LanguageCode, className = "lang-flag") => {
     const src = FLAG_SOURCES[langCode] ?? FLAG_SOURCES.en;
-    return <img src={src} className={className} alt={t(`flag_${langCode}`)} />;
+    return <img src={src} className={className} alt={t(`flag_${langCode}`)} width={22} height={16} decoding="sync" />;
   };
 
   return (

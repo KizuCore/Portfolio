@@ -38,7 +38,7 @@
     "hobby7": "Series / Películas",
     "my_projects": "Mis",
     "projects": "Proyectos",
-    "projects_description": "Aquí algunos proyectos en los que he trabajado:",
+    "projects_description": "Una seleccion de proyectos que refleja enfoque producto, arquitectura limpia y entrega full-stack.",
     "see": "Ver",
     "downloadcv": "Descargar",
     "my": "Mi",
@@ -93,6 +93,21 @@
     "flag_es": "Bandera española",
     "flag_bzh": "Bandera bretona",
     "contact_us": "Contáctanos",
+    "contact_eyebrow": "Hablemos de tu proyecto",
+    "contact_intro": "Necesitas una web nueva, una mejora, apoyo freelance o hablar de un puesto? Escribeme y te respondo rapido.",
+    "contact_panel_title": "Listo para empezar?",
+    "contact_panel_description": "Puedo ayudarte a crear, redisenar y optimizar productos web con una ejecucion limpia.",
+    "contact_point_1": "Analisis rapido y alcance claro",
+    "contact_point_2": "Propuesta tecnica alineada con tus objetivos",
+    "contact_point_3": "Comunicacion simple y entrega fiable",
+    "contact_meta_availability_label": "Disponibilidad",
+    "contact_meta_availability_value": "Disponible para nuevos proyectos",
+    "contact_meta_response_label": "Tiempo de respuesta",
+    "contact_meta_response_value": "Respuesta en 24h",
+    "contact_meta_location_label": "Ubicacion",
+    "contact_meta_location_value": "Rennes, Francia",
+    "contact_cta_email": "Enviar un email",
+    "contact_cta_linkedin": "Hablar por LinkedIn",
     "name": "Nombre",
     "name_placeholder": "Introduce tu nombre",
     "email": "Correo electrónico",
@@ -102,17 +117,22 @@
     "message": "Mensaje",
     "message_placeholder": "Escribe tu mensaje",
     "send_message": "Enviar",
+    "contact_form_title": "Cuentame lo que necesitas",
+    "contact_form_subtitle": "Comparte algunos detalles sobre lo que necesitas y te respondere rapido.",
+    "contact_form_required_hint": "Todos los campos son obligatorios.",
     "sending": "Enviando...",
     "error_loading_pdf": "Error al cargar el PDF. Inténtalo de nuevo más tarde.",
     "cv_alt_description": "CV de Théo Guérin",
     "Mon parcours": "Mi trayectoria",
     "experience_1_title": "Desarrollador Web Fullstack - Nahibu",
     "experience_1_date": "Desde marzo de 2024",
-    "experience_1_subtitle": "Rennes",
-    "experience_1_description": "Responsable de la infraestructura de Nahibu, implementación de interfaz, rediseño, SEO, documentación, ...",
-    "experience_1_stack": "Django, Flask, React, PostgreSQL, Axios, AWS, Citry API, Brevo, Jupyter, Django, Wordpress, Wix, LimeSurvey, Docker, Nuxt",
+    "experience_1_subtitle": "Nahibu - Rennes",
+    "experience_1_description": "Diseno y evolucion de la plataforma Nahibu.",
+    "experience_1_highlights": "Desarrollo de interfaces React para la plataforma Nahibu||Implementacion de informes de microbiota y visualizaciones de datos con Django||Desarrollo y mantenimiento de API REST con Django y Flask||Diseno y gestion de bases de datos (PostgreSQL, MySQL)||Integracion de servicios externos: WooCommerce, Systempay, Brevo, LimeSurvey||Participacion en despliegue con Docker y CI/CD||Implementacion de pruebas automatizadas con Playwright, Jest y Bruno",
+    "experience_1_stack": "Python, Django, Flask, React, PostgreSQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
     "experience_2_title": "MBA Desarrollador Full-Stack",
     "experience_2_subtitle": "My Digital School",
+    "experience_2_diplome": "Diploma de Master en Desarrollo Web Full-Stack",
     "experience_2_date": "Desde septiembre de 2024",
     "experience_3_title": "Licenciatura en Desarrollo Web",
     "experience_3_subtitle": "My Digital School Rennes",
@@ -120,13 +140,16 @@
     "experience_3_date": "Septiembre 2023 - Julio 2024",
     "experience_4_title": "Licenciatura en Informática y Electrónica",
     "experience_4_subtitle": "Universidad de Rennes 1 ISTIC",
+    "experience_4_diplome": "Diploma de Licenciatura en Informatica y Electronica",
     "experience_4_date": "Septiembre 2020 - Julio 2023",
     "experience_5_title": "Clase preparatoria DCG",
     "experience_5_subtitle": "Liceo Bréquigny, Rennes",
     "experience_5_date": "Septiembre 2018 - Julio 2019",
     "experience_6_title": "Bachillerato Científico (SVT)",
     "experience_6_subtitle": "Liceo La Fontaine Des Eaux, Dinan",
+    "experience_6_diplome": "Diploma de Bachillerato Cientifico (SVT)",
     "experience_6_date": "Julio 2018",
+    "experience_diploma_label": "Diploma obtenido",
     "years": "Años",
     "experience_home": "de experiencia",
     "studies": "de estudios",
@@ -162,6 +185,7 @@
         "Productivity": "Productividad",
         "Communication": "Comunicación",
         "DevOps": "DevOps",
+        "Testing": "Pruebas y Calidad",
         "Design": "Diseño",
         "Project Management": "Gestión de Proyectos",
         "Programming Languages": "Lenguajes",
@@ -187,6 +211,7 @@
     "captcha_required": "Por favor, completa el captcha.",
     "errors": {
         "hcaptcha_failed": "La validación del captcha falló.",
+        "captcha_failed": "La validación del captcha falló.",
         "missing_fields": "Por favor, rellena todos los campos obligatorios.",
         "rate_limited": "Demasiados intentos. Inténtalo de nuevo en unos segundos.",
         "send_failed": "Se produjo un error al enviar el mensaje.",
@@ -230,13 +255,13 @@
         },
         "privacy": {
             "title": "7. Datos personales",
-            "p1": "Este sitio puede recopilar datos personales a través del formulario de contacto (si existe) y mediante herramientas de medición de audiencia.",
+            "p1": "Este sitio puede recopilar datos personales a traves del formulario de contacto (si existe), mediante el control antiabuso reCAPTCHA v3 (Google) y mediante herramientas de medicion de audiencia.",
             "p2": "Usted dispone de los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad. Para ejercer sus derechos: theo.guerin35000@gmail.com.",
             "p3": "Para más información, consulte la Política de privacidad."
         },
         "cookies": {
             "title": "8. Cookies y medición de audiencia",
-            "p1": "Este sitio utiliza Google Analytics 4 únicamente tras su consentimiento. Hasta que acepte, no se instalan cookies de analítica no esenciales ni se envían datos a Google.",
+            "p1": "Este sitio utiliza Google Analytics 4 unicamente tras su consentimiento. Hasta que acepte, no se instalan cookies de analitica no esenciales ni se envian datos a Google. El formulario de contacto tambien utiliza Google reCAPTCHA v3 como mecanismo tecnico anti-spam.",
             "p2": "Base jurídica: consentimiento (art. 6(1)(a) RGPD). Puede cambiar sus preferencias en cualquier momento a través de «Gestionar mis cookies».",
             "p3": "Google Ireland Limited actúa como encargado del tratamiento. Pueden producirse transferencias de datos fuera de la UE, amparadas por las Cláusulas Contractuales Tipo. GA4 anonimiza las direcciones IP por defecto."
         },
@@ -268,21 +293,22 @@
         "data": {
             "title": "2. Datos recogidos y finalidades",
             "intro": "Los datos en este sitio se recogen únicamente para:",
-            "contact_form": "Formulario de contacto: nombre, correo, mensaje. Finalidad: responder a su solicitud.",
+            "contact_form": "Formulario de contacto: nombre, correo, mensaje y token tecnico de reCAPTCHA. Finalidad: responder a su solicitud y prevenir envios automatizados abusivos.",
             "analytics": "Medición de audiencia: mediante Google Analytics 4 (GA4). Finalidad: estadísticas anonimizadas para mejorar el sitio.",
             "legal_basis_intro": "Base jurídica:",
-            "legal_basis_contact": "Interés legítimo para gestionar los mensajes recibidos mediante el formulario.",
+            "legal_basis_contact": "Interes legitimo para gestionar los mensajes recibidos mediante el formulario y prevenir spam/abusos.",
             "legal_basis_analytics": "Consentimiento explícito para habilitar Google Analytics."
         },
         "ga4": {
             "title": "3. Google Analytics (GA4)",
             "p1": "Este sitio utiliza Google Analytics 4 únicamente tras su consentimiento. Google Ireland Limited actúa como encargado del tratamiento. Pueden producirse transferencias de datos fuera de la UE, regidas por las Cláusulas Contractuales Tipo.",
             "p2": "Las direcciones IP se anonimizan por defecto y los datos se conservan durante un periodo limitado, conforme a las recomendaciones de la CNIL. Puede cambiar sus preferencias en cualquier momento desde el panel inferior o el enlace «Gestionar mis cookies» en el pie de página.",
-            "manage_button": "Gestionar mis cookies"
+            "manage_button": "Gestionar mis cookies",
+            "manage_button_aria": "Abrir preferencias de cookies"
         },
         "recipients": {
             "title": "4. Destinatarios de los datos",
-            "text": "Los datos recogidos mediante el formulario solo son accesibles por el propietario del sitio. Los datos de audiencia se envían a Google como proveedor de analítica."
+            "text": "Los datos recogidos mediante el formulario solo son accesibles por el propietario del sitio. Los datos de audiencia se envian a Google como proveedor de analitica. Los datos tecnicos de verificacion anti-bot son tratados por Google (reCAPTCHA)."
         },
         "rights": {
             "title": "5. Sus derechos",
@@ -308,6 +334,38 @@
             "text": "Para cualquier pregunta sobre esta política, escriba a:"
         }
     },
+    "cookie_policy": {
+        "title": "Política de cookies",
+        "last_update": "Última actualización: {{date}}",
+        "what": {
+            "title": "1. ¿Qué es una cookie?",
+            "p1": "Una cookie es un pequeño archivo de texto almacenado en su dispositivo al visitar un sitio web.",
+            "p2": "Puede utilizarse para recordar preferencias de navegación o medir la audiencia del sitio."
+        },
+        "types": {
+            "title": "2. Tipos de cookies utilizadas",
+            "necessary": "Cookies estrictamente necesarias: indispensables para el funcionamiento tecnico del sitio, incluida la proteccion antiabuso reCAPTCHA en el formulario de contacto.",
+            "analytics": "Cookies de analítica: Google Analytics (GA4), solo activadas tras su consentimiento."
+        },
+        "use": {
+            "title": "3. Finalidades",
+            "p1": "Las cookies técnicas permiten el correcto funcionamiento de determinadas funcionalidades.",
+            "p2": "Las cookies de analítica permiten comprender el uso del sitio y mejorar su contenido."
+        },
+        "duration": {
+            "title": "4. Plazo de conservación",
+            "p1": "Las preferencias de consentimiento se conservan hasta 6 meses. Los datos de audiencia se conservan durante un periodo limitado según las recomendaciones aplicables."
+        },
+        "manage": {
+            "title": "5. Gestionar su consentimiento",
+            "p1": "Puede aceptar o rechazar las cookies de analítica en cualquier momento.",
+            "button": "Gestionar mis cookies"
+        },
+        "update": {
+            "title": "6. Actualización de esta política",
+            "p1": "Esta política puede actualizarse por cambios legales o técnicos."
+        }
+    },
     "cookie_prefs": {
         "title": "Preferencias de privacidad",
         "intro_1": "Gestione su consentimiento para cookies y tecnologías similares.",
@@ -321,18 +379,113 @@
         "decline": "Rechazar",
         "accept": "Aceptar",
         "manage": "Gestionar mis cookies",
-        "aria-label": "Banner de gestión de cookies"
+        "aria-label": "Banner de gestión de cookies",
+        "aria_label": "Banner de gestión de cookies"
     },
     "common": {
         "cancel": "Cancelar",
-        "save": "Guardar"
+        "save": "Guardar",
+        "skip_to_content": "Saltar al contenido",
+        "close": "Cerrar"
+    },
+    "a11y": {
+        "skip_to_content": "Ir al contenido",
+        "back_to_top": "Volver arriba",
+        "nav_menu_toggle": "Abrir o cerrar el menú de navegación",
+        "loading_content": "Cargando contenido",
+        "language_selector": "Elegir idioma"
+    },
+    "services": {
+        "eyebrow": "Lo que ofrezco",
+        "title": "Servicios",
+        "subtitle": "Diseño y desarrollo productos web sólidos, accesibles y de alto rendimiento, desde la estrategia hasta su publicación.",
+        "cta": "Hablar de tu proyecto",
+        "items": {
+            "websites": {
+                "title": "Sitios web premium",
+                "description": "Landing pages y sitios corporativos optimizados para SEO, velocidad y conversión."
+            },
+            "apps": {
+                "title": "Aplicaciones web con React",
+                "description": "Interfaces modernas, componentes mantenibles y una experiencia fluida tanto en escritorio como en móvil."
+            },
+            "api": {
+                "title": "API y backend",
+                "description": "Arquitectura en Node.js, autenticación segura, bases de datos bien estructuradas y endpoints limpios y escalables."
+            },
+            "optimization": {
+                "title": "SEO técnico",
+                "description": "Configuración SEO puntual (etiquetas, estructura y rendimiento)."
+            }
+        }
     },
     "footer_links": {
         "legal": "Aviso legal",
         "privacy": "Política de privacidad",
         "cookies": "Gestionar mis cookies",
+        "cookies_policy": "Política de cookies",
         "aria_legal": "Aviso legal",
         "aria_privacy": "Política de privacidad",
-        "aria_cookies": "Gestionar mis cookies"
-    }
+        "aria_cookies": "Gestionar mis cookies",
+        "aria_cookies_policy": "Política de cookies"
+    },
+    "seo_keywords": "Théo Guérin, desarrollador full-stack, React, Django, Python, Node.js, Flutter, portafolio, Rennes, desarrollador web",
+    "seo_routes": {
+        "home_description": "Portafolio de Théo Guérin, desarrollador Full-Stack basado en Rennes. Especializado en React, Django, Python, Flutter y desarrollo web moderno.",
+        "about_description": "Descubre a Théo Guérin: desarrollador Full-Stack apasionado con sede en Rennes, sus aficiones, cualificaciones y trayectoria profesional.",
+        "experience_description": "Trayectoria de Théo Guérin: formación dual Full-Stack en Nahibu, MBA Web Full-Stack, Bachelor y Licenciatura en Informática en Rennes.",
+        "project_description": "Proyectos web de Théo Guérin: aplicaciones React, APIs REST con Django, apps Flutter y sitios vitrina realizados en prácticas y formación.",
+        "contact_description": "Contacta a Théo Guérin para un proyecto web, misión freelance u oportunidad profesional. Basado en Rennes, disponible.",
+        "cv_description": "Consulta o descarga el CV de Théo Guérin, desarrollador Full-Stack especializado en React, Django y Python, con sede en Rennes.",
+        "legal_description": "Aviso legal del portafolio de Théo Guérin, desarrollador web Full-Stack con sede en Rennes.",
+        "privacy_description": "Política de privacidad del portafolio de Théo Guérin — tratamiento de datos, cookies y tus derechos.",
+        "cookies_description": "Política de cookies del portafolio de Théo Guérin: tipos de cookies, finalidades, conservación y gestión del consentimiento."
+    },
+    "gitlab_profile_link": "Perfil de GitLab",
+    "seo_og_image_alt": "Vista previa del portafolio de Théo Guérin",
+    "categories_projects": {
+        "lemonmaze_api_title": "LemonMaze API",
+        "lemonmaze_api_description": "API REST en Node.js que alimenta LemonMaze con endpoints HTTP para datos de rutas, reglas de negocio y sincronizacion movil.",
+        "lemonmaze_title": "LemonMaze",
+        "lemonmaze_description": "App movil en Flutter para descubrir Rennes mediante rutas con acertijos, progreso de usuario y mecanicas de recompensa.",
+        "cosmiclink_title": "CosmicLink",
+        "cosmiclink_description": "Prototipo de red social en PHP nativo con metafora de universo: modelo de galaxias/estrellas, perfiles publicos/privados, sugerencias y mensajeria instantanea.",
+        "minuteur_mobile_title": "Temporizador móvil",
+        "minuteur_mobile_description": "Aplicacion Kotlin de temporizadores con modos para huevos y temporizadores personalizados, ejecucion simultanea, edicion/eliminacion y alertas sonoras.",
+        "breizhcoin_title": "BreizhCoin",
+        "breizhcoin_description": "Proyecto universitario tipo marketplace (inspirado en Leboncoin) centrado en backend PHP: anuncios, cuentas de usuario, favoritos y categorias.",
+        "thebindingofisaac_title": "TheBindingOfIsaac",
+        "thebindingofisaac_description": "Juego en Java inspirado en The Binding of Isaac con generacion de salas, comportamientos de enemigos/jefes, inventario y guardado/carga.",
+        "portfolio_v1_title": "Portafolio antiguo",
+        "portfolio_v1_description": "Primera version de mi portfolio, desarrollada con Vue.js para sentar bases responsive y presentar mis proyectos.",
+        "flambow_title": "Flambow Landing Page",
+        "flambow_description": "Landing page responsive de Flambow creada para presentar el concepto, explicar la propuesta de valor y captar los primeros leads.",
+        "flambow_frontend_title": "Flambow Frontend",
+        "flambow_frontend_description": "Frontend principal de Flambow, una plataforma de intercambio intergeneracional. Construido con React + TypeScript, arquitectura modular, pruebas con Vitest/Playwright, pipeline seguro en GitLab CI y despliegue Docker en OVH.",
+        "badmintonapi_title": "API Badminton",
+        "badmintonapi_description": "API de reserva de pistas con JWT, roles usuario/admin, reglas de disponibilidad, documentacion Swagger, entorno Docker y endpoint GraphQL.",
+        "portes_montafilan_title": "Les Portes de Montafilan",
+        "portes_montafilan_description": "Sitio vitrina bilingue y herramienta de prereserva para un alojamiento: presentacion, galeria, disponibilidad Airbnb via iCal, estimacion con tarifas Google Sheets, enlace Airbnb prerrellenado y formulario Brevo protegido con reCAPTCHA v3.",
+        "portfolio_v2_title": "Portfolio V2",
+        "portfolio_v2_description": "Portfolio personal multilingue (React + TypeScript) con SEO tecnico, formulario protegido con reCAPTCHA v3, analitica con consentimiento y despliegue en Vercel.",
+        "library_title": "Aplicación Librería",
+        "library_description": "Aplicacion full-stack para gestion de biblioteca con autenticacion JWT, catalogo de libros, flujos de prestamos/reservas, panel admin y persistencia MySQL con Sequelize.",
+        "portfoliov2_image_alt": "Imagen del proyecto Portafolio V2",
+        "apibook_image_alt": "Imagen del proyecto API Book",
+        "lemonmaze_image_alt": "Imagen del proyecto LemonMaze",
+        "cosmiclink_image_alt": "Imagen del proyecto CosmicLink",
+        "chrono_image_alt": "Imagen del proyecto Chrono",
+        "breizhcoin_image_alt": "Imagen del proyecto BreizhCoin",
+        "tboi_image_alt": "Imagen del proyecto The Binding of Isaac",
+        "portfolio_image_alt": "Imagen del proyecto Portafolio V1",
+        "flambow_image_alt": "Imagen del proyecto Flambow Landing Page",
+        "flambow_frontend_image_alt": "Imagen del proyecto Flambow Frontend",
+        "badmintonapi_image_alt": "Imagen del proyecto API Badminton",
+        "portes_montafilan_image_alt": "Captura de la pagina de inicio de Les Portes de Montafilan"
+    },
+    "footer_navigation": "Navegación del pie de página",
+    "footer_products_title": "Páginas",
+    "footer_social_title": "Redes",
+    "footer_legal_title": "Legal",
+    "footer_rights": "Todos los derechos reservados."
 }

@@ -27,6 +27,10 @@
 - Outils et plateformes: Git, GitHub, GitLab, Postman, Visual Studio Code, IntelliJ IDEA, Android Studio, Linux, Windows, WordPress, Wix, Jira, Trello, Confluence, Figma, Adobe Photoshop, Adobe Premiere Pro, Wireshark, Unity
 
 ## Preuves par projet
+- Les Portes de Montafilan: React, TypeScript, Vite, Tailwind CSS, Vercel, Brevo, Vitest, Playwright
+  - Repo: [https://github.com/KizuCore/PortesDeMontafilan](https://github.com/KizuCore/PortesDeMontafilan)
+  - Site: [https://www.lesportesdemontafilan.com/](https://www.lesportesdemontafilan.com/)
+  - Points forts: site vitrine bilingue, disponibilites Airbnb via iCal, estimation tarifaire Google Sheets, formulaire Brevo protege par reCAPTCHA v3, fonctions serverless Vercel
 - Portfolio v2: React, TypeScript, Bootstrap, Node.js, Axios
   - Repo: [https://github.com/KizuCore/Portfolio](https://github.com/KizuCore/Portfolio)
 - Application bibliotheque: Node.js, Swagger, MySQL, React, Bootstrap, Sequelize

@@ -37,7 +37,7 @@
     "hobby7": "Séries / Films",
     "my_projects": "Mes",
     "projects": "Projets",
-    "projects_description": "Voici quelques projets sur lesquels j'ai travaillé :",
+    "projects_description": "Une selection de projets representatifs de mon approche: architecture, UX, API et livraison web/mobile.",
     "see": "Voir",
     "downloadcv": "Télécharger",
     "my": "Mon",
@@ -61,6 +61,7 @@
     "presentation_title": "Présentation",
     "portfolio_theo": "Portfolio de Théo Guérin",
     "github_profile_link": "Lien vers le profil GitHub de Théo Guérin",
+    "gitlab_profile_link": "Profil GitLab",
     "linkedin_profile_link": "Lien vers le profil LinkedIn de Théo Guérin",
     "email_link": "Envoyer un email à Théo Guérin",
     "about_image_alt": "Développeur sur un ordinateur portable",
@@ -85,6 +86,7 @@
     "seo_description": "Portfolio de Théo Guérin, développeur full-stack, spécialisé en React, Node.js et Flutter. Découvrez mes projets, mon CV et mes compétences.",
     "seo_og_title": "Théo Guérin | Développeur Full-Stack | Portfolio",
     "seo_og_description": "Découvrez le portfolio de Théo Guérin, développeur web passionné. Projets web, technologies maîtrisées, CV en ligne et formulaire de contact.",
+    "seo_og_image_alt": "Aperçu du portfolio de Théo Guérin",
     "seo_twitter_title": "Théo Guérin | Développeur Full-Stack | Portfolio",
     "seo_twitter_description": "Découvrez le portfolio de Théo Guérin, développeur web passionné. Projets web, technologies maîtrisées, CV en ligne et formulaire de contact.",
     "flag_fr": "Drapeau Français",
@@ -92,6 +94,21 @@
     "flag_en": "Drapeau Royaume-Uni",
     "flag_bzh": "Drapeau Breton",
     "contact_us": "Discutons-en ensemble",
+    "contact_eyebrow": "Parlons de votre projet",
+    "contact_intro": "Une idée, une mission freelance ou un poste à proposer ? Écrivez-moi, je vous réponds rapidement.",
+    "contact_panel_title": "Un projet à lancer ?",
+    "contact_panel_description": "Je peux intervenir sur la creation, la refonte et l'optimisation de produits web.",
+    "contact_point_1": "Audit rapide du besoin et cadrage clair",
+    "contact_point_2": "Proposition technique adaptee a vos objectifs",
+    "contact_point_3": "Suivi transparent du debut a la livraison",
+    "contact_meta_availability_label": "Disponibilite",
+    "contact_meta_availability_value": "Ouvert aux nouveaux projets",
+    "contact_meta_response_label": "Delai de reponse",
+    "contact_meta_response_value": "Retour sous 24h",
+    "contact_meta_location_label": "Localisation",
+    "contact_meta_location_value": "Rennes, France",
+    "contact_cta_email": "Envoyer un email",
+    "contact_cta_linkedin": "Discuter sur LinkedIn",
     "name": "Nom & Prénom",
     "name_placeholder": "Votre nom/prénom",
     "email": "Adresse e-mail",
@@ -101,16 +118,22 @@
     "message": "Message",
     "message_placeholder": "Votre message",
     "send_message": "Envoyer",
+    "contact_form_title": "Parlez-moi de votre besoin",
+    "contact_form_subtitle": "Donnez-moi quelques details sur votre besoin, et je vous repondrai rapidement.",
+    "contact_form_required_hint": "Tous les champs sont requis.",
     "sending": "Envoi...",
     "error_loading_pdf": "Erreur lors du chargement du PDF. Veuillez réessayer plus tard.",
     "cv_alt_description": "CV de Théo Guérin",
     "Mon parcours": "Mon parcours",
     "experience_1_title": "Développeur Web Fullstack - Nahibu",
     "experience_1_date": "Depuis Mars. 2024",
-    "experience_1_description": "Responsable de l’infrastructure Nahibu, implémentation d’interfaces, refonte graphique, SEO, documentation, ...",
-    "experience_1_stack": "Django, Flask, React, PostgreSQL, Axios, AWS, Citry API, Brevo, Jupyter, Django, Wordpress, Wix, LimeSurvey, Docker, Nuxt",
+    "experience_1_subtitle": "Nahibu - Rennes",
+    "experience_1_description": "Conception et evolution de la plateforme Nahibu.",
+    "experience_1_highlights": "Developpement d'interfaces React pour la plateforme Nahibu||Implementation de rapports microbiote et visualisations de donnees avec Django||Developpement et maintenance d'API REST avec Django et Flask||Conception et gestion de bases de donnees (PostgreSQL, MySQL)||Integration de services externes : WooCommerce, Systempay, Brevo, LimeSurvey||Participation au deploiement via Docker et CI/CD||Mise en place de tests automatises avec Playwright, Jest et Bruno",
+    "experience_1_stack": "Python, Django, Flask, React, PostgreSQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
     "experience_2_title": "MBA Développeur Web Full-Stack",
     "experience_2_subtitle": "My Digital School Rennes",
+    "experience_2_diplome": "Mastere Developpeur Web Full-Stack",
     "experience_2_date": "Depuis Sept. 2024",
     "experience_3_title": "Bachelor Développeur Web",
     "experience_3_subtitle": "My Digital School Rennes",
@@ -118,13 +141,16 @@
     "experience_3_date": "Sept. 2023 - Juil. 2024",
     "experience_4_title": "Licence Informatique & Électronique",
     "experience_4_subtitle": "Université Rennes 1 ISTIC",
+    "experience_4_diplome": "Licence Informatique & Electronique",
     "experience_4_date": "Sept. 2020 - Juil. 2023",
     "experience_5_title": "Classe préparatoire DCG",
     "experience_5_subtitle": "Lycée Bréquigny, Rennes",
     "experience_5_date": "Sept. 2018 - Juil. 2019",
     "experience_6_title": "Baccalauréat Scientifique SVT",
     "experience_6_subtitle": "Lycée La Fontaine Des Eaux, Dinan",
+    "experience_6_diplome": "Baccalaureat Scientifique SVT",
     "experience_6_date": "Juil. 2018",
+    "experience_diploma_label": "Diplôme obtenu",
     "years": "Ans",
     "experience_home": "d’expériences",
     "studies": "d’études",
@@ -160,6 +186,7 @@
         "Productivity": "Productivité",
         "Communication": "Communication",
         "DevOps": "DevOps",
+        "Testing": "Tests & Qualité",
         "Design": "Design",
         "Project Management": "Gestion de projet",
         "Programming Languages": "Langages",
@@ -169,27 +196,31 @@
     },
     "categories_projects": {
         "lemonmaze_api_title": "LemonMaze API",
-        "lemonmaze_api_description": "API en RESTful sous node.js pour communiquer avec l'application mobile LemonMaze via requêtes HTTP.",
+        "lemonmaze_api_description": "API REST Node.js qui alimente LemonMaze: endpoints HTTP pour les donnees de parcours, la logique metier et la synchronisation mobile.",
         "lemonmaze_title": "LemonMaze",
-        "lemonmaze_description": "LemonMaze est une application mobile sous Flutter, qui a pour but de faire découvrir Rennes sous une sorte de suites d'énigmes en fonction d'un parcours, avec des récompenses à la clé.",
+        "lemonmaze_description": "Application mobile Flutter pour decouvrir Rennes via un parcours d'enigmes, avec progression utilisateur et mecaniques de recompense.",
         "cosmiclink_title": "CosmicLink",
-        "cosmiclink_description": "CosmicLink est un réseau social, avec panel d'administration sous le format d'étoiles / constellations, codé sous PHP natif.",
+        "cosmiclink_description": "Prototype de reseau social en PHP natif: univers visuel en galaxies/etoiles, profils publics/prives, suggestions d'utilisateurs et messagerie instantanee.",
         "minuteur_mobile_title": "Minuteur mobile",
-        "minuteur_mobile_description": "Application mobile en Kotlin, propose trois minuteurs pour les œufs, qui peuvent être redémarrés et lancés, ainsi que des minuteurs personnalisables pouvant être modifiés et supprimés avec notification sonore.",
+        "minuteur_mobile_description": "Application Kotlin de minuteurs multi-profils (oeufs + personnalisables), execution simultanee, edition/suppression et notifications sonores.",
         "breizhcoin_title": "BreizhCoin",
-        "breizhcoin_description": "Projet PhP de L2, où nous devions faire la partie Back d'un site web comme Leboncoin, ainsi qu'un peu de Front.",
+        "breizhcoin_description": "Projet universitaire type marketplace (inspire Leboncoin) centre sur le backend PHP: gestion des annonces, comptes utilisateurs, favoris et categories.",
         "thebindingofisaac_title": "TheBindingOfIsaac",
-        "thebindingofisaac_description": "Projet de L2 qui était la création d'un jeu qui ressemble à TheBindingOfIsaac en Java.",
+        "thebindingofisaac_description": "Jeu Java inspire de The Binding of Isaac: generation de salles, IA d'ennemis/boss, inventaire et mecanisme de sauvegarde/chargement.",
         "portfolio_v1_title": "Ancien Portfolio",
-        "portfolio_v1_description": "Ancien Portfolio pour essayer Vue.js avec responsive.",
-        "flambow_title": "Flambow",
-        "flambow_description": "Cette application web responsive, développée avec React, Bootstrap et du CSS personnalisé, constitue le premier prototype de Flambow : une plateforme qui facilite les échanges de compétences entre générations.",
+        "portfolio_v1_description": "Premiere version de mon portfolio, developpee en Vue.js pour poser les bases du responsive et de la presentation projet.",
+        "flambow_title": "Flambow Landing Page",
+        "flambow_description": "Landing page responsive de Flambow, concue pour presenter le concept, expliquer la proposition de valeur et collecter les premiers leads.",
+        "flambow_frontend_title": "Flambow Frontend",
+        "flambow_frontend_description": "Frontend principal de Flambow, une plateforme d'entraide intergenerationnelle. Projet React + TypeScript avec architecture modulaire, tests Vitest/Playwright, pipeline GitLab CI securise et deploiement Docker sur OVH.",
         "badmintonapi_title": "API Badminton",
-        "badmintonapi_description": "API Badminton est une API RESTful en Node.js permettant la gestion de réservations de terrains, avec authentification, rôles, et documentation Swagger. Elle inclut aussi une interface GraphQL.",
-        "portfolio_v2_title": "Portfolio",
-        "portfolio_v2_description": "Découvrez mon portfolio multilangue, avec une présentation personnelle, mon CV et les moyens de me contacter. Vous y trouverez des informations sur mes loisirs, les langages que je maîtrise et utilise, ainsi que les projets sur lesquels j'ai travaillé.",
+        "badmintonapi_description": "API de reservation de terrains de badminton avec JWT, roles utilisateur/admin, regles de disponibilite, documentation Swagger, Docker et endpoint GraphQL.",
+        "portes_montafilan_title": "Les Portes de Montafilan",
+        "portes_montafilan_description": "Site vitrine bilingue et outil de pre-reservation pour un gite: presentation, galerie, disponibilites Airbnb via iCal, estimation tarifaire Google Sheets, lien Airbnb pre-rempli et formulaire Brevo securise par reCAPTCHA v3.",
+        "portfolio_v2_title": "Portfolio V2",
+        "portfolio_v2_description": "Portfolio personnel multilingue (React + TypeScript) avec SEO technique, formulaire securise par reCAPTCHA v3, analytics sous consentement et deploiement Vercel.",
         "library_title": "Application Librairie",
-        "library_description": "Projet de MBA, je devais faire une application web avec un back et un front pour une Librairie, avec système de réservation, voir le READ.ME .",
+        "library_description": "Application full-stack de gestion de bibliotheque: authentification JWT, gestion des livres et des emprunts/reservations, interface admin et persistance MySQL via Sequelize.",
         "portfoliov2_image_alt": "Image du projet Portfolio V2",
         "apibook_image_alt": "Image du projet API Book",
         "lemonmaze_image_alt": "Image du projet LemonMaze",
@@ -198,8 +229,10 @@
         "breizhcoin_image_alt": "Image du projet BreizhCoin",
         "tboi_image_alt": "Image du projet The Binding of Isaac",
         "portfolio_image_alt": "Image du projet Portfolio V1",
-        "flambow_image_alt": "Image du projet Flambow",
-        "badmintonapi_image_alt": "Image du projet API Badminton"
+        "flambow_image_alt": "Image du projet Flambow Landing Page",
+        "flambow_frontend_image_alt": "Image du projet Flambow Frontend",
+        "badmintonapi_image_alt": "Image du projet API Badminton",
+        "portes_montafilan_image_alt": "Capture de la page d'accueil du site Les Portes de Montafilan"
     },
     "solar_system": {
         "sun": "Soleil",
@@ -219,6 +252,7 @@
     "captcha_required": "Merci de valider le captcha.",
     "errors": {
         "hcaptcha_failed": "Échec de validation du captcha.",
+        "captcha_failed": "Échec de validation du captcha.",
         "missing_fields": "Veuillez remplir tous les champs.",
         "rate_limited": "Trop de tentatives. Réessayez dans quelques secondes.",
         "send_failed": "Erreur lors de l’envoi du message.",
@@ -250,7 +284,7 @@
         },
         "status": {
             "title": "4. Statut du site",
-            "text": "Ce site constitue un portfolio personnel et n’a pas vocation commerciale directe. Il ne propose ni vente en ligne ni espace client. En l’absence d’activité professionnelle, aucun numéro SIREN/SIRET n’est requis."
+            "text": "Ce site constitue un portfolio personnel présentant l’activité professionnelle de l’éditeur. Il ne propose ni vente en ligne ni espace client. L’activité est enregistrée sous un numéro SIRET, indiqué en bas de cette page."
         },
         "ip": {
             "title": "5. Propriété intellectuelle",
@@ -262,13 +296,13 @@
         },
         "privacy": {
             "title": "7. Données personnelles",
-            "p1": "Ce site peut collecter des données personnelles via le formulaire de contact (si présent) et via des outils de mesure d’audience.",
+            "p1": "Ce site peut collecter des données personnelles via le formulaire de contact (si présent), via un mecanisme anti-abus reCAPTCHA v3 (Google) et via des outils de mesure d'audience.",
             "p2": "Vous disposez des droits d’accès, de rectification, d’effacement, d’opposition, de limitation et de portabilité de vos données. Pour exercer vos droits : theo.guerin35000@gmail.com.",
             "p3": "Pour plus d’informations, consultez la Politique de confidentialité."
         },
         "cookies": {
             "title": "8. Cookies et mesure d’audience",
-            "p1": "Ce site utilise Google Analytics (GA4) uniquement après votre consentement. Tant que vous n’avez pas accepté, aucun cookie de mesure d’audience non essentiel n’est déposé et aucune donnée n’est envoyée à Google.",
+            "p1": "Ce site utilise Google Analytics (GA4) uniquement après votre consentement. Tant que vous n'avez pas accepté, aucun cookie de mesure d'audience non essentiel n'est déposé et aucune donnée n'est envoyée à Google. Le formulaire de contact utilise aussi Google reCAPTCHA v3, un dispositif technique de protection anti-spam.",
             "p2": "Base légale : consentement (article 6(1)(a) RGPD). Vous pouvez modifier vos préférences à tout moment via « Gérer mes cookies ».",
             "p3": "Google Ireland Limited agit en tant que sous-traitant. Des transferts hors UE peuvent intervenir, encadrés par les clauses contractuelles types. GA4 anonymise les adresses IP par défaut."
         },
@@ -300,21 +334,22 @@
         "data": {
             "title": "2. Données collectées et finalités",
             "intro": "Les données collectées sur ce site le sont uniquement pour :",
-            "contact_form": "Formulaire de contact : nom, email, message. Finalité : répondre à votre demande.",
+            "contact_form": "Formulaire de contact : nom, email, message et jeton technique reCAPTCHA. Finalite : repondre a votre demande et prevenir les envois automatises abusifs.",
             "analytics": "Mesure d’audience : via Google Analytics (GA4). Finalité : statistiques anonymisées de fréquentation pour améliorer le site.",
             "legal_basis_intro": "Base légale du traitement :",
-            "legal_basis_contact": "Intérêt légitime pour la gestion des messages reçus via le formulaire.",
+            "legal_basis_contact": "Interet legitime pour la gestion des messages recus via le formulaire et la prevention du spam/abus.",
             "legal_basis_analytics": "Consentement explicite pour l’activation de Google Analytics."
         },
         "ga4": {
             "title": "3. Google Analytics (GA4)",
             "p1": "Ce site utilise Google Analytics 4 uniquement après votre consentement. Google Ireland Limited agit en tant que sous-traitant. Des transferts hors UE peuvent avoir lieu ; ils sont encadrés par les clauses contractuelles types de la Commission européenne.",
-            "p2": "Les adresses IP sont anonymisées par défaut et les données sont conservées pendant une durée limitée, conforme aux recommandations de la CNIL. Vous pouvez modifier vos préférences à tout moment via le panneau ci-dessous ou depuis le lien « Gérer mes cookies » en pied de page.",
-            "manage_button": "Gérer mes cookies"
+            "p2": "Le détail des cookies, de leur durée de conservation et des modalités de gestion du consentement est présenté dans la Politique des cookies.",
+            "manage_button": "Gérer mes cookies",
+            "manage_button_aria": "manage button aria"
         },
         "recipients": {
             "title": "4. Destinataires des données",
-            "text": "Les données collectées via le formulaire sont uniquement accessibles par l’éditeur du site. Les données d’audience sont transmises à Google en tant que prestataire d’analyse."
+            "text": "Les donnees collectees via le formulaire sont uniquement accessibles par l'editeur du site. Les donnees d'audience sont transmises a Google en tant que prestataire d'analyse. Les donnees techniques liees a la verification anti-bot sont traitees par Google (reCAPTCHA)."
         },
         "rights": {
             "title": "5. Vos droits",
@@ -340,6 +375,38 @@
             "text": "Pour toute question concernant cette politique, vous pouvez écrire à :"
         }
     },
+    "cookie_policy": {
+        "title": "Politique des cookies",
+        "last_update": "Dernière mise à jour : {{date}}",
+        "what": {
+            "title": "1. Qu’est-ce qu’un cookie ?",
+            "p1": "Un cookie est un petit fichier texte déposé sur votre appareil lorsque vous consultez un site web.",
+            "p2": "Il permet notamment de mémoriser des informations de navigation ou de mesurer l’audience du site."
+        },
+        "types": {
+            "title": "2. Types de cookies utilisés",
+            "necessary": "Cookies strictement necessaires : indispensables au fonctionnement technique du site, incluant la protection anti-abus reCAPTCHA sur le formulaire de contact.",
+            "analytics": "Cookies de mesure d’audience : Google Analytics (GA4), uniquement après votre consentement."
+        },
+        "use": {
+            "title": "3. Finalités",
+            "p1": "Les cookies techniques servent au bon fonctionnement de certaines fonctionnalités du site.",
+            "p2": "Les cookies de mesure d’audience servent à comprendre l’usage du site et améliorer son contenu."
+        },
+        "duration": {
+            "title": "4. Durée de conservation",
+            "p1": "Les préférences de consentement sont conservées pendant 6 mois maximum. Les données d’audience sont conservées pour une durée limitée, conforme aux recommandations en vigueur."
+        },
+        "manage": {
+            "title": "5. Gérer votre consentement",
+            "p1": "Vous pouvez accepter ou refuser les cookies de mesure d’audience à tout moment.",
+            "button": "Gérer mes cookies"
+        },
+        "update": {
+            "title": "6. Mise à jour de cette politique",
+            "p1": "Cette politique peut évoluer en fonction des obligations légales ou techniques."
+        }
+    },
     "cookie_prefs": {
         "title": "Préférences de confidentialité",
         "intro_1": "Gérez votre consentement pour les cookies et technologies similaires.",
@@ -353,18 +420,71 @@
         "decline": "Refuser",
         "accept": "Accepter",
         "manage": "Gérer mes cookies",
-        "aria-label": "Bandeau de gestion des cookies"
+        "aria-label": "Bandeau de gestion des cookies",
+        "aria_label": "Bandeau de gestion des cookies"
     },
     "common": {
         "cancel": "Annuler",
-        "save": "Enregistrer"
+        "save": "Enregistrer",
+        "skip_to_content": "Passer le contenu",
+        "close": "Fermer"
     },
+    "a11y": {
+        "skip_to_content": "Aller au contenu",
+        "back_to_top": "Retour en haut",
+        "language_selector": "Choisir la langue",
+        "nav_menu_toggle": "Ouvrir ou fermer le menu",
+        "loading_content": "Chargement du contenu"
+    },
+    "services": {
+        "eyebrow": "Ce que je propose",
+        "title": "Services",
+        "subtitle": "Je conçois et développe des solutions web solides, accessibles et performantes, de la réflexion jusqu’à la mise en ligne.",
+        "cta": "Parler de votre projet",
+        "items": {
+            "websites": {
+                "title": "Sites vitrines",
+                "description": "Landing pages et sites institutionnels rapides, référencables et pensés conversion."
+            },
+            "apps": {
+                "title": "Applications web React",
+                "description": "Interfaces, composants maintenables et expérience utilisateur fluide sur desktop et mobile."
+            },
+            "api": {
+                "title": "API & backend",
+                "description": "Architecture Node.js, authentification, base de données et endpoints propres pour un socle solide."
+            },
+            "optimization": {
+                "title": "SEO technique",
+                "description": "Optimisation SEO technique : structure des pages, balises essentielles et performances pour améliorer votre visibilité sur Google."
+            }
+        }
+    },
+    "footer_navigation": "Navigation de pied de page",
+    "footer_products_title": "Pages",
+    "footer_social_title": "Réseaux",
+    "footer_legal_title": "Légal",
+    "footer_rights": "Tous droits réservés.",
     "footer_links": {
         "legal": "Mentions légales",
         "privacy": "Politique de confidentialité",
         "cookies": "Gérer mes cookies",
+        "cookies_policy": "Politique des cookies",
         "aria_legal": "Mentions légales",
         "aria_privacy": "Politique de confidentialité",
-        "aria_cookies": "Gérer mes cookies"
+        "aria_cookies": "Gérer mes cookies",
+        "aria_cookies_policy": "Politique des cookies"
+    },
+    "seo_keywords": "Théo Guérin, développeur full-stack, React, Django, Python, Node.js, Flutter, portfolio, Rennes, développeur web",
+    "seo_routes": {
+        "home_description": "Portfolio de Théo Guérin, développeur Full-Stack basé à Rennes. Spécialisé en React, Django, Python, Flutter et développement web moderne.",
+        "about_description": "Découvrez Théo Guérin : développeur Full-Stack passionné basé à Rennes, ses loisirs, qualifications et son parcours professionnel.",
+        "experience_description": "Parcours de Théo Guérin : alternance Full-Stack chez Nahibu, MBA Web Full-Stack, Bachelor et Licence Informatique à Rennes.",
+        "project_description": "Projets web de Théo Guérin : applications React, API REST Django, Flutter et sites vitrine réalisés en alternance et en formation.",
+        "contact_description": "Contactez Théo Guérin pour un projet web, une mission freelance ou une opportunité professionnelle. Basé à Rennes, disponible.",
+        "cv_description": "Consultez ou téléchargez le CV de Théo Guérin, développeur Full-Stack spécialisé en React, Django et Python, basé à Rennes.",
+        "legal_description": "Mentions légales du portfolio de Théo Guérin, développeur web Full-Stack basé à Rennes.",
+        "privacy_description": "Politique de confidentialité du portfolio de Théo Guérin — traitement des données, cookies et vos droits.",
+        "cookies_description": "Politique des cookies du portfolio de Théo Guérin : types de cookies, finalités, durée de conservation et gestion du consentement."
     }
 }

@@ -38,7 +38,7 @@
     "hobby7": "Series / Movies",
     "my_projects": "My",
     "projects": "Projects",
-    "projects_description": "Here are some projects I've worked on:",
+    "projects_description": "A curated selection of projects showcasing product thinking, clean architecture, and full-stack delivery.",
     "see": "See",
     "downloadcv": "Download",
     "my": "My",
@@ -93,6 +93,21 @@
     "flag_en": "British flag",
     "flag_bzh": "Breton flag",
     "contact_us": "Contact Us",
+    "contact_eyebrow": "Let us build your next project",
+    "contact_intro": "Need a new website, a redesign, freelance support, or a role to discuss? Send a message and I will get back quickly.",
+    "contact_panel_title": "Ready to start?",
+    "contact_panel_description": "I help teams design, rebuild, and improve web products with clean execution.",
+    "contact_point_1": "Fast discovery and clear scope definition",
+    "contact_point_2": "Technical proposal aligned with your goals",
+    "contact_point_3": "Simple communication and reliable delivery",
+    "contact_meta_availability_label": "Availability",
+    "contact_meta_availability_value": "Open to new projects",
+    "contact_meta_response_label": "Response time",
+    "contact_meta_response_value": "Reply within 24h",
+    "contact_meta_location_label": "Location",
+    "contact_meta_location_value": "Rennes, France",
+    "contact_cta_email": "Send an email",
+    "contact_cta_linkedin": "Chat on LinkedIn",
     "name": "Name",
     "name_placeholder": "Enter your name",
     "email": "Email",
@@ -102,17 +117,22 @@
     "message": "Message",
     "message_placeholder": "Enter your message",
     "send_message": "Send",
+    "contact_form_title": "Tell me what you need",
+    "contact_form_subtitle": "Share a few details about your needs, and I will reply quickly.",
+    "contact_form_required_hint": "All fields are required.",
     "sending": "Sending...",
     "error_loading_pdf": "Error loading PDF. Please try again later.",
     "cv_alt_description": "Théo Guérin's CV",
     "Mon parcours": "My Journey",
     "experience_1_title": "Fullstack Web Developer - Nahibu",
     "experience_1_date": "Since March. 2024",
-    "experience_1_subtitle": "Rennes",
-    "experience_1_description": "Responsible for Nahibu’s infrastructure, interface implementation, design overhaul, SEO, documentation, ...",
-    "experience_1_stack": "Django, Flask, React, PostgreSQL, Axios, AWS, Citry API, Brevo, Jupyter, Django, Wordpress, Wix, LimeSurvey, Docker, Nuxt",
+    "experience_1_subtitle": "Nahibu - Rennes",
+    "experience_1_description": "Design and evolution of the Nahibu platform.",
+    "experience_1_highlights": "Development of React interfaces for the Nahibu platform||Implementation of microbiome reports and data visualizations with Django||Development and maintenance of REST APIs with Django and Flask||Design and management of databases (PostgreSQL, MySQL)||Integration of external services: WooCommerce, Systempay, Brevo, LimeSurvey||Participation in deployment using Docker and CI/CD||Setup of automated tests with Playwright, Jest and Bruno",
+    "experience_1_stack": "Python, Django, Flask, React, PostgreSQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
     "experience_2_title": "MBA Full-Stack Web Developer",
     "experience_2_subtitle": "My Digital School",
+    "experience_2_diplome": "Master's degree in Full-Stack Web Development",
     "experience_2_date": "Since Sept. 2024",
     "experience_3_title": "Bachelor Web Developer",
     "experience_3_subtitle": "My Digital School Rennes",
@@ -120,13 +140,16 @@
     "experience_3_date": "Sept. 2023 - July 2024",
     "experience_4_title": "Bachelor in Computer Science & Electronics",
     "experience_4_subtitle": "University of Rennes 1 ISTIC",
+    "experience_4_diplome": "Bachelor's degree in Computer Science & Electronics",
     "experience_4_date": "Sept. 2020 - July 2023",
     "experience_5_title": "Preparatory Class DCG",
     "experience_5_subtitle": "Bréquigny High School, Rennes",
     "experience_5_date": "Sept. 2018 - July 2019",
     "experience_6_title": "Scientific Baccalaureate (SVT)",
     "experience_6_subtitle": "La Fontaine Des Eaux High School, Dinan",
+    "experience_6_diplome": "Scientific Baccalaureate diploma (SVT)",
     "experience_6_date": "July 2018",
+    "experience_diploma_label": "Degree obtained",
     "years": "Years",
     "experience_home": "of experience",
     "studies": "of studies",
@@ -162,6 +185,7 @@
         "Productivity": "Productivity",
         "Communication": "Communication",
         "DevOps": "DevOps",
+        "Testing": "Testing & QA",
         "Design": "Design",
         "Project Management": "Project Management",
         "Programming Languages": "Langages",
@@ -171,27 +195,31 @@
     },
     "categories_projects": {
         "lemonmaze_api_title": "LemonMaze API",
-        "lemonmaze_api_description": "RESTful API in Node.js to communicate with the LemonMaze mobile app via HTTP requests.",
+        "lemonmaze_api_description": "Node.js REST API powering LemonMaze with HTTP endpoints for route data, business rules, and mobile synchronization.",
         "lemonmaze_title": "LemonMaze",
-        "lemonmaze_description": "LemonMaze is a Flutter mobile app designed to explore Rennes through a series of puzzles based on a route, with rewards at the end.",
+        "lemonmaze_description": "Flutter mobile app to discover Rennes through puzzle-based routes, with user progression and reward mechanics.",
         "cosmiclink_title": "CosmicLink",
-        "cosmiclink_description": "CosmicLink is a social network with an admin panel formatted as stars/constellations, coded in native PHP.",
+        "cosmiclink_description": "Native PHP social network prototype with a universe metaphor: galaxies/stars content model, public/private profiles, user suggestions, and instant messaging.",
         "minuteur_mobile_title": "Mobile Timer",
-        "minuteur_mobile_description": "Mobile app in Kotlin, provides three timers for eggs that can be restarted and started, as well as customizable timers that can be edited and deleted with sound notifications.",
+        "minuteur_mobile_description": "Kotlin timer app with preset egg timers and custom timers, concurrent runs, edit/delete actions, and sound alerts.",
         "breizhcoin_title": "BreizhCoin",
-        "breizhcoin_description": "L2 PHP project where we had to build the back end of a website like Leboncoin, along with some front end.",
+        "breizhcoin_description": "University marketplace-style project (Leboncoin-inspired) focused on PHP backend features: listings, user accounts, favorites, and categories.",
         "thebindingofisaac_title": "TheBindingOfIsaac",
-        "thebindingofisaac_description": "L2 project that involved creating a game similar to TheBindingOfIsaac in Java.",
+        "thebindingofisaac_description": "Java game inspired by The Binding of Isaac, including room generation, enemy/boss behaviors, inventory, and save/load mechanics.",
         "portfolio_v1_title": "Old Portfolio",
-        "portfolio_v1_description": "Old Portfolio to try out the Vue.js framework with responsive design.",
-        "flambow_title": "Flambow",
-        "flambow_description": "This responsive web application, developed with React, Bootstrap, and custom CSS, is the first prototype of Flambow, a platform that facilitates skill-sharing between generations.",
+        "portfolio_v1_description": "First version of my portfolio, built with Vue.js to establish responsive foundations and project presentation.",
+        "flambow_title": "Flambow Landing Page",
+        "flambow_description": "Responsive Flambow landing page designed to present the concept, clarify the value proposition, and capture early leads.",
+        "flambow_frontend_title": "Flambow Frontend",
+        "flambow_frontend_description": "Main frontend for Flambow, an intergenerational skill-sharing platform. Built with React + TypeScript, modular architecture, Vitest/Playwright testing, secure GitLab CI pipeline, and Docker deployment on OVH.",
         "badmintonapi_title": "Badminton API",
-        "badmintonapi_description": "Badminton API is a RESTful API built with Node.js for managing court reservations, featuring authentication, role management, and Swagger documentation. It also includes a GraphQL interface.",
-        "portfolio_v2_title": "Portfolio",
-        "portfolio_v2_description": "Explore my multilingual portfolio, featuring a personal introduction, my resume, and ways to contact me. You will also find information about my hobbies, the languages I master and use, as well as the projects I have worked on.",
+        "badmintonapi_description": "Court-booking API with JWT auth, user/admin roles, availability rules, Swagger docs, Docker setup, and a GraphQL endpoint.",
+        "portes_montafilan_title": "Les Portes de Montafilan",
+        "portes_montafilan_description": "Bilingual showcase site and pre-booking tool for a holiday cottage: presentation, gallery, Airbnb iCal availability, Google Sheets pricing estimate, prefilled Airbnb link, and Brevo contact form secured with reCAPTCHA v3.",
+        "portfolio_v2_title": "Portfolio V2",
+        "portfolio_v2_description": "Personal multilingual portfolio (React + TypeScript) with technical SEO, reCAPTCHA v3-secured contact form, consent-aware analytics, and Vercel deployment.",
         "library_title": "Library Application",
-        "library_description": "Master's project, I had to create a web application with a backend and a frontend for a library, including a reservation system. Please refer to the README.",
+        "library_description": "Full-stack library management app with JWT auth, book inventory, borrow/reservation workflows, admin features, and MySQL persistence through Sequelize.",
         "portfoliov2_image_alt": "Image of the Portfolio V2 project",
         "apibook_image_alt": "Image of the API Book project",
         "lemonmaze_image_alt": "Image of the LemonMaze project",
@@ -201,7 +229,9 @@
         "tboi_image_alt": "Image of The Binding of Isaac project",
         "portfolio_image_alt": "Image of the Portfolio V1 project",
         "badmintonapi_image_alt": "Image of the Badminton API project",
-        "flambow_image_alt": "Image of the Flambow project"
+        "flambow_image_alt": "Image of the Flambow Landing Page project",
+        "flambow_frontend_image_alt": "Image of the Flambow Frontend project",
+        "portes_montafilan_image_alt": "Screenshot of the Les Portes de Montafilan homepage"
     },
     "solar_system": {
         "sun": "Sun",
@@ -221,6 +251,7 @@
     "captcha_required": "Please complete the captcha.",
     "errors": {
         "hcaptcha_failed": "Captcha validation failed.",
+        "captcha_failed": "Captcha validation failed.",
         "missing_fields": "Please fill in all required fields.",
         "rate_limited": "Too many attempts. Please try again in a few seconds.",
         "send_failed": "An error occurred while sending the message.",
@@ -252,7 +283,7 @@
         },
         "status": {
             "title": "4. Website Status",
-            "text": "This website is a personal portfolio with no direct commercial purpose. It does not offer online sales or an account area. In the absence of professional activity, no SIREN/SIRET number is required."
+            "text": "This website is a personal portfolio presenting the publisher's professional activity. It does not offer online sales or an account area. The activity is registered under a SIRET number, displayed at the bottom of this page."
         },
         "ip": {
             "title": "5. Intellectual Property",
@@ -264,13 +295,13 @@
         },
         "privacy": {
             "title": "7. Personal Data",
-            "p1": "This site may collect personal data via the contact form (if present) and via audience measurement tools.",
+            "p1": "This site may collect personal data via the contact form (if present), via Google reCAPTCHA v3 anti-abuse checks, and via audience measurement tools.",
             "p2": "You have the rights of access, rectification, erasure, objection, restriction and data portability. To exercise your rights: theo.guerin35000@gmail.com.",
             "p3": "For more information, please see the Privacy Policy."
         },
         "cookies": {
             "title": "8. Cookies and Analytics",
-            "p1": "This site uses Google Analytics 4 only after your consent. Until you accept, no non-essential analytics cookies are set and no data is sent to Google.",
+            "p1": "This site uses Google Analytics 4 only after your consent. Until you accept, no non-essential analytics cookies are set and no data is sent to Google. The contact form also uses Google reCAPTCHA v3 as a technical anti-spam protection mechanism.",
             "p2": "Legal basis: consent (Article 6(1)(a) GDPR). You can change your preferences at any time via “Manage my cookies”.",
             "p3": "Google Ireland Limited acts as a processor. Data transfers outside the EU may occur and are governed by the EU Standard Contractual Clauses. GA4 anonymizes IP addresses by default."
         },
@@ -302,21 +333,22 @@
         "data": {
             "title": "2. Data Collected and Purposes",
             "intro": "Data on this site are collected solely for:",
-            "contact_form": "Contact form: name, email, message. Purpose: to respond to your request.",
+            "contact_form": "Contact form: name, email, message, and reCAPTCHA technical token. Purpose: to respond to your request and prevent abusive automated submissions.",
             "analytics": "Audience measurement: via Google Analytics 4 (GA4). Purpose: anonymized statistics to improve the site.",
             "legal_basis_intro": "Legal basis:",
-            "legal_basis_contact": "Legitimate interest for handling messages received via the contact form.",
+            "legal_basis_contact": "Legitimate interest for handling messages received via the contact form and preventing spam/abuse.",
             "legal_basis_analytics": "Explicit consent for enabling Google Analytics."
         },
         "ga4": {
             "title": "3. Google Analytics (GA4)",
             "p1": "This site uses Google Analytics 4 only after your consent. Google Ireland Limited acts as a processor. Data transfers outside the EU may occur and are governed by the EU Standard Contractual Clauses.",
-            "p2": "IP addresses are anonymized by default and data are stored for a limited period, in line with CNIL recommendations. You can change your preferences at any time via the panel below or the “Manage my cookies” link in the footer.",
-            "manage_button": "Manage my cookies"
+            "p2": "Details about cookie types, retention period, and consent management are provided in the Cookie Policy page.",
+            "manage_button": "Manage my cookies",
+            "manage_button_aria": "Open cookie preferences"
         },
         "recipients": {
             "title": "4. Data Recipients",
-            "text": "Data collected via the form are accessible only to the site owner. Audience data are sent to Google as the analytics provider."
+            "text": "Data collected via the form are accessible only to the site owner. Audience data are sent to Google as the analytics provider. Technical anti-bot verification data are processed by Google (reCAPTCHA)."
         },
         "rights": {
             "title": "5. Your Rights",
@@ -342,6 +374,38 @@
             "text": "For any question about this policy, please write to:"
         }
     },
+    "cookie_policy": {
+        "title": "Cookie Policy",
+        "last_update": "Last updated: {{date}}",
+        "what": {
+            "title": "1. What is a cookie?",
+            "p1": "A cookie is a small text file stored on your device when you browse a website.",
+            "p2": "It can be used to remember browsing preferences or to measure website traffic."
+        },
+        "types": {
+            "title": "2. Types of cookies used",
+            "necessary": "Strictly necessary cookies: required for the technical operation of the website, including reCAPTCHA anti-abuse protection on the contact form.",
+            "analytics": "Analytics cookies: Google Analytics (GA4), enabled only after your consent."
+        },
+        "use": {
+            "title": "3. Purposes",
+            "p1": "Technical cookies are used to ensure some website features work properly.",
+            "p2": "Analytics cookies are used to understand site usage and improve content quality."
+        },
+        "duration": {
+            "title": "4. Retention period",
+            "p1": "Consent preferences are stored for up to 6 months. Audience data are retained for a limited period, in line with applicable recommendations."
+        },
+        "manage": {
+            "title": "5. Manage your consent",
+            "p1": "You can accept or decline analytics cookies at any time.",
+            "button": "Manage my cookies"
+        },
+        "update": {
+            "title": "6. Policy updates",
+            "p1": "This policy may be updated according to legal or technical changes."
+        }
+    },
     "cookie_prefs": {
         "title": "Privacy Preferences",
         "intro_1": "Manage your consent for cookies and similar technologies.",
@@ -355,18 +419,73 @@
         "decline": "Decline",
         "accept": "Accept",
         "manage": "Manage my cookies",
-        "aria-label": "Cookie management banner"
+        "aria-label": "Cookie management banner",
+        "aria_label": "Cookie management banner"
     },
     "common": {
         "cancel": "Cancel",
-        "save": "Save"
+        "save": "Save",
+        "skip_to_content": "Skip to content",
+        "close": "Close"
+    },
+    "a11y": {
+        "skip_to_content": "Skip to content",
+        "back_to_top": "Back to top",
+        "nav_menu_toggle": "Open or close navigation menu",
+        "loading_content": "Loading content",
+        "language_selector": "Choose language"
+    },
+    "services": {
+        "eyebrow": "What I deliver",
+        "title": "Services",
+        "subtitle": "I design and build robust, accessible and high-performance web products from strategy to launch.",
+        "cta": "Discuss your project",
+        "items": {
+            "websites": {
+                "title": "Premium websites",
+                "description": "Landing pages and company sites focused on speed, SEO and conversion."
+            },
+            "apps": {
+                "title": "React web apps",
+                "description": "Modern interfaces, maintainable components and smooth UX on desktop and mobile."
+            },
+            "api": {
+                "title": "API & backend",
+                "description": "Node.js architecture, auth, database design and clean endpoints for a solid foundation."
+            },
+            "optimization": {
+                "title": "Technical SEO",
+                "description": "One-time SEO setup (tags, structure, performance)."
+            }
+        }
     },
     "footer_links": {
         "legal": "Legal notice",
         "privacy": "Privacy policy",
         "cookies": "Manage my cookies",
+        "cookies_policy": "Cookie policy",
         "aria_legal": "Legal notice",
         "aria_privacy": "Privacy policy",
-        "aria_cookies": "Manage my cookies"
-    }
+        "aria_cookies": "Manage my cookies",
+        "aria_cookies_policy": "Cookie policy"
+    },
+    "seo_keywords": "Théo Guérin, full-stack developer, React, Django, Python, Node.js, Flutter, portfolio, Rennes, web developer",
+    "seo_routes": {
+        "home_description": "Portfolio of Théo Guérin, Full-Stack developer based in Rennes. Specialized in React, Django, Python, Flutter and modern web development.",
+        "about_description": "Discover Théo Guérin: a passionate Full-Stack developer based in Rennes, his hobbies, qualifications and professional background.",
+        "experience_description": "Théo Guérin's background: Full-Stack work-study at Nahibu, Full-Stack MBA, Web Bachelor and Computer Science degree in Rennes.",
+        "project_description": "Web projects by Théo Guérin: React applications, Django REST APIs, Flutter apps and showcase websites built during internships and training.",
+        "contact_description": "Contact Théo Guérin for a web project, freelance mission or professional opportunity. Based in Rennes, available.",
+        "cv_description": "View or download Théo Guérin's resume, Full-Stack developer specialized in React, Django and Python, based in Rennes.",
+        "legal_description": "Legal notice for Théo Guérin's portfolio, Full-Stack web developer based in Rennes.",
+        "privacy_description": "Privacy policy for Théo Guérin's portfolio — data processing, cookies and your rights.",
+        "cookies_description": "Cookie policy for Théo Guérin's portfolio: cookie types, purposes, retention and consent management."
+    },
+    "gitlab_profile_link": "GitLab profile",
+    "seo_og_image_alt": "Preview of Théo Guérin's portfolio",
+    "footer_navigation": "Footer navigation",
+    "footer_products_title": "Pages",
+    "footer_social_title": "Social links",
+    "footer_legal_title": "Legal",
+    "footer_rights": "All rights reserved."
 }

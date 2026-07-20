@@ -214,6 +214,8 @@
         "flambow_frontend_description": "Main frontend for Flambow, an intergenerational skill-sharing platform. Built with React + TypeScript, modular architecture, Vitest/Playwright testing, secure GitLab CI pipeline, and Docker deployment on OVH.",
         "badmintonapi_title": "Badminton API",
         "badmintonapi_description": "Court-booking API with JWT auth, user/admin roles, availability rules, Swagger docs, Docker setup, and a GraphQL endpoint.",
+        "portes_montafilan_title": "Les Portes de Montafilan",
+        "portes_montafilan_description": "Bilingual showcase site and pre-booking tool for a holiday cottage: presentation, gallery, Airbnb iCal availability, Google Sheets pricing estimate, prefilled Airbnb link, and Brevo contact form secured with reCAPTCHA v3.",
         "portfolio_v2_title": "Portfolio V2",
         "portfolio_v2_description": "Personal multilingual portfolio (React + TypeScript) with technical SEO, reCAPTCHA v3-secured contact form, consent-aware analytics, and Vercel deployment.",
         "library_title": "Library Application",
@@ -228,7 +230,8 @@
         "portfolio_image_alt": "Image of the Portfolio V1 project",
         "badmintonapi_image_alt": "Image of the Badminton API project",
         "flambow_image_alt": "Image of the Flambow Landing Page project",
-        "flambow_frontend_image_alt": "Image of the Flambow Frontend project"
+        "flambow_frontend_image_alt": "Image of the Flambow Frontend project",
+        "portes_montafilan_image_alt": "Screenshot of the Les Portes de Montafilan homepage"
     },
     "solar_system": {
         "sun": "Sun",

@@ -464,6 +464,8 @@
         "flambow_frontend_description": "Frontend principal de Flambow, una plataforma de intercambio intergeneracional. Construido con React + TypeScript, arquitectura modular, pruebas con Vitest/Playwright, pipeline seguro en GitLab CI y despliegue Docker en OVH.",
         "badmintonapi_title": "API Badminton",
         "badmintonapi_description": "API de reserva de pistas con JWT, roles usuario/admin, reglas de disponibilidad, documentacion Swagger, entorno Docker y endpoint GraphQL.",
+        "portes_montafilan_title": "Les Portes de Montafilan",
+        "portes_montafilan_description": "Sitio vitrina bilingue y herramienta de prereserva para un alojamiento: presentacion, galeria, disponibilidad Airbnb via iCal, estimacion con tarifas Google Sheets, enlace Airbnb prerrellenado y formulario Brevo protegido con reCAPTCHA v3.",
         "portfolio_v2_title": "Portfolio V2",
         "portfolio_v2_description": "Portfolio personal multilingue (React + TypeScript) con SEO tecnico, formulario protegido con reCAPTCHA v3, analitica con consentimiento y despliegue en Vercel.",
         "library_title": "Aplicación Librería",
@@ -478,7 +480,8 @@
         "portfolio_image_alt": "Imagen del proyecto Portafolio V1",
         "flambow_image_alt": "Imagen del proyecto Flambow Landing Page",
         "flambow_frontend_image_alt": "Imagen del proyecto Flambow Frontend",
-        "badmintonapi_image_alt": "Imagen del proyecto API Badminton"
+        "badmintonapi_image_alt": "Imagen del proyecto API Badminton",
+        "portes_montafilan_image_alt": "Captura de la pagina de inicio de Les Portes de Montafilan"
     },
     "footer_navigation": "Navegación del pie de página",
     "footer_products_title": "Páginas",

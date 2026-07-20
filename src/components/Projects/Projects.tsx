@@ -18,6 +18,7 @@ import apibook from "@image/Projects/apibook.webp";
 import flambow from "@image/Projects/flambowImg.webp";
 import flambowFrontend from "@image/Projects/FlambowFrontEnd.png";
 import badmintonapi from "@image/Projects/badmintonapi.webp";
+import portesDeMontafilan from "@image/Projects/portesDeMontafilan.webp";
 import Particle from "../../utils/Particle";
 
 type ProjectCategory = "web" | "mobile" | "api" | "game";
@@ -40,6 +41,18 @@ interface ProjectItem {
 }
 
 const projects: ProjectItem[] = [
+  {
+    imgPath: portesDeMontafilan,
+    altTextKey: "categories_projects.portes_montafilan_image_alt",
+    titleKey: "categories_projects.portes_montafilan_title",
+    descriptionKey: "categories_projects.portes_montafilan_description",
+    ghLink: "https://github.com/KizuCore/PortesDeMontafilan",
+    seeLink: "https://www.lesportesdemontafilan.com/",
+    techStack: ["React", "TypeScript", "Vite", "Tailwind CSS", "Vercel", "Brevo", "Vitest", "Playwright"],
+    category: "web",
+    featured: true,
+    pinTop: true,
+  },
   {
     imgPath: portfoliov2,
     altTextKey: "categories_projects.portfoliov2_image_alt",

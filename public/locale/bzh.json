@@ -92,6 +92,21 @@
     "flag_en": "Banniel Breizh-Veur",
     "flag_bzh": "Banniel Breizh",
     "contact_us": "Kit e darempred ganin",
+    "contact_eyebrow": "Komzomp eus ho raktres",
+    "contact_intro": "Ezhomm hoc'h eus eus ul lec'hienn nevez, ur cheñchamant pe ur c'henlabour freelance? Skrivit din ha respontet vo buan.",
+    "contact_panel_title": "Prest da gregi?",
+    "contact_panel_description": "Skoazellan a ran evit krouiñ, adsevel ha gwellañ produioù web gant ul labour glan.",
+    "contact_point_1": "Dielfenn buan hag amprouadur sklaer",
+    "contact_point_2": "Kinnig teknik hervez ho palioù",
+    "contact_point_3": "Kehentiñ eeun ha kasadur fizus",
+    "contact_meta_availability_label": "Hegerz",
+    "contact_meta_availability_value": "Digor d'ar raktresoù nevez",
+    "contact_meta_response_label": "Amzer respont",
+    "contact_meta_response_value": "Respont e 24 eurvezh",
+    "contact_meta_location_label": "Lec'h",
+    "contact_meta_location_value": "Roazhon, Frañs",
+    "contact_cta_email": "Kas ur postel",
+    "contact_cta_linkedin": "Komz war LinkedIn",
     "name": "Anv",
     "name_placeholder": "Skrivit hoc'h anv",
     "email": "Chomlec'h postel",
@@ -101,6 +116,9 @@
     "message": "Kemennadenn",
     "message_placeholder": "Skrivit ho kemennadenn",
     "send_message": "Kas",
+    "contact_form_title": "Lavarit din ho ezhomm",
+    "contact_form_subtitle": "Roit din un nebeud munudo diwar-benn ho ezhomm, hag e respontin deoc'h buan.",
+    "contact_form_required_hint": "Ret eo leuniañ an holl vaeziennoù.",
     "sending": "O kas...",
     "error_loading_pdf": "Fazi e-pad kargañ ar PDF. Klaskit en-dro diwezhatoc'h.",
     "cv_alt_description": "CV Théo Guérin",
@@ -108,10 +126,13 @@
     "experience_home": "a skiant-prenet",
     "experience_1_title": "Diorroer Web a-bezh - Nahibu",
     "experience_1_date": "Adalek Meurzh 2024",
-    "experience_1_description": "Evezhier war infrakañad Nahibu, sevenadur a-berzh an etrefasoù, adframmadur grafek, SEO, teuliadur, ...",
-    "experience_1_stack": "Django, Flask, React, PostgreSQL, Axios, AWS, Citry API, Brevo, Jupyter, Django, Wordpress, Wix, LimeSurvey, Docker, Nuxt",
+    "experience_1_subtitle": "Nahibu - Roazhon",
+    "experience_1_description": "Diorren ha kempenn ar bladenn Nahibu.",
+    "experience_1_highlights": "Diorren etrefasoù React evit ar bladenn Nahibu||Implij raportoù microbiot hag heweladur roadennoù gant Django||Diorren ha kempenn API REST gant Django ha Flask||Krouidigezh ha merañ stlennvonioù (PostgreSQL, MySQL)||Enframmañ servijoù diavaez: WooCommerce, Systempay, Brevo, LimeSurvey||Kemer perzh er deployment gant Docker ha CI/CD||Sevel amprouadennoù emgefreek gant Playwright, Jest ha Bruno",
+    "experience_1_stack": "Python, Django, Flask, React, PostgreSQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
     "experience_2_title": "MBA Diorroer Web a-bezh",
     "experience_2_subtitle": "My Digital School Roazhon",
+    "experience_2_diplome": "Diplom Master e diorroerezh web a-bezh",
     "experience_2_date": "Adalek Gwengolo 2024",
     "experience_3_title": "Bachelor Diorroer Web",
     "experience_3_subtitle": "My Digital School Roazhon",
@@ -119,13 +140,16 @@
     "experience_3_date": "Gwengolo 2023 - Gouere 2024",
     "experience_4_title": "Lizenn Enformadeg & Elektronegiezh",
     "experience_4_subtitle": "Skol-Veur Roazhon 1 ISTIC",
+    "experience_4_diplome": "Diplom Lizenn Enformadeg & Elektronegiezh",
     "experience_4_date": "Gwengolo 2020 - Gouere 2023",
     "experience_5_title": "Klask Preparatori DCG",
     "experience_5_subtitle": "Lise Bréquigny, Roazhon",
     "experience_5_date": "Gwengolo 2018 - Gouere 2019",
     "experience_6_title": "Bak Sianik SVT",
     "experience_6_subtitle": "Lise La Fontaine Des Eaux, Dinan",
+    "experience_6_diplome": "Diplom Bak Sianik SVT",
     "experience_6_date": "Gouere 2018",
+    "experience_diploma_label": "Diplom tapet",
     "years": "bloaz",
     "studies": "a studi",
     "completed": "echuet",
@@ -160,6 +184,7 @@
         "Productivity": "Produktivite",
         "Communication": "Komzerezh",
         "DevOps": "DevOps",
+        "Testing": "Testoù & Kalite",
         "Design": "Stummañ",
         "Project Management": "Merañ raktresoù",
         "Programming Languages": "Yezhoù raktresañ",
@@ -182,10 +207,14 @@
         "thebindingofisaac_description": "Projed L2 evit krouiñ ur c'hoari gant Java a zo heñvel ouzh TheBindingOfIsaac.",
         "portfolio_v1_title": "Portfolio kozh",
         "portfolio_v1_description": "Kentañ Portfolio evit amprouiñ Vue.js gant ur respont d’an endro.",
-        "flambow_title": "Flambow",
-        "flambow_description": "Meziant web respont savet gant React, Bootstrap ha CSS personelaet. Ar raktres kentañ evit Flambow, un diaz evit eskemm skiant-prenet etre rummadoù.",
+        "flambow_title": "Flambow Landing Page",
+        "flambow_description": "Landing page Flambow evit kinnig ar mennozh, displegañ ar value proposition ha dastum leadoù kentañ.",
+        "flambow_frontend_title": "Flambow Frontend",
+        "flambow_frontend_description": "Talbenn benna Flambow, ur bladenn eskemm etrerummad. Savet gant React + TypeScript, framm modulael, testo Vitest/Playwright, pipeline sur GitLab CI ha deploy Docker war OVH.",
         "badmintonapi_title": "API Badminton",
         "badmintonapi_description": "API RESTful e Node.js evit merañ prenadennoù salioù badminton, gant autentifikadur, rolloù ha GraphQL.",
+        "portes_montafilan_title": "Les Portes de Montafilan",
+        "portes_montafilan_description": "Lec'hienn diskouez divyezhek ha benveg rak-mirout evit ur gite: kinnig, luc'hskeudennoù, hegerzded Airbnb dre iCal, prizadur gant Google Sheets, liamm Airbnb rak-leuniet ha furmskrid Brevo gwarezet gant reCAPTCHA v3.",
         "portfolio_v2_title": "Portfolio",
         "portfolio_v2_description": "Sell ouzh va portfolio liesyezhek gant un displegadenn, ma CV, darempredoù, ha raktresoù.",
         "library_title": "Meziant levraoueg",
@@ -198,8 +227,10 @@
         "breizhcoin_image_alt": "Skeudenn ar raktres BreizhCoin",
         "tboi_image_alt": "Skeudenn ar raktres The Binding of Isaac",
         "portfolio_image_alt": "Skeudenn ar raktres Portfolio V1",
-        "flambow_image_alt": "Skeudenn ar raktres Flambow",
-        "badmintonapi_image_alt": "Skeudenn ar raktres API Badminton"
+        "flambow_image_alt": "Skeudenn ar raktres Flambow Landing Page",
+        "flambow_frontend_image_alt": "Skeudenn ar raktres Flambow Frontend",
+        "badmintonapi_image_alt": "Skeudenn ar raktres API Badminton",
+        "portes_montafilan_image_alt": "Tapadenn skramm eus pajenn degemer Les Portes de Montafilan"
     },
     "solar_system": {
         "sun": "Heol",
@@ -219,6 +250,7 @@
     "captcha_required": "Mar plij, gwiria ar captcha.",
     "errors": {
         "hcaptcha_failed": "C'hwitadenn war gwiriañ ar captcha.",
+        "captcha_failed": "C'hwitadenn war gwiriañ ar captcha.",
         "missing_fields": "Leunait an holl vaeziennoù rekis mar plij.",
         "rate_limited": "Re a c'houlennadoù. Klaskit en-dro a-benn nebeud.",
         "send_failed": "Ur fazi zo c'hoarvezet e-pad kas ar c'hemennadenn.",
@@ -262,13 +294,13 @@
         },
         "privacy": {
             "title": "7. Roadennoù personel",
-            "p1": "Gallout a ra al lec'hienn dastum roadennoù dre ar furmskrid daremprediñ (m'emañ) ha dre binvioù muzuliañ ar boblañs.",
+            "p1": "Gallout a ra al lec'hienn dastum roadenno dre ar furmskrid darempredin (m'eman), dre ur gwirian anti-abuz reCAPTCHA v3 (Google), ha dre binvio muzulian ar boblans.",
             "p2": "Hoc'h eus ar gwirioù moned, reizhañ, diverkañ, enebiñ, bevenniñ hag heñchañ (portabilite). Evit o c'houlenniñ : theo.guerin35000@gmail.com.",
             "p3": "Evit muioc'h a ditouroù, gwelit ar Bolitikerezh prevezded."
         },
         "cookies": {
             "title": "8. Toupinoù (cookies) ha muzuliñ ar boblañs",
-            "p1": "Implijet e vez Google Analytics 4 nemet goude ho asant. Ken na asantit, ne vo lakaet toupin analiz ebet ha ne vo kaset roadenn ebet da Google.",
+            "p1": "Implijet e vez Google Analytics 4 nemet goude ho asant. Ken na asantit, ne vo lakaet toupin analiz ebet ha ne vo kaset roadenn ebet da Google. Ar furmskrid darempredin a implij ivez Google reCAPTCHA v3 evit difenn ouzh ar spam teknik.",
             "p2": "Diazez lezennel : asant (artikl 6(1)(a) RGPD). Gallout a rit kemmañ ho gwellvezioù forzh pegoulz dre « Merañ ma zoupinoù ».",
             "p3": "Google Ireland Limited zo evel prenadour-implij. Gall a ra bezañ treuzkasadennoù e-diavaez an UE, renet gant ar C'homenadoù Kendivizel Skouer. GA4 a zianonimezañ an IP dre ziouer."
         },
@@ -300,21 +332,22 @@
         "data": {
             "title": "2. Roadennoù dastumet ha palioù",
             "intro": "Dastumet e vez ar roadennoù war al lec'hienn evit :",
-            "contact_form": "Furmskrid daremprediñ : anv, postel, kemennadenn. Pal : respont d'ho koulenn.",
+            "contact_form": "Furmskrid darempredin : anv, postel, kemennadenn ha jeton teknik reCAPTCHA. Pal : respont d'ho koulenn ha prevenin kasadenno emgefreek re-abuz.",
             "analytics": "Muzuliñ ar boblañs : dre Google Analytics 4 (GA4). Pal : stadegoù dianon evit gwellaat al lec'hienn.",
             "legal_basis_intro": "Diazez lezennel :",
-            "legal_basis_contact": "Interest talvoudus evit merañ ar c'hemennadennoù dre ar furmskrid.",
+            "legal_basis_contact": "Interest talvoudus evit meran ar c'hemennadenno dre ar furmskrid ha prevenin spam/abuz.",
             "legal_basis_analytics": "Asant splann evit gweredekaat Google Analytics."
         },
         "ga4": {
             "title": "3. Google Analytics (GA4)",
             "p1": "Implijet e vez GA4 nemet goude ho asant. Google Ireland Limited a zo prenadour-implij. Gallout a ra bezañ treuzkasadennoù e-diavaez an UE, renet gant ar C'homenadoù Kendivizel Skouer.",
             "p2": "Anv-an-dreist (IP) a vez dianoniet dre ziouer ha miret e vez ar roadennoù e-pad ur prantad strizh. Gallout a rit kemmañ ho gwellvezioù forzh pegoulz dre ar banell dindan pe al liamm « Merañ ma zoupinoù » er foñz pajenn.",
-            "manage_button": "Merañ ma zoupinoù"
+            "manage_button": "Merañ ma zoupinoù",
+            "manage_button_aria": "Digeriñ gwellvezioù an toupinoù"
         },
         "recipients": {
             "title": "4. Degemererien ar roadennoù",
-            "text": "Ar roadennoù kaset dre ar furmskrid a vez tennet-gwered gant perc'henn al lec'hienn hepken. Ar roadennoù stadegel a vez kaset da Google evel pourchaser analiz."
+            "text": "Ar roadenno kaset dre ar furmskrid a vez tennet-gwered gant perc'henn al lec'hienn hepken. Ar roadenno stadegel a vez kaset da Google evel pourchaser analiz. Ar roadenno teknik anti-bot a vez trezet gant Google (reCAPTCHA)."
         },
         "rights": {
             "title": "5. Ho gwirioù",
@@ -340,6 +373,38 @@
             "text": "Evit goulennoù diwar-benn ar bolitikerezh-mañ, skrivait da :"
         }
     },
+    "cookie_policy": {
+        "title": "Politikerezh toupinoù",
+        "last_update": "Hizivaat diwezhañ : {{date}}",
+        "what": {
+            "title": "1. Petra eo un toupin?",
+            "p1": "Un toupin zo ur restr testenn bihan enrollet war ho trevnad pa welit ul lec'hienn web.",
+            "p2": "Gallout a ra bezañ implijet evit derc'hel soñj eus gwellvezioù merdeiñ pe evit muzuliñ an ergerzhadeg war al lec'hienn."
+        },
+        "types": {
+            "title": "2. Rizhioù toupinoù implijet",
+            "necessary": "Toupino strizh-ret : ret evit mont en-dro teknik al lec'hienn, en o zouez difenn anti-abuz reCAPTCHA war ar furmskrid darempredin.",
+            "analytics": "Toupinoù stadelerezh : Google Analytics (GA4), gweredekaet nemet goude hoc'h asant."
+        },
+        "use": {
+            "title": "3. Palioù",
+            "p1": "An toupinoù teknik a servij d'ar fonksionoù pennañ da vont en-dro mat.",
+            "p2": "An toupinoù stadelerezh a servij da gompren implij al lec'hienn ha gwellaat an danvez."
+        },
+        "duration": {
+            "title": "4. Pad miret",
+            "p1": "Miret e vez ar gwellvezioù asant betek 6 miz. Ar roadennoù boblañs a vez miret e-pad ur prantad bevennet hervez ar c'hinnigoù e pleustr."
+        },
+        "manage": {
+            "title": "5. Merañ hoc'h asant",
+            "p1": "Gallout a rit asantiñ pe nac'hañ an toupinoù stadelerezh forzh pegoulz.",
+            "button": "Merañ ma zoupinoù"
+        },
+        "update": {
+            "title": "6. Hizivadenn ar bolitikerezh-mañ",
+            "p1": "Gallout a ra ar bolitikerezh bezañ kemmet hervez kemmoù lezennel pe teknik."
+        }
+    },
     "cookie_prefs": {
         "title": "Gwellvezioù prevezded",
         "intro_1": "Merit ho asant evit an toupinoù ha teknologiezh heñvel.",
@@ -353,18 +418,73 @@
         "decline": "Nac'hañ",
         "accept": "Asantiñ",
         "manage": "Merañ ma zoupinoù",
-        "aria-label": "Bann titour diwar-benn ar c’houkedoù"
+        "aria-label": "Bann titour diwar-benn ar c’houkedoù",
+        "aria_label": "Bann merañ an toupinoù"
     },
     "common": {
         "cancel": "Nullañ",
-        "save": "Enrollañ"
+        "save": "Enrollañ",
+        "skip_to_content": "Mont d'an danvez",
+        "close": "Serriñ"
+    },
+    "a11y": {
+        "skip_to_content": "Mont d'an danvez",
+        "back_to_top": "Distreiñ d'ar penn",
+        "nav_menu_toggle": "Digeriñ pe serriñ lañser ar menu",
+        "loading_content": "O kargañ an danvez",
+        "language_selector": "Dibab ar yezh"
+    },
+    "services": {
+        "title": "Servijoù",
+        "subtitle": "Sevel a ran produioù web kreñv, aes da implijout ha buan, eus an idea betek ar produadur.",
+        "cta": "Kaozeal diwar-benn ho raktres",
+        "items": {
+            "websites": {
+                "title": "Lec'hiennoù premium",
+                "description": "Landing pages ha lec'hiennoù embregerezh a-feson SEO, buander ha konversión."
+            },
+            "apps": {
+                "title": "Arloadoù React",
+                "description": "Etrezasoù modern, komponentoù padus hag ur prantad implijer flour war urzhiataer pe hezoug."
+            },
+            "api": {
+                "title": "API ha backend",
+                "description": "Savadur Node.js, autentifikadur, stlennvon ha endpoints glan evit ur soliad talvoudus."
+            },
+            "optimization": {
+                "title": "Gwellaat padus",
+                "description": "Audit perfformañs, aesaat implijout, SEO teknik ha heuliañ kalite goude al lakaat en linenn."
+            }
+        },
+        "eyebrow": "Ce que je propose"
     },
     "footer_links": {
         "legal": "Menegoù lezennel",
         "privacy": "Politikerezh prevezded",
         "cookies": "Merañ ma zoupinoù",
+        "cookies_policy": "Politikerezh toupinoù",
         "aria_legal": "Menegoù lezennel",
         "aria_privacy": "Politikerezh prevezded",
-        "aria_cookies": "Merañ ma zoupinoù"
-    }
+        "aria_cookies": "Merañ ma zoupinoù",
+        "aria_cookies_policy": "Politikerezh toupinoù"
+    },
+    "seo_keywords": "Théo Guérin, diorroer full-stack, React, Django, Python, Node.js, Flutter, portfolio, Roazhon, diorroer web",
+    "seo_routes": {
+        "home_description": "Portfolio Théo Guérin, diorroer Full-Stack e Roazhon. Spesializet e React, Django, Python, Flutter ha diorroerezh web modern.",
+        "about_description": "Deskit diwar benn Théo Guérin: diorroer Full-Stack e Roazhon, e blijadurioù, e diplômoù ha e hentad micherel.",
+        "experience_description": "Hentad Théo Guérin: stummadur micherel Full-Stack e Nahibu, MBA Web Full-Stack, Bachelor ha Lizenn Enformadeg e Roazhon.",
+        "project_description": "Raktresoù web Théo Guérin: arloadoù React, API REST Django, arloadoù Flutter ha lec'hiennoù savet e-pad e stummadur.",
+        "contact_description": "Kit e darempred gant Théo Guérin evit ur raktres web, un eured franch pe ur c'hinnig micherel. E Roazhon, hegerz.",
+        "cv_description": "Gwelout pe pellgargañ CV Théo Guérin, diorroer Full-Stack spesilizet e React, Django ha Python, e Roazhon.",
+        "legal_description": "Menegoù lezennel portfolio Théo Guérin, diorroer web Full-Stack e Roazhon.",
+        "privacy_description": "Politikerezh prevezded portfolio Théo Guérin — tratamant roadennoù, toupinoù ha ho gwirioù.",
+        "cookies_description": "Politikerezh toupinoù portfolio Théo Guérin: seurtioù toupinoù, palioù, pad miret ha merañ an asant."
+    },
+    "gitlab_profile_link": "Profil GitLab",
+    "seo_og_image_alt": "Rakwelet portfolio Théo Guérin",
+    "footer_navigation": "Merdeiñ troad ar bajenn",
+    "footer_products_title": "Pajennoù",
+    "footer_social_title": "Rouedadoù",
+    "footer_legal_title": "Lezennel",
+    "footer_rights": "An holl wirioù miret."
 }

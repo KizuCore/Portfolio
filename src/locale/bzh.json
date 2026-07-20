@@ -213,6 +213,8 @@
         "flambow_frontend_description": "Talbenn benna Flambow, ur bladenn eskemm etrerummad. Savet gant React + TypeScript, framm modulael, testo Vitest/Playwright, pipeline sur GitLab CI ha deploy Docker war OVH.",
         "badmintonapi_title": "API Badminton",
         "badmintonapi_description": "API RESTful e Node.js evit merañ prenadennoù salioù badminton, gant autentifikadur, rolloù ha GraphQL.",
+        "portes_montafilan_title": "Les Portes de Montafilan",
+        "portes_montafilan_description": "Lec'hienn diskouez divyezhek ha benveg rak-mirout evit ur gite: kinnig, luc'hskeudennoù, hegerzded Airbnb dre iCal, prizadur gant Google Sheets, liamm Airbnb rak-leuniet ha furmskrid Brevo gwarezet gant reCAPTCHA v3.",
         "portfolio_v2_title": "Portfolio",
         "portfolio_v2_description": "Sell ouzh va portfolio liesyezhek gant un displegadenn, ma CV, darempredoù, ha raktresoù.",
         "library_title": "Meziant levraoueg",
@@ -227,7 +229,8 @@
         "portfolio_image_alt": "Skeudenn ar raktres Portfolio V1",
         "flambow_image_alt": "Skeudenn ar raktres Flambow Landing Page",
         "flambow_frontend_image_alt": "Skeudenn ar raktres Flambow Frontend",
-        "badmintonapi_image_alt": "Skeudenn ar raktres API Badminton"
+        "badmintonapi_image_alt": "Skeudenn ar raktres API Badminton",
+        "portes_montafilan_image_alt": "Tapadenn skramm eus pajenn degemer Les Portes de Montafilan"
     },
     "solar_system": {
         "sun": "Heol",

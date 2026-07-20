@@ -18,7 +18,6 @@ import BackToTop from "./utils/BackToTop.tsx";
 import RouteSkeleton from "./utils/RouteSkeleton.tsx";
 import useKonamiCode from "./utils/Konami.tsx";
 
-const VideoPopup = lazy(() => import("./components/Easter/Video.tsx"));
 const About = lazy(() => import("./components/About/About.tsx"));
 const Contact = lazy(() => import("./components/Contact/Contact.tsx"));
 const Experience = lazy(() => import("./components/Experience/ExpTimeline.tsx"));
@@ -44,7 +43,6 @@ function AppContent({ load, showPreloader }: AppContentProps) {
   const { t } = useTranslation();
   const location = useLocation();
   const reduceMotion = useReducedMotion();
-  const [loadVideoPopup, setLoadVideoPopup] = useState(false);
 
   const routeInitial = reduceMotion
     ? { opacity: 1, y: 0 }
@@ -56,23 +54,6 @@ function AppContent({ load, showPreloader }: AppContentProps) {
   const routeTransition = reduceMotion
     ? { duration: 0 }
     : { duration: 0.34, ease: [0.22, 1, 0.36, 1] as const };
-
-  useEffect(() => {
-    const timer = window.setTimeout(() => {
-      setLoadVideoPopup(true);
-    }, 4000);
-
-    const onFirstKeyDown = () => {
-      setLoadVideoPopup(true);
-    };
-
-    window.addEventListener("keydown", onFirstKeyDown, { once: true });
-
-    return () => {
-      window.clearTimeout(timer);
-      window.removeEventListener("keydown", onFirstKeyDown);
-    };
-  }, []);
 
   return (
     <>
@@ -87,11 +68,6 @@ function AppContent({ load, showPreloader }: AppContentProps) {
         <NavBar />
         <ScrollToTop />
         <KonamiComponent />
-        {loadVideoPopup ? (
-          <Suspense fallback={null}>
-            <VideoPopup />
-          </Suspense>
-        ) : null}
 
         <main className="main-content" id="main-content" tabIndex={-1}>
           <CookieBanner />

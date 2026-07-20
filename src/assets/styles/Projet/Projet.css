@@ -810,34 +810,54 @@
 @media (max-width: 767px) {
   .project-section {
     padding: 6.6rem 0 3.4rem;
+    overflow-x: hidden;
+  }
+
+  .project-explorer,
+  .project-nav,
+  .project-detail,
+  .project-card-view {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .project-nav {
     padding: 0.62rem;
+    overflow: hidden;
   }
 
   .project-nav-list {
-    max-height: 250px;
-    flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
+    max-height: none;
+    flex-direction: row;
+    overflow-y: hidden;
+    overflow-x: auto;
     gap: 0.45rem;
-    padding-right: 0.22rem;
-    padding-bottom: 0;
-    scroll-snap-type: none;
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0;
+    padding-bottom: 0.18rem;
+    scroll-snap-type: x proximity;
     scrollbar-width: thin;
   }
 
   .project-nav-item {
-    min-width: 0;
-    width: 100%;
-    flex-shrink: 1;
+    min-width: 13.75rem;
+    width: 13.75rem;
+    flex: 0 0 13.75rem;
+    scroll-snap-align: start;
   }
 
   .project-detail-toolbar {
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
     gap: 0.55rem;
     margin-bottom: 0.7rem;
+  }
+
+  .project-detail-position {
+    text-align: center;
+    white-space: nowrap;
   }
 
   .project-detail-switches {
@@ -982,7 +1002,9 @@
   }
 
   .project-nav-item {
-    min-width: 0;
+    min-width: 13rem;
+    width: 13rem;
+    flex-basis: 13rem;
   }
 
   .project-filter-chip {

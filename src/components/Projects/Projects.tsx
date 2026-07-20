@@ -17,7 +17,7 @@ import portfolio from "@image/Projects/portfolio.webp";
 import portfoliov2 from "@image/Projects/portfoliov2.webp";
 import apibook from "@image/Projects/apibook.webp";
 import flambow from "@image/Projects/flambowImg.webp";
-import flambowFrontend from "@image/Projects/FlambowFrontEnd.png";
+import flambowFrontend from "@image/Projects/FlambowFrontEnd.webp";
 import badmintonapi from "@image/Projects/badmintonapi.webp";
 import portesDeMontafilan from "@image/Projects/portesDeMontafilan.webp";
 import Particle from "../../utils/Particle";
@@ -81,7 +81,6 @@ const projects: ProjectItem[] = [
     ghLink: "https://github.com/KizuCore/Lemon_Maze",
     techStack: ["Flutter"],
     category: "mobile",
-    featured: true,
   },
   {
     imgPath: aTable,
@@ -91,6 +90,7 @@ const projects: ProjectItem[] = [
     ghLink: "https://github.com/KizuCore/a_table",
     techStack: ["Flutter", "Dart", "Riverpod", "Isar", "GoRouter", "TableCalendar", "Material 3"],
     category: "mobile",
+    featured: true,
   },
   {
     imgPath: lemonmaze,
@@ -270,6 +270,7 @@ const Projects: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [activeFilter, setActiveFilter] = React.useState<ProjectFilter>("all");
   const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const preloadedImagesRef = React.useRef<HTMLImageElement[]>([]);
   // Normalise la locale i18n (fr-FR -> fr) pour retrouver les labels locaux.
   const currentLanguage = (i18n.resolvedLanguage || i18n.language || "en").split("-")[0];
   const currentFilterLabels = filterLabels[currentLanguage] || filterLabels.en;
@@ -324,15 +325,33 @@ const Projects: React.FC = () => {
     const selectedImage = new Image();
     selectedImage.decoding = "async";
     selectedImage.src = selectedProject.imgPath;
+    preloadedImagesRef.current = [
+      selectedImage,
+      ...preloadedImagesRef.current.filter((image) => image.src !== selectedImage.src),
+    ];
   }, [selectedProject]);
 
   React.useEffect(() => {
+    const preloadLinks = projectImageSources.map((src) => {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = src;
+      document.head.appendChild(link);
+      return link;
+    });
+
     const preloadImages = () => {
-      projectImageSources.forEach((src) => {
+      preloadedImagesRef.current = projectImageSources.map((src) => {
         const image = new Image();
         image.decoding = "async";
         image.src = src;
+        return image;
       });
+    };
+
+    const cleanupPreloadLinks = () => {
+      preloadLinks.forEach((link) => link.remove());
     };
 
     const win = window as Window & {
@@ -342,11 +361,17 @@ const Projects: React.FC = () => {
 
     if (win.requestIdleCallback) {
       const handle = win.requestIdleCallback(preloadImages, { timeout: 1000 });
-      return () => win.cancelIdleCallback?.(handle);
+      return () => {
+        win.cancelIdleCallback?.(handle);
+        cleanupPreloadLinks();
+      };
     }
 
     const handle = window.setTimeout(preloadImages, 150);
-    return () => window.clearTimeout(handle);
+    return () => {
+      window.clearTimeout(handle);
+      cleanupPreloadLinks();
+    };
   }, []);
 
   const positionText = currentExplorerLabels.position

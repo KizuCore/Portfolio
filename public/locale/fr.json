@@ -216,7 +216,7 @@
         "badmintonapi_title": "API Badminton",
         "badmintonapi_description": "API de reservation de terrains de badminton avec JWT, roles utilisateur/admin, regles de disponibilite, documentation Swagger, Docker et endpoint GraphQL.",
         "portes_montafilan_title": "Les Portes de Montafilan",
-        "portes_montafilan_description": "Site vitrine bilingue et outil de pre-reservation pour un gite: presentation, galerie, disponibilites Airbnb via iCal, estimation tarifaire Google Sheets, lien Airbnb pre-rempli et formulaire Brevo securise par reCAPTCHA v3.",
+        "portes_montafilan_description": "Site vitrine bilingue et outil de pré-réservation pour un gîte, conçu avec des contraintes claires : pas d'abonnement mensuel, pas de backend complexe et des tarifs modifiables sans code depuis un tableur type Excel, branché via Google Sheets. Le site présente le gîte, synchronise les indisponibilités Airbnb via iCal, calcule une estimation lisible et redirige vers Airbnb avec les dates préremplies.",
         "portfolio_v2_title": "Portfolio V2",
         "portfolio_v2_description": "Portfolio personnel multilingue (React + TypeScript) avec SEO technique, formulaire securise par reCAPTCHA v3, analytics sous consentement et deploiement Vercel.",
         "library_title": "Application Librairie",

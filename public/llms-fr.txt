@@ -30,7 +30,7 @@
 - Les Portes de Montafilan: React, TypeScript, Vite, Tailwind CSS, Vercel, Brevo, Vitest, Playwright
   - Repo: [https://github.com/KizuCore/PortesDeMontafilan](https://github.com/KizuCore/PortesDeMontafilan)
   - Site: [https://www.lesportesdemontafilan.com/](https://www.lesportesdemontafilan.com/)
-  - Points forts: site vitrine bilingue, disponibilites Airbnb via iCal, estimation tarifaire Google Sheets, formulaire Brevo protege par reCAPTCHA v3, fonctions serverless Vercel
+  - Points forts: site vitrine bilingue, disponibilités Airbnb via iCal, estimation tarifaire Google Sheets, formulaire Brevo protégé par reCAPTCHA v3, fonctions serverless Vercel
 - Portfolio v2: React, TypeScript, Bootstrap, Node.js, Axios
   - Repo: [https://github.com/KizuCore/Portfolio](https://github.com/KizuCore/Portfolio)
 - Application bibliotheque: Node.js, Swagger, MySQL, React, Bootstrap, Sequelize

@@ -465,7 +465,7 @@
         "badmintonapi_title": "API Badminton",
         "badmintonapi_description": "API de reserva de pistas con JWT, roles usuario/admin, reglas de disponibilidad, documentacion Swagger, entorno Docker y endpoint GraphQL.",
         "portes_montafilan_title": "Les Portes de Montafilan",
-        "portes_montafilan_description": "Sitio vitrina bilingue y herramienta de prereserva para un alojamiento: presentacion, galeria, disponibilidad Airbnb via iCal, estimacion con tarifas Google Sheets, enlace Airbnb prerrellenado y formulario Brevo protegido con reCAPTCHA v3.",
+        "portes_montafilan_description": "Sitio vitrina bilingüe y herramienta de prereserva para un alojamiento, creado con restricciones claras: sin suscripción mensual, sin backend complejo y precios editables sin código desde una hoja tipo Excel conectada con Google Sheets. Presenta el alojamiento, sincroniza las fechas no disponibles de Airbnb vía iCal, explica la estimación y redirige a Airbnb con fechas prerrellenadas.",
         "portfolio_v2_title": "Portfolio V2",
         "portfolio_v2_description": "Portfolio personal multilingue (React + TypeScript) con SEO tecnico, formulario protegido con reCAPTCHA v3, analitica con consentimiento y despliegue en Vercel.",
         "library_title": "Aplicación Librería",
@@ -481,7 +481,7 @@
         "flambow_image_alt": "Imagen del proyecto Flambow Landing Page",
         "flambow_frontend_image_alt": "Imagen del proyecto Flambow Frontend",
         "badmintonapi_image_alt": "Imagen del proyecto API Badminton",
-        "portes_montafilan_image_alt": "Captura de la pagina de inicio de Les Portes de Montafilan"
+        "portes_montafilan_image_alt": "Captura de la página de inicio de Les Portes de Montafilan"
     },
     "footer_navigation": "Navegación del pie de página",
     "footer_products_title": "Páginas",

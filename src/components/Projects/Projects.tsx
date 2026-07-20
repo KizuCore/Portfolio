@@ -10,6 +10,7 @@ import "../../assets/styles/Projet/Projet.css";
 import lemonmaze from "@image/Projects/LemonMaze.webp";
 import cosmiclink from "@image/Projects/CosmicLink.webp";
 import chrono from "@image/Projects/chrono.webp";
+import aTable from "@image/Projects/aTable.webp";
 import tboi from "@image/Projects/TBOI.webp";
 import breizhcoin from "@image/Projects/breizhcoin.webp";
 import portfolio from "@image/Projects/portfolio.webp";
@@ -81,6 +82,15 @@ const projects: ProjectItem[] = [
     techStack: ["Flutter"],
     category: "mobile",
     featured: true,
+  },
+  {
+    imgPath: aTable,
+    altTextKey: "categories_projects.atable_image_alt",
+    titleKey: "categories_projects.atable_title",
+    descriptionKey: "categories_projects.atable_description",
+    ghLink: "https://github.com/KizuCore/a_table",
+    techStack: ["Flutter", "Dart", "Riverpod", "Isar", "GoRouter", "TableCalendar", "Material 3"],
+    category: "mobile",
   },
   {
     imgPath: lemonmaze,

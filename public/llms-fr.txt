@@ -37,6 +37,9 @@
   - Repo: [https://github.com/KizuCore/MDS-M1-Librairie](https://github.com/KizuCore/MDS-M1-Librairie)
 - LemonMaze (mobile): Flutter
   - Repo: [https://github.com/KizuCore/Lemon_Maze](https://github.com/KizuCore/Lemon_Maze)
+- A table: Flutter, Dart, Riverpod, Isar, GoRouter, TableCalendar
+  - Repo: [https://github.com/KizuCore/a_table](https://github.com/KizuCore/a_table)
+  - Points forts: application offline-first pour gerer l'inventaire de cuisine, suivre les dates de peremption, filtrer par emplacement et afficher les echeances dans un calendrier
 - LemonMaze API: Node.js, Swagger, MySQL
   - Repo: [https://github.com/KizuCore/APILemonMaze](https://github.com/KizuCore/APILemonMaze)
 - API Badminton: Node.js, Swagger, MySQL, GraphQL

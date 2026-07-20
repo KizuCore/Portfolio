@@ -31,12 +31,15 @@
   - Repo: [https://github.com/KizuCore/PortesDeMontafilan](https://github.com/KizuCore/PortesDeMontafilan)
   - Website: [https://www.lesportesdemontafilan.com/](https://www.lesportesdemontafilan.com/)
   - Highlights: bilingual showcase site, Airbnb iCal availability, Google Sheets pricing estimate, Brevo contact form protected by reCAPTCHA v3, Vercel serverless functions
-- Portfolio : React, TypeScript, Bootstrap, Node.js, Axios
+- Portfolio: React, TypeScript, Bootstrap, Node.js, Axios
   - Repo: [https://github.com/KizuCore/Portfolio](https://github.com/KizuCore/Portfolio)
 - Library application: Node.js, Swagger, MySQL, React, Bootstrap, Sequelize
   - Repo: [https://github.com/KizuCore/MDS-M1-Librairie](https://github.com/KizuCore/MDS-M1-Librairie)
 - LemonMaze (mobile): Flutter
   - Repo: [https://github.com/KizuCore/Lemon_Maze](https://github.com/KizuCore/Lemon_Maze)
+- A table: Flutter, Dart, Riverpod, Isar, GoRouter, TableCalendar
+  - Repo: [https://github.com/KizuCore/a_table](https://github.com/KizuCore/a_table)
+  - Highlights: offline-first app for managing kitchen inventory, tracking expiry dates, filtering by storage location, and showing deadlines in a calendar
 - LemonMaze API: Node.js, Swagger, MySQL
   - Repo: [https://github.com/KizuCore/APILemonMaze](https://github.com/KizuCore/APILemonMaze)
 - Badminton API: Node.js, Swagger, MySQL, GraphQL

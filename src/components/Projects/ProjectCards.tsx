@@ -38,11 +38,11 @@ const sectionLabels: Record<
   fr: {
     context: "Contexte",
     stack: "Stack",
-    result: "Resultat",
-    githubOnly: "Code source disponible et versionne sur GitHub.",
+    result: "Résultat",
+    githubOnly: "Code source disponible et versionné sur GitHub.",
     liveAndCode: "Application en ligne accessible, avec code source public.",
-    videoAndCode: "Demonstration video disponible avec code source public.",
-    liveVideoAndCode: "Demo en ligne et video disponibles, avec code source public.",
+    videoAndCode: "Démonstration vidéo disponible avec code source public.",
+    liveVideoAndCode: "Démo en ligne et vidéo disponibles, avec code source public.",
   },
   en: {
     context: "Context",
@@ -99,7 +99,7 @@ function ProjectCard(props: ProjectCardProps) {
 
   return (
     <Card className={`project-card-view ${props.featured ? "project-card-featured" : ""}`}>
-      <div className="project-img-wrapper">
+      <div className={`project-img-wrapper ${props.imageMode === "contain" ? "project-img-wrapper-contain" : ""}`}>
         {/* imageMode permet un rendu "contain" pour les screenshots verticaux */}
         <Card.Img
           variant="top"
@@ -122,26 +122,28 @@ function ProjectCard(props: ProjectCardProps) {
           </h2>
         </Card.Title>
 
-        <div className="project-panel">
+        <div className="project-panel project-context-panel">
           <h3 className="project-panel-title">{labels.context}</h3>
           <Card.Text className="project-description">{props.description}</Card.Text>
         </div>
 
-        <div className="project-panel">
-          <h3 className="project-panel-title">{labels.stack}</h3>
-          {/* Affichage lisible de la stack en badges texte */}
-          <div className="project-tech-badges">
-            {props.techStack.map((tech) => (
-              <span key={`${props.title}-${tech}`} className="project-tech-badge">
-                {tech}
-              </span>
-            ))}
+        <div className="project-info-grid">
+          <div className="project-panel">
+            <h3 className="project-panel-title">{labels.stack}</h3>
+            {/* Affichage lisible de la stack en badges texte */}
+            <div className="project-tech-badges">
+              {props.techStack.map((tech) => (
+                <span key={`${props.title}-${tech}`} className="project-tech-badge">
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className="project-panel">
-          <h3 className="project-panel-title">{labels.result}</h3>
-          <p className="project-result">{resultText}</p>
+          <div className="project-panel">
+            <h3 className="project-panel-title">{labels.result}</h3>
+            <p className="project-result">{resultText}</p>
+          </div>
         </div>
 
         <div className="button-group">

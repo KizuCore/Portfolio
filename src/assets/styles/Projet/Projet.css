@@ -242,11 +242,13 @@
   box-shadow:
     0 16px 34px rgba(3, 12, 28, 0.45),
     0 0 28px rgba(56, 130, 255, 0.12);
-  min-height: 680px;
+  min-height: 0;
   height: 100%;
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(390px, 1.08fr) minmax(0, 0.92fr);
+  gap: 1.1rem;
+  align-items: start;
   transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
 }
 
@@ -305,7 +307,8 @@
   flex-direction: column;
   flex: 1;
   gap: 0.74rem;
-  padding: 0.35rem 0.24rem 0.12rem;
+  min-width: 0;
+  padding: 0.25rem 0.24rem 0.12rem;
 }
 
 .project-card-title {
@@ -330,6 +333,24 @@
   background: linear-gradient(145deg, rgba(13, 31, 59, 0.45), rgba(8, 22, 44, 0.3));
 }
 
+.project-context-panel {
+  padding: 0.9rem 1rem;
+  background:
+    linear-gradient(145deg, rgba(17, 39, 74, 0.58), rgba(8, 22, 44, 0.34)),
+    rgba(10, 24, 46, 0.28);
+}
+
+.project-info-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+  gap: 0.74rem;
+  align-items: stretch;
+}
+
+.project-info-grid .project-panel {
+  min-width: 0;
+}
+
 .project-panel-title {
   margin: 0 0 0.34rem;
   font-size: 0.92rem;
@@ -342,32 +363,57 @@
 
 /* === IMAGE FRAME === */
 .project-img-wrapper {
+  position: relative;
   overflow: hidden;
-  border-radius: 14px;
-  margin-bottom: 1.05rem;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
+  align-self: start;
+  border-radius: 16px;
+  margin-bottom: 0;
+  padding: 1.35rem 0 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.94));
+  border: 1px solid rgba(211, 229, 250, 0.34);
+  box-shadow:
+    0 18px 34px rgba(1, 8, 21, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  height: auto;
+}
+
+.project-img-wrapper-contain {
+  align-self: start;
+  height: auto;
+  background: linear-gradient(180deg, rgba(8, 20, 40, 0.6), rgba(8, 20, 40, 0.15));
 }
 
 .project-img-wrapper::after {
-  content: none;
+  content: "";
+  position: absolute;
+  top: 0.52rem;
+  left: 0.72rem;
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 999px;
+  background: #ff6b6b;
+  box-shadow:
+    0.78rem 0 0 #ffd166,
+    1.56rem 0 0 #5be49b;
 }
 
 .project-img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  border-radius: 14px;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 16 / 9.35;
+  object-fit: contain;
+  object-position: top center;
+  border-radius: 0 0 15px 15px;
   border: 0;
-  background-color: transparent;
+  background-color: #0c1d36;
 }
 
 .project-img-contain {
   aspect-ratio: auto;
-  height: clamp(300px, 50vh, 560px);
+  height: auto;
+  min-height: 0;
   object-fit: contain;
   object-position: top center;
   background: linear-gradient(180deg, rgba(8, 20, 40, 0.6), rgba(8, 20, 40, 0.15));
@@ -423,7 +469,7 @@
   color: rgba(232, 241, 255, 0.9);
   font-size: 0.95rem;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.48;
   letter-spacing: 0.005em;
   text-align: left;
   text-wrap: pretty;
@@ -453,7 +499,7 @@
   color: rgba(224, 239, 255, 0.88);
   font-size: 0.95rem;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.48;
 }
 
 /* === CTA BUTTONS === */
@@ -615,11 +661,29 @@
   }
 
   .project-card-view {
+    display: flex;
+    flex-direction: column;
     min-height: 650px;
     padding: 1.25rem;
   }
 
+  .project-img-wrapper {
+    margin-bottom: 1.05rem;
+    height: auto;
+  }
+
+  .project-img {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
   .project-card-body {
+    gap: 0.62rem;
+  }
+
+  .project-info-grid {
+    grid-template-columns: 1fr;
     gap: 0.62rem;
   }
 

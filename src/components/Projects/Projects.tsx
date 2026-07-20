@@ -117,7 +117,7 @@ const projects: ProjectItem[] = [
     titleKey: "categories_projects.flambow_title",
     descriptionKey: "categories_projects.flambow_description",
     ghLink: "https://github.com/KizuCore/Flambow",
-    seeLink: "https://flambow-m7iu4q0gi-theo22100s-projects.vercel.app/",
+    seeLink: "https://flambow.vercel.app/",
     techStack: ["React", "Javascript", "Bootstrap", "Css", "Axios"],
     category: "web",
   },
@@ -229,7 +229,7 @@ const explorerLabels: Record<
 > = {
   fr: {
     browse: "Parcourir les projets",
-    previous: "Precedent",
+    previous: "Précédent",
     next: "Suivant",
     empty: "Aucun projet pour ce filtre.",
     position: "Projet {{current}} sur {{total}}",

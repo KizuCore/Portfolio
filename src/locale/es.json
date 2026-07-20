@@ -466,7 +466,7 @@
         "badmintonapi_description": "API de reserva de pistas con JWT, roles usuario/admin, reglas de disponibilidad, documentacion Swagger, entorno Docker y endpoint GraphQL.",
         "portes_montafilan_title": "Les Portes de Montafilan",
         "portes_montafilan_description": "Sitio vitrina bilingüe y herramienta de prereserva para un alojamiento, creado con restricciones claras: sin suscripción mensual, sin backend complejo y precios editables sin código desde una hoja tipo Excel conectada con Google Sheets. Presenta el alojamiento, sincroniza las fechas no disponibles de Airbnb vía iCal, explica la estimación y redirige a Airbnb con fechas prerrellenadas.",
-        "portfolio_v2_title": "Portfolio V2",
+        "portfolio_v2_title": "Portfolio",
         "portfolio_v2_description": "Portfolio personal multilingue (React + TypeScript) con SEO tecnico, formulario protegido con reCAPTCHA v3, analitica con consentimiento y despliegue en Vercel.",
         "library_title": "Aplicación Librería",
         "library_description": "Aplicacion full-stack para gestion de biblioteca con autenticacion JWT, catalogo de libros, flujos de prestamos/reservas, panel admin y persistencia MySQL con Sequelize.",

@@ -31,7 +31,7 @@
   - Repo: [https://github.com/KizuCore/PortesDeMontafilan](https://github.com/KizuCore/PortesDeMontafilan)
   - Website: [https://www.lesportesdemontafilan.com/](https://www.lesportesdemontafilan.com/)
   - Highlights: bilingual showcase site, Airbnb iCal availability, Google Sheets pricing estimate, Brevo contact form protected by reCAPTCHA v3, Vercel serverless functions
-- Portfolio v2: React, TypeScript, Bootstrap, Node.js, Axios
+- Portfolio : React, TypeScript, Bootstrap, Node.js, Axios
   - Repo: [https://github.com/KizuCore/Portfolio](https://github.com/KizuCore/Portfolio)
 - Library application: Node.js, Swagger, MySQL, React, Bootstrap, Sequelize
   - Repo: [https://github.com/KizuCore/MDS-M1-Librairie](https://github.com/KizuCore/MDS-M1-Librairie)

@@ -71,7 +71,6 @@ const projects: ProjectItem[] = [
     ghLink: "https://github.com/KizuCore/MDS-M1-Librairie",
     techStack: ["NodeJS", "Swagger", "MySQL", "React", "Bootstrap", "Sequelize"],
     category: "api",
-    featured: true,
   },
   {
     imgPath: lemonmaze,
@@ -212,7 +211,7 @@ const filterLabels: Record<string, Record<ProjectFilter, string>> = {
 };
 
 const featuredPillLabel: Record<string, string> = {
-  fr: "Selection",
+  fr: "Sélection",
   en: "Top Pick",
   es: "Seleccion",
   bzh: "Dibabet",

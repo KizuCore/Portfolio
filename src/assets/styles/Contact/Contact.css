@@ -18,11 +18,10 @@
 
 .contact-column > div,
 .contact-column > aside {
-  height: 100%;
+  height: auto;
 }
 
 .contact-form-card {
-  height: 100%;
   padding: 1.7rem !important;
 }
 
@@ -102,7 +101,12 @@ textarea.custom-form {
 }
 
 .contact-submit-btn {
-  min-width: 220px;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: none !important;
+  min-height: 46px;
 }
 
 .contact-info-box {
@@ -111,13 +115,11 @@ textarea.custom-form {
   gap: 1rem;
   text-align: left;
   padding: 1.5rem;
-  border-radius: 18px;
-  background:
-    radial-gradient(circle at 0% 0%, rgba(76, 147, 255, 0.2), transparent 42%),
-    linear-gradient(160deg, rgba(11, 25, 47, 0.86), rgba(15, 38, 71, 0.7));
-  border: 1px solid rgba(170, 211, 255, 0.33);
-  box-shadow: 0 20px 38px rgba(3, 11, 25, 0.32), inset 0 1px 0 rgba(208, 230, 255, 0.08);
-  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(193, 217, 255, 0.36);
+  box-shadow: var(--glow);
+  backdrop-filter: blur(4px);
 }
 
 .contact-panel-heading {
@@ -243,11 +245,6 @@ textarea.custom-form {
   transform: translateY(-2px);
   border-color: rgba(212, 234, 255, 0.88);
   box-shadow: 0 14px 28px rgba(3, 13, 27, 0.44);
-}
-
-.contact-quick-link-ghost {
-  background: linear-gradient(135deg, rgba(9, 20, 39, 0.88), rgba(17, 41, 74, 0.74));
-  border-color: rgba(165, 207, 255, 0.3);
 }
 
 @media (max-width: 991px) {

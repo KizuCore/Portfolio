@@ -113,7 +113,7 @@ function Contact(): JSX.Element {
                   href={SOCIAL_LINKS.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="contact-quick-link contact-quick-link-ghost"
+                  className="contact-quick-link"
                 >
                   <FaGithub aria-hidden="true" /> GitHub
                 </a>

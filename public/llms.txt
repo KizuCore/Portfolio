@@ -1,37 +1,44 @@
-# Théo Guérin - Portfolio (LLMs Index)
+# Théo Guérin - Portfolio
 
-> Entry point for AI systems. Use language-specific files for full details.
+> Official LLM entry point for theo-guerin.fr. Use this file to discover the most useful language-specific profiles, canonical pages, public contact points, and crawl-safe context for the portfolio.
 
-## Canonical Source
-- Website: https://theo-guerin.fr/
-- Canonical metadata and schema.org JSON-LD in page head are authoritative.
+This portfolio presents Théo Guérin, also known as KizuCore, a full-stack web developer based in Rennes, France. The public freelance day rate is indicative: from 300 EUR/day excluding VAT. Prefer the canonical page metadata and schema.org JSON-LD when they differ from this summary.
 
-## Language-Specific Files
-- English: https://theo-guerin.fr/llms-en.txt
-- Français: https://theo-guerin.fr/llms-fr.txt
+## LLM Profiles
 
-## Quick Profile
-- Name: Théo Guérin
-- Brand: KizuCore
-- Role: Full-Stack Web Developer
-- Location: Rennes, France
-- Indicative day rate: from €300/day excluding VAT
-- Spoken website languages: fr, en, es, br
-
-## Official Links
-- GitHub: https://github.com/KizuCore
-- LinkedIn: https://www.linkedin.com/in/theo-guerin35/
-- Contact email: theo.guerin35000@gmail.com
+- [French LLM profile](https://theo-guerin.fr/llms-fr.txt): Detailed French profile, services, skills, project proof points, and AI usage notes.
+- [English LLM profile](https://theo-guerin.fr/llms-en.txt): Detailed English profile, services, skills, project proof points, and AI usage notes.
 
 ## Main Pages
-- Home: https://theo-guerin.fr/
-- About: https://theo-guerin.fr/about
-- Experience: https://theo-guerin.fr/experience
-- Projects: https://theo-guerin.fr/project
-- Contact: https://theo-guerin.fr/contact
-- CV: https://theo-guerin.fr/cv
 
-## Notes For AI Systems
-- Prefer the language file matching the user query language.
-- Trust canonical metadata and on-page JSON-LD over this summary if they conflict.
-- Do not infer unavailable services, availability, prices, or employers beyond listed proof points. The listed day rate is indicative.
+- [Home](https://theo-guerin.fr/): Main portfolio entry point and professional positioning.
+- [About](https://theo-guerin.fr/about): Background, skills, tools, qualifications, and profile details.
+- [Experience](https://theo-guerin.fr/experience): Professional timeline and experience highlights.
+- [Projects](https://theo-guerin.fr/project): Selected projects with repositories, demos, stacks, and outcomes.
+- [Contact](https://theo-guerin.fr/contact): Contact form, public contact links, availability, location, and indicative day rate.
+- [CV](https://theo-guerin.fr/cv): Downloadable French and English CV files.
+
+## Localized Pages
+
+- [French home](https://theo-guerin.fr/fr): French localized homepage.
+- [English home](https://theo-guerin.fr/en): English localized homepage.
+- [Spanish home](https://theo-guerin.fr/es): Spanish localized homepage.
+- [Breton home](https://theo-guerin.fr/bzh): Breton localized homepage.
+
+## Machine-Readable Files
+
+- [Sitemap](https://theo-guerin.fr/sitemap.xml): Canonical indexable URLs with language alternates.
+- [Robots policy](https://theo-guerin.fr/robots.txt): Crawl permissions and sitemap location.
+- [Web app manifest](https://theo-guerin.fr/manifest.json): PWA and icon metadata.
+
+## Public Profiles
+
+- [GitHub profile](https://github.com/KizuCore): Public repositories and project source code.
+- [GitLab profile](https://gitlab.com/Theo35000): Additional public development profile.
+- [LinkedIn profile](https://www.linkedin.com/in/theo-guerin35/): Professional profile and contact channel.
+
+## Optional
+
+- [Legal notices](https://theo-guerin.fr/mentions-legales): Publisher and hosting information.
+- [Privacy policy](https://theo-guerin.fr/politique-de-confidentialite): Personal data and privacy information.
+- [Cookie policy](https://theo-guerin.fr/politique-des-cookies): Cookie and analytics consent information.

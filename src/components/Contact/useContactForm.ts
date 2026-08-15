@@ -1,6 +1,6 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { sendContactEmail } from "../../services/contactApi";
-import { getRecaptchaToken, loadRecaptcha } from "../../utils/recaptcha";
+import { getRecaptchaToken } from "../../utils/recaptcha";
 import type { ContactFieldErrors, ContactFormFieldName, ContactFormFields, ContactFormStatus } from "./contact.types";
 
 const EMPTY_FORM: ContactFormFields = {
@@ -17,15 +17,6 @@ export function useContactForm(recaptchaSiteKey: string) {
   const [fieldErrors, setFieldErrors] = useState<ContactFieldErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<ContactFormStatus | null>(null);
-
-  useEffect(() => {
-    if (!recaptchaSiteKey) {
-      return;
-    }
-
-    // Warm the captcha script early so submit latency stays low.
-    void loadRecaptcha(recaptchaSiteKey).catch(() => undefined);
-  }, [recaptchaSiteKey]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target as { name: ContactFormFieldName; value: string };
@@ -72,7 +63,7 @@ export function useContactForm(recaptchaSiteKey: string) {
     setIsSubmitting(true);
 
     try {
-      // reCAPTCHA v3 returns an action-scoped token that the API validates server-side.
+      // Load reCAPTCHA only on submit to avoid third-party iframe console noise during page audits.
       const recaptchaToken = await getRecaptchaToken(recaptchaSiteKey, RECAPTCHA_ACTION);
       const result = await sendContactEmail({ ...formData, recaptchaToken });
 

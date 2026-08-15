@@ -99,7 +99,7 @@ function ProjectCard(props: ProjectCardProps) {
             rel="noopener noreferrer"
             aria-label={`${props.isGitLab ? "GitLab" : "GitHub"} - ${props.title}`}
           >
-            <FaGithub style={{ marginRight: "5px", marginBottom: "2px" }} />
+            <FaGithub className="project-button-icon" aria-hidden="true" />
             {props.isGitLab ? "GitLab" : "GitHub"}
           </Button>
 
@@ -111,7 +111,7 @@ function ProjectCard(props: ProjectCardProps) {
               rel="noopener noreferrer"
               aria-label={`${t("video")} - ${props.title}`}
             >
-              <FaYoutube style={{ marginRight: "5px", marginBottom: "2px" }} />
+              <FaYoutube className="project-button-icon" aria-hidden="true" />
               {t("video")}
             </Button>
           )}
@@ -124,7 +124,7 @@ function ProjectCard(props: ProjectCardProps) {
               rel="noopener noreferrer"
               aria-label={`${t("see")} - ${props.title}`}
             >
-              <FaEye style={{ marginRight: "5px", marginBottom: "2px" }} />
+              <FaEye className="project-button-icon" aria-hidden="true" />
               {t("see")}
             </Button>
           )}

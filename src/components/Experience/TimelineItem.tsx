@@ -6,9 +6,9 @@ import { useTranslation } from "react-i18next";
 
 const getIcon = (type: string) =>
   type === "C" ? (
-    <FaUserGraduate style={{ transform: "translateY(-1px)" }} />
+    <FaUserGraduate className="timeline-icon-offset-sm" />
   ) : (
-    <FaBriefcase style={{ transform: "translateY(-1px)" }} />
+    <FaBriefcase className="timeline-icon-offset-sm" />
   );
 
 type Props = {

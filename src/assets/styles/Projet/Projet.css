@@ -641,6 +641,11 @@
   box-shadow: 0 14px 28px rgba(2, 10, 24, 0.46);
 }
 
+.project-button-icon {
+  margin-right: 5px;
+  margin-bottom: 2px;
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 991px) {
   .project-explorer {

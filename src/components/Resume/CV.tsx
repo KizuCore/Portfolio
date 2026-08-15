@@ -41,7 +41,7 @@ function CV() {
 
   const DownloadButton = () => (
     <Button href={pdf} target="_blank" rel="noopener noreferrer" className="button-cv">
-      <AiOutlineDownload style={{ marginRight: "5px" }} className="mb-1" />{t("downloadcv")}
+      <AiOutlineDownload className="cv-download-icon" aria-hidden="true" />{t("downloadcv")}
     </Button >
   );
 
@@ -67,10 +67,7 @@ function CV() {
         <Col md={12} lg={11} xl={10} className="d-flex justify-content-center">
           <div className="pdf-container">
             {isLoading && !error && (
-              <div
-                className="d-flex justify-content-center align-items-center"
-                style={{ height: "400px" }}
-              >
+              <div className="pdf-loading">
                 <Spinner animation="border" role="status" />
               </div>
             )}

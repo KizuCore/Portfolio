@@ -109,6 +109,11 @@ textarea.custom-form {
   min-height: 46px;
 }
 
+.contact-submit-icon {
+  margin-right: 0.38rem;
+  margin-bottom: 0.08rem;
+}
+
 .contact-info-box {
   display: flex;
   flex-direction: column;

@@ -76,7 +76,7 @@ function Footer(): JSX.Element {
                   rel="noopener noreferrer"
                   aria-label={t("github_profile_link")}
                 >
-                  <FiGithub aria-hidden="true" style={{ marginRight: "0.45rem", verticalAlign: "middle" }} />
+                  <FiGithub aria-hidden="true" className="footer-nav-icon" />
                   GitHub
                 </a>
               </li>
@@ -88,7 +88,7 @@ function Footer(): JSX.Element {
                   rel="noopener noreferrer"
                   aria-label={t("gitlab_profile_link")}
                 >
-                  <FiGitlab aria-hidden="true" style={{ marginRight: "0.45rem", verticalAlign: "middle" }} />
+                  <FiGitlab aria-hidden="true" className="footer-nav-icon" />
                   GitLab
                 </a>
               </li>
@@ -100,7 +100,7 @@ function Footer(): JSX.Element {
                   rel="noopener noreferrer"
                   aria-label={t("linkedin_profile_link")}
                 >
-                  <FiLinkedin aria-hidden="true" style={{ marginRight: "0.45rem", verticalAlign: "middle" }} />
+                  <FiLinkedin aria-hidden="true" className="footer-nav-icon" />
                   LinkedIn
                 </a>
               </li>

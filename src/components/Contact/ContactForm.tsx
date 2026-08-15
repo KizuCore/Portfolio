@@ -1,4 +1,3 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import {
   Alert,
   Button,
@@ -9,150 +8,14 @@ import {
 } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
+import { useContactForm } from "./useContactForm";
 import "../../assets/styles/Contact/Contact.css";
-
-declare global {
-  interface Window {
-    grecaptcha?: {
-      ready: (callback: () => void) => void;
-      execute: (siteKey: string, options: { action: string }) => Promise<string>;
-    };
-  }
-}
-
-interface FormFields {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
-const RECAPTCHA_ACTION = "contact";
-const RECAPTCHA_SCRIPT_ID = "google-recaptcha-v3";
-
-let recaptchaScriptPromise: Promise<void> | null = null;
-
-function loadRecaptcha(siteKey: string) {
-  if (window.grecaptcha) {
-    return Promise.resolve();
-  }
-
-  if (recaptchaScriptPromise) {
-    return recaptchaScriptPromise;
-  }
-
-  recaptchaScriptPromise = new Promise<void>((resolve, reject) => {
-    const existingScript = document.getElementById(RECAPTCHA_SCRIPT_ID);
-
-    if (existingScript) {
-      existingScript.addEventListener("load", () => resolve(), { once: true });
-      existingScript.addEventListener("error", () => reject(new Error("recaptcha_load_failed")), { once: true });
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.id = RECAPTCHA_SCRIPT_ID;
-    script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(siteKey)}`;
-    script.async = true;
-    script.defer = true;
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error("recaptcha_load_failed"));
-
-    document.head.appendChild(script);
-  });
-
-  return recaptchaScriptPromise;
-}
-
-async function getRecaptchaToken(siteKey: string) {
-  await loadRecaptcha(siteKey);
-
-  return new Promise<string>((resolve, reject) => {
-    if (!window.grecaptcha) {
-      reject(new Error("recaptcha_unavailable"));
-      return;
-    }
-
-    window.grecaptcha.ready(() => {
-      window.grecaptcha
-        ?.execute(siteKey, { action: RECAPTCHA_ACTION })
-        .then(resolve)
-        .catch(reject);
-    });
-  });
-}
 
 function ContactForm() {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState<FormFields>({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [responseMessage, setResponseMessage] = useState("");
-  const [responseVariant, setResponseVariant] = useState<"success" | "danger" | "">("");
-
   const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
-
-  useEffect(() => {
-    if (!recaptchaSiteKey) {
-      return;
-    }
-
-    void loadRecaptcha(recaptchaSiteKey).catch(() => undefined);
-  }, [recaptchaSiteKey]);
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      setResponseMessage(t("errors.missing_fields"));
-      setResponseVariant("danger");
-      return;
-    }
-
-    if (!recaptchaSiteKey) {
-      setResponseMessage(t("errors.captcha_failed"));
-      setResponseVariant("danger");
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      const recaptchaToken = await getRecaptchaToken(recaptchaSiteKey);
-      const response = await fetch("/api/sendEmail", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, recaptchaToken }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        setResponseMessage(t("message_success"));
-        setResponseVariant("success");
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      } else {
-        const fallback = data.message || t("message_fail");
-        const translated = data.errorCode ? t(`errors.${data.errorCode}`) : fallback;
-        setResponseMessage(translated);
-        setResponseVariant("danger");
-      }
-    } catch {
-      setResponseMessage(t("message_error"));
-      setResponseVariant("danger");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  const { formData, isSubmitting, status, clearStatus, handleChange, handleSubmit } = useContactForm(recaptchaSiteKey);
+  const responseMessage = status ? t(status.translationKey, status.fallbackMessage || t("message_fail")) : "";
 
   return (
     <div className="contact-form-card background-box">
@@ -162,10 +25,10 @@ function ContactForm() {
         <p className="contact-form-required">{t("contact_form_required_hint")}</p>
       </header>
 
-      {responseMessage && (
+      {status && (
         <Alert
-          variant={responseVariant}
-          onClose={() => setResponseMessage("")}
+          variant={status.variant}
+          onClose={clearStatus}
           dismissible
           className="contact-form-alert"
         >
@@ -247,7 +110,7 @@ function ContactForm() {
             </>
           ) : (
             <>
-              <AiOutlineMail className="mb-1" style={{ marginRight: "6px" }} />
+              <AiOutlineMail className="contact-submit-icon" aria-hidden="true" />
               {t("send_message")}
             </>
           )}

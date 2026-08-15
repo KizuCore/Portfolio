@@ -6,9 +6,9 @@ import { useTranslation } from "react-i18next";
 
 const getIcon = (type: string) =>
     type === "C" ? (
-        <FaUserGraduate style={{ transform: "translateY(-2px)" }} />
+        <FaUserGraduate className="timeline-icon-offset" />
     ) : (
-        <FaBriefcase style={{ transform: "translateY(-2px)" }} />
+        <FaBriefcase className="timeline-icon-offset" />
     );
 
 type Props = {
@@ -20,7 +20,7 @@ const TimelineBubble = ({ item, isLeft }: Props) => {
     const { t } = useTranslation();
 
     return (
-        <div style={{ position: "relative" }}>
+        <div className="timeline-bubble-shell">
             <div className={`timeline-connector ${isLeft ? "left" : "right"}`} />
             <div className={`timeline-branch ${isLeft ? "left" : "right"}`} />
             <motion.div

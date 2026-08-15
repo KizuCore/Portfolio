@@ -129,6 +129,11 @@
   transition: color 0.2s ease;
 }
 
+.footer-nav-icon {
+  margin-right: 0.45rem;
+  vertical-align: middle;
+}
+
 .footer-link-button {
   background: transparent;
   border: 0;

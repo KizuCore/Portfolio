@@ -1,23 +1,7 @@
-import { JSX } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { FiCode } from "@react-icons/all-files/fi/FiCode";
-import { FiLayers } from "@react-icons/all-files/fi/FiLayers";
-import { FiServer } from "@react-icons/all-files/fi/FiServer";
-import { FiTrendingUp } from "@react-icons/all-files/fi/FiTrendingUp";
-
-type ServiceItem = {
-  key: string;
-  icon: JSX.Element;
-};
-
-const SERVICE_ITEMS: ServiceItem[] = [
-  { key: "websites", icon: <FiCode aria-hidden="true" /> },
-  { key: "apps", icon: <FiLayers aria-hidden="true" /> },
-  { key: "api", icon: <FiServer aria-hidden="true" /> },
-  { key: "optimization", icon: <FiTrendingUp aria-hidden="true" /> },
-];
+import { SERVICE_ITEMS } from "./services.data";
 
 function Services() {
   const { t } = useTranslation();
@@ -56,23 +40,29 @@ function Services() {
         </div>
 
         <div className="services-grid">
-          {SERVICE_ITEMS.map((item, index) => (
-            <motion.article
-              key={item.key}
-              className="service-card"
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.42, delay: index * 0.08 }}
-            >
-              <div className="service-card-head">
-                <span className="service-icon">{item.icon}</span>
-                <span className="service-step">0{index + 1}</span>
-              </div>
-              <h3 className="service-card-title">{t(`services.items.${item.key}.title`)}</h3>
-              <p className="service-card-description">{t(`services.items.${item.key}.description`)}</p>
-            </motion.article>
-          ))}
+          {SERVICE_ITEMS.map((item, index) => {
+            const IconComponent = item.icon;
+
+            return (
+              <motion.article
+                key={item.key}
+                className="service-card"
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.42, delay: index * 0.08 }}
+              >
+                <div className="service-card-head">
+                  <span className="service-icon">
+                    <IconComponent aria-hidden="true" />
+                  </span>
+                  <span className="service-step">0{index + 1}</span>
+                </div>
+                <h3 className="service-card-title">{t(`services.items.${item.key}.title`)}</h3>
+                <p className="service-card-description">{t(`services.items.${item.key}.description`)}</p>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>

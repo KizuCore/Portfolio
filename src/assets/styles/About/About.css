@@ -295,6 +295,20 @@
   border-color: rgba(214, 234, 255, 0.9);
 }
 
+.stack-filter-buttons {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.stack-filter-button {
+  margin: 5px;
+}
+
+.stack-icons-row {
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
 
 /* ========================
    LÉGENDE DES NIVEAUX

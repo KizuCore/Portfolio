@@ -16,3 +16,15 @@
     justify-content: center;
     align-items: flex-start;
 }
+
+.pdf-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+}
+
+.cv-download-icon {
+    margin-right: 5px;
+    margin-bottom: 0.08rem;
+}

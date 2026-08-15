@@ -22,7 +22,7 @@ function TypeDev(): JSX.Element {
 
   return (
     <div aria-live="polite" className="typedev pt-5 pt-md-0">
-      <span className="" style={{ display: "none" }}>
+      <span className="typewriter-seo-text">
         Fullstack Developer, Frontend Developer, Backend Developer
       </span>
       <div className="mb-1">

@@ -140,7 +140,7 @@ function Home(): JSX.Element {
                     {isMobile ? (
                       <img
                         src={LOGO_DEVELOPER_SRC}
-                        className="img-fluid"
+                        className="img-fluid home-draggable-logo"
                         alt={t('theo_developer')}
                         width="300"
                         height="300"
@@ -170,7 +170,6 @@ function Home(): JSX.Element {
                         animate={controls}
                         initial={{ opacity: 0, scale: 0.95 }}
                         transition={{ duration: 0.8, ease: easeOut }}
-                        style={{ cursor: "grab" }}
                       />
 
                     )}
@@ -180,7 +179,7 @@ function Home(): JSX.Element {
                     {isMobile ? (
                       <img
                         src={LOGO_DEVELOPER_SRC}
-                        className="img-fluid"
+                        className="img-fluid home-draggable-logo"
                         alt={t('theo_developer')}
                         width="300"
                         height="300"
@@ -210,7 +209,6 @@ function Home(): JSX.Element {
                         animate={controls}
                         initial={{ opacity: 0, scale: 0.95 }}
                         transition={{ duration: 0.8, ease: easeOut }}
-                        style={{ cursor: "grab" }}
                       />
 
                     )}
@@ -228,4 +226,3 @@ function Home(): JSX.Element {
 }
 
 export default Home;
-

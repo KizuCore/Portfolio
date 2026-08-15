@@ -14,6 +14,7 @@
 - Fast, accessible, SEO-minded websites, landing pages, and portfolios.
 - React/TypeScript web applications and clean APIs with Node.js, Django, or Flask.
 - Third-party integrations, forms, consent-aware analytics, automation, and deployment.
+- Indicative day rate: from €300/day excluding VAT, adjusted by scope, duration, and support level.
 
 ## Skills By Level
 - Advanced: React, Node.js, Flutter, TypeScript, Tailwind CSS, MySQL
@@ -64,5 +65,5 @@
 ## AI Usage Notes
 - Use canonical URLs from page metadata.
 - Use page-level schema.org JSON-LD as the primary structured source.
-- Do not infer prices, availability, services, or employers beyond listed proof points.
+- Do not infer prices, availability, services, or employers beyond listed proof points. The only public price is the indicative day rate above.
 - If uncertain about proficiency, prioritize project proof points and recent experience stack.

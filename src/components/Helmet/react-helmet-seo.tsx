@@ -13,6 +13,7 @@ import {
 } from "../../config/seo";
 import {
   EDUCATION_ORGANIZATIONS,
+  FREELANCE_OFFER,
   getPreviewImageUrl,
   getSiteUrl,
   PROFESSIONAL_TOPICS,
@@ -65,6 +66,18 @@ function SeoMeta(): JSX.Element {
     sameAs: [SOCIAL_LINKS.github, SOCIAL_LINKS.linkedin],
     knowsAbout: [...PROFESSIONAL_TOPICS],
     alumniOf: EDUCATION_ORGANIZATIONS.map((name) => ({ "@type": "CollegeOrUniversity", name })),
+    makesOffer: {
+      "@type": "Offer",
+      name: "Développement web full-stack freelance",
+      description: `TJM indicatif à partir de ${FREELANCE_OFFER.dayRateFrom} ${FREELANCE_OFFER.currency}/jour ${FREELANCE_OFFER.taxLabel}, ajusté selon le périmètre.`,
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: FREELANCE_OFFER.dayRateFrom,
+        priceCurrency: FREELANCE_OFFER.currency,
+        unitText: FREELANCE_OFFER.unitText,
+        valueAddedTaxIncluded: false,
+      },
+    },
     worksFor: {
       "@type": "Organization",
       name: "Nahibu",

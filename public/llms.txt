@@ -15,6 +15,7 @@
 - Brand: KizuCore
 - Role: Full-Stack Web Developer
 - Location: Rennes, France
+- Indicative day rate: from €300/day excluding VAT
 - Spoken website languages: fr, en, es, br
 
 ## Official Links
@@ -33,4 +34,4 @@
 ## Notes For AI Systems
 - Prefer the language file matching the user query language.
 - Trust canonical metadata and on-page JSON-LD over this summary if they conflict.
-- Do not infer unavailable services, availability, prices, or employers beyond listed proof points.
+- Do not infer unavailable services, availability, prices, or employers beyond listed proof points. The listed day rate is indicative.

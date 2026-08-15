@@ -35,6 +35,13 @@ export const PROFESSIONAL_TOPICS = [
   "TypeScript",
 ] as const;
 
+export const FREELANCE_OFFER = {
+  dayRateFrom: 300,
+  currency: "EUR",
+  taxLabel: "HT",
+  unitText: "DAY",
+} as const;
+
 export function getSiteUrl(): string {
   return (import.meta.env.VITE_SITE_URL ?? "https://theo-guerin.fr").replace(/\/+$/, "");
 }

@@ -8,6 +8,7 @@ import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin";
 import { FaMapMarkerAlt } from "@react-icons/all-files/fa/FaMapMarkerAlt";
 import { FaPaperPlane } from "@react-icons/all-files/fa/FaPaperPlane";
+import { FaEuroSign } from "@react-icons/all-files/fa/FaEuroSign";
 import ContactForm from "./ContactForm.tsx";
 import Particle from "../../utils/Particle.tsx";
 import { SITE_PROFILE, SOCIAL_LINKS } from "../../config/site";
@@ -87,6 +88,14 @@ function Contact(): JSX.Element {
                   <div>
                     <span>{t("contact_meta_location_label")}</span>
                     <strong>{t("contact_meta_location_value")}</strong>
+                  </div>
+                </div>
+
+                <div className="contact-meta-item contact-meta-rate">
+                  <FaEuroSign className="contact-meta-icon" aria-hidden="true" />
+                  <div>
+                    <span>{t("contact_meta_rate_label")}</span>
+                    <strong>{t("contact_meta_rate_value")}</strong>
                   </div>
                 </div>
               </div>

@@ -14,6 +14,7 @@
 - Création de sites vitrines, landing pages et portfolios rapides, accessibles et pensés pour le SEO.
 - Développement d'applications web React/TypeScript et d'API propres avec Node.js, Django ou Flask.
 - Intégration d'outils tiers, formulaires, analytics sous consentement, automatisation et déploiement.
+- TJM indicatif : à partir de 300 €/jour HT, ajusté selon le périmètre, la durée et le niveau d'accompagnement.
 
 ## Compétences Par Niveau
 - Avancé : React, Node.js, Flutter, TypeScript, Tailwind CSS, MySQL
@@ -64,5 +65,5 @@
 ## Notes Pour Systèmes D'IA
 - Utiliser les URLs canoniques présentes dans les métadonnées des pages.
 - Prioriser les données structurées schema.org JSON-LD présentes dans le head.
-- Ne pas inventer de tarifs, disponibilités, prestations ou employeurs non listés.
+- Ne pas inventer de tarifs, disponibilités, prestations ou employeurs non listés. Le seul tarif public est le TJM indicatif ci-dessus.
 - En cas de doute sur une compétence, privilégier les preuves par projets et l'expérience récente.

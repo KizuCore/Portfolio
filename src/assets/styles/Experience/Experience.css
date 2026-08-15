@@ -130,7 +130,7 @@
 .timeline-event {
   position: relative;
   display: flex;
-  min-height: 170px;
+  min-height: 12.5rem;
   margin-bottom: 2.1rem;
 }
 
@@ -180,6 +180,7 @@
 .timeline-card {
   width: 100%;
   max-width: 560px;
+  min-height: 11.25rem;
   border-radius: 18px;
   border: 1px solid rgba(153, 199, 255, 0.26);
   background: linear-gradient(
@@ -312,6 +313,7 @@
 }
 
 .timeline-card-detailed {
+  min-height: 19.5rem;
   border-color: rgba(183, 221, 255, 0.42);
   background: linear-gradient(
     160deg,
@@ -425,10 +427,15 @@
 
   .timeline-card {
     max-width: 460px;
+    min-height: 11.75rem;
   }
 
   .timeline-card-detailed .timeline-card-list {
     grid-template-columns: 1fr;
+  }
+
+  .timeline-card-detailed {
+    min-height: 24rem;
   }
 }
 
@@ -457,7 +464,7 @@
     padding-left: 3.3rem;
     padding-right: 0;
     margin-bottom: 1.35rem;
-    min-height: 0;
+    min-height: 11.75rem;
   }
 
   .timeline-event-dot {
@@ -481,8 +488,13 @@
 
   .timeline-card {
     max-width: none;
+    min-height: 11.25rem;
     border-radius: 16px;
     padding: 1rem;
+  }
+
+  .timeline-card-detailed {
+    min-height: 25rem;
   }
 
   .timeline-card-title {

@@ -1,11 +1,11 @@
 import { lazy, type JSX } from "react";
 import { Navigate } from "react-router-dom";
 import Home from "../components/Home/Home.tsx";
+import Contact from "../components/Contact/Contact.tsx";
 import { getLocalizedPath, SUPPORTED_LOCALES } from "../config/seo";
 
-// Secondary pages are lazy-loaded so the first visit stays focused on the home experience.
+// Most secondary pages stay lazy-loaded; Contact is eager because it is a common direct audit/entry page.
 const About = lazy(() => import("../components/About/About.tsx"));
-const Contact = lazy(() => import("../components/Contact/Contact.tsx"));
 const Experience = lazy(() => import("../components/Experience/ExpTimeline.tsx"));
 const Projects = lazy(() => import("../components/Projects/Projects.tsx"));
 const CV = lazy(() => import("../components/Resume/CV.tsx"));

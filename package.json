@@ -15,7 +15,6 @@
     "@react-icons/all-files": "^4.1.0",
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
-    "axios": "^1.8.4",
     "bootstrap": "^5.3.5",
     "framer-motion": "^12.6.5",
     "i18next": "^24.2.3",
@@ -37,10 +36,8 @@
     "react-router-dom": "^7.5.0",
     "react-tooltip": "^5.28.1",
     "resend": "^4.3.0",
-    "swiper": "^12.1.2",
     "tsparticles": "^3.8.1",
-    "typewriter-effect": "^2.21.0",
-    "web-vitals": "^2.1.4"
+    "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

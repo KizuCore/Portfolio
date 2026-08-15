@@ -1,5 +1,4 @@
 import { Resend } from 'resend';
-import axios from 'axios';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -14,6 +13,7 @@ const MAX_FIELD_LENGTHS = {
   subject: 180,
   message: 4000,
 };
+const RATE_LIMIT_MAX_ENTRIES = 500;
 
 const rateLimitMap = new Map();
 
@@ -56,6 +56,14 @@ function isRateLimited(ip) {
   const now = Date.now();
   const lastRequest = rateLimitMap.get(ip);
 
+  if (rateLimitMap.size > RATE_LIMIT_MAX_ENTRIES) {
+    for (const [storedIp, timestamp] of rateLimitMap) {
+      if (now - timestamp > RATE_LIMIT_WINDOW_MS) {
+        rateLimitMap.delete(storedIp);
+      }
+    }
+  }
+
   if (lastRequest && now - lastRequest < RATE_LIMIT_WINDOW_MS) {
     return true;
   }
@@ -71,21 +79,26 @@ async function verifyRecaptcha(token, ip) {
       return false;
     }
 
-    const response = await axios.post(
+    const response = await fetch(
       RECAPTCHA_VERIFY_URL,
-      new URLSearchParams({
-        secret: process.env.RECAPTCHA_SECRET_KEY,
-        response: token,
-        remoteip: ip || '',
-      })
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          secret: process.env.RECAPTCHA_SECRET_KEY,
+          response: token,
+          remoteip: ip || '',
+        }),
+      }
     );
+    const data = await response.json();
 
     const minScore = Number(process.env.RECAPTCHA_MIN_SCORE || '0.5');
-    const score = Number(response.data?.score);
+    const score = Number(data?.score);
 
     return (
-      Boolean(response.data?.success) &&
-      response.data?.action === RECAPTCHA_ACTION &&
+      Boolean(data?.success) &&
+      data?.action === RECAPTCHA_ACTION &&
       Number.isFinite(score) &&
       score >= minScore
     );

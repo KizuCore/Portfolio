@@ -1,4 +1,4 @@
-import type { IconType } from "react-icons";
+import type { ComponentType, SVGProps } from "react";
 import { FiCode } from "@react-icons/all-files/fi/FiCode";
 import { FiLayers } from "@react-icons/all-files/fi/FiLayers";
 import { FiServer } from "@react-icons/all-files/fi/FiServer";
@@ -6,7 +6,7 @@ import { FiTrendingUp } from "@react-icons/all-files/fi/FiTrendingUp";
 
 export interface ServiceItem {
   key: string;
-  icon: IconType;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
 }
 
 export const SERVICE_ITEMS: ServiceItem[] = [

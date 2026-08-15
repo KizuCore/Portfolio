@@ -1,4 +1,7 @@
-﻿:root {
+@import "./shared/buttons.css";
+@import "./shared/surfaces.css";
+
+:root {
   --surface-900: #05080f;
   --surface-850: #090f1f;
   --surface-800: #10172a;
@@ -160,118 +163,6 @@ select:focus-visible {
   }
 }
 
-.btn:focus,
-button:focus {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-.btn:not(.lang-toggle) {
-  border-radius: 999px !important;
-  border: 1px solid var(--btn-border) !important;
-  color: var(--btn-text) !important;
-  background: var(--btn-bg) !important;
-  font-family: 'Montserrat', serif !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.01em;
-  backdrop-filter: blur(6px);
-  box-shadow: var(--btn-shadow);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease, background 0.25s ease !important;
-}
-
-.btn:not(.lang-toggle):hover {
-  transform: translateY(-1px);
-  border-color: var(--btn-border-hover) !important;
-  color: #ffffff !important;
-  background: var(--btn-bg-hover) !important;
-  box-shadow: var(--btn-shadow-hover);
-}
-
-.btn:not(.lang-toggle):active {
-  transform: translateY(0);
-}
-
-.btn:not(.lang-toggle):disabled,
-.btn:not(.lang-toggle).disabled {
-  opacity: 0.55;
-  transform: none;
-  box-shadow: none;
-  cursor: not-allowed;
-}
-
-.btn.btn-sm:not(.lang-toggle) {
-  min-height: 36px;
-  padding: 0.34rem 0.9rem !important;
-  font-size: 0.84rem;
-}
-
-.btn.btn-light:not(.lang-toggle) {
-  color: #08294f !important;
-  border-color: rgba(207, 230, 255, 0.85) !important;
-  background: linear-gradient(140deg, rgba(236, 246, 255, 0.96), rgba(199, 227, 255, 0.92)) !important;
-  box-shadow: 0 10px 22px rgba(2, 12, 28, 0.28);
-}
-
-.btn.btn-light:not(.lang-toggle):hover {
-  color: #051f3d !important;
-  background: linear-gradient(140deg, rgba(248, 252, 255, 0.98), rgba(221, 238, 255, 0.94)) !important;
-}
-
-.btn.btn-outline-secondary:not(.lang-toggle) {
-  color: rgba(224, 240, 255, 0.94) !important;
-  border-color: rgba(162, 206, 255, 0.4) !important;
-  background: linear-gradient(140deg, rgba(9, 23, 45, 0.86), rgba(15, 41, 78, 0.72)) !important;
-  box-shadow: 0 10px 20px rgba(2, 10, 24, 0.3);
-}
-
-.btn.btn-outline-secondary:not(.lang-toggle):hover {
-  color: #ffffff !important;
-  border-color: rgba(205, 230, 255, 0.85) !important;
-  background: linear-gradient(140deg, rgba(14, 35, 67, 0.92), rgba(24, 63, 119, 0.82)) !important;
-}
-
-.btn.btn-link:not(.lang-toggle) {
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  color: #9bccff !important;
-  box-shadow: none !important;
-  min-height: auto;
-  padding: 0 !important;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-
-.btn.btn-link:not(.lang-toggle):hover {
-  color: #d0e7ff !important;
-  text-decoration-thickness: 2px;
-}
-
-.button-cv {
-  min-height: 44px;
-  border-radius: 999px !important;
-  color: var(--btn-text) !important;
-  font-size: 1rem !important;
-  max-width: 320px !important;
-  padding: 0.6rem 1.2rem !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.01em;
-  z-index: 1 !important;
-  background: var(--btn-bg) !important;
-  border: 1px solid var(--btn-border) !important;
-  box-shadow: var(--btn-shadow);
-  transition: all 0.3s ease-in-out !important;
-}
-
-.button-cv:hover {
-  background: var(--btn-bg-hover) !important;
-  border-color: var(--btn-border-hover) !important;
-  color: #ffffff !important;
-  box-shadow: var(--btn-shadow-hover);
-  transform: translateY(-1px);
-  text-decoration: none;
-}
-
 .about-section,
 .parkour-section {
   position: relative !important;
@@ -282,58 +173,6 @@ button:focus {
 
 .parkour-section {
   padding-top: 120px !important;
-}
-
-
-
-.background-box {
-  background-color: rgba(255, 255, 255, 0.05) !important;
-  padding: 2em !important;
-  border: 1px solid rgba(193, 217, 255, 0.36) !important;
-  border-radius: 16px !important;
-  position: relative;
-  overflow: hidden;
-  z-index: 0;
-  box-shadow: var(--glow);
-  backdrop-filter: blur(4px);
-}
-
-.background-box::before,
-.background-box::after {
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: 18px;
-  z-index: -1;
-  padding: 3px;
-  box-sizing: border-box;
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-}
-
-.background-box::before {
-  background: conic-gradient(
-    from 0deg,
-    rgba(39, 109, 238, 0.34),
-    rgba(255, 255, 255, 0.18),
-    rgba(39, 109, 238, 0.34)
-  );
-  animation: rotateFrame 6s linear infinite;
-}
-
-.background-box::after {
-  inset: -6px;
-  border-radius: 22px;
-  background: conic-gradient(
-    from 0deg,
-    rgba(255, 255, 255, 0.08),
-    rgba(39, 109, 238, 0.2),
-    rgba(255, 255, 255, 0.08)
-  );
-  animation: rotateFrameReverse 10s linear infinite;
 }
 
 ::-webkit-scrollbar {

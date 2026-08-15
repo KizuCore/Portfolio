@@ -1,0 +1,49 @@
+.background-box {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  padding: 2em !important;
+  border: 1px solid rgba(193, 217, 255, 0.36) !important;
+  border-radius: 16px !important;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  box-shadow: var(--glow);
+  backdrop-filter: blur(4px);
+}
+
+.background-box::before,
+.background-box::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 18px;
+  z-index: -1;
+  padding: 3px;
+  box-sizing: border-box;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.background-box::before {
+  background: conic-gradient(
+    from 0deg,
+    rgba(39, 109, 238, 0.34),
+    rgba(255, 255, 255, 0.18),
+    rgba(39, 109, 238, 0.34)
+  );
+  animation: rotateFrame 6s linear infinite;
+}
+
+.background-box::after {
+  inset: -6px;
+  border-radius: 22px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(39, 109, 238, 0.2),
+    rgba(255, 255, 255, 0.08)
+  );
+  animation: rotateFrameReverse 10s linear infinite;
+}

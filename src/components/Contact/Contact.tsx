@@ -10,6 +10,7 @@ import { FaMapMarkerAlt } from "@react-icons/all-files/fa/FaMapMarkerAlt";
 import { FaPaperPlane } from "@react-icons/all-files/fa/FaPaperPlane";
 import { FaEuroSign } from "@react-icons/all-files/fa/FaEuroSign";
 import ContactForm from "./ContactForm.tsx";
+import IconLink from "../Common/IconLink";
 import Particle from "../../utils/Particle.tsx";
 import { SITE_PROFILE, SOCIAL_LINKS } from "../../config/site";
 import "../../assets/styles/Contact/Contact.css";
@@ -101,22 +102,22 @@ function Contact(): JSX.Element {
               </div>
 
               <div className="contact-actions">
-                <a href={`mailto:${SITE_PROFILE.email}`} className="contact-quick-link">
-                  <FaEnvelope aria-hidden="true" /> {t("contact_cta_email")}
-                </a>
-
-                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="contact-quick-link">
-                  <FaLinkedin aria-hidden="true" /> {t("contact_cta_linkedin")}
-                </a>
-
-                <a
-                  href={SOCIAL_LINKS.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <IconLink
+                  href={`mailto:${SITE_PROFILE.email}`}
+                  icon={FaEnvelope}
                   className="contact-quick-link"
+                  external={false}
                 >
-                  <FaGithub aria-hidden="true" /> GitHub
-                </a>
+                  {t("contact_cta_email")}
+                </IconLink>
+
+                <IconLink href={SOCIAL_LINKS.linkedin} icon={FaLinkedin} className="contact-quick-link">
+                  {t("contact_cta_linkedin")}
+                </IconLink>
+
+                <IconLink href={SOCIAL_LINKS.github} icon={FaGithub} className="contact-quick-link">
+                  GitHub
+                </IconLink>
               </div>
             </motion.aside>
           </Col>

@@ -8,13 +8,14 @@ import {
 } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
+import { CONTACT_FORM_FIELDS } from "./contactFormFields";
 import { useContactForm } from "./useContactForm";
 import "../../assets/styles/Contact/Contact.css";
 
 function ContactForm() {
   const { t } = useTranslation();
   const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
-  const { formData, isSubmitting, status, clearStatus, handleChange, handleSubmit } = useContactForm(recaptchaSiteKey);
+  const { formData, fieldErrors, isSubmitting, status, clearStatus, handleChange, handleSubmit } = useContactForm(recaptchaSiteKey);
   const responseMessage = status ? t(status.translationKey, status.fallbackMessage || t("message_fail")) : "";
 
   return (
@@ -27,6 +28,7 @@ function ContactForm() {
 
       {status && (
         <Alert
+          id="contact-form-status"
           variant={status.variant}
           onClose={clearStatus}
           dismissible
@@ -38,71 +40,46 @@ function ContactForm() {
 
       <Form onSubmit={handleSubmit} noValidate>
         <Row className="g-3">
-          <Col md={6}>
-            <Form.Group controlId="formName">
-              <Form.Label>{t("name")}</Form.Label>
-              <Form.Control
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                autoComplete="name"
-                placeholder={t("name_placeholder")}
-                className="custom-form"
-              />
-            </Form.Group>
-          </Col>
+          {CONTACT_FORM_FIELDS.map((field) => {
+            const errorKey = fieldErrors[field.name];
+            const errorId = `${field.controlId}-error`;
 
-          <Col md={6}>
-            <Form.Group controlId="formEmail">
-              <Form.Label>{t("email")}</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                autoComplete="email"
-                placeholder={t("email_placeholder")}
-                className="custom-form"
-              />
-            </Form.Group>
-          </Col>
+            return (
+              <Col key={field.name} md={field.colMd} xs={12}>
+                <Form.Group controlId={field.controlId}>
+                  <Form.Label>{t(field.labelKey)}</Form.Label>
+                  <Form.Control
+                    as={field.as}
+                    type={field.type}
+                    name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    required
+                    autoComplete={field.autoComplete}
+                    rows={field.rows}
+                    placeholder={t(field.placeholderKey)}
+                    className="custom-form"
+                    aria-invalid={Boolean(errorKey)}
+                    aria-describedby={errorKey ? errorId : undefined}
+                  />
 
-          <Col xs={12}>
-            <Form.Group controlId="formSubject">
-              <Form.Label>{t("subject")}</Form.Label>
-              <Form.Control
-                type="text"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                placeholder={t("subject_placeholder")}
-                className="custom-form"
-              />
-            </Form.Group>
-          </Col>
-
-          <Col xs={12}>
-            <Form.Group controlId="formMessage">
-              <Form.Label>{t("message")}</Form.Label>
-              <Form.Control
-                as="textarea"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={5}
-                placeholder={t("message_placeholder")}
-                className="custom-form"
-              />
-            </Form.Group>
-          </Col>
+                  {errorKey && (
+                    <p id={errorId} className="contact-field-error">
+                      {t(errorKey)}
+                    </p>
+                  )}
+                </Form.Group>
+              </Col>
+            );
+          })}
         </Row>
 
-        <Button type="submit" className="mt-4 button-cv contact-submit-btn" disabled={isSubmitting}>
+        <Button
+          type="submit"
+          className="mt-4 button-cv contact-submit-btn"
+          disabled={isSubmitting}
+          aria-describedby={status ? "contact-form-status" : undefined}
+        >
           {isSubmitting ? (
             <>
               <Spinner animation="border" size="sm" className="me-2" />

@@ -6,6 +6,7 @@ export interface ContactFormFields {
 }
 
 export type ContactFormFieldName = keyof ContactFormFields;
+export type ContactFieldErrors = Partial<Record<ContactFormFieldName, string>>;
 
 export type ContactFormVariant = "success" | "danger";
 

@@ -1,4 +1,4 @@
-import type { IconType } from "react-icons";
+import type { ComponentType, SVGProps } from "react";
 import { AiOutlineFileExcel } from "@react-icons/all-files/ai/AiOutlineFileExcel";
 import { DiMysql } from "@react-icons/all-files/di/DiMysql";
 import { FaPaperPlane } from "@react-icons/all-files/fa/FaPaperPlane";
@@ -27,7 +27,7 @@ import { FaCloud } from "@react-icons/all-files/fa/FaCloud";
 import { FaCheck } from "@react-icons/all-files/fa/FaCheck";
 
 export interface ToolItem {
-  component: IconType;
+  component: ComponentType<SVGProps<SVGSVGElement>>;
   name: string;
   category: string;
 }

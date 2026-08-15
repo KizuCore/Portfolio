@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { splitLocalizedPath } from '../../../config/seo';
 import '../../../assets/styles/Header/header.css';
 
 interface NavItemProps {
@@ -12,7 +13,7 @@ interface NavItemProps {
 
 function NavItem({ to, icon, label, onClick, ariaLabel }: NavItemProps) {
   const location = useLocation();
-  const isActive = location.pathname === to;
+  const isActive = splitLocalizedPath(location.pathname).pathname === splitLocalizedPath(to).pathname;
 
   return (
     <li className="nav-item">

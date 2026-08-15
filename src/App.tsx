@@ -16,7 +16,7 @@ import ScrollProgress from "./utils/ScrollProgress.tsx";
 import BackToTop from "./utils/BackToTop.tsx";
 import RouteSkeleton from "./utils/RouteSkeleton.tsx";
 import useKonamiCode from "./utils/Konami.tsx";
-import { APP_ROUTES, FALLBACK_ROUTE } from "./routes/appRoutes.tsx";
+import { ALL_APP_ROUTES, FALLBACK_ROUTE } from "./routes/appRoutes.tsx";
 
 function KonamiComponent() {
   useKonamiCode();
@@ -73,7 +73,7 @@ function AppContent({ load, showPreloader }: AppContentProps) {
                 transition={routeTransition}
               >
                 <Routes location={location}>
-                  {[...APP_ROUTES, FALLBACK_ROUTE].map((route) => (
+                  {[...ALL_APP_ROUTES, FALLBACK_ROUTE].map((route) => (
                     <Route key={route.path} path={route.path} element={route.element} />
                   ))}
                 </Routes>

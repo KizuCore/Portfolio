@@ -2,6 +2,8 @@
 import { FaAngleDown } from "@react-icons/all-files/fa/FaAngleDown";
 import { FaAngleUp } from "@react-icons/all-files/fa/FaAngleUp";
 import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
+import { getHtmlLang, getLocalizedPath, getShortLocale, ROUTE_SEO, splitLocalizedPath } from "../../config/seo";
 import "../../assets/styles/Header/header.css";
 import flagBzh from "../../assets/images/flags/flag_bzh.svg";
 import flagEn from "../../assets/images/flags/flag_en.svg";
@@ -26,19 +28,27 @@ const FLAG_SOURCES: Readonly<Record<LanguageCode, string>> = {
 
 function LanguageSelector(): JSX.Element {
   const { i18n, t } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const sequenceRef = useRef("");
+  const currentRoutePath = splitLocalizedPath(location.pathname).pathname;
+  const canLocalizeCurrentRoute = Boolean(ROUTE_SEO[currentRoutePath] && !ROUTE_SEO[currentRoutePath].noindex);
 
   const changeLanguage = useCallback(
-    (lang: string) => {
+    (lang: LanguageCode) => {
       i18n.changeLanguage(lang);
+
+      if (canLocalizeCurrentRoute) {
+        navigate(getLocalizedPath(lang, currentRoutePath), { replace: true });
+      }
     },
-    [i18n]
+    [canLocalizeCurrentRoute, currentRoutePath, i18n, navigate]
   );
 
   useEffect(() => {
-    document.documentElement.lang = i18n.language;
+    document.documentElement.lang = getHtmlLang(getShortLocale(i18n.language));
   }, [i18n.language]);
 
   useEffect(() => {

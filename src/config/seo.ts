@@ -7,6 +7,7 @@ export type RouteSeo = {
 };
 
 export const SUPPORTED_LOCALES: SupportedLocale[] = ["fr", "en", "es", "bzh"];
+export const DEFAULT_LOCALE: SupportedLocale = "fr";
 
 export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/": { titleKey: "home", descriptionKey: "seo_routes.home_description" },
@@ -61,6 +62,29 @@ export function normalizePath(pathname: string): string {
   return pathname;
 }
 
+export function splitLocalizedPath(pathname: string): { locale: SupportedLocale | null; pathname: string } {
+  const normalizedPath = normalizePath(pathname);
+  const [, firstSegment, ...remainingSegments] = normalizedPath.split("/");
+
+  if (SUPPORTED_LOCALES.includes(firstSegment as SupportedLocale)) {
+    const localizedPathname = remainingSegments.length > 0 ? `/${remainingSegments.join("/")}` : "/";
+    return {
+      locale: firstSegment as SupportedLocale,
+      pathname: normalizePath(localizedPathname),
+    };
+  }
+
+  return {
+    locale: null,
+    pathname: normalizedPath,
+  };
+}
+
+export function getLocalizedPath(locale: SupportedLocale, pathname: string): string {
+  const basePath = splitLocalizedPath(pathname).pathname;
+  return basePath === "/" ? `/${locale}` : `/${locale}${basePath}`;
+}
+
 export function getShortLocale(input: string): SupportedLocale {
   const value = input.split("-")[0].toLowerCase();
   return SUPPORTED_LOCALES.includes(value as SupportedLocale) ? (value as SupportedLocale) : "fr";
@@ -84,4 +108,14 @@ export function getContentLocale(locale: SupportedLocale, pathname: string): Sup
 
 export function getHtmlLang(locale: SupportedLocale): string {
   return locale === "bzh" ? "br" : locale;
+}
+
+export function getLanguageAlternates(siteUrl: string, pathname: string) {
+  return SUPPORTED_LOCALES.map((locale) => {
+    return {
+      href: `${siteUrl}${getLocalizedPath(locale, pathname)}`,
+      hrefLang: getHtmlLang(locale),
+      locale,
+    };
+  });
 }

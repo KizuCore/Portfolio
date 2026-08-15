@@ -7,6 +7,7 @@ import { FiGitlab } from "@react-icons/all-files/fi/FiGitlab";
 import { FiLinkedin } from "@react-icons/all-files/fi/FiLinkedin";
 import { Link } from "react-router-dom";
 import logo from "@image/logodev.svg";
+import IconLink from "../Common/IconLink";
 import { SITE_PROFILE, SOCIAL_LINKS } from "../../config/site";
 import "../../assets/styles/Footer/Footer.css";
 
@@ -69,40 +70,37 @@ function Footer(): JSX.Element {
             <p className="footer-column-title">{t("footer_social_title")}</p>
             <ul>
               <li>
-                <a
+                <IconLink
                   href={SOCIAL_LINKS.github}
                   className="footer-nav-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={t("github_profile_link")}
+                  ariaLabel={t("github_profile_link")}
+                  icon={FiGithub}
+                  iconClassName="footer-nav-icon"
                 >
-                  <FiGithub aria-hidden="true" className="footer-nav-icon" />
                   GitHub
-                </a>
+                </IconLink>
               </li>
               <li>
-                <a
+                <IconLink
                   href={SOCIAL_LINKS.gitlab}
                   className="footer-nav-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={t("gitlab_profile_link")}
+                  ariaLabel={t("gitlab_profile_link")}
+                  icon={FiGitlab}
+                  iconClassName="footer-nav-icon"
                 >
-                  <FiGitlab aria-hidden="true" className="footer-nav-icon" />
                   GitLab
-                </a>
+                </IconLink>
               </li>
               <li>
-                <a
+                <IconLink
                   href={SOCIAL_LINKS.linkedin}
                   className="footer-nav-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={t("linkedin_profile_link")}
+                  ariaLabel={t("linkedin_profile_link")}
+                  icon={FiLinkedin}
+                  iconClassName="footer-nav-icon"
                 >
-                  <FiLinkedin aria-hidden="true" className="footer-nav-icon" />
                   LinkedIn
-                </a>
+                </IconLink>
               </li>
             </ul>
           </div>

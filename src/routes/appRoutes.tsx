@@ -1,6 +1,7 @@
 import { lazy, type JSX } from "react";
 import { Navigate } from "react-router-dom";
 import Home from "../components/Home/Home.tsx";
+import { getLocalizedPath, SUPPORTED_LOCALES } from "../config/seo";
 
 const About = lazy(() => import("../components/About/About.tsx"));
 const Contact = lazy(() => import("../components/Contact/Contact.tsx"));
@@ -31,6 +32,17 @@ export const APP_ROUTES: AppRoute[] = [
   { path: "/gojo", element: <Gojo /> },
   { path: "/arcane", element: <RouteSecret /> },
 ];
+
+const LOCALIZABLE_ROUTES = APP_ROUTES.filter((route) => !["/gojo", "/arcane"].includes(route.path));
+
+export const LOCALIZED_APP_ROUTES: AppRoute[] = SUPPORTED_LOCALES.flatMap((locale) =>
+  LOCALIZABLE_ROUTES.map((route) => ({
+    path: getLocalizedPath(locale, route.path),
+    element: route.element,
+  }))
+);
+
+export const ALL_APP_ROUTES: AppRoute[] = [...APP_ROUTES, ...LOCALIZED_APP_ROUTES];
 
 export const FALLBACK_ROUTE: AppRoute = {
   path: "*",

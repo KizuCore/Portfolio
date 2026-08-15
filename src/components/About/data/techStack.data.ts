@@ -1,4 +1,4 @@
-import type { IconType } from "react-icons";
+import type { ComponentType, SVGProps } from "react";
 import { SiFlutter } from "@react-icons/all-files/si/SiFlutter";
 import { DiReact } from "@react-icons/all-files/di/DiReact";
 import { DiNodejs } from "@react-icons/all-files/di/DiNodejs";
@@ -41,8 +41,10 @@ export type SkillLevel = 0 | 1 | 2 | 3;
 export type SkillCategory = "Programming Languages" | "Front-End" | "Back-End" | "Database" | "Hosting" | "Mobile" | "CMS";
 export type SkillFilter = SkillCategory | "All";
 
+export type StackIcon = ComponentType<SVGProps<SVGSVGElement>>;
+
 export interface TechSkill {
-  component: IconType;
+  component: StackIcon;
   name: string;
   level: SkillLevel;
   category: SkillCategory;

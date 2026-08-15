@@ -1,5 +1,5 @@
 import { JSX, useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { FiBriefcase } from "@react-icons/all-files/fi/FiBriefcase";
 import { FiFileText } from "@react-icons/all-files/fi/FiFileText";
@@ -10,6 +10,7 @@ import { FiUser } from "@react-icons/all-files/fi/FiUser";
 import LanguageSelector from "../LanguageSelector";
 import Logo from "../Logo/LogoContainer";
 import NavItem from "./NavItem";
+import { getLocalizedPath, getShortLocale, splitLocalizedPath } from "../../../config/seo";
 import { SITE_PROFILE } from "../../../config/site";
 import '../../../assets/styles/Easter/style_easter.css';
 import '../../../assets/styles/Header/header.css';
@@ -64,10 +65,13 @@ function useLogoNavigation(navigate: ReturnType<typeof useNavigate>) {
 }
 
 function NavBar(): JSX.Element {
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [expand, setExpand] = useState(false);
   const [navColour, setNavColour] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const localizedPath = splitLocalizedPath(location.pathname);
+  const currentLocale = localizedPath.locale ?? getShortLocale(i18n.resolvedLanguage ?? i18n.language ?? "fr");
 
   const { isAnimating, handleMouseDown, handleMouseUp } = useLogoNavigation(navigate);
 
@@ -83,12 +87,12 @@ function NavBar(): JSX.Element {
   }, []);
 
   const navItems = [
-    { to: "/", icon: <FiHome />, label: t('home'), ariaLabel: t('home_aria') },
-    { to: "/about", icon: <FiUser />, label: t('about'), ariaLabel: t('about_aria') },
-    { to: "/experience", icon: <FiBriefcase />, label: t('experience'), ariaLabel: t('about_experience') },
-    { to: "/project", icon: <FiFolder />, label: t('project'), ariaLabel: t('project_aria') },
-    { to: "/contact", icon: <FiMail />, label: t('social'), ariaLabel: t('social') },
-    { to: "/cv", icon: <FiFileText />, label: t('cv'), ariaLabel: t('cv_aria') }
+    { to: getLocalizedPath(currentLocale, "/"), icon: <FiHome />, label: t('home'), ariaLabel: t('home_aria') },
+    { to: getLocalizedPath(currentLocale, "/about"), icon: <FiUser />, label: t('about'), ariaLabel: t('about_aria') },
+    { to: getLocalizedPath(currentLocale, "/experience"), icon: <FiBriefcase />, label: t('experience'), ariaLabel: t('about_experience') },
+    { to: getLocalizedPath(currentLocale, "/project"), icon: <FiFolder />, label: t('project'), ariaLabel: t('project_aria') },
+    { to: getLocalizedPath(currentLocale, "/contact"), icon: <FiMail />, label: t('social'), ariaLabel: t('social') },
+    { to: getLocalizedPath(currentLocale, "/cv"), icon: <FiFileText />, label: t('cv'), ariaLabel: t('cv_aria') }
   ];
 
   return (
@@ -111,7 +115,7 @@ function NavBar(): JSX.Element {
             aria-label={t("home_aria")}
             onClick={() => {
               setExpand(false);
-              navigate("/");
+              navigate(getLocalizedPath(currentLocale, "/"));
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
             }}
           >

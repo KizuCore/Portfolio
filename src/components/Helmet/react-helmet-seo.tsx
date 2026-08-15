@@ -5,11 +5,14 @@ import { useLocation } from "react-router-dom";
 import {
   getContentLocale,
   getHtmlLang,
+  getLanguageAlternates,
+  getLocalizedPath,
   getShortLocale,
   normalizePath,
   OPEN_GRAPH_LOCALES,
   ROUTE_SCHEMA_TYPE,
   ROUTE_SEO,
+  splitLocalizedPath,
 } from "../../config/seo";
 import {
   EDUCATION_ORGANIZATIONS,
@@ -24,10 +27,11 @@ import {
 function SeoMeta(): JSX.Element {
   const { i18n } = useTranslation();
   const location = useLocation();
-  const pathname = normalizePath(location.pathname);
+  const localizedPath = splitLocalizedPath(location.pathname);
+  const pathname = normalizePath(localizedPath.pathname);
   const siteUrl = getSiteUrl();
   const currentRoute = ROUTE_SEO[pathname];
-  const lang = getShortLocale(i18n.resolvedLanguage ?? i18n.language ?? "fr");
+  const lang = localizedPath.locale ?? getShortLocale(i18n.resolvedLanguage ?? i18n.language ?? "fr");
   const contentLang = getContentLocale(lang, pathname);
   const htmlLang = getHtmlLang(contentLang);
   const tx = i18n.getFixedT(contentLang);
@@ -39,8 +43,10 @@ function SeoMeta(): JSX.Element {
     ? tx(currentRoute.descriptionKey, { defaultValue: tx("seo_description") })
     : tx("seo_description");
 
-  const canonicalUrl = `${siteUrl}${pathname}`;
+  const canonicalPath = currentRoute?.noindex ? pathname : getLocalizedPath(lang, pathname);
+  const canonicalUrl = `${siteUrl}${canonicalPath}`;
   const imageUrl = getPreviewImageUrl(siteUrl);
+  const languageAlternates = currentRoute?.noindex ? [] : getLanguageAlternates(siteUrl, pathname);
   const isNoindex = currentRoute?.noindex ?? false;
   const robotsContent = isNoindex
     ? "noindex, nofollow"
@@ -129,12 +135,24 @@ function SeoMeta(): JSX.Element {
       <link rel="alternate" type="text/markdown" href={`${siteUrl}/llms.txt`} />
       <link rel="alternate" type="text/markdown" href={`${siteUrl}/llms-en.txt`} hrefLang="en" />
       <link rel="alternate" type="text/markdown" href={`${siteUrl}/llms-fr.txt`} hrefLang="fr" />
-      <link rel="alternate" href={canonicalUrl} hrefLang="x-default" />
+      {languageAlternates.map((alternate) => (
+        <link key={alternate.hrefLang} rel="alternate" href={alternate.href} hrefLang={alternate.hrefLang} />
+      ))}
+      {!isNoindex && <link rel="alternate" href={`${siteUrl}${getLocalizedPath("fr", pathname)}`} hrefLang="x-default" />}
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={`${SITE_PROFILE.displayName} | Portfolio`} />
       <meta property="og:locale" content={OPEN_GRAPH_LOCALES[contentLang]} />
+      {languageAlternates
+        .filter((alternate) => alternate.hrefLang !== htmlLang)
+        .map((alternate) => (
+          <meta
+            key={alternate.hrefLang}
+            property="og:locale:alternate"
+            content={OPEN_GRAPH_LOCALES[alternate.locale]}
+          />
+        ))}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />

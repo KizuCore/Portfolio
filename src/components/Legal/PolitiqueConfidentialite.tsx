@@ -4,12 +4,14 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import "../../assets/styles/Legals/Legals.css";
 import Particle from "../../utils/Particle";
+import { SITE_PROFILE, getSiteUrl } from "../../config/site";
 
 function PolitiqueConfidentialite(): JSX.Element {
   const { i18n } = useTranslation();
   const lastUpdateHuman = "13/03/2026";
   const lastUpdateISO = "2026-03-13";
-  const email = "theo.guerin35000@gmail.com";
+  const email = SITE_PROFILE.email;
+  const siteHostname = new URL(getSiteUrl()).hostname;
   const currentLang = (i18n.resolvedLanguage ?? i18n.language ?? "fr").split("-")[0].toLowerCase();
   const legalLang = currentLang === "es" ? "en" : currentLang === "bzh" ? "fr" : currentLang === "en" ? "en" : "fr";
   const tx = i18n.getFixedT(legalLang);
@@ -49,7 +51,7 @@ function PolitiqueConfidentialite(): JSX.Element {
                         {tx("politique_confidentialite.controller.email_label")}: <a href={`mailto:${email}`}>{email}</a>
                       </p>
                       <p>
-                        {tx("politique_confidentialite.controller.site_label")}: <strong>theo-guerin.fr</strong>
+                        {tx("politique_confidentialite.controller.site_label")}: <strong>{siteHostname}</strong>
                       </p>
                     </address>
                   </section>

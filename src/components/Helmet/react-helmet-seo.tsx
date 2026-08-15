@@ -2,126 +2,69 @@ import { JSX } from "react";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
-
-type RouteSeo = {
-  titleKey: string;
-  descriptionKey?: string;
-  noindex?: boolean;
-};
-
-const ROUTE_SEO: Record<string, RouteSeo> = {
-  "/": { titleKey: "home", descriptionKey: "seo_routes.home_description" },
-  "/about": { titleKey: "about", descriptionKey: "seo_routes.about_description" },
-  "/experience": { titleKey: "experience", descriptionKey: "seo_routes.experience_description" },
-  "/project": { titleKey: "project", descriptionKey: "seo_routes.project_description" },
-  "/contact": { titleKey: "social", descriptionKey: "seo_routes.contact_description" },
-  "/cv": { titleKey: "cv", descriptionKey: "seo_routes.cv_description" },
-  "/mentions-legales": { titleKey: "mentions_legales.title", descriptionKey: "seo_routes.legal_description" },
-  "/politique-de-confidentialite": {
-    titleKey: "politique_confidentialite.title",
-    descriptionKey: "seo_routes.privacy_description",
-  },
-  "/politique-des-cookies": {
-    titleKey: "cookie_policy.title",
-    descriptionKey: "seo_routes.cookies_description",
-  },
-  "/gojo": { titleKey: "easter.gojo.seo_title", noindex: true },
-  "/arcane": { titleKey: "easter.arcane.seo_title", noindex: true },
-};
-
-const ROUTE_SCHEMA_TYPE: Record<string, string> = {
-  "/": "WebPage",
-  "/about": "AboutPage",
-  "/experience": "CollectionPage",
-  "/project": "CollectionPage",
-  "/contact": "ContactPage",
-  "/cv": "ProfilePage",
-  "/mentions-legales": "WebPage",
-  "/politique-de-confidentialite": "WebPage",
-  "/politique-des-cookies": "WebPage",
-};
-
-function normalizePath(pathname: string): string {
-  if (pathname.length > 1 && pathname.endsWith("/")) {
-    return pathname.slice(0, -1);
-  }
-  return pathname;
-}
-
-function getShortLocale(input: string): "fr" | "en" | "es" | "bzh" {
-  const value = input.split("-")[0].toLowerCase();
-  if (value === "en" || value === "es" || value === "bzh") return value;
-  return "fr";
-}
-
-function mapLegalLocale(lang: "fr" | "en" | "es" | "bzh"): "fr" | "en" {
-  if (lang === "es") return "en";
-  if (lang === "bzh") return "fr";
-  return lang === "en" ? "en" : "fr";
-}
+import {
+  getContentLocale,
+  getHtmlLang,
+  getShortLocale,
+  normalizePath,
+  OPEN_GRAPH_LOCALES,
+  ROUTE_SCHEMA_TYPE,
+  ROUTE_SEO,
+} from "../../config/seo";
+import {
+  EDUCATION_ORGANIZATIONS,
+  getPreviewImageUrl,
+  getSiteUrl,
+  PROFESSIONAL_TOPICS,
+  SITE_PROFILE,
+  SOCIAL_LINKS,
+} from "../../config/site";
 
 function SeoMeta(): JSX.Element {
   const { i18n } = useTranslation();
   const location = useLocation();
   const pathname = normalizePath(location.pathname);
-  const siteUrl = (import.meta.env.VITE_SITE_URL ?? "https://theo-guerin.fr").replace(/\/+$/, "");
+  const siteUrl = getSiteUrl();
   const currentRoute = ROUTE_SEO[pathname];
   const lang = getShortLocale(i18n.resolvedLanguage ?? i18n.language ?? "fr");
-  const isLegalRoute =
-    pathname === "/mentions-legales" ||
-    pathname === "/politique-de-confidentialite" ||
-    pathname === "/politique-des-cookies";
-  const contentLang = isLegalRoute ? mapLegalLocale(lang) : lang;
-  const htmlLang = contentLang === "bzh" ? "br" : contentLang;
+  const contentLang = getContentLocale(lang, pathname);
+  const htmlLang = getHtmlLang(contentLang);
   const tx = i18n.getFixedT(contentLang);
-
-  const localeMap: Record<"fr" | "en" | "es" | "bzh", string> = {
-    fr: "fr_FR",
-    en: "en_US",
-    es: "es_ES",
-    bzh: "br_FR",
-  };
 
   const baseTitle = tx("seo_title");
   const pageTitle = currentRoute ? tx(currentRoute.titleKey) : "";
   const fullTitle = pageTitle ? `${pageTitle} | ${baseTitle}` : baseTitle;
-
-  const description = currentRoute?.descriptionKey ? tx(currentRoute.descriptionKey) : tx("seo_description");
+  const description = currentRoute?.descriptionKey
+    ? tx(currentRoute.descriptionKey, { defaultValue: tx("seo_description") })
+    : tx("seo_description");
 
   const canonicalUrl = `${siteUrl}${pathname}`;
-  const imageUrl = `${siteUrl}/images/preview/previewsite.png`;
-  const personId = `${siteUrl}/#person`;
-  const websiteId = `${siteUrl}/#website`;
+  const imageUrl = getPreviewImageUrl(siteUrl);
   const isNoindex = currentRoute?.noindex ?? false;
   const robotsContent = isNoindex
     ? "noindex, nofollow"
     : "index, follow, max-image-preview:large";
-  const keywords = tx("seo_keywords");
+  const keywords = tx("seo_keywords", {
+    defaultValue: "Théo Guérin, développeur full-stack, React, Django, Python, portfolio",
+  });
 
   const personSchema = {
-    "@context": "https://schema.org",
     "@type": "Person",
-    "@id": personId,
-    name: "Théo Guérin",
-    jobTitle: "Développeur Full-Stack",
+    "@id": `${siteUrl}/#person`,
+    name: SITE_PROFILE.displayName,
+    jobTitle: SITE_PROFILE.jobTitle,
     url: siteUrl,
     image: imageUrl,
-    email: "theo.guerin35000@gmail.com",
+    email: SITE_PROFILE.email,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Rennes",
-      postalCode: "35700",
-      addressCountry: "FR",
+      addressLocality: SITE_PROFILE.city,
+      postalCode: SITE_PROFILE.postalCode,
+      addressCountry: SITE_PROFILE.countryCode,
     },
-    sameAs: [
-      "https://github.com/KizuCore",
-      "https://www.linkedin.com/in/theo-guerin35/",
-    ],
-    knowsAbout: ["React", "Django", "Python", "Node.js", "Flutter", "PostgreSQL", "Docker", "TypeScript"],
-    alumniOf: [
-      { "@type": "CollegeOrUniversity", name: "Université Rennes 1 ISTIC" },
-      { "@type": "CollegeOrUniversity", name: "My Digital School Rennes" },
-    ],
+    sameAs: [SOCIAL_LINKS.github, SOCIAL_LINKS.linkedin],
+    knowsAbout: [...PROFESSIONAL_TOPICS],
+    alumniOf: EDUCATION_ORGANIZATIONS.map((name) => ({ "@type": "CollegeOrUniversity", name })),
     worksFor: {
       "@type": "Organization",
       name: "Nahibu",
@@ -130,46 +73,28 @@ function SeoMeta(): JSX.Element {
   };
 
   const websiteSchema = {
-    "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": websiteId,
-    name: "Théo Guérin | Portfolio",
+    "@id": `${siteUrl}/#website`,
+    name: `${SITE_PROFILE.displayName} | Portfolio`,
     url: siteUrl,
-    author: { "@type": "Person", name: "Théo Guérin" },
-    inLanguage: ["fr", "en", "es"],
+    author: { "@id": `${siteUrl}/#person` },
+    inLanguage: ["fr", "en", "es", "br"],
   };
 
   const webPageSchema = {
-    "@context": "https://schema.org",
     "@type": ROUTE_SCHEMA_TYPE[pathname] ?? "WebPage",
+    "@id": `${canonicalUrl}#webpage`,
     name: fullTitle,
     description,
     url: canonicalUrl,
     inLanguage: htmlLang,
-    isPartOf: {
-      "@type": "WebSite",
-      "@id": websiteId,
-      name: "Théo Guérin | Portfolio",
-      url: siteUrl,
-    },
-    about: {
-      "@type": "Person",
-      name: "Théo Guérin",
-      url: siteUrl,
-    },
-    ...(pathname === "/cv"
-      ? {
-          mainEntity: {
-            "@type": "Person",
-            "@id": personId,
-            name: personSchema.name,
-            jobTitle: personSchema.jobTitle,
-            url: siteUrl,
-            image: imageUrl,
-            sameAs: personSchema.sameAs,
-          },
-        }
-      : {}),
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    about: { "@id": `${siteUrl}/#person` },
+  };
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": pathname === "/" ? [personSchema, websiteSchema, webPageSchema] : [personSchema, webPageSchema],
   };
 
   return (
@@ -178,29 +103,25 @@ function SeoMeta(): JSX.Element {
       <title>{fullTitle}</title>
 
       <meta name="description" content={description} />
-      <meta name="author" content="Théo Guérin" />
+      <meta name="author" content={SITE_PROFILE.displayName} />
       {!isNoindex && <meta name="keywords" content={keywords} />}
       <meta name="robots" content={robotsContent} />
       <meta name="googlebot" content={robotsContent} />
       <meta name="bingbot" content={robotsContent} />
-      <meta name="geo.region" content="FR-35" />
-      <meta name="geo.placename" content="Rennes" />
-      <meta name="geo.position" content="48.117266;-1.677793" />
-      <meta name="ICBM" content="48.117266, -1.677793" />
+      <meta name="geo.region" content={SITE_PROFILE.regionCode} />
+      <meta name="geo.placename" content={SITE_PROFILE.city} />
+      <meta name="geo.position" content={SITE_PROFILE.geoPosition} />
+      <meta name="ICBM" content={SITE_PROFILE.geoICBM} />
       <link rel="canonical" href={canonicalUrl} />
       <link rel="alternate" type="text/markdown" href={`${siteUrl}/llms.txt`} />
       <link rel="alternate" type="text/markdown" href={`${siteUrl}/llms-en.txt`} hrefLang="en" />
       <link rel="alternate" type="text/markdown" href={`${siteUrl}/llms-fr.txt`} hrefLang="fr" />
-      <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="fr" />
-      <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="en" />
-      <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="es" />
-      <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="br" />
-      <link rel="alternate" href={`${siteUrl}${pathname}`} hrefLang="x-default" />
+      <link rel="alternate" href={canonicalUrl} hrefLang="x-default" />
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Théo Guérin | Portfolio" />
-      <meta property="og:locale" content={localeMap[contentLang]} />
+      <meta property="og:site_name" content={`${SITE_PROFILE.displayName} | Portfolio`} />
+      <meta property="og:locale" content={OPEN_GRAPH_LOCALES[contentLang]} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
@@ -208,22 +129,18 @@ function SeoMeta(): JSX.Element {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:type" content="image/png" />
-      <meta property="og:image:alt" content={tx("seo_og_image_alt")} />
+      <meta property="og:image:alt" content={tx("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@KizuCore" />
+      <meta name="twitter:site" content={SITE_PROFILE.twitterHandle} />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
-      <meta name="twitter:image:alt" content={tx("seo_og_image_alt")} />
+      <meta name="twitter:image:alt" content={tx("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
 
-      {/* Structured data */}
-      <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
-      <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>
-      {pathname === "/" && (
-        <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
-      )}
+      {/* Données structurées */}
+      <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
     </Helmet>
   );
 }

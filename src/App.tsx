@@ -1,5 +1,5 @@
-import { useState, useEffect, Suspense, lazy } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from "react-router-dom";
+import { useState, useEffect, Suspense } from "react";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "./assets/styles/style.css";
@@ -8,7 +8,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/Header/Navbar/Navbar.tsx";
 import Footer from "./components/Footer/Footer.tsx";
 import SeoMeta from "./components/Helmet/react-helmet-seo.tsx";
-import Home from "./components/Home/Home.tsx";
 import CookieBanner from "./components/Legal/CookieBanner.tsx";
 import CookiePreferencesModal from "./components/Legal/CookiePreferencesModal.tsx";
 import Preloader from "./utils/Preloader.tsx";
@@ -17,17 +16,7 @@ import ScrollProgress from "./utils/ScrollProgress.tsx";
 import BackToTop from "./utils/BackToTop.tsx";
 import RouteSkeleton from "./utils/RouteSkeleton.tsx";
 import useKonamiCode from "./utils/Konami.tsx";
-
-const About = lazy(() => import("./components/About/About.tsx"));
-const Contact = lazy(() => import("./components/Contact/Contact.tsx"));
-const Experience = lazy(() => import("./components/Experience/ExpTimeline.tsx"));
-const Projects = lazy(() => import("./components/Projects/Projects.tsx"));
-const CV = lazy(() => import("./components/Resume/CV.tsx"));
-const Gojo = lazy(() => import("./components/Easter/Gojo.tsx"));
-const RouteSecret = lazy(() => import("./components/Easter/Arcane.tsx"));
-const MentionsLegales = lazy(() => import("./components/Legal/MentionsLegales.tsx"));
-const PolitiqueConfidentialite = lazy(() => import("./components/Legal/PolitiqueConfidentialite.tsx"));
-const PolitiqueCookies = lazy(() => import("./components/Legal/PolitiqueCookies.tsx"));
+import { APP_ROUTES, FALLBACK_ROUTE } from "./routes/appRoutes.tsx";
 
 function KonamiComponent() {
   useKonamiCode();
@@ -84,18 +73,9 @@ function AppContent({ load, showPreloader }: AppContentProps) {
                 transition={routeTransition}
               >
                 <Routes location={location}>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/project" element={<Projects />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/experience" element={<Experience />} />
-                  <Route path="/cv" element={<CV />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/mentions-legales" element={<MentionsLegales />} />
-                  <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
-                  <Route path="/politique-des-cookies" element={<PolitiqueCookies />} />
-                  <Route path="/gojo" element={<Gojo />} />
-                  <Route path="/arcane" element={<RouteSecret />} />
-                  <Route path="*" element={<Navigate to="/" />} />
+                  {[...APP_ROUTES, FALLBACK_ROUTE].map((route) => (
+                    <Route key={route.path} path={route.path} element={route.element} />
+                  ))}
                 </Routes>
               </motion.div>
             </AnimatePresence>

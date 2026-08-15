@@ -10,14 +10,12 @@ import { FaMapMarkerAlt } from "@react-icons/all-files/fa/FaMapMarkerAlt";
 import { FaPaperPlane } from "@react-icons/all-files/fa/FaPaperPlane";
 import ContactForm from "./ContactForm.tsx";
 import Particle from "../../utils/Particle.tsx";
+import { SITE_PROFILE, SOCIAL_LINKS } from "../../config/site";
 import "../../assets/styles/Contact/Contact.css";
 import "../../assets/styles/Home/Home.css";
 
 function Contact(): JSX.Element {
   const { t } = useTranslation();
-  const emailAddress = "theo.guerin35000@gmail.com";
-  const linkedinUrl = "https://www.linkedin.com/in/theo-guerin35";
-  const githubUrl = "https://github.com/KizuCore";
 
   return (
     <Container fluid className="about-section pt-5 contact-page" id="home">
@@ -94,16 +92,16 @@ function Contact(): JSX.Element {
               </div>
 
               <div className="contact-actions">
-                <a href={`mailto:${emailAddress}`} className="contact-quick-link">
+                <a href={`mailto:${SITE_PROFILE.email}`} className="contact-quick-link">
                   <FaEnvelope aria-hidden="true" /> {t("contact_cta_email")}
                 </a>
 
-                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="contact-quick-link">
+                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="contact-quick-link">
                   <FaLinkedin aria-hidden="true" /> {t("contact_cta_linkedin")}
                 </a>
 
                 <a
-                  href={githubUrl}
+                  href={SOCIAL_LINKS.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-quick-link contact-quick-link-ghost"

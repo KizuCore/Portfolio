@@ -7,6 +7,7 @@ import { FiGitlab } from "@react-icons/all-files/fi/FiGitlab";
 import { FiLinkedin } from "@react-icons/all-files/fi/FiLinkedin";
 import { Link } from "react-router-dom";
 import logo from "@image/logodev.svg";
+import { SITE_PROFILE, SOCIAL_LINKS } from "../../config/site";
 import "../../assets/styles/Footer/Footer.css";
 
 function Footer(): JSX.Element {
@@ -29,21 +30,25 @@ function Footer(): JSX.Element {
           <div className="footer-brand-column">
             <div className="footer-brand-title-wrap">
               <img src={logo} alt={t("brand")} className="footer-brand-logo" loading="lazy" decoding="async" />
-              <span className="footer-brand-title">KizuCore</span>
+              <span className="footer-brand-title">{SITE_PROFILE.brandName}</span>
             </div>
 
             <p className="footer-contact-line footer-location">
               <FiMapPin aria-hidden="true" />
               <span>
-                35700 Rennes,
+                {SITE_PROFILE.postalCode} {SITE_PROFILE.city},
                 <br />
                 France
               </span>
             </p>
 
-            <a className="footer-contact-line footer-external-link" href="mailto:theo.guerin35000@gmail.com" aria-label="theo.guerin35000@gmail.com">
+            <a
+              className="footer-contact-line footer-external-link"
+              href={`mailto:${SITE_PROFILE.email}`}
+              aria-label={SITE_PROFILE.email}
+            >
               <FiMail aria-hidden="true" />
-              <span>theo.guerin35000@gmail.com</span>
+              <span>{SITE_PROFILE.email}</span>
             </a>
           </div>
 
@@ -65,7 +70,7 @@ function Footer(): JSX.Element {
             <ul>
               <li>
                 <a
-                  href="https://github.com/KizuCore"
+                  href={SOCIAL_LINKS.github}
                   className="footer-nav-link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -77,7 +82,7 @@ function Footer(): JSX.Element {
               </li>
               <li>
                 <a
-                  href="https://gitlab.com/Theo35000"
+                  href={SOCIAL_LINKS.gitlab}
                   className="footer-nav-link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -89,7 +94,7 @@ function Footer(): JSX.Element {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/in/theo-guerin35/"
+                  href={SOCIAL_LINKS.linkedin}
                   className="footer-nav-link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -130,7 +135,7 @@ function Footer(): JSX.Element {
 
         <div className="footer-bottom">
           <p>
-            {"\u00A9"} 2024-{year} KizuCore. {t("footer_rights")}
+            {"\u00A9"} 2024-{year} {SITE_PROFILE.brandName}. {t("footer_rights")}
           </p>
         </div>
       </div>

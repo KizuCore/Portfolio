@@ -10,18 +10,19 @@ import { FiUser } from "@react-icons/all-files/fi/FiUser";
 import LanguageSelector from "../LanguageSelector";
 import Logo from "../Logo/LogoContainer";
 import NavItem from "./NavItem";
+import { SITE_PROFILE } from "../../../config/site";
 import '../../../assets/styles/Easter/style_easter.css';
 import '../../../assets/styles/Header/header.css';
 
-// Constantes de timing
-const FAST_CLICK_THRESHOLD = 500; // 0.5s = clic rapide
-const LONG_CLICK_REDIRECT_DELAY = 9500; // 9.5 sec = long clic
+// Constantes de timing du clic secret sur le logo.
+const FAST_CLICK_THRESHOLD = 500;
+const LONG_CLICK_REDIRECT_DELAY = 9500;
 
 // Hook personnalisé pour gérer les clics sur le logo
 function useLogoNavigation(navigate: ReturnType<typeof useNavigate>) {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isLongClick, setIsLongClick] = useState(false);
-  const [isClickValid, setIsClickValid] = useState(false); // Nouveau flag
+  const [isClickValid, setIsClickValid] = useState(false);
 
   const redirectTimeoutRef = useRef<number | null>(null);
   const clickTimeoutRef = useRef<number | null>(null);
@@ -35,7 +36,7 @@ function useLogoNavigation(navigate: ReturnType<typeof useNavigate>) {
 
   const handleMouseDown = () => {
     setIsAnimating(true);
-    setIsClickValid(true); // Marque le clic comme valide
+    setIsClickValid(true);
     setIsLongClick(false);
 
     clickTimeoutRef.current = window.setTimeout(() => {
@@ -114,7 +115,7 @@ function NavBar(): JSX.Element {
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
             }}
           >
-            KizuCore
+            {SITE_PROFILE.brandName}
           </button>
         </div>
 

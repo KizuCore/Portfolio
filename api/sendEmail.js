@@ -1,14 +1,22 @@
 import { Resend } from 'resend';
 import axios from 'axios';
 
-// Initialise l'API Resend avec ta cle d'API
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Anti-spam simple : IP -> timestamp
-const rateLimitMap = new Map();
-const RATE_LIMIT_WINDOW_MS = 30 * 1000; // 30 secondes
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'theo.guerin35000@gmail.com';
+const RESEND_FROM = process.env.RESEND_FROM || 'onboarding@resend.dev';
+const RECAPTCHA_ACTION = 'contact';
+const RECAPTCHA_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify';
+const RATE_LIMIT_WINDOW_MS = 30 * 1000;
+const MAX_FIELD_LENGTHS = {
+  name: 120,
+  email: 180,
+  subject: 180,
+  message: 4000,
+};
 
-// Recuperation IP du client
+const rateLimitMap = new Map();
+
 function getIp(req) {
   return (
     req.headers['x-forwarded-for']?.toString().split(',')[0] ||
@@ -17,8 +25,46 @@ function getIp(req) {
   ).trim();
 }
 
-// Verifie le token Google reCAPTCHA v3
-async function verifyRecaptcha(token, ip, expectedAction) {
+function cleanField(value, maxLength) {
+  return String(value || '').trim().slice(0, maxLength);
+}
+
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function normalizePayload(body) {
+  return {
+    name: cleanField(body.name, MAX_FIELD_LENGTHS.name),
+    email: cleanField(body.email, MAX_FIELD_LENGTHS.email),
+    subject: cleanField(body.subject, MAX_FIELD_LENGTHS.subject),
+    message: cleanField(body.message, MAX_FIELD_LENGTHS.message),
+    recaptchaToken: cleanField(body.recaptchaToken, 4096),
+  };
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const lastRequest = rateLimitMap.get(ip);
+
+  if (lastRequest && now - lastRequest < RATE_LIMIT_WINDOW_MS) {
+    return true;
+  }
+
+  rateLimitMap.set(ip, now);
+  return false;
+}
+
+async function verifyRecaptcha(token, ip) {
   try {
     if (!process.env.RECAPTCHA_SECRET_KEY) {
       console.error('RECAPTCHA_SECRET_KEY manquante');
@@ -26,7 +72,7 @@ async function verifyRecaptcha(token, ip, expectedAction) {
     }
 
     const response = await axios.post(
-      'https://www.google.com/recaptcha/api/siteverify',
+      RECAPTCHA_VERIFY_URL,
       new URLSearchParams({
         secret: process.env.RECAPTCHA_SECRET_KEY,
         response: token,
@@ -39,38 +85,55 @@ async function verifyRecaptcha(token, ip, expectedAction) {
 
     return (
       Boolean(response.data?.success) &&
-      response.data?.action === expectedAction &&
+      response.data?.action === RECAPTCHA_ACTION &&
       Number.isFinite(score) &&
       score >= minScore
     );
-  } catch (err) {
-    console.error('Erreur verification reCAPTCHA :', err.message);
+  } catch (error) {
+    console.error('Erreur de vérification reCAPTCHA :', error.message);
     return false;
   }
 }
 
-// Envoie l'email via Resend
-async function sendContactEmail({ name, email, subject, message, ip }) {
+function buildEmailHtml({ name, email, message, ip }) {
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeMessage = escapeHtml(message);
+  const safeIp = escapeHtml(ip);
+
+  return `
+    <div style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
+      <h2 style="color: #276DEE;">Nouveau message reçu via le portfolio</h2>
+      <table cellpadding="6" cellspacing="0" style="border-collapse: collapse;">
+        <tr><td><strong>Nom :</strong></td><td>${safeName}</td></tr>
+        <tr><td><strong>Email :</strong></td><td><a href="mailto:${safeEmail}">${safeEmail}</a></td></tr>
+        <tr><td><strong>Message :</strong></td><td style="white-space: pre-wrap;">${safeMessage}</td></tr>
+        <tr><td><strong>Adresse IP :</strong></td><td>${safeIp}</td></tr>
+      </table>
+      <p style="margin-top: 2rem; font-size: 14px; color: #999;">
+        Envoyé automatiquement depuis le portfolio KizuCore.
+      </p>
+    </div>
+  `;
+}
+
+async function sendContactEmail(payload, ip) {
   return resend.emails.send({
-    from: 'onboarding@resend.dev', // à remplacer si besoin
-    to: 'theo.guerin35000@gmail.com',
-    subject: `Portfolio | ${subject}`,
-    html: `
-      <div style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-        <h2 style="color: #276DEE;">Nouveau message reçu via le portfolio</h2>
-        <table cellpadding="6" cellspacing="0" style="border-collapse: collapse;">
-          <tr><td><strong>Nom :</strong></td><td>${name}</td></tr>
-          <tr><td><strong>Email :</strong></td><td><a href="mailto:${email}">${email}</a></td></tr>
-          <tr><td><strong>Message :</strong></td><td style="white-space: pre-wrap;">${message}</td></tr>
-          <tr><td><strong>Adresse IP :</strong></td><td>${ip}</td></tr>
-        </table>
-        <p style="margin-top: 2rem; font-size: 14px; color: #999;">Envoyé automatiquement depuis le portfolio KizuCore.</p>
-      </div>
-    `,
+    from: RESEND_FROM,
+    to: CONTACT_EMAIL,
+    subject: `Portfolio | ${payload.subject}`,
+    html: buildEmailHtml({ ...payload, ip }),
+    text: [
+      `Nom : ${payload.name}`,
+      `Email : ${payload.email}`,
+      '',
+      payload.message,
+      '',
+      `Adresse IP : ${ip}`,
+    ].join('\n'),
   });
 }
 
-// Handler API
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({
@@ -80,12 +143,10 @@ export default async function handler(req, res) {
     });
   }
 
-  const { name, email, subject, message, recaptchaToken } = req.body;
-  const expectedRecaptchaAction = 'contact';
+  const payload = normalizePayload(req.body || {});
   const ip = getIp(req);
 
-  // Verification des champs
-  if (!name || !email || !subject || !message || !recaptchaToken) {
+  if (!payload.name || !payload.email || !payload.subject || !payload.message || !payload.recaptchaToken) {
     return res.status(400).json({
       success: false,
       message: 'Champs requis manquants',
@@ -93,46 +154,44 @@ export default async function handler(req, res) {
     });
   }
 
-  // Anti-spam
-  const now = Date.now();
-  const lastRequest = rateLimitMap.get(ip);
-  if (lastRequest && now - lastRequest < RATE_LIMIT_WINDOW_MS) {
+  if (!isValidEmail(payload.email)) {
+    return res.status(400).json({
+      success: false,
+      message: 'Adresse email invalide',
+      errorCode: 'invalid_email',
+    });
+  }
+
+  if (isRateLimited(ip)) {
     return res.status(429).json({
       success: false,
       message: 'Trop de tentatives. Veuillez patienter quelques secondes.',
       errorCode: 'rate_limited',
     });
   }
-  rateLimitMap.set(ip, now);
 
-  // Verification captcha
-  const isHuman = await verifyRecaptcha(
-    recaptchaToken,
-    ip,
-    expectedRecaptchaAction
-  );
+  const isHuman = await verifyRecaptcha(payload.recaptchaToken, ip);
   if (!isHuman) {
     return res.status(400).json({
       success: false,
-      message: 'Validation captcha echouee',
+      message: 'Validation captcha échouée',
       errorCode: 'captcha_failed',
     });
   }
 
-  // Envoi de l'email
   try {
-    await sendContactEmail({ name, email, subject, message, ip });
+    await sendContactEmail(payload, ip);
     return res.status(200).json({
       success: true,
-      message: 'Email envoye avec succes',
+      message: 'Email envoyé avec succès',
     });
-  } catch (err) {
-    console.error("Erreur lors de l'envoi de l'email :", err?.message || err);
+  } catch (error) {
+    console.error("Erreur lors de l'envoi de l'email :", error?.message || error);
     return res.status(500).json({
       success: false,
       message: "Erreur lors de l'envoi du message",
       errorCode: 'send_failed',
-      error: err?.message || 'Unknown error',
+      error: error?.message || 'Unknown error',
     });
   }
 }

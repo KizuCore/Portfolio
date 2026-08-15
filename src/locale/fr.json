@@ -37,7 +37,7 @@
     "hobby7": "Séries / Films",
     "my_projects": "Mes",
     "projects": "Projets",
-    "projects_description": "Une selection de projets representatifs de mon approche: architecture, UX, API et livraison web/mobile.",
+    "projects_description": "Une sélection de projets représentatifs de mon approche : architecture, UX, API et livraison web/mobile.",
     "language_options": {
         "en": "Anglais",
         "es": "Espagnol",
@@ -127,13 +127,13 @@
     "contact_eyebrow": "Parlons de votre projet",
     "contact_intro": "Une idée, une mission freelance ou un poste à proposer ? Écrivez-moi, je vous réponds rapidement.",
     "contact_panel_title": "Un projet à lancer ?",
-    "contact_panel_description": "Je peux intervenir sur la creation, la refonte et l'optimisation de produits web.",
+    "contact_panel_description": "Je peux intervenir sur la création, la refonte et l'optimisation de produits web.",
     "contact_point_1": "Audit rapide du besoin et cadrage clair",
-    "contact_point_2": "Proposition technique adaptee a vos objectifs",
+    "contact_point_2": "Proposition technique adaptée à vos objectifs",
     "contact_point_3": "Suivi transparent du debut a la livraison",
-    "contact_meta_availability_label": "Disponibilite",
+    "contact_meta_availability_label": "Disponibilité",
     "contact_meta_availability_value": "Ouvert aux nouveaux projets",
-    "contact_meta_response_label": "Delai de reponse",
+    "contact_meta_response_label": "Délai de réponse",
     "contact_meta_response_value": "Retour sous 24h",
     "contact_meta_location_label": "Localisation",
     "contact_meta_location_value": "Rennes, France",
@@ -149,7 +149,7 @@
     "message_placeholder": "Votre message",
     "send_message": "Envoyer",
     "contact_form_title": "Parlez-moi de votre besoin",
-    "contact_form_subtitle": "Donnez-moi quelques details sur votre besoin, et je vous repondrai rapidement.",
+    "contact_form_subtitle": "Donnez-moi quelques détails sur votre besoin, et je vous répondrai rapidement.",
     "contact_form_required_hint": "Tous les champs sont requis.",
     "sending": "Envoi...",
     "error_loading_pdf": "Erreur lors du chargement du PDF. Veuillez réessayer plus tard.",
@@ -159,7 +159,7 @@
     "experience_1_date": "Depuis Mars. 2024",
     "experience_1_subtitle": "Nahibu - Rennes",
     "experience_1_description": "Conception et evolution de la plateforme Nahibu.",
-    "experience_1_highlights": "Developpement d'interfaces React pour la plateforme Nahibu||Implementation de rapports microbiote et visualisations de donnees avec Django||Developpement et maintenance d'API REST avec Django et Flask||Conception et gestion de bases de donnees (PostgreSQL, MySQL)||Integration de services externes : WooCommerce, Systempay, Brevo, LimeSurvey||Participation au deploiement via Docker et CI/CD||Mise en place de tests automatises avec Playwright, Jest et Bruno",
+    "experience_1_highlights": "Développement d'interfaces React pour la plateforme Nahibu||Implémentation de rapports microbiote et visualisations de données avec Django||Développement et maintenance d'API REST avec Django et Flask||Conception et gestion de bases de données (PostgreSQL, MySQL)||Intégration de services externes : WooCommerce, Systempay, Brevo, LimeSurvey||Participation au déploiement via Docker et CI/CD||Mise en place de tests automatisés avec Playwright, Jest et Bruno",
     "experience_1_stack": "Python, Django, Flask, React, PostgreSQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
     "experience_2_title": "MBA Développeur Web Full-Stack",
     "experience_2_subtitle": "My Digital School Rennes",
@@ -230,7 +230,7 @@
     },
     "categories_projects": {
         "lemonmaze_api_title": "LemonMaze API",
-        "lemonmaze_api_description": "API REST Node.js qui alimente LemonMaze: endpoints HTTP pour les donnees de parcours, la logique metier et la synchronisation mobile.",
+        "lemonmaze_api_description": "API REST Node.js qui alimente LemonMaze : endpoints HTTP pour les données de parcours, la logique métier et la synchronisation mobile.",
         "lemonmaze_title": "LemonMaze",
         "lemonmaze_description": "Application mobile Flutter pour decouvrir Rennes via un parcours d'enigmes, avec progression utilisateur et mecaniques de recompense.",
         "cosmiclink_title": "CosmicLink",
@@ -242,17 +242,17 @@
         "thebindingofisaac_title": "TheBindingOfIsaac",
         "thebindingofisaac_description": "Jeu Java inspire de The Binding of Isaac: generation de salles, IA d'ennemis/boss, inventaire et mecanisme de sauvegarde/chargement.",
         "portfolio_v1_title": "Ancien Portfolio",
-        "portfolio_v1_description": "Premiere version de mon portfolio, developpee en Vue.js pour poser les bases du responsive et de la presentation projet.",
+        "portfolio_v1_description": "Première version de mon portfolio, développée en Vue.js pour poser les bases du responsive et de la présentation projet.",
         "flambow_title": "Flambow Landing Page",
         "flambow_description": "Landing page responsive de Flambow, concue pour presenter le concept, expliquer la proposition de valeur et collecter les premiers leads.",
         "flambow_frontend_title": "Flambow Frontend",
-        "flambow_frontend_description": "Frontend principal de Flambow, une plateforme d'entraide intergenerationnelle. Projet React + TypeScript avec architecture modulaire, tests Vitest/Playwright, pipeline GitLab CI securise et deploiement Docker sur OVH.",
+        "flambow_frontend_description": "Frontend principal de Flambow, une plateforme d'entraide intergénérationnelle. Projet React + TypeScript avec architecture modulaire, tests Vitest/Playwright, pipeline GitLab CI sécurisé et déploiement Docker sur OVH.",
         "badmintonapi_title": "API Badminton",
         "badmintonapi_description": "API de reservation de terrains de badminton avec JWT, roles utilisateur/admin, regles de disponibilite, documentation Swagger, Docker et endpoint GraphQL.",
         "portes_montafilan_title": "Les Portes de Montafilan",
         "portes_montafilan_description": "Site vitrine bilingue et outil de pré-réservation pour un gîte, conçu avec des contraintes claires : pas d'abonnement mensuel, pas de backend complexe et des tarifs modifiables sans code depuis un tableur type Excel, branché via Google Sheets. Le site présente le gîte, synchronise les indisponibilités Airbnb via iCal, calcule une estimation lisible et redirige vers Airbnb avec les dates préremplies.",
         "portfolio_v2_title": "Portfolio",
-        "portfolio_v2_description": "Portfolio personnel multilingue (React + TypeScript) avec SEO technique, formulaire securise par reCAPTCHA v3, analytics sous consentement et deploiement Vercel.",
+        "portfolio_v2_description": "Portfolio personnel multilingue (React + TypeScript) avec SEO technique, formulaire sécurisé par reCAPTCHA v3, analytics sous consentement et déploiement Vercel.",
         "atable_title": "À table !",
         "atable_description": "Application Flutter offline-first pour gérer le contenu de sa cuisine, suivre les dates de péremption, filtrer par emplacement et visualiser les échéances dans un calendrier afin de réduire le gaspillage alimentaire.",
         "library_title": "Application Librairie",
@@ -291,6 +291,7 @@
         "hcaptcha_failed": "Échec de validation du captcha.",
         "captcha_failed": "Échec de validation du captcha.",
         "missing_fields": "Veuillez remplir tous les champs.",
+        "invalid_email": "Veuillez saisir une adresse email valide.",
         "rate_limited": "Trop de tentatives. Réessayez dans quelques secondes.",
         "send_failed": "Erreur lors de l’envoi du message.",
         "method_not_allowed": "Méthode non autorisée."
@@ -333,7 +334,7 @@
         },
         "privacy": {
             "title": "7. Données personnelles",
-            "p1": "Ce site peut collecter des données personnelles via le formulaire de contact (si présent), via un mecanisme anti-abus reCAPTCHA v3 (Google) et via des outils de mesure d'audience.",
+            "p1": "Ce site peut collecter des données personnelles via le formulaire de contact, via un mécanisme anti-abus reCAPTCHA v3 (Google) et via des outils de mesure d'audience.",
             "p2": "Vous disposez des droits d’accès, de rectification, d’effacement, d’opposition, de limitation et de portabilité de vos données. Pour exercer vos droits : theo.guerin35000@gmail.com.",
             "p3": "Pour plus d’informations, consultez la Politique de confidentialité."
         },
@@ -371,7 +372,7 @@
         "data": {
             "title": "2. Données collectées et finalités",
             "intro": "Les données collectées sur ce site le sont uniquement pour :",
-            "contact_form": "Formulaire de contact : nom, email, message et jeton technique reCAPTCHA. Finalite : repondre a votre demande et prevenir les envois automatises abusifs.",
+            "contact_form": "Formulaire de contact : nom, email, message et jeton technique reCAPTCHA. Finalité : répondre à votre demande et prévenir les envois automatisés abusifs.",
             "analytics": "Mesure d’audience : via Google Analytics (GA4). Finalité : statistiques anonymisées de fréquentation pour améliorer le site.",
             "legal_basis_intro": "Base légale du traitement :",
             "legal_basis_contact": "Interet legitime pour la gestion des messages recus via le formulaire et la prevention du spam/abus.",
@@ -386,7 +387,7 @@
         },
         "recipients": {
             "title": "4. Destinataires des données",
-            "text": "Les donnees collectees via le formulaire sont uniquement accessibles par l'editeur du site. Les donnees d'audience sont transmises a Google en tant que prestataire d'analyse. Les donnees techniques liees a la verification anti-bot sont traitees par Google (reCAPTCHA)."
+            "text": "Les données collectées via le formulaire sont uniquement accessibles par l'éditeur du site. Les données d'audience sont transmises à Google en tant que prestataire d'analyse. Les données techniques liées à la vérification anti-bot sont traitées par Google (reCAPTCHA)."
         },
         "rights": {
             "title": "5. Vos droits",
@@ -422,7 +423,7 @@
         },
         "types": {
             "title": "2. Types de cookies utilisés",
-            "necessary": "Cookies strictement necessaires : indispensables au fonctionnement technique du site, incluant la protection anti-abus reCAPTCHA sur le formulaire de contact.",
+            "necessary": "Cookies strictement nécessaires : indispensables au fonctionnement technique du site, incluant la protection anti-abus reCAPTCHA sur le formulaire de contact.",
             "analytics": "Cookies de mesure d’audience : Google Analytics (GA4), uniquement après votre consentement."
         },
         "use": {

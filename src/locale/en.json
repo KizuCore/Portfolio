@@ -250,7 +250,7 @@
         "portes_montafilan_title": "Les Portes de Montafilan",
         "portes_montafilan_description": "Bilingual showcase site and pre-booking tool for a holiday cottage, built around clear constraints: no monthly subscription, no complex backend, and prices editable without code from an Excel-like spreadsheet connected through Google Sheets. The site presents the cottage, syncs Airbnb unavailable dates through iCal, explains the estimate clearly, and redirects to Airbnb with dates prefilled.",
         "portfolio_v2_title": "Portfolio",
-        "portfolio_v2_description": "Personal multilingual portfolio (React + TypeScript) with technical SEO, reCAPTCHA v3-secured contact form, consent-aware analytics, and Vercel deployment.",
+        "portfolio_v2_description": "Personal multilingual portfolio (React + TypeScript) with technical SEO, a reCAPTCHA v3-secured contact form, consent-aware analytics, and Vercel deployment.",
         "atable_title": "À table !",
         "atable_description": "Offline-first Flutter app for managing kitchen products, tracking expiry dates, filtering by storage location, and viewing deadlines in a calendar to reduce food waste.",
         "library_title": "Library Application",
@@ -289,6 +289,7 @@
         "hcaptcha_failed": "Captcha validation failed.",
         "captcha_failed": "Captcha validation failed.",
         "missing_fields": "Please fill in all required fields.",
+        "invalid_email": "Please enter a valid email address.",
         "rate_limited": "Too many attempts. Please try again in a few seconds.",
         "send_failed": "An error occurred while sending the message.",
         "method_not_allowed": "Method not allowed."
@@ -331,7 +332,7 @@
         },
         "privacy": {
             "title": "7. Personal Data",
-            "p1": "This site may collect personal data via the contact form (if present), via Google reCAPTCHA v3 anti-abuse checks, and via audience measurement tools.",
+            "p1": "This site may collect personal data via the contact form, via Google reCAPTCHA v3 anti-abuse checks, and via audience measurement tools.",
             "p2": "You have the rights of access, rectification, erasure, objection, restriction and data portability. To exercise your rights: theo.guerin35000@gmail.com.",
             "p3": "For more information, please see the Privacy Policy."
         },

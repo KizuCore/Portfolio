@@ -22,7 +22,7 @@ interface ProjectCardProps {
 }
 
 function resolveResultKey(hasLiveDemo: boolean, hasVideo: boolean) {
-  // Texte resultat adapte selon les liens reels du projet.
+  // Texte de résultat adapté selon les liens réels du projet.
   if (hasLiveDemo && hasVideo) {
     return "project_card.result_live_video_and_code";
   }
@@ -45,7 +45,7 @@ function ProjectCard(props: ProjectCardProps) {
   return (
     <Card className={`project-card-view ${props.featured ? "project-card-featured" : ""}`}>
       <div className={`project-img-wrapper ${props.imageMode === "contain" ? "project-img-wrapper-contain" : ""}`}>
-        {/* imageMode permet un rendu "contain" pour les screenshots verticaux */}
+        {/* imageMode permet un rendu "contain" pour les captures verticales. */}
         <Card.Img
           variant="top"
           src={props.imgPath}
@@ -75,7 +75,7 @@ function ProjectCard(props: ProjectCardProps) {
         <div className="project-info-grid">
           <div className="project-panel">
             <h3 className="project-panel-title">{t("project_card.stack")}</h3>
-            {/* Affichage lisible de la stack en badges texte */}
+            {/* Affichage lisible de la stack en badges texte. */}
             <div className="project-tech-badges">
               {props.techStack.map((tech) => (
                 <span key={`${props.title}-${tech}`} className="project-tech-badge">
@@ -92,7 +92,13 @@ function ProjectCard(props: ProjectCardProps) {
         </div>
 
         <div className="button-group">
-          <Button className="button-github" href={props.ghLink} target="_blank" rel="noopener noreferrer">
+          <Button
+            className="button-github"
+            href={props.ghLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${props.isGitLab ? "GitLab" : "GitHub"} - ${props.title}`}
+          >
             <FaGithub style={{ marginRight: "5px", marginBottom: "2px" }} />
             {props.isGitLab ? "GitLab" : "GitHub"}
           </Button>
@@ -103,6 +109,7 @@ function ProjectCard(props: ProjectCardProps) {
               href={props.youtubeLink}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`${t("video")} - ${props.title}`}
             >
               <FaYoutube style={{ marginRight: "5px", marginBottom: "2px" }} />
               {t("video")}
@@ -110,7 +117,13 @@ function ProjectCard(props: ProjectCardProps) {
           )}
 
           {props.seeLink && (
-            <Button className="button-see" href={props.seeLink} target="_blank" rel="noopener noreferrer">
+            <Button
+              className="button-see"
+              href={props.seeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${t("see")} - ${props.title}`}
+            >
               <FaEye style={{ marginRight: "5px", marginBottom: "2px" }} />
               {t("see")}
             </Button>

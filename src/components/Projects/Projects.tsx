@@ -6,187 +6,8 @@ import { easeOut, motion } from "framer-motion";
 
 import "../../assets/styles/About/About.css";
 import "../../assets/styles/Projet/Projet.css";
-
-import lemonmaze from "@image/Projects/LemonMaze.webp";
-import cosmiclink from "@image/Projects/CosmicLink.webp";
-import chrono from "@image/Projects/chrono.webp";
-import aTable from "@image/Projects/aTable.webp";
-import tboi from "@image/Projects/TBOI.webp";
-import breizhcoin from "@image/Projects/breizhcoin.webp";
-import portfolio from "@image/Projects/portfolio.webp";
-import portfoliov2 from "@image/Projects/portfoliov2.webp";
-import apibook from "@image/Projects/apibook.webp";
-import flambow from "@image/Projects/flambowImg.webp";
-import flambowFrontend from "@image/Projects/FlambowFrontEnd.webp";
-import badmintonapi from "@image/Projects/badmintonapi.webp";
-import portesDeMontafilan from "@image/Projects/portesDeMontafilan.webp";
 import Particle from "../../utils/Particle";
-
-type ProjectCategory = "web" | "mobile" | "api" | "game";
-type ProjectFilter = "all" | ProjectCategory;
-
-interface ProjectItem {
-  imgPath: string;
-  altTextKey: string;
-  titleKey: string;
-  descriptionKey: string;
-  ghLink: string;
-  isGitLab?: boolean;
-  youtubeLink?: string;
-  seeLink?: string;
-  techStack: string[];
-  category: ProjectCategory;
-  featured?: boolean;
-  pinTop?: boolean;
-  imageMode?: "cover" | "contain";
-}
-
-const projects: ProjectItem[] = [
-  {
-    imgPath: portesDeMontafilan,
-    altTextKey: "categories_projects.portes_montafilan_image_alt",
-    titleKey: "categories_projects.portes_montafilan_title",
-    descriptionKey: "categories_projects.portes_montafilan_description",
-    ghLink: "https://github.com/KizuCore/PortesDeMontafilan",
-    seeLink: "https://www.lesportesdemontafilan.com/",
-    techStack: ["React", "TypeScript", "Vite", "Tailwind CSS", "Vercel", "Brevo", "Vitest", "Playwright"],
-    category: "web",
-    featured: true,
-    pinTop: true,
-  },
-  {
-    imgPath: portfoliov2,
-    altTextKey: "categories_projects.portfoliov2_image_alt",
-    titleKey: "categories_projects.portfolio_v2_title",
-    descriptionKey: "categories_projects.portfolio_v2_description",
-    ghLink: "https://github.com/KizuCore/Portfolio",
-    techStack: ["React", "Bootstrap", "Css", "NodeJS", "Axios", "Typescript"],
-    category: "web",
-    featured: true,
-  },
-  {
-    imgPath: apibook,
-    altTextKey: "categories_projects.apibook_image_alt",
-    titleKey: "categories_projects.library_title",
-    descriptionKey: "categories_projects.library_description",
-    ghLink: "https://github.com/KizuCore/MDS-M1-Librairie",
-    techStack: ["NodeJS", "Swagger", "MySQL", "React", "Bootstrap", "Sequelize"],
-    category: "api",
-  },
-  {
-    imgPath: lemonmaze,
-    altTextKey: "categories_projects.lemonmaze_image_alt",
-    titleKey: "categories_projects.lemonmaze_title",
-    descriptionKey: "categories_projects.lemonmaze_description",
-    ghLink: "https://github.com/KizuCore/Lemon_Maze",
-    techStack: ["Flutter"],
-    category: "mobile",
-  },
-  {
-    imgPath: aTable,
-    altTextKey: "categories_projects.atable_image_alt",
-    titleKey: "categories_projects.atable_title",
-    descriptionKey: "categories_projects.atable_description",
-    ghLink: "https://github.com/KizuCore/a_table",
-    techStack: ["Flutter", "Dart", "Riverpod", "Isar", "GoRouter", "TableCalendar", "Material 3"],
-    category: "mobile",
-    featured: true,
-  },
-  {
-    imgPath: lemonmaze,
-    altTextKey: "categories_projects.lemonmaze_image_alt",
-    titleKey: "categories_projects.lemonmaze_api_title",
-    descriptionKey: "categories_projects.lemonmaze_api_description",
-    ghLink: "https://github.com/KizuCore/APILemonMaze",
-    techStack: ["NodeJS", "Swagger", "MySQL"],
-    category: "api",
-  },
-  {
-    imgPath: badmintonapi,
-    altTextKey: "categories_projects.badmintonapi_image_alt",
-    titleKey: "categories_projects.badmintonapi_title",
-    descriptionKey: "categories_projects.badmintonapi_description",
-    ghLink: "https://github.com/KizuCore/projet-api-badminton",
-    techStack: ["NodeJS", "Swagger", "MySQL", "GraphQL"],
-    category: "api",
-  },
-  {
-    imgPath: cosmiclink,
-    altTextKey: "categories_projects.cosmiclink_image_alt",
-    titleKey: "categories_projects.cosmiclink_title",
-    descriptionKey: "categories_projects.cosmiclink_description",
-    ghLink: "https://github.com/KizuCore/CosmicLink",
-    youtubeLink: "https://youtube.com/watch?v=3yVybmKT5d0",
-    techStack: ["Php", "Javascript", "Html", "Css"],
-    category: "web",
-  },
-  {
-    imgPath: flambow,
-    altTextKey: "categories_projects.flambow_image_alt",
-    titleKey: "categories_projects.flambow_title",
-    descriptionKey: "categories_projects.flambow_description",
-    ghLink: "https://github.com/KizuCore/Flambow",
-    seeLink: "https://flambow.vercel.app/",
-    techStack: ["React", "Javascript", "Bootstrap", "Css", "Axios"],
-    category: "web",
-  },
-  {
-    imgPath: flambowFrontend,
-    altTextKey: "categories_projects.flambow_frontend_image_alt",
-    titleKey: "categories_projects.flambow_frontend_title",
-    descriptionKey: "categories_projects.flambow_frontend_description",
-    ghLink: "https://gitlab.com/Theo22100/flambow-front",
-    isGitLab: true,
-    youtubeLink: "https://youtu.be/-TLaRV4pO2s?si=MLq_zy-hdlk9pjF3",
-    techStack: ["React", "Typescript", "Vite", "Docker", "GitLab CI", "Playwright", "Vitest"],
-    category: "web",
-    featured: true,
-    pinTop: true,
-    imageMode: "contain",
-  },
-  {
-    imgPath: chrono,
-    altTextKey: "categories_projects.chrono_image_alt",
-    titleKey: "categories_projects.minuteur_mobile_title",
-    descriptionKey: "categories_projects.minuteur_mobile_description",
-    ghLink: "https://github.com/KizuCore/MDS-ExamMobile2024",
-    techStack: ["Kotlin"],
-    category: "mobile",
-  },
-  {
-    imgPath: breizhcoin,
-    altTextKey: "categories_projects.breizhcoin_image_alt",
-    titleKey: "categories_projects.breizhcoin_title",
-    descriptionKey: "categories_projects.breizhcoin_description",
-    ghLink: "https://github.com/KizuCore/BreizhCoin",
-    youtubeLink: "https://youtu.be/OqgS7SW_8tU",
-    techStack: ["Php", "Javascript", "Html", "Css"],
-    category: "web",
-  },
-  {
-    imgPath: tboi,
-    altTextKey: "categories_projects.tboi_image_alt",
-    titleKey: "categories_projects.thebindingofisaac_title",
-    descriptionKey: "categories_projects.thebindingofisaac_description",
-    ghLink: "https://github.com/KizuCore/TheBindingOfIsaac",
-    techStack: ["Java"],
-    category: "game",
-  },
-  {
-    imgPath: portfolio,
-    altTextKey: "categories_projects.portfolio_image_alt",
-    titleKey: "categories_projects.portfolio_v1_title",
-    descriptionKey: "categories_projects.portfolio_v1_description",
-    ghLink: "https://github.com/KizuCore/Old-PortFolio",
-    seeLink: "https://theo-guerin.netlify.app/",
-    techStack: ["Vuejs", "Javascript", "Html", "Css"],
-    category: "web",
-  },
-];
-
-// Ordre fixe des filtres affiches dans la barre.
-const filterOrder: ProjectFilter[] = ["all", "web", "mobile", "api", "game"];
-const projectImageSources = Array.from(new Set(projects.map((project) => project.imgPath)));
+import { PROJECT_FILTERS, PROJECT_IMAGE_SOURCES, PROJECTS, type ProjectFilter } from "./projects.data";
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
@@ -195,11 +16,9 @@ const Projects: React.FC = () => {
   const preloadedImagesRef = React.useRef<HTMLImageElement[]>([]);
 
   const sortedProjects = React.useMemo(
-    // Priorite d'affichage:
-    // 1) pinTop (epingle en haut)
-    // 2) featured (projets mis en avant)
+    // Priorité d'affichage : projets épinglés, puis projets mis en avant.
     () =>
-      [...projects].sort((a, b) => {
+      [...PROJECTS].sort((a, b) => {
         const pinTopPriority = Number(Boolean(b.pinTop)) - Number(Boolean(a.pinTop));
         if (pinTopPriority !== 0) {
           return pinTopPriority;
@@ -212,7 +31,7 @@ const Projects: React.FC = () => {
 
   const filteredProjects = React.useMemo(() => {
     // "all" conserve le tri principal; les autres filtres ne gardent
-    // que la categorie demandee en preservant cet ordre.
+    // que la catégorie demandée en préservant cet ordre.
     if (activeFilter === "all") {
       return sortedProjects;
     }
@@ -221,12 +40,12 @@ const Projects: React.FC = () => {
   }, [activeFilter, sortedProjects]);
 
   React.useEffect(() => {
-    // Quand on change de filtre, on revient sur le 1er projet du filtre.
+    // Quand on change de filtre, on revient sur le premier projet du filtre.
     setSelectedIndex(0);
   }, [activeFilter]);
 
   React.useEffect(() => {
-    // Evite un index hors limites si la liste filtree raccourcit.
+    // Évite un index hors limites si la liste filtrée raccourcit.
     if (selectedIndex >= filteredProjects.length) {
       setSelectedIndex(Math.max(filteredProjects.length - 1, 0));
     }
@@ -249,7 +68,7 @@ const Projects: React.FC = () => {
   }, [selectedProject]);
 
   React.useEffect(() => {
-    const preloadLinks = projectImageSources.map((src) => {
+    const preloadLinks = PROJECT_IMAGE_SOURCES.map((src) => {
       const link = document.createElement("link");
       link.rel = "preload";
       link.as = "image";
@@ -259,7 +78,7 @@ const Projects: React.FC = () => {
     });
 
     const preloadImages = () => {
-      preloadedImagesRef.current = projectImageSources.map((src) => {
+      preloadedImagesRef.current = PROJECT_IMAGE_SOURCES.map((src) => {
         const image = new Image();
         image.decoding = "async";
         image.src = src;
@@ -327,7 +146,7 @@ const Projects: React.FC = () => {
           transition={{ duration: 0.7, ease: easeOut, delay: 0.3 }}
         >
           <div className="project-filter-bar" aria-label={t("project_aria")}>
-            {filterOrder.map((filter) => {
+            {PROJECT_FILTERS.map((filter) => {
               const isActive = filter === activeFilter;
 
               return (

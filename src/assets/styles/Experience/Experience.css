@@ -1,6 +1,7 @@
 .timeline-page {
   position: relative;
   z-index: 1;
+  min-height: 100vh;
 }
 
 .timeline-container {
@@ -8,6 +9,7 @@
   z-index: 1;
   padding: 9.2rem 0 4.8rem;
   color: var(--text-primary);
+  min-height: 100vh;
 }
 
 .timeline {
@@ -15,6 +17,7 @@
   width: 100%;
   margin: 0 auto;
   padding: 1.6rem 0 3rem;
+  min-height: 82rem;
   --timeline-axis-x: 50%;
   --timeline-track-top: 9px;
   --timeline-track-bottom: 9px;
@@ -437,6 +440,7 @@
 
   .timeline {
     padding-top: 1.1rem;
+    min-height: 92rem;
     --timeline-axis-x: 20px;
     --timeline-rail-width: 14px;
     --timeline-core-width: 3px;

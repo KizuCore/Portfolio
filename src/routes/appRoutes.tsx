@@ -1,19 +1,19 @@
 import { lazy, type JSX } from "react";
 import { Navigate } from "react-router-dom";
 import Home from "../components/Home/Home.tsx";
+import About from "../components/About/About.tsx";
 import Contact from "../components/Contact/Contact.tsx";
+import CV from "../components/Resume/CV.tsx";
+import Experience from "../components/Experience/ExpTimeline.tsx";
+import Projects from "../components/Projects/Projects.tsx";
+import MentionsLegales from "../components/Legal/MentionsLegales.tsx";
+import PolitiqueConfidentialite from "../components/Legal/PolitiqueConfidentialite.tsx";
+import PolitiqueCookies from "../components/Legal/PolitiqueCookies.tsx";
 import { getLocalizedPath, SUPPORTED_LOCALES } from "../config/seo";
 
-// Most secondary pages stay lazy-loaded; Contact is eager because it is a common direct audit/entry page.
-const About = lazy(() => import("../components/About/About.tsx"));
-const Experience = lazy(() => import("../components/Experience/ExpTimeline.tsx"));
-const Projects = lazy(() => import("../components/Projects/Projects.tsx"));
-const CV = lazy(() => import("../components/Resume/CV.tsx"));
+// Public routes are eager so direct visits do not shift from a skeleton into the final page.
 const Gojo = lazy(() => import("../components/Easter/Gojo.tsx"));
 const RouteSecret = lazy(() => import("../components/Easter/Arcane.tsx"));
-const MentionsLegales = lazy(() => import("../components/Legal/MentionsLegales.tsx"));
-const PolitiqueConfidentialite = lazy(() => import("../components/Legal/PolitiqueConfidentialite.tsx"));
-const PolitiqueCookies = lazy(() => import("../components/Legal/PolitiqueCookies.tsx"));
 
 export type AppRoute = {
   path: string;

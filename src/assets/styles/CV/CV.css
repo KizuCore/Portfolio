@@ -3,25 +3,41 @@
     padding-top: 110px !important;
     padding-bottom: 30px !important;
     color: white !important;
+    min-height: 100vh;
 }
 
 .pdf-container {
-    width: 100%;
+    position: relative;
+    width: min(100%, var(--pdf-width, 1020px));
     max-width: 1020px;
+    min-height: var(--pdf-height, 1442px);
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid #ffffff7e;
-    min-height: 420px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 
 .pdf-loading {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 400px;
+    width: min(100%, var(--pdf-width, 1020px));
+    height: var(--pdf-height, 1442px);
+    pointer-events: none;
+}
+
+.react-pdf__Document,
+.react-pdf__Page {
+    width: 100%;
+}
+
+.react-pdf__Page canvas {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
 }
 
 .cv-download-icon {

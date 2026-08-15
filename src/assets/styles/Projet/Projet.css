@@ -3,6 +3,7 @@
   position: relative;
   z-index: 1;
   padding: 8rem 0 4.5rem;
+  min-height: 100vh;
 }
 
 .projects-intro {
@@ -79,6 +80,7 @@
   grid-template-columns: minmax(250px, 310px) minmax(0, 1fr);
   gap: 1rem;
   align-items: start;
+  min-height: 48rem;
 }
 
 .project-nav {
@@ -651,6 +653,7 @@
   .project-explorer {
     grid-template-columns: 1fr;
     gap: 0.9rem;
+    min-height: 58rem;
   }
 
   .project-nav {
@@ -797,7 +800,7 @@
   }
 
   .project-card-view {
-    min-height: auto;
+    min-height: 45rem;
     padding: 0.82rem;
     border-radius: 16px;
   }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type CSSProperties } from "react";
 import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
 import { Document, Page, pdfjs } from "react-pdf";
 import { AiOutlineDownload } from "@react-icons/all-files/ai/AiOutlineDownload";
@@ -25,6 +25,7 @@ function CV() {
   const pdfWidth = viewportWidth < 768
     ? Math.max(300, viewportWidth - 24)
     : Math.min(1020, Math.max(720, viewportWidth - 280));
+  const pdfHeight = Math.round(pdfWidth * 1.414);
 
 
   useEffect(() => {
@@ -65,7 +66,7 @@ function CV() {
 
       <Row className="justify-content-center">
         <Col md={12} lg={11} xl={10} className="d-flex justify-content-center">
-          <div className="pdf-container">
+          <div className="pdf-container" style={{ "--pdf-width": `${pdfWidth}px`, "--pdf-height": `${pdfHeight}px` } as CSSProperties}>
             {isLoading && !error && (
               <div className="pdf-loading">
                 <Spinner animation="border" role="status" />

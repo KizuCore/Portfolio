@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import Home from "../components/Home/Home.tsx";
 import { getLocalizedPath, SUPPORTED_LOCALES } from "../config/seo";
 
+// Secondary pages are lazy-loaded so the first visit stays focused on the home experience.
 const About = lazy(() => import("../components/About/About.tsx"));
 const Contact = lazy(() => import("../components/Contact/Contact.tsx"));
 const Experience = lazy(() => import("../components/Experience/ExpTimeline.tsx"));
@@ -33,8 +34,10 @@ export const APP_ROUTES: AppRoute[] = [
   { path: "/arcane", element: <RouteSecret /> },
 ];
 
+// Secret pages stay language-neutral because they are reached through hidden interactions.
 const LOCALIZABLE_ROUTES = APP_ROUTES.filter((route) => !["/gojo", "/arcane"].includes(route.path));
 
+// Localized route entries reuse the same components; SEO helpers decide the visible URL.
 export const LOCALIZED_APP_ROUTES: AppRoute[] = SUPPORTED_LOCALES.flatMap((locale) =>
   LOCALIZABLE_ROUTES.map((route) => ({
     path: getLocalizedPath(locale, route.path),

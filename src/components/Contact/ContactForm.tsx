@@ -16,6 +16,7 @@ function ContactForm() {
   const { t } = useTranslation();
   const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
   const { formData, fieldErrors, isSubmitting, status, clearStatus, handleChange, handleSubmit } = useContactForm(recaptchaSiteKey);
+  // Status messages stay translated while API fallbacks can still be surfaced verbatim.
   const responseMessage = status ? t(status.translationKey, status.fallbackMessage || t("message_fail")) : "";
 
   return (
@@ -42,6 +43,7 @@ function ContactForm() {
         <Row className="g-3">
           {CONTACT_FORM_FIELDS.map((field) => {
             const errorKey = fieldErrors[field.name];
+            // The generated id links each field to its own validation message for screen readers.
             const errorId = `${field.controlId}-error`;
 
             return (

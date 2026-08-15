@@ -47,6 +47,7 @@ function LanguageSelector(): JSX.Element {
     (lang: LanguageCode) => {
       i18n.changeLanguage(lang);
 
+      // Keep users on the equivalent localized page when the route supports localization.
       if (canLocalizeCurrentRoute) {
         navigate(getLocalizedPath(lang, currentRoutePath), { replace: true });
       }
@@ -97,6 +98,7 @@ function LanguageSelector(): JSX.Element {
   }, [isOpen]);
 
   useEffect(() => {
+    // Hidden shortcut: typing "bzh" enables the Breton locale without adding it to the main menu.
     const handleKeydown = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
       if (
@@ -142,6 +144,7 @@ function LanguageSelector(): JSX.Element {
     const currentIndex = LANGUAGE_OPTIONS.findIndex((option) => option.code === document.activeElement?.getAttribute("data-lang"));
     const fallbackIndex = Math.max(0, LANGUAGE_OPTIONS.findIndex((option) => option.code === normalizedLanguage));
     const activeIndex = currentIndex >= 0 ? currentIndex : fallbackIndex;
+    // Roving focus keeps arrow-key navigation predictable inside the menu.
     const nextIndex =
       event.key === "Home"
         ? 0

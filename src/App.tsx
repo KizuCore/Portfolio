@@ -33,6 +33,7 @@ function AppContent({ load, showPreloader }: AppContentProps) {
   const location = useLocation();
   const reduceMotion = useReducedMotion();
 
+  // Keep route transitions subtle, and disable movement for users who reduce motion.
   const routeInitial = reduceMotion
     ? { opacity: 1, y: 0 }
     : { opacity: 0, y: 12 };
@@ -64,6 +65,7 @@ function AppContent({ load, showPreloader }: AppContentProps) {
 
           <Suspense fallback={<RouteSkeleton />}>
             <AnimatePresence mode="wait" initial={false}>
+              {/* Keying by pathname gives each page its own enter/exit animation. */}
               <motion.div
                 key={location.pathname}
                 className="route-stage"
@@ -94,6 +96,7 @@ function App() {
   const [showPreloader, setShowPreloader] = useState(true);
 
   useEffect(() => {
+    // Keep the preloader mounted briefly after fade-out so the opacity transition can finish.
     const timer = setTimeout(() => {
       updateLoad(false);
       setTimeout(() => setShowPreloader(false), 500);

@@ -23,6 +23,7 @@ export function useContactForm(recaptchaSiteKey: string) {
       return;
     }
 
+    // Warm the captcha script early so submit latency stays low.
     void loadRecaptcha(recaptchaSiteKey).catch(() => undefined);
   }, [recaptchaSiteKey]);
 
@@ -47,6 +48,7 @@ export function useContactForm(recaptchaSiteKey: string) {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    // Keep validation local and field-specific before asking reCAPTCHA or the API.
     const nextFieldErrors = Object.entries(formData).reduce<ContactFieldErrors>((errors, [name, value]) => {
       if (!value.trim()) {
         errors[name as ContactFormFieldName] = "errors.missing_fields";
@@ -70,6 +72,7 @@ export function useContactForm(recaptchaSiteKey: string) {
     setIsSubmitting(true);
 
     try {
+      // reCAPTCHA v3 returns an action-scoped token that the API validates server-side.
       const recaptchaToken = await getRecaptchaToken(recaptchaSiteKey, RECAPTCHA_ACTION);
       const result = await sendContactEmail({ ...formData, recaptchaToken });
 

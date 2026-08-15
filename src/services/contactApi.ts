@@ -15,6 +15,7 @@ export interface ContactApiResult {
   data: ContactApiResponse;
 }
 
+// Keep the network boundary small so UI code only handles typed results.
 export async function sendContactEmail(payload: ContactApiPayload): Promise<ContactApiResult> {
   const response = await fetch("/api/sendEmail", {
     method: "POST",

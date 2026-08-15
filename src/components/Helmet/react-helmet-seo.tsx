@@ -32,6 +32,7 @@ function SeoMeta(): JSX.Element {
   const siteUrl = getSiteUrl();
   const currentRoute = ROUTE_SEO[pathname];
   const lang = localizedPath.locale ?? getShortLocale(i18n.resolvedLanguage ?? i18n.language ?? "fr");
+  // Some localized URLs intentionally reuse fallback content until full translations exist.
   const contentLang = getContentLocale(lang, pathname);
   const htmlLang = getHtmlLang(contentLang);
   const tx = i18n.getFixedT(contentLang);
@@ -46,6 +47,7 @@ function SeoMeta(): JSX.Element {
   const canonicalPath = currentRoute?.noindex ? pathname : getLocalizedPath(lang, pathname);
   const canonicalUrl = `${siteUrl}${canonicalPath}`;
   const imageUrl = getPreviewImageUrl(siteUrl);
+  // Hidden or utility routes should not advertise hreflang clusters.
   const languageAlternates = currentRoute?.noindex ? [] : getLanguageAlternates(siteUrl, pathname);
   const isNoindex = currentRoute?.noindex ?? false;
   const robotsContent = isNoindex
@@ -55,6 +57,7 @@ function SeoMeta(): JSX.Element {
     defaultValue: "Théo Guérin, développeur full-stack, React, Django, Python, portfolio",
   });
 
+  // Person schema gives search engines the freelance offer and professional identity in one graph.
   const personSchema = {
     "@type": "Person",
     "@id": `${siteUrl}/#person`,
@@ -100,6 +103,7 @@ function SeoMeta(): JSX.Element {
     inLanguage: ["fr", "en", "es", "br"],
   };
 
+  // The page node changes by route while still pointing back to the same person entity.
   const webPageSchema = {
     "@type": ROUTE_SCHEMA_TYPE[pathname] ?? "WebPage",
     "@id": `${canonicalUrl}#webpage`,

@@ -94,6 +94,7 @@ function NavBar(): JSX.Element {
   const { isAnimating, handleMouseDown, handleMouseUp, handleMouseLeave } = useLogoNavigation(navigate);
 
   useEffect(() => {
+    // The sticky class only changes when the scroll threshold is crossed.
     const scrollHandler = () => {
       const shouldUseStickyStyle = window.scrollY >= 20;
       setNavColour((previous) => (previous === shouldUseStickyStyle ? previous : shouldUseStickyStyle));
@@ -105,6 +106,7 @@ function NavBar(): JSX.Element {
   }, []);
 
   useEffect(() => {
+    // Close the mobile menu after navigation, including browser back/forward actions.
     setExpand(false);
   }, [location.pathname]);
 
@@ -118,6 +120,7 @@ function NavBar(): JSX.Element {
         (element) => !element.hasAttribute("disabled") && element.tabIndex !== -1
       );
 
+    // Trap focus inside the expanded mobile menu until it closes.
     const handleMenuKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setExpand(false);
@@ -152,6 +155,7 @@ function NavBar(): JSX.Element {
     return () => window.removeEventListener("keydown", handleMenuKeyDown);
   }, [expand]);
 
+  // Build nav items from the current locale so labels and paths stay in sync.
   const navItems = [
     { to: getLocalizedPath(currentLocale, "/"), icon: <FiHome />, label: t("home"), ariaLabel: t("home_aria") },
     { to: getLocalizedPath(currentLocale, "/about"), icon: <FiUser />, label: t("about"), ariaLabel: t("about_aria") },

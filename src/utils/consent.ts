@@ -7,6 +7,7 @@ export function getConsent(): ConsentChoice | null {
 }
 
 export function updateConsent(granted: boolean) {
+  // Analytics is optional; security storage remains granted so consent state can be honored.
   const payload = granted
     ? {
         ad_storage: "denied",
@@ -27,6 +28,7 @@ export function updateConsent(granted: boolean) {
   localStorage.setItem(LS_KEY, granted ? "granted" : "denied");
 }
 
+// Legacy event bridge kept for callers that do not use window.openCookiePreferences directly.
 export function openCookiePreferences() {
   window.dispatchEvent(new CustomEvent("open-cookie-preferences"));
 }

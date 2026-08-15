@@ -10,6 +10,7 @@ export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    // Show the banner only until the visitor makes an explicit consent choice.
     const saved = localStorage.getItem(LS_KEY);
     if (!saved) setVisible(true);
   }, []);

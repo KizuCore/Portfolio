@@ -9,6 +9,7 @@ let particlesEnginePromise: Promise<void> | null = null;
 
 function ensureParticlesEngine() {
   if (!particlesEnginePromise) {
+    // tsparticles must be initialized once before any Particles instance can render.
     particlesEnginePromise = initParticlesEngine(async (engine) => {
       await loadFull(engine);
     });
@@ -45,6 +46,7 @@ function Particle() {
     const nav = navigator as Navigator & { deviceMemory?: number };
 
     const computePerfProfile = () => {
+      // Blend memory, CPU threads, DPI and viewport size into one lightweight performance profile.
       const lowMemory = typeof nav.deviceMemory === "number" && nav.deviceMemory <= 4;
       const lowThreads = typeof nav.hardwareConcurrency === "number" && nav.hardwareConcurrency <= 4;
       const highDpi = window.devicePixelRatio > 1.75;
@@ -71,6 +73,7 @@ function Particle() {
   const particleOptions = useMemo<ISourceOptions>(
     () => ({
       fullScreen: { enable: false },
+      // Lower motion and frame rate on constrained devices to keep the portfolio responsive.
       fpsLimit: prefersReducedMotion ? 30 : isLowPerfDevice ? 36 : 48,
       detectRetina: !isLowPerfDevice,
       pauseOnBlur: true,

@@ -30,7 +30,7 @@ const Github: React.FC = () => {
             className="github-link"
             aria-label={t("github_profile_seo")}
           >
-            <SiGithub size={70} className="cursor-pointer" />
+            <SiGithub size={70} className="cursor-pointer" aria-hidden="true" focusable="false" />
           </a>
         </Col>
         <Suspense fallback={<Spinner animation="border" role="status" />}>
@@ -64,7 +64,7 @@ const Github: React.FC = () => {
             className="gitlab-link"
             aria-label={t("gitlab_profile_seo")}
           >
-            <FaGitlab size={70} className="cursor-pointer" />
+            <FaGitlab size={70} className="cursor-pointer" aria-hidden="true" focusable="false" />
           </a>
         </Col>
       </Row>

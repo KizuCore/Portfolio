@@ -4,7 +4,17 @@
 .quote-card-view {
   border: none;
   color: white;
-  background-color: transparent;
+  background-color: rgba(6, 14, 29, 0.94);
+}
+
+.about-card-shell .quote-card-view.card {
+  color: #f5f9ff;
+  background: linear-gradient(155deg, rgba(6, 14, 29, 0.96), rgba(12, 28, 54, 0.94));
+}
+
+.about-card-shell .blue {
+  color: #b7dcff;
+  font-weight: 700;
 }
 
 .about-img {

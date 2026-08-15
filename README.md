@@ -1,101 +1,138 @@
-<h2 align="center">
-  Portfolio Website – v5.0.0<br/>
-  <a href="https://theo-guerin.fr/" target="_blank">theo-guerin.fr</a>
-</h2>
+# Portfolio Théo Guérin
 
----
+Portfolio personnel de Théo Guérin, développeur full-stack basé à Rennes. Le site présente le profil, les expériences, les projets, le CV et un formulaire de contact sécurisé.
 
-## 🚀 Technologies utilisées
+Site en production : [theo-guerin.fr](https://theo-guerin.fr/)
 
-- **Frontend** : React, Vite, Bootstrap, CSS3
-- **i18n** : react-i18next (FR / EN / ES)
-- **Sécurité** : Google reCAPTCHA v3
-- **Mesure d’audience** : Google Analytics 4 (Consent Mode v2, bannière de consentement)
-- **Backend/API** : Axios, Resend
+## Stack
+
+- **Frontend** : React 18, TypeScript, Vite, React Router, React Bootstrap
+- **Animations** : Framer Motion, tsparticles, React CountUp
+- **Internationalisation** : i18next / react-i18next
+- **SEO** : React Helmet, balises canonical/hreflang, Schema.org, sitemap généré
+- **Contact** : API Vercel Serverless, Resend, Google reCAPTCHA v3
+- **Consentement** : Google Analytics 4 avec Consent Mode v2
 - **Déploiement** : Vercel
 
----
+## Fonctionnalités
 
-## 📦 Prérequis
+- Pages portfolio : accueil, à propos, expériences, projets, contact et CV.
+- Routes localisées en `fr`, `en`, `es` et `bzh`.
+- Métadonnées SEO par page, Open Graph, Twitter Cards et données structurées.
+- Fichiers `llms.txt`, `llms-fr.txt` et `llms-en.txt`.
+- Sitemap XML généré automatiquement depuis la configuration SEO.
+- Formulaire de contact avec validation, reCAPTCHA v3, rate limit côté API et envoi via Resend.
+- Bandeau cookies et panneau de préférences pour le consentement analytics.
+- Accessibilité renforcée sur la navigation, le menu mobile et le sélecteur de langue.
 
-- **Node.js** ≥ 18 (recommandé)
-- **npm** ≥ 9
+## Prérequis
 
----
+- Node.js 18 ou plus récent
+- npm 9 ou plus récent
 
-## ⚙️ Lancer le projet en local
-
-1. **Copier le fichier `.env.template` en `.env`** :
-
-   ```bash
-   cp .env.template .env
-   ```
-
-   > Renseignez les variables d’environnement nécessaires (voir plus bas).
-
-2. **Installer les dépendances** :
-
-   ```bash
-   npm install
-   ```
-
-3. **Lancer le serveur de développement** :
-
-   ```bash
-   npm run dev
-   ```
-
-   Le projet sera accessible à l’adresse : http://localhost:5173
-
----
-
-## 🛠️ Scripts utiles
+## Installation
 
 ```bash
-npm run dev       # Démarrer en développement
-npm run build     # Build de production
-npm run preview   # Prévisualiser le build localement
+npm install
 ```
 
----
+Créez ensuite un fichier `.env` à partir de `.env.template` :
 
-## 🔐 Variables d’environnement
-
-> Adaptez les clés à votre configuration.
-
-```
-RESEND_API_KEY=              # Clé API Resend
-RECAPTCHA_SECRET_KEY=        # Secret Google reCAPTCHA v3 (backend)
-RECAPTCHA_MIN_SCORE=0.5      # Score minimal accepté (0.0 à 1.0)
-VITE_RECAPTCHA_SITE_KEY=     # Site key Google reCAPTCHA v3 (frontend)
+```bash
+cp .env.template .env
 ```
 
----
+Sous Windows PowerShell :
 
-## ✨ Fonctionnalités principales
+```powershell
+Copy-Item .env.template .env
+```
 
-- Portfolio + **CV téléchargeable**
-- Formulaire de contact sécurisé via **Google reCAPTCHA v3**
-- **Interface multilingue** (FR / EN / ES)
-- **Mentions légales** & **Politique de confidentialité** accessibles en footer
-- **Bannière cookies** (GA4) avec **Consent Mode v2** et panneau « Gérer mes cookies »
-- Déploiement **Vercel**
+## Variables d'environnement
 
----
+Variables requises :
 
-## 🧭 Pages légales
+```env
+RESEND_API_KEY=
+RECAPTCHA_SECRET_KEY=
+RECAPTCHA_MIN_SCORE=0.5
+VITE_RECAPTCHA_SITE_KEY=
+```
 
-- `/mentions-legales`
-- `/politique-de-confidentialite`
+Variables optionnelles utiles en production :
 
-> La bannière de consentement bloque Google Analytics tant que l’utilisateur n’a pas accepté (Consent Mode).  
-> L’utilisateur peut modifier son choix via **« Gérer mes cookies »** en footer.
+```env
+CONTACT_EMAIL=theo.guerin35000@gmail.com
+RESEND_FROM=Portfolio <contact@votre-domaine.fr>
+VITE_SITE_URL=https://theo-guerin.fr
+```
 
----
+`RESEND_FROM` doit utiliser un domaine autorisé dans Resend. En local, l'adresse par défaut `onboarding@resend.dev` peut suffire pour tester.
 
-## 👨‍💻 À propos
+## Scripts
 
-Ce portfolio a été conçu pour mettre en avant mes compétences en développement web ainsi que mes projets personnels et professionnels.
+```bash
+npm run dev               # Lance le serveur de développement
+npm run build             # Génère le sitemap, compile TypeScript et build Vite
+npm run preview           # Prévisualise le build de production
+npm run lint              # Lance ESLint
+npm run i18n:check        # Vérifie la cohérence des clés de traduction
+npm run i18n:sync         # Synchronise les clés i18n manquantes
+npm run sitemap:generate  # Régénère public/sitemap.xml
+```
 
-💬 Ouvert aux opportunités & collaborations  
-📧 [Me contacter](mailto:theo-guerin35000@gmail.com)
+Le script `npm run build` exécute automatiquement `npm run sitemap:generate` via `prebuild`.
+
+## Structure
+
+```text
+api/                 API serverless Vercel pour le formulaire de contact
+public/              Assets publics, manifest, robots.txt, sitemap et fichiers llms
+scripts/             Scripts de maintenance, i18n et sitemap
+src/components/      Composants React par domaine
+src/config/          Configuration globale du site et du SEO
+src/locale/          Traductions JSON
+src/routes/          Définition des routes applicatives
+src/services/        Services côté frontend
+src/utils/           Hooks et utilitaires partagés
+```
+
+## SEO et internationalisation
+
+La configuration SEO principale se trouve dans `src/config/seo.ts`.
+
+Les routes localisées sont générées à partir des routes applicatives et des langues supportées. Les pages légales utilisent un fallback de contenu :
+
+- `fr` utilise le contenu français.
+- `en` et `es` utilisent le contenu anglais.
+
+Le sitemap est généré depuis la même configuration afin d'éviter les écarts entre les routes réelles, les balises `hreflang` et `public/sitemap.xml`.
+
+## Contact
+
+Le formulaire appelle `/api/sendEmail`, qui :
+
+- nettoie et limite la longueur des champs ;
+- vérifie les champs requis et le format de l'adresse e-mail ;
+- applique un rate limit simple par IP ;
+- vérifie le token Google reCAPTCHA v3 ;
+- envoie l'e-mail via Resend.
+
+## Déploiement
+
+Le projet est prévu pour Vercel. Le fichier `vercel.json` contient les règles de cache et les rewrites nécessaires au routing côté client, tout en laissant passer `/api`, `robots.txt`, `sitemap.xml`, les fichiers `llms` et les assets publics.
+
+Avant déploiement :
+
+```bash
+npm run lint
+npm run i18n:check
+npm run build
+```
+
+## Auteur
+
+Théo Guérin  
+Portfolio : [theo-guerin.fr](https://theo-guerin.fr/)  
+GitHub : [KizuCore](https://github.com/KizuCore)  
+LinkedIn : [theo-guerin35](https://www.linkedin.com/in/theo-guerin35/)

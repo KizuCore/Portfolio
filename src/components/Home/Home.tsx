@@ -37,13 +37,13 @@ function Home(): JSX.Element {
     const motionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // <768px = mobile
+      setIsMobile(window.innerWidth < 768);
       setIsFinePointer(pointerMedia.matches);
       setPrefersReducedMotion(motionMedia.matches);
     };
 
-    handleResize(); // Execute au chargement
-    window.addEventListener("resize", handleResize); // MAJ si resize
+    handleResize();
+    window.addEventListener("resize", handleResize);
     pointerMedia.addEventListener("change", handleResize);
     motionMedia.addEventListener("change", handleResize);
 
@@ -66,7 +66,7 @@ function Home(): JSX.Element {
         <Particle />
         <div className="container home-content">
           <div className="row align-items-center justify-content-center text-center text-md-left padtopbot">
-            {/* Texte */}
+            {/* Hero copy */}
             <div className="col-12 col-md-6 home-header d-flex flex-column justify-content-center text-center text-md-left py-md-5">
               {isMobile ? (
                 <div className="pb-md-5 pb-0">
@@ -96,7 +96,7 @@ function Home(): JSX.Element {
               )}
 
 
-              {/* Developpeur... */}
+              {/* Animated role line */}
               {isMobile ? (
                 <div className="pt-3 pb-5 d-flex justify-content-center align-items-center">
                   <TypeDev />
@@ -113,7 +113,7 @@ function Home(): JSX.Element {
               )}
               <HomeButtons />
             </div>
-            {/* Colonne pour l'image */}
+            {/* Interactive logo column */}
             <div ref={ref} className="col-12 col-md-6 d-flex justify-content-center align-items-center py-4">
               <div className={`logo-wrapper mt-3 mt-md-0 ${isDragging ? 'dragging' : ''}`}>
                 <motion.div
@@ -127,7 +127,7 @@ function Home(): JSX.Element {
                 </motion.div>
 
 
-                {/* Logo SVG */}
+                {/* SVG logo */}
                 {enableTilt ? (
                   <Tilt
                     tiltMaxAngleX={6}

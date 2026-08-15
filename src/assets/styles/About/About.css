@@ -8,7 +8,7 @@
 }
 
 .about-img {
-  /* Pour les petits écrans */
+  /* Keep the image breathing room compact on smaller screens. */
   padding-top: 0;
 }
 
@@ -35,7 +35,7 @@
 
 
 /* ========================
-   TECH ICONS (Génériques)
+   TECH ICONS (generic)
 ======================== */
 .tech-icons,
 .tech-icons-1 {
@@ -71,13 +71,13 @@
   hyphens: auto;
 }
 
-/* Variante avec bordure bleue */
+/* Blue-bordered variant */
 .tech-icons-1 {
   padding: 10px;
   border: 1.7px solid rgba(78, 134, 240, 0.637);
 }
 
-/* Hover générique */
+/* Generic hover state */
 .tech-icons:hover,
 .tech-icons-1:hover {
   transform: scale(1.05);
@@ -87,7 +87,7 @@
   box-shadow: 0 0 20px rgba(78, 134, 240, 0.637);
 }
 
-/* Responsive (icônes sur mobile) */
+/* Responsive icon sizing on mobile */
 @media (max-width: 767px) {
   .tech-icons,
   .tech-icons-1 {
@@ -109,10 +109,10 @@
 
 
 /* ========================
-   TECH ICONS – Niveaux
+   TECH ICONS - Levels
 ======================== */
 
-/* Bordures selon niveau */
+/* Borders by level */
 .border-orange {
   border: 1.7px solid rgb(255, 145, 0);
 }
@@ -129,7 +129,7 @@
   border: 1.7px solid rgb(39, 184, 241);
 }
 
-/* Hover dynamique selon niveau */
+/* Dynamic hover states by level */
 .border-orange:hover {
   box-shadow: 0 0 20px rgba(255, 145, 0, 0.4);
   border: 1.7px solid rgba(255, 145, 0, 0.8);
@@ -152,7 +152,7 @@
 
 
 /* ========================
-   AUTRES STYLES ICONES
+   OTHER ICON STYLES
 ======================== */
 .tech-icon-images {
   padding: 20px;
@@ -232,7 +232,7 @@
 
 
 /* ========================
-   TABS "À PROPOS"
+   ABOUT TABS
 ======================== */
 .about-tabs {
   display: flex;
@@ -279,7 +279,7 @@
 
 
 /* ========================
-   BOUTONS TECH / CATÉGORIES
+   TECH / CATEGORY BUTTONS
 ======================== */
 .category-buttons .btn-primary {
   background: linear-gradient(140deg, rgba(23, 57, 106, 0.96), rgba(54, 130, 228, 0.9));
@@ -311,7 +311,7 @@
 
 
 /* ========================
-   LÉGENDE DES NIVEAUX
+   LEVEL LEGEND
 ======================== */
 .level-legend {
   display: flex;
@@ -344,7 +344,7 @@
   opacity: 1;
 }
 
-/* États actifs */
+/* Active states */
 .level-badge.active {
   border: 1px solid white;
   opacity: 1;
@@ -355,7 +355,7 @@
   cursor: default;
 }
 
-/* Couleurs spécifiques */
+/* Specific colors */
 .level-badge.all {
   background-color: rgba(25, 40, 68, 0.9);
   border-color: rgba(204, 226, 255, 0.92);

@@ -2,7 +2,7 @@ type SoundPlayerProps = {
   soundSrc: string;
 };
 
-/* Composant pour lire un son */
+/* Plays a short audio asset on demand. */
 function SoundPlayer({ soundSrc }: SoundPlayerProps) {
   const audio = new Audio(soundSrc);
 

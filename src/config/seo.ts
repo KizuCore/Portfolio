@@ -66,6 +66,7 @@ export function splitLocalizedPath(pathname: string): { locale: SupportedLocale 
   const normalizedPath = normalizePath(pathname);
   const [, firstSegment, ...remainingSegments] = normalizedPath.split("/");
 
+  // Localized routes are aliases over the same React views, e.g. /en/about -> /about.
   if (SUPPORTED_LOCALES.includes(firstSegment as SupportedLocale)) {
     const localizedPathname = remainingSegments.length > 0 ? `/${remainingSegments.join("/")}` : "/";
     return {
@@ -95,6 +96,7 @@ export function getContentLocale(locale: SupportedLocale, pathname: string): Sup
     return locale;
   }
 
+  // Legal content is only maintained in French and English for now.
   if (locale === "es") {
     return "en";
   }
@@ -111,6 +113,7 @@ export function getHtmlLang(locale: SupportedLocale): string {
 }
 
 export function getLanguageAlternates(siteUrl: string, pathname: string) {
+  // Search engines expect one absolute alternate URL per language variant.
   return SUPPORTED_LOCALES.map((locale) => {
     return {
       href: `${siteUrl}${getLocalizedPath(locale, pathname)}`,

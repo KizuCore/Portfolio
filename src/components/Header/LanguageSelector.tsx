@@ -1,4 +1,4 @@
-﻿import { JSX, useCallback, useEffect, useRef, useState } from "react";
+import { JSX, type KeyboardEvent as ReactKeyboardEvent, useCallback, useEffect, useRef, useState } from "react";
 import { FaAngleDown } from "@react-icons/all-files/fa/FaAngleDown";
 import { FaAngleUp } from "@react-icons/all-files/fa/FaAngleUp";
 import { useTranslation } from "react-i18next";
@@ -32,9 +32,16 @@ function LanguageSelector(): JSX.Element {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const optionRefs = useRef<Partial<Record<SupportedLanguage, HTMLButtonElement | null>>>({});
   const sequenceRef = useRef("");
   const currentRoutePath = splitLocalizedPath(location.pathname).pathname;
   const canLocalizeCurrentRoute = Boolean(ROUTE_SEO[currentRoutePath] && !ROUTE_SEO[currentRoutePath].noindex);
+
+  const detectedLanguageCode = i18n.language.slice(0, 2) as SupportedLanguage;
+  const normalizedLanguage: LanguageCode = i18n.language.startsWith("bzh")
+    ? "bzh"
+    : (LANGUAGE_OPTIONS.some((option) => option.code === detectedLanguageCode) ? detectedLanguageCode : "en");
+  const currentLanguage = normalizedLanguage.toUpperCase();
 
   const changeLanguage = useCallback(
     (lang: LanguageCode) => {
@@ -50,6 +57,18 @@ function LanguageSelector(): JSX.Element {
   useEffect(() => {
     document.documentElement.lang = getHtmlLang(getShortLocale(i18n.language));
   }, [i18n.language]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    // Focus the active language when the menu opens, so keyboard users start in context.
+    window.requestAnimationFrame(() => {
+      const activeOption = LANGUAGE_OPTIONS.find((option) => option.code === normalizedLanguage);
+      optionRefs.current[activeOption?.code ?? LANGUAGE_OPTIONS[0].code]?.focus();
+    });
+  }, [isOpen, normalizedLanguage]);
 
   useEffect(() => {
     const handleDocumentClick = (event: MouseEvent) => {
@@ -108,15 +127,31 @@ function LanguageSelector(): JSX.Element {
     };
   }, [changeLanguage]);
 
-  const detectedLanguageCode = i18n.language.slice(0, 2) as SupportedLanguage;
-  const normalizedLanguage: LanguageCode = i18n.language.startsWith("bzh")
-    ? "bzh"
-    : (LANGUAGE_OPTIONS.some((option) => option.code === detectedLanguageCode) ? detectedLanguageCode : "en");
-  const currentLanguage = normalizedLanguage.toUpperCase();
-
   const renderFlag = (langCode: LanguageCode, className = "lang-flag") => {
     const src = FLAG_SOURCES[langCode] ?? FLAG_SOURCES.en;
     return <img src={src} className={className} alt={t(`flag_${langCode}`)} width={22} height={16} decoding="sync" />;
+  };
+
+  const handleMenuKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
+    if (!["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const currentIndex = LANGUAGE_OPTIONS.findIndex((option) => option.code === document.activeElement?.getAttribute("data-lang"));
+    const fallbackIndex = Math.max(0, LANGUAGE_OPTIONS.findIndex((option) => option.code === normalizedLanguage));
+    const activeIndex = currentIndex >= 0 ? currentIndex : fallbackIndex;
+    const nextIndex =
+      event.key === "Home"
+        ? 0
+        : event.key === "End"
+          ? LANGUAGE_OPTIONS.length - 1
+          : event.key === "ArrowDown"
+            ? (activeIndex + 1) % LANGUAGE_OPTIONS.length
+            : (activeIndex - 1 + LANGUAGE_OPTIONS.length) % LANGUAGE_OPTIONS.length;
+
+    optionRefs.current[LANGUAGE_OPTIONS[nextIndex].code]?.focus();
   };
 
   return (
@@ -138,7 +173,7 @@ function LanguageSelector(): JSX.Element {
       </button>
 
       {isOpen ? (
-        <div className="lang-menu" role="menu" aria-labelledby="language-selector-toggle">
+        <div className="lang-menu" role="menu" aria-labelledby="language-selector-toggle" onKeyDown={handleMenuKeyDown}>
           {LANGUAGE_OPTIONS.map((option) => {
             const isActive = normalizedLanguage === option.code;
 
@@ -146,6 +181,10 @@ function LanguageSelector(): JSX.Element {
               <button
                 type="button"
                 key={option.code}
+                ref={(element) => {
+                  optionRefs.current[option.code] = element;
+                }}
+                data-lang={option.code}
                 role="menuitemradio"
                 aria-checked={isActive}
                 className={`lang-item${isActive ? " is-active active" : ""}`}

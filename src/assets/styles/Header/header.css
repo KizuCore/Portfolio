@@ -3,7 +3,7 @@
 ======================== */
 
 /* ------------------------
-   Langue / Sélecteur
+   Language selector
 ------------------------ */
 .language-selector {
   position: relative;
@@ -177,7 +177,7 @@
 
 
 /* ------------------------
-   Bouton Hamburger
+   Hamburger button
 ------------------------ */
 .navbar-toggler {
   position: relative;
@@ -203,13 +203,13 @@
   border-radius: 8px;
 }
 
-/* Barre du milieu plus petite */
+/* Slightly shorten the middle bar for a calmer hamburger icon. */
 .navbar-toggler span:nth-child(2) {
   width: 22px;
   margin-left: auto;
 }
 
-/* Animation menu hamburger */
+/* Hamburger menu animation */
 .navbar-toggler span:nth-child(1),
 .navbar-toggler span:nth-child(3) {
   transition: transform 0.35s ease-in-out;
@@ -238,7 +238,7 @@
 
 
 /* ------------------------
-   Logo et Liens de nav
+   Logo and navigation links
 ------------------------ */
 .navbar-brand {
   color: rgb(250, 250, 250) !important;
@@ -318,7 +318,7 @@
   z-index: 1;
 }
 
-/* Ligne animée sous le lien */
+/* Animated line under the link */
 .navbar-nav .nav-item a::after {
   content: none;
 }
@@ -361,7 +361,7 @@
   transition: opacity 0.25s ease;
 }
 
-/* Hover et actif */
+/* Hover and active states */
 .navbar-nav .nav-item a:hover .nav-label {
   color: #f6fbff;
 }
@@ -380,7 +380,7 @@
   opacity: 1;
 }
 
-/* évite le retour à la ligne */
+/* Prevent labels from wrapping inside compact nav pills. */
 .navbar-nav .nav-item .nav-link {
   white-space: nowrap;
   min-height: 44px;
@@ -492,7 +492,7 @@
   }
 }
 /* ------------------------
-   Bannière Easter Egg
+   Easter egg banner
 ------------------------ */
 .easter-egg-banner {
   position: fixed;

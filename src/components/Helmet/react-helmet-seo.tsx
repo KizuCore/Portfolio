@@ -170,7 +170,7 @@ function SeoMeta(): JSX.Element {
       <meta name="twitter:image" content={imageUrl} />
       <meta name="twitter:image:alt" content={tx("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
 
-      {/* Données structurées */}
+      {/* Structured data */}
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
     </Helmet>
   );

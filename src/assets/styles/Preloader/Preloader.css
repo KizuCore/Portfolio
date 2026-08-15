@@ -1,4 +1,4 @@
-/* === CONTAINER PRINCIPAL === */
+/* === MAIN CONTAINER === */
 #preloader {
   position: fixed;
   top: 0;
@@ -20,7 +20,7 @@
   pointer-events: none;
 }
 
-/* === CONTENEUR CENTRAL === */
+/* === CENTRAL CONTAINER === */
 .preloader-content {
   position: relative;
   width: 300px;
@@ -79,7 +79,7 @@
   display: block;
 }
 
-/* === LOGO SVG GLOBAL === */
+/* === GLOBAL SVG LOGO === */
 .logo-svg {
   width: 100%;
   height: 100%;
@@ -89,7 +89,7 @@
 
 
 
-/* === TRAÇAGE CERCLE DE FOND === */
+/* === BACKGROUND CIRCLE STROKE DRAWING === */
 .svg-circle {
   fill: none;
   stroke: var(--dark-blue);
@@ -101,7 +101,7 @@
   animation: draw-stroke 1.5s ease forwards;
 }
 
-/* === TRAÇAGE DES PATH === */
+/* === PATH STROKE DRAWING === */
 .svg-path {
   fill: none;
   stroke-width: 3px;
@@ -129,7 +129,7 @@
 }
 
 
-/* === DÉLAIS POUR CHAQUE TRAIT === */
+/* === STAGGERED STROKE DELAYS === */
 .delay-1 {
   animation-delay: 0.2s;
   stroke: var(--dark-blue);

@@ -17,7 +17,7 @@ function CelestialBody({ name, className, children, isSun }: CelestialBodyProps)
         if (hovered) {
             timeout = setTimeout(() => setVisible(true), 0);
         } else {
-            timeout = setTimeout(() => setVisible(false), 700); // délai 700ms
+            timeout = setTimeout(() => setVisible(false), 700); // Delay hiding so hover transitions feel smoother.
         }
 
         return () => clearTimeout(timeout);

@@ -1,6 +1,6 @@
-import { JSX, useState, useEffect, useRef } from "react";
+import { JSX, useCallback, useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
 import { FiBriefcase } from "@react-icons/all-files/fi/FiBriefcase";
 import { FiFileText } from "@react-icons/all-files/fi/FiFileText";
 import { FiFolder } from "@react-icons/all-files/fi/FiFolder";
@@ -12,14 +12,22 @@ import Logo from "../Logo/LogoContainer";
 import NavItem from "./NavItem";
 import { getLocalizedPath, getShortLocale, splitLocalizedPath } from "../../../config/seo";
 import { SITE_PROFILE } from "../../../config/site";
-import '../../../assets/styles/Easter/style_easter.css';
-import '../../../assets/styles/Header/header.css';
+import "../../../assets/styles/Easter/style_easter.css";
+import "../../../assets/styles/Header/header.css";
 
-// Constantes de timing du clic secret sur le logo.
+// Timing values for the hidden long-press logo interaction.
 const FAST_CLICK_THRESHOLD = 500;
 const LONG_CLICK_REDIRECT_DELAY = 9500;
+const MENU_FOCUSABLE_SELECTOR = [
+  "a[href]",
+  "button:not([disabled])",
+  "input:not([disabled])",
+  "select:not([disabled])",
+  "textarea:not([disabled])",
+  "[tabindex]:not([tabindex='-1'])",
+].join(",");
 
-// Hook personnalisé pour gérer les clics sur le logo
+// Keeps the hidden logo interaction isolated from the visual navbar state.
 function useLogoNavigation(navigate: ReturnType<typeof useNavigate>) {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isLongClick, setIsLongClick] = useState(false);
@@ -28,12 +36,14 @@ function useLogoNavigation(navigate: ReturnType<typeof useNavigate>) {
   const redirectTimeoutRef = useRef<number | null>(null);
   const clickTimeoutRef = useRef<number | null>(null);
 
-  useEffect(() => {
-    return () => {
-      if (redirectTimeoutRef.current) clearTimeout(redirectTimeoutRef.current);
-      if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
-    };
+  const clearLogoTimers = useCallback(() => {
+    if (redirectTimeoutRef.current) clearTimeout(redirectTimeoutRef.current);
+    if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
   }, []);
+
+  useEffect(() => {
+    return clearLogoTimers;
+  }, [clearLogoTimers]);
 
   const handleMouseDown = () => {
     setIsAnimating(true);
@@ -51,8 +61,7 @@ function useLogoNavigation(navigate: ReturnType<typeof useNavigate>) {
   const handleMouseUp = () => {
     setIsAnimating(false);
 
-    if (redirectTimeoutRef.current) clearTimeout(redirectTimeoutRef.current);
-    if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+    clearLogoTimers();
 
     if (!isLongClick && isClickValid) {
       navigate("/");
@@ -61,7 +70,14 @@ function useLogoNavigation(navigate: ReturnType<typeof useNavigate>) {
     setIsClickValid(false);
   };
 
-  return { isAnimating, handleMouseDown, handleMouseUp };
+  const handleMouseLeave = () => {
+    setIsAnimating(false);
+    setIsLongClick(false);
+    setIsClickValid(false);
+    clearLogoTimers();
+  };
+
+  return { isAnimating, handleMouseDown, handleMouseUp, handleMouseLeave };
 }
 
 function NavBar(): JSX.Element {
@@ -70,10 +86,12 @@ function NavBar(): JSX.Element {
   const [navColour, setNavColour] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const toggleButtonRef = useRef<HTMLButtonElement | null>(null);
   const localizedPath = splitLocalizedPath(location.pathname);
   const currentLocale = localizedPath.locale ?? getShortLocale(i18n.resolvedLanguage ?? i18n.language ?? "fr");
 
-  const { isAnimating, handleMouseDown, handleMouseUp } = useLogoNavigation(navigate);
+  const { isAnimating, handleMouseDown, handleMouseUp, handleMouseLeave } = useLogoNavigation(navigate);
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -86,27 +104,80 @@ function NavBar(): JSX.Element {
     return () => window.removeEventListener("scroll", scrollHandler);
   }, []);
 
+  useEffect(() => {
+    setExpand(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!expand) {
+      return;
+    }
+
+    const getFocusableMenuItems = () =>
+      Array.from(menuRef.current?.querySelectorAll<HTMLElement>(MENU_FOCUSABLE_SELECTOR) ?? []).filter(
+        (element) => !element.hasAttribute("disabled") && element.tabIndex !== -1
+      );
+
+    const handleMenuKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setExpand(false);
+        toggleButtonRef.current?.focus();
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const focusableItems = getFocusableMenuItems();
+      if (focusableItems.length === 0) {
+        return;
+      }
+
+      const firstItem = focusableItems[0];
+      const lastItem = focusableItems[focusableItems.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstItem) {
+        event.preventDefault();
+        lastItem.focus();
+      } else if (!event.shiftKey && document.activeElement === lastItem) {
+        event.preventDefault();
+        firstItem.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleMenuKeyDown);
+    window.requestAnimationFrame(() => getFocusableMenuItems()[0]?.focus());
+
+    return () => window.removeEventListener("keydown", handleMenuKeyDown);
+  }, [expand]);
+
   const navItems = [
-    { to: getLocalizedPath(currentLocale, "/"), icon: <FiHome />, label: t('home'), ariaLabel: t('home_aria') },
-    { to: getLocalizedPath(currentLocale, "/about"), icon: <FiUser />, label: t('about'), ariaLabel: t('about_aria') },
-    { to: getLocalizedPath(currentLocale, "/experience"), icon: <FiBriefcase />, label: t('experience'), ariaLabel: t('about_experience') },
-    { to: getLocalizedPath(currentLocale, "/project"), icon: <FiFolder />, label: t('project'), ariaLabel: t('project_aria') },
-    { to: getLocalizedPath(currentLocale, "/contact"), icon: <FiMail />, label: t('social'), ariaLabel: t('social') },
-    { to: getLocalizedPath(currentLocale, "/cv"), icon: <FiFileText />, label: t('cv'), ariaLabel: t('cv_aria') }
+    { to: getLocalizedPath(currentLocale, "/"), icon: <FiHome />, label: t("home"), ariaLabel: t("home_aria") },
+    { to: getLocalizedPath(currentLocale, "/about"), icon: <FiUser />, label: t("about"), ariaLabel: t("about_aria") },
+    {
+      to: getLocalizedPath(currentLocale, "/experience"),
+      icon: <FiBriefcase />,
+      label: t("experience"),
+      ariaLabel: t("about_experience"),
+    },
+    { to: getLocalizedPath(currentLocale, "/project"), icon: <FiFolder />, label: t("project"), ariaLabel: t("project_aria") },
+    { to: getLocalizedPath(currentLocale, "/contact"), icon: <FiMail />, label: t("social"), ariaLabel: t("social") },
+    { to: getLocalizedPath(currentLocale, "/cv"), icon: <FiFileText />, label: t("cv"), ariaLabel: t("cv_aria") },
   ];
 
   return (
     <nav
       className={`navbar navbar-expand-md fixed-top ${navColour ? "sticky" : ""} ${expand ? "menu-open" : ""}`}
-      aria-label={t("a11y.nav_menu_toggle")}
+      aria-label={t("a11y.main_navigation")}
     >
       <div className="container">
-        {/* Logo */}
         <div className="navbar-brand">
           <Logo
             isAnimating={isAnimating}
             handleMouseDown={handleMouseDown}
             handleMouseUp={handleMouseUp}
+            handleMouseLeave={handleMouseLeave}
             t={t}
           />
           <button
@@ -123,8 +194,8 @@ function NavBar(): JSX.Element {
           </button>
         </div>
 
-        {/* Burger menu */}
         <button
+          ref={toggleButtonRef}
           type="button"
           className={`navbar-toggler ${expand ? "" : "collapsed"}`}
           aria-controls="responsive-navbar-nav"
@@ -137,12 +208,11 @@ function NavBar(): JSX.Element {
           <span></span>
         </button>
 
-        {/* Menu */}
-        <div id="responsive-navbar-nav" className={`collapse navbar-collapse${expand ? " show" : ""}`}>
+        <div id="responsive-navbar-nav" className={`collapse navbar-collapse${expand ? " show" : ""}`} ref={menuRef}>
           <ul className="navbar-nav navbar-menu-items">
-            {navItems.map((item, index) => (
+            {navItems.map((item) => (
               <NavItem
-                key={index}
+                key={item.to}
                 to={item.to}
                 icon={item.icon}
                 label={item.label}

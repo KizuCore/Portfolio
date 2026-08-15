@@ -16,7 +16,7 @@ const Projects: React.FC = () => {
   const preloadedImagesRef = React.useRef<HTMLImageElement[]>([]);
 
   const sortedProjects = React.useMemo(
-    // Priorité d'affichage : projets épinglés, puis projets mis en avant.
+    // Display pinned projects first, then featured projects.
     () =>
       [...PROJECTS].sort((a, b) => {
         const pinTopPriority = Number(Boolean(b.pinTop)) - Number(Boolean(a.pinTop));
@@ -30,8 +30,7 @@ const Projects: React.FC = () => {
   );
 
   const filteredProjects = React.useMemo(() => {
-    // "all" conserve le tri principal; les autres filtres ne gardent
-    // que la catégorie demandée en préservant cet ordre.
+    // "all" keeps the main ordering; other filters preserve that order within one category.
     if (activeFilter === "all") {
       return sortedProjects;
     }
@@ -40,12 +39,12 @@ const Projects: React.FC = () => {
   }, [activeFilter, sortedProjects]);
 
   React.useEffect(() => {
-    // Quand on change de filtre, on revient sur le premier projet du filtre.
+    // Reset to the first matching project whenever the filter changes.
     setSelectedIndex(0);
   }, [activeFilter]);
 
   React.useEffect(() => {
-    // Évite un index hors limites si la liste filtrée raccourcit.
+    // Keep the selected index valid when the filtered list becomes shorter.
     if (selectedIndex >= filteredProjects.length) {
       setSelectedIndex(Math.max(filteredProjects.length - 1, 0));
     }

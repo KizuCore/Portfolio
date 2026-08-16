@@ -101,10 +101,11 @@ function Presentation({ t }: { t: TFunction }): JSX.Element {
 function Qualifications({ t }: { t: TFunction }): JSX.Element {
   return (
     <div className="grid-qualifs mt-3">
+      <a href="https://www.francecompetences.fr/recherche/RNCP/40150/" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree5')}</a>
       <a href="https://istic.univ-rennes.fr/licence-informatique-parcours-informatique" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree1')}</a>
       <a href="https://www.mydigitalschool.com/bachelor-1-2-web" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree2')}</a>
       <a href="https://www.francecompetences.fr/recherche/rncp/37873/" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree3')}</a>
-      <a href="https://cyber.gouv.fr/comprendre-la-certification" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree4')}</a>
+      <a href="https://cyber.gouv.fr/offre-de-service/formations-entrainement-et-decouverte-des-metiers/formations/formations-delivrees-par-lanssi/mooc-secnumacademie/" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree4')}</a>
     </div>
   );
 }

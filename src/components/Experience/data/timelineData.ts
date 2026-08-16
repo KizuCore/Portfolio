@@ -42,6 +42,7 @@ export const useTimelineData = (): TimelineItem[] => {
       subtitle: t("experience_2_subtitle"),
       diplome: t("experience_2_diplome"),
       date: t("experience_2_date"),
+      description: t("experience_2_description"),
     },
     {
       type: "C",

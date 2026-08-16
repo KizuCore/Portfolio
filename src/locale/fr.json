@@ -1,4 +1,4 @@
-{
+﻿{
     "hello": "Bonjour !",
     "iam": "Je suis  ",
     "nametheo": "Théo Guérin",
@@ -26,8 +26,8 @@
     "degree1": "Licence Informatique-Electronique (Rennes ISTIC)",
     "degree2": "Bachelor Développeur-Web (Rennes MyDigitalSchool)",
     "degree3": "Titre Concepteur Développeur d'application",
-    "degree4": "Attestation de réussite — MOOC SecNumAcadémie de l’ANSSI",
-    "degree5": "MBA Développeur Web Full-Stack — Titre RNCP niveau 7 « Manager de Projet Web Digital », parcours Développement Digital",
+    "degree4": "Attestation de réussite - MOOC SecNumAcadémie de l’ANSSI",
+    "degree5": "MBA Développeur Web Full-Stack - Titre RNCP niveau 7 « Manager de Projet Web Digital », parcours Développement Digital",
     "outside_of_coding": "En dehors du codage, voici quelques autres activités que j'aime faire :",
     "hobby1": "Voyager",
     "hobby2": "Cuisiner",
@@ -166,8 +166,8 @@
     "experience_1_stack": "Python, Django, Flask, React, PostgreSQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
     "experience_2_title": "MBA Développeur Web Full-Stack",
     "experience_2_subtitle": "My Digital School Rennes",
-    "experience_2_diplome": "Titre RNCP niveau 7 « Manager de Projet Web Digital » — parcours Développement Digital",
-    "experience_2_description": "Pendant ce MBA, obtention de l’attestation de réussite au MOOC SecNumAcadémie de l’ANSSI, consacré aux fondamentaux de la sécurité des systèmes d’information.",
+    "experience_2_diplome": "Titre RNCP niveau 7 « Manager de Projet Web Digital » - parcours Développement Digital",
+    "experience_2_description": "MOOC SecNumAcadémie de l’ANSSI - Attestation de réussite",
     "experience_2_date": "Sept. 2024 - Juil. 2026",
     "experience_3_title": "Bachelor Développeur Web",
     "experience_3_subtitle": "My Digital School Rennes",
@@ -548,7 +548,7 @@
         "contact_description": "Contactez Théo Guérin pour un projet web, une mission freelance ou une opportunité professionnelle. Basé à Rennes, TJM indicatif à partir de 300 €/jour HT.",
         "cv_description": "Consultez ou téléchargez le CV de Théo Guérin, développeur Full-Stack spécialisé en React, Django et Python, basé à Rennes.",
         "legal_description": "Mentions légales du portfolio de Théo Guérin, développeur web Full-Stack basé à Rennes.",
-        "privacy_description": "Politique de confidentialité du portfolio de Théo Guérin — traitement des données, cookies et vos droits.",
+        "privacy_description": "Politique de confidentialité du portfolio de Théo Guérin - traitement des données, cookies et vos droits.",
         "cookies_description": "Politique des cookies du portfolio de Théo Guérin : types de cookies, finalités, durée de conservation et gestion du consentement."
     }
 }

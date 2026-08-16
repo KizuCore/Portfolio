@@ -57,12 +57,12 @@ const TimelineItem = ({ item, isLeft }: Props) => {
 
         {item.subtitle && <p className="timeline-card-subtitle">{item.subtitle}</p>}
         {showRncpLine && <p className="timeline-card-rncp">{item.diplome}</p>}
+        {item.description && <p className="timeline-card-description">{item.description}</p>}
         {item.diplome && (
           <p className="timeline-card-diploma">
             <span className="timeline-card-diploma-label">{t("experience_diploma_label")}</span>
           </p>
         )}
-        {item.description && <p className="timeline-card-description">{item.description}</p>}
 
         {hasHighlights && (
           <ul className="timeline-card-list" aria-label={t("experience_main_missions_aria")}>

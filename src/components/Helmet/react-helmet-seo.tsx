@@ -39,7 +39,7 @@ function SeoMeta(): JSX.Element {
 
   const baseTitle = tx("seo_title");
   const pageTitle = currentRoute ? tx(currentRoute.titleKey) : "";
-  const fullTitle = pageTitle ? `${pageTitle} | ${baseTitle}` : baseTitle;
+  const fullTitle = pathname === "/" || !pageTitle ? baseTitle : `${pageTitle} | ${baseTitle}`;
   const description = currentRoute?.descriptionKey
     ? tx(currentRoute.descriptionKey, { defaultValue: tx("seo_description") })
     : tx("seo_description");
@@ -77,7 +77,7 @@ function SeoMeta(): JSX.Element {
     alumniOf: EDUCATION_ORGANIZATIONS.map((name) => ({ "@type": "CollegeOrUniversity", name })),
     makesOffer: {
       "@type": "Offer",
-      name: "Développement web full-stack freelance",
+      name: "Services de développeur freelance Full-Stack",
       description: `TJM indicatif à partir de ${FREELANCE_OFFER.dayRateFrom} ${FREELANCE_OFFER.currency}/jour ${FREELANCE_OFFER.taxLabel}, ajusté selon le périmètre.`,
       priceSpecification: {
         "@type": "UnitPriceSpecification",

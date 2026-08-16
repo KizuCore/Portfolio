@@ -1,7 +1,7 @@
 export const SITE_PROFILE = {
   brandName: "KizuCore",
   displayName: "Théo Guérin",
-  jobTitle: "Développeur Full-Stack",
+  jobTitle: "Développeur freelance Full-Stack",
   email: "theo.guerin35000@gmail.com",
   city: "Rennes",
   postalCode: "35700",

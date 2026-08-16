@@ -26,11 +26,20 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    },
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ],
   "rewrites": [
     {
-      "source": "/((?!api/|assets/|images/|locales/|pdf/|robots.txt|sitemap.xml|manifest.json|llms(?:-[a-z]{2})?\\.txt|favicon.ico).*)",
+      "source": "/((?!api/|assets/|fonts/|images/|locales/|pdf/|robots.txt|sitemap.xml|manifest.json|llms(?:-[a-z]{2})?\\.txt|favicon.ico).*)",
       "destination": "/index.html"
     }
   ]

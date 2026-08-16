@@ -1,11 +1,13 @@
 ﻿.contact-layout {
   width: min(1180px, 95%);
-  /* Contact uses the shared home container, so this restores enough navbar clearance for this page only. */
-  padding-top: 5.5rem !important;
 }
 
 .contact-page {
+  position: relative;
+  z-index: 1;
+  padding: 8rem 0 3rem;
   min-height: 100vh;
+  color: var(--text-primary);
 }
 
 .contact-header {
@@ -282,9 +284,12 @@ textarea.custom-form {
 }
 
 @media (max-width: 767px) {
+  .contact-page {
+    padding-top: 7.5rem;
+  }
+
   .contact-layout {
     width: min(100%, 96%);
-    padding-top: 5rem !important;
   }
 
   .contact-header {

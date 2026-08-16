@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Typewriter from "typewriter-effect";
 import '../../assets/styles/Home/Home.css';
 
-function TypeDev(): JSX.Element {
+function DeveloperTypewriter(): JSX.Element {
   const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(false);
 
@@ -39,4 +39,4 @@ function TypeDev(): JSX.Element {
   );
 }
 
-export default TypeDev;
+export default DeveloperTypewriter;

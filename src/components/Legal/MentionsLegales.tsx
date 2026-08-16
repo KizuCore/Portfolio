@@ -2,7 +2,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Legals/Legals.css";
-import Particle from "../../utils/Particle";
 
 function MentionsLegales(): JSX.Element {
   const { i18n } = useTranslation();
@@ -13,7 +12,6 @@ function MentionsLegales(): JSX.Element {
 
   return (
     <Container fluid className="legal-page legal-cookie-page py-5 mb-4" id="mentions-legales">
-      <Particle />
       <Container className="legal-content-container pt-4 pt-md-5 mt-3 mt-md-0">
         <Row className="justify-content-center p-0">
           <h1 className="custom-title legal-title pb-4 pt-4 mt-4">{tx("mentions_legales.title")}</h1>

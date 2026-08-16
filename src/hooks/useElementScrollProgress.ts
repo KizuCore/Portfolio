@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
  * @param ref HTML element to observe.
  * @returns A value between 0 and 100 representing the visible scroll progress.
  */
-const useScrollProgress = (ref: React.RefObject<HTMLElement | null>) => {
+const useElementScrollProgress = (ref: React.RefObject<HTMLElement | null>) => {
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
   useEffect(() => {
@@ -30,4 +30,4 @@ const useScrollProgress = (ref: React.RefObject<HTMLElement | null>) => {
   return scrollPercentage;
 };
 
-export default useScrollProgress;
+export default useElementScrollProgress;

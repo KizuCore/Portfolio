@@ -89,12 +89,15 @@ Le script `npm run build` exécute automatiquement `npm run sitemap:generate` vi
 api/                 API serverless Vercel pour le formulaire de contact
 public/              Assets publics, manifest, robots.txt, sitemap et fichiers llms
 scripts/             Scripts de maintenance, i18n et sitemap
+src/assets/          Images, médias et styles regroupés par fonctionnalité
 src/components/      Composants React par domaine
+src/components/Layout/ Composants d'infrastructure communs à toutes les pages
 src/config/          Configuration globale du site et du SEO
-src/locale/          Traductions JSON
+src/hooks/           Hooks React réutilisables
+src/locales/         Traductions JSON
 src/routes/          Définition des routes applicatives
 src/services/        Services côté frontend
-src/utils/           Hooks et utilitaires partagés
+src/utils/           Utilitaires navigateur sans rendu React
 ```
 
 ## SEO et internationalisation

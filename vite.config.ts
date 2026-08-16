@@ -58,13 +58,10 @@ export default defineConfig({
   },
   resolve: {
     alias: {
+      // Keep cross-feature imports stable when files move between feature folders.
+      "@": path.resolve(__dirname, "src"),
       "@image": path.resolve(__dirname, "src/assets/images"),
-      "@style": path.resolve(__dirname, "src/assets/styles"),
-      "@styleHome": path.resolve(__dirname, "src/assets/styles/Home"),
-      "@pdf": path.resolve(__dirname, "src/assets/pdf"),
       "@sound": path.resolve(__dirname, "src/assets/sound"),
-      "@component": path.resolve(__dirname, "src/components"),
-      "@utils": path.resolve(__dirname, "src/utils"),
       "@media": path.resolve(__dirname, "src/assets/media"),
     },
   },

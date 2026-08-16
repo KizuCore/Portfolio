@@ -4,7 +4,6 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Easter/style_easter.css";
 import "../../assets/styles/Easter/Gojo/Gojo.css";
-import Particle from "../../utils/Particle";
 
 type GojoPhase = "prelude" | "duality" | "compression" | "purple" | "video";
 
@@ -46,7 +45,6 @@ export default function GojoCursedTechnique() {
   return (
     <section className="gojo-route" aria-label={t("easter.gojo.aria_label")}>
       <Container fluid className="gojo-shell p-0" id="home">
-        <Particle />
 
         <div className="jk-wrapper">
           <div className="jk-bg" aria-hidden="true" />

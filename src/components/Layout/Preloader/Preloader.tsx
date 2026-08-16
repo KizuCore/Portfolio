@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import "../assets/styles/Preloader/Preloader.css";
-import LogoSVG from "./LogoSVG";
+import "../../../assets/styles/Preloader/Preloader.css";
+import PreloaderLogo from "./PreloaderLogo";
 
 interface PreloaderProps {
   load?: boolean;
@@ -18,7 +18,7 @@ const Preloader: React.FC<PreloaderProps> = ({ load = true, className = "" }) =>
       aria-hidden="true"
     >
       <div className="preloader-content">
-        <LogoSVG />
+        <PreloaderLogo />
         <p className="preloader-wordmark" aria-label="KizuCore">
           <span className="preloader-wordmark-main">KizuCore</span>
           <span className="preloader-wordmark-sub">{t("preloader_subtitle")}</span>

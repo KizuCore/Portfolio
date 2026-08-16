@@ -1,7 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
-import "../../assets/styles/Projet/Projet.css";
+import "../../assets/styles/Projects/Projects.css";
 import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import { FaYoutube } from "@react-icons/all-files/fa/FaYoutube";
 import { FaEye } from "@react-icons/all-files/fa/FaEye";

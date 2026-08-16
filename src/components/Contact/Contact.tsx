@@ -11,7 +11,6 @@ import { FaPaperPlane } from "@react-icons/all-files/fa/FaPaperPlane";
 import { FaEuroSign } from "@react-icons/all-files/fa/FaEuroSign";
 import ContactForm from "./ContactForm.tsx";
 import IconLink from "../Common/IconLink";
-import Particle from "../../utils/Particle.tsx";
 import { SITE_PROFILE, SOCIAL_LINKS } from "../../config/site";
 import "../../assets/styles/Contact/Contact.css";
 import "../../assets/styles/Home/Home.css";
@@ -21,7 +20,6 @@ function Contact(): JSX.Element {
 
   return (
     <Container fluid className="about-section pt-5 contact-page" id="home">
-      <Particle />
 
       <Container className="home-content pt-md-0 pt-5 mt-3 mt-md-0 contact-layout">
         <motion.div

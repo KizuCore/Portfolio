@@ -4,7 +4,7 @@ import { FaAngleUp } from "@react-icons/all-files/fa/FaAngleUp";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getHtmlLang, getLocalizedPath, getShortLocale, ROUTE_SEO, splitLocalizedPath } from "../../config/seo";
-import "../../assets/styles/Header/header.css";
+import "../../assets/styles/Header/Navigation.css";
 import flagBzh from "../../assets/images/flags/flag_bzh.svg";
 import flagEn from "../../assets/images/flags/flag_en.svg";
 import flagEs from "../../assets/images/flags/flag_es.svg";

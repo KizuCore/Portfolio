@@ -2,21 +2,22 @@ import { useState, useEffect, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import "./assets/styles/style.css";
+import "./assets/styles/global.css";
 import "./assets/styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "./components/Header/Navbar/Navbar.tsx";
-import Footer from "./components/Footer/Footer.tsx";
-import SeoMeta from "./components/Helmet/react-helmet-seo.tsx";
-import CookieBanner from "./components/Legal/CookieBanner.tsx";
-import CookiePreferencesModal from "./components/Legal/CookiePreferencesModal.tsx";
-import Preloader from "./utils/Preloader.tsx";
-import ScrollToTop from "./utils/ScrollToTop.tsx";
-import ScrollProgress from "./utils/ScrollProgress.tsx";
-import BackToTop from "./utils/BackToTop.tsx";
-import RouteSkeleton from "./utils/RouteSkeleton.tsx";
-import useKonamiCode from "./utils/Konami.tsx";
-import { ALL_APP_ROUTES, FALLBACK_ROUTE } from "./routes/appRoutes.tsx";
+import NavBar from "@/components/Header/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
+import SeoMeta from "@/components/Seo/SeoMeta";
+import CookieBanner from "@/components/Legal/CookieBanner";
+import CookiePreferencesModal from "@/components/Legal/CookiePreferencesModal";
+import BackToTop from "@/components/Layout/BackToTop";
+import ParticleBackground from "@/components/Layout/ParticleBackground";
+import Preloader from "@/components/Layout/Preloader/Preloader";
+import RouteSkeleton from "@/components/Layout/RouteSkeleton";
+import ScrollProgress from "@/components/Layout/ScrollProgress";
+import ScrollToTop from "@/components/Layout/ScrollToTop";
+import useKonamiCode from "@/hooks/useKonamiCode";
+import { ALL_APP_ROUTES, FALLBACK_ROUTE } from "@/routes/appRoutes";
 
 function KonamiComponent() {
   useKonamiCode();
@@ -54,6 +55,8 @@ function AppContent({ load, showPreloader }: AppContentProps) {
       {showPreloader && <Preloader load={load} className={load ? "" : "fade-out"} />}
 
       <div className="App" id={load ? "no-scroll" : "scroll"}>
+        {/* Keep one particle engine alive while users navigate between routes. */}
+        <ParticleBackground />
         <SeoMeta />
         <NavBar />
         <ScrollToTop />
@@ -97,12 +100,16 @@ function App() {
 
   useEffect(() => {
     // Keep the preloader mounted briefly after fade-out so the opacity transition can finish.
-    const timer = setTimeout(() => {
+    let unmountTimer: ReturnType<typeof setTimeout> | undefined;
+    const loadingTimer = setTimeout(() => {
       updateLoad(false);
-      setTimeout(() => setShowPreloader(false), 500);
+      unmountTimer = setTimeout(() => setShowPreloader(false), 500);
     }, 2900);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(loadingTimer);
+      if (unmountTimer) clearTimeout(unmountTimer);
+    };
   }, []);
 
   return (

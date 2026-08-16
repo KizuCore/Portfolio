@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import './assets/styles/index.css';
 import App from './App';
-import './i18n.tsx';
-import Preloader from './utils/Preloader.tsx';
+import './i18n';
+import Preloader from '@/components/Layout/Preloader/Preloader';
 
 const CHUNK_RELOAD_KEY = 'vite-chunk-reload-once';
 

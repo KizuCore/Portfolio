@@ -5,11 +5,10 @@ import { easeOut, motion, spring, useAnimation } from 'framer-motion';
 import Tilt from "react-parallax-tilt";
 import '../../assets/styles/Home/Home.css';
 import { useInView } from 'react-intersection-observer';
-import HomeButtons from "./HomeButtons.tsx";
-import TypeDev from "./Type.tsx";
-import HomeStats from "./CountUp.tsx";
-import Services from "./Services.tsx";
-import Particle from "../../utils/Particle.tsx";
+import HomeButtons from "./HomeButtons";
+import DeveloperTypewriter from "./DeveloperTypewriter";
+import HomeStats from "./HomeStats";
+import Services from "./Services";
 
 const LOGO_DEVELOPER_SRC = "/images/logodev.svg";
 
@@ -63,7 +62,6 @@ function Home(): JSX.Element {
   return (
     <section>
       <div className="container-fluid about-section pt-0" id="home">
-        <Particle />
         <div className="container home-content">
           <div className="row align-items-center justify-content-center text-center text-md-left padtopbot">
             {/* Hero copy */}
@@ -99,7 +97,7 @@ function Home(): JSX.Element {
               {/* Animated role line */}
               {isMobile ? (
                 <div className="pt-3 pb-5 d-flex justify-content-center align-items-center">
-                  <TypeDev />
+                <DeveloperTypewriter />
                 </div>
               ) : (
                 <motion.div
@@ -108,7 +106,7 @@ function Home(): JSX.Element {
                   transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
                   className="pt-3 pb-5 d-flex justify-content-center align-items-center"
                 >
-                  <TypeDev />
+                  <DeveloperTypewriter />
                 </motion.div>
               )}
               <HomeButtons />

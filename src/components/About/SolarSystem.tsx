@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/About/SolarSystem.css";
-import CelestialBody from "../../utils/CelestialBody";
+import CelestialBody from "./CelestialBody";
 
 function generateAsteroidsDynamic(count: number, radiusMin: number, radiusMax: number) {
   const asteroids = [];

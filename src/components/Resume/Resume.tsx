@@ -4,17 +4,16 @@ import { Document, Page, pdfjs } from "react-pdf";
 import { AiOutlineDownload } from "@react-icons/all-files/ai/AiOutlineDownload";
 import { useTranslation } from "react-i18next";
 import "react-pdf/dist/Page/AnnotationLayer.css";
-import "../../assets/styles/CV/CV.css";
+import "../../assets/styles/Resume/Resume.css";
 import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import { easeOut, motion } from "framer-motion";
-import Particle from "../../utils/Particle";
 pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
 
 const pdf_EN = "/pdf/CV-Guerin-Theo-EN.pdf";
 const pdf_FR = "/pdf/CV-Guerin-Theo-FR.pdf";
 
-function CV() {
+function Resume() {
   const { t, i18n } = useTranslation();
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
   const [isLoading, setIsLoading] = useState(true);
@@ -48,7 +47,6 @@ function CV() {
 
   return (
     <Container fluid className="resume-section text-center">
-      <Particle />
 
       <motion.h1
         className="custom-title pb-4 mt-5 pt-3"
@@ -102,4 +100,4 @@ function CV() {
   );
 }
 
-export default CV;
+export default Resume;

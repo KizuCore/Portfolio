@@ -18,7 +18,7 @@ function ensureParticlesEngine() {
   return particlesEnginePromise;
 }
 
-function Particle() {
+function ParticleBackground() {
   const particleId = useId().replace(/:/g, "-");
   const [isReady, setIsReady] = useState(false);
   const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
@@ -128,6 +128,7 @@ function Particle() {
     return null;
   }
 
+  // Render outside page containers so one fixed background can serve every route.
   return createPortal(
     <div
       className={`particles-layer ${isReady ? "particles-layer--ready" : "particles-layer--loading"}`}
@@ -139,4 +140,4 @@ function Particle() {
   );
 }
 
-export default React.memo(Particle);
+export default React.memo(ParticleBackground);

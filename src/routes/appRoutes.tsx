@@ -1,19 +1,19 @@
 import { lazy, type JSX } from "react";
 import { Navigate } from "react-router-dom";
-import Home from "../components/Home/Home.tsx";
-import About from "../components/About/About.tsx";
-import Contact from "../components/Contact/Contact.tsx";
-import CV from "../components/Resume/CV.tsx";
-import Experience from "../components/Experience/ExpTimeline.tsx";
-import Projects from "../components/Projects/Projects.tsx";
-import MentionsLegales from "../components/Legal/MentionsLegales.tsx";
-import PolitiqueConfidentialite from "../components/Legal/PolitiqueConfidentialite.tsx";
-import PolitiqueCookies from "../components/Legal/PolitiqueCookies.tsx";
+import Home from "../components/Home/Home";
+import About from "../components/About/About";
+import Contact from "../components/Contact/Contact";
+import Resume from "../components/Resume/Resume";
+import Experience from "../components/Experience/ExperienceTimeline";
+import Projects from "../components/Projects/Projects";
+import MentionsLegales from "../components/Legal/MentionsLegales";
+import PolitiqueConfidentialite from "../components/Legal/PolitiqueConfidentialite";
+import PolitiqueCookies from "../components/Legal/PolitiqueCookies";
 import { getLocalizedPath, SUPPORTED_LOCALES } from "../config/seo";
 
 // Public routes are eager so direct visits do not shift from a skeleton into the final page.
-const Gojo = lazy(() => import("../components/Easter/Gojo.tsx"));
-const RouteSecret = lazy(() => import("../components/Easter/Arcane.tsx"));
+const Gojo = lazy(() => import("../components/Easter/Gojo"));
+const RouteSecret = lazy(() => import("../components/Easter/Arcane"));
 
 export type AppRoute = {
   path: string;
@@ -25,7 +25,7 @@ export const APP_ROUTES: AppRoute[] = [
   { path: "/project", element: <Projects /> },
   { path: "/about", element: <About /> },
   { path: "/experience", element: <Experience /> },
-  { path: "/cv", element: <CV /> },
+  { path: "/cv", element: <Resume /> },
   { path: "/contact", element: <Contact /> },
   { path: "/mentions-legales", element: <MentionsLegales /> },
   { path: "/politique-de-confidentialite", element: <PolitiqueConfidentialite /> },

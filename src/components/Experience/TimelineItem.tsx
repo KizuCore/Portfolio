@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { TimelineItem as TimelineItemType } from "./data/timelineData";
+import { TimelineItem as TimelineItemType } from "./data/timeline";
 import { FaBriefcase } from "@react-icons/all-files/fa/FaBriefcase";
 import { FaUserGraduate } from "@react-icons/all-files/fa/FaUserGraduate";
 import { useTranslation } from "react-i18next";

@@ -3,7 +3,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import "../../assets/styles/Legals/Legals.css";
-import Particle from "../../utils/Particle";
 import { SITE_PROFILE, getSiteUrl } from "../../config/site";
 
 function PolitiqueConfidentialite(): JSX.Element {
@@ -18,16 +17,8 @@ function PolitiqueConfidentialite(): JSX.Element {
 
   return (
     <Container fluid className="legal-page legal-cookie-page py-5 mb-4" id="politique-confidentialite">
-      <a href="#main-content" className="skip-link">
-        {tx("common.skip_to_content")}
-      </a>
-
-      <div aria-hidden="true" role="presentation">
-        <Particle />
-      </div>
-
       <Container className="legal-content-container pt-4 pt-md-5 mt-3 mt-md-0">
-        <main id="main-content" role="main" aria-labelledby="page-title">
+        <section aria-labelledby="page-title">
           <Row className="justify-content-center p-0">
             <h1 id="page-title" className="custom-title legal-title pb-4 pt-4 mt-4">
               {tx("politique_confidentialite.title")}
@@ -149,7 +140,7 @@ function PolitiqueConfidentialite(): JSX.Element {
               </div>
             </Col>
           </Row>
-        </main>
+        </section>
       </Container>
     </Container>
   );

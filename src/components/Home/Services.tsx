@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { SERVICE_ITEMS } from "./services.data";
+import { SERVICE_ITEMS } from "./data/services";
 
 function Services() {
   const { t } = useTranslation();

@@ -2,7 +2,6 @@ import { JSX } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Legals/Legals.css";
-import Particle from "../../utils/Particle";
 
 function PolitiqueCookies(): JSX.Element {
     const { i18n } = useTranslation();
@@ -14,12 +13,8 @@ function PolitiqueCookies(): JSX.Element {
 
     return (
         <Container fluid className="legal-page legal-cookie-page py-5 mb-4" id="politique-cookies">
-            <div aria-hidden="true" role="presentation">
-                <Particle />
-            </div>
-
             <Container className="legal-content-container pt-4 pt-md-5 mt-3 mt-md-0">
-                <main id="main-content" role="main" aria-labelledby="cookie-policy-title">
+                <section aria-labelledby="cookie-policy-title">
                     <Row className="justify-content-center p-0">
                         <h1 id="cookie-policy-title" className="custom-title legal-title pb-4 pt-4 mt-4">
                             {tx("cookie_policy.title")}
@@ -91,7 +86,7 @@ function PolitiqueCookies(): JSX.Element {
                             </div>
                         </Col>
                     </Row>
-                </main>
+                </section>
             </Container>
         </Container>
     );

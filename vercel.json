@@ -30,7 +30,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!api/|assets/|images/|locale/|pdf/|robots.txt|sitemap.xml|manifest.json|llms(?:-[a-z]{2})?\\.txt|favicon.ico).*)",
+      "source": "/((?!api/|assets/|images/|locales/|pdf/|robots.txt|sitemap.xml|manifest.json|llms(?:-[a-z]{2})?\\.txt|favicon.ico).*)",
       "destination": "/index.html"
     }
   ]

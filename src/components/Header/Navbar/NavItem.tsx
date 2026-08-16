@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { splitLocalizedPath } from '../../../config/seo';
-import '../../../assets/styles/Header/header.css';
+import '../../../assets/styles/Header/Navigation.css';
 
 interface NavItemProps {
   to: string;

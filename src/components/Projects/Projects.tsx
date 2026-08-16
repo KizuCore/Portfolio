@@ -1,13 +1,12 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import ProjectCard from "./ProjectCards";
+import ProjectCard from "./ProjectCard";
 import { easeOut, motion } from "framer-motion";
 
 import "../../assets/styles/About/About.css";
-import "../../assets/styles/Projet/Projet.css";
-import Particle from "../../utils/Particle";
-import { PROJECT_FILTERS, PROJECT_IMAGE_SOURCES, PROJECTS, type ProjectFilter } from "./projects.data";
+import "../../assets/styles/Projects/Projects.css";
+import { PROJECT_FILTERS, PROJECT_IMAGE_SOURCES, PROJECTS, type ProjectFilter } from "./data/projects";
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
@@ -117,7 +116,6 @@ const Projects: React.FC = () => {
 
   return (
     <Container fluid className="project-section text-center">
-      <Particle />
 
       <Container>
         <motion.h1

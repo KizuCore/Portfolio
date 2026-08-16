@@ -1,14 +1,14 @@
 import React, { Suspense } from "react";
 import { useTranslation } from "react-i18next";
 import { Row, Col, Spinner } from "react-bootstrap";
-import "../../assets/styles/Git/Git.css";
+import "../../assets/styles/About/GitHubActivity.css";
 import { easeOut, motion } from "framer-motion";
 import { FaGitlab } from "@react-icons/all-files/fa/FaGitlab";
 import { SiGithub } from "@react-icons/all-files/si/SiGithub";
 
 const GitHubCalendar = React.lazy(() => import("react-github-calendar"));
 
-const Github: React.FC = () => {
+const GitHubActivity: React.FC = () => {
   const { t } = useTranslation();
 
   return (
@@ -72,4 +72,4 @@ const Github: React.FC = () => {
   );
 };
 
-export default Github;
+export default GitHubActivity;

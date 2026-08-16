@@ -1,5 +1,5 @@
 import LogoImage from './LogoImage';
-import '../../../assets/styles/Header/header.css';
+import '../../../assets/styles/Header/Navigation.css';
 
 interface LogoContainerProps {
   isAnimating: boolean;

@@ -1,4 +1,4 @@
-import { useEffect, useState, ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 interface CelestialBodyProps {
     name: string;
@@ -12,7 +12,7 @@ function CelestialBody({ name, className, children, isSun }: CelestialBodyProps)
     const [hovered, setHovered] = useState(false);
 
     useEffect(() => {
-        let timeout: NodeJS.Timeout;
+        let timeout: ReturnType<typeof setTimeout>;
 
         if (hovered) {
             timeout = setTimeout(() => setVisible(true), 0);

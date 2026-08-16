@@ -3,7 +3,7 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const SRC_DIR = path.join(ROOT, "src");
-const LOCALE_DIR = path.join(SRC_DIR, "locale");
+const LOCALE_DIR = path.join(SRC_DIR, "locales");
 const LOCALES = ["fr", "en", "es", "bzh"];
 const BASE_LOCALE = "fr";
 const CODE_FILE_EXTENSIONS = new Set([".ts", ".tsx", ".js", ".jsx"]);
@@ -31,7 +31,7 @@ async function listCodeFiles(dir) {
         const absPath = path.join(dir, entry.name);
 
         if (entry.isDirectory()) {
-            if (entry.name === "locale" || entry.name === "assets") {
+            if (entry.name === "locales" || entry.name === "assets") {
                 continue;
             }
             files.push(...(await listCodeFiles(absPath)));
@@ -118,7 +118,8 @@ async function readLocaleJson(locale) {
     const raw = await fs.readFile(filePath, "utf8");
     return {
         filePath,
-        data: JSON.parse(raw),
+        // Accept UTF-8 JSON exported by editors that prepend a byte-order mark.
+        data: JSON.parse(raw.replace(/^\uFEFF/, "")),
     };
 }
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import logo from "@image/logodev.svg";
 import '../../../assets/styles/Easter/style_easter.css';
-import '../../../assets/styles/Header/header.css';
+import '../../../assets/styles/Header/Navigation.css';
 
 interface LogoImageProps {
   isAnimating: boolean;

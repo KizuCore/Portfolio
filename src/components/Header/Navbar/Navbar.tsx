@@ -13,7 +13,7 @@ import NavItem from "./NavItem";
 import { getLocalizedPath, getShortLocale, splitLocalizedPath } from "../../../config/seo";
 import { SITE_PROFILE } from "../../../config/site";
 import "../../../assets/styles/Easter/style_easter.css";
-import "../../../assets/styles/Header/header.css";
+import "../../../assets/styles/Header/Navigation.css";
 
 // Timing values for the hidden long-press logo interaction.
 const FAST_CLICK_THRESHOLD = 500;

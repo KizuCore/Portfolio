@@ -8,6 +8,8 @@
     "prebuild": "npm run sitemap:generate",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "typecheck": "tsc -b",
+    "check": "npm run lint && npm run typecheck && npm run i18n:check",
     "preview": "vite preview",
     "i18n:check": "node scripts/sync-i18n.mjs",
     "i18n:sync": "node scripts/sync-i18n.mjs --write",

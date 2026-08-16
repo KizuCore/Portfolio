@@ -1,12 +1,12 @@
 import React, { Suspense, useState } from "react";
 import { Col, Row, Spinner, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { TECH_CATEGORIES, TECH_SKILLS, type SkillFilter } from "./data/techStack.data";
+import { TECH_CATEGORIES, TECH_SKILLS, type SkillFilter } from "./data/techStack";
 import "../../assets/styles/About/About.css";
 
 const Tooltip = React.lazy(() => import("react-tooltip").then((module) => ({ default: module.Tooltip })));
 
-function Techstack() {
+function TechStack() {
   const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<SkillFilter>("All");
   const [selectedLevel, setSelectedLevel] = useState<number | "All">("All");
@@ -118,4 +118,4 @@ function Techstack() {
   );
 }
 
-export default Techstack;
+export default TechStack;

@@ -2,14 +2,13 @@ import { JSX } from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
 import { easeOut, motion } from 'framer-motion';
-import Github from "./Github";
-import Techstack from "./Techstack";
-import Aboutcard from "./AboutCard";
-import Toolstack from "./Toolstack.tsx";
+import GitHubActivity from "./GitHubActivity";
+import TechStack from "./TechnologyStack";
+import AboutCard from "./AboutCard";
+import ToolStack from "./DevelopmentTools";
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/About/About.css';
 import SolarSystem from "./SolarSystem.tsx";
-import Particle from "../../utils/Particle.tsx";
 
 
 
@@ -24,7 +23,6 @@ function About(): JSX.Element {
 
   return (
     <Container fluid className="about-section">
-      <Particle />
       <Container>
         <Row className="d-flex align-items-center justify-content-center pt-4 pb-0">
 
@@ -38,7 +36,7 @@ function About(): JSX.Element {
           </motion.h1>
 
           <Col md={7} xs={12} className="text-center text-md-left p">
-            <Aboutcard />
+            <AboutCard />
           </Col>
 
           <Col md={1} xs={0}>
@@ -65,9 +63,9 @@ function About(): JSX.Element {
         >
           {t('professional_skills')} {t('skills')}
         </motion.h2>
-        <Techstack />
-        <Toolstack />
-        <Github />
+        <TechStack />
+        <ToolStack />
+        <GitHubActivity />
       </Container>
     </Container>
   );

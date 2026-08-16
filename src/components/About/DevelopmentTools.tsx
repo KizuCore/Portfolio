@@ -3,11 +3,11 @@ import { Col, Row, Spinner, Button } from "react-bootstrap";
 import "../../assets/styles/About/About.css";
 import { easeOut, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { TOOL_CATEGORIES, TOOLS } from "./data/toolStack.data";
+import { TOOL_CATEGORIES, TOOLS } from "./data/tools";
 
 const Tooltip = React.lazy(() => import("react-tooltip").then((module) => ({ default: module.Tooltip })));
 
-const Toolstack: React.FC = () => {
+const ToolStack: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const { t } = useTranslation();
 
@@ -66,4 +66,4 @@ const Toolstack: React.FC = () => {
   );
 };
 
-export default Toolstack;
+export default ToolStack;

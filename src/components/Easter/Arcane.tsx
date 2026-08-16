@@ -3,7 +3,6 @@ import { Container } from "react-bootstrap";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import video from "@media/secret.mp4";
-import Particle from "../../utils/Particle";
 import "../../assets/styles/Easter/Arcane/Arcane.css";
 
 type ArcanePhase = "prelude" | "rewind" | "burst" | "reveal";
@@ -43,7 +42,6 @@ function RouteSecret(): JSX.Element {
 
   return (
     <section className="arcane-route" aria-label={t("easter.arcane.aria_label")}>
-      <Particle />
 
       <Container fluid className="arcane-shell">
         <div className="arcane-bg" aria-hidden="true" />

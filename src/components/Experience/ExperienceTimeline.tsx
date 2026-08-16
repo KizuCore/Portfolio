@@ -1,22 +1,20 @@
 import { Container } from "react-bootstrap";
 import { useRef, type CSSProperties } from "react";
-import { useTimelineData } from "./data/timelineData";
-import TimelineItem from "./TimelineItem.tsx";
+import { useTimelineData } from "./data/timeline";
+import TimelineItem from "./TimelineItem";
 import '../../assets/styles/Experience/Experience.css';
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import useScrollProgress from "../../utils/useScrollProgress.ts";
-import Particle from "../../utils/Particle.tsx";
+import useElementScrollProgress from "@/hooks/useElementScrollProgress";
 
-const Experience = () => {
+const ExperienceTimeline = () => {
   const { t } = useTranslation();
   const timelineData = useTimelineData();
   const timelineRef = useRef<HTMLDivElement>(null);
-  const scrollPercentage = useScrollProgress(timelineRef);
+  const scrollPercentage = useElementScrollProgress(timelineRef);
 
   return (
     <Container fluid className="timeline-page">
-      <Particle />
       <Container className="timeline-container">
         <motion.h1
           className="custom-title pb-4 mb-4"
@@ -49,4 +47,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default ExperienceTimeline;

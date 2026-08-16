@@ -8,11 +8,6 @@
   min-height: calc(100vh - 160px);
 }
 
-.legal-page canvas,
-.legal-page .particles-layer {
-  z-index: 0 !important;
-}
-
 .legal-content-container {
   position: relative;
   z-index: 1;

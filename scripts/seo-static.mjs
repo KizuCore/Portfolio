@@ -12,6 +12,7 @@ const SEO_CONFIG_PATH = path.join(ROOT_DIR, "src", "config", "seo.ts");
 const PORTFOLIO_DATA_PATH = path.join(ROOT_DIR, "src", "data", "portfolio.ts");
 const LOCALES_DIR = path.join(ROOT_DIR, "src", "locales");
 
+// Load a TypeScript config/data file inside the Node SEO scripts without requiring a build step.
 function loadTsModule(filePath) {
   const source = fs.readFileSync(filePath, "utf8");
   const output = ts.transpileModule(source, {
@@ -30,6 +31,7 @@ function loadTsModule(filePath) {
   return sandbox.exports;
 }
 
+// Escape text before injecting it into generated HTML.
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -38,14 +40,17 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
+// Serialize JSON-LD safely so it cannot accidentally close the script tag.
 function escapeJsonScript(value) {
   return JSON.stringify(value).replaceAll("</script", "<\\/script");
 }
 
+// Keep generated Markdown links readable when source content contains square brackets.
 function stripMarkdownUnsafe(value) {
   return String(value).replaceAll("[", "\\[").replaceAll("]", "\\]");
 }
 
+// Resolve a dot-notated i18n key and interpolate simple {{param}} placeholders.
 function tx(localeData, key, fallback = key, params = {}) {
   const value = key.split(".").reduce((current, segment) => current?.[segment], localeData);
   const translated = typeof value === "string" ? value : fallback;
@@ -55,6 +60,7 @@ function tx(localeData, key, fallback = key, params = {}) {
   );
 }
 
+// Convert the compact i18n highlights format into a list for HTML and Markdown outputs.
 function parseHighlights(value) {
   return String(value || "")
     .split("||")
@@ -62,10 +68,12 @@ function parseHighlights(value) {
     .filter(Boolean);
 }
 
+// Build an absolute preview image URL from the shared public profile data.
 function getPreviewImageUrl(profile) {
   return `${SITE_URL}${profile.previewImagePath}`;
 }
 
+// Build the route title with the same route/base-title convention as the React SEO component.
 function buildTitle({ pathname, routeSeo, localeData }) {
   const baseTitle = tx(localeData, "seo_title");
   const route = routeSeo[pathname];
@@ -73,6 +81,7 @@ function buildTitle({ pathname, routeSeo, localeData }) {
   return pathname === "/" || !pageTitle ? baseTitle : `${pageTitle} | ${baseTitle}`;
 }
 
+// Build the route description from the localized SEO metadata.
 function buildDescription({ pathname, routeSeo, localeData }) {
   const route = routeSeo[pathname];
   return route?.descriptionKey
@@ -80,14 +89,17 @@ function buildDescription({ pathname, routeSeo, localeData }) {
     : tx(localeData, "seo_description");
 }
 
+// Resolve a translated project title from the shared project data.
 function projectTitle(project, localeData) {
   return tx(localeData, project.titleKey);
 }
 
+// Resolve a translated project description from the shared project data.
 function projectDescription(project, localeData) {
   return tx(localeData, project.descriptionKey);
 }
 
+// Keep project ordering aligned with the interactive React project explorer.
 function getSortedProjects(projects) {
   return [...projects].sort((a, b) => {
     const pinTopPriority = Number(Boolean(b.pinTop)) - Number(Boolean(a.pinTop));
@@ -95,6 +107,7 @@ function getSortedProjects(projects) {
   });
 }
 
+// Rebuild timeline entries from existing i18n keys so the static output shares the UI source text.
 function getExperiences(localeData) {
   return [
     {
@@ -138,6 +151,7 @@ function getExperiences(localeData) {
   ];
 }
 
+// Build the central Schema.org Person entity from public portfolio data only.
 function buildPersonSchema({ profile, socialLinks, professionalTopics, educationOrganizations, freelanceOffer, imageUrl }) {
   return {
     "@type": "Person",
@@ -177,6 +191,7 @@ function buildPersonSchema({ profile, socialLinks, professionalTopics, education
   };
 }
 
+// Build a simple breadcrumb graph for internal pages.
 function buildBreadcrumbSchema({ canonicalUrl, pathname, title }) {
   if (pathname === "/") {
     return null;
@@ -201,6 +216,7 @@ function buildBreadcrumbSchema({ canonicalUrl, pathname, title }) {
   };
 }
 
+// Build the route-specific Schema.org graph used in each prerendered HTML file.
 function buildStructuredData({ pathname, canonicalUrl, title, description, htmlLang, localeData, portfolio, routeSchemaType }) {
   const imageUrl = getPreviewImageUrl(portfolio.SITE_PROFILE);
   const personSchema = buildPersonSchema({
@@ -267,6 +283,7 @@ function buildStructuredData({ pathname, canonicalUrl, title, description, htmlL
   };
 }
 
+// Build the no-JavaScript body content for each public route from shared data and translations.
 function buildRouteContent({ pathname, localeData, portfolio }) {
   const projects = getSortedProjects(portfolio.PORTFOLIO_PROJECTS);
   const experiences = getExperiences(localeData);
@@ -333,7 +350,7 @@ function buildRouteContent({ pathname, localeData, portfolio }) {
     <ul><li><a href="/pdf/CV-Guerin-Theo-FR.pdf">CV français</a></li><li><a href="/pdf/CV-Guerin-Theo-EN.pdf">CV anglais</a></li></ul>
   `;
 
-  const legal = `<h1>${escapeHtml(buildLegalTitle(pathname, localeData))}</h1><p>${escapeHtml(tx(localeData, "seo_routes.legal_description"))}</p>`;
+  const legal = buildLegalContent(pathname, localeData);
 
   const contentByPath = {
     "/": home,
@@ -350,6 +367,7 @@ function buildRouteContent({ pathname, localeData, portfolio }) {
   return `<div id="seo-prerender">${contentByPath[pathname] || home}</div>`;
 }
 
+// Resolve the visible title for legal routes maintained through i18n.
 function buildLegalTitle(pathname, localeData) {
   if (pathname === "/mentions-legales") return tx(localeData, "mentions_legales.title");
   if (pathname === "/politique-de-confidentialite") return tx(localeData, "politique_confidentialite.title");
@@ -357,6 +375,75 @@ function buildLegalTitle(pathname, localeData) {
   return tx(localeData, "portfolio_theo");
 }
 
+// Build enough legal-page text for crawlers while still relying on the existing i18n content.
+function buildLegalContent(pathname, localeData) {
+  if (pathname === "/mentions-legales") {
+    const sections = [
+      "mentions_legales.editor",
+      "mentions_legales.host",
+      "mentions_legales.domain",
+      "mentions_legales.status",
+      "mentions_legales.ip",
+      "mentions_legales.privacy",
+      "mentions_legales.cookies",
+      "mentions_legales.contact",
+    ];
+
+    return `
+      <h1>${escapeHtml(tx(localeData, "mentions_legales.title"))}</h1>
+      ${sections.map((key) => buildLegalSection(localeData, key)).join("")}
+    `;
+  }
+
+  if (pathname === "/politique-de-confidentialite") {
+    const sections = [
+      "politique_confidentialite.controller",
+      "politique_confidentialite.data",
+      "politique_confidentialite.ga4",
+      "politique_confidentialite.recipients",
+      "politique_confidentialite.rights",
+      "politique_confidentialite.security",
+      "politique_confidentialite.contact_update",
+    ];
+
+    return `
+      <h1>${escapeHtml(tx(localeData, "politique_confidentialite.title"))}</h1>
+      ${sections.map((key) => buildLegalSection(localeData, key)).join("")}
+    `;
+  }
+
+  const sections = [
+    "cookie_policy.what",
+    "cookie_policy.types",
+    "cookie_policy.use",
+    "cookie_policy.duration",
+    "cookie_policy.manage",
+    "cookie_policy.update",
+  ];
+
+  return `
+    <h1>${escapeHtml(tx(localeData, "cookie_policy.title"))}</h1>
+    ${sections.map((key) => buildLegalSection(localeData, key)).join("")}
+  `;
+}
+
+// Render one legal i18n object as a compact HTML section.
+function buildLegalSection(localeData, key) {
+  const value = key.split(".").reduce((current, segment) => current?.[segment], localeData);
+  if (!value || typeof value !== "object") {
+    return "";
+  }
+
+  const title = typeof value.title === "string" ? value.title : key;
+  const paragraphs = Object.entries(value)
+    .filter(([name, text]) => name !== "title" && typeof text === "string")
+    .map(([, text]) => `<p>${escapeHtml(text)}</p>`)
+    .join("");
+
+  return `<section><h2>${escapeHtml(title)}</h2>${paragraphs}</section>`;
+}
+
+// Build SEO head tags for the static HTML; React Helmet keeps the browser runtime aligned after hydration.
 function buildHead({ pathname, canonicalUrl, title, description, structuredData, localeData, routeSeo, seoConfig, portfolio }) {
   const imageUrl = getPreviewImageUrl(portfolio.SITE_PROFILE);
   const isNoindex = routeSeo[pathname]?.noindex ?? false;
@@ -398,6 +485,7 @@ function buildHead({ pathname, canonicalUrl, title, description, structuredData,
   <script type="application/ld+json">${escapeJsonScript(structuredData)}</script>`;
 }
 
+// Remove SEO tags from Vite's generic index before injecting route-specific metadata.
 function stripGeneratedHead(html) {
   return html
     .replace(/<title>[\s\S]*?<\/title>/gi, "")
@@ -415,6 +503,7 @@ function stripGeneratedHead(html) {
     .replace(/<script\s+type=["']application\/ld\+json["'][\s\S]*?<\/script>/gi, "");
 }
 
+// Inject route-specific head and body content into the built Vite HTML shell.
 function injectHtml({ template, head, content, htmlLang }) {
   return stripGeneratedHead(template)
     .replace(/<html\s+lang=["'][^"']+["']/i, `<html lang="${escapeHtml(htmlLang)}"`)
@@ -423,22 +512,38 @@ function injectHtml({ template, head, content, htmlLang }) {
     .replace('<div id="root"></div>', `<div id="root">${content}</div>`);
 }
 
-function htmlOutputPath(routePath) {
+// Map a public route to the static files hosts can serve with and without a trailing slash.
+function htmlOutputPaths(routePath) {
   if (routePath === "/") {
-    return INDEX_HTML_PATH;
+    return [INDEX_HTML_PATH];
   }
-  return path.join(DIST_DIR, routePath.replace(/^\//, ""), "index.html");
+
+  const relativePath = routePath.replace(/^\//, "");
+  return [
+    path.join(DIST_DIR, `${relativePath}.html`),
+    path.join(DIST_DIR, relativePath, "index.html"),
+  ];
 }
 
+// Write generated files after creating their parent directories.
 function writeFileEnsured(filePath, contents) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, contents, "utf8");
 }
 
+// Read JSON files that may contain a UTF-8 BOM.
 function readJsonFile(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8").replace(/^\uFEFF/, ""));
 }
 
+// Load all i18n dictionaries needed by localized prerendered routes.
+function readLocales(locales) {
+  return Object.fromEntries(
+    locales.map((locale) => [locale, readJsonFile(path.join(LOCALES_DIR, `${locale}.json`))]),
+  );
+}
+
+// Generate concise Markdown resources for LLM crawlers from the same portfolio data.
 function buildMarkdownFiles({ localeData, portfolio }) {
   const projects = getSortedProjects(portfolio.PORTFOLIO_PROJECTS);
   const experiences = getExperiences(localeData);
@@ -510,6 +615,7 @@ ${tx(localeData, "contact_intro")}
   };
 }
 
+// Generate the main llms.txt entry point that links to canonical pages and Markdown resources.
 function buildLlmsTxt({ portfolio }) {
   return `# ${portfolio.SITE_PROFILE.displayName}
 
@@ -540,6 +646,7 @@ Ce site présente son profil professionnel, ses compétences techniques, ses exp
 `;
 }
 
+// Generate route HTML, Markdown resources, and llms.txt after Vite has produced dist/index.html.
 function main() {
   if (!fs.existsSync(INDEX_HTML_PATH)) {
     throw new Error("dist/index.html introuvable. Lancez vite build avant seo-static.");
@@ -547,7 +654,8 @@ function main() {
 
   const seoConfig = loadTsModule(SEO_CONFIG_PATH);
   const portfolio = loadTsModule(PORTFOLIO_DATA_PATH);
-  const localeData = readJsonFile(path.join(LOCALES_DIR, "fr.json"));
+  const locales = readLocales(seoConfig.SUPPORTED_LOCALES);
+  const fallbackLocaleData = locales[seoConfig.DEFAULT_LOCALE];
   const template = fs.readFileSync(INDEX_HTML_PATH, "utf8");
   const routePaths = Object.entries(seoConfig.ROUTE_SEO)
     .filter(([, config]) => !config.noindex)
@@ -563,6 +671,7 @@ function main() {
     const locale = localized.locale ?? seoConfig.DEFAULT_LOCALE;
     const contentLocale = seoConfig.getContentLocale(locale, pathname);
     const htmlLang = seoConfig.getHtmlLang(contentLocale);
+    const localeData = locales[contentLocale] ?? fallbackLocaleData;
     const canonicalPath = seoConfig.getLocalizedPath(locale, pathname);
     const canonicalUrl = `${SITE_URL}${canonicalPath}`;
     const title = buildTitle({ pathname, routeSeo: seoConfig.ROUTE_SEO, localeData });
@@ -589,10 +698,13 @@ function main() {
       portfolio,
     });
     const content = buildRouteContent({ pathname, localeData, portfolio });
-    writeFileEnsured(htmlOutputPath(routePath), injectHtml({ template, head, content, htmlLang }));
+    const routeHtml = injectHtml({ template, head, content, htmlLang });
+    for (const outputPath of htmlOutputPaths(routePath)) {
+      writeFileEnsured(outputPath, routeHtml);
+    }
   }
 
-  const markdownFiles = buildMarkdownFiles({ localeData, portfolio });
+  const markdownFiles = buildMarkdownFiles({ localeData: fallbackLocaleData, portfolio });
   for (const [filename, markdown] of Object.entries(markdownFiles)) {
     writeFileEnsured(path.join(PUBLIC_DIR, filename), markdown);
     writeFileEnsured(path.join(DIST_DIR, filename), markdown);

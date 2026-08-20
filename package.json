@@ -6,14 +6,16 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "npm run sitemap:generate",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && npm run seo:generate",
     "lint": "eslint .",
     "typecheck": "tsc -b",
     "check": "npm run lint && npm run typecheck && npm run i18n:check",
     "preview": "vite preview",
     "i18n:check": "node scripts/sync-i18n.mjs",
     "i18n:sync": "node scripts/sync-i18n.mjs --write",
-    "sitemap:generate": "node scripts/generate-sitemap.mjs"
+    "sitemap:generate": "node scripts/generate-sitemap.mjs",
+    "seo:generate": "node scripts/seo-static.mjs",
+    "check:seo": "node scripts/check-seo.mjs"
   },
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",

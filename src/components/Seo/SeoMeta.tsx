@@ -72,7 +72,7 @@ function SeoMeta(): JSX.Element {
       postalCode: SITE_PROFILE.postalCode,
       addressCountry: SITE_PROFILE.countryCode,
     },
-    sameAs: [SOCIAL_LINKS.github, SOCIAL_LINKS.linkedin],
+    sameAs: [SOCIAL_LINKS.github, SOCIAL_LINKS.gitlab, SOCIAL_LINKS.linkedin],
     knowsAbout: [...PROFESSIONAL_TOPICS],
     alumniOf: EDUCATION_ORGANIZATIONS.map((name) => ({ "@type": "CollegeOrUniversity", name })),
     makesOffer: {
@@ -97,7 +97,7 @@ function SeoMeta(): JSX.Element {
   const websiteSchema = {
     "@type": "WebSite",
     "@id": `${siteUrl}/#website`,
-    name: `${SITE_PROFILE.displayName} | Portfolio`,
+    name: `Portfolio de ${SITE_PROFILE.displayName}`,
     url: siteUrl,
     author: { "@id": `${siteUrl}/#person` },
     inLanguage: ["fr", "en", "es", "br"],
@@ -117,7 +117,7 @@ function SeoMeta(): JSX.Element {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@graph": pathname === "/" ? [personSchema, websiteSchema, webPageSchema] : [personSchema, webPageSchema],
+    "@graph": [personSchema, websiteSchema, webPageSchema],
   };
 
   return (

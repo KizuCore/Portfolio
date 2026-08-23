@@ -10,6 +10,15 @@ const SITE_URL = (process.env.VITE_SITE_URL || "https://theo-guerin.fr").replace
 const PERSON_ID = `${SITE_URL}/#person`;
 const DISTINCT_PAGE_ROUTES = new Set(["/", "/about", "/experience", "/project", "/contact", "/cv"]);
 const ROBOTS_TXT_PATH = path.join(DIST_DIR, "robots.txt");
+const MARKDOWN_RESOURCE_FILES = [
+  "llms.txt",
+  "llms-fr.txt",
+  "llms-en.txt",
+  "profile.md",
+  "projects.md",
+  "experience.md",
+  "contact.md",
+];
 
 // Load the same TypeScript SEO config used by the app and the prerender generator.
 function loadTsModule(filePath) {
@@ -150,6 +159,25 @@ function validateRobotsTxt(errors) {
   assert(contents.includes(`Sitemap: ${SITE_URL}/sitemap.xml`), "robots.txt: sitemap canonique manquant", errors);
 }
 
+// llms.txt and companion Markdown files need a real Markdown heading and no BOM.
+function validateMarkdownResources(errors) {
+  for (const markdownFile of MARKDOWN_RESOURCE_FILES) {
+    const filePath = path.join(DIST_DIR, markdownFile);
+    assert(fs.existsSync(filePath), `${markdownFile}: fichier Markdown/LLM manquant dans dist`, errors);
+    if (!fs.existsSync(filePath)) {
+      continue;
+    }
+
+    const bytes = fs.readFileSync(filePath);
+    const contents = bytes.toString("utf8");
+    const hasUtf8Bom = bytes[0] === 0xef && bytes[1] === 0xbb && bytes[2] === 0xbf;
+
+    assert(!hasUtf8Bom, `${markdownFile}: BOM UTF-8 interdit avant le H1`, errors);
+    assert(contents.startsWith("# "), `${markdownFile}: doit commencer par un H1 Markdown`, errors);
+    assert(contents.trim().length > 120, `${markdownFile}: contenu trop court`, errors);
+  }
+}
+
 // Compute the canonical URL expected for a generated route.
 function expectedCanonical(routePath, seoConfig) {
   const localized = seoConfig.splitLocalizedPath(routePath);
@@ -195,6 +223,7 @@ function main() {
   const descriptions = new Map();
 
   validateRobotsTxt(errors);
+  validateMarkdownResources(errors);
 
   for (const routePath of routes) {
     const filePath = htmlPath(routePath);
@@ -251,14 +280,6 @@ function main() {
       } else {
         descriptions.set(description, routePath);
       }
-    }
-  }
-
-  for (const markdownFile of ["llms.txt", "profile.md", "projects.md", "experience.md", "contact.md"]) {
-    const filePath = path.join(DIST_DIR, markdownFile);
-    assert(fs.existsSync(filePath), `${markdownFile}: fichier Markdown/LLM manquant dans dist`, errors);
-    if (fs.existsSync(filePath)) {
-      assert(fs.readFileSync(filePath, "utf8").trim().length > 120, `${markdownFile}: contenu trop court`, errors);
     }
   }
 

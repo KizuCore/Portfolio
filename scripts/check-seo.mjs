@@ -9,6 +9,7 @@ const SEO_CONFIG_PATH = path.join(ROOT_DIR, "src", "config", "seo.ts");
 const SITE_URL = (process.env.VITE_SITE_URL || "https://theo-guerin.fr").replace(/\/+$/, "");
 const PERSON_ID = `${SITE_URL}/#person`;
 const DISTINCT_PAGE_ROUTES = new Set(["/", "/about", "/experience", "/project", "/contact", "/cv"]);
+const ROBOTS_TXT_PATH = path.join(DIST_DIR, "robots.txt");
 
 // Load the same TypeScript SEO config used by the app and the prerender generator.
 function loadTsModule(filePath) {
@@ -133,6 +134,22 @@ function assert(condition, message, errors) {
   }
 }
 
+// Keep robots.txt friendly to strict parsers such as Lighthouse.
+function validateRobotsTxt(errors) {
+  assert(fs.existsSync(ROBOTS_TXT_PATH), "robots.txt: fichier manquant dans dist", errors);
+  if (!fs.existsSync(ROBOTS_TXT_PATH)) {
+    return;
+  }
+
+  const bytes = fs.readFileSync(ROBOTS_TXT_PATH);
+  const contents = bytes.toString("utf8");
+  const hasUtf8Bom = bytes[0] === 0xef && bytes[1] === 0xbb && bytes[2] === 0xbf;
+
+  assert(!hasUtf8Bom, "robots.txt: BOM UTF-8 interdit avant User-agent", errors);
+  assert(contents.startsWith("User-agent: *"), "robots.txt: doit commencer par User-agent: *", errors);
+  assert(contents.includes(`Sitemap: ${SITE_URL}/sitemap.xml`), "robots.txt: sitemap canonique manquant", errors);
+}
+
 // Compute the canonical URL expected for a generated route.
 function expectedCanonical(routePath, seoConfig) {
   const localized = seoConfig.splitLocalizedPath(routePath);
@@ -176,6 +193,8 @@ function main() {
   const errors = [];
   const titles = new Map();
   const descriptions = new Map();
+
+  validateRobotsTxt(errors);
 
   for (const routePath of routes) {
     const filePath = htmlPath(routePath);

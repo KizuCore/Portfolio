@@ -7,7 +7,7 @@ import {
   getHtmlLang,
   getLanguageAlternates,
   getLocalizedPath,
-  getShortLocale,
+  DEFAULT_LOCALE,
   normalizePath,
   OPEN_GRAPH_LOCALES,
   ROUTE_SCHEMA_TYPE,
@@ -31,9 +31,10 @@ function SeoMeta(): JSX.Element {
   const pathname = normalizePath(localizedPath.pathname);
   const siteUrl = getSiteUrl();
   const currentRoute = ROUTE_SEO[pathname];
-  const lang = localizedPath.locale ?? getShortLocale(i18n.resolvedLanguage ?? i18n.language ?? "fr");
+  const canonicalLocale = localizedPath.locale ?? DEFAULT_LOCALE;
+  const contentLocaleSeed = localizedPath.locale ?? DEFAULT_LOCALE;
   // Some localized URLs intentionally reuse fallback content until full translations exist.
-  const contentLang = getContentLocale(lang, pathname);
+  const contentLang = getContentLocale(contentLocaleSeed, pathname);
   const htmlLang = getHtmlLang(contentLang);
   const tx = i18n.getFixedT(contentLang);
 
@@ -44,7 +45,7 @@ function SeoMeta(): JSX.Element {
     ? tx(currentRoute.descriptionKey, { defaultValue: tx("seo_description") })
     : tx("seo_description");
 
-  const canonicalPath = currentRoute?.noindex ? pathname : getLocalizedPath(lang, pathname);
+  const canonicalPath = currentRoute?.noindex ? pathname : getLocalizedPath(canonicalLocale, pathname);
   const canonicalUrl = `${siteUrl}${canonicalPath}`;
   const imageUrl = getPreviewImageUrl(siteUrl);
   // Hidden or utility routes should not advertise hreflang clusters.

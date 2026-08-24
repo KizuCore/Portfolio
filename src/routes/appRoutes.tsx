@@ -1,5 +1,5 @@
 import { lazy, type JSX } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import Home from "../components/Home/Home";
 import About from "../components/About/About";
 import Contact from "../components/Contact/Contact";
@@ -47,7 +47,17 @@ export const LOCALIZED_APP_ROUTES: AppRoute[] = SUPPORTED_LOCALES.flatMap((local
 
 export const ALL_APP_ROUTES: AppRoute[] = [...APP_ROUTES, ...LOCALIZED_APP_ROUTES];
 
+function LocaleFallbackRoute(): JSX.Element {
+  const location = useLocation();
+  const [, firstSegment] = location.pathname.split("/");
+  const fallbackLocale = SUPPORTED_LOCALES.includes(firstSegment as (typeof SUPPORTED_LOCALES)[number])
+    ? firstSegment
+    : "fr";
+
+  return <Navigate to={`/${fallbackLocale}`} replace />;
+}
+
 export const FALLBACK_ROUTE: AppRoute = {
   path: "*",
-  element: <Navigate to="/fr" replace />,
+  element: <LocaleFallbackRoute />,
 };

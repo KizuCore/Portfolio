@@ -1,6 +1,53 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/fr",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/fr/about",
+      "permanent": true
+    },
+    {
+      "source": "/experience",
+      "destination": "/fr/experience",
+      "permanent": true
+    },
+    {
+      "source": "/project",
+      "destination": "/fr/project",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/fr/contact",
+      "permanent": true
+    },
+    {
+      "source": "/cv",
+      "destination": "/fr/cv",
+      "permanent": true
+    },
+    {
+      "source": "/mentions-legales",
+      "destination": "/fr/mentions-legales",
+      "permanent": true
+    },
+    {
+      "source": "/politique-de-confidentialite",
+      "destination": "/fr/politique-de-confidentialite",
+      "permanent": true
+    },
+    {
+      "source": "/politique-des-cookies",
+      "destination": "/fr/politique-des-cookies",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/robots.txt",

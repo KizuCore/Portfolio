@@ -49,5 +49,5 @@ export const ALL_APP_ROUTES: AppRoute[] = [...APP_ROUTES, ...LOCALIZED_APP_ROUTE
 
 export const FALLBACK_ROUTE: AppRoute = {
   path: "*",
-  element: <Navigate to="/" replace />,
+  element: <Navigate to="/fr" replace />,
 };

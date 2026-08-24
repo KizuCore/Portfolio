@@ -183,7 +183,7 @@ function expectedCanonical(routePath, seoConfig) {
   const localized = seoConfig.splitLocalizedPath(routePath);
   const pathname = seoConfig.normalizePath(localized.pathname);
   const locale = localized.locale ?? seoConfig.DEFAULT_LOCALE;
-  return `${SITE_URL}${seoConfig.getLocalizedPath(locale, pathname)}`;
+  return `${SITE_URL}${seoConfig.getCanonicalPath(locale, pathname)}`;
 }
 
 // Compute the expected HTML language, including content fallbacks for legal pages.
@@ -194,13 +194,13 @@ function expectedHtmlLang(routePath, seoConfig) {
   return seoConfig.getHtmlLang(seoConfig.getContentLocale(locale, pathname));
 }
 
-// Ensure every localized route advertises the complete and correct hreflang cluster.
+// Ensure every localized route advertises the complete and correct canonical hreflang cluster.
 function validateHreflangs({ routePath, html, seoConfig, errors }) {
   const localized = seoConfig.splitLocalizedPath(routePath);
   const pathname = seoConfig.normalizePath(localized.pathname);
   const alternates = getHreflangs(html);
 
-  for (const locale of seoConfig.SUPPORTED_LOCALES) {
+  for (const locale of seoConfig.getIndexableLocales(pathname)) {
     const expectedHrefLang = seoConfig.getHtmlLang(locale);
     const expectedHref = `${SITE_URL}${seoConfig.getLocalizedPath(locale, pathname)}`;
     const match = alternates.find((alternate) => alternate.hrefLang === expectedHrefLang);

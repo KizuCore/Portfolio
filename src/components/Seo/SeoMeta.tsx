@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import {
   getContentLocale,
+  getCanonicalPath,
   getHtmlLang,
   getLanguageAlternates,
   getLocalizedPath,
@@ -45,7 +46,7 @@ function SeoMeta(): JSX.Element {
     ? tx(currentRoute.descriptionKey, { defaultValue: tx("seo_description") })
     : tx("seo_description");
 
-  const canonicalPath = currentRoute?.noindex ? pathname : getLocalizedPath(canonicalLocale, pathname);
+  const canonicalPath = currentRoute?.noindex ? pathname : getCanonicalPath(canonicalLocale, pathname);
   const canonicalUrl = `${siteUrl}${canonicalPath}`;
   const imageUrl = getPreviewImageUrl(siteUrl);
   // Hidden or utility routes should not advertise hreflang clusters.

@@ -672,7 +672,7 @@ function main() {
     const contentLocale = seoConfig.getContentLocale(locale, pathname);
     const htmlLang = seoConfig.getHtmlLang(contentLocale);
     const localeData = locales[contentLocale] ?? fallbackLocaleData;
-    const canonicalPath = seoConfig.getLocalizedPath(locale, pathname);
+    const canonicalPath = seoConfig.getCanonicalPath(locale, pathname);
     const canonicalUrl = `${SITE_URL}${canonicalPath}`;
     const title = buildTitle({ pathname, routeSeo: seoConfig.ROUTE_SEO, localeData });
     const description = buildDescription({ pathname, routeSeo: seoConfig.ROUTE_SEO, localeData });

@@ -108,13 +108,25 @@ export function getContentLocale(locale: SupportedLocale, pathname: string): Sup
   return locale;
 }
 
+export function getCanonicalLocale(locale: SupportedLocale, pathname: string): SupportedLocale {
+  return getContentLocale(locale, pathname);
+}
+
+export function getCanonicalPath(locale: SupportedLocale, pathname: string): string {
+  return getLocalizedPath(getCanonicalLocale(locale, pathname), pathname);
+}
+
+export function getIndexableLocales(pathname: string): SupportedLocale[] {
+  return SUPPORTED_LOCALES.filter((locale) => getCanonicalLocale(locale, pathname) === locale);
+}
+
 export function getHtmlLang(locale: SupportedLocale): string {
   return locale === "bzh" ? "br" : locale;
 }
 
 export function getLanguageAlternates(siteUrl: string, pathname: string) {
   // Search engines expect one absolute alternate URL per language variant.
-  return SUPPORTED_LOCALES.map((locale) => {
+  return getIndexableLocales(pathname).map((locale) => {
     return {
       href: `${siteUrl}${getLocalizedPath(locale, pathname)}`,
       hrefLang: getHtmlLang(locale),

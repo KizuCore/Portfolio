@@ -53,7 +53,7 @@ function getRouteMeta(pathname) {
   return ROUTE_SITEMAP_META[pathname] ?? ROUTE_SITEMAP_META.default;
 }
 
-function buildSitemap({ routes, locales, getLocalizedPath, getHtmlLang, siteUrl }) {
+function buildSitemap({ routes, getIndexableLocales, getLocalizedPath, getHtmlLang, siteUrl }) {
   const lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
@@ -62,13 +62,15 @@ function buildSitemap({ routes, locales, getLocalizedPath, getHtmlLang, siteUrl 
   for (const pathname of routes) {
     const meta = getRouteMeta(pathname);
 
-    for (const locale of locales) {
+    const indexableLocales = getIndexableLocales(pathname);
+
+    for (const locale of indexableLocales) {
       const localizedPath = getLocalizedPath(locale, pathname);
       lines.push("  <url>");
       lines.push(`    <loc>${escapeXml(`${siteUrl}${localizedPath}`)}</loc>`);
 
       // Each localized URL advertises the full cluster of language alternatives.
-      for (const alternateLocale of locales) {
+      for (const alternateLocale of indexableLocales) {
         const alternatePath = getLocalizedPath(alternateLocale, pathname);
         lines.push(
           `    <xhtml:link rel="alternate" hreflang="${escapeXml(getHtmlLang(alternateLocale))}" href="${escapeXml(
@@ -92,7 +94,7 @@ function buildSitemap({ routes, locales, getLocalizedPath, getHtmlLang, siteUrl 
 }
 
 function main() {
-  const { ROUTE_SEO, SUPPORTED_LOCALES, getHtmlLang, getLocalizedPath } = readSeoConfig();
+  const { ROUTE_SEO, getHtmlLang, getIndexableLocales, getLocalizedPath } = readSeoConfig();
   const siteUrl = (process.env.VITE_SITE_URL || DEFAULT_SITE_URL).replace(/\/+$/, "");
   const routes = Object.entries(ROUTE_SEO)
     .filter(([, config]) => !config.noindex)
@@ -100,14 +102,15 @@ function main() {
 
   const sitemap = buildSitemap({
     routes,
-    locales: SUPPORTED_LOCALES,
+    getIndexableLocales,
     getLocalizedPath,
     getHtmlLang,
     siteUrl,
   });
 
   fs.writeFileSync(SITEMAP_PATH, sitemap, "utf8");
-  console.log(`Generated ${path.relative(ROOT_DIR, SITEMAP_PATH)} with ${routes.length * SUPPORTED_LOCALES.length} URLs.`);
+  const urlCount = routes.reduce((count, pathname) => count + getIndexableLocales(pathname).length, 0);
+  console.log(`Generated ${path.relative(ROOT_DIR, SITEMAP_PATH)} with ${urlCount} URLs.`);
 }
 
 main();

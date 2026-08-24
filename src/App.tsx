@@ -16,6 +16,7 @@ import Preloader from "@/components/Layout/Preloader/Preloader";
 import RouteSkeleton from "@/components/Layout/RouteSkeleton";
 import ScrollProgress from "@/components/Layout/ScrollProgress";
 import ScrollToTop from "@/components/Layout/ScrollToTop";
+import { DEFAULT_LOCALE, getShortLocale, splitLocalizedPath } from "@/config/seo";
 import useKonamiCode from "@/hooks/useKonamiCode";
 import { ALL_APP_ROUTES, FALLBACK_ROUTE } from "@/routes/appRoutes";
 
@@ -30,9 +31,21 @@ type AppContentProps = {
 };
 
 function AppContent({ load, showPreloader }: AppContentProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
   const reduceMotion = useReducedMotion();
+  const routeLocale = splitLocalizedPath(location.pathname).locale;
+
+  useEffect(() => {
+    if (!routeLocale) {
+      return;
+    }
+
+    const currentLocale = getShortLocale(i18n.resolvedLanguage ?? i18n.language ?? DEFAULT_LOCALE);
+    if (currentLocale !== routeLocale) {
+      void i18n.changeLanguage(routeLocale);
+    }
+  }, [i18n, routeLocale]);
 
   // Keep route transitions subtle, and disable movement for users who reduce motion.
   const routeInitial = reduceMotion

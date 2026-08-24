@@ -46,31 +46,6 @@
       "source": "/politique-des-cookies",
       "destination": "/fr/politique-des-cookies",
       "permanent": true
-    },
-    {
-      "source": "/fr/:path((?!(about|experience|project|contact|cv|mentions-legales|politique-de-confidentialite|politique-des-cookies)$).*)",
-      "destination": "/fr",
-      "permanent": true
-    },
-    {
-      "source": "/en/:path((?!(about|experience|project|contact|cv|mentions-legales|politique-de-confidentialite|politique-des-cookies)$).*)",
-      "destination": "/en",
-      "permanent": true
-    },
-    {
-      "source": "/es/:path((?!(about|experience|project|contact|cv|mentions-legales|politique-de-confidentialite|politique-des-cookies)$).*)",
-      "destination": "/es",
-      "permanent": true
-    },
-    {
-      "source": "/bzh/:path((?!(about|experience|project|contact|cv|mentions-legales|politique-de-confidentialite|politique-des-cookies)$).*)",
-      "destination": "/bzh",
-      "permanent": true
-    },
-    {
-      "source": "/:path((?!api/|assets/|fonts/|images/|locales/|pdf/|robots.txt$|sitemap.xml$|manifest.json$|llms(?:-[a-z]{2})?\\.txt$|[a-z-]+\\.md$|favicon.ico$|fr(?:/|$)|en(?:/|$)|es(?:/|$)|bzh(?:/|$)|gojo$|arcane$).*)",
-      "destination": "/fr",
-      "permanent": true
     }
   ],
   "headers": [

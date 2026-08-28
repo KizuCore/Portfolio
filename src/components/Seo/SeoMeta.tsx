@@ -106,8 +106,9 @@ function SeoMeta(): JSX.Element {
   };
 
   // The page node changes by route while still pointing back to the same person entity.
+  const webPageType = ROUTE_SCHEMA_TYPE[pathname] ?? "WebPage";
   const webPageSchema = {
-    "@type": ROUTE_SCHEMA_TYPE[pathname] ?? "WebPage",
+    "@type": webPageType,
     "@id": `${canonicalUrl}#webpage`,
     name: fullTitle,
     description,
@@ -115,6 +116,7 @@ function SeoMeta(): JSX.Element {
     inLanguage: htmlLang,
     isPartOf: { "@id": `${siteUrl}/#website` },
     about: { "@id": `${siteUrl}/#person` },
+    ...(webPageType === "ProfilePage" ? { mainEntity: { "@id": `${siteUrl}/#person` } } : {}),
   };
 
   const structuredData = {

@@ -266,6 +266,13 @@ function main() {
     assert(person?.["@id"] === PERSON_ID, `${routePath}: Person @id incorrect ou absent`, errors);
     assert(webPage?.url === canonical, `${routePath}: WebPage JSON-LD url incorrecte`, errors);
     assert(webPage?.inLanguage === expectedLang, `${routePath}: WebPage JSON-LD inLanguage incorrect`, errors);
+    for (const profilePage of graph.filter((node) => node?.["@type"] === "ProfilePage")) {
+      assert(
+        profilePage.mainEntity?.["@id"] === PERSON_ID,
+        `${routePath}: ProfilePage JSON-LD mainEntity manquant ou incorrect`,
+        errors,
+      );
+    }
     validateHreflangs({ routePath, html, seoConfig, errors });
 
     if (DISTINCT_PAGE_ROUTES.has(routePath)) {

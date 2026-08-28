@@ -235,8 +235,9 @@ function buildStructuredData({ pathname, canonicalUrl, title, description, htmlL
     author: { "@id": `${SITE_URL}/#person` },
     inLanguage: ["fr", "en", "es", "br"],
   };
+  const pageSchemaType = routeSchemaType[pathname] ?? "WebPage";
   const pageSchema = {
-    "@type": routeSchemaType[pathname] ?? "WebPage",
+    "@type": pageSchemaType,
     "@id": `${canonicalUrl}#webpage`,
     name: title,
     description,
@@ -244,10 +245,11 @@ function buildStructuredData({ pathname, canonicalUrl, title, description, htmlL
     inLanguage: htmlLang,
     isPartOf: { "@id": `${SITE_URL}/#website` },
     about: { "@id": `${SITE_URL}/#person` },
+    ...(pageSchemaType === "ProfilePage" ? { mainEntity: { "@id": `${SITE_URL}/#person` } } : {}),
   };
   const graph = [personSchema, websiteSchema, pageSchema];
 
-  if (pathname === "/" || pathname === "/about" || pathname === "/cv") {
+  if (pathname === "/" || pathname === "/about") {
     graph.push({
       "@type": "ProfilePage",
       "@id": `${canonicalUrl}#profilepage`,

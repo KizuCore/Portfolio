@@ -1,7 +1,13 @@
 declare module "@react-icons/all-files/si/*" {
   import type { ComponentType, SVGProps } from "react";
 
-  type ReactIcon = ComponentType<SVGProps<SVGSVGElement>>;
+  interface ReactIconProps extends SVGProps<SVGSVGElement> {
+    color?: string;
+    size?: string | number;
+    title?: string;
+  }
+
+  type ReactIcon = ComponentType<ReactIconProps>;
 
   export const SiAdobephotoshop: ReactIcon;
   export const SiAdobepremiere: ReactIcon;
@@ -44,7 +50,13 @@ declare module "@react-icons/all-files/si/*" {
 declare module "@react-icons/all-files/vsc/*" {
   import type { ComponentType, SVGProps } from "react";
 
-  type ReactIcon = ComponentType<SVGProps<SVGSVGElement>>;
+  interface ReactIconProps extends SVGProps<SVGSVGElement> {
+    color?: string;
+    size?: string | number;
+    title?: string;
+  }
+
+  type ReactIcon = ComponentType<ReactIconProps>;
 
   export const VscFileCode: ReactIcon;
 }

@@ -17,7 +17,7 @@ const ExperienceTimeline = () => {
     <Container fluid className="timeline-page">
       <Container className="timeline-container">
         <motion.h1
-          className="custom-title pb-4 mb-4"
+          className="experience-title"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -26,21 +26,17 @@ const ExperienceTimeline = () => {
         </motion.h1>
 
         <div className="timeline" ref={timelineRef}>
-          <div className="timeline-head-dot" />
-          <div className="timeline-line-track" />
+
+          <div className="timeline-line-track" aria-hidden="true" />
           <div
             className="timeline-line-progress"
+            aria-hidden="true"
             style={{ "--timeline-progress": `${scrollPercentage / 100}` } as CSSProperties}
           />
           {timelineData.map((item, index) => (
-            <TimelineItem key={index} item={item} isLeft={index % 2 === 0} />
+            <TimelineItem key={index} item={item} />
           ))}
-          <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-            className="timeline-tail-dot"
-          />
+
         </div>
       </Container>
     </Container>

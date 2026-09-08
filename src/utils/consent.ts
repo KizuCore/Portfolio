@@ -26,6 +26,7 @@ export function updateConsent(granted: boolean) {
 
   window.gtag?.("consent", "update", payload);
   localStorage.setItem(LS_KEY, granted ? "granted" : "denied");
+  window.dispatchEvent(new Event("cookie-consent-updated"));
 }
 
 // Legacy event bridge kept for callers that do not use window.openCookiePreferences directly.

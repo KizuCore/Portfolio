@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getConsent, updateConsent } from "../../utils/consent";
 import "../../assets/styles/Legals/CookiePreferences.css";
 
 export default function CookiePreferencesModal() {
   const { t } = useTranslation();
+  const dialogRef = useRef<HTMLDivElement>(null);
   const [show, setShow] = useState(false);
   const [analyticsOn, setAnalyticsOn] = useState(false);
 
@@ -26,9 +27,18 @@ export default function CookiePreferencesModal() {
       return;
     }
 
+    const previousFocus = document.activeElement as HTMLElement | null;
+    const controls = () => Array.from(dialogRef.current?.querySelectorAll<HTMLElement>('button, input') ?? []);
+    controls()[0]?.focus();
     const previousOverflow = document.body.style.overflow;
     // Lock the page behind the modal and let Escape close it like a native dialog.
     const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Tab") {
+        const items = controls();
+        const first = items[0], last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+      }
       if (event.key === "Escape") {
         setShow(false);
       }
@@ -39,6 +49,7 @@ export default function CookiePreferencesModal() {
 
     return () => {
       document.body.style.overflow = previousOverflow;
+      previousFocus?.focus();
       window.removeEventListener("keydown", handleEscape);
     };
   }, [show]);
@@ -57,11 +68,13 @@ export default function CookiePreferencesModal() {
       <button
         type="button"
         className="cookie-prefs-backdrop"
+        tabIndex={-1}
         aria-label={t("common.close")}
         onClick={() => setShow(false)}
       />
 
       <div
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="cookie-prefs-title"
@@ -93,22 +106,23 @@ export default function CookiePreferencesModal() {
                 <input
                   id="consent-analytics"
                   type="checkbox"
-                  className="form-check-input"
+                  className="cookie-prefs-checkbox"
+                  aria-describedby="cookie-prefs-note"
                   checked={analyticsOn}
                   onChange={(event) => setAnalyticsOn(event.currentTarget.checked)}
                 />
                 <span>{t("cookie_prefs.analytics_label")}</span>
               </label>
 
-              <small className="cookie-prefs-note">{t("cookie_prefs.note")}</small>
+              <small id="cookie-prefs-note" className="cookie-prefs-note">{t("cookie_prefs.note")}</small>
             </div>
           </div>
 
           <div className="cookie-prefs-footer">
-            <button type="button" className="btn btn-outline-secondary" onClick={() => setShow(false)}>
+            <button type="button" className="cookie-prefs-cancel" onClick={() => setShow(false)}>
               {t("common.cancel")}
             </button>
-            <button type="button" className="btn btn-primary" onClick={handleSave}>
+            <button type="button" className="cookie-prefs-save" onClick={handleSave}>
               {t("common.save")}
             </button>
           </div>

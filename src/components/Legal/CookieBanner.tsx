@@ -1,4 +1,5 @@
-﻿import { useEffect, useState } from "react";
+import "../../assets/styles/Legals/CookieBanner.css";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { updateConsent } from "../../utils/consent";
@@ -13,6 +14,9 @@ export default function CookieBanner() {
     // Show the banner only until the visitor makes an explicit consent choice.
     const saved = localStorage.getItem(LS_KEY);
     if (!saved) setVisible(true);
+    const onConsentSaved = () => setVisible(false);
+    window.addEventListener("cookie-consent-updated", onConsentSaved);
+    return () => window.removeEventListener("cookie-consent-updated", onConsentSaved);
   }, []);
 
   if (!visible) return null;
@@ -24,9 +28,10 @@ export default function CookieBanner() {
       aria-live="polite"
       aria-label={t("cookie_banner.aria_label")}
     >
-      <div className="container cookie-banner-inner">
+      <div className="cookie-banner-inner">
         <p className="cookie-banner-text mb-0">
           {t("cookie_banner.text")}
+          {" "}
           <Link
             to="/politique-des-cookies"
             className="cookie-banner-link"
@@ -38,7 +43,8 @@ export default function CookieBanner() {
 
         <div className="cookie-banner-actions">
           <button
-            className="btn btn-light btn-sm"
+            type="button"
+            className="cookie-choice"
             onClick={() => {
               updateConsent(false);
               setVisible(false);
@@ -48,7 +54,8 @@ export default function CookieBanner() {
           </button>
 
           <button
-            className="btn btn-primary btn-sm"
+            type="button"
+            className="cookie-choice"
             onClick={() => {
               updateConsent(true);
               setVisible(false);
@@ -59,7 +66,7 @@ export default function CookieBanner() {
 
           <button
             type="button"
-            className="btn btn-link btn-sm p-0 align-baseline cookie-banner-link"
+            className="cookie-manage"
             onClick={() => window.openCookiePreferences?.()}
             aria-label={t("cookie_banner.manage")}
           >

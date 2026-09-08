@@ -1,4 +1,4 @@
-export type SupportedLocale = "fr" | "en" | "es" | "bzh";
+export type SupportedLocale = "fr" | "en" | "bzh";
 
 export type RouteSeo = {
   titleKey: string;
@@ -7,7 +7,7 @@ export type RouteSeo = {
   contentLocale?: SupportedLocale;
 };
 
-export const SUPPORTED_LOCALES: SupportedLocale[] = ["fr", "en", "es", "bzh"];
+export const SUPPORTED_LOCALES: SupportedLocale[] = ["fr", "en", "bzh"];
 export const DEFAULT_LOCALE: SupportedLocale = "fr";
 
 export const ROUTE_SEO: Record<string, RouteSeo> = {
@@ -56,7 +56,6 @@ export const LEGAL_ROUTES = new Set([
 export const OPEN_GRAPH_LOCALES: Record<SupportedLocale, string> = {
   fr: "fr_FR",
   en: "en_US",
-  es: "es_ES",
   bzh: "br_FR",
 };
 
@@ -106,10 +105,6 @@ export function getContentLocale(locale: SupportedLocale, pathname: string): Sup
   }
 
   // Legal content is only maintained in French and English for now.
-  if (locale === "es") {
-    return "en";
-  }
-
   if (locale === "bzh") {
     return "fr";
   }

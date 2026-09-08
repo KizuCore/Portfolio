@@ -644,3 +644,10 @@
     }
   }
 }
+
+/* One action switches between the two public languages. */
+.language-selector .lang-switch { gap: 0.55rem; font-size: 0.82rem; font-weight: 600; }
+.lang-switch > span { color: #a0b4ce; }
+.lang-switch > .is-current { color: #f2f8ff; font-weight: 800; }
+.lang-switch .lang-switch-divider { color: #6b83a3; }
+.lang-switch:focus-visible { outline: 2px solid #94c3ff; outline-offset: 3px; }

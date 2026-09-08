@@ -4,7 +4,7 @@ import path from "node:path";
 const ROOT = process.cwd();
 const SRC_DIR = path.join(ROOT, "src");
 const LOCALE_DIR = path.join(SRC_DIR, "locales");
-const LOCALES = ["fr", "en", "es", "bzh"];
+const LOCALES = ["fr", "en", "bzh"];
 const BASE_LOCALE = "fr";
 const CODE_FILE_EXTENSIONS = new Set([".ts", ".tsx", ".js", ".jsx"]);
 

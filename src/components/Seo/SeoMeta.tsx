@@ -105,7 +105,7 @@ function SeoMeta(): JSX.Element {
     name: `Portfolio de ${SITE_PROFILE.displayName}`,
     url: siteUrl,
     author: { "@id": `${siteUrl}/#person` },
-    inLanguage: ["fr", "en", "es", "br"],
+    inLanguage: ["fr", "en", "br"],
   };
 
   // The page node changes by route while still pointing back to the same person entity.

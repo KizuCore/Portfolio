@@ -1,101 +1,30 @@
-import { JSX, type KeyboardEvent as ReactKeyboardEvent, useCallback, useEffect, useRef, useState } from "react";
-import { FaAngleDown } from "@react-icons/all-files/fa/FaAngleDown";
-import { FaAngleUp } from "@react-icons/all-files/fa/FaAngleUp";
+import { JSX, useCallback, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getContentLocale, getHtmlLang, getLocalizedPath, getShortLocale, ROUTE_SEO, splitLocalizedPath } from "../../config/seo";
+import type { SupportedLocale } from "../../config/seo";
 import "../../assets/styles/Header/Navigation.css";
-import flagBzh from "../../assets/images/flags/flag_bzh.svg";
-import flagEn from "../../assets/images/flags/flag_en.svg";
-import flagEs from "../../assets/images/flags/flag_es.svg";
-import flagFr from "../../assets/images/flags/flag_fr.svg";
-
-type SupportedLanguage = "en" | "es" | "fr";
-type LanguageCode = SupportedLanguage | "bzh";
-
-const LANGUAGE_OPTIONS: ReadonlyArray<{ code: SupportedLanguage }> = [
-  { code: "en" },
-  { code: "es" },
-  { code: "fr" },
-];
-
-const FLAG_SOURCES: Readonly<Record<LanguageCode, string>> = {
-  en: flagEn,
-  es: flagEs,
-  fr: flagFr,
-  bzh: flagBzh,
-};
 
 function LanguageSelector(): JSX.Element {
   const { i18n, t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement | null>(null);
-  const optionRefs = useRef<Partial<Record<SupportedLanguage, HTMLButtonElement | null>>>({});
   const sequenceRef = useRef("");
   const currentRoutePath = splitLocalizedPath(location.pathname).pathname;
   const canLocalizeCurrentRoute = Boolean(ROUTE_SEO[currentRoutePath] && !ROUTE_SEO[currentRoutePath].noindex);
-
-  const detectedLanguageCode = i18n.language.slice(0, 2) as SupportedLanguage;
-  const normalizedLanguage: LanguageCode = i18n.language.startsWith("bzh")
-    ? "bzh"
-    : (LANGUAGE_OPTIONS.some((option) => option.code === detectedLanguageCode) ? detectedLanguageCode : "en");
-  const currentLanguage = normalizedLanguage.toUpperCase();
-
-  const changeLanguage = useCallback(
-    (lang: LanguageCode) => {
-      i18n.changeLanguage(lang);
-
-      // Keep users on the equivalent localized page when the route supports localization.
-      if (canLocalizeCurrentRoute) {
-        navigate(getLocalizedPath(lang, currentRoutePath), { replace: true });
-      }
-    },
-    [canLocalizeCurrentRoute, currentRoutePath, i18n, navigate]
-  );
-
-  useEffect(() => {
-    document.documentElement.lang = getHtmlLang(getContentLocale(getShortLocale(i18n.language), currentRoutePath));
-  }, [i18n.language, currentRoutePath]);
-
-  useEffect(() => {
-    if (!isOpen) {
-      return;
+  const currentLanguage = getShortLocale(i18n.resolvedLanguage ?? i18n.language);
+  const nextLanguage = currentLanguage === "fr" ? "en" : "fr";
+  const changeLanguage = useCallback((lang: SupportedLocale) => {
+    void i18n.changeLanguage(lang);
+    // Preserve the current page, query parameters and anchor when switching.
+    if (canLocalizeCurrentRoute) {
+      navigate({ pathname: getLocalizedPath(lang, currentRoutePath), search: location.search, hash: location.hash }, { replace: true });
     }
-
-    // Focus the active language when the menu opens, so keyboard users start in context.
-    window.requestAnimationFrame(() => {
-      const activeOption = LANGUAGE_OPTIONS.find((option) => option.code === normalizedLanguage);
-      optionRefs.current[activeOption?.code ?? LANGUAGE_OPTIONS[0].code]?.focus();
-    });
-  }, [isOpen, normalizedLanguage]);
+  }, [canLocalizeCurrentRoute, currentRoutePath, i18n, navigate, location.search, location.hash]);
 
   useEffect(() => {
-    const handleDocumentClick = (event: MouseEvent) => {
-      if (!isOpen) {
-        return;
-      }
-
-      if (!dropdownRef.current?.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleDocumentClick);
-    window.addEventListener("keydown", handleEscape);
-
-    return () => {
-      document.removeEventListener("mousedown", handleDocumentClick);
-      window.removeEventListener("keydown", handleEscape);
-    };
-  }, [isOpen]);
+    document.documentElement.lang = getHtmlLang(getContentLocale(currentLanguage, currentRoutePath));
+  }, [currentLanguage, currentRoutePath]);
 
   useEffect(() => {
     // Hidden shortcut: typing "bzh" enables the Breton locale without adding it to the main menu.
@@ -129,81 +58,20 @@ function LanguageSelector(): JSX.Element {
     };
   }, [changeLanguage]);
 
-  const renderFlag = (langCode: LanguageCode, className = "lang-flag") => {
-    const src = FLAG_SOURCES[langCode] ?? FLAG_SOURCES.en;
-    return <img src={src} className={className} alt={t(`flag_${langCode}`)} width={22} height={16} decoding="sync" />;
-  };
-
-  const handleMenuKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
-    if (!["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) {
-      return;
-    }
-
-    event.preventDefault();
-
-    const currentIndex = LANGUAGE_OPTIONS.findIndex((option) => option.code === document.activeElement?.getAttribute("data-lang"));
-    const fallbackIndex = Math.max(0, LANGUAGE_OPTIONS.findIndex((option) => option.code === normalizedLanguage));
-    const activeIndex = currentIndex >= 0 ? currentIndex : fallbackIndex;
-    // Roving focus keeps arrow-key navigation predictable inside the menu.
-    const nextIndex =
-      event.key === "Home"
-        ? 0
-        : event.key === "End"
-          ? LANGUAGE_OPTIONS.length - 1
-          : event.key === "ArrowDown"
-            ? (activeIndex + 1) % LANGUAGE_OPTIONS.length
-            : (activeIndex - 1 + LANGUAGE_OPTIONS.length) % LANGUAGE_OPTIONS.length;
-
-    optionRefs.current[LANGUAGE_OPTIONS[nextIndex].code]?.focus();
-  };
-
   return (
-    <div className={`language-selector${isOpen ? " show" : ""}`} ref={dropdownRef}>
+    <div className="language-selector">
       <button
         type="button"
-        id="language-selector-toggle"
-        className="lang-toggle"
-        aria-label={t("a11y.language_selector")}
-        aria-expanded={isOpen}
-        aria-haspopup="menu"
-        onClick={() => setIsOpen((previousValue) => !previousValue)}
+        className="lang-toggle lang-switch"
+        aria-label={`${t("a11y.language_selector")} : ${t( nextLanguage === "en" ? "language_options.en" : "language_options.fr")}`}
+        onClick={() => changeLanguage(nextLanguage)}
       >
-        <span className="lang-flag-wrap">{renderFlag(normalizedLanguage)}</span>
-        <span className="lang-code">{currentLanguage}</span>
-        <span className="lang-chevron" aria-hidden="true">
-          {isOpen ? <FaAngleUp /> : <FaAngleDown />}
-        </span>
+        {currentLanguage === "bzh" ? <span className="is-current">BZH</span> : (
+          <span className={currentLanguage === "fr" ? "is-current" : ""}>FR</span>
+        )}
+        <span aria-hidden="true" className="lang-switch-divider">/</span>
+        <span className={currentLanguage === "en" ? "is-current" : ""}>EN</span>
       </button>
-
-      {isOpen ? (
-        <div className="lang-menu" role="menu" aria-labelledby="language-selector-toggle" onKeyDown={handleMenuKeyDown}>
-          {LANGUAGE_OPTIONS.map((option) => {
-            const isActive = normalizedLanguage === option.code;
-
-            return (
-              <button
-                type="button"
-                key={option.code}
-                ref={(element) => {
-                  optionRefs.current[option.code] = element;
-                }}
-                data-lang={option.code}
-                role="menuitemradio"
-                aria-checked={isActive}
-                className={`lang-item${isActive ? " is-active active" : ""}`}
-                onClick={() => {
-                  changeLanguage(option.code);
-                  setIsOpen(false);
-                }}
-              >
-                <span className="lang-item-flag">{renderFlag(option.code, "lang-flag")}</span>
-                <span className="lang-item-code">{option.code.toUpperCase()}</span>
-                <span className="lang-item-label">{t(`language_options.${option.code}`)}</span>
-              </button>
-            );
-          })}
-        </div>
-      ) : null}
     </div>
   );
 }

@@ -12,9 +12,10 @@ const ToolStack: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <section className="about-skills-section" aria-labelledby="about-tools-title">
       <motion.h2
-        className="custom-title custom-title-1 my-5 text-center"
+        id="about-tools-title"
+        className="about-section-title"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: easeOut }}
@@ -27,6 +28,7 @@ const ToolStack: React.FC = () => {
           <Button
             key={cat}
             variant={selectedCategory === cat ? "primary" : "outline-secondary"}
+            aria-pressed={selectedCategory === cat}
             onClick={() => setSelectedCategory(cat)}
             className="stack-filter-button"
           >
@@ -62,7 +64,7 @@ const ToolStack: React.FC = () => {
       <Suspense fallback={<Spinner animation="border" role="status" />}>
         <Tooltip id="tool-tooltip" anchorSelect=".tech-icons-1" place="top" />
       </Suspense>
-    </div>
+    </section>
   );
 };
 

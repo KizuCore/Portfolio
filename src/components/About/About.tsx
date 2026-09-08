@@ -10,6 +10,7 @@ import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/About/About.css';
 import SolarSystem from "./SolarSystem.tsx";
 import "../../assets/styles/About/AboutIntro.css";
+import "../../assets/styles/About/AboutSkills.css";
 
 
 
@@ -54,8 +55,10 @@ function About(): JSX.Element {
           </Col>
         </Row>
 
+        <section className="about-skills-section" aria-labelledby="about-skills-title">
         <motion.h2
-          className="custom-title custom-title-1 py-5 "
+          id="about-skills-title"
+          className="about-section-title"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: easeOut }}
@@ -63,6 +66,7 @@ function About(): JSX.Element {
           {t('professional_skills')} {t('skills')}
         </motion.h2>
         <TechStack />
+        </section>
         <ToolStack />
         <GitHubActivity />
       </Container>

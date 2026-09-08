@@ -13,37 +13,47 @@ function TechStack() {
 
   return (
     <div>
-      <div className="level-legend pb-5">
-        <span
+      <div className="level-legend">
+        <button
+          type="button"
           className={`level-badge all ${selectedLevel === "All" ? "active" : ""}`}
+          aria-pressed={selectedLevel === "All"}
           onClick={() => setSelectedLevel("All")}
         >
           {t("all")}
-        </span>
-        <span
+        </button>
+        <button
+          type="button"
           className={`level-badge novice ${selectedLevel === 0 ? "active" : ""}`}
+          aria-pressed={selectedLevel === 0}
           onClick={() => setSelectedLevel(0)}
         >
           {t("novice")}
-        </span>
-        <span
+        </button>
+        <button
+          type="button"
           className={`level-badge intermediate ${selectedLevel === 1 ? "active" : ""}`}
+          aria-pressed={selectedLevel === 1}
           onClick={() => setSelectedLevel(1)}
         >
           {t("intermediate")}
-        </span>
-        <span
+        </button>
+        <button
+          type="button"
           className={`level-badge advanced ${selectedLevel === 2 ? "active" : ""}`}
+          aria-pressed={selectedLevel === 2}
           onClick={() => setSelectedLevel(2)}
         >
           {t("advanced")}
-        </span>
-        <span
+        </button>
+        <button
+          type="button"
           className={`level-badge favorite ${selectedLevel === 3 ? "active" : ""}`}
+          aria-pressed={selectedLevel === 3}
           onClick={() => setSelectedLevel(3)}
         >
           {t("favorite2")}
-        </span>
+        </button>
       </div>
 
       <div className="category-buttons stack-filter-buttons">
@@ -54,6 +64,7 @@ function TechStack() {
             <Button
               key={cat}
               variant={selectedCategory === cat ? "primary" : "outline-secondary"}
+              aria-pressed={selectedCategory === cat}
               onClick={() => setSelectedCategory(cat)}
               className="stack-filter-button"
             >

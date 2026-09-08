@@ -1,0 +1,53 @@
+/* Scoped to the lower About sections; skill categories and levels keep their meaning. */
+.about-skills-section, .about-code-section { margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid #94b7e726; text-align: left; }
+.about-section-title { margin: 0 0 2rem; font-size: clamp(1.65rem,3vw,2.5rem); line-height: 1.25; letter-spacing: -.025em; font-weight: 700; color: #f1f6ff; overflow-wrap: anywhere; }
+.about-skills-section .level-legend { justify-content: flex-start; gap: .6rem; margin: 0 0 1.5rem; }
+.about-skills-section .level-badge { display: inline-flex; align-items: center; gap: .55rem; min-width: 0; min-height: 42px; padding: .5rem .8rem; border: 1px solid transparent; border-radius: 8px; background: transparent; box-shadow: none; color: #b8cbe3; font-size: .85rem; opacity: 1; font-weight: 500; }
+.about-skills-section .level-badge::before { content: ''; width: 10px; height: 10px; flex-shrink: 0; border-radius: 50%; background: var(--level-color,#94bfff); }
+.about-skills-section .novice { --level-color: #ffab52; }
+.about-skills-section .intermediate { --level-color: #f5db58; }
+.about-skills-section .advanced { --level-color: #58d79a; }
+.about-skills-section .favorite { --level-color: #6ab3ff; }
+.about-skills-section .level-badge.active { background: #387bdb20; border-color: #88baff44; color: #e1eeff; }
+.about-skills-section .level-badge:hover { background: #387bdb18; transform: none; }
+.about-skills-section .stack-filter-buttons { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.75rem; text-align: left; }
+.about-skills-section .stack-filter-button { margin: 0; padding: .5rem .8rem; min-height: 42px; border: 1px solid #94b7e72b; border-radius: 8px; background: transparent; color: #b8cbe3; font-size: .85rem; box-shadow: none; }
+.about-skills-section .stack-filter-button[aria-pressed='true'] { background: #387bdb28; border-color: #88baff55; color: #e0edff; }
+.about-skills-section .stack-filter-button:hover { background: #387bdb20; }
+.about-skills-section :focus-visible, .about-code-section a:focus-visible { outline: 2px solid #94c3ff; outline-offset: 3px; }
+.about-skills-section .stack-icons-row { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 1rem; margin: 0; padding: 0; }
+.about-skills-section .tech-icons, .about-skills-section .tech-icons-1 { position: relative; width: auto; max-width: none; margin: 0; padding: 1rem .5rem; min-height: 115px; gap: .75rem; border: 1px solid #94b7e72b; border-radius: 12px; background: linear-gradient(135deg,#182b46b8,#0d1727e6); box-shadow: none; transition: border-color .2s ease, background .2s ease; opacity: 1; }
+.about-skills-section .tech-icons:hover, .about-skills-section .tech-icons-1:hover { transform: none; border-color: #8dbbfa66; box-shadow: none; background: #1c3453; }
+.about-skills-section .tech-icons::after { content: ''; position: absolute; top: .7rem; right: .7rem; width: 10px; height: 10px; border-radius: 50%; background: var(--level-color); }
+.about-skills-section .border-orange { --level-color: #ffab52; }
+.about-skills-section .border-yellow { --level-color: #f5db58; }
+.about-skills-section .border-green { --level-color: #58d79a; }
+.about-skills-section .border-blue { --level-color: #6ab3ff; }
+/* Repeat each level color on the legend and card edge, without a neon glow. */
+.about-skills-section .level-badge:not(.all) {
+  color: var(--level-color);
+  border-color: color-mix(in srgb, var(--level-color) 50%, transparent);
+  background: color-mix(in srgb, var(--level-color) 8%, #101c30);
+}
+.about-skills-section .level-badge:not(.all).active {
+  border-color: var(--level-color);
+  background: color-mix(in srgb, var(--level-color) 20%, #101c30);
+  box-shadow: inset 0 -2px 0 var(--level-color);
+}
+.about-skills-section .tech-icons {
+  border-color: color-mix(in srgb, var(--level-color) 65%, transparent);
+  border-bottom: 3px solid var(--level-color);
+}
+.about-skills-section .tech-icons:hover {
+  border-color: var(--level-color);
+}
+.about-skills-section .tech-icons svg, .about-skills-section .tech-icons-1 svg { font-size: 2.2rem; }
+.about-skills-section .tech-icon-label { color: #ccdcef; font-size: .8rem; line-height: 1.35; }
+@media (max-width: 991px) { .about-skills-section .stack-icons-row { grid-template-columns: repeat(4,minmax(0,1fr)); } }
+@media (max-width: 575px) {
+  .about-skills-section, .about-code-section { margin-top: 2.5rem; padding-top: 2rem; }
+  .about-skills-section .stack-icons-row { grid-template-columns: repeat(3,minmax(0,1fr)); gap: .65rem; }
+  .about-skills-section .tech-icons, .about-skills-section .tech-icons-1 { min-height: 100px; }
+  .about-skills-section .tech-icon-label { font-size: .7rem; }
+}
+@media (prefers-reduced-motion: reduce) { .about-skills-section * { transition: none !important; } }

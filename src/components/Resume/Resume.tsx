@@ -1,101 +1,44 @@
-import { useState, useEffect, type CSSProperties } from "react";
-import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
-import { Document, Page, pdfjs } from "react-pdf";
+import { Container } from "react-bootstrap";
 import { AiOutlineDownload } from "@react-icons/all-files/ai/AiOutlineDownload";
 import { useTranslation } from "react-i18next";
-import "react-pdf/dist/Page/AnnotationLayer.css";
+import { motion, useReducedMotion } from "framer-motion";
+import ResumePreview from "./ResumePreview";
 import "../../assets/styles/Resume/Resume.css";
-import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs?url";
-import { easeOut, motion } from "framer-motion";
-pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
-
-
-const pdf_EN = "/pdf/CV-Guerin-Theo-EN.pdf";
-const pdf_FR = "/pdf/CV-Guerin-Theo-FR.pdf";
 
 function Resume() {
   const { t, i18n } = useTranslation();
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
-
-  const lang = i18n.language.slice(0, 2);
-  const pdf = lang === "fr" ? pdf_FR : pdf_EN;
-  const pdfWidth = viewportWidth < 768
-    ? Math.max(300, viewportWidth - 24)
-    : Math.min(1020, Math.max(720, viewportWidth - 280));
-  const pdfHeight = Math.round(pdfWidth * 1.414);
-
-
-  useEffect(() => {
-    const handleResize = () => setViewportWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    // Reset loading state whenever selected file changes (e.g. language switch)
-    setIsLoading(true);
-    setError(null);
-  }, [pdf]);
-
-  const DownloadButton = () => (
-    <Button href={pdf} target="_blank" rel="noopener noreferrer" className="button-cv">
-      <AiOutlineDownload className="cv-download-icon" aria-hidden="true" />{t("downloadcv")}
-    </Button >
-  );
+  const reduceMotion = useReducedMotion();
+  // Breton uses the French document, as there is no translated PDF.
+  const language = i18n.resolvedLanguage?.startsWith("en") ? "EN" : "FR";
+  const pdf = `/pdf/CV-Guerin-Theo-${language}.pdf`;
 
   return (
-    <Container fluid className="resume-section text-center">
-
-      <motion.h1
-        className="custom-title pb-4 mt-5 pt-3"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: easeOut }}
-      >
-        {t('my')}{" "}{t('cv')}
-      </motion.h1>
-
-
-      <Row className="justify-content-center mb-4">
-        <DownloadButton />
-      </Row>
-
-      <Row className="justify-content-center">
-        <Col md={12} lg={11} xl={10} className="d-flex justify-content-center">
-          <div className="pdf-container" style={{ "--pdf-width": `${pdfWidth}px`, "--pdf-height": `${pdfHeight}px` } as CSSProperties}>
-            {isLoading && !error && (
-              <div className="pdf-loading">
-                <Spinner animation="border" role="status" />
-              </div>
-            )}
-            {error && <p className="text-danger">{t("error_loading_pdf")}</p>}
-            <Document
-              key={pdf}
-              file={pdf}
-              loading={null}
-              onLoadSuccess={() => setIsLoading(false)}
-              onLoadError={(err) => {
-                setError(err);
-                setIsLoading(false);
-              }}
-            >
-              <Page
-                pageNumber={1}
-                width={pdfWidth}
-                renderMode="canvas"
-                renderTextLayer={false}
-                renderAnnotationLayer={false}
-              />
-            </Document>
+    <Container fluid className="resume-section">
+      <Container>
+        <motion.header
+          className="resume-header"
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45 }}
+        >
+          <div>
+            <h1 className="resume-title">{t("my")} {t("cv")}</h1>
+            <p className="resume-intro">{t("seo_routes.cv_description")}</p>
           </div>
-        </Col>
-      </Row>
+          <a href={pdf} download className="resume-download">
+            <AiOutlineDownload aria-hidden="true" />
+            {t("downloadcv")} <span className="resume-file-type">PDF</span>
+          </a>
+        </motion.header>
 
-      <Row className="justify-content-center mt-4">
-        <DownloadButton />
-      </Row>
+        <section className="resume-viewer" aria-label={t("cv_alt_description")}>
+          <div className="resume-toolbar">
+            <span>{t("cv_alt_description")}</span>
+            <span className="resume-format">PDF <span aria-hidden="true">/</span> {language}</span>
+          </div>
+          <ResumePreview key={pdf} file={pdf} />
+        </section>
+      </Container>
     </Container>
   );
 }

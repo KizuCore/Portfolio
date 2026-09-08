@@ -134,15 +134,16 @@ function Qualifications({ t }: { t: TFunction }): JSX.Element {
 function Hobbies({ t, onSecretClick }: { t: TFunction; onSecretClick: () => void }): JSX.Element {
   return (
     <>
-      <p >{t('outside_of_coding')}</p>
+      <p className="hobbies-intro">{t('outside_of_coding')}</p>
       <div className="hobbies-list">
-        <span className="hobby">✈️ {t('hobby1')}</span>
-        <span className="hobby">🍳 {t('hobby2')}</span>
-        <span className="hobby">🔭 {t('hobby3')}</span>
-        <span className="hobby">🐈 {t('hobby4')}</span>
-        <button type="button" className="hobby secret" onClick={onSecretClick}>🥂 {t('hobby5')}</button>
-        <span className="hobby">🎮 {t('hobby6')}</span>
-        <span className="hobby">🍿 {t('hobby7')}</span>
+        <span className="hobby"><span className="hobby-symbol" aria-hidden="true">✈️</span><span>{t('hobby1')}</span></span>
+        <span className="hobby"><span className="hobby-symbol" aria-hidden="true">🍳</span><span>{t('hobby2')}</span></span>
+        <span className="hobby"><span className="hobby-symbol" aria-hidden="true">🔭</span><span>{t('hobby3')}</span></span>
+        <span className="hobby"><span className="hobby-symbol" aria-hidden="true">🐈</span><span>{t('hobby4')}</span></span>
+        <button type="button" className="hobby secret" onClick={onSecretClick}><span className="hobby-symbol" aria-hidden="true">🥂</span><span>{t('hobby5')}</span></button>
+        <span className="hobby"><span className="hobby-symbol" aria-hidden="true">🎮</span><span>{t('hobby6')}</span></span>
+        <span className="hobby"><span className="hobby-symbol" aria-hidden="true">🍿</span><span>{t('hobby7')}</span></span>
+        <span className="hobby"><span className="hobby-symbol" aria-hidden="true">🧩</span><span>{t('hobby8')}</span></span>
       </div>
     </>
   );

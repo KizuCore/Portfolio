@@ -332,10 +332,10 @@
 .solar-container { width: 100%; height: auto; pointer-events: auto; }
 .solar-stage { position: relative; width: 100%; height: 450px; overflow: hidden; background: radial-gradient(ellipse at center, #25589916, transparent 65%); }
 .solar-system { position: absolute; width: 300px; height: 300px; left: 50%; top: 50%; transform: translate(-50%,-50%) scale(.88); }
-.solar-system .orbit { border: 1px solid #9eb9db18; }
-.solar-system .orbit-earth { border-color: #75afff40; }
-.solar-system .asteroid { background: #b4c9e8; opacity: .3; pointer-events: none; }
-.solar-system .planet { box-shadow: inset -3px -2px 5px #020713b3, 0 0 8px #86b8ff20; }
+.solar-system .orbit { border: 1px solid #9eb9db40; }
+.solar-system .orbit-earth { border-color: #75afff70; }
+.solar-system .asteroid { background: #c8dcf5; opacity: .55; pointer-events: none; }
+.solar-system .planet { box-shadow: inset -2px -1px 4px #02071380, 0 0 9px #86b8ff55; }
 .solar-system .sun {
   width: 34px; height: 34px;
   background: radial-gradient(circle at 35% 30%, #fff0a3, #ffcb44 40%, #ec841a 85%);
@@ -360,8 +360,31 @@
   .solar-system { transform: translate(-50%,-50%) scale(.7); }
 }
 @media (max-width: 575px) {
-  .solar-stage { height: 320px; }
+  .solar-stage {
+    height: 320px;
+    background: radial-gradient(ellipse at center, #25589930, transparent 72%);
+  }
   .solar-system { transform: translate(-50%,-50%) scale(.56); }
+  /* Compensate for the thinner lines and smaller particles after scaling. */
+  .solar-system .orbit { border-width: 1.5px; border-color: #b3ccef66; }
+  .solar-system .orbit-earth { border-color: #8cc4ff99; }
+  .solar-system .asteroid { opacity: .75; }
+  .solar-system .planet {
+    box-shadow: inset -1px -1px 3px #02071366, 0 0 10px #9bc8ff80;
+  }
+}
+/* Use more of the available width while keeping the outer belt in view. */
+@media (min-width: 375px) and (max-width: 413px) {
+  .solar-stage { height: 350px; }
+  .solar-system { transform: translate(-50%,-50%) scale(.62); }
+}
+@media (min-width: 414px) and (max-width: 479px) {
+  .solar-stage { height: 390px; }
+  .solar-system { transform: translate(-50%,-50%) scale(.7); }
+}
+@media (min-width: 480px) and (max-width: 575px) {
+  .solar-stage { height: 440px; }
+  .solar-system { transform: translate(-50%,-50%) scale(.8); }
 }
 @media (max-width: 360px) {
   .solar-stage { height: 280px; }

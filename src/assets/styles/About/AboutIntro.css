@@ -98,7 +98,7 @@
 .about-profile button.hobby { cursor: pointer; font-family: inherit; }
 
 /* Keep the animated orbits beside the copy, with room on narrow screens. */
-.about-intro .about-img { padding-top: 60px; padding-bottom: 60px !important; }
+.about-intro .about-img { padding-top: 0; padding-bottom: 0 !important; }
 
 @media (max-width: 575px) {
   .about-section .custom-title-1 { overflow-wrap: anywhere; }

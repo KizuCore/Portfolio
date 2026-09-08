@@ -1,4 +1,11 @@
 {
+    "solar_kuiper_name": "Kuiper Belt",
+    "solar_pluto_name": "Pluto",
+    "solar_kuiper_description": "Beyond Neptune, this region holds many small icy bodies left over from the formation of the Solar System. Pluto is one of them.",
+    "solar_pluto_description": "Pluto is a dwarf planet in the Kuiper Belt. The New Horizons spacecraft flew past it in 2015.",
+    "solar_scale_note": "Artistic representation: sizes and distances are not to scale.",
+    "solar_explore": "Explore the planets",
+    "solar_pause": "Pause",
     "skill_level_filter": "Filter by level",
     "hello": "Hello!",
     "iam": "I'm  ",

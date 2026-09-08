@@ -1,40 +1,28 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 
 interface CelestialBodyProps {
-    name: string;
-    className: string;
-    children?: ReactNode;
-    isSun?: boolean;
+  name: string;
+  className: string;
+  children?: ReactNode;
+  isSun?: boolean;
 }
 
 function CelestialBody({ name, className, children, isSun }: CelestialBodyProps) {
-    const [visible, setVisible] = useState(false);
-    const [hovered, setHovered] = useState(false);
-
-    useEffect(() => {
-        let timeout: ReturnType<typeof setTimeout>;
-
-        if (hovered) {
-            timeout = setTimeout(() => setVisible(true), 0);
-        } else {
-            timeout = setTimeout(() => setVisible(false), 700); // Delay hiding so hover transitions feel smoother.
-        }
-
-        return () => clearTimeout(timeout);
-    }, [hovered]);
-
-    return (
-        <div
-            className={`${isSun ? "" : "planet"} ${className}`}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-        >
-            <div className={`celestial-body-tooltip ${visible ? "visible" : "hidden"}`}>
-                {name}
-            </div>
-            {children}
-        </div>
-    );
+  const [selected, setSelected] = useState(false);
+  return (
+    <button
+      type="button"
+      className={`${isSun ? "" : "planet"} ${className}${selected ? " is-selected" : ""}`}
+      aria-label={name}
+      aria-pressed={selected}
+      onClick={() => setSelected(value => !value)}
+      onBlur={() => setSelected(false)}
+      onKeyDown={event => { if (event.key === "Escape") { setSelected(false); event.currentTarget.blur(); } }}
+    >
+      <span className="celestial-body-tooltip" aria-hidden="true">{name}</span>
+      {children}
+    </button>
+  );
 }
 
 export default CelestialBody;

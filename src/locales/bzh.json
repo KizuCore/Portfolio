@@ -1,4 +1,11 @@
 {
+    "solar_kuiper_name": "Gouriz Kuiper",
+    "solar_pluto_name": "Plouton",
+    "solar_kuiper_description": "En tu all da Neptun ez eus kalz korfoù bihan skornet, chomet abaoe stummadur ar reizhiad heol. Plouton zo unan anezho.",
+    "solar_pluto_description": "Ur blanedenn gorr e gouriz Kuiper eo Plouton. Ar sont New Horizons zo tremenet e-kichen dezhi e 2015.",
+    "solar_scale_note": "Tresadenn arzel: n’eo ket ar mentoù hag ar pellderioù diouzh ar skeul.",
+    "solar_explore": "Ergerzhit ar planedennoù",
+    "solar_pause": "Ehan",
     "skill_level_filter": "Silañ dre live",
     "hello": "Demat!",
     "iam": "Me zo ",

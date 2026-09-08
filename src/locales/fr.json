@@ -1,4 +1,11 @@
 {
+    "solar_kuiper_name": "Ceinture de Kuiper",
+    "solar_pluto_name": "Pluton",
+    "solar_kuiper_description": "Au-delà de Neptune, cette région abrite de nombreux petits corps glacés, vestiges de la formation du Système solaire. Pluton en fait partie.",
+    "solar_pluto_description": "Pluton est une planète naine de la ceinture de Kuiper. La sonde New Horizons l’a survolée en 2015.",
+    "solar_scale_note": "Représentation artistique : tailles et distances non à l’échelle.",
+    "solar_explore": "Explorez les planètes",
+    "solar_pause": "Pause",
     "skill_level_filter": "Filtrer par niveau",
     "hello": "Bonjour !",
     "iam": "Je suis  ",

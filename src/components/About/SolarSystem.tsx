@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { useMemo } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/About/SolarSystem.css";
 import CelestialBody from "./CelestialBody";
@@ -39,6 +39,11 @@ function randomOrbitDelay(maxDurationInSec: number) {
 
 function SolarSystem() {
   const { t } = useTranslation();
+  const reduceMotion = useReducedMotion();
+  const [activeName, setActiveName] = useState<string | null>(null);
+  // Generate the belts once so interactions do not scatter the asteroids again.
+  const innerBelt = useMemo(() => generateAsteroidsDynamic(100, 116, 123), []);
+  const outerBelt = useMemo(() => generateAsteroidsDynamic(160, 240, 250), []);
   const delays = useMemo(() => ({
     mercure: randomOrbitDelay(6),
     venus: randomOrbitDelay(9),
@@ -48,15 +53,23 @@ function SolarSystem() {
     saturn: randomOrbitDelay(60),
     uranus: randomOrbitDelay(84),
     neptune: randomOrbitDelay(120),
+    pluto: randomOrbitDelay(160),
   }), []);
 
   return (
     <motion.div
-      className="solar-container pb-5"
-      initial={{ opacity: 0, x: 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      className="solar-container"
+      initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
+      <div className="solar-stage"
+        onPointerOver={event => setActiveName((event.target as HTMLElement).closest("button")?.getAttribute("aria-label") ?? null)}
+        onPointerLeave={() => setActiveName(null)}
+        onFocusCapture={event => setActiveName(event.target.getAttribute("aria-label"))}
+        onBlurCapture={() => setActiveName(null)}
+      >
       <div className="solar-system">
         <CelestialBody className="sun" name={t("solar_system.sun")} isSun />
 
@@ -69,7 +82,7 @@ function SolarSystem() {
 
         <div className="orbit orbit-earth" style={{ animationDelay: delays.earth }}>
           <CelestialBody className="planet-earth" name={t("solar_system.earth")}>
-            <div className="moon" />
+            <span className="moon" />
           </CelestialBody>
         </div>
 
@@ -77,7 +90,7 @@ function SolarSystem() {
           <CelestialBody className="planet-mars" name={t("solar_system.mars")} />
         </div>
 
-        <div className="asteroid-belt">{generateAsteroidsDynamic(200, 94, 102)}</div>
+        <div className="asteroid-belt">{innerBelt}</div>
 
         <div className="orbit orbit-jupiter" style={{ animationDelay: delays.jupiter }}>
           <CelestialBody className="planet-jupiter" name={t("solar_system.jupiter")} />
@@ -91,7 +104,14 @@ function SolarSystem() {
         <div className="orbit orbit-neptune" style={{ animationDelay: delays.neptune }}>
           <CelestialBody className="planet-neptune" name={t("solar_system.neptune")} />
         </div>
-        <div className="asteroid-belt">{generateAsteroidsDynamic(300, 190, 220)}</div>
+        <div className="asteroid-belt kuiper-belt" aria-hidden="true">{outerBelt}</div>
+        <div className="orbit orbit-pluto" style={{ animationDelay: delays.pluto }}>
+          <CelestialBody className="planet-pluto" name={t("solar_pluto_name")} />
+        </div>
+      </div>
+      </div>
+      <div className="solar-controls">
+        <p aria-live="polite">{activeName ?? t("solar_explore")}</p>
       </div>
     </motion.div>
   );

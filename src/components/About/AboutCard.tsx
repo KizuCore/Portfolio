@@ -1,7 +1,6 @@
 import { JSX, useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { TFunction } from "i18next";
-import Card from 'react-bootstrap/Card';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/About/About.css';
@@ -17,14 +16,21 @@ function AboutCard(): JSX.Element {
   const [secretClickCount, setSecretClickCount] = useState(0);
   const [isCooldown, setIsCooldown] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const tabs = [
+    { key: 'presentation', icon: <FaUser />, label: t('presentation_title') },
+    { key: 'qualifications', icon: <FaGraduationCap />, label: t('qualifications_title') },
+    { key: 'hobbies', icon: <FaPuzzlePiece />, label: t('hobbies_title') },
+  ] as const;
 
   useEffect(() => {
-    audioRef.current = new Audio(secretSound);
+    const audio = new Audio(secretSound);
+    audioRef.current = audio;
+    return () => { audio.pause(); audioRef.current = null; };
   }, []);
 
   useEffect(() => {
     if (secretClickCount === 3 && audioRef.current) {
-      audioRef.current.play();
+      void audioRef.current.play().catch(() => { /* Audio may be blocked by browser settings. */ });
       setSecretClickCount(0);
       setIsCooldown(true);
     }
@@ -42,40 +48,54 @@ function AboutCard(): JSX.Element {
   };
 
   return (
-    <div className="background-box about-card-shell">
-      <Card className="quote-card-view">
-        <Card.Body>
-          <div className="about-tabs">
-            {[
-              { key: 'presentation', icon: <FaUser />, label: t('presentation_title') },
-              { key: 'qualifications', icon: <FaGraduationCap />, label: t('qualifications_title') },
-              { key: 'hobbies', icon: <FaPuzzlePiece />, label: t('hobbies_title') },
-            ].map(({ key, icon, label }) => (
-              <motion.button
-                key={key}
-                onClick={() => setSelectedTab(key as typeof selectedTab)}
-                className={selectedTab === key ? 'active' : ''}
-                initial={false}
-                animate={inView ? { opacity: 1 } : {}}
-              >
-                {icon} {label}
-              </motion.button>
-            ))}
-          </div>
-
-
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            className="minheight-about"
+    <div className="about-profile">
+      <div className="about-profile-tabs" role="tablist" aria-label={t('about_me')}>
+        {tabs.map(({ key, icon, label }, index) => (
+          <button
+            key={key}
+            type="button"
+            role="tab"
+            id={`about-tab-${key}`}
+            aria-controls={`about-panel-${key}`}
+            aria-selected={selectedTab === key}
+            tabIndex={selectedTab === key ? 0 : -1}
+            onClick={() => setSelectedTab(key)}
+            onKeyDown={(event) => {
+              // A single tab stop; arrows and Home/End navigate the tab group.
+              const next = event.key === 'ArrowRight' ? (index + 1) % tabs.length
+                : event.key === 'ArrowLeft' ? (index + tabs.length - 1) % tabs.length
+                : event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : null;
+              if (next === null) return;
+              event.preventDefault();
+              setSelectedTab(tabs[next].key);
+              document.getElementById(`about-tab-${tabs[next].key}`)?.focus();
+            }}
           >
-            {selectedTab === 'presentation' && <Presentation t={t} />}
-            {selectedTab === 'qualifications' && <Qualifications t={t} />}
-            {selectedTab === 'hobbies' && <Hobbies t={t} onSecretClick={handleSecretClick} />}
-          </motion.div>
-        </Card.Body>
-      </Card>
+            <span aria-hidden="true">{icon}</span> {label}
+          </button>
+        ))}
+      </div>
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        className="about-profile-content"
+      >
+        {tabs.map(({ key }) => (
+          <div
+            key={key}
+            role="tabpanel"
+            id={`about-panel-${key}`}
+            aria-labelledby={`about-tab-${key}`}
+            hidden={selectedTab !== key}
+            tabIndex={0}
+          >
+            {key === 'presentation' && <Presentation t={t} />}
+            {key === 'qualifications' && <Qualifications t={t} />}
+            {key === 'hobbies' && <Hobbies t={t} onSecretClick={handleSecretClick} />}
+          </div>
+        ))}
+      </motion.div>
     </div>
   );
 }
@@ -83,15 +103,16 @@ function AboutCard(): JSX.Element {
 function Presentation({ t }: { t: TFunction }): JSX.Element {
   return (
     <>
-      <p className="text-justify pt-1 pt-md-4">
+      <p className="about-profile-lead">
         {t('greeting')} <span className="blue">Théo Guérin</span> {t('from')}
         <span className="blue"> {t('rennes')}</span>.
-        <br /><br />
+        </p>
+      <p>
         {t('current_position1')} <span className="blue">{t('developperAge')}</span>
         {t('current_position2')} <span className="blue">{t('firstmaster')}</span>
         {t('current_position3')}
       </p>
-      <p className="text-justify">
+      <p >
         {t('presentation.text_1')}<span className="blue">{t('presentation.text_bold_1')}</span>{t('presentation.text_2')}<span className="blue">{t('presentation.text_bold_2')}</span>{t('presentation.text_3')}<span className="blue">{t('presentation.text_bold_3')}</span>{t('presentation.text_4')}<span className="blue">{t('presentation.text_bold_4')}</span>{t('presentation.text_5')}
       </p>
     </>
@@ -100,7 +121,7 @@ function Presentation({ t }: { t: TFunction }): JSX.Element {
 
 function Qualifications({ t }: { t: TFunction }): JSX.Element {
   return (
-    <div className="grid-qualifs mt-3">
+    <div className="grid-qualifs">
       <a href="https://www.francecompetences.fr/recherche/RNCP/40150/" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree5')}</a>
       <a href="https://istic.univ-rennes.fr/licence-informatique-parcours-informatique" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree1')}</a>
       <a href="https://www.mydigitalschool.com/bachelor-1-2-web" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree2')}</a>
@@ -113,13 +134,13 @@ function Qualifications({ t }: { t: TFunction }): JSX.Element {
 function Hobbies({ t, onSecretClick }: { t: TFunction; onSecretClick: () => void }): JSX.Element {
   return (
     <>
-      <p className="text-justify mt-4 pt-0 pt-md-4 pb-0 pb-md-4">{t('outside_of_coding')}</p>
+      <p >{t('outside_of_coding')}</p>
       <div className="hobbies-list">
         <span className="hobby">✈️ {t('hobby1')}</span>
         <span className="hobby">🍳 {t('hobby2')}</span>
         <span className="hobby">🔭 {t('hobby3')}</span>
         <span className="hobby">🐈 {t('hobby4')}</span>
-        <span className="hobby secret" onClick={onSecretClick} role="button">🥂 {t('hobby5')}</span>
+        <button type="button" className="hobby secret" onClick={onSecretClick}>🥂 {t('hobby5')}</button>
         <span className="hobby">🎮 {t('hobby6')}</span>
         <span className="hobby">🍿 {t('hobby7')}</span>
       </div>

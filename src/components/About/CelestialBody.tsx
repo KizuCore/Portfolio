@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 interface CelestialBodyProps {
   name: string;
@@ -7,21 +7,17 @@ interface CelestialBodyProps {
   isSun?: boolean;
 }
 
+// These bodies are illustrations, not controls: there is no action to activate.
 function CelestialBody({ name, className, children, isSun }: CelestialBodyProps) {
-  const [selected, setSelected] = useState(false);
   return (
-    <button
-      type="button"
-      className={`${isSun ? "" : "planet"} ${className}${selected ? " is-selected" : ""}`}
+    <div
+      className={`celestial-body ${isSun ? "" : "planet"} ${className}`}
+      role="img"
       aria-label={name}
-      aria-pressed={selected}
-      onClick={() => setSelected(value => !value)}
-      onBlur={() => setSelected(false)}
-      onKeyDown={event => { if (event.key === "Escape") { setSelected(false); event.currentTarget.blur(); } }}
+      data-body-name={name}
     >
-      <span className="celestial-body-tooltip" aria-hidden="true">{name}</span>
       {children}
-    </button>
+    </div>
   );
 }
 

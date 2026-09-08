@@ -65,10 +65,8 @@ function SolarSystem() {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="solar-stage"
-        onPointerOver={event => setActiveName((event.target as HTMLElement).closest("button")?.getAttribute("aria-label") ?? null)}
+        onPointerOver={event => setActiveName((event.target as HTMLElement).closest("[data-body-name]")?.getAttribute("data-body-name") ?? null)}
         onPointerLeave={() => setActiveName(null)}
-        onFocusCapture={event => setActiveName(event.target.getAttribute("aria-label"))}
-        onBlurCapture={() => setActiveName(null)}
       >
       <div className="solar-system">
         <CelestialBody className="sun" name={t("solar_system.sun")} isSun />

@@ -651,3 +651,31 @@
 .lang-switch > .is-current { color: #f2f8ff; font-weight: 800; }
 .lang-switch .lang-switch-divider { color: #6b83a3; }
 .lang-switch:focus-visible { outline: 2px solid #94c3ff; outline-offset: 3px; }
+
+/* Match the quieter surfaces of the portfolio while preserving navigation targets. */
+.navbar.navbar-polished {
+  border-color: #94b7e726;
+  background: rgba(10, 22, 39, .9) !important;
+  box-shadow: 0 6px 20px #020a1829;
+  transition: padding .2s ease, top .2s ease, background .2s ease;
+}
+.navbar-polished .navbar-nav .nav-item .nav-link.active {
+  border-color: #88baff44;
+  background: #387bdb28;
+  box-shadow: none;
+}
+.navbar-polished .navbar-nav .nav-item .nav-link:hover { background: #8ab5f212; border-color: #94b7e733; }
+.navbar-polished .navbar-nav .nav-item a::before { content: none; }
+.navbar-polished .language-selector .lang-toggle {
+  background: #14263d !important;
+  border-color: #94b7e733 !important;
+  box-shadow: none;
+}
+.navbar-polished .language-selector .lang-toggle:hover,
+.navbar-polished .language-selector .lang-toggle:focus-visible { border-color: #94c3ff !important; box-shadow: none; }
+.navbar.navbar-polished.sticky:not(.menu-open) {
+  top: .4rem; padding-top: .15rem !important; padding-bottom: .15rem !important;
+  background: rgba(10, 22, 39, .97) !important;
+  border-color: #94b7e72e; box-shadow: 0 5px 16px #020a1833;
+}
+@media (prefers-reduced-motion: reduce) { .navbar.navbar-polished { transition: none; } }

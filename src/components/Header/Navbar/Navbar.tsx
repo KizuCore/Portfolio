@@ -172,7 +172,7 @@ function NavBar(): JSX.Element {
 
   return (
     <nav
-      className={`navbar navbar-expand-md fixed-top ${navColour ? "sticky" : ""} ${expand ? "menu-open" : ""}`}
+      className={`navbar navbar-polished navbar-expand-md fixed-top ${navColour ? "sticky" : ""} ${expand ? "menu-open" : ""}`}
       aria-label={t("a11y.main_navigation")}
     >
       <div className="container">

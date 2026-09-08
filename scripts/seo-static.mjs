@@ -296,7 +296,7 @@ function buildStructuredData({ pathname, canonicalUrl, title, description, htmlL
 function buildRouteContent({ pathname, localeData, portfolio }) {
   const businessPage = getBusinessPage(pathname);
   if (businessPage) {
-    const project = portfolio.PORTFOLIO_PROJECTS.find((item) => item.imageKey === "portesDeMontafilan");
+    const project = portfolio.PORTFOLIO_PROJECTS.find((item) => item.caseStudyPath === `/fr${businessPage.path}`);
     return `<div id="seo-prerender">${renderBusinessPage(businessPage, BUSINESS_PAGES, project, escapeHtml)}</div>`;
   }
   const projects = getSortedProjects(portfolio.PORTFOLIO_PROJECTS);

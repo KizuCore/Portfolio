@@ -123,6 +123,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   },
   {
     imageKey: "aTable",
+    caseStudyPath: "/fr/realisations/a-table",
     altTextKey: "categories_projects.atable_image_alt",
     titleKey: "categories_projects.atable_title",
     descriptionKey: "categories_projects.atable_description",

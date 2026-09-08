@@ -14,6 +14,27 @@ export type BusinessPage = {
 // These pages are maintained in French; seo.ts canonicalizes untranslated aliases to /fr.
 export const BUSINESS_PAGES: BusinessPage[] = [
   {
+    path: "/realisations/a-table",
+    kind: "case-study",
+    eyebrow: "Projet personnel · Application Flutter",
+    title: "À table ! — Garder un œil sur sa cuisine",
+    description: "Étude de cas À table ! : une application Flutter développée par Théo Guérin pour gérer les aliments, suivre leur péremption et recevoir des rappels.",
+    intro: "Chez nous, je voulais retrouver facilement les aliments disponibles et savoir lesquels arrivaient à péremption. Je ne connaissais pas d’application qui répondait à mon besoin : j’ai créé À table ! pour garder cette liste à portée de main et éviter d’oublier des produits au fond du frigo.",
+    tags: ["Projet personnel", "Flutter · Dart", "Inventaire alimentaire", "Rappels de péremption", "Hors connexion"],
+    sections: [
+      { title: "Un besoin concret à la maison", text: "Au départ, je cherchais un outil autour des courses et des aliments que nous avions déjà chez nous. L’idée était simple : pouvoir consulter le contenu de la cuisine, renseigner les dates et repérer ce qui attendait depuis trop longtemps. J’ai construit le projet autour de cet inventaire du quotidien." },
+      { title: "Retrouver ce qu’on a, sans tout vérifier", text: "Chaque aliment possède une fiche avec son nom, sa quantité, son emplacement et, si elles sont connues, sa date d’achat et sa date limite. L’inventaire se trie par échéance pour faire ressortir les produits à surveiller.", items: ["Ajouter, modifier ou supprimer un aliment.", "Filtrer le contenu du frigo, du congélateur ou du placard.", "Renseigner une date limite, avec des raccourcis comme +2, +7 ou +30 jours."] },
+      { title: "Anticiper les dates plutôt que les oublier", text: "L’application distingue les aliments OK, bientôt périmés et périmés. Une vue calendrier permet de retrouver les échéances. Des notifications locales rappellent qu’un produit approche de sa date limite, avec un délai d’anticipation réglable.", items: ["Des repères dans l’inventaire lorsque la date approche ou est dépassée.", "Un calendrier pour visualiser les prochaines échéances.", "Des rappels avant la date limite, selon les autorisations et la plateforme utilisées."] },
+      { title: "Une application utilisable hors connexion", text: "J’ai choisi Flutter et Dart pour l’interface, avec Material 3. Les aliments sont conservés sur l’appareil dans une base Isar : consulter et mettre à jour son inventaire ne dépend pas d’une connexion réseau.", items: ["Riverpod pour gérer l’état et les mises à jour de l’interface.", "Isar pour le stockage local des aliments.", "GoRouter pour la navigation et TableCalendar pour les échéances.", "Des responsabilités séparées entre écrans, modèles de données, accès à la base et notifications."] },
+      { title: "Du besoin personnel à un projet concret", text: "À table ! réunit l’inventaire, les dates et les rappels dans un même outil. Ce projet montre ma façon de partir d’un usage réel, de concevoir les parcours essentiels et de relier une interface Flutter à un stockage local et aux notifications de l’appareil. Son objectif est d’aider à moins oublier les aliments et à limiter le gaspillage." },
+    ],
+    questions: [
+      { question: "Est-ce une liste de courses ?", answer: "Le projet est né d’un besoin autour des courses à la maison. La version présentée se concentre sur la liste des aliments déjà disponibles, leurs quantités, leurs emplacements et leurs dates limites. Cet inventaire aide aussi à vérifier ce qu’on a avant de faire les courses." },
+      { question: "Comment fonctionnent les alertes ?", answer: "Une notification locale peut être programmée avant la date limite, selon le délai choisi dans les réglages. Les aliments dont la date est dépassée restent identifiables dans l’inventaire. Les notifications dépendent des autorisations de l’appareil et ne sont pas programmées sous Linux dans cette version." },
+      { question: "Les données sont-elles accessibles sans Internet ?", answer: "Oui, l’inventaire est stocké localement avec Isar. Cette version fonctionne sur mobile et desktop ; elle ne propose pas de synchronisation de l’inventaire entre plusieurs appareils." },
+    ],
+  },
+  {
     path: "/services/developpeur-react",
     kind: "service",
     eyebrow: "Développement d’applications · Rennes",

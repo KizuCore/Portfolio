@@ -2,13 +2,15 @@ import LoadingImage from "../Layout/LoadingImage";
 import { Link } from "react-router-dom";
 import type { BusinessPage as BusinessPageContent } from "../../data/businessPages";
 import { BUSINESS_PAGES } from "../../data/businessPages";
-import { PORTFOLIO_PROJECTS } from "../../data/portfolio";
-import montafilanImage from "@image/Projects/portesDeMontafilan.webp";
+import { PROJECTS } from "../Projects/data/projects";
+import { useTranslation } from "react-i18next";
 import "../../assets/styles/Business/Business.css";
 
 // The template owns layout only; copy stays shared with the non-JavaScript build.
 export default function BusinessPage({ page }: { page: BusinessPageContent }) {
-  const project = PORTFOLIO_PROJECTS.find((item) => item.imageKey === "portesDeMontafilan");
+  const { i18n } = useTranslation();
+  const t = i18n.getFixedT("fr");
+  const project = PROJECTS.find((item) => item.caseStudyPath === `/fr${page.path}`);
   return (
     <article className="business-page" lang="fr">
       <nav className="business-breadcrumb" aria-label="Fil d’Ariane">
@@ -27,8 +29,8 @@ export default function BusinessPage({ page }: { page: BusinessPageContent }) {
 
       {page.kind === "case-study" && project && (
         <figure className="business-preview">
-          <LoadingImage src={montafilanImage} alt="Aperçu du site du gîte Les Portes de Montafilan" width="1600" height="1000" fetchPriority="high" />
-          <figcaption>Les Portes de Montafilan · Conception et développement web par Théo Guérin</figcaption>
+          <LoadingImage src={project.imgPath} alt={t(project.altTextKey)} width="1600" height="1000" fetchPriority="high" />
+          <figcaption>{t(project.titleKey)} · Conception et développement par Théo Guérin</figcaption>
         </figure>
       )}
 
@@ -48,7 +50,7 @@ export default function BusinessPage({ page }: { page: BusinessPageContent }) {
             </section>
           ))}
           {page.kind === "case-study" && project && <div className="business-actions">
-            <a className="business-button" href={project.seeLink} target="_blank" rel="noopener noreferrer">Voir le site <span className="visually-hidden">(nouvel onglet)</span> ↗</a>
+            {project.seeLink && <a className="business-button" href={project.seeLink} target="_blank" rel="noopener noreferrer">Voir le site <span className="visually-hidden">(nouvel onglet)</span> ↗</a>}
             <a className="business-text-link" href={project.ghLink} target="_blank" rel="noopener noreferrer">Explorer le code <span className="visually-hidden">(nouvel onglet)</span> ↗</a>
           </div>}
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import ProjectCard from "./ProjectCard";
-import { easeOut, motion } from "framer-motion";
+import { easeOut, motion, MotionConfig, useReducedMotion } from "framer-motion";
 
 import "../../assets/styles/About/About.css";
 import "../../assets/styles/Projects/Projects.css";
@@ -10,6 +10,7 @@ import { PROJECT_FILTERS, PROJECT_IMAGE_SOURCES, PROJECTS, type ProjectFilter } 
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
+  const reduceMotion = useReducedMotion();
   const [activeFilter, setActiveFilter] = React.useState<ProjectFilter>("all");
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const preloadedImagesRef = React.useRef<HTMLImageElement[]>([]);
@@ -115,12 +116,13 @@ const Projects: React.FC = () => {
   });
 
   return (
-    <Container fluid className="project-section text-center">
+    <MotionConfig reducedMotion="user">
+    <Container fluid className="project-section">
 
       <Container>
         <motion.h1
-          className="custom-title pt-5"
-          initial={{ opacity: 0, y: 20 }}
+          className="projects-title"
+          initial={{ opacity: reduceMotion ? 1 : 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: easeOut }}
         >
@@ -129,7 +131,7 @@ const Projects: React.FC = () => {
 
         <motion.p
           className="projects-intro"
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: reduceMotion ? 1 : 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: easeOut, delay: 0.2 }}
         >
@@ -138,7 +140,7 @@ const Projects: React.FC = () => {
 
         <motion.div
           className="project-filter-shell"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: reduceMotion ? 1 : 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.3 }}
         >
@@ -152,21 +154,21 @@ const Projects: React.FC = () => {
                   type="button"
                   className={`project-filter-chip ${isActive ? "active" : ""}`}
                   aria-pressed={isActive}
-                  onClick={() => setActiveFilter(filter)}
+                  onClick={() => { setActiveFilter(filter); setSelectedIndex(0); }}
                 >
                   {t(`project_filters.${filter}`)}
                 </button>
               );
             })}
           </div>
-          <div className="project-filter-count">
+          <div className="project-filter-count" role="status">
             {filteredProjects.length} {t("projects")}
           </div>
         </motion.div>
 
         <motion.div
           className="project-explorer"
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: reduceMotion ? 1 : 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.35 }}
         >
@@ -185,8 +187,9 @@ const Projects: React.FC = () => {
                     className={`project-nav-item ${isSelected ? "active" : ""}`}
                     onClick={() => setSelectedIndex(index)}
                     aria-current={isSelected ? "true" : undefined}
+                    aria-controls="project-detail"
                   >
-                    <span className="project-nav-index">{String(index + 1).padStart(2, "0")}</span>
+                    <img className="project-nav-thumbnail" src={project.imgPath} alt="" loading="lazy" decoding="async" />
                     <span className="project-nav-copy">
                       <span className="project-nav-name">{t(project.titleKey)}</span>
                       <span className="project-nav-meta">
@@ -202,11 +205,11 @@ const Projects: React.FC = () => {
             </div>
           </aside>
 
-          <div className="project-detail">
+          <div className="project-detail" id="project-detail">
             {selectedProject ? (
               <>
                 <div className="project-detail-toolbar">
-                  <p className="project-detail-position">{positionText}</p>
+                  <p className="project-detail-position" role="status">{positionText}</p>
                   <div className="project-detail-switches">
                     <button
                       type="button"
@@ -231,7 +234,7 @@ const Projects: React.FC = () => {
 
                 <motion.div
                   key={selectedProject.ghLink}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: reduceMotion ? 1 : 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, ease: easeOut }}
                 >
@@ -259,6 +262,7 @@ const Projects: React.FC = () => {
         </motion.div>
       </Container>
     </Container>
+    </MotionConfig>
   );
 };
 

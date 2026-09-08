@@ -54,6 +54,7 @@ function ProjectCard(props: ProjectCardProps) {
           alt={props.altText}
           decoding="async"
           loading="eager"
+          fetchPriority="high"
           className={`project-img ${props.imageMode === "contain" ? "project-img-contain" : ""}`}
         />
       </div>

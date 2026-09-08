@@ -6,14 +6,13 @@ import { easeOut, motion, MotionConfig, useReducedMotion } from "framer-motion";
 
 import "../../assets/styles/About/About.css";
 import "../../assets/styles/Projects/Projects.css";
-import { PROJECT_FILTERS, PROJECT_IMAGE_SOURCES, PROJECTS, type ProjectFilter } from "./data/projects";
+import { PROJECT_FILTERS, PROJECTS, type ProjectFilter } from "./data/projects";
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
   const reduceMotion = useReducedMotion();
   const [activeFilter, setActiveFilter] = React.useState<ProjectFilter>("all");
   const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const preloadedImagesRef = React.useRef<HTMLImageElement[]>([]);
 
   const sortedProjects = React.useMemo(
     // Display pinned projects first, then featured projects.
@@ -51,63 +50,6 @@ const Projects: React.FC = () => {
   }, [filteredProjects, selectedIndex]);
 
   const selectedProject = filteredProjects[selectedIndex] || null;
-
-  React.useEffect(() => {
-    if (!selectedProject) {
-      return;
-    }
-
-    const selectedImage = new Image();
-    selectedImage.decoding = "async";
-    selectedImage.src = selectedProject.imgPath;
-    preloadedImagesRef.current = [
-      selectedImage,
-      ...preloadedImagesRef.current.filter((image) => image.src !== selectedImage.src),
-    ];
-  }, [selectedProject]);
-
-  React.useEffect(() => {
-    const preloadLinks = PROJECT_IMAGE_SOURCES.map((src) => {
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "image";
-      link.href = src;
-      document.head.appendChild(link);
-      return link;
-    });
-
-    const preloadImages = () => {
-      preloadedImagesRef.current = PROJECT_IMAGE_SOURCES.map((src) => {
-        const image = new Image();
-        image.decoding = "async";
-        image.src = src;
-        return image;
-      });
-    };
-
-    const cleanupPreloadLinks = () => {
-      preloadLinks.forEach((link) => link.remove());
-    };
-
-    const win = window as Window & {
-      requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
-      cancelIdleCallback?: (handle: number) => void;
-    };
-
-    if (win.requestIdleCallback) {
-      const handle = win.requestIdleCallback(preloadImages, { timeout: 1000 });
-      return () => {
-        win.cancelIdleCallback?.(handle);
-        cleanupPreloadLinks();
-      };
-    }
-
-    const handle = window.setTimeout(preloadImages, 150);
-    return () => {
-      window.clearTimeout(handle);
-      cleanupPreloadLinks();
-    };
-  }, []);
 
   const featuredPillLabel = t("project_featured_label");
   const positionText = t("project_explorer.position", {
@@ -189,7 +131,7 @@ const Projects: React.FC = () => {
                     aria-current={isSelected ? "true" : undefined}
                     aria-controls="project-detail"
                   >
-                    <img className="project-nav-thumbnail" src={project.imgPath} alt="" loading="lazy" decoding="async" />
+                    <img className="project-nav-thumbnail" src={project.thumbnailPath} width={112} height={86} alt="" loading="lazy" decoding="async" />
                     <span className="project-nav-copy">
                       <span className="project-nav-name">{t(project.titleKey)}</span>
                       <span className="project-nav-meta">

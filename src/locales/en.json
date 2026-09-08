@@ -1,4 +1,5 @@
 {
+    "professional_availability": "Available for freelance projects and open to joining a team in an employed role.",
     "solar_kuiper_name": "Kuiper Belt",
     "solar_pluto_name": "Pluto",
     "solar_kuiper_description": "Beyond Neptune, this region holds many small icy bodies left over from the formation of the Solar System. Pluto is one of them.",
@@ -139,7 +140,7 @@
     "contact_point_2": "Technical proposal aligned with your goals",
     "contact_point_3": "Simple communication and reliable delivery",
     "contact_meta_availability_label": "Availability",
-    "contact_meta_availability_value": "Open to new projects",
+    "contact_meta_availability_value": "Available for freelance projects and open to joining a team in an employed role.",
     "contact_meta_response_label": "Response time",
     "contact_meta_response_value": "Reply within 24h",
     "contact_meta_location_label": "Location",

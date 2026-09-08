@@ -121,13 +121,13 @@ function Presentation({ t }: { t: TFunction }): JSX.Element {
 
 function Qualifications({ t }: { t: TFunction }): JSX.Element {
   return (
-    <div className="grid-qualifs">
-      <a href="https://www.francecompetences.fr/recherche/RNCP/40150/" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree5')}</a>
-      <a href="https://istic.univ-rennes.fr/licence-informatique-parcours-informatique" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree1')}</a>
-      <a href="https://www.mydigitalschool.com/bachelor-1-2-web" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree2')}</a>
-      <a href="https://www.francecompetences.fr/recherche/rncp/37873/" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree3')}</a>
-      <a href="https://cyber.gouv.fr/offre-de-service/formations-entrainement-et-decouverte-des-metiers/formations/formations-delivrees-par-lanssi/mooc-secnumacademie/" target="_blank" rel="noopener noreferrer" className="qualif-link">{t('degree4')}</a>
-    </div>
+    <ul className="qualification-list">
+      <li><a href="https://www.francecompetences.fr/recherche/RNCP/40150/" target="_blank" rel="noopener noreferrer" className="qualification-link"><span>{t('degree5')}</span><span className="qualification-arrow" aria-hidden="true">&#8599;</span></a></li>
+      <li><a href="https://istic.univ-rennes.fr/licence-informatique-parcours-informatique" target="_blank" rel="noopener noreferrer" className="qualification-link"><span>{t('degree1')}</span><span className="qualification-arrow" aria-hidden="true">&#8599;</span></a></li>
+      <li><a href="https://www.mydigitalschool.com/bachelor-1-2-web" target="_blank" rel="noopener noreferrer" className="qualification-link"><span>{t('degree2')}</span><span className="qualification-arrow" aria-hidden="true">&#8599;</span></a></li>
+      <li><a href="https://www.francecompetences.fr/recherche/rncp/37873/" target="_blank" rel="noopener noreferrer" className="qualification-link"><span>{t('degree3')}</span><span className="qualification-arrow" aria-hidden="true">&#8599;</span></a></li>
+      <li><a href="https://cyber.gouv.fr/offre-de-service/formations-entrainement-et-decouverte-des-metiers/formations/formations-delivrees-par-lanssi/mooc-secnumacademie/" target="_blank" rel="noopener noreferrer" className="qualification-link"><span>{t('degree4')}</span><span className="qualification-arrow" aria-hidden="true">&#8599;</span></a></li>
+    </ul>
   );
 }
 

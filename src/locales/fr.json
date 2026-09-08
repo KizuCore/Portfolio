@@ -1,4 +1,5 @@
 {
+    "professional_availability": "Disponible pour des missions freelance et ouvert à un poste en équipe.",
     "solar_kuiper_name": "Ceinture de Kuiper",
     "solar_pluto_name": "Pluton",
     "solar_kuiper_description": "Au-delà de Neptune, cette région abrite de nombreux petits corps glacés, vestiges de la formation du Système solaire. Pluton en fait partie.",
@@ -141,7 +142,7 @@
     "contact_point_2": "Proposition technique adaptée à vos objectifs",
     "contact_point_3": "Suivi transparent du début à la livraison",
     "contact_meta_availability_label": "Disponibilité",
-    "contact_meta_availability_value": "Ouvert aux nouveaux projets",
+    "contact_meta_availability_value": "Disponible pour des missions freelance et ouvert à un poste en équipe.",
     "contact_meta_response_label": "Délai de réponse",
     "contact_meta_response_value": "Retour sous 24h",
     "contact_meta_location_label": "Localisation",

@@ -307,6 +307,7 @@ function buildRouteContent({ pathname, localeData, portfolio }) {
     <p>${escapeHtml(portfolio.SITE_PROFILE.displayName)} · ${escapeHtml(tx(localeData, "home_offer.location"))}</p>
     <h1>${escapeHtml(tx(localeData, "home_offer.title"))} ${escapeHtml(tx(localeData, "home_offer.specialty"))}</h1>
     <p>${escapeHtml(tx(localeData, "home_offer.description"))}</p>
+    <p>${escapeHtml(tx(localeData, "professional_availability"))}</p>
     <nav aria-label="Services"><ul>${BUSINESS_PAGES.map((page) => `<li><a href="/fr${escapeHtml(page.path)}" hreflang="fr">${escapeHtml(page.title)}</a></li>`).join("")}</ul></nav>
     <section><h2>${escapeHtml(tx(localeData, "services.title"))}</h2><p>${escapeHtml(tx(localeData, "services.subtitle"))}</p></section>
     <section><h2>${escapeHtml(tx(localeData, "professional_skills"))}</h2><p>${escapeHtml(skills.join(", "))}</p></section>

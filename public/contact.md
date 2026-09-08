@@ -6,5 +6,5 @@ Une idée, une mission freelance ou un poste à proposer ? Écrivez-moi, je vous
 - LinkedIn : https://www.linkedin.com/in/theo-guerin35/
 - GitHub : https://github.com/KizuCore
 - Localisation : Rennes, France
-- Disponibilité : Ouvert aux nouveaux projets
+- Disponibilité : Disponible pour des missions freelance et ouvert à un poste en équipe.
 - TJM indicatif : À partir de 300 €/jour HT

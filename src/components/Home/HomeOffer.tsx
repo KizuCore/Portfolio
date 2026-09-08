@@ -9,6 +9,7 @@ export default function HomeOffer() {
     <p className="business-eyebrow">Théo Guérin <span aria-hidden="true">/</span> {t("home_offer.location")}</p>
     <h1>{t("home_offer.title")} <span>{t("home_offer.specialty")}</span></h1>
     <p className="home-offer-description">{t("home_offer.description")}</p>
+    <p className="professional-availability">{t("professional_availability")}</p>
     <HomeButtons />
     <p className="home-offer-note">React · Django · Flutter</p>
   </div>;

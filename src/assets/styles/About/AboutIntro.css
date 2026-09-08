@@ -86,13 +86,16 @@
 .about-profile-content .blue { color: #badbff; font-weight: 600; }
 .about-profile-lead { color: #f1f6ff; font-size: 1.15rem; }
 
-.about-profile .grid-qualifs { padding: 0; gap: 0.65rem; }
-.about-profile .qualif-link {
-  padding: 0.8rem 1rem;
-  text-align: left;
-  font-size: 0.9rem;
-  line-height: 1.5;
+.qualification-list { list-style: none; padding: 0; margin: 0; }
+.qualification-list li + li { border-top: 1px solid #94b7e726; }
+.qualification-link {
+  display: flex; align-items: center; justify-content: space-between; gap: 1.25rem;
+  min-height: 58px; padding: 1rem .5rem; border-radius: 6px;
+  color: #c9dffb; text-decoration: none; font-size: .95rem; line-height: 1.6;
 }
+.qualification-link:hover { color: #f1f6ff; background: #81b4ff0d; }
+.qualification-link:hover > span:first-child { text-decoration: underline; text-underline-offset: 4px; }
+.qualification-arrow { flex-shrink: 0; color: #8dbbfa; font-size: 1.15rem; }
 .about-profile .hobbies-list { padding: 0; gap: 0.65rem; }
 .about-profile .hobby { border: 1px solid #8ab5ed26; color: #d0def0; white-space: normal; }
 .about-profile button.hobby { cursor: pointer; font-family: inherit; }

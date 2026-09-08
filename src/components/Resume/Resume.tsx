@@ -24,6 +24,7 @@ function Resume() {
           <div>
             <h1 className="resume-title">{t("my")} {t("cv")}</h1>
             <p className="resume-intro">{t("seo_routes.cv_description")}</p>
+            <p className="professional-availability">{t("professional_availability")}</p>
           </div>
           <a href={pdf} download className="resume-download">
             <AiOutlineDownload aria-hidden="true" />

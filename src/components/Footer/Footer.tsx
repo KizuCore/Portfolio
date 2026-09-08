@@ -34,12 +34,12 @@ function Footer(): JSX.Element {
               <span className="footer-brand-title">{SITE_PROFILE.brandName}</span>
             </div>
 
+            <p className="footer-brand-description">{t("footer_description")}</p>
+
             <p className="footer-contact-line footer-location">
               <FiMapPin aria-hidden="true" />
               <span>
-                {SITE_PROFILE.postalCode} {SITE_PROFILE.city},
-                <br />
-                France
+                {SITE_PROFILE.city}, France
               </span>
             </p>
 

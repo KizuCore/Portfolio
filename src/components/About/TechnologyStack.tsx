@@ -13,7 +13,9 @@ function TechStack() {
 
   return (
     <div>
-      <div className="level-legend">
+      <fieldset className="skill-level-filter">
+        <legend>{t("skill_level_filter")}</legend>
+        <div className="level-legend">
         <button
           type="button"
           className={`level-badge all ${selectedLevel === "All" ? "active" : ""}`}
@@ -55,6 +57,8 @@ function TechStack() {
           {t("favorite2")}
         </button>
       </div>
+
+      </fieldset>
 
       <div className="category-buttons stack-filter-buttons">
         {TECH_CATEGORIES.map((cat) => {

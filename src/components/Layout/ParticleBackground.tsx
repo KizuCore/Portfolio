@@ -1,6 +1,5 @@
 import { useEffect, useId, useMemo, useState } from "react";
 import React from "react";
-import { createPortal } from "react-dom";
 import { Particles, initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import type { DestroyType, ISourceOptions, MoveDirection } from "@tsparticles/engine";
@@ -128,15 +127,14 @@ function ParticleBackground() {
     return null;
   }
 
-  // Render outside page containers so one fixed background can serve every route.
-  return createPortal(
+  // Stay in the App stacking context, below content and above its background gradient.
+  return (
     <div
       className={`particles-layer ${isReady ? "particles-layer--ready" : "particles-layer--loading"}`}
       aria-hidden="true"
     >
       {isReady ? <Particles id={`particles-${particleId}`} options={particleOptions} /> : null}
-    </div>,
-    document.body
+    </div>
   );
 }
 

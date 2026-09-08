@@ -46,6 +46,31 @@
       "source": "/politique-des-cookies",
       "destination": "/fr/politique-des-cookies",
       "permanent": true
+    },
+    {
+      "source": "/services/developpeur-react",
+      "destination": "/fr/services/developpeur-react",
+      "permanent": true
+    },
+    {
+      "source": "/services/creation-site-internet-rennes",
+      "destination": "/fr/services/creation-site-internet-rennes",
+      "permanent": true
+    },
+    {
+      "source": "/realisations/les-portes-de-montafilan",
+      "destination": "/fr/realisations/les-portes-de-montafilan",
+      "permanent": true
+    },
+    {
+      "source": "/services/developpeur-django",
+      "destination": "/fr/services/developpeur-django",
+      "permanent": true
+    },
+    {
+      "source": "/services/developpeur-flutter",
+      "destination": "/fr/services/developpeur-flutter",
+      "permanent": true
     }
   ],
   "headers": [

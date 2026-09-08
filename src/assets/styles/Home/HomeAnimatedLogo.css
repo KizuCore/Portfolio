@@ -1,0 +1,27 @@
+.home-animated-logo { width: 100%; height: 100%; position: relative; z-index: 2; cursor: grab; touch-action: none; user-select: none; }
+.home-animated-logo:active { cursor: grabbing; }
+/* Match the SVG's circular contour; this opaque backing travels with the dragged logo. */
+.home-animated-logo::before { content: ""; position: absolute; inset: 6.3%; border-radius: 50%; background: #101a2e; z-index: 0; pointer-events: none; }
+.home-animated-logo .logo-svg { position: relative; z-index: 1; overflow: visible; pointer-events: none; }
+/* Soft neon stays scoped to the hero, with a tighter halo than the original intro. */
+.home-animated-logo .glow { filter: drop-shadow(0 0 3px rgba(50, 123, 234, .45)); }
+.home-animated-logo .contour { filter: drop-shadow(0 0 2px rgba(99, 153, 228, .4)); }
+.home-animated-logo .svg-fill-blue { fill: #327bea; }
+.home-animated-logo .svg-path { stroke: #327bea; }
+.home-animated-logo .contour { stroke: #6399e4; stroke-width: 2.5px; }
+.logo-wrapper.home-logo-orbit::before {
+  border: 2px dashed rgba(139, 186, 255, .4);
+  background: conic-gradient(from 25deg, #14243e, #254777, #182d4b, #203e68, #14243e);
+  animation: rotateCircle 20s linear infinite;
+  filter: none;
+  box-shadow: 0 0 18px rgba(58, 126, 225, .14), inset 0 0 16px rgba(112, 168, 245, .08);
+}
+.home-animated-logo[data-visible="false"] .svg-path,
+.home-animated-logo[data-visible="false"] .svg-fill-blue { animation-play-state: paused; }
+/* Let the dragged SVG leave its orbit, including on mobile, to reveal the stationary hole. */
+.logo-wrapper.home-logo-orbit { overflow: visible; }
+@media (prefers-reduced-motion: reduce) {
+  .home-animated-logo .svg-path { animation: none; stroke-dashoffset: 0; }
+  .home-animated-logo .svg-fill-blue { animation: none; opacity: 1; }
+  .logo-wrapper.home-logo-orbit::before, .home-logo-orbit .accretion-disk { animation: none; }
+}

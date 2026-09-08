@@ -4,7 +4,7 @@
 
 ## Profil
 
-Théo Guérin, développeur freelance Full-Stack à Rennes, conçoit des sites, applications React et API performantes. Découvrez ses projets et services.
+Théo Guérin, développeur web et mobile freelance à Rennes : React, Django et Flutter. Découvrez mes services, mes réalisations et contactez-moi pour votre projet.
 
 Bonjour à tous, je m'appelle Théo Guérin  et je vis à  Rennes, en France. Je suis un  développeur web de 25 ans, diplômé d'un MBA Développeur Web Full-Stack, titre RNCP de niveau 7.
 

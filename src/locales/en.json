@@ -126,7 +126,7 @@
     "contact_eyebrow": "Let us build your next project",
     "contact_intro": "Need a new website, a redesign, freelance support, or a role to discuss? Send a message and I will get back quickly.",
     "contact_panel_title": "Ready to start?",
-    "contact_panel_description": "I help teams design, rebuild, and improve web products with clean execution.",
+    "contact_panel_description": "React interfaces, Django APIs or Flutter applications: let's discuss your web or mobile project.",
     "contact_point_1": "Fast discovery and clear scope definition",
     "contact_point_2": "Technical proposal aligned with your goals",
     "contact_point_3": "Simple communication and reliable delivery",
@@ -501,7 +501,7 @@
     "services": {
         "eyebrow": "What I deliver",
         "title": "Services",
-        "subtitle": "I design and build robust, accessible and high-performance web products from strategy to launch.",
+        "subtitle": "From web to mobile, I build the interfaces and services that bring your project to life.",
         "cta": "Discuss your project",
         "items": {
             "websites": {
@@ -510,11 +510,15 @@
             },
             "apps": {
                 "title": "React web apps",
-                "description": "Modern interfaces, maintainable components and smooth UX on desktop and mobile."
+                "description": "React web interfaces, reusable components and user journeys adapted to desktop and mobile."
             },
             "api": {
                 "title": "API & backend",
-                "description": "Node.js architecture, auth, database design and clean endpoints for a solid foundation."
+                "description": "Django and Python APIs, business logic, authentication and databases for your applications."
+            },
+            "mobile": {
+                "title": "Flutter mobile applications",
+                "description": "Flutter and Dart applications: navigation, local storage and API integration."
             },
             "optimization": {
                 "title": "Technical SEO",
@@ -550,5 +554,17 @@
     "footer_products_title": "Pages",
     "footer_social_title": "Social links",
     "footer_legal_title": "Legal",
-    "footer_rights": "All rights reserved."
+    "footer_rights": "All rights reserved.",
+    "home_offer": {
+        "location": "Rennes, Brittany",
+        "title": "Freelance web & mobile developer in Rennes.",
+        "specialty": "React, Django & Flutter.",
+        "description": "I’m Théo Guérin. I build React interfaces, Django APIs and Flutter mobile applications, from design to launch.",
+        "contact": "Let’s discuss your project",
+        "projects": "View my work",
+        "case_label": "From brief to delivery",
+        "case_description": "A holiday cottage website with Google Sheets pricing, Airbnb availability and a stay estimate.",
+        "case_link": "Read the case study (French)",
+        "service_link": "Explore this service (French)"
+    }
 }

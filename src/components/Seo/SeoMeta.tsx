@@ -2,6 +2,8 @@ import { JSX } from "react";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
+import { getBusinessPage } from "../../data/businessPages";
+import { getBusinessSchema } from "../../config/businessSchema";
 import {
   getContentLocale,
   getCanonicalPath,
@@ -40,11 +42,12 @@ function SeoMeta(): JSX.Element {
   const tx = i18n.getFixedT(contentLang);
 
   const baseTitle = tx("seo_title");
+  const businessPage = getBusinessPage(pathname);
   const pageTitle = currentRoute ? tx(currentRoute.titleKey) : "";
-  const fullTitle = pathname === "/" || !pageTitle ? baseTitle : `${pageTitle} | ${baseTitle}`;
-  const description = currentRoute?.descriptionKey
+  const fullTitle = businessPage ? `${businessPage.title} | Théo Guérin` : pathname === "/" || !pageTitle ? baseTitle : `${pageTitle} | ${baseTitle}`;
+  const description = businessPage?.description ?? (currentRoute?.descriptionKey
     ? tx(currentRoute.descriptionKey, { defaultValue: tx("seo_description") })
-    : tx("seo_description");
+    : tx("seo_description"));
 
   const canonicalPath = currentRoute?.noindex ? pathname : getCanonicalPath(canonicalLocale, pathname);
   const canonicalUrl = `${siteUrl}${canonicalPath}`;
@@ -121,7 +124,7 @@ function SeoMeta(): JSX.Element {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@graph": [personSchema, websiteSchema, webPageSchema],
+    "@graph": [personSchema, websiteSchema, webPageSchema, ...getBusinessSchema(businessPage, siteUrl)],
   };
 
   return (

@@ -244,6 +244,7 @@ const Projects: React.FC = () => {
                     isGitLab={selectedProject.isGitLab}
                     youtubeLink={selectedProject.youtubeLink}
                     seeLink={selectedProject.seeLink}
+                    caseStudyPath={selectedProject.caseStudyPath}
                     techStack={selectedProject.techStack}
                     featured={selectedProject.featured}
                     featuredLabel={featuredPillLabel}

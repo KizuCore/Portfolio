@@ -3,7 +3,7 @@ import { FaAngleDown } from "@react-icons/all-files/fa/FaAngleDown";
 import { FaAngleUp } from "@react-icons/all-files/fa/FaAngleUp";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getHtmlLang, getLocalizedPath, getShortLocale, ROUTE_SEO, splitLocalizedPath } from "../../config/seo";
+import { getContentLocale, getHtmlLang, getLocalizedPath, getShortLocale, ROUTE_SEO, splitLocalizedPath } from "../../config/seo";
 import "../../assets/styles/Header/Navigation.css";
 import flagBzh from "../../assets/images/flags/flag_bzh.svg";
 import flagEn from "../../assets/images/flags/flag_en.svg";
@@ -56,8 +56,8 @@ function LanguageSelector(): JSX.Element {
   );
 
   useEffect(() => {
-    document.documentElement.lang = getHtmlLang(getShortLocale(i18n.language));
-  }, [i18n.language]);
+    document.documentElement.lang = getHtmlLang(getContentLocale(getShortLocale(i18n.language), currentRoutePath));
+  }, [i18n.language, currentRoutePath]);
 
   useEffect(() => {
     if (!isOpen) {

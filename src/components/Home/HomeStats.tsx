@@ -1,18 +1,16 @@
-import CountUp from 'react-countup';
-import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
 
+// Display the existing figures immediately, including when reduced motion is enabled.
 function HomeStats() {
-  const { ref, inView } = useInView({ triggerOnce: true });
   const { t } = useTranslation();
 
   return (
-    <div className="home-stats" ref={ref}>
+    <div className="home-stats">
       <div className="row g-3 g-md-5 justify-content-center">
-        <div className="col-12 col-md-3 d-flex justify-content-center">
+        <div className="col-6 col-md-3 d-flex justify-content-center">
           <div className="stat-item stat-item-combo">
             <span className="stat-number bold-number">
-              {inView && <CountUp start={0} end={2} duration={1.5} delay={1.5} />}
+              2
             </span>
             <div className="stat-label-wrapper">
               <span className="stat-label">{t('years')}</span>
@@ -21,10 +19,10 @@ function HomeStats() {
           </div>
         </div>
 
-        <div className="col-12 col-md-3 d-flex justify-content-center">
+        <div className="col-6 col-md-3 d-flex justify-content-center">
           <div className="stat-item stat-item-combo">
             <span className="stat-number">
-              {inView && <CountUp start={0} end={5} duration={1.5} delay={1.7} />}
+              5
             </span>
             <div className="stat-label-wrapper">
               <span className="stat-label">{t('years')}</span>
@@ -33,11 +31,11 @@ function HomeStats() {
           </div>
         </div>
 
-        <div className="col-12 col-md-3 d-flex justify-content-center">
+        <div className="col-6 col-md-3 d-flex justify-content-center">
           <div className="stat-item stat-item-combo">
             <span className="stat-plus">+</span>
             <span className="stat-number bold-number">
-              {inView && <CountUp start={0} end={40} duration={2.5} delay={1.9} />}
+              40
             </span>
             <div className="stat-label-wrapper">
               <span className="stat-label">{t('projects')}</span>
@@ -46,11 +44,11 @@ function HomeStats() {
           </div>
         </div>
 
-        <div className="col-12 col-md-3 d-flex justify-content-center">
+        <div className="col-6 col-md-3 d-flex justify-content-center">
           <div className="stat-item stat-item-combo">
             <span className="stat-plus">+</span>
             <span className="stat-number bold-number">
-              {inView && <CountUp start={0} end={37} duration={2.5} delay={2.1} />}
+              37
             </span>
             <div className="stat-label-wrapper">
               <span className="stat-label">{t('technologies')}</span>

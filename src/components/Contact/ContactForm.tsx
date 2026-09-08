@@ -1,6 +1,5 @@
 import {
   Alert,
-  Button,
   Col,
   Form,
   Row,
@@ -20,7 +19,7 @@ function ContactForm() {
   const responseMessage = status ? t(status.translationKey, status.fallbackMessage || t("message_fail")) : "";
 
   return (
-    <div className="contact-form-card background-box">
+    <div className="contact-form-card">
       <header className="contact-form-header">
         <h2 className="contact-form-title">{t("contact_form_title")}</h2>
         <p className="contact-form-subtitle">{t("contact_form_subtitle")}</p>
@@ -76,9 +75,9 @@ function ContactForm() {
           })}
         </Row>
 
-        <Button
+        <button
           type="submit"
-          className="mt-4 button-cv contact-submit-btn"
+          className="mt-4 contact-submit-btn"
           disabled={isSubmitting}
           aria-describedby={status ? "contact-form-status" : undefined}
         >
@@ -93,7 +92,7 @@ function ContactForm() {
               {t("send_message")}
             </>
           )}
-        </Button>
+        </button>
       </Form>
     </div>
   );

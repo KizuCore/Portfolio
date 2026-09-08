@@ -1,4 +1,4 @@
-﻿{
+{
     "hello": "Bonjour !",
     "iam": "Je suis  ",
     "nametheo": "Théo Guérin",
@@ -113,12 +113,12 @@
     "cv_aria": "Voir mon CV",
     "web_dev_illustration": "Illustration de développement web Théo Guérin",
     "theo_developer": "Avatar de Théo Guérin, Développeur Web",
-    "seo_title": "Théo Guérin | Développeur Freelance Full-Stack à Rennes",
-    "seo_description": "Théo Guérin, développeur freelance Full-Stack à Rennes, conçoit des sites, applications React et API performantes. Découvrez ses projets et services.",
-    "seo_og_title": "Théo Guérin | Développeur Freelance Full-Stack à Rennes",
+    "seo_title": "Théo Guérin | Développeur web & mobile freelance à Rennes",
+    "seo_description": "Théo Guérin, développeur web et mobile freelance à Rennes : React, Django et Flutter. Découvrez mes services, mes réalisations et contactez-moi pour votre projet.",
+    "seo_og_title": "Théo Guérin | Développeur web & mobile freelance à Rennes",
     "seo_og_description": "Développeur freelance Full-Stack à Rennes, j'accompagne vos projets de sites web, applications React et API, de la conception à la mise en ligne.",
     "seo_og_image_alt": "Aperçu du portfolio de Théo Guérin",
-    "seo_twitter_title": "Théo Guérin | Développeur Freelance Full-Stack à Rennes",
+    "seo_twitter_title": "Théo Guérin | Développeur web & mobile freelance à Rennes",
     "seo_twitter_description": "Développeur freelance Full-Stack à Rennes, j'accompagne vos projets de sites web, applications React et API, de la conception à la mise en ligne.",
     "flag_fr": "Drapeau Français",
     "flag_es": "Drapeau Espagnol",
@@ -128,7 +128,7 @@
     "contact_eyebrow": "Parlons de votre projet",
     "contact_intro": "Une idée, une mission freelance ou un poste à proposer ? Écrivez-moi, je vous réponds rapidement.",
     "contact_panel_title": "Un projet à lancer ?",
-    "contact_panel_description": "Je peux intervenir sur la création, la refonte et l'optimisation de produits web.",
+    "contact_panel_description": "Interfaces React, API Django ou applications Flutter : échangeons sur votre projet web ou mobile.",
     "contact_point_1": "Audit rapide du besoin et cadrage clair",
     "contact_point_2": "Proposition technique adaptée à vos objectifs",
     "contact_point_3": "Suivi transparent du début à la livraison",
@@ -503,7 +503,7 @@
     "services": {
         "eyebrow": "Ce que je propose",
         "title": "Services",
-        "subtitle": "Je conçois et développe des solutions web solides, accessibles et performantes, de la réflexion jusqu’à la mise en ligne.",
+        "subtitle": "Du web au mobile, je construis les interfaces et les services qui donnent vie à votre projet.",
         "cta": "Parler de votre projet",
         "items": {
             "websites": {
@@ -512,11 +512,15 @@
             },
             "apps": {
                 "title": "Applications web React",
-                "description": "Interfaces, composants maintenables et expérience utilisateur fluide sur desktop et mobile."
+                "description": "Interfaces web React, composants réutilisables et parcours adaptés aux ordinateurs comme aux mobiles."
             },
             "api": {
                 "title": "API & backend",
-                "description": "Architecture Node.js, authentification, base de données et endpoints propres pour un socle solide."
+                "description": "API Django et Python, logique métier, authentification et bases de données pour vos applications."
+            },
+            "mobile": {
+                "title": "Applications mobiles Flutter",
+                "description": "Applications Flutter et Dart : navigation, stockage local et connexion à vos API."
             },
             "optimization": {
                 "title": "SEO technique",
@@ -541,7 +545,7 @@
     },
     "seo_keywords": "Théo Guérin, développeur freelance, développeur freelance Rennes, freelance full-stack, React, Django, Python, Node.js, Flutter, portfolio, Rennes, développeur web",
     "seo_routes": {
-        "home_description": "Théo Guérin, développeur freelance Full-Stack à Rennes, conçoit des sites, applications React et API performantes. Découvrez ses projets et services.",
+        "home_description": "Théo Guérin, développeur web et mobile freelance à Rennes : React, Django et Flutter. Découvrez mes services, mes réalisations et contactez-moi pour votre projet.",
         "about_description": "Découvrez Théo Guérin : développeur Full-Stack passionné basé à Rennes, ses loisirs, qualifications et son parcours professionnel.",
         "experience_description": "Parcours de Théo Guérin : expérience Full-Stack chez Nahibu, MBA Web Full-Stack, Bachelor et Licence Informatique à Rennes.",
         "project_description": "Projets web de Théo Guérin : applications React, API REST Django, Flutter et sites vitrine réalisés dans des contextes professionnels et académiques.",
@@ -550,5 +554,17 @@
         "legal_description": "Mentions légales du portfolio de Théo Guérin, développeur web Full-Stack basé à Rennes.",
         "privacy_description": "Politique de confidentialité du portfolio de Théo Guérin - traitement des données, cookies et vos droits.",
         "cookies_description": "Politique des cookies du portfolio de Théo Guérin : types de cookies, finalités, durée de conservation et gestion du consentement."
+    },
+    "home_offer": {
+        "location": "Rennes, Bretagne",
+        "title": "Développeur web & mobile freelance à Rennes.",
+        "specialty": "React, Django & Flutter.",
+        "description": "Je suis Théo Guérin. Je développe des interfaces React, des API Django et des applications mobiles Flutter, de la conception à la mise en ligne.",
+        "contact": "Parlons de votre projet",
+        "projects": "Voir mes réalisations",
+        "case_label": "Du besoin à la réalisation",
+        "case_description": "Un site de gîte avec tarifs modifiables dans Google Sheets, disponibilités Airbnb et estimation du séjour.",
+        "case_link": "Découvrir l’étude de cas",
+        "service_link": "Découvrir ce service"
     }
 }

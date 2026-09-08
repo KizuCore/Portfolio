@@ -1,11 +1,13 @@
 import { lazy, type JSX } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import LocaleFallbackRoute from "./LocaleFallbackRoute";
 import Home from "../components/Home/Home";
 import About from "../components/About/About";
 import Contact from "../components/Contact/Contact";
 import Resume from "../components/Resume/Resume";
 import Experience from "../components/Experience/ExperienceTimeline";
 import Projects from "../components/Projects/Projects";
+import BusinessPage from "../components/Business/BusinessPage";
+import { BUSINESS_PAGES } from "../data/businessPages";
 import MentionsLegales from "../components/Legal/MentionsLegales";
 import PolitiqueConfidentialite from "../components/Legal/PolitiqueConfidentialite";
 import PolitiqueCookies from "../components/Legal/PolitiqueCookies";
@@ -21,6 +23,7 @@ export type AppRoute = {
 };
 
 export const APP_ROUTES: AppRoute[] = [
+  ...BUSINESS_PAGES.map((page) => ({ path: page.path, element: <BusinessPage page={page} /> })),
   { path: "/", element: <Home /> },
   { path: "/project", element: <Projects /> },
   { path: "/about", element: <About /> },
@@ -46,16 +49,6 @@ export const LOCALIZED_APP_ROUTES: AppRoute[] = SUPPORTED_LOCALES.flatMap((local
 );
 
 export const ALL_APP_ROUTES: AppRoute[] = [...APP_ROUTES, ...LOCALIZED_APP_ROUTES];
-
-function LocaleFallbackRoute(): JSX.Element {
-  const location = useLocation();
-  const [, firstSegment] = location.pathname.split("/");
-  const fallbackLocale = SUPPORTED_LOCALES.includes(firstSegment as (typeof SUPPORTED_LOCALES)[number])
-    ? firstSegment
-    : "fr";
-
-  return <Navigate to={`/${fallbackLocale}`} replace />;
-}
 
 export const FALLBACK_ROUTE: AppRoute = {
   path: "*",

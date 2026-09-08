@@ -126,7 +126,7 @@
     "contact_eyebrow": "Komzomp eus ho raktres",
     "contact_intro": "Ezhomm hoc'h eus eus ul lec'hienn nevez, ur cheñchamant pe ur c'henlabour freelance? Skrivit din ha respontet vo buan.",
     "contact_panel_title": "Prest da gregi?",
-    "contact_panel_description": "Skoazellan a ran evit krouiñ, adsevel ha gwellañ produioù web gant ul labour glan.",
+    "contact_panel_description": "Etrefasoù React, API Django pe arloadoù Flutter : komzomp eus ho raktres web pe hezoug.",
     "contact_point_1": "Dielfenn buan hag amprouadur sklaer",
     "contact_point_2": "Kinnig teknik hervez ho palioù",
     "contact_point_3": "Kehentiñ eeun ha kasadur fizus",
@@ -500,7 +500,7 @@
     },
     "services": {
         "title": "Servijoù",
-        "subtitle": "Sevel a ran produioù web kreñv, aes da implijout ha buan, eus an idea betek ar produadur.",
+        "subtitle": "Eus ar web d’an hezoug, sevel a ran etrefasoù ha servijoù evit ho raktres.",
         "cta": "Kaozeal diwar-benn ho raktres",
         "items": {
             "websites": {
@@ -509,11 +509,15 @@
             },
             "apps": {
                 "title": "Arloadoù React",
-                "description": "Etrezasoù modern, komponentoù padus hag ur prantad implijer flour war urzhiataer pe hezoug."
+                "description": "Etrefasoù web React ha parzhioù adimplijadus evit an urzhiataer hag an hezoug."
             },
             "api": {
                 "title": "API ha backend",
-                "description": "Savadur Node.js, autentifikadur, stlennvon ha endpoints glan evit ur soliad talvoudus."
+                "description": "API Django ha Python, dilesa hag diazoù roadennoù evit hoc’h arloadoù."
+            },
+            "mobile": {
+                "title": "Arloadoù hezoug Flutter",
+                "description": "Arloadoù Flutter ha Dart : merdeiñ, mirout roadennoù lec’hel ha kevreañ ouzh API."
             },
             "optimization": {
                 "title": "Gwellaat padus",
@@ -550,5 +554,17 @@
     "footer_products_title": "Pajennoù",
     "footer_social_title": "Rouedadoù",
     "footer_legal_title": "Lezennel",
-    "footer_rights": "An holl wirioù miret."
+    "footer_rights": "An holl wirioù miret.",
+    "home_offer": {
+        "location": "Roazhon, Breizh",
+        "title": "Diorroer web ha hezoug dizalc’h e Roazhon.",
+        "specialty": "React, Django ha Flutter.",
+        "description": "Théo Guérin on. Diorren a ran etrefasoù React, API Django hag arloadoù hezoug Flutter, eus ar c’hentañ soñj betek ar lakaat enlinenn.",
+        "contact": "Komz eus ho raktres",
+        "projects": "Gwelet ma raktresoù",
+        "case_label": "Eus ar soñj d’ar raktres",
+        "case_description": "Ul lec’hienn evit ur gwirti gant prizioù e Google Sheets, deiziadoù Airbnb hag ur priz rakwelet evit ar chomadenn.",
+        "case_link": "Lenn an studiadenn (e galleg)",
+        "service_link": "Gwelet ar servij (e galleg)"
+    }
 }

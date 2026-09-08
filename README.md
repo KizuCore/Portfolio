@@ -111,7 +111,21 @@ Les routes localisées sont générées à partir des routes applicatives et des
 
 Le sitemap est généré depuis la même configuration afin d'éviter les écarts entre les routes réelles, les balises `hreflang` et `public/sitemap.xml`.
 
-## Contact
+## Pages de services et études de cas
+
+Les textes des pages React, Django, Flutter, création de sites et de l’étude de cas Montafilan sont centralisés dans `src/data/businessPages.ts`. Le composant `BusinessPage` s’occupe de la présentation ; `scripts/lib/render-business-page.mjs` utilise les mêmes textes pour le HTML sans JavaScript. Les données structurées communes se trouvent dans `src/config/businessSchema.ts`.
+
+Ces pages sont maintenues en français. `contentLocale` dans `src/config/seo.ts` fixe leur langue et leur URL canonique ; les variantes non traduites ne sont pas ajoutées au sitemap comme traductions. Pour une nouvelle page, ajouter son contenu, sa configuration SEO et sa redirection dans `vercel.json`.
+
+Les textes de l’accueil sont dans `home_offer` et `services` des dictionnaires `src/locales`. Les trois offres sont définies dans `src/components/Home/data/services.ts`. Les styles de l’accueil et des services sont séparés du gabarit des pages détaillées.
+
+Ne pas modifier directement `public/experience.md`, `profile.md` ou `projects.md` : ils sont régénérés depuis les données et les traductions lors de `npm run build`.
+
+Validation : `npm run check`, `npm run build`, puis `npm run check:seo`. Ce dernier vérifie aussi les textes des nouvelles pages, leurs liens, leurs URL canoniques et leurs données structurées.
+
+Après publication, vérifier les URL dans Google Search Console, soumettre `/sitemap.xml` et suivre les impressions, les clics et les demandes de contact. Les profils externes et témoignages doivent refléter les prestations réelles ; aucune position Google ou recommandation IA n’est garantie. La configuration des comptes et le suivi de fréquentation restent à réaliser dans les outils concernés.
+
+## Formulaire de contact
 
 Le formulaire appelle `/api/sendEmail`, qui :
 

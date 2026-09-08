@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense } from "react";
+import { useEffect, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -12,7 +12,6 @@ import CookieBanner from "@/components/Legal/CookieBanner";
 import CookiePreferencesModal from "@/components/Legal/CookiePreferencesModal";
 import BackToTop from "@/components/Layout/BackToTop";
 import ParticleBackground from "@/components/Layout/ParticleBackground";
-import Preloader from "@/components/Layout/Preloader/Preloader";
 import RouteSkeleton from "@/components/Layout/RouteSkeleton";
 import ScrollProgress from "@/components/Layout/ScrollProgress";
 import ScrollToTop from "@/components/Layout/ScrollToTop";
@@ -25,12 +24,7 @@ function KonamiComponent() {
   return null;
 }
 
-type AppContentProps = {
-  load: boolean;
-  showPreloader: boolean;
-};
-
-function AppContent({ load, showPreloader }: AppContentProps) {
+function AppContent() {
   const { t, i18n } = useTranslation();
   const location = useLocation();
   const reduceMotion = useReducedMotion();
@@ -65,9 +59,8 @@ function AppContent({ load, showPreloader }: AppContentProps) {
         {t("a11y.skip_to_content")}
       </a>
       <ScrollProgress />
-      {showPreloader && <Preloader load={load} className={load ? "" : "fade-out"} />}
 
-      <div className="App" id={load ? "no-scroll" : "scroll"}>
+      <div className="App" id="scroll">
         {/* Keep one particle engine alive while users navigate between routes. */}
         <ParticleBackground />
         <SeoMeta />
@@ -108,26 +101,10 @@ function AppContent({ load, showPreloader }: AppContentProps) {
 }
 
 function App() {
-  const [load, updateLoad] = useState(true);
-  const [showPreloader, setShowPreloader] = useState(true);
-
-  useEffect(() => {
-    // Keep the preloader mounted briefly after fade-out so the opacity transition can finish.
-    let unmountTimer: ReturnType<typeof setTimeout> | undefined;
-    const loadingTimer = setTimeout(() => {
-      updateLoad(false);
-      unmountTimer = setTimeout(() => setShowPreloader(false), 500);
-    }, 2900);
-
-    return () => {
-      clearTimeout(loadingTimer);
-      if (unmountTimer) clearTimeout(unmountTimer);
-    };
-  }, []);
-
+  // Render immediately: loading decoration must not delay access to the portfolio.
   return (
     <Router>
-      <AppContent load={load} showPreloader={showPreloader} />
+      <AppContent />
     </Router>
   );
 }

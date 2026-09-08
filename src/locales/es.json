@@ -126,7 +126,7 @@
     "contact_eyebrow": "Hablemos de tu proyecto",
     "contact_intro": "¿Necesitas una web nueva, una mejora, apoyo freelance o hablar de un puesto? Escríbeme y te respondo rápido.",
     "contact_panel_title": "¿Listo para empezar?",
-    "contact_panel_description": "Puedo ayudarte a crear, rediseñar y optimizar productos web con una ejecución limpia.",
+    "contact_panel_description": "Interfaces React, API Django o aplicaciones Flutter: hablemos de tu proyecto web o móvil.",
     "contact_point_1": "Análisis rápido y alcance claro",
     "contact_point_2": "Propuesta técnica alineada con tus objetivos",
     "contact_point_3": "Comunicación simple y entrega fiable",
@@ -458,7 +458,7 @@
     "services": {
         "eyebrow": "Lo que ofrezco",
         "title": "Servicios",
-        "subtitle": "Diseño y desarrollo productos web sólidos, accesibles y de alto rendimiento, desde la estrategia hasta su publicación.",
+        "subtitle": "De la web al móvil, construyo las interfaces y los servicios que dan vida a tu proyecto.",
         "cta": "Hablar de tu proyecto",
         "items": {
             "websites": {
@@ -467,11 +467,15 @@
             },
             "apps": {
                 "title": "Aplicaciones web con React",
-                "description": "Interfaces modernas, componentes mantenibles y una experiencia fluida tanto en escritorio como en móvil."
+                "description": "Interfaces web React, componentes reutilizables y recorridos adaptados al ordenador y al móvil."
             },
             "api": {
                 "title": "API y backend",
-                "description": "Arquitectura en Node.js, autenticación segura, bases de datos bien estructuradas y endpoints limpios y escalables."
+                "description": "API Django y Python, lógica de negocio, autenticación y bases de datos para tus aplicaciones."
+            },
+            "mobile": {
+                "title": "Aplicaciones móviles Flutter",
+                "description": "Aplicaciones Flutter y Dart: navegación, almacenamiento local e integración de API."
             },
             "optimization": {
                 "title": "SEO técnico",
@@ -550,5 +554,17 @@
     "footer_products_title": "Páginas",
     "footer_social_title": "Redes",
     "footer_legal_title": "Legal",
-    "footer_rights": "Todos los derechos reservados."
+    "footer_rights": "Todos los derechos reservados.",
+    "home_offer": {
+        "location": "Rennes, Bretaña",
+        "title": "Desarrollador web y móvil freelance en Rennes.",
+        "specialty": "React, Django y Flutter.",
+        "description": "Soy Théo Guérin. Desarrollo interfaces React, API Django y aplicaciones móviles Flutter, desde el diseño hasta la puesta en línea.",
+        "contact": "Hablemos de tu proyecto",
+        "projects": "Ver mis proyectos",
+        "case_label": "De la idea al resultado",
+        "case_description": "Un sitio de alojamiento con tarifas en Google Sheets, disponibilidad de Airbnb y estimación de la estancia.",
+        "case_link": "Leer el caso de estudio (francés)",
+        "service_link": "Descubrir el servicio (francés)"
+    }
 }

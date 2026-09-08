@@ -1,6 +1,7 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import "../../assets/styles/Projects/Projects.css";
 import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import { FaYoutube } from "@react-icons/all-files/fa/FaYoutube";
@@ -15,6 +16,7 @@ interface ProjectCardProps {
   ghLink: string;
   youtubeLink?: string;
   seeLink?: string;
+  caseStudyPath?: string;
   isGitLab?: boolean;
   featured?: boolean;
   featuredLabel?: string;
@@ -92,6 +94,7 @@ function ProjectCard(props: ProjectCardProps) {
         </div>
 
         <div className="button-group">
+          {props.caseStudyPath && <Link className="business-button" to={props.caseStudyPath} hrefLang="fr">{t("home_offer.case_link")} ↗</Link>}
           <Button
             className="button-github"
             href={props.ghLink}

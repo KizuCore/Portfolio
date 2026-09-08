@@ -217,6 +217,7 @@ function validateHreflangs({ routePath, html, seoConfig, errors }) {
 // Validate every generated indexable route plus the LLM Markdown resources.
 function main() {
   const seoConfig = loadTsModule(SEO_CONFIG_PATH);
+  const { BUSINESS_PAGES, getBusinessPage } = loadTsModule(path.join(ROOT_DIR, "src", "data", "businessPages.ts"));
   const routes = getGeneratedRoutes(seoConfig);
   const errors = [];
   const titles = new Map();
@@ -254,6 +255,22 @@ function main() {
     const graph = flattenGraph(jsonLdBlocks);
     const person = graph.find((node) => node?.["@type"] === "Person");
     const webPage = graph.find((node) => String(node?.["@id"] || "").endsWith("#webpage"));
+    // Catch regressions where a new route accidentally receives the generic home shell.
+    const businessPage = getBusinessPage(seoConfig.splitLocalizedPath(routePath).pathname);
+    if (businessPage) {
+      assert(h1 === businessPage.title, `${routePath}: titre éditorial absent du HTML`, errors);
+      for (const section of businessPage.sections) {
+        assert(bodyText.includes(section.text), `${routePath}: contenu de section absent (${section.title})`, errors);
+      }
+      for (const related of BUSINESS_PAGES.filter((page) => page.path !== businessPage.path)) {
+        assert(html.includes(`href="/fr${related.path}"`), `${routePath}: lien connexe manquant`, errors);
+      }
+      assert(graph.some((node) => node["@type"] === "BreadcrumbList"), `${routePath}: fil d’Ariane JSON-LD absent`, errors);
+      if (businessPage.kind === "service") {
+        const service = graph.find((node) => node["@type"] === "Service");
+        assert(service?.provider?.["@id"] === PERSON_ID, `${routePath}: prestataire du service incorrect`, errors);
+      }
+    }
 
     assert(title, `${routePath}: <title> manquant`, errors);
     assert(description, `${routePath}: meta description manquante`, errors);

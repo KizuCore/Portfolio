@@ -4,12 +4,18 @@ export type RouteSeo = {
   titleKey: string;
   descriptionKey?: string;
   noindex?: boolean;
+  contentLocale?: SupportedLocale;
 };
 
 export const SUPPORTED_LOCALES: SupportedLocale[] = ["fr", "en", "es", "bzh"];
 export const DEFAULT_LOCALE: SupportedLocale = "fr";
 
 export const ROUTE_SEO: Record<string, RouteSeo> = {
+  "/services/developpeur-react": { titleKey: "services.items.apps.title", contentLocale: "fr" },
+  "/services/developpeur-django": { titleKey: "services.items.api.title", contentLocale: "fr" },
+  "/services/developpeur-flutter": { titleKey: "services.items.mobile.title", contentLocale: "fr" },
+  "/services/creation-site-internet-rennes": { titleKey: "services.items.websites.title", contentLocale: "fr" },
+  "/realisations/les-portes-de-montafilan": { titleKey: "categories_projects.portes_montafilan_title", contentLocale: "fr" },
   "/": { titleKey: "home", descriptionKey: "seo_routes.home_description" },
   "/about": { titleKey: "about", descriptionKey: "seo_routes.about_description" },
   "/experience": { titleKey: "experience", descriptionKey: "seo_routes.experience_description" },
@@ -92,6 +98,9 @@ export function getShortLocale(input: string): SupportedLocale {
 }
 
 export function getContentLocale(locale: SupportedLocale, pathname: string): SupportedLocale {
+  // Only advertise languages in which the editorial content is maintained.
+  const fixedLocale = ROUTE_SEO[pathname]?.contentLocale;
+  if (fixedLocale) return fixedLocale;
   if (!LEGAL_ROUTES.has(pathname)) {
     return locale;
   }

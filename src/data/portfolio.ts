@@ -69,6 +69,7 @@ export type PortfolioProject = {
   isGitLab?: boolean;
   youtubeLink?: string;
   seeLink?: string;
+  caseStudyPath?: string;
   techStack: string[];
   category: ProjectCategory;
   featured?: boolean;
@@ -81,6 +82,7 @@ export const PROJECT_FILTERS: ProjectFilter[] = ["all", "web", "mobile", "api", 
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   {
     imageKey: "portesDeMontafilan",
+    caseStudyPath: "/fr/realisations/les-portes-de-montafilan",
     altTextKey: "categories_projects.portes_montafilan_image_alt",
     titleKey: "categories_projects.portes_montafilan_title",
     descriptionKey: "categories_projects.portes_montafilan_description",

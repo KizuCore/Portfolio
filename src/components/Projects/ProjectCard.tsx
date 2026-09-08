@@ -1,3 +1,4 @@
+import LoadingImage from "../Layout/LoadingImage";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
@@ -48,8 +49,7 @@ function ProjectCard(props: ProjectCardProps) {
     <Card className={`project-card-view ${props.featured ? "project-card-featured" : ""}`}>
       <div className={`project-img-wrapper ${props.imageMode === "contain" ? "project-img-wrapper-contain" : ""}`}>
         {/* imageMode keeps tall screenshots readable without cropping them. */}
-        <Card.Img
-          variant="top"
+        <LoadingImage
           src={props.imgPath}
           alt={props.altText}
           decoding="async"

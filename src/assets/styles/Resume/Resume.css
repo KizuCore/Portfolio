@@ -13,7 +13,8 @@
 .resume-format { display: inline-flex; gap: .6rem; font-size: .75rem; color: #9db9de; }
 .resume-preview { position: relative; min-width: 0; min-height: 280px; }
 .resume-preview[aria-busy='true'] { aspect-ratio: 1 / 1.414; }
-.resume-preview .react-pdf__Page { margin-bottom: 1rem; }
+/* Keep PDF text/link overlays inside the rendered sheet when resizing. */
+.resume-preview .react-pdf__Page { margin-bottom: 1rem; overflow: hidden; }
 .resume-preview .react-pdf__Page:last-child { margin-bottom: 0; }
 .resume-preview .react-pdf__Page canvas { display: block; max-width: 100%; height: auto !important; }
 .resume-loading { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; color: #b9d8ff; }

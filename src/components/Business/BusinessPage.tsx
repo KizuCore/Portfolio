@@ -1,3 +1,4 @@
+import LoadingImage from "../Layout/LoadingImage";
 import { Link } from "react-router-dom";
 import type { BusinessPage as BusinessPageContent } from "../../data/businessPages";
 import { BUSINESS_PAGES } from "../../data/businessPages";
@@ -26,7 +27,7 @@ export default function BusinessPage({ page }: { page: BusinessPageContent }) {
 
       {page.kind === "case-study" && project && (
         <figure className="business-preview">
-          <img src={montafilanImage} alt="Aperçu du site du gîte Les Portes de Montafilan" width="1600" height="1000" fetchPriority="high" />
+          <LoadingImage src={montafilanImage} alt="Aperçu du site du gîte Les Portes de Montafilan" width="1600" height="1000" fetchPriority="high" />
           <figcaption>Les Portes de Montafilan · Conception et développement web par Théo Guérin</figcaption>
         </figure>
       )}

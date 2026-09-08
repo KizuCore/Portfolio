@@ -1,3 +1,4 @@
+import LoadingImage from "../Layout/LoadingImage";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import montafilanImage from "@image/Projects/portesDeMontafilan.webp";
@@ -12,6 +13,6 @@ export default function HomeProof() {
       <p>{t("home_offer.case_description")}</p>
       <Link className="business-text-link" to="/fr/realisations/les-portes-de-montafilan" hrefLang="fr">{t("home_offer.case_link")} ↗</Link>
     </div>
-    <img src={montafilanImage} alt={t("categories_projects.portes_montafilan_image_alt")} width="1600" height="1000" loading="lazy" decoding="async" />
+    <LoadingImage src={montafilanImage} alt={t("categories_projects.portes_montafilan_image_alt")} width="1600" height="1000" loading="lazy" decoding="async" />
   </section>;
 }

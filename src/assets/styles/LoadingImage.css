@@ -1,0 +1,10 @@
+/* Reserve the image's space so completion does not move nearby content. */
+.loading-image { display: block; position: relative; width: 100%; min-width: 0; background: #101c30; border-radius: inherit; overflow: hidden; }
+.loading-image > img { display: block; }
+.loading-image--loading > img, .loading-image--error > img { opacity: 0; }
+.loading-image-overlay { position: absolute; inset: 0; display: flex; justify-content: center; align-items: center; color: #a9ceff; background: #101c30; }
+.image-spinner { width: 28px; height: 28px; border: 2px solid #8db9f233; border-top-color: #9cc8ff; border-radius: 50%; animation: image-spin .8s linear infinite; }
+.loading-image-error { padding: 1rem; text-align: center; font-size: .85rem; }
+.project-img-wrapper-contain > .loading-image { height: 100%; }
+@keyframes image-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .image-spinner { animation: none; } }

@@ -83,7 +83,8 @@
 
 .about-profile-content p { margin-bottom: 1.25rem; }
 .about-profile-content p:last-child { margin-bottom: 0; }
-.about-profile-content .blue { color: #badbff; font-weight: 600; }
+.about-profile-content .profile-emphasis { color: #b6d8ff; font-weight: 600; }
+.about-profile-content .profile-accent { color: #b6d8ff; font-weight: 400; }
 .about-profile-lead { color: #f1f6ff; font-size: 1.15rem; }
 
 .qualification-list { list-style: none; padding: 0; margin: 0; }

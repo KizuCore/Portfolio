@@ -104,16 +104,16 @@ function Presentation({ t }: { t: TFunction }): JSX.Element {
   return (
     <>
       <p className="about-profile-lead">
-        {t('greeting')} <span className="blue">Théo Guérin</span> {t('from')}
-        <span className="blue"> {t('rennes')}</span>.
-        </p>
+        {t('greeting')} <strong className="profile-emphasis">Théo Guérin</strong> {t('from')}
+         {t('rennes')}.
+      </p>
       <p>
-        {t('current_position1')} <span className="blue">{t('developperAge')}</span>
-        {t('current_position2')} <span className="blue">{t('firstmaster')}</span>
+        {t('current_position1')} <strong className="profile-emphasis">{t('developperAge')}</strong>
+        {t('current_position2')} <span className="profile-accent">{t('firstmaster')}</span>
         {t('current_position3')}
       </p>
-      <p >
-        {t('presentation.text_1')}<span className="blue">{t('presentation.text_bold_1')}</span>{t('presentation.text_2')}<span className="blue">{t('presentation.text_bold_2')}</span>{t('presentation.text_3')}<span className="blue">{t('presentation.text_bold_3')}</span>{t('presentation.text_4')}<span className="blue">{t('presentation.text_bold_4')}</span>{t('presentation.text_5')}
+      <p>
+        {t('presentation.text_1')}<strong className="profile-emphasis">{t('presentation.text_bold_1')}</strong>{t('presentation.text_2')}{t('presentation.text_bold_2')}{t('presentation.text_3')}{t('presentation.text_bold_3')}{t('presentation.text_4')}<strong className="profile-emphasis">{t('presentation.text_bold_4')}</strong>{t('presentation.text_5')}
       </p>
     </>
   );

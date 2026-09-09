@@ -1,10 +1,10 @@
 @import "./fonts.css";
 
-/* The static document remains readable until React loads, or when JavaScript is disabled. */
-#seo-prerender { max-width: 76ch; margin: 0 auto; padding: 2rem 1.5rem; color: #15243b; background: #f5f9ff; line-height: 1.8; }
+/* Readable fallback when JavaScript is disabled or the application cannot start. */
+#seo-prerender { max-width: 76ch; margin: 0 auto; padding: 2rem 1.5rem; color: #f5f9ff; background: #080e1a; line-height: 1.8; }
 #seo-prerender h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.25; }
 #seo-prerender h2 { margin-top: 2rem; font-size: 1.4rem; }
-#seo-prerender a { color: #164fb2; text-decoration: underline; }
+#seo-prerender a { color: #9dc6ff; text-decoration: underline; }
 #seo-prerender summary { cursor: pointer; font-weight: 600; }
 
 body {

@@ -1,4 +1,4 @@
-import { useEffect, Suspense } from "react";
+import { useEffect, useLayoutEffect, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -101,6 +101,11 @@ function AppContent() {
 }
 
 function App() {
+  useLayoutEffect(() => {
+    // Reveal the application only after React commits its first view.
+    document.documentElement.removeAttribute("data-app-loading");
+  }, []);
+
   // Render immediately: loading decoration must not delay access to the portfolio.
   return (
     <Router>

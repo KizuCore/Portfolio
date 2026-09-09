@@ -1,0 +1,93 @@
+﻿.about-profile-tabs button[aria-selected='true']::after { display: none; }
+.profile-tab-indicator { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: #85bbff; box-shadow: 0 0 12px #73aaff70; }
+.about-profile-content { position: relative; }
+.profile-inline-trigger { display: inline; padding: 0; border: 0; border-bottom: 1px dotted #8abfff70; background: transparent; color: #b6d8ff; font: inherit; cursor: pointer; text-align: inherit; }
+.profile-inline-trigger:hover { color: #e3f1ff; border-color: #b6d8ff; }
+.profile-inline-trigger > span:last-child { font-size: .8em; }
+.profile-minecraft { position: relative; }
+.minecraft-trigger { border-bottom-color: #8abf6570; }
+.minecraft-block { position: relative; display: inline-block; vertical-align: -.15em; margin-right: 0; width: 19px; height: 19px; background: repeating-conic-gradient(#805835 0 25%, #986e47 0 50%) 0 0 / 8px 8px; box-shadow: inset -4px -3px #0003, 1px 1px #c1a27530; image-rendering: pixelated; transition: transform .2s; }
+.minecraft-block i { display: block; height: 7px; background: repeating-linear-gradient(90deg, #77a94c 0 4px, #5b8e37 4px 8px); box-shadow: 0 3px #507d3b; }
+.minecraft-trigger:hover .minecraft-block { transform: translateY(-3px) rotate(-8deg); }
+.minecraft-block.is-mined { animation: profile-mine .3s both; }
+.minecraft-particles { position: absolute; top: 50%; left: 9px; pointer-events: none; z-index: 3; }
+.minecraft-particles i { position: absolute; width: 5px; height: 5px; background: #8dae61; animation: profile-fragment .75s ease-out both; }
+.minecraft-particles i:nth-child(2n) { background: #9b734d; }
+.profile-degree-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 0; margin: 0; list-style: none; }
+.profile-degree-grid li:first-child { grid-column: 1 / -1; }
+.profile-degree-card { display: flex; flex-direction: column; height: 100%; padding: 17px; border: 1px solid #85b1e52d; border-radius: 12px; color: #cedff5; background: linear-gradient(130deg,#457bb716,#17294040); text-decoration: none; transition: transform .2s, border-color .2s, background .2s; }
+.profile-degree-card:hover { transform: translateY(-3px); color: #eef7ff; border-color: #91c4ff75; background: #457bb722; }
+.profile-degree-meta { display: flex; justify-content: space-between; gap: 12px; color: #92c3fc; font: 10px/1.5 monospace; letter-spacing: .04em; margin-bottom: 12px; }
+.profile-degree-meta svg { font-size: 18px; opacity: .7; }
+.profile-degree-card strong { font-size: .88rem; line-height: 1.5; font-weight: 550; }
+.profile-degree-field { display: flex; justify-content: space-between; gap: 12px; padding-top: 14px; margin-top: auto; color: #96b0cc; font-size: 11px; }
+.profile-hobby-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); align-items: stretch; gap: 12px; }
+.profile-hobby-card { border: 1px solid #8ab5ed2d; border-radius: 12px; background: #8ab5ed08; color: #d0def0; padding: 14px; text-align: left; transition: background .2s, border-color .2s; }
+.profile-hobby-heading { margin: 0; display: flex; align-items: center; gap: 10px; }
+.profile-hobby-heading strong { font-size: 13px; line-height: 1.4; font-weight: 500; }
+.profile-hobby-art { display: grid; place-items: center; flex-shrink: 0; width: 40px; height: 40px; border-radius: 11px; background: radial-gradient(circle at 30% 20%,#8cbaee30,#8cbaee08); font-size: 24px; transition: transform .25s; }
+.profile-hobby-card:nth-child(3n + 2) .profile-hobby-art { background: #dbae7820; }
+.profile-hobby-card:nth-child(3n) .profile-hobby-art { background: #a587df20; }
+.profile-hobby-card:hover .profile-hobby-art { transform: rotate(-8deg) scale(1.07); }
+.profile-hobby-card:hover { border-color: #93c3fa66; background: #8ab5ed10; }
+.profile-hobby-detail { display: block; margin-top: 12px; padding-top: 12px; border-top: 1px solid #8ab5ed26; color: #b5c7dd; font-size: 12px; line-height: 1.65; }
+@keyframes profile-reveal { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+@keyframes profile-mine { 40% { transform: scale(.65) rotate(15deg); } 100% { transform: scale(1); } }
+@keyframes profile-fragment { to { transform: translate(var(--dx),var(--dy)) rotate(var(--turn)); opacity: 0; } }
+@media (max-width: 575px) { .profile-degree-grid { grid-template-columns: 1fr; } .profile-hobby-card { padding: 11px; } .profile-hobby-heading { gap: 7px; } .profile-hobby-art { width: 30px; height: 34px; font-size: 21px; } .profile-hobby-heading strong { font-size: 12px; } }
+@media (max-width: 380px) { .profile-hobby-grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .profile-hobby-detail, .minecraft-block, .minecraft-particles i { animation: none !important; } .profile-degree-card, .profile-hobby-card, .profile-hobby-art, .minecraft-block { transition: none; } .profile-degree-card:hover, .profile-hobby-card:hover .profile-hobby-art { transform: none; } }
+
+.profile-hobby-secret { display: flex; align-items: center; gap: 10px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: default; }
+.profile-hobby-card .profile-hobby-secret,
+.profile-hobby-card .profile-hobby-secret:hover,
+.profile-hobby-card .profile-hobby-secret:active,
+.profile-hobby-card .profile-hobby-secret * { cursor: default; }
+
+/* Each hobby has its own miniature scene, while the reading area stays calm. */
+.profile-hobby-card[data-hobby] {
+  --hobby-accent: 145, 190, 246;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-color: rgba(var(--hobby-accent), .22);
+  background: linear-gradient(155deg, rgba(var(--hobby-accent), .07), #101d3090 65%);
+}
+.profile-hobby-card[data-hobby='0'] { --hobby-accent: 225, 156, 167; }
+.profile-hobby-card[data-hobby='2'] { --hobby-accent: 177, 173, 235; }
+.profile-hobby-card[data-hobby='3'] { --hobby-accent: 218, 187, 142; }
+.profile-hobby-card[data-hobby='4'] { --hobby-accent: 155, 199, 169; }
+.profile-hobby-card[data-hobby='5'] { --hobby-accent: 145, 190, 246; }
+.profile-hobby-card[data-hobby='7'] { --hobby-accent: 198, 170, 231; }
+.hobby-scene { display: block; width: calc(100% + 28px); height: 90px; margin: -14px -14px 14px; border-bottom: 1px solid rgba(var(--hobby-accent), .13); background: radial-gradient(ellipse at 80% 20%, rgba(var(--hobby-accent), .08), transparent 70%); pointer-events: none; }
+.profile-hobby-card[data-hobby] .profile-hobby-art { background: rgba(var(--hobby-accent), .12); }
+.profile-hobby-card[data-hobby] .profile-hobby-detail { border-top-color: rgba(var(--hobby-accent), .18); }
+.profile-hobby-card[data-hobby]:hover { background: linear-gradient(155deg, rgba(var(--hobby-accent), .12), #101d3090 65%); border-color: rgba(var(--hobby-accent), .48); }
+.hobby-cat-tail { transform-origin: 228px 78px; transition: transform .6s ease; }
+.profile-hobby-card:hover .hobby-cat-tail { transform: rotate(12deg); }
+.hobby-controller { transform-origin: center; transform-box: fill-box; }
+.profile-hobby-card:hover .hobby-star { animation: hobby-star-glow 2.4s ease-in-out; }
+.profile-hobby-card:hover .hobby-blossom { opacity: .8; }
+@keyframes hobby-star-glow { 50% { opacity: .3; } }
+@media (max-width: 575px) {
+  .hobby-scene { width: calc(100% + 22px); margin: -11px -11px 12px; height: 78px; }
+  .profile-hobby-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hobby-cat-tail { transition: none; }
+  .profile-hobby-card:hover .hobby-cat-tail { transform: none; }
+  .profile-hobby-card:hover .hobby-star { animation: none; }
+}
+
+/* The title and illustration share one header instead of repeating an icon below. */
+.profile-hobby-banner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(110px, 48%); align-items: center; min-height: 90px; margin: -14px -14px 0; border-bottom: 1px solid rgba(var(--hobby-accent), .15); background: radial-gradient(ellipse at 85% 20%, rgba(var(--hobby-accent), .08), transparent 75%); }
+.profile-hobby-banner .profile-hobby-heading { padding: 14px 0 14px 16px; }
+.profile-hobby-banner .profile-hobby-heading strong { font-size: 14px; font-weight: 600; }
+.profile-hobby-banner .hobby-scene { width: 100%; height: 90px; margin: 0; border: 0; background: none; }
+.profile-hobby-banner + .profile-hobby-detail { margin-top: 0; padding-top: 14px; border-top: 0; }
+@media (max-width: 575px) {
+  .profile-hobby-banner { margin: -11px -11px 0; }
+  .profile-hobby-banner .hobby-scene { height: 90px; margin: 0; width: 100%; }
+}
+
+.minecraft-icon { position: relative; display: inline-block; margin-left: .4em; font-size: inherit !important; }

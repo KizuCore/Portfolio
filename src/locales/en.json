@@ -1,4 +1,23 @@
 {
+    "coding_years": "Years coding",
+    "coding_since": "since {{year}}",
+    "about_interactions": {
+        "mine_label": "2017 through Minecraft — mine the block",
+        "mined": "Block mined! The adventure began in 2017.",
+        "computing": "Computer science",
+        "applications": "Application design",
+        "security": "Cybersecurity",
+        "hobby_details": {
+            "1": "Two dream trips: Japan and Iceland, especially for its landscapes.",
+            "2": "I love making desserts, especially egg custard. For something savoury: chicken curry!",
+            "3": "What fascinates me about astronomy is that we learn something new every day. Each discovery raises new questions: I wonder whether we’ll ever understand it all.",
+            "4": "Cats, without hesitation. Those little furballs are hard to resist.",
+            "5": "Going out with friends, taking walks, making memories… Enjoying the little moments and simply living life to the fullest.",
+            "6": "Sharing a game, getting into it and having a good time.",
+            "7": "A Doctor Who fan. Time and space have plenty of stories to tell.",
+            "8": "Getting drawn into a story and figuring out the answer together."
+        }
+    },
     "professional_availability": "Available for freelance projects and open to joining a team in an employed role.",
     "solar_kuiper_name": "Kuiper Belt",
     "solar_pluto_name": "Pluto",
@@ -41,7 +60,7 @@
     "hobby1": "Traveling",
     "hobby2": "Cook",
     "hobby3": "Astronomy",
-    "hobby4": "Caring for animals",
+    "hobby4": "Animals",
     "hobby5": "Enjoy life",
     "hobby6": "E-sports",
     "hobby7": "Series / Movies",

@@ -1,4 +1,23 @@
 {
+    "coding_years": "Años programando",
+    "coding_since": "desde {{year}}",
+    "about_interactions": {
+        "mine_label": "2017 gracias a Minecraft — minar el bloque",
+        "mined": "¡Bloque minado! La aventura comenzó en 2017.",
+        "computing": "Informática",
+        "applications": "Diseño de aplicaciones",
+        "security": "Ciberseguridad",
+        "hobby_details": {
+            "1": "Dos viajes soñados: Japón e Islandia, especialmente por sus paisajes.",
+            "2": "Me encanta preparar postres, sobre todo flan de huevo. Y de salado: pollo al curry.",
+            "3": "Lo que me apasiona de la astronomía es que aprendemos algo nuevo cada día. Cada descubrimiento plantea nuevas preguntas: me pregunto si algún día llegaremos a comprenderlo todo.",
+            "4": "Los gatos, sin dudarlo. Es difícil resistirse a esas bolas de pelo.",
+            "5": "Salir con mis amigos, dar paseos, crear recuerdos… Disfrutar de los pequeños momentos y vivir plenamente, sin más.",
+            "6": "Compartir una partida, meterse en el juego y pasar un buen rato.",
+            "7": "Fan de Doctor Who. El tiempo y el espacio están llenos de historias.",
+            "8": "Dejarse llevar por una historia y buscar juntos la solución."
+        }
+    },
     "hello": "¡Hola!",
     "iam": "Soy ",
     "nametheo": "Théo Guérin",
@@ -32,7 +51,7 @@
     "hobby1": "Viajar",
     "hobby2": "Cocinar",
     "hobby3": "Astronomía",
-    "hobby4": "Cuidar animales",
+    "hobby4": "Los animales",
     "hobby5": "Disfrutar de la vida",
     "hobby6": "E-sports",
     "hobby7": "Series / Películas",

@@ -1,7 +1,10 @@
 import { JSX, useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { TFunction } from "i18next";
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import { MinecraftMemory } from './ProfileInteractions';
+import HobbyArtwork from './HobbyArtwork';
+import '../../assets/styles/About/ProfileInteractions.css';
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/About/About.css';
 import secretSound from '@sound/voice.mp3';
@@ -11,6 +14,7 @@ import { FaPuzzlePiece } from "@react-icons/all-files/fa/FaPuzzlePiece";
 
 function AboutCard(): JSX.Element {
   const { t } = useTranslation();
+  const reducedMotion = useReducedMotion();
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const [selectedTab, setSelectedTab] = useState<'presentation' | 'qualifications' | 'hobbies'>('presentation');
   const [secretClickCount, setSecretClickCount] = useState(0);
@@ -72,6 +76,7 @@ function AboutCard(): JSX.Element {
             }}
           >
             <span aria-hidden="true">{icon}</span> {label}
+            {selectedTab === key && <motion.i className="profile-tab-indicator" layoutId="profile-tab-indicator" transition={{ duration: reducedMotion ? 0 : .28, ease: "easeInOut" }} />}
           </button>
         ))}
       </div>
@@ -82,18 +87,21 @@ function AboutCard(): JSX.Element {
         className="about-profile-content"
       >
         {tabs.map(({ key }) => (
-          <div
+          <motion.div
             key={key}
             role="tabpanel"
             id={`about-panel-${key}`}
             aria-labelledby={`about-tab-${key}`}
             hidden={selectedTab !== key}
             tabIndex={0}
+            initial={false}
+            animate={selectedTab === key ? { opacity: 1, y: 0 } : { opacity: 0, y: reducedMotion ? 0 : 8 }}
+            transition={{ duration: reducedMotion ? 0 : .28 }}
           >
             {key === 'presentation' && <Presentation t={t} />}
             {key === 'qualifications' && <Qualifications t={t} />}
             {key === 'hobbies' && <Hobbies t={t} onSecretClick={handleSecretClick} />}
-          </div>
+          </motion.div>
         ))}
       </motion.div>
     </div>
@@ -113,40 +121,50 @@ function Presentation({ t }: { t: TFunction }): JSX.Element {
         {t('current_position3')}
       </p>
       <p>
-        {t('presentation.text_1')}<strong className="profile-emphasis">{t('presentation.text_bold_1')}</strong>{t('presentation.text_2')}{t('presentation.text_bold_2')}{t('presentation.text_3')}{t('presentation.text_bold_3')}{t('presentation.text_4')}<strong className="profile-emphasis">{t('presentation.text_bold_4')}</strong>{t('presentation.text_5')}
+        {t('presentation.text_1')}<MinecraftMemory />{t('presentation.text_2')}{t('presentation.text_bold_2')}{t('presentation.text_3')}{t('presentation.text_bold_3')}{t('presentation.text_4')}<strong className="profile-emphasis">{t('presentation.text_bold_4')}</strong>{t('presentation.text_5')}
       </p>
     </>
   );
 }
 
 function Qualifications({ t }: { t: TFunction }): JSX.Element {
-  return (
-    <ul className="qualification-list">
-      <li><a href="https://www.francecompetences.fr/recherche/RNCP/40150/" target="_blank" rel="noopener noreferrer" className="qualification-link"><span>{t('degree5')}</span><span className="qualification-arrow" aria-hidden="true">&#8599;</span></a></li>
-      <li><a href="https://istic.univ-rennes.fr/licence-informatique-parcours-informatique" target="_blank" rel="noopener noreferrer" className="qualification-link"><span>{t('degree1')}</span><span className="qualification-arrow" aria-hidden="true">&#8599;</span></a></li>
-      <li><a href="https://www.mydigitalschool.com/bachelor-1-2-web" target="_blank" rel="noopener noreferrer" className="qualification-link"><span>{t('degree2')}</span><span className="qualification-arrow" aria-hidden="true">&#8599;</span></a></li>
-      <li><a href="https://www.francecompetences.fr/recherche/rncp/37873/" target="_blank" rel="noopener noreferrer" className="qualification-link"><span>{t('degree3')}</span><span className="qualification-arrow" aria-hidden="true">&#8599;</span></a></li>
-      <li><a href="https://cyber.gouv.fr/offre-de-service/formations-entrainement-et-decouverte-des-metiers/formations/formations-delivrees-par-lanssi/mooc-secnumacademie/" target="_blank" rel="noopener noreferrer" className="qualification-link"><span>{t('degree4')}</span><span className="qualification-arrow" aria-hidden="true">&#8599;</span></a></li>
-    </ul>
-  );
+  const degrees = [
+    { key: 'degree5', date: '2024 — 2026', field: 'Full-Stack · RNCP 7', href: 'https://www.francecompetences.fr/recherche/RNCP/40150/' },
+    { key: 'degree2', date: '2023 — 2024', field: 'Web · MyDigitalSchool', href: 'https://www.mydigitalschool.com/bachelor-1-2-web' },
+    { key: 'degree1', date: '2020 — 2023', field: t('about_interactions.computing') + ' · ISTIC', href: 'https://istic.univ-rennes.fr/licence-informatique-parcours-informatique' },
+    { key: 'degree3', date: 'RNCP', field: t('about_interactions.applications'), href: 'https://www.francecompetences.fr/recherche/rncp/37873/' },
+    { key: 'degree4', date: 'ANSSI', field: t('about_interactions.security'), href: 'https://cyber.gouv.fr/offre-de-service/formations-entrainement-et-decouverte-des-metiers/formations/formations-delivrees-par-lanssi/mooc-secnumacademie/' },
+  ];
+  return <ul className="profile-degree-grid">{degrees.map(({ key, date, field, href }) => <li key={key}>
+    <a className="profile-degree-card" href={href} target="_blank" rel="noopener noreferrer">
+      <span className="profile-degree-meta"><span>{date}</span><FaGraduationCap aria-hidden="true" /></span>
+      <strong>{t(key)}</strong><span className="profile-degree-field">{field}<span aria-hidden="true">↗</span></span>
+    </a>
+  </li>)}</ul>;
 }
 
 function Hobbies({ t, onSecretClick }: { t: TFunction; onSecretClick: () => void }): JSX.Element {
-  return (
-    <>
-      <p className="hobbies-intro">{t('outside_of_coding')}</p>
-      <div className="hobbies-list">
-        <span className="hobby"><span className="hobby-symbol" aria-hidden="true">✈️</span><span>{t('hobby1')}</span></span>
-        <span className="hobby"><span className="hobby-symbol" aria-hidden="true">🍳</span><span>{t('hobby2')}</span></span>
-        <span className="hobby"><span className="hobby-symbol" aria-hidden="true">🔭</span><span>{t('hobby3')}</span></span>
-        <span className="hobby"><span className="hobby-symbol" aria-hidden="true">🐈</span><span>{t('hobby4')}</span></span>
-        <button type="button" className="hobby secret" onClick={onSecretClick}><span className="hobby-symbol" aria-hidden="true">🥂</span><span>{t('hobby5')}</span></button>
-        <span className="hobby"><span className="hobby-symbol" aria-hidden="true">🎮</span><span>{t('hobby6')}</span></span>
-        <span className="hobby"><span className="hobby-symbol" aria-hidden="true">🍿</span><span>{t('hobby7')}</span></span>
-        <span className="hobby"><span className="hobby-symbol" aria-hidden="true">🧩</span><span>{t('hobby8')}</span></span>
+  const hobbies = [
+    { symbol: '✈️', index: 0 },
+    { symbol: '🔭', index: 2 },
+    { symbol: '🐈', index: 3 },
+    { symbol: '🥂', index: 4 },
+    { symbol: '🎮', index: 5 },
+    { symbol: '🧩', index: 7 },
+  ];
+  return <>
+    <p className="hobbies-intro">{t('outside_of_coding')}</p>
+    <div className="profile-hobby-grid">{hobbies.map(({ symbol, index }) => <article key={symbol} className="profile-hobby-card" data-hobby={index}>
+      <div className="profile-hobby-banner">
+        <h3 className="profile-hobby-heading">
+          {index === 4 ? <button type="button" className="profile-hobby-secret" onClick={onSecretClick}><strong>{t(`hobby${index + 1}`)}</strong></button>
+            : <strong>{t(`hobby${index + 1}`)}</strong>}
+        </h3>
+        <HobbyArtwork index={index} />
       </div>
-    </>
-  );
+      <span className="profile-hobby-detail">{t(`about_interactions.hobby_details.${index + 1}`)}</span>
+    </article>)}</div>
+  </>;
 }
 
 export default AboutCard;

@@ -1,4 +1,23 @@
 {
+    "coding_years": "Ans à coder",
+    "coding_since": "depuis {{year}}",
+    "about_interactions": {
+        "mine_label": "2017 grâce à Minecraft — miner le bloc",
+        "mined": "Bloc miné ! Le début de l’aventure, en 2017.",
+        "computing": "Informatique",
+        "applications": "Conception d’applications",
+        "security": "Cybersécurité",
+        "hobby_details": {
+            "1": "Deux voyages dont je rêve : le Japon et l’Islande, notamment pour ses paysages.",
+            "2": "J’adore préparer des desserts, surtout le flan aux œufs. Et côté salé : un poulet au curry !",
+            "3": "Ce qui me passionne dans l’astronomie, c’est qu’on en apprend tous les jours. Chaque découverte soulève de nouvelles questions : je me demande si on arrivera un jour à tout comprendre.",
+            "4": "Les chats, sans hésiter. Difficile de résister à ces petites boules de poils.",
+            "5": "Sortir avec mes amis, partir en balade, créer des souvenirs… Profiter des petits moments et vivre pleinement, tout simplement.",
+            "6": "Partager une partie, se prendre au jeu et passer un bon moment.",
+            "7": "Fan de Doctor Who. Le temps et l’espace ne manquent pas de bonnes histoires.",
+            "8": "Se laisser embarquer dans une histoire et chercher ensemble la solution."
+        }
+    },
     "professional_availability": "Disponible pour des missions freelance et ouvert à un poste en équipe.",
     "solar_kuiper_name": "Ceinture de Kuiper",
     "solar_pluto_name": "Pluton",
@@ -41,7 +60,7 @@
     "hobby1": "Voyager",
     "hobby2": "Cuisiner",
     "hobby3": "Astronomie",
-    "hobby4": "M'occuper d'animaux",
+    "hobby4": "Les animaux",
     "hobby5": "Profiter de la vie",
     "hobby6": "E-sports",
     "hobby7": "Séries / Films",

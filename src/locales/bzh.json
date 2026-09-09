@@ -1,4 +1,23 @@
 {
+    "coding_years": "Bloavezhioù o kodiñ",
+    "coding_since": "abaoe {{year}}",
+    "about_interactions": {
+        "mine_label": "2017 gant Minecraft — mengleuziañ ar bloc’h",
+        "mined": "Bloc’h mengleuziet ! An avantur a grogas e 2017.",
+        "computing": "Urzhiataerezh",
+        "applications": "Sevel arloadoù",
+        "security": "Sursentez niverel",
+        "hobby_details": {
+            "1": "Daou veaj a hunvrean ober: Japan hag Island, dreist-holl evit he gweledvaoù.",
+            "2": "Plijout a ra din fardañ dibennoù-pred, flan gant vioù dreist-holl. Hag ur c’hilhog gant kari ivez !",
+            "3": "Ar pezh a blij din en astronomiezh eo e tesker traoù nevez bemdez. Pep dizoloadenn a zegas goulennoù nevez: en em c’houlenn a ran hag-eñ e teuimp un deiz da gompren pep tra.",
+            "4": "Ar c’hizhier, hep mar ebet. Diaes eo herzel ouzh ar bouloù blev-se.",
+            "5": "Mont er-maez gant ma mignoned, mont da vale, krouiñ eñvorennoù… Profitañ eus ar mareoù bihan ha bevañ da vat, ken eeun-se.",
+            "6": "Rannañ ur c’hoari, kemer plijadur ha tremen ur mare mat.",
+            "7": "Fan eus Doctor Who. Kalz istorioù zo en amzer hag en egor.",
+            "8": "En em lezel kas gant un istor ha klask an diskoulm asambles."
+        }
+    },
     "professional_availability": "Digeriñ a ran da gefridioù dizalc’h ha d’ur post implij en ur skipailh.",
     "solar_kuiper_name": "Gouriz Kuiper",
     "solar_pluto_name": "Plouton",
@@ -41,7 +60,7 @@
     "hobby1": "Beajiñ",
     "hobby2": "Keginat",
     "hobby3": "Steredoniezh",
-    "hobby4": "Kuzhat loened",
+    "hobby4": "Al loened",
     "hobby5": "Bevañ ar vuhez",
     "hobby6": "Sportoù-niverel",
     "hobby7": "Heuliadoù / Filmoù",

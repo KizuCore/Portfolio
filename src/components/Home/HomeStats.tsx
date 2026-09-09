@@ -8,7 +8,9 @@ function HomeStats() {
   const section = useRef<HTMLDivElement>(null);
   const visible = useInView(section, { once: true, amount: 0.4 });
   const reduceMotion = useReducedMotion();
+  const codingStartYear = 2017;
   const stats = [
+    { value: new Date().getFullYear() - codingStartYear, labels: [t('coding_years'), t('coding_since', { year: codingStartYear })] },
     { value: 2, labels: [t('years'), t('experience_home')] },
     { value: 5, labels: [t('years'), t('studies')] },
     { value: 40, prefix: '+', labels: [t('projects'), t('completed')] },
@@ -21,7 +23,7 @@ function HomeStats() {
         {stats.map((stat, index) => (
           <motion.div
             key={index}
-            className="col-6 col-md-3 d-flex justify-content-center"
+            className="col-6 col-md-4 col-lg d-flex justify-content-center"
             initial={reduceMotion ? false : { opacity: 0, y: 16 }}
             animate={visible || reduceMotion ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: reduceMotion ? 0 : 0.45, delay: reduceMotion ? 0 : index * 0.3 }}

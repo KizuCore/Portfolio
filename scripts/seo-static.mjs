@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { createRequire } from "node:module";
 import path from "node:path";
 import vm from "node:vm";
 import ts from "typescript";
@@ -12,7 +13,7 @@ const SITE_URL = (process.env.VITE_SITE_URL || "https://theo-guerin.fr").replace
 const SEO_CONFIG_PATH = path.join(ROOT_DIR, "src", "config", "seo.ts");
 const PORTFOLIO_DATA_PATH = path.join(ROOT_DIR, "src", "data", "portfolio.ts");
 const LOCALES_DIR = path.join(ROOT_DIR, "src", "locales");
-const { BUSINESS_PAGES, getBusinessPage } = loadTsModule(path.join(ROOT_DIR, "src", "data", "businessPages.ts"));
+const { getBusinessPage, getBusinessPages, getBusinessLabels } = loadTsModule(path.join(ROOT_DIR, "src", "data", "businessPages.ts"));
 const { getBusinessSchema } = loadTsModule(path.join(ROOT_DIR, "src", "config", "businessSchema.ts"));
 
 // Load a TypeScript config/data file inside the Node SEO scripts without requiring a build step.
@@ -21,11 +22,13 @@ function loadTsModule(filePath) {
   const output = ts.transpileModule(source, {
     compilerOptions: {
       module: ts.ModuleKind.CommonJS,
+      esModuleInterop: true,
       target: ts.ScriptTarget.ES2020,
     },
   }).outputText;
 
   const sandbox = {
+    require: createRequire(filePath),
     exports: {},
     module: { exports: {} },
   };
@@ -78,7 +81,7 @@ function getPreviewImageUrl(profile) {
 
 // Build the route title with the same route/base-title convention as the React SEO component.
 function buildTitle({ pathname, routeSeo, localeData }) {
-  const page = getBusinessPage(pathname);
+  const page = getBusinessPage(pathname, localeData.business_pages.locale);
   if (page) return `${page.title} | Théo Guérin`;
   const baseTitle = tx(localeData, "seo_title");
   const route = routeSeo[pathname];
@@ -88,7 +91,7 @@ function buildTitle({ pathname, routeSeo, localeData }) {
 
 // Build the route description from the localized SEO metadata.
 function buildDescription({ pathname, routeSeo, localeData }) {
-  const page = getBusinessPage(pathname);
+  const page = getBusinessPage(pathname, localeData.business_pages.locale);
   if (page) return page.description;
   const route = routeSeo[pathname];
   return route?.descriptionKey
@@ -254,7 +257,7 @@ function buildStructuredData({ pathname, canonicalUrl, title, description, htmlL
     about: { "@id": `${SITE_URL}/#person` },
     ...(pageSchemaType === "ProfilePage" ? { mainEntity: { "@id": `${SITE_URL}/#person` } } : {}),
   };
-  const graph = [personSchema, websiteSchema, pageSchema, ...getBusinessSchema(getBusinessPage(pathname), SITE_URL)];
+  const graph = [personSchema, websiteSchema, pageSchema, ...getBusinessSchema(getBusinessPage(pathname, localeData.business_pages.locale), SITE_URL, localeData.business_pages.locale, localeData.business_pages.labels.home)];
 
   if (pathname === "/" || pathname === "/about") {
     graph.push({
@@ -294,10 +297,10 @@ function buildStructuredData({ pathname, canonicalUrl, title, description, htmlL
 
 // Build the no-JavaScript body content for each public route from shared data and translations.
 function buildRouteContent({ pathname, localeData, portfolio }) {
-  const businessPage = getBusinessPage(pathname);
+  const businessPage = getBusinessPage(pathname, localeData.business_pages.locale);
   if (businessPage) {
     const project = portfolio.PORTFOLIO_PROJECTS.find((item) => item.caseStudyPath === `/fr${businessPage.path}`);
-    return `<div id="seo-prerender">${renderBusinessPage(businessPage, BUSINESS_PAGES, project, escapeHtml)}</div>`;
+    return `<div id="seo-prerender">${renderBusinessPage(businessPage, getBusinessPages(localeData.business_pages.locale), project, escapeHtml, localeData.business_pages.locale, getBusinessLabels(localeData.business_pages.locale))}</div>`;
   }
   const projects = getSortedProjects(portfolio.PORTFOLIO_PROJECTS);
   const experiences = getExperiences(localeData);
@@ -308,7 +311,7 @@ function buildRouteContent({ pathname, localeData, portfolio }) {
     <h1>${escapeHtml(tx(localeData, "home_offer.title"))} ${escapeHtml(tx(localeData, "home_offer.specialty"))}</h1>
     <p>${escapeHtml(tx(localeData, "home_offer.description"))}</p>
     <p>${escapeHtml(tx(localeData, "professional_availability"))}</p>
-    <nav aria-label="Services"><ul>${BUSINESS_PAGES.map((page) => `<li><a href="/fr${escapeHtml(page.path)}" hreflang="fr">${escapeHtml(page.title)}</a></li>`).join("")}</ul></nav>
+    <nav aria-label="Services"><ul>${getBusinessPages(localeData.business_pages.locale).map((page) => `<li><a href="/${page.kind === "case-study" ? localeData.business_pages.locale : "fr"}${escapeHtml(page.path)}">${escapeHtml(page.title)}</a></li>`).join("")}</ul></nav>
     <section><h2>${escapeHtml(tx(localeData, "services.title"))}</h2><p>${escapeHtml(tx(localeData, "services.subtitle"))}</p></section>
     <section><h2>${escapeHtml(tx(localeData, "professional_skills"))}</h2><p>${escapeHtml(skills.join(", "))}</p></section>
     <section><h2>${escapeHtml(tx(localeData, "projects"))}</h2><ul>${projects.slice(0, 6).map((project) => `<li>${escapeHtml(projectTitle(project, localeData))} - ${escapeHtml(projectDescription(project, localeData))}</li>`).join("")}</ul></section>

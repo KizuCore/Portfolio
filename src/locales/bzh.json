@@ -655,7 +655,146 @@
         "projects": "Gwelet ma raktresoù",
         "case_label": "Eus ar soñj d’ar raktres",
         "case_description": "Ul lec’hienn evit ur gwirti gant prizioù e Google Sheets, deiziadoù Airbnb hag ur priz rakwelet evit ar chomadenn.",
-        "case_link": "Lenn an studiadenn (e galleg)",
+        "case_link": "Lenn an studiadenn",
         "service_link": "Gwelet ar servij (e galleg)"
+    },
+    "business_pages": {
+        "locale": "bzh",
+        "labels": {
+            "breadcrumb": "Hent merdeiñ",
+            "home": "Degemer",
+            "services": "Servijoù",
+            "project": "Raktres",
+            "tags": "Tachennoù ar raktres",
+            "talk": "Komzomp eus ho raktres",
+            "details": "Dizoloiñ ar munudoù",
+            "credit": "Ergrafañ ha diorren gant Théo Guérin",
+            "service_eyebrow": "Eus ar soñj d’al livradur",
+            "case_eyebrow": "A-dreñv ar raktres",
+            "service_heading": "Ur raktres sklaer, e pep pazenn.",
+            "case_heading": "An ezhomm, an dibaboù, ar raktres.",
+            "developer": "Diorroer web dizalc’h e Roazhon",
+            "experience": "Dizoloiñ ma hentad",
+            "visit": "Gwelet al lec’hienn",
+            "new_tab": "ivinell nevez",
+            "code": "Dizoloiñ ar c’hod",
+            "before": "A-raok kregiñ",
+            "faq": "Respontoù d’ho koulennoù.",
+            "related": "Evit mont pelloc’h",
+            "service": "Servij",
+            "case_study": "Studiadenn",
+            "next_project": "Ho raktres da zont",
+            "contact_heading": "Krogomp gant ho ezhomm.",
+            "contact_description": "Ho pal, ho teiziad, an ostilhoù a implijit : un nebeud linennoù a zo a-walc’h evit kregiñ da gaozeal.",
+            "contact": "Deskrivañ ma raktres"
+        },
+        "cases": {
+            "a-table": {
+                "eyebrow": "Raktres personel · Arload Flutter",
+                "title": "À table ! — Mirout un lagad war ho kegin",
+                "description": "Studiadenn À table ! : un arload Flutter diorroet gant Théo Guérin evit merañ ar boued, heuliañ an deiziadoù diamzer ha resev degasadennoù da soñj.",
+                "intro": "Er gêr e felle din gouzout aes peseurt boued a oa ganeomp ha peseurt produioù a oa o tostaat d’o deiziad diamzer. Ne anavezen ket un arload a glote gant ma ezhomm : krouet em eus À table ! evit kaout al listenn-se dindan an dorn ha chom hep ankouaat produioù e foñs ar yenerez.",
+                "tags": [
+                    "Raktres personel",
+                    "Flutter · Dart",
+                    "Roll ar boued",
+                    "Degasadennoù da soñj",
+                    "Hep kenrouedad"
+                ],
+                "sections": [
+                    {
+                        "title": "Un ezhomm fetis er gêr",
+                        "text": "Da gentañ e klasken un ostilh evit ar prenadennoù hag ar boued a oa dija er gêr. Eeun e oa ar soñj : gallout gwelet petra a oa er gegin, merkañ an deiziadoù ha kavout ar produioù a oa eno abaoe re bell. Savet em eus ar raktres tro-dro da roll ar boued pemdeziek."
+                    },
+                    {
+                        "title": "Gouzout petra hon eus hep gwiriañ pep tra",
+                        "text": "Pep boued en deus ur fichenn gant e anv, e gementad, e lec’h hag, pa vezont anavezet, e zeiziad pren hag e zeiziad diamzer. Gallout a reer urzhiañ ar roll dre zeiziad evit lakaat war wel ar produioù da evezhiañ.",
+                        "items": [
+                            "Ouzhpennañ, kemmañ pe dilemel ur boued.",
+                            "Silañ boued ar yenerez, ar skornerez pe ar pres.",
+                            "Merkañ un deiziad diamzer gant berradennoù evel +2, +7 pe +30 devezh."
+                        ]
+                    },
+                    {
+                        "title": "Rakwelout an deiziadoù e-lec’h o ankouaat",
+                        "text": "An arload a ziforc’h ar boued a zo mat c’hoazh, ar boued tost da vezañ diamzer hag ar boued diamzer. Ur sell deiziadur a ziskouez an deiziadoù. Kemennadennoù lec’hel a zegas da soñj emañ ur produ o tostaat d’e zeiziad diamzer, gant un dale rakdiwall a c’haller dibab.",
+                        "items": [
+                            "Merkoù er roll pa vez an deiziad o tostaat pe tremenet.",
+                            "Un deiziadur evit gwelet an deiziadoù da zont.",
+                            "Degasadennoù da soñj a-raok an deiziad diamzer, hervez an aotreoù hag ar savenn implijet."
+                        ]
+                    },
+                    {
+                        "title": "Un arload a c’haller implijout hep kenrouedad",
+                        "text": "Dibabet em eus Flutter ha Dart evit an etrefas, gant Material 3. Miret eo ar boued war an trevnad en ur stlennvon Isar : n’eus ket ezhomm eus ur gennask rouedad evit sellet ouzh ar roll pe e hizivaat.",
+                        "items": [
+                            "Riverpod evit merañ ar stad hag hizivadurioù an etrefas.",
+                            "Isar evit mirout roadennoù ar boued ent lec’hel.",
+                            "GoRouter evit ar merdeiñ ha TableCalendar evit an deiziadoù.",
+                            "Kefridioù dispartiet etre ar skrammoù, ar patromoù roadennoù, an haeziñ d’ar stlennvon hag ar c’hemennadennoù."
+                        ]
+                    },
+                    {
+                        "title": "Eus un ezhomm personel d’ur raktres fetis",
+                        "text": "À table ! a vod roll ar boued, an deiziadoù hag an degasadennoù da soñj en un ostilh hepken. Ar raktres-mañ a ziskouez penaos e loc’han eus un implij gwirion, e tresan an hentadoù pennañ hag e liamman un etrefas Flutter ouzh ur stokañ lec’hel hag ouzh kemennadennoù an trevnad. E bal eo sikour da ankouaat nebeutoc’h a voued ha da wastañ nebeutoc’h."
+                    }
+                ],
+                "questions": [
+                    {
+                        "question": "Ha listenn ar prenadennoù eo?",
+                        "answer": "Ganet eo ar raktres diwar un ezhomm liammet ouzh ar prenadennoù er gêr. Ar stumm kinniget a bled gant ar boued a zo dija hegerz, ar c’hementadoù, al lec’hioù hag an deiziadoù diamzer. Ar roll-mañ a sikour ivez da wiriañ petra hon eus a-raok mont da brenañ."
+                    },
+                    {
+                        "question": "Penaos e ya ar c’hemennadennoù en-dro?",
+                        "answer": "Gallout a reer programmiñ ur gemennadenn lec’hel a-raok an deiziad diamzer, hervez an dale dibabet en arventennoù. Chom a ra ar boued diamzer merket er roll. Ar c’hemennadennoù a zepant eus aotreoù an trevnad ha ne vezont ket programmet dindan Linux er stumm-mañ."
+                    },
+                    {
+                        "question": "Ha hegerz eo ar roadennoù hep Internet?",
+                        "answer": "Ya, miret eo ar roll ent lec’hel gant Isar. Ar stumm-mañ a ya en-dro war hezoug ha war urzhiataer ; ne ginnig ket goubredañ ar roll etre meur a drevnad."
+                    }
+                ]
+            },
+            "les-portes-de-montafilan": {
+                "eyebrow": "Studiadenn · Lec’hienn ur gwirti",
+                "title": "Les Portes de Montafilan : ul lec’hienn gwirti liammet ouzh Airbnb",
+                "description": "Studiadenn React ha TypeScript : ul lec’hienn gwirti gant prizioù Google Sheets, deiziadoù dihegerz Airbnb dre iCal ha priz rakwelet ar chomadenn, gant Théo Guérin.",
+                "intro": "Kinnig ar gwirti, sikour ar weladennerien da brientiñ o chomadenn ha lezel ar perc’henn da gemmañ e brizioù aes : tri ezhomm bodet en un etrefas React ha TypeScript.",
+                "tags": [
+                    "React",
+                    "TypeScript",
+                    "Google Sheets",
+                    "iCal"
+                ],
+                "sections": [
+                    {
+                        "title": "An ezhommoù hag ar redioù",
+                        "text": "Ret e oa d’ar raktres tremen hep koumanant miziek d’ur savenn ha hep backend kemplezh, en ur virout prizioù a c’haller kemmañ hep kod en un taolenner. Ret e oa ivez d’al lec’hienn derc’hel kont eus an deiziadoù dihegerz war Airbnb."
+                    },
+                    {
+                        "title": "An diskoulm savet",
+                        "text": "Diorroet em eus ul lec’hienn a ginnig ar gwirti hag a liamm prientidigezh ar chomadenn ouzh an ostilhoù implijet dija evit e verañ.",
+                        "items": [
+                            "Lenn ar prizioù diwar Google Sheets.",
+                            "Goubredañ an deiziadoù dihegerz Airbnb er furmad iCal.",
+                            "Jediñ ur priz rakwelet sklaer diwar an deiziadoù dibabet.",
+                            "Adkas da Airbnb gant an deiziadoù leuniet en a-raok."
+                        ]
+                    },
+                    {
+                        "title": "Hentad ar gweladenner",
+                        "text": "Ar gweladenner a zizolo al lec’h, a zibab e zeiziadoù hag a sell ouzh priz rakwelet ar chomadenn. Kenderc’hel a ra neuze gant e viradenn war Airbnb. Al lec’hienn a sikour da zibab ar chomadenn ; ar viradenn diwezhañ a chom meret war Airbnb."
+                    },
+                    {
+                        "title": "An dibaboù teknikel",
+                        "text": "React ha TypeScript a aoz an etrefas, Vite a sav ar raktres ha Tailwind CSS a ra war-dro e neuz. Implijout a ra ar raktres Vercel evit al lakaat enlinenn, Brevo evit ar posteloù ha Vitest ha Playwright evit ar prouadoù."
+                    },
+                    {
+                        "title": "Petra a c’haller ober gant al lec’hienn",
+                        "text": "Gallout a ra ar perc’henn kemmañ e brizioù diwar e daolenner. Ar weladennerien a gav ur sell war ar gwirti, an deiziadoù hag ur priz rakwelet a-raok mont da Airbnb. Al lec’hienn hag he c’hod a c’haller gwelet amañ dindan evit dizoloiñ ar raktres."
+                    }
+                ],
+                "questions": []
+            }
+        }
     }
 }

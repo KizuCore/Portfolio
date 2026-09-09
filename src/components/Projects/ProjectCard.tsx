@@ -2,6 +2,7 @@ import LoadingImage from "../Layout/LoadingImage";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
+import { getShortLocale, getLocalizedPath, getHtmlLang } from "../../config/seo";
 import { Link } from "react-router-dom";
 import "../../assets/styles/Projects/Projects.css";
 import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
@@ -42,7 +43,7 @@ function resolveResultKey(hasLiveDemo: boolean, hasVideo: boolean) {
 }
 
 function ProjectCard(props: ProjectCardProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const resultText = t(resolveResultKey(Boolean(props.seeLink), Boolean(props.youtubeLink)));
 
   return (
@@ -95,7 +96,7 @@ function ProjectCard(props: ProjectCardProps) {
         </div>
 
         <div className="button-group">
-          {props.caseStudyPath && <Link className="business-button" to={props.caseStudyPath} hrefLang="fr">{t("home_offer.case_link")} ↗</Link>}
+          {props.caseStudyPath && <Link className="business-button" to={getLocalizedPath(getShortLocale(i18n.language), props.caseStudyPath)} hrefLang={getHtmlLang(getShortLocale(i18n.language))}>{t("home_offer.case_link")} ↗</Link>}
           <Button
             className="button-github"
             href={props.ghLink}

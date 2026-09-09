@@ -1,3 +1,7 @@
+import fr from "../locales/fr.json";
+import en from "../locales/en.json";
+import bzh from "../locales/bzh.json";
+
 export type BusinessPage = {
   path: string;
   kind: "service" | "case-study";
@@ -11,29 +15,9 @@ export type BusinessPage = {
 };
 
 // Editorial content is shared by React and the static SEO build. Keep claims factual.
-// These pages are maintained in French; seo.ts canonicalizes untranslated aliases to /fr.
+// Services remain in French; case studies use the shared locale JSON files.
 export const BUSINESS_PAGES: BusinessPage[] = [
-  {
-    path: "/realisations/a-table",
-    kind: "case-study",
-    eyebrow: "Projet personnel · Application Flutter",
-    title: "À table ! - Garder un œil sur sa cuisine",
-    description: "Étude de cas À table ! : une application Flutter développée par Théo Guérin pour gérer les aliments, suivre leur péremption et recevoir des rappels.",
-    intro: "Chez nous, je voulais retrouver facilement les aliments disponibles et savoir lesquels arrivaient à péremption. Je ne connaissais pas d’application qui répondait à mon besoin : j’ai créé À table ! pour garder cette liste à portée de main et éviter d’oublier des produits au fond du frigo.",
-    tags: ["Projet personnel", "Flutter · Dart", "Inventaire alimentaire", "Rappels de péremption", "Hors connexion"],
-    sections: [
-      { title: "Un besoin concret à la maison", text: "Au départ, je cherchais un outil autour des courses et des aliments que nous avions déjà chez nous. L’idée était simple : pouvoir consulter le contenu de la cuisine, renseigner les dates et repérer ce qui attendait depuis trop longtemps. J’ai construit le projet autour de cet inventaire du quotidien." },
-      { title: "Retrouver ce qu’on a, sans tout vérifier", text: "Chaque aliment possède une fiche avec son nom, sa quantité, son emplacement et, si elles sont connues, sa date d’achat et sa date limite. L’inventaire se trie par échéance pour faire ressortir les produits à surveiller.", items: ["Ajouter, modifier ou supprimer un aliment.", "Filtrer le contenu du frigo, du congélateur ou du placard.", "Renseigner une date limite, avec des raccourcis comme +2, +7 ou +30 jours."] },
-      { title: "Anticiper les dates plutôt que les oublier", text: "L’application distingue les aliments OK, bientôt périmés et périmés. Une vue calendrier permet de retrouver les échéances. Des notifications locales rappellent qu’un produit approche de sa date limite, avec un délai d’anticipation réglable.", items: ["Des repères dans l’inventaire lorsque la date approche ou est dépassée.", "Un calendrier pour visualiser les prochaines échéances.", "Des rappels avant la date limite, selon les autorisations et la plateforme utilisées."] },
-      { title: "Une application utilisable hors connexion", text: "J’ai choisi Flutter et Dart pour l’interface, avec Material 3. Les aliments sont conservés sur l’appareil dans une base Isar : consulter et mettre à jour son inventaire ne dépend pas d’une connexion réseau.", items: ["Riverpod pour gérer l’état et les mises à jour de l’interface.", "Isar pour le stockage local des aliments.", "GoRouter pour la navigation et TableCalendar pour les échéances.", "Des responsabilités séparées entre écrans, modèles de données, accès à la base et notifications."] },
-      { title: "Du besoin personnel à un projet concret", text: "À table ! réunit l’inventaire, les dates et les rappels dans un même outil. Ce projet montre ma façon de partir d’un usage réel, de concevoir les parcours essentiels et de relier une interface Flutter à un stockage local et aux notifications de l’appareil. Son objectif est d’aider à moins oublier les aliments et à limiter le gaspillage." },
-    ],
-    questions: [
-      { question: "Est-ce une liste de courses ?", answer: "Le projet est né d’un besoin autour des courses à la maison. La version présentée se concentre sur la liste des aliments déjà disponibles, leurs quantités, leurs emplacements et leurs dates limites. Cet inventaire aide aussi à vérifier ce qu’on a avant de faire les courses." },
-      { question: "Comment fonctionnent les alertes ?", answer: "Une notification locale peut être programmée avant la date limite, selon le délai choisi dans les réglages. Les aliments dont la date est dépassée restent identifiables dans l’inventaire. Les notifications dépendent des autorisations de l’appareil et ne sont pas programmées sous Linux dans cette version." },
-      { question: "Les données sont-elles accessibles sans Internet ?", answer: "Oui, l’inventaire est stocké localement avec Isar. Cette version fonctionne sur mobile et desktop ; elle ne propose pas de synchronisation de l’inventaire entre plusieurs appareils." },
-    ],
-  },
+  { path: "/realisations/a-table", kind: "case-study", ...fr.business_pages.cases["a-table"] },
   {
     path: "/services/developpeur-react",
     kind: "service",
@@ -74,23 +58,7 @@ export const BUSINESS_PAGES: BusinessPage[] = [
       { question: "Le nom de domaine et l’hébergement sont-ils compris ?", answer: "Les coûts des services externes et leur gestion sont précisés dans la proposition. Ils dépendent des outils retenus pour votre site." },
     ],
   },
-  {
-    path: "/realisations/les-portes-de-montafilan",
-    kind: "case-study",
-    eyebrow: "Étude de cas · Site de gîte",
-    title: "Les Portes de Montafilan : un site de gîte connecté à Airbnb",
-    description: "Étude de cas React et TypeScript : un site de gîte avec tarifs Google Sheets, indisponibilités Airbnb via iCal et estimation du séjour, par Théo Guérin.",
-    intro: "Présenter le gîte, aider les visiteurs à préparer leur séjour et laisser le propriétaire modifier ses tarifs simplement : trois besoins réunis dans une interface React et TypeScript.",
-    tags: ["React", "TypeScript", "Google Sheets", "iCal"],
-    sections: [
-      { title: "Le besoin et les contraintes", text: "Le projet devait éviter un abonnement mensuel de plateforme et un backend complexe, tout en conservant des tarifs modifiables sans code depuis un tableur. Le site devait également tenir compte des indisponibilités Airbnb." },
-      { title: "La solution réalisée", text: "J’ai développé un site qui présente le gîte et relie la préparation du séjour aux outils déjà utilisés pour sa gestion.", items: ["Lecture des tarifs depuis Google Sheets.", "Synchronisation des indisponibilités Airbnb au format iCal.", "Calcul d’une estimation lisible à partir des dates choisies.", "Redirection vers Airbnb avec les dates préremplies."] },
-      { title: "Le parcours du visiteur", text: "Le visiteur découvre le lieu, choisit ses dates et consulte une estimation du séjour. Il poursuit ensuite sa réservation sur Airbnb. Le site accompagne le choix du séjour ; la réservation finale reste gérée sur Airbnb." },
-      { title: "Les choix techniques", text: "React et TypeScript structurent l’interface, Vite assure la construction du projet et Tailwind CSS sa présentation. Le projet utilise Vercel pour le déploiement, Brevo pour les emails et Vitest et Playwright pour les tests." },
-      { title: "Ce que le site permet", text: "Le propriétaire peut ajuster ses tarifs depuis son tableur. Les visiteurs disposent d’un aperçu du gîte, des dates et d’une estimation avant de rejoindre Airbnb. Le site et son code sont consultables ci-dessous pour découvrir la réalisation." },
-    ],
-    questions: [],
-  },
+  { path: "/realisations/les-portes-de-montafilan", kind: "case-study", ...fr.business_pages.cases["les-portes-de-montafilan"] },
   {
     path: "/services/developpeur-django",
     kind: "service",
@@ -131,6 +99,18 @@ export const BUSINESS_PAGES: BusinessPage[] = [
   },
 ];
 
-export function getBusinessPage(pathname: string): BusinessPage | undefined {
-  return BUSINESS_PAGES.find((page) => page.path === pathname);
+const translations = { fr, en, bzh };
+export function getBusinessLabels(locale: string = "fr") {
+  return translations[locale as keyof typeof translations]?.business_pages.labels ?? fr.business_pages.labels;
+}
+
+export function getBusinessPages(locale: string = "fr"): BusinessPage[] {
+  const cases = (translations[locale as keyof typeof translations] ?? fr).business_pages.cases;
+  return BUSINESS_PAGES.map(page => page.kind === "case-study"
+    ? { ...page, ...cases[page.path.split("/").pop() as keyof typeof cases] }
+    : page);
+}
+
+export function getBusinessPage(pathname: string, locale: string = "fr"): BusinessPage | undefined {
+  return getBusinessPages(locale).find(page => page.path === pathname);
 }

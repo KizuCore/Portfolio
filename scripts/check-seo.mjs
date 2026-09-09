@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { createRequire } from "node:module";
 import path from "node:path";
 import vm from "node:vm";
 import ts from "typescript";
@@ -26,11 +27,13 @@ function loadTsModule(filePath) {
   const output = ts.transpileModule(source, {
     compilerOptions: {
       module: ts.ModuleKind.CommonJS,
+      esModuleInterop: true,
       target: ts.ScriptTarget.ES2020,
     },
   }).outputText;
 
   const sandbox = {
+    require: createRequire(filePath),
     exports: {},
     module: { exports: {} },
   };
@@ -256,14 +259,22 @@ function main() {
     const person = graph.find((node) => node?.["@type"] === "Person");
     const webPage = graph.find((node) => String(node?.["@id"] || "").endsWith("#webpage"));
     // Catch regressions where a new route accidentally receives the generic home shell.
-    const businessPage = getBusinessPage(seoConfig.splitLocalizedPath(routePath).pathname);
+    const localizedRoute = seoConfig.splitLocalizedPath(routePath);
+    const businessLocale = seoConfig.getContentLocale(localizedRoute.locale ?? "fr", localizedRoute.pathname);
+    const businessPage = getBusinessPage(localizedRoute.pathname, businessLocale);
     if (businessPage) {
       assert(h1 === businessPage.title, `${routePath}: titre éditorial absent du HTML`, errors);
       for (const section of businessPage.sections) {
         assert(bodyText.includes(section.text), `${routePath}: contenu de section absent (${section.title})`, errors);
+        for (const item of section.items ?? []) {
+          assert(bodyText.includes(item), `${routePath}: élément de section absent (${section.title})`, errors);
+        }
+      }
+      for (const item of businessPage.questions) {
+        assert(bodyText.includes(item.question) && bodyText.includes(item.answer), `${routePath}: question ou réponse absente`, errors);
       }
       for (const related of BUSINESS_PAGES.filter((page) => page.path !== businessPage.path)) {
-        assert(html.includes(`href="/fr${related.path}"`), `${routePath}: lien connexe manquant`, errors);
+        assert(html.includes(`href="/${related.kind === "case-study" ? businessLocale : "fr"}${related.path}"`), `${routePath}: lien connexe manquant`, errors);
       }
       assert(graph.some((node) => node["@type"] === "BreadcrumbList"), `${routePath}: fil d’Ariane JSON-LD absent`, errors);
       if (businessPage.kind === "service") {

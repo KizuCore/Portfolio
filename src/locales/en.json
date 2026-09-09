@@ -655,7 +655,146 @@
         "projects": "View my work",
         "case_label": "From brief to delivery",
         "case_description": "A holiday cottage website with Google Sheets pricing, Airbnb availability and a stay estimate.",
-        "case_link": "Read the case study (French)",
+        "case_link": "Read the case study",
         "service_link": "Explore this service (French)"
+    },
+    "business_pages": {
+        "locale": "en",
+        "labels": {
+            "breadcrumb": "Breadcrumb",
+            "home": "Home",
+            "services": "Services",
+            "project": "Project",
+            "tags": "Project areas",
+            "talk": "Let’s talk about your project",
+            "details": "Explore the details",
+            "credit": "Designed and developed by Théo Guérin",
+            "service_eyebrow": "From idea to delivery",
+            "case_eyebrow": "Behind the scenes",
+            "service_heading": "A clear project, at every step.",
+            "case_heading": "The need, the choices, the result.",
+            "developer": "Freelance web developer in Rennes",
+            "experience": "Explore my experience",
+            "visit": "Visit the website",
+            "new_tab": "new tab",
+            "code": "Explore the code",
+            "before": "Before getting started",
+            "faq": "Your questions, answered.",
+            "related": "Explore further",
+            "service": "Service",
+            "case_study": "Case study",
+            "next_project": "Your next project",
+            "contact_heading": "Let’s start with your needs.",
+            "contact_description": "Your goal, your deadline, the tools you use: a few lines are enough to start the conversation.",
+            "contact": "Describe my project"
+        },
+        "cases": {
+            "a-table": {
+                "eyebrow": "Personal project · Flutter application",
+                "title": "À table! — Keep track of your kitchen",
+                "description": "À table! case study: a Flutter application developed by Théo Guérin to manage food, track expiry dates and receive reminders.",
+                "intro": "At home, I wanted to easily find out what food we had and what was approaching its expiry date. I did not know of an application that met my needs, so I created À table! to keep that list close at hand and avoid forgetting products at the back of the fridge.",
+                "tags": [
+                    "Personal project",
+                    "Flutter · Dart",
+                    "Food inventory",
+                    "Expiry reminders",
+                    "Offline"
+                ],
+                "sections": [
+                    {
+                        "title": "A practical need at home",
+                        "text": "Initially, I was looking for a tool to help with grocery shopping and the food we already had at home. The idea was simple: check what was in the kitchen, enter dates and spot anything that had been sitting there too long. I built the project around this everyday inventory."
+                    },
+                    {
+                        "title": "Know what you have without checking everything",
+                        "text": "Each food item has a record with its name, quantity, storage location and, when known, purchase and expiry dates. The inventory can be sorted by expiry date to highlight products that need attention.",
+                        "items": [
+                            "Add, edit or remove a food item.",
+                            "Filter the contents of the fridge, freezer or cupboard.",
+                            "Enter an expiry date using shortcuts such as +2, +7 or +30 days."
+                        ]
+                    },
+                    {
+                        "title": "Plan ahead instead of forgetting dates",
+                        "text": "The application distinguishes between food that is still within date, expiring soon and expired. A calendar view shows upcoming dates. Local notifications remind you when a product is approaching its expiry date, with an adjustable reminder period.",
+                        "items": [
+                            "Indicators in the inventory when an expiry date is approaching or has passed.",
+                            "A calendar to view upcoming expiry dates.",
+                            "Reminders before the expiry date, depending on permissions and the platform in use."
+                        ]
+                    },
+                    {
+                        "title": "An application that works offline",
+                        "text": "I chose Flutter and Dart for the interface, with Material 3. Food records are stored on the device in an Isar database, so viewing and updating the inventory does not depend on a network connection.",
+                        "items": [
+                            "Riverpod for state management and interface updates.",
+                            "Isar for local food storage.",
+                            "GoRouter for navigation and TableCalendar for expiry dates.",
+                            "Separate responsibilities for screens, data models, database access and notifications."
+                        ]
+                    },
+                    {
+                        "title": "From a personal need to a working project",
+                        "text": "À table! brings inventory, dates and reminders together in one tool. This project shows how I start from a real use case, design the essential user journeys and connect a Flutter interface to local storage and device notifications. Its aim is to help people forget fewer food items and reduce waste."
+                    }
+                ],
+                "questions": [
+                    {
+                        "question": "Is it a shopping list?",
+                        "answer": "The project started from a need related to grocery shopping at home. The version presented focuses on food already available, its quantities, storage locations and expiry dates. This inventory also helps you check what you have before shopping."
+                    },
+                    {
+                        "question": "How do alerts work?",
+                        "answer": "A local notification can be scheduled before the expiry date, using the reminder period selected in settings. Expired food remains identifiable in the inventory. Notifications depend on device permissions and are not scheduled on Linux in this version."
+                    },
+                    {
+                        "question": "Can I access my data without the Internet?",
+                        "answer": "Yes, the inventory is stored locally with Isar. This version works on mobile and desktop; it does not offer inventory synchronisation across devices."
+                    }
+                ]
+            },
+            "les-portes-de-montafilan": {
+                "eyebrow": "Case study · Holiday cottage website",
+                "title": "Les Portes de Montafilan: a holiday cottage website connected to Airbnb",
+                "description": "React and TypeScript case study: a holiday cottage website with Google Sheets pricing, Airbnb unavailable dates via iCal and stay estimates, by Théo Guérin.",
+                "intro": "Present the cottage, help visitors plan their stay and let the owner update prices easily: three needs brought together in a React and TypeScript interface.",
+                "tags": [
+                    "React",
+                    "TypeScript",
+                    "Google Sheets",
+                    "iCal"
+                ],
+                "sections": [
+                    {
+                        "title": "The needs and constraints",
+                        "text": "The project needed to avoid a monthly platform subscription and a complex backend, while keeping prices editable without code in a spreadsheet. The website also had to take Airbnb unavailable dates into account."
+                    },
+                    {
+                        "title": "The solution I built",
+                        "text": "I developed a website that presents the cottage and connects stay planning to the tools already used to manage it.",
+                        "items": [
+                            "Read prices from Google Sheets.",
+                            "Synchronise Airbnb unavailable dates through iCal.",
+                            "Calculate a clear estimate from the selected dates.",
+                            "Redirect to Airbnb with dates prefilled."
+                        ]
+                    },
+                    {
+                        "title": "The visitor journey",
+                        "text": "Visitors discover the property, choose their dates and view an estimate for their stay. They then continue their booking on Airbnb. The website helps them plan their stay; the final booking is handled on Airbnb."
+                    },
+                    {
+                        "title": "Technical choices",
+                        "text": "React and TypeScript structure the interface, Vite builds the project and Tailwind CSS handles styling. The project uses Vercel for deployment, Brevo for emails, and Vitest and Playwright for testing."
+                    },
+                    {
+                        "title": "What the website makes possible",
+                        "text": "The owner can adjust prices in their spreadsheet. Visitors get an overview of the cottage, dates and an estimate before moving on to Airbnb. The website and its code are linked below so you can explore the finished project."
+                    }
+                ],
+                "questions": []
+            }
+        }
     }
 }

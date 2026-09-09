@@ -42,7 +42,7 @@ function SeoMeta(): JSX.Element {
   const tx = i18n.getFixedT(contentLang);
 
   const baseTitle = tx("seo_title");
-  const businessPage = getBusinessPage(pathname);
+  const businessPage = getBusinessPage(pathname, contentLang);
   const pageTitle = currentRoute ? tx(currentRoute.titleKey) : "";
   const fullTitle = businessPage ? `${businessPage.title} | Théo Guérin` : pathname === "/" || !pageTitle ? baseTitle : `${pageTitle} | ${baseTitle}`;
   const description = businessPage?.description ?? (currentRoute?.descriptionKey
@@ -124,7 +124,7 @@ function SeoMeta(): JSX.Element {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@graph": [personSchema, websiteSchema, webPageSchema, ...getBusinessSchema(businessPage, siteUrl)],
+    "@graph": [personSchema, websiteSchema, webPageSchema, ...getBusinessSchema(businessPage, siteUrl, contentLang, tx("business_pages.labels.home"))],
   };
 
   return (

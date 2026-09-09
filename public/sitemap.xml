@@ -4,7 +4,7 @@
     <loc>https://theo-guerin.fr/fr/services/developpeur-react</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/services/developpeur-react" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/services/developpeur-react" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -12,7 +12,7 @@
     <loc>https://theo-guerin.fr/fr/services/developpeur-django</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/services/developpeur-django" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/services/developpeur-django" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -20,7 +20,7 @@
     <loc>https://theo-guerin.fr/fr/services/developpeur-flutter</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/services/developpeur-flutter" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/services/developpeur-flutter" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -28,23 +28,67 @@
     <loc>https://theo-guerin.fr/fr/services/creation-site-internet-rennes</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/services/creation-site-internet-rennes" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/services/creation-site-internet-rennes" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://theo-guerin.fr/fr/realisations/a-table</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/realisations/a-table" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/realisations/a-table" />
+    <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/realisations/a-table" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/realisations/a-table" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theo-guerin.fr/en/realisations/a-table</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/realisations/a-table" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/realisations/a-table" />
+    <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/realisations/a-table" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/realisations/a-table" />
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theo-guerin.fr/bzh/realisations/a-table</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/realisations/a-table" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/realisations/a-table" />
+    <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/realisations/a-table" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/realisations/a-table" />
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://theo-guerin.fr/fr/realisations/les-portes-de-montafilan</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/realisations/les-portes-de-montafilan" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/realisations/les-portes-de-montafilan" />
+    <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/realisations/les-portes-de-montafilan" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/realisations/les-portes-de-montafilan" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theo-guerin.fr/en/realisations/les-portes-de-montafilan</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/realisations/les-portes-de-montafilan" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/realisations/les-portes-de-montafilan" />
+    <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/realisations/les-portes-de-montafilan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/realisations/les-portes-de-montafilan" />
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://theo-guerin.fr/bzh/realisations/les-portes-de-montafilan</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/realisations/les-portes-de-montafilan" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/realisations/les-portes-de-montafilan" />
+    <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/realisations/les-portes-de-montafilan" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/realisations/les-portes-de-montafilan" />
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -54,7 +98,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -64,7 +108,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -74,7 +118,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -84,7 +128,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/about" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/about" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/about" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -94,7 +138,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/about" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/about" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/about" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -104,7 +148,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/about" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/about" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/about" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -114,7 +158,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/experience" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/experience" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/experience" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -124,7 +168,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/experience" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/experience" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/experience" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -134,7 +178,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/experience" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/experience" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/experience" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -144,7 +188,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/project" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/project" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/project" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -154,7 +198,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/project" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/project" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/project" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -164,7 +208,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/project" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/project" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/project" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -174,7 +218,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/contact" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/contact" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/contact" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -184,7 +228,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/contact" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/contact" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/contact" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -194,7 +238,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/contact" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/contact" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/contact" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -204,7 +248,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/cv" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/cv" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/cv" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -214,7 +258,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/cv" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/cv" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/cv" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -224,7 +268,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/cv" />
     <xhtml:link rel="alternate" hreflang="br" href="https://theo-guerin.fr/bzh/cv" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/cv" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -233,7 +277,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/mentions-legales" />
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/mentions-legales" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/mentions-legales" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -242,7 +286,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/mentions-legales" />
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/mentions-legales" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/mentions-legales" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -251,7 +295,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/politique-de-confidentialite" />
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/politique-de-confidentialite" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/politique-de-confidentialite" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -260,7 +304,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/politique-de-confidentialite" />
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/politique-de-confidentialite" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/politique-de-confidentialite" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -269,7 +313,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/politique-des-cookies" />
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/politique-des-cookies" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/politique-des-cookies" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -278,7 +322,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://theo-guerin.fr/fr/politique-des-cookies" />
     <xhtml:link rel="alternate" hreflang="en" href="https://theo-guerin.fr/en/politique-des-cookies" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://theo-guerin.fr/fr/politique-des-cookies" />
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>

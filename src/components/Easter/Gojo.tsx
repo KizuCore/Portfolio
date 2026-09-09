@@ -1,233 +1,95 @@
-import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import "../../assets/styles/Easter/style_easter.css";
+import { Link } from "react-router-dom";
+import { getLocalizedPath, getShortLocale } from "../../config/seo";
+import GojoEnergy from "./GojoEnergy";
 import "../../assets/styles/Easter/Gojo/Gojo.css";
 
-type GojoPhase = "prelude" | "duality" | "compression" | "purple" | "video";
-
-const T = {
-  prelude: 1600,
-  duality: 1900,
-  compression: 900,
-  purple: 1000,
-  hold: 500,
-};
+const STAGES = ["awakening", "duality", "convergence", "purple", "complete"] as const;
+const CUES = [0, 2400, 5500, 7900, 11200];
 
 export default function GojoCursedTechnique() {
-  const { t } = useTranslation();
-  const prefersReducedMotion = useReducedMotion();
-  const [phase, setPhase] = useState<GojoPhase>("prelude");
+  const { t, i18n } = useTranslation();
+  const reducedMotion = useReducedMotion();
+  const [stage, setStage] = useState(0);
+  const [playing, setPlaying] = useState(false);
+  const elapsed = useRef(0);
+  const complete = !!reducedMotion || stage === 4;
+  const phase = complete ? "complete" : STAGES[stage];
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      setPhase("video");
-      return;
-    }
-
-    const t1 = window.setTimeout(() => setPhase("duality"), T.prelude);
-    const t2 = window.setTimeout(() => setPhase("compression"), T.prelude + T.duality);
-    const t3 = window.setTimeout(() => setPhase("purple"), T.prelude + T.duality + T.compression);
-    const t4 = window.setTimeout(
-      () => setPhase("video"),
-      T.prelude + T.duality + T.compression + T.purple + T.hold
-    );
-
-    return () => {
-      window.clearTimeout(t1);
-      window.clearTimeout(t2);
-      window.clearTimeout(t3);
-      window.clearTimeout(t4);
+    elapsed.current = 0;
+    if (reducedMotion) return;
+    let frame = 0;
+    let previous = performance.now();
+    const tick = (now: number) => {
+      // Hidden tabs pause the sequence instead of skipping its climax.
+      if (!document.hidden) elapsed.current += Math.min(now - previous, 100);
+      previous = now;
+      const next = CUES.reduce((current, cue, index) => elapsed.current >= cue ? index : current, 0);
+      setStage(current => current === next ? current : next);
+      if (next < 4) frame = requestAnimationFrame(tick);
     };
-  }, [prefersReducedMotion]);
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [reducedMotion]);
 
   return (
-    <section className="gojo-route" aria-label={t("easter.gojo.aria_label")}>
-      <Container fluid className="gojo-shell p-0" id="home">
+    <section className="gojo-route" data-phase={phase} aria-label={t("easter.gojo.aria_label")}>
+      <div className="gojo-observatory">
+        <GojoEnergy elapsed={elapsed} complete={complete} reducedMotion={!!reducedMotion} />
+        <div className="gojo-grain" aria-hidden="true" />
+        <div className="gojo-grid" aria-hidden="true" />
+        <header className="gojo-topline">
+          <Link to={getLocalizedPath(getShortLocale(i18n.resolvedLanguage ?? i18n.language), "/")} className="gojo-back">
+            <span aria-hidden="true">↖</span> {t("easter.gojo.back")}
+          </Link>
+          <span className="gojo-classification"><i /> {t("easter.gojo.classification")}</span>
+          <span className="gojo-file">FILE / 006</span>
+        </header>
 
-        <div className="jk-wrapper">
-          <div className="jk-bg" aria-hidden="true" />
-          <div className="jk-vignette" aria-hidden="true" />
+        <div className="gojo-watermark" aria-hidden="true">無限</div>
+        <div className="gojo-orbit gojo-orbit-one" aria-hidden="true" />
+        <div className="gojo-orbit gojo-orbit-two" aria-hidden="true" />
 
-          <AnimatePresence mode="wait">
-            {phase === "prelude" && (
-              <motion.div
-                key="prelude"
-                className="preload-message title-font-easter jk-pretitle"
-                initial={{ opacity: 0, y: 14, filter: "blur(5px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -10, filter: "blur(8px)" }}
-                transition={{ duration: 0.48, ease: "easeOut" }}
-              >
-                <p className="jk-kicker">{t("easter.gojo.kicker")}</p>
-                <h1 className="jk-title">{t("easter.gojo.title")}</h1>
-                <p className="jk-subtitle">{t("easter.gojo.subtitle")}</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+        {!complete ? (
+          <>
+            <div className="gojo-intro">
+              <p className="gojo-eyebrow">{t("easter.gojo.kicker")} / 五条悟</p>
+              <h1>SATORU <span>GOJO</span></h1>
+              <p className="gojo-quote">{t("easter.gojo.quote")}</p>
+            </div>
+            <div className="gojo-eye" aria-hidden="true"><div /></div>
+            <div className="gojo-technique gojo-technique-blue" aria-hidden="true"><b>蒼</b><span>{t("easter.gojo.blue")}</span><small>−∞</small></div>
+            <div className="gojo-technique gojo-technique-red" aria-hidden="true"><b>赫</b><span>{t("easter.gojo.red")}</span><small>+∞</small></div>
+            <div className="gojo-climax" aria-hidden="true"><span>虚式</span><strong>茈</strong><p>HOLLOW PURPLE</p></div>
+          </>
+        ) : (
+          <div className="gojo-result">
+            <p className="gojo-eyebrow">{t("easter.gojo.unlocked")}</p>
+            <h1>HOLLOW <span>PURPLE</span></h1>
+            <p className="gojo-result-caption">{t("easter.gojo.result")}</p>
+            <div className="gojo-video-shell">
+              {playing ? (
+                <iframe src="https://www.youtube-nocookie.com/embed/JTGNRJEptc0?autoplay=1&rel=0" title="Sukuna VS Gojo" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen />
+              ) : (
+                <button className="gojo-play" onClick={() => setPlaying(true)}>
+                  <span className="gojo-video-kanji" aria-hidden="true">茈</span>
+                  <span className="gojo-play-icon" aria-hidden="true">▶</span>
+                  <span>{t("easter.gojo.watch")}<small>GOJO × SUKUNA</small></span>
+                </button>
+              )}
+            </div>
+          </div>
+        )}
 
-          <AnimatePresence>
-            {(phase === "duality" || phase === "compression") && (
-              <motion.div
-                key="duality"
-                className="jk-arena"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, transition: { duration: 0.32 } }}
-              >
-                <div className="jk-center-anchor">
-                  <motion.div
-                    className="jk-orb jk-orb-red"
-                    initial={{ x: "-36vw", y: 8, opacity: 0, rotate: -10, scale: 0.86 }}
-                    animate={
-                      phase === "duality"
-                        ? {
-                            x: ["-36vw", "-20vw", "-16vw"],
-                            y: [8, 0, -6],
-                            opacity: [0, 1, 0.95],
-                            rotate: [-10, -5, -2],
-                            scale: [0.86, 1.04, 1],
-                          }
-                        : {
-                            x: "-5.2vw",
-                            y: 0,
-                            opacity: [0.95, 1, 0.88],
-                            rotate: [-2, 0, -1],
-                            scale: [1, 1.12, 1],
-                          }
-                    }
-                    transition={{
-                      duration: phase === "duality" ? T.duality / 1000 : T.compression / 1000,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <span className="jk-tech-label">{t("easter.gojo.red")}</span>
-                  </motion.div>
-                </div>
-
-                <div className="jk-center-anchor">
-                  <motion.div
-                    className="jk-orb jk-orb-blue"
-                    initial={{ x: "36vw", y: -8, opacity: 0, rotate: 10, scale: 0.86 }}
-                    animate={
-                      phase === "duality"
-                        ? {
-                            x: ["36vw", "20vw", "16vw"],
-                            y: [-8, 0, 6],
-                            opacity: [0, 1, 0.95],
-                            rotate: [10, 5, 2],
-                            scale: [0.86, 1.04, 1],
-                          }
-                        : {
-                            x: "5.2vw",
-                            y: 0,
-                            opacity: [0.95, 1, 0.88],
-                            rotate: [2, 0, 1],
-                            scale: [1, 1.12, 1],
-                          }
-                    }
-                    transition={{
-                      duration: phase === "duality" ? T.duality / 1000 : T.compression / 1000,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <span className="jk-tech-label">{t("easter.gojo.blue")}</span>
-                  </motion.div>
-                </div>
-
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <AnimatePresence>
-            {phase === "purple" && (
-              <motion.div
-                key="purple"
-                className="jk-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <motion.div
-                  className="jk-purple-flash"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 1, 0] }}
-                  transition={{ duration: 0.34, ease: "easeOut" }}
-                />
-
-                <motion.div
-                  className="jk-purple-halo"
-                  initial={{ scale: 0.2, opacity: 0.8 }}
-                  animate={{ scale: 4.8, opacity: 0 }}
-                  transition={{ duration: T.purple / 1000, ease: "easeOut" }}
-                />
-
-                <motion.div
-                  className="jk-purple-core"
-                  initial={{ scale: 0.2, opacity: 0 }}
-                  animate={{
-                    scale: [0.2, 1.24, 1],
-                    opacity: [0, 1, 1],
-                    boxShadow: [
-                      "0 0 28px rgba(152,82,255,0.55)",
-                      "0 0 90px rgba(181,115,255,0.95)",
-                      "0 0 52px rgba(166,94,255,0.72)",
-                    ],
-                  }}
-                  transition={{ duration: T.purple / 1000, ease: "easeOut" }}
-                />
-
-                <motion.div
-                  className="jk-shockwave jk-shockwave-1"
-                  initial={{ scale: 0.15, opacity: 0.95 }}
-                  animate={{ scale: 9.2, opacity: 0 }}
-                  transition={{ duration: T.purple / 1000, ease: "easeOut" }}
-                />
-
-                <motion.div
-                  className="jk-shockwave jk-shockwave-2"
-                  initial={{ scale: 0.15, opacity: 0.7 }}
-                  animate={{ scale: 7.3, opacity: 0 }}
-                  transition={{ duration: T.purple / 1000, ease: "easeOut", delay: 0.08 }}
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <AnimatePresence>
-            {phase === "video" && (
-              <motion.div
-                key="video"
-                className="jk-video"
-                initial={{ opacity: 0, y: 24, scale: 0.96, filter: "blur(8px)" }}
-                animate={{
-                  opacity: 1,
-                  y: [0, -12, 0],
-                  scale: 1,
-                  filter: "blur(0px)",
-                }}
-                transition={{
-                  opacity: { duration: 0.62 },
-                  y: { duration: 6.8, repeat: Infinity, ease: "easeInOut" },
-                  scale: { duration: 0.62 },
-                }}
-              >
-                <div className="jk-video-shell">
-                  <div className="jk-video-head">{t("easter.gojo.subtitle")}</div>
-                  <iframe
-                    className="jk-video-frame"
-                    src="https://www.youtube.com/embed/JTGNRJEptc0?autoplay=1&mute=0&controls=1&modestbranding=1&rel=0"
-                    title="Sukuna VS Gojo"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </Container>
+        <footer className="gojo-console">
+          <div className="gojo-status" role="status"><span className="gojo-eyebrow">{t("easter.gojo.output")}</span><strong>{t(`easter.gojo.phases.${phase}`)}</strong></div>
+          <div className="gojo-steps" aria-hidden="true">{STAGES.slice(0, 4).map((name, index) => <span key={name} className={complete || stage >= index ? "is-active" : ""}><i />0{index + 1}</span>)}</div>
+          <span className="gojo-signature">LIMITLESS / &infin;</span>
+        </footer>
+      </div>
     </section>
   );
 }

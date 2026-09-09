@@ -489,6 +489,20 @@
     },
     "easter": {
         "gojo": {
+            "back": "Portfolio",
+            "classification": "Special grade",
+            "quote": "“Don’t worry. I’m the strongest.”",
+            "unlocked": "Secret technique unlocked",
+            "result": "Between attraction and repulsion, only the void remains.",
+            "watch": "Watch the fight",
+            "output": "Cursed energy",
+            "phases": {
+                "awakening": "Six Eyes awakening",
+                "duality": "Attraction × Repulsion",
+                "convergence": "Convergence of infinities",
+                "purple": "Imaginary technique: Purple",
+                "complete": "Infinity reached"
+            },
             "seo_title": "Hollow Purple",
             "aria_label": "Gojo Hollow Purple easter egg",
             "kicker": "CURSED TECHNIQUE",

@@ -491,6 +491,20 @@
     },
     "easter": {
         "gojo": {
+            "back": "Portfolio",
+            "classification": "Classe spéciale",
+            "quote": "« Ne t’inquiète pas. Je suis le plus fort. »",
+            "unlocked": "Technique secrète débloquée",
+            "result": "Entre l’attraction et la répulsion, il ne reste que le néant.",
+            "watch": "Voir le combat",
+            "output": "Énergie occulte",
+            "phases": {
+                "awakening": "Éveil des Six Yeux",
+                "duality": "Attraction × Répulsion",
+                "convergence": "Convergence des infinis",
+                "purple": "Technique imaginaire : Violet",
+                "complete": "Infini atteint"
+            },
             "seo_title": "Hollow Purple",
             "aria_label": "Easter egg Gojo Hollow Purple",
             "kicker": "TECHNIQUE MAUDITE",

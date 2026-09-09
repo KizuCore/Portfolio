@@ -489,6 +489,20 @@
     },
     "easter": {
         "gojo": {
+            "back": "Portfolio",
+            "classification": "Renk ispisial",
+            "quote": "« Na vez ket nec’het. Me eo an hini kreñvañ. »",
+            "unlocked": "Teknik kuzh dizac’het",
+            "result": "Etre an desachañ hag an argas, ne chom nemet ar goullo.",
+            "watch": "Sellout ouzh an emgann",
+            "output": "Energiezh milliget",
+            "phases": {
+                "awakening": "Dihun ar C’hwec’h Lagad",
+                "duality": "Desachañ × Argas",
+                "convergence": "Kej an anvevennoù",
+                "purple": "Teknik faltaziek: Mouk",
+                "complete": "Anvevenn tizhet"
+            },
             "seo_title": "Hollow Purple",
             "aria_label": "Easter egg Gojo Hollow Purple",
             "kicker": "TEKNIK MALLAOZET",

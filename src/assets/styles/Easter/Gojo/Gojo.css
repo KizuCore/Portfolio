@@ -1,312 +1,104 @@
-.gojo-route {
+﻿.gojo-route {
   position: relative;
-  min-height: 100svh;
+  isolation: isolate;
+  color: #eeeafa;
+  background: #05050b;
+  overflow: hidden;
+  --gojo-muted: #a19bb5;
+}
+.gojo-observatory {
+  position: relative;
+  min-height: max(760px, 100svh);
   overflow: hidden;
   isolation: isolate;
+  background: radial-gradient(ellipse at 50% 45%, #14102680, transparent 65%);
+  font-family: inherit;
+}
+.gojo-energy, .gojo-grain, .gojo-grid { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.gojo-energy { z-index: 1; }
+.gojo-grain { z-index: 5; opacity: .12; background: repeating-linear-gradient(0deg, transparent 0 3px, #b8b2da18 3px 4px); }
+.gojo-grid { opacity: .16; background-image: linear-gradient(#a89cc91a 1px, transparent 1px), linear-gradient(90deg, #a89cc91a 1px, transparent 1px); background-size: 90px 90px; mask-image: radial-gradient(ellipse, transparent 30%, black); }
+.gojo-topline, .gojo-console { position: absolute; z-index: 6; left: 5%; right: 5%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.gojo-topline { top: 106px; padding-bottom: 20px; border-bottom: 1px solid #bba2ef24; font: 10px/1.5 monospace; letter-spacing: .16em; text-transform: uppercase; }
+.gojo-back { color: #d3cde3; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; min-height: 44px; }
+.gojo-back:hover { color: #fff; }
+.gojo-back span { font-size: 20px; }
+.gojo-classification { display: flex; align-items: center; gap: 9px; color: #c0b3d9; }
+.gojo-classification i { width: 5px; height: 5px; background: #b293ec; border-radius: 50%; box-shadow: 0 0 12px #bb8eff; }
+.gojo-file { color: var(--gojo-muted); }
+.gojo-watermark { position: absolute; inset: 17% 0 auto; text-align: center; font-family: serif; font-size: clamp(160px, 32vw, 460px); letter-spacing: .05em; line-height: 1; color: #b5a6db05; user-select: none; }
+.gojo-orbit { position: absolute; left: 50%; top: 47%; width: min(64vw, 680px); aspect-ratio: 1; border: 1px solid #baa2ff17; border-radius: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+.gojo-orbit::after { content: ''; position: absolute; inset: 8%; border: 1px dashed #baa2ff17; border-radius: 50%; }
+.gojo-orbit-two { width: min(80vw, 850px); transform: translate(-50%, -50%) rotateX(65deg) rotate(-25deg); }
+.gojo-intro { position: absolute; z-index: 3; top: 64%; left: 5%; right: 5%; text-align: center; transition: opacity .8s, transform .8s; animation: gojo-rise 1.5s both; }
+.gojo-eyebrow { margin: 0 0 16px; color: #b6a5d6; font: 10px/1.6 monospace; letter-spacing: .3em; text-transform: uppercase; }
+.gojo-intro h1, .gojo-result h1 { margin: 0; color: #f0eaf9; font-size: clamp(35px, 5.4vw, 78px); font-weight: 300; line-height: 1.06; letter-spacing: -.045em; }
+.gojo-intro h1 span, .gojo-result h1 span { font-weight: 800; }
+.gojo-quote { margin-top: 18px; font-family: Georgia, serif; font-size: clamp(13px, 1.3vw, 17px); font-style: italic; color: var(--gojo-muted); }
+.gojo-eye { position: absolute; z-index: 2; left: 50%; top: 43%; width: clamp(170px, 23vw, 300px); height: clamp(65px, 9vw, 110px); border-radius: 80% 0 80% 0; border-top: 1px solid #a2dbff; border-bottom: 1px solid #3b7caa; transform: translate(-50%, -50%) rotate(12deg); background: radial-gradient(ellipse, #15466a99, #050911 65%); box-shadow: 0 0 65px #168eff24, inset 0 0 30px #3280c838; animation: gojo-eye-open 2.4s both; }
+.gojo-eye div { position: absolute; width: 70px; aspect-ratio: 1; left: 50%; top: 50%; transform: translate(-50%, -50%); border-radius: 50%; background: repeating-conic-gradient(#80daff 0deg 3deg, #155580 4deg 13deg, #b9f0ff 14deg 16deg); box-shadow: 0 0 26px #51c6ff; }
+.gojo-eye div::after { content: ''; position: absolute; inset: 32%; border-radius: 50%; background: #020810; box-shadow: 0 0 5px 3px #83dfff; }
+.gojo-technique { position: absolute; z-index: 3; top: 34%; display: flex; flex-direction: column; gap: 7px; text-align: center; opacity: 0; transition: opacity .8s, transform 1.5s; }
+.gojo-technique-blue { left: 9%; color: #70cfff; }
+.gojo-technique-red { right: 9%; color: #ff7e9f; }
+.gojo-technique b { font-family: serif; font-size: clamp(45px, 6vw, 84px); font-weight: 400; }
+.gojo-technique span { font: 10px monospace; letter-spacing: .3em; text-transform: uppercase; }
+.gojo-technique small { opacity: .6; font: 16px monospace; }
+[data-phase='duality'] .gojo-technique { opacity: 1; }
+[data-phase='convergence'] .gojo-technique { opacity: 0; transform: translateY(-25px); }
+[data-phase='convergence'] .gojo-intro, [data-phase='purple'] .gojo-intro { opacity: 0; transform: translateY(20px); }
+.gojo-climax { position: absolute; z-index: 4; top: 29%; left: 0; right: 0; text-align: center; opacity: 0; pointer-events: none; }
+.gojo-climax > span { font: 18px serif; letter-spacing: .7em; }
+.gojo-climax strong { display: block; font: clamp(100px, 19vw, 210px)/1.25 serif; color: #f5e4ff; text-shadow: 0 0 50px #e8b5ff90; }
+.gojo-climax p { margin-top: 30px; font-size: clamp(14px, 2vw, 23px); letter-spacing: .45em; font-weight: 700; }
+[data-phase='purple'] .gojo-climax { animation: gojo-purple-reveal 3.3s both; }
+.gojo-console { bottom: 35px; padding-top: 23px; border-top: 1px solid #bba2ef24; text-align: left; }
+.gojo-status { min-width: 190px; }
+.gojo-status .gojo-eyebrow { display: block; margin-bottom: 5px; font-size: 9px; }
+.gojo-status strong { font-size: 12px; font-weight: 500; letter-spacing: .03em; }
+.gojo-steps { display: flex; gap: 12px; }
+.gojo-steps span { color: #736a89; font: 9px monospace; }
+.gojo-steps i { display: block; height: 2px; width: clamp(25px, 5vw, 65px); margin-bottom: 10px; background: #7e67952e; transition: background .8s, box-shadow .8s; }
+.gojo-steps .is-active { color: #d0b7ee; }
+.gojo-steps .is-active i { background: #b489ec; box-shadow: 0 0 12px #aa73ff55; }
+.gojo-signature { color: var(--gojo-muted); font: 10px monospace; letter-spacing: .1em; }
+.gojo-result { position: relative; z-index: 4; width: min(760px, 86%); margin: 205px auto 150px; text-align: center; animation: gojo-rise 1s both; }
+.gojo-result h1 { font-size: clamp(35px, 5.5vw, 65px); }
+.gojo-result h1 span { color: #c7a2ff; }
+.gojo-result-caption { margin: 16px 0 26px; color: var(--gojo-muted); font-size: 13px; }
+.gojo-video-shell { overflow: hidden; border: 1px solid #b28ee647; background: #09070f; box-shadow: 0 0 70px #8543d51a; }
+.gojo-video-shell iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; }
+.gojo-play { position: relative; width: 100%; aspect-ratio: 16 / 9; border: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; color: #f0e4ff; background: radial-gradient(ellipse at 50% 80%, #713fb95c, transparent 65%), linear-gradient(135deg, #122035, #170c24 55%, #241023); cursor: pointer; }
+.gojo-video-kanji { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font: clamp(120px, 22vw, 250px) serif; color: #d7acff10; pointer-events: none; }
+.gojo-play-icon { z-index: 1; display: grid; place-items: center; width: 64px; height: 64px; border: 1px solid #dcc0ff70; border-radius: 50%; background: #d0a6ff0d; padding-left: 3px; box-shadow: 0 0 40px #a271ea26; transition: background .3s, box-shadow .3s; }
+.gojo-play:hover .gojo-play-icon { background: #d0a6ff26; box-shadow: 0 0 55px #a271ea50; }
+.gojo-play > span:last-child { z-index: 1; font-size: 13px; }
+.gojo-play small { display: block; margin-top: 8px; color: #b1a0c9; font: 9px monospace; letter-spacing: .25em; }
+.gojo-route a:focus-visible, .gojo-route button:focus-visible { outline: 2px solid #ccaeff; outline-offset: 5px; }
+.gojo-play:focus-visible { outline-offset: -5px !important; }
+@keyframes gojo-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes gojo-eye-open { 0% { opacity: 0; clip-path: inset(48% 0); } 35%, 75% { opacity: 1; clip-path: inset(0); } 100% { opacity: 0; clip-path: inset(45% 0); } }
+@keyframes gojo-purple-reveal { 0% { opacity: 0; transform: scale(.85); filter: blur(12px); } 30%, 80% { opacity: 1; transform: scale(1); filter: blur(0); } 100% { opacity: 0; transform: scale(1.08); filter: blur(4px); } }
+@media (max-width: 600px) {
+  .gojo-observatory { min-height: max(700px, 100svh); }
+  .gojo-topline { top: 86px; gap: 10px; font-size: 8px; letter-spacing: .1em; }
+  .gojo-file { display: none; }
+  .gojo-technique-blue { left: 7%; } .gojo-technique-red { right: 7%; }
+  .gojo-technique { top: 29%; }
+  .gojo-console { bottom: 25px; flex-wrap: wrap; gap: 18px; }
+  .gojo-status { min-width: 0; flex: 1; }
+  .gojo-signature { display: none; }
+  .gojo-steps { gap: 7px; }
+  .gojo-result { margin-top: 210px; width: 90%; }
+  .gojo-result .gojo-eyebrow { font-size: 8px; letter-spacing: .2em; }
+  .gojo-play-icon { width: 48px; height: 48px; }
+  .gojo-play { gap: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gojo-route *, .gojo-route *::before, .gojo-route *::after { animation: none !important; transition: none !important; }
 }
 
-.gojo-shell {
-  position: relative;
-  min-height: 100svh;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-
-.jk-wrapper {
-  position: relative;
-  width: 100%;
-  min-height: 100svh;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  isolation: isolate;
-  padding: clamp(0.6rem, 2vw, 1.25rem);
-}
-
-.jk-bg,
-.jk-vignette {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.jk-bg {
-  z-index: 0;
-  background:
-    linear-gradient(180deg, #05080f 0%, #071026 48%, #0b1630 100%),
-    radial-gradient(760px 440px at 20% 24%, rgba(255, 78, 127, 0.2), transparent 62%),
-    radial-gradient(840px 500px at 80% 25%, rgba(87, 186, 255, 0.22), transparent 62%),
-    radial-gradient(640px 340px at 50% 70%, rgba(139, 88, 255, 0.16), transparent 66%);
-  background-blend-mode: normal, screen, screen, screen;
-  opacity: 0.98;
-  will-change: opacity;
-  animation: jkNebulaPulse 7.6s ease-in-out infinite;
-}
-
-.jk-vignette {
-  z-index: 1;
-  background: radial-gradient(
-    74% 78% at 50% 50%,
-    rgba(6, 11, 24, 0) 36%,
-    rgba(3, 7, 16, 0.46) 100%
-  );
-}
-
-.jk-pretitle,
-.jk-arena,
-.jk-center,
-.jk-video {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: grid;
-  place-items: center;
-}
-
-.jk-pretitle {
-  text-align: center;
-  padding: 1rem;
-  gap: 0.65rem;
-}
-
-.jk-kicker {
-  margin: 0;
-  font-size: clamp(0.66rem, 0.75vw + 0.44rem, 0.95rem);
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: rgba(222, 234, 255, 0.78);
-}
-
-.jk-title {
-  margin: 0;
-  font-size: clamp(1.8rem, 4vw, 3.55rem);
-  line-height: 0.98;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: #ecf3ff;
-  text-shadow:
-    0 0 10px rgba(120, 183, 255, 0.56),
-    0 0 22px rgba(160, 102, 255, 0.34);
-}
-
-.jk-subtitle {
-  margin: 0;
-  font-size: clamp(0.98rem, 1vw + 0.44rem, 1.24rem);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: rgba(214, 227, 255, 0.9);
-}
-
-.jk-center-anchor {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-}
-
-.jk-orb {
-  position: absolute;
-  width: clamp(110px, 11.6vw, 188px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: 1px solid rgba(241, 247, 255, 0.22);
-  backdrop-filter: blur(2px);
-  box-shadow: inset 0 0 22px rgba(255, 255, 255, 0.17);
-}
-
-.jk-orb::before,
-.jk-orb::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.jk-orb::before {
-  inset: -22%;
-  opacity: 0.65;
-  filter: blur(12px);
-}
-
-.jk-orb::after {
-  inset: 9%;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-}
-
-.jk-orb-red {
-  background:
-    radial-gradient(circle at 30% 30%, #ffd6e6 0%, #ff6ca6 37%, #da2a72 68%, #7f113f 100%);
-  box-shadow:
-    0 0 34px rgba(255, 77, 161, 0.55),
-    0 0 92px rgba(227, 54, 134, 0.26),
-    inset 0 -18px 28px rgba(58, 6, 31, 0.46);
-}
-
-.jk-orb-red::before {
-  background: radial-gradient(circle, rgba(255, 110, 184, 0.7), rgba(255, 110, 184, 0));
-}
-
-.jk-orb-blue {
-  background:
-    radial-gradient(circle at 30% 30%, #c6edff 0%, #72d0ff 34%, #2f82ff 67%, #1243a4 100%);
-  box-shadow:
-    0 0 34px rgba(93, 192, 255, 0.6),
-    0 0 92px rgba(62, 141, 255, 0.28),
-    inset 0 -18px 28px rgba(5, 28, 74, 0.44);
-}
-
-.jk-orb-blue::before {
-  background: radial-gradient(circle, rgba(109, 206, 255, 0.72), rgba(109, 206, 255, 0));
-}
-
-.jk-tech-label {
-  position: absolute;
-  left: 50%;
-  bottom: -2.2rem;
-  transform: translateX(-50%);
-  padding: 0.3rem 0.82rem;
-  border-radius: 999px;
-  border: 1px solid rgba(236, 244, 255, 0.28);
-  background: rgba(8, 15, 34, 0.56);
-  color: #f0f6ff;
-  font-size: clamp(0.68rem, 0.66vw + 0.42rem, 0.82rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.jk-center {
-  pointer-events: none;
-}
-
-.jk-purple-flash {
-  position: absolute;
-  inset: -8%;
-  background: radial-gradient(circle, rgba(244, 223, 255, 0.9) 0%, rgba(226, 183, 255, 0.38) 26%, rgba(145, 92, 255, 0) 66%);
-  mix-blend-mode: screen;
-}
-
-.jk-purple-halo {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: clamp(170px, 14vw, 270px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: 2px solid rgba(214, 160, 255, 0.84);
-  box-shadow:
-    0 0 30px rgba(172, 107, 255, 0.64),
-    inset 0 0 16px rgba(255, 255, 255, 0.38);
-}
-
-.jk-purple-core {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: clamp(86px, 9vw, 148px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 35% 30%, #ffeaff 0%, #d8b2ff 26%, #aa66ff 55%, #6f24d7 100%);
-  border: 1px solid rgba(246, 237, 255, 0.62);
-}
-
-.jk-shockwave {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 2px solid rgba(191, 129, 255, 0.88);
-  box-shadow: 0 0 26px rgba(169, 99, 255, 0.7);
-}
-
-.jk-shockwave-2 {
-  border-color: rgba(155, 214, 255, 0.86);
-  box-shadow: 0 0 26px rgba(90, 176, 255, 0.68);
-}
-
-.jk-video {
-  z-index: 3;
-  pointer-events: none;
-  padding: clamp(0.7rem, 1.9vw, 1.25rem);
-}
-
-.jk-video-shell {
-  pointer-events: auto;
-  width: min(980px, 92vw);
-  border-radius: clamp(14px, 2vw, 22px);
-  border: 1px solid rgba(225, 240, 255, 0.24);
-  background:
-    linear-gradient(154deg, rgba(8, 14, 32, 0.92), rgba(14, 25, 49, 0.9)),
-    radial-gradient(circle at 18% 15%, rgba(255, 114, 174, 0.16), transparent 45%),
-    radial-gradient(circle at 82% 0%, rgba(102, 191, 255, 0.18), transparent 50%);
-  box-shadow:
-    0 24px 60px rgba(3, 8, 20, 0.6),
-    0 0 28px rgba(136, 120, 255, 0.32);
-  overflow: hidden;
-}
-
-.jk-video-head {
-  padding: 0.82rem 1rem;
-  border-bottom: 1px solid rgba(235, 244, 255, 0.16);
-  font-size: clamp(0.74rem, 0.82vw + 0.36rem, 0.94rem);
-  font-weight: 700;
-  letter-spacing: 0.17em;
-  text-transform: uppercase;
-  text-align: center;
-  color: rgba(232, 241, 255, 0.92);
-  background: linear-gradient(90deg, rgba(255, 118, 181, 0.08), rgba(140, 104, 255, 0.12), rgba(102, 192, 255, 0.08));
-}
-
-.jk-video-frame {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
-  background: #02060f;
-}
-
-@keyframes jkNebulaPulse {
-  0%,
-  100% {
-    opacity: 0.94;
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-@media (max-width: 992px) {
-  .jk-orb {
-    width: clamp(94px, 18vw, 142px);
-  }
-
-  .jk-tech-label {
-    bottom: -1.9rem;
-  }
-}
-
-@media (max-width: 680px) {
-  .jk-wrapper {
-    min-height: 100svh;
-  }
-
-  .jk-orb {
-    width: clamp(84px, 24vw, 120px);
-  }
-
-  .jk-tech-label {
-    font-size: 0.66rem;
-    bottom: -1.72rem;
-    padding: 0.24rem 0.62rem;
-  }
-
-  .jk-video-shell {
-    width: 94vw;
-  }
+/* Join the immersive scene directly to the footer on this route. */
+.main-content:has(.gojo-route) ~ .footer-section .footer-shell {
+  margin-top: 0;
 }

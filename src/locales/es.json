@@ -436,6 +436,20 @@
     },
     "easter": {
         "gojo": {
+            "back": "Portfolio",
+            "classification": "Grado especial",
+            "quote": "« No te preocupes. Soy el más fuerte. »",
+            "unlocked": "Técnica secreta desbloqueada",
+            "result": "Entre atracción y repulsión, solo queda el vacío.",
+            "watch": "Ver el combate",
+            "output": "Energía maldita",
+            "phases": {
+                "awakening": "Despertar de los Seis Ojos",
+                "duality": "Atracción × Repulsión",
+                "convergence": "Convergencia de infinitos",
+                "purple": "Técnica imaginaria: Púrpura",
+                "complete": "Infinito alcanzado"
+            },
             "seo_title": "Hollow Purple",
             "aria_label": "Easter egg Gojo Hollow Purple",
             "kicker": "TÉCNICA MALDITA",

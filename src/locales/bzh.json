@@ -519,7 +519,27 @@
             "subtitle": "Distreiñ d'ar mare. Adskrivañ an disoc'h.",
             "powder": "Powder",
             "ekko": "Ekko",
-            "rewind": "DISTREIÑ"
+            "rewind": "DISTREIÑ",
+            "back": "Portfolio",
+            "archive": "Ur wirvoud all",
+            "time": "An amzer",
+            "memory": "An eñvor",
+            "seconds": "eilenn",
+            "experiment": "Raktres Z / Direizhder amzerel",
+            "another": "Ha ma vefe ganeomp",
+            "chance": "ur chañs all ?",
+            "found": "Ur wirvoud all adkavet",
+            "result": "Mareoù zo a zellez padout ouzhpenn pevar eilenn.",
+            "video_label": "Ekko ha Powder — ur wirvoud all",
+            "device": "Dasson amzerel",
+            "limit": "BEVENN / 4 EILENN",
+            "phases": {
+                "spark": "O loc’hañ ar Z-Drive",
+                "fracture": "Torr amzerel",
+                "rewind": "Distreiñ pevar eilenn war-gil",
+                "bloom": "Ur varregezh nevez",
+                "reveal": "Deomp eo ar mare-mañ"
+            }
         }
     },
     "services": {

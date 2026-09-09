@@ -521,7 +521,27 @@
             "subtitle": "Remonter le moment. Réécrire l'issue.",
             "powder": "Powder",
             "ekko": "Ekko",
-            "rewind": "RETOUR"
+            "rewind": "RETOUR",
+            "back": "Portfolio",
+            "archive": "Une autre réalité",
+            "time": "Le temps",
+            "memory": "Le souvenir",
+            "seconds": "secondes",
+            "experiment": "Projet Z / Anomalie temporelle",
+            "another": "Et si on avait",
+            "chance": "une autre chance ?",
+            "found": "Une autre réalité retrouvée",
+            "result": "Certains instants méritent de durer plus de quatre secondes.",
+            "video_label": "Ekko et Powder — une autre réalité",
+            "device": "Résonance temporelle",
+            "limit": "LIMITE / 4 SECONDES",
+            "phases": {
+                "spark": "Initialisation du Z-Drive",
+                "fracture": "Fracture temporelle",
+                "rewind": "Retour quatre secondes en arrière",
+                "bloom": "Une nouvelle possibilité",
+                "reveal": "Cet instant nous appartient"
+            }
         }
     },
     "services": {

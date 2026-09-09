@@ -519,7 +519,27 @@
             "subtitle": "Rewind the moment. Rewrite the outcome.",
             "powder": "Powder",
             "ekko": "Ekko",
-            "rewind": "REWIND"
+            "rewind": "REWIND",
+            "back": "Portfolio",
+            "archive": "Another reality",
+            "time": "Time",
+            "memory": "Memory",
+            "seconds": "seconds",
+            "experiment": "Project Z / Temporal anomaly",
+            "another": "What if we had",
+            "chance": "another chance?",
+            "found": "Another reality found",
+            "result": "Some moments deserve more than four seconds.",
+            "video_label": "Ekko and Powder — another reality",
+            "device": "Temporal resonance",
+            "limit": "LIMIT / 4 SECONDS",
+            "phases": {
+                "spark": "Initializing the Z-Drive",
+                "fracture": "Temporal fracture",
+                "rewind": "Rewinding four seconds",
+                "bloom": "A new possibility",
+                "reveal": "This moment is ours"
+            }
         }
     },
     "services": {

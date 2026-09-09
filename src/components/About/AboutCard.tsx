@@ -68,7 +68,7 @@ function AboutCard(): JSX.Element {
               // A single tab stop; arrows and Home/End navigate the tab group.
               const next = event.key === 'ArrowRight' ? (index + 1) % tabs.length
                 : event.key === 'ArrowLeft' ? (index + tabs.length - 1) % tabs.length
-                : event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : null;
+                  : event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : null;
               if (next === null) return;
               event.preventDefault();
               setSelectedTab(tabs[next].key);
@@ -113,7 +113,7 @@ function Presentation({ t }: { t: TFunction }): JSX.Element {
     <>
       <p className="about-profile-lead">
         {t('greeting')} <strong className="profile-emphasis">Théo Guérin</strong> {t('from')}
-         {t('rennes')}.
+        {t('rennes')}.
       </p>
       <p>
         {t('current_position1')} <strong className="profile-emphasis">{t('developperAge')}</strong>
@@ -129,7 +129,7 @@ function Presentation({ t }: { t: TFunction }): JSX.Element {
 
 function Qualifications({ t }: { t: TFunction }): JSX.Element {
   const degrees = [
-    { key: 'degree5', date: '2024 — 2026', field: 'Full-Stack · RNCP 7', href: 'https://www.francecompetences.fr/recherche/RNCP/40150/' },
+    { key: 'degree5', date: '2024  2026', field: 'Full-Stack · RNCP 7', href: 'https://www.francecompetences.fr/recherche/RNCP/40150/' },
     { key: 'degree3', date: 'RNCP', field: t('about_interactions.applications'), href: 'https://www.francecompetences.fr/recherche/rncp/37873/' },
     { key: 'degree4', date: 'ANSSI', field: t('about_interactions.security'), href: 'https://cyber.gouv.fr/offre-de-service/formations-entrainement-et-decouverte-des-metiers/formations/formations-delivrees-par-lanssi/mooc-secnumacademie/' },
   ];

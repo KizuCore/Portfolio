@@ -9,7 +9,7 @@
     "coding_years": "Años programando",
     "coding_since": "desde {{year}}",
     "about_interactions": {
-        "mine_label": "2017 gracias a Minecraft — minar el bloque",
+        "mine_label": "2017 gracias a Minecraft  minar el bloque",
         "mined": "¡Bloque minado! La aventura comenzó en 2017.",
         "computing": "Informática",
         "applications": "Diseño de aplicaciones",
@@ -523,7 +523,7 @@
             "chance": "otra oportunidad?",
             "found": "Otra realidad encontrada",
             "result": "Algunos momentos merecen durar más de cuatro segundos.",
-            "video_label": "Ekko y Powder — otra realidad",
+            "video_label": "Ekko y Powder  otra realidad",
             "device": "Resonancia temporal",
             "limit": "LÍMITE / 4 SEGUNDOS",
             "phases": {

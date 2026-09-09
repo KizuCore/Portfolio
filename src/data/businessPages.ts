@@ -17,7 +17,7 @@ export const BUSINESS_PAGES: BusinessPage[] = [
     path: "/realisations/a-table",
     kind: "case-study",
     eyebrow: "Projet personnel · Application Flutter",
-    title: "À table ! — Garder un œil sur sa cuisine",
+    title: "À table ! - Garder un œil sur sa cuisine",
     description: "Étude de cas À table ! : une application Flutter développée par Théo Guérin pour gérer les aliments, suivre leur péremption et recevoir des rappels.",
     intro: "Chez nous, je voulais retrouver facilement les aliments disponibles et savoir lesquels arrivaient à péremption. Je ne connaissais pas d’application qui répondait à mon besoin : j’ai créé À table ! pour garder cette liste à portée de main et éviter d’oublier des produits au fond du frigo.",
     tags: ["Projet personnel", "Flutter · Dart", "Inventaire alimentaire", "Rappels de péremption", "Hors connexion"],

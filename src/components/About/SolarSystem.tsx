@@ -109,7 +109,7 @@ function SolarSystem() {
       </div>
       </div>
       <div className="solar-controls">
-        <p aria-live="polite">{activeName ?? t("solar_explore")}</p>
+        <p aria-live="polite">{activeName ?? ""}</p>
       </div>
     </motion.div>
   );

@@ -353,7 +353,7 @@
 .solar-system .planet-neptune { width: 15px; height: 15px; background: radial-gradient(circle at 30% 25%,#729cdf,#3466b9 65%,#193465); }
 .solar-system .celestial-body-tooltip { top: -32px; padding: 5px 9px; background: #101e32; border: 1px solid #88baff55; border-radius: 6px; font-size: 12px; font-weight: 500; }
 .solar-controls { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1rem; padding: .25rem .5rem; }
-.solar-controls p { margin: 0; color: #9eb7d7; font-size: .8rem; }
+.solar-controls p { margin: 0; color: #9eb7d7; font-size: .8rem; line-height: 1.5; min-height: 1.5em; }
 @keyframes solar-breathe { 50% { transform: scale(1.18); opacity: .4; } }
 @media (max-width: 1199px) and (min-width: 992px) {
   .solar-stage { height: 370px; }

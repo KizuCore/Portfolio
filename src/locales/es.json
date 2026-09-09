@@ -1,4 +1,11 @@
 {
+    "career": {
+        "intro": "Mi trayectoria, del desarrollo en empresa a la formación que la ha construido.",
+        "work": "Experiencia profesional",
+        "work_intro": "Los proyectos, las responsabilidades y las tecnologías del día a día.",
+        "education": "Formación",
+        "education_intro": "Mi trayectoria académica, desde la etapa más reciente hasta la más antigua."
+    },
     "coding_years": "Años programando",
     "coding_since": "desde {{year}}",
     "about_interactions": {

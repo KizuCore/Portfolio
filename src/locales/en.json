@@ -1,4 +1,11 @@
 {
+    "career": {
+        "intro": "My journey, from building software at work to the education behind it.",
+        "work": "Professional experience",
+        "work_intro": "Projects, responsibilities and the technologies I work with.",
+        "education": "Education",
+        "education_intro": "My academic journey, from the most recent chapter to the earliest."
+    },
     "coding_years": "Years coding",
     "coding_since": "since {{year}}",
     "about_interactions": {

@@ -34,26 +34,38 @@ const ExperienceTimeline = () => {
       <Container className="timeline-container">
         <motion.h1
           className="experience-title"
-          initial={{ opacity: 0, y: 20 }}
+          initial={reducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {t("about_experience")}
         </motion.h1>
+        <p className="experience-intro">{t("career.intro")}</p>
 
+        <section className="career-section career-work" aria-labelledby="career-work-title">
+          <header className="career-section-heading"><span aria-hidden="true">01</span><div><h2 id="career-work-title">{t("career.work")}</h2><p>{t("career.work_intro")}</p></div></header>
+          <div className="timeline">
+            {timelineData.filter(item => item.type === "T").map((item, index) => (
+              <TimelineItem key={item.title} item={item} onTimeAnomaly={() => setEncounter(true)} anomalyYear={encounter && !reducedMotion ? [3000, 1963, 2048, 1888, 2005, 1200, 2026][(beat + index) % 7] : undefined} />
+            ))}
+          </div>
+        </section>
+
+        <section className="career-section career-education" aria-labelledby="career-education-title">
+          <header className="career-section-heading"><span aria-hidden="true">02</span><div><h2 id="career-education-title">{t("career.education")}</h2><p>{t("career.education_intro")}</p></div></header>
         <div className="timeline" ref={timelineRef}>
-
           <div className="timeline-line-track" aria-hidden="true" />
           <div
             className="timeline-line-progress"
             aria-hidden="true"
             style={{ "--timeline-progress": `${scrollPercentage / 100}` } as CSSProperties}
           />
-          {timelineData.map((item, index) => (
+          {timelineData.filter(item => item.type === "C").map((item, index) => (
             <TimelineItem key={index} item={item} onTimeAnomaly={() => setEncounter(true)} anomalyYear={encounter && !reducedMotion ? [3000, 1963, 2048, 1888, 2005, 1200, 2026][(beat + index) % 7] : undefined} />
           ))}
 
         </div>
+        </section>
       </Container>
     </Container>
   );

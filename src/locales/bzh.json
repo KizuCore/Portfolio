@@ -1,4 +1,11 @@
 {
+    "career": {
+        "intro": "Ma hentad, eus an diorren en embregerezh d’ar stummadurioù o deus e savet.",
+        "work": "Skiant-prenet micherel",
+        "work_intro": "Ar raktresoù, ar c’harg ha teknologiezhioù ar pemdez.",
+        "education": "Stummadur",
+        "education_intro": "Prantadoù ma hentad skol, eus an hini nevesañ d’an hini koshañ."
+    },
     "coding_years": "Bloavezhioù o kodiñ",
     "coding_since": "abaoe {{year}}",
     "about_interactions": {

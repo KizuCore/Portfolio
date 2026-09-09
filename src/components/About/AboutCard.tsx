@@ -130,8 +130,6 @@ function Presentation({ t }: { t: TFunction }): JSX.Element {
 function Qualifications({ t }: { t: TFunction }): JSX.Element {
   const degrees = [
     { key: 'degree5', date: '2024 — 2026', field: 'Full-Stack · RNCP 7', href: 'https://www.francecompetences.fr/recherche/RNCP/40150/' },
-    { key: 'degree2', date: '2023 — 2024', field: 'Web · MyDigitalSchool', href: 'https://www.mydigitalschool.com/bachelor-1-2-web' },
-    { key: 'degree1', date: '2020 — 2023', field: t('about_interactions.computing') + ' · ISTIC', href: 'https://istic.univ-rennes.fr/licence-informatique-parcours-informatique' },
     { key: 'degree3', date: 'RNCP', field: t('about_interactions.applications'), href: 'https://www.francecompetences.fr/recherche/rncp/37873/' },
     { key: 'degree4', date: 'ANSSI', field: t('about_interactions.security'), href: 'https://cyber.gouv.fr/offre-de-service/formations-entrainement-et-decouverte-des-metiers/formations/formations-delivrees-par-lanssi/mooc-secnumacademie/' },
   ];

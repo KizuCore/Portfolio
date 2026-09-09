@@ -1,4 +1,11 @@
 {
+    "career": {
+        "intro": "Mon parcours, du développement en entreprise aux formations qui l’ont construit.",
+        "work": "Expérience professionnelle",
+        "work_intro": "Les projets, les responsabilités et les technologies du quotidien.",
+        "education": "Formation",
+        "education_intro": "Les étapes de mon parcours académique, de la plus récente à la plus ancienne."
+    },
     "coding_years": "Ans à coder",
     "coding_since": "depuis {{year}}",
     "about_interactions": {

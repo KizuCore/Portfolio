@@ -51,7 +51,7 @@ const TimelineItem = ({ item, onTimeAnomaly, anomalyYear }: Props) => {
           <span className="timeline-card-icon blue" aria-hidden="true">
             {getIcon(item.type)}
           </span>
-          <h2 className="timeline-card-title">{item.title}</h2>
+          <h3 className="timeline-card-title">{item.title}</h3>
         </header>
 
 

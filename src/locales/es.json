@@ -435,6 +435,18 @@
         "language_selector": "Elegir idioma"
     },
     "easter": {
+        "breton": {
+            "label": "Invasión bretona",
+            "detected": "Código BZH interceptado",
+            "title": "Este territorio es",
+            "territory": "ahora bretón.",
+            "butter": "Mantequilla sin sal detectada…",
+            "butter_fixed": "Mantequilla salada instalada. Uf.",
+            "weather": "Comprobando el tiempo…",
+            "weather_fixed": "Llovizna activada. Todo en orden.",
+            "punchline": "Resistirse es inútil. Toma una galette.",
+            "exit": "VOLVER AL SITIO · ESC"
+        },
         "gojo": {
             "back": "Portfolio",
             "classification": "Grado especial",

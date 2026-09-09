@@ -488,6 +488,18 @@
         "language_selector": "Choose language"
     },
     "easter": {
+        "breton": {
+            "label": "Breton takeover",
+            "detected": "BZH code intercepted",
+            "title": "This territory is",
+            "territory": "now Breton.",
+            "butter": "Unsalted butter detected. Intervening…",
+            "butter_fixed": "Salted butter installed. Crisis averted.",
+            "weather": "Checking the weather…",
+            "weather_fixed": "Drizzle enabled. All is well.",
+            "punchline": "Resistance is futile. Have a galette.",
+            "exit": "BACK TO SITE · ESC"
+        },
         "gojo": {
             "back": "Portfolio",
             "classification": "Special grade",

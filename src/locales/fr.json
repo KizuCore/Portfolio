@@ -490,6 +490,18 @@
         "loading_content": "Chargement du contenu"
     },
     "easter": {
+        "breton": {
+            "label": "Invasion bretonne",
+            "detected": "Code BZH intercepté",
+            "title": "Ce territoire est",
+            "territory": "désormais breton.",
+            "butter": "Beurre doux détecté. Intervention…",
+            "butter_fixed": "Beurre demi-sel installé. Ouf.",
+            "weather": "Vérification de la météo…",
+            "weather_fixed": "Crachin activé. Tout est normal.",
+            "punchline": "Résistance inutile. Prenez une galette.",
+            "exit": "RETOUR AU SITE · ÉCHAP"
+        },
         "gojo": {
             "back": "Portfolio",
             "classification": "Classe spéciale",

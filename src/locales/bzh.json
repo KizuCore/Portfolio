@@ -488,6 +488,18 @@
         "language_selector": "Dibab ar yezh"
     },
     "easter": {
+        "breton": {
+            "label": "Aloubadeg vreizhat",
+            "detected": "Kod BZH dinoet",
+            "title": "Breizhat eo",
+            "territory": "an dachenn-mañ !",
+            "butter": "Amann dous dinoet. O reizhañ…",
+            "butter_fixed": "Amann sall staliet. A-benn ar fin.",
+            "weather": "O wiriañ an amzer…",
+            "weather_fixed": "Glav munut gweredekaet. Pep tra zo mat.",
+            "punchline": "Diouzhoc’h eo. Kemerit ur c’hrampouezhenn.",
+            "exit": "DISTREIÑ D’AL LEC’HIENN · ESC"
+        },
         "gojo": {
             "back": "Portfolio",
             "classification": "Renk ispisial",

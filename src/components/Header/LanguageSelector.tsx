@@ -1,4 +1,5 @@
-import { JSX, useCallback, useEffect, useRef } from "react";
+import { JSX, useCallback, useEffect, useRef, useState } from "react";
+import BretonTakeover from "../Easter/BretonTakeover";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getContentLocale, getHtmlLang, getLocalizedPath, getShortLocale, ROUTE_SEO, splitLocalizedPath } from "../../config/seo";
@@ -10,6 +11,8 @@ function LanguageSelector(): JSX.Element {
   const location = useLocation();
   const navigate = useNavigate();
   const sequenceRef = useRef("");
+  const [takeover, setTakeover] = useState<{ language: string } | null>(null);
+  const dismissTakeover = useCallback(() => setTakeover(null), []);
   const currentRoutePath = splitLocalizedPath(location.pathname).pathname;
   const canLocalizeCurrentRoute = Boolean(ROUTE_SEO[currentRoutePath] && !ROUTE_SEO[currentRoutePath].noindex);
   const currentLanguage = getShortLocale(i18n.resolvedLanguage ?? i18n.language);
@@ -29,6 +32,7 @@ function LanguageSelector(): JSX.Element {
   useEffect(() => {
     // Hidden shortcut: typing "bzh" enables the Breton locale without adding it to the main menu.
     const handleKeydown = (event: KeyboardEvent) => {
+      if (event.ctrlKey || event.metaKey || event.altKey || event.repeat || event.isComposing) return;
       const target = event.target as HTMLElement | null;
       if (
         target &&
@@ -37,12 +41,15 @@ function LanguageSelector(): JSX.Element {
           target.tagName === "SELECT" ||
           target.isContentEditable)
       ) {
+        sequenceRef.current = "";
         return;
       }
 
       sequenceRef.current += event.key.toLowerCase();
 
       if (sequenceRef.current.includes("bzh")) {
+        const sourceLanguage = getShortLocale(i18n.resolvedLanguage ?? i18n.language);
+        setTakeover(current => current ?? { language: sourceLanguage === "bzh" ? "fr" : sourceLanguage });
         changeLanguage("bzh");
         sequenceRef.current = "";
       }
@@ -56,10 +63,11 @@ function LanguageSelector(): JSX.Element {
     return () => {
       window.removeEventListener("keydown", handleKeydown);
     };
-  }, [changeLanguage]);
+  }, [changeLanguage, i18n]);
 
   return (
     <div className="language-selector">
+      {takeover && <BretonTakeover language={takeover.language} onComplete={dismissTakeover} />}
       <button
         type="button"
         className="lang-toggle lang-switch"

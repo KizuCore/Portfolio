@@ -28,8 +28,9 @@ function BackToTop() {
     <button
       type="button"
       className="back-to-top"
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      onClick={() => window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" })}
       aria-label={t("a11y.back_to_top")}
+      title={t("a11y.back_to_top")}
     >
       <AiOutlineArrowUp aria-hidden="true" />
     </button>

@@ -41,42 +41,6 @@
   z-index: 1;
 }
 
-.particles-layer::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.42;
-  background:
-    radial-gradient(circle at 8% 10%, rgba(238, 247, 255, 0.9) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 18% 24%, rgba(181, 219, 255, 0.68) 0 1px, transparent 1.8px),
-    radial-gradient(circle at 31% 14%, rgba(226, 241, 255, 0.8) 0 1.1px, transparent 1.9px),
-    radial-gradient(circle at 43% 30%, rgba(154, 205, 255, 0.64) 0 1px, transparent 1.8px),
-    radial-gradient(circle at 56% 18%, rgba(219, 238, 255, 0.76) 0 1.1px, transparent 1.9px),
-    radial-gradient(circle at 72% 9%, rgba(176, 218, 255, 0.72) 0 1px, transparent 1.8px),
-    radial-gradient(circle at 86% 22%, rgba(229, 244, 255, 0.86) 0 1.1px, transparent 1.9px),
-    radial-gradient(circle at 12% 44%, rgba(176, 219, 255, 0.68) 0 1px, transparent 1.8px),
-    radial-gradient(circle at 28% 52%, rgba(229, 243, 255, 0.86) 0 1.1px, transparent 1.9px),
-    radial-gradient(circle at 47% 47%, rgba(182, 220, 255, 0.68) 0 1px, transparent 1.8px),
-    radial-gradient(circle at 64% 58%, rgba(222, 239, 255, 0.78) 0 1.1px, transparent 1.9px),
-    radial-gradient(circle at 82% 49%, rgba(163, 208, 255, 0.64) 0 1px, transparent 1.8px),
-    radial-gradient(circle at 6% 70%, rgba(210, 233, 255, 0.74) 0 1.1px, transparent 1.9px),
-    radial-gradient(circle at 22% 83%, rgba(185, 221, 255, 0.68) 0 1px, transparent 1.8px),
-    radial-gradient(circle at 38% 76%, rgba(226, 242, 255, 0.82) 0 1.1px, transparent 1.9px),
-    radial-gradient(circle at 54% 88%, rgba(170, 213, 255, 0.64) 0 1px, transparent 1.8px),
-    radial-gradient(circle at 71% 79%, rgba(221, 239, 255, 0.76) 0 1.1px, transparent 1.9px),
-    radial-gradient(circle at 89% 90%, rgba(188, 223, 255, 0.7) 0 1px, transparent 1.8px);
-  background-repeat: no-repeat;
-  transition: opacity 0.24s ease;
-}
-
-.particles-layer--loading::before {
-  opacity: 0.72;
-}
-
-.particles-layer--ready::before {
-  opacity: 0.3;
-}
-
 .particles-layer canvas {
   opacity: 0.92;
   animation: particlesCanvasIn 0.18s ease-out both;
@@ -270,3 +234,28 @@
   }
 }
 
+
+/* Three depths: static dust, slow particles, and a few bright foreground stars. */
+.particles-layer { overflow: hidden; isolation: isolate; }
+.sky-nebula, .sky-distant-stars, .sky-beacons, .sky-meteors { position: absolute; inset: 0; pointer-events: none; }
+.sky-nebula {
+  background:
+    radial-gradient(ellipse at 89% 23%, #33599716 0%, transparent 46%),
+    radial-gradient(ellipse at 14% 73%, #653a8e12 0%, transparent 39%),
+    radial-gradient(ellipse at 73% 83%, #246a7410 0%, transparent 38%),
+    linear-gradient(122deg, transparent 35%, #5070ad06 45%, #748bd009 48%, transparent 58%);
+}
+.sky-distant-stars { opacity: .8; mask-image: radial-gradient(ellipse at center, #0009, #000 80%); }
+.sky-beacons i { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: #e1efff; opacity: .55; box-shadow: 0 0 6px 1px #a1caff65; }
+.sky-beacons i::before, .sky-beacons i::after { content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: linear-gradient(transparent, #b3d3ff85, transparent); width: 1px; height: 12px; }
+.sky-beacons i::after { transform: translate(-50%, -50%) rotate(90deg); height: 8px; }
+.sky-beacons i:nth-child(3n) { background: #f3e4ce; box-shadow: 0 0 7px #e2cba44d; }
+[data-sky-motion='true'] .sky-beacons i { animation: skyTwinkle 9s ease-in-out infinite; animation-delay: var(--star-delay); }
+.sky-meteors i { position: absolute; top: 14%; left: 65%; width: 125px; height: 1px; background: linear-gradient(90deg, transparent, #abcfff80 80%, #eef6ff); opacity: 0; transform: rotate(32deg); animation: skyMeteor 31s linear infinite; animation-delay: 8s; }
+.sky-meteors i::after { content: ''; position: absolute; right: 0; top: -1px; width: 3px; height: 3px; border-radius: 50%; background: #ecf5ff; box-shadow: 0 0 7px #c3dcff; }
+.sky-meteors i:nth-child(2) { top: 49%; left: 8%; width: 90px; animation-duration: 43s; animation-delay: 22s; }
+[data-sky-paused='true'] .sky-beacons i, [data-sky-paused='true'] .sky-meteors i { animation-play-state: paused; }
+@keyframes skyTwinkle { 0%, 100% { opacity: .25; } 45% { opacity: .75; } 60% { opacity: .45; } }
+@keyframes skyMeteor { 0% { opacity: 0; transform: translate3d(-80px, -50px, 0) rotate(32deg); } 1% { opacity: .6; } 4% { opacity: 0; transform: translate3d(210px, 131px, 0) rotate(32deg); } 100% { opacity: 0; transform: translate3d(210px, 131px, 0) rotate(32deg); } }
+@media (max-width: 768px) { .sky-distant-stars { opacity: .5; } .sky-beacons i:nth-child(even) { display: none; } .sky-nebula { opacity: .65; } }
+@media (prefers-reduced-motion: reduce) { .sky-beacons i, .sky-meteors i, .particles-layer canvas { animation: none !important; } .sky-meteors { display: none; } }

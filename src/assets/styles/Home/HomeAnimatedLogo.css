@@ -10,9 +10,9 @@
 .home-animated-logo .svg-path { stroke: #327bea; }
 .home-animated-logo .contour { stroke: #6399e4; stroke-width: 2.5px; }
 .logo-wrapper.home-logo-orbit::before {
-  border: 2px dashed rgba(139, 186, 255, .4);
-  background: conic-gradient(from 25deg, #14243e, #254777, #182d4b, #203e68, #14243e);
-  animation: rotateCircle 20s linear infinite;
+  border: 1px solid rgba(139, 186, 255, .18);
+  background: radial-gradient(circle, transparent 58%, #3e83cf14 69%, transparent 72%);
+  animation: none;
   filter: none;
   box-shadow: 0 0 18px rgba(58, 126, 225, .14), inset 0 0 16px rgba(112, 168, 245, .08);
 }

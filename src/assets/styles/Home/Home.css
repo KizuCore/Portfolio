@@ -466,59 +466,79 @@
 ======================== */
 .black-hole {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 180px;
-  height: 180px;
-  transform: translate(-50%, -50%);
+  inset: 21%;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
+  isolation: isolate;
+  transform: rotate(-18deg);
+  opacity: .72;
+  transition: opacity .7s ease, filter .7s ease;
 }
-
-.event-horizon {
+.black-hole-aura {
   position: absolute;
-  z-index: -1;
-  width: 50px;
-  height: 50px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: -22%;
   border-radius: 50%;
-  background: radial-gradient(circle at center, #000000 0%, #050505 70%, #111111 100%);
-  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: radial-gradient(ellipse, #04070c 14%, #183b642a 35%, #3d91ef21 46%, transparent 69%);
+  opacity: .6;
+  transition: opacity .7s;
 }
-
-
+/* The far-side light bends above and below the dark centre. */
+.black-hole-lensing {
+  position: absolute;
+  inset: 19%;
+  border-radius: 50%;
+  border: 1px solid #9bceff80;
+  box-shadow: 0 -5px 12px #8ec8ff50, 0 4px 9px #569dec30, inset 0 0 9px #c2e2ff50;
+  background: conic-gradient(from 70deg, #5799ef05, #79baff60, #e4f4ffa0, #4385dc20, #98caff55, #5799ef05);
+  mask: radial-gradient(closest-side, transparent 83%, #000 94%, transparent 100%);
+}
 .accretion-disk {
   position: absolute;
-  width: 128px;
-  height: 108px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-18deg) scaleY(0.72);
+  inset: -12%;
   border-radius: 50%;
-  background: conic-gradient(
-    from 22deg,
-    rgba(116, 174, 255, 0.06),
-    rgba(229, 238, 255, 0.62),
-    rgba(122, 184, 255, 0.1),
-    rgba(221, 234, 255, 0.66),
-    rgba(110, 168, 245, 0.08),
-    rgba(116, 174, 255, 0.06)
-  );
-  -webkit-mask: radial-gradient(closest-side, transparent 42%, #000 56%, transparent 70%);
-  mask: radial-gradient(closest-side, transparent 42%, #000 56%, transparent 70%);
-  animation: spin 8s linear infinite;
-  z-index: -2;
-  filter: blur(1.2px);
-  opacity: 0.82;
-  box-shadow:
-    0 0 11px rgba(130, 190, 255, 0.36),
-    inset 0 0 9px rgba(242, 247, 255, 0.16);
+  transform: scaleY(.29);
+  filter: drop-shadow(0 0 7px #72bbff75);
 }
-
-@keyframes spin {
-  0% { transform: translate(-50%, -50%) rotate(-18deg) scaleY(0.72) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(-18deg) scaleY(0.72) rotate(360deg); }
+.accretion-flow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: repeating-conic-gradient(from 20deg, #83beff08 0deg, #c5e8ffb0 16deg, #5c98e03b 27deg, #edf8ffe0 43deg, #5b99e422 61deg, #83beff08 90deg);
+  mask: radial-gradient(closest-side, transparent 33%, #0008 39%, #000 43%, #0005 47%, #000d 50%, #0003 55%, #0009 59%, #0002 66%, #0008 70%, transparent 78%);
+  animation: blackHoleFlow 22s linear infinite;
+}
+.accretion-flow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: repeating-radial-gradient(ellipse, transparent 0 5px, #d3edff60 6px, transparent 7px 12px);
+}
+.event-horizon {
+  position: absolute;
+  inset: 27%;
+  z-index: 1;
+  border-radius: 50%;
+  background: #010207;
+  box-shadow: inset 0 0 15px 4px #000, 0 0 2px 1px #e1f2ff, 0 0 10px 2px #75b7ff80, 0 0 25px 4px #488cde35;
+}
+.accretion-foreground {
+  z-index: 2;
+  clip-path: inset(50% 0 0);
+}
+.black-hole-photon-ring {
+  position: absolute;
+  z-index: 3;
+  inset: 26%;
+  border-radius: 50%;
+  border: 1px solid #b6daff90;
+  box-shadow: inset 0 0 4px #95cfff60, 0 0 5px #95cfff50;
+  mask: linear-gradient(180deg, #000 0%, transparent 48%, transparent 63%, #000 100%);
+}
+.home-logo-orbit.dragging .black-hole { opacity: 1; filter: drop-shadow(0 0 12px #4a9cfb30); }
+.home-logo-orbit.dragging .black-hole-aura { opacity: 1; }
+@keyframes blackHoleFlow { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .black-hole, .black-hole-aura { transition: none; }
+  .accretion-flow { animation: none; }
 }

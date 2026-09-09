@@ -3,7 +3,9 @@
 /* Shared hierarchy preserves the existing orbital artwork and portfolio palette. */
 .home-offer { text-align: left; max-width: 650px; }
 .home-offer h1 { font-size: clamp(2.15rem, 3.3vw, 3.25rem); line-height: 1.16; letter-spacing: -.04em; font-weight: 750; text-wrap: balance; margin: 1.2rem 0 1.5rem; }
-.home-offer h1 span { color: #9ec9ff; }
+.home-offer h1 .home-offer-specialty { color: #9ec9ff; }
+.gravity-word { display: inline-block; white-space: nowrap; }
+.gravity-letter { display: inline-block; transform-origin: center; }
 .home-offer-description { color: var(--text-muted); font-size: 1.02rem; line-height: 1.85; margin-bottom: 1.7rem; }
 .home-offer-note { color: var(--text-muted); margin-top: 1.5rem; font-size: .8rem; }
 .home-offer .business-actions { gap: 1rem 1.5rem; }

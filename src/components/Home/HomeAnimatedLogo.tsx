@@ -5,10 +5,10 @@ import PreloaderLogo from "../Layout/Preloader/PreloaderLogo";
 import "../../assets/styles/Preloader/Preloader.css";
 import "../../assets/styles/Home/HomeAnimatedLogo.css";
 
-type Props = { onDragStateChange: (dragging: boolean) => void };
+type Props = { onDragStateChange: (dragging: boolean) => void; onExposureChange: (exposed: boolean) => void };
 
 // Only the SVG moves: the black hole stays anchored behind it in the hero.
-export default function HomeAnimatedLogo({ onDragStateChange }: Props) {
+export default function HomeAnimatedLogo({ onDragStateChange, onExposureChange }: Props) {
   const { t } = useTranslation();
   const reduceMotion = useReducedMotion();
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
@@ -23,6 +23,8 @@ export default function HomeAnimatedLogo({ onDragStateChange }: Props) {
     dragElastic={1}
     dragTransition={{ bounceStiffness: reduceMotion ? 1000 : 220, bounceDamping: reduceMotion ? 100 : 22 }}
     onDragStart={() => onDragStateChange(true)}
-    onDragEnd={() => onDragStateChange(false)}
+    onDrag={(_, info) => onExposureChange(Math.hypot(info.offset.x, info.offset.y) > 75)}
+    onDragEnd={() => { onDragStateChange(false); onExposureChange(false); }}
+    onPointerCancel={() => { onDragStateChange(false); onExposureChange(false); }}
   ><PreloaderLogo /></motion.div>;
 }

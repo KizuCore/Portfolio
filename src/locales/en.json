@@ -488,6 +488,14 @@
         "language_selector": "Choose language"
     },
     "easter": {
+        "tardis": {
+            "label": "Unexpected TARDIS visit",
+            "arrival": "Temporal anomaly detected",
+            "landed": "Left the handbrake on. Again.",
+            "departure": "Next stop: somewhere else.",
+            "title": "Just five minutes…",
+            "joke": "I said a short break. Not three centuries."
+        },
         "breton": {
             "label": "Breton takeover",
             "detected": "BZH code intercepted",

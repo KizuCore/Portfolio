@@ -1,0 +1,37 @@
+﻿.tardis-encounter { position: fixed; inset: 0; z-index: 10000; pointer-events: none; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #eef5ff; }
+.tardis-space { position: absolute; inset: 0; z-index: -2; background: radial-gradient(ellipse at 50% 42%, #10295899, #040a18dc 72%); animation: tardis-fade .8s both; }
+.tardis-vortex { position: absolute; top: 40%; left: 50%; width: min(850px, 125vw); aspect-ratio: 1; transform: translate(-50%, -50%) rotate(-25deg); z-index: -1; }
+.tardis-vortex i { position: absolute; inset: 0; border-radius: 50%; border: 1px solid #76beff40; background: conic-gradient(from 40deg, transparent 15%, #286fb822 27%, transparent 40%, #9679df22 65%, transparent 80%); box-shadow: inset 0 0 35px #3283d51a, 0 0 20px #3283d510; animation: tardis-vortex 7s linear infinite; }
+.tardis-vortex i:nth-child(2) { inset: 12%; animation-direction: reverse; border-color: #ae93ff35; }
+.tardis-vortex i:nth-child(3) { inset: 24%; animation-duration: 4s; }
+.tardis-vortex i:nth-child(4) { inset: 35%; animation-direction: reverse; }
+.tardis-scene { position: relative; width: 260px; height: 420px; }
+.tardis-ship { position: absolute; inset: 0; transform-origin: 50% 60%; filter: drop-shadow(0 0 18px #6ab9ff35); }
+.tardis-box { width: 100%; height: 100%; }
+.tardis-beacon-glow { position: absolute; top: 5%; left: 50%; width: 100px; height: 70px; transform: translateX(-50%); background: radial-gradient(ellipse, #e3faffb0, #7bcdff40 25%, transparent 68%); animation: tardis-beacon 2.2s ease-in-out 5; }
+.tardis-shadow { position: absolute; left: 0; right: 0; bottom: -2%; height: 35px; border-radius: 50%; background: radial-gradient(ellipse, #8bcaff50, #3778c01a 40%, transparent 68%); }
+[data-phase='arrival'] .tardis-ship { animation: tardis-materialize 2.45s both; }
+[data-phase='landed'] .tardis-ship { animation: tardis-hover 3s ease-in-out infinite alternate; }
+[data-phase='departure'] .tardis-ship { animation: tardis-depart 2.45s both; }
+[data-phase='departure'] .tardis-vortex { opacity: .6; transition: opacity 2s; }
+.tardis-message { position: relative; width: min(560px, 88%); margin-top: 28px; text-align: center; animation: tardis-fade 1s both; }
+.tardis-kicker { font: 9px/1.5 monospace; letter-spacing: .23em; text-transform: uppercase; color: #96c9f5; margin: 0 0 14px; }
+.tardis-message h2 { font: 500 clamp(29px, 4vw, 44px)/1.1 Georgia, serif; color: #edf5ff; margin: 0 0 15px; }
+.tardis-joke { margin: 0 auto; max-width: 440px; color: #d0dbea; font-size: 15px; line-height: 1.7; }
+.tardis-coordinate { display: block; margin-top: 22px; color: #859ab8; font: 8px monospace; letter-spacing: .16em; }
+.timeline-date-trigger { position: relative; display: inline-block; border: 0; padding: 0; color: inherit; font: inherit; background: transparent; text-align: left; cursor: default; min-height: 32px; border-radius: 3px; }
+.timeline-card-date, .timeline-date-trigger *, .timeline-date-trigger:hover, .timeline-date-trigger:active { cursor: default; }
+.timeline-date-trigger:hover { color: #d1e7ff; text-shadow: 0 0 14px #5aa4ff60; }
+.timeline-date-trigger:focus-visible { outline: 2px solid #91bfff; outline-offset: 5px; }
+.timeline-anomaly-year { position: absolute; inset: 0; display: flex; align-items: center; color: #b6e5ff; font-variant-numeric: tabular-nums; text-shadow: 2px 0 #8856cb90, -2px 0 #318acc80; }
+@keyframes tardis-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes tardis-materialize { 0% { opacity: 0; transform: translateY(-30px) rotate(-7deg) scale(.85); filter: blur(8px); } 40% { opacity: .35; } 65% { opacity: .18; } 100% { opacity: 1; transform: none; filter: blur(0); } }
+@keyframes tardis-depart { 0% { opacity: 1; transform: scale(1); } 35% { opacity: .75; transform: translateY(-15px) rotate(8deg); } 100% { opacity: 0; transform: translateY(-90px) rotate(100deg) scale(.05); } }
+@keyframes tardis-hover { from { transform: translateY(0) rotate(-1deg); } to { transform: translateY(-8px) rotate(1deg); } }
+@keyframes tardis-beacon { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+@keyframes tardis-vortex { to { transform: rotate(360deg); } }
+@media (max-width: 600px), (max-height: 780px) { .tardis-scene { width: 190px; height: 307px; } .tardis-message { margin-top: 22px; } .tardis-joke { font-size: 13px; } }
+@media (max-height: 550px) { .tardis-encounter { flex-direction: row; gap: 25px; padding: 25px; } .tardis-scene { flex-shrink: 0; width: 150px; height: 242px; } .tardis-message { width: min(350px, 55%); margin: 0; } }
+@media (prefers-reduced-motion: reduce) { .tardis-encounter * { animation: none !important; transition: none !important; } .tardis-vortex { opacity: .4; } }
+/* Keep the punchline readable over the original timeline on narrow screens. */
+.tardis-message { padding: 18px 12px; background: radial-gradient(ellipse, #050b17f0 35%, #050b17b0 62%, transparent 76%); }

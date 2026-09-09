@@ -3,6 +3,7 @@ import { TimelineItem as TimelineItemType } from "./data/timeline";
 import { FaBriefcase } from "@react-icons/all-files/fa/FaBriefcase";
 import { FaUserGraduate } from "@react-icons/all-files/fa/FaUserGraduate";
 import { useTranslation } from "react-i18next";
+import { useRef } from "react";
 
 const getIcon = (type: string) =>
   type === "C" ? (
@@ -13,9 +14,18 @@ const getIcon = (type: string) =>
 
 type Props = {
   item: TimelineItemType;
+  onTimeAnomaly: () => void;
+  anomalyYear?: number;
 };
 
-const TimelineItem = ({ item }: Props) => {
+const TimelineItem = ({ item, onTimeAnomaly, anomalyYear }: Props) => {
+  const clicks = useRef({ count: 0, last: 0 });
+  const activateDate = () => {
+    const now = performance.now();
+    clicks.current.count = now - clicks.current.last < 650 ? clicks.current.count + 1 : 1;
+    clicks.current.last = now;
+    if (clicks.current.count === 3) { clicks.current.count = 0; onTimeAnomaly(); }
+  };
   const { t } = useTranslation();
   const reduceMotion = useReducedMotion();
   const hasHighlights = Boolean(item.highlights?.length);
@@ -23,7 +33,10 @@ const TimelineItem = ({ item }: Props) => {
 
   return (
     <div className="timeline-event">
-      <p className="timeline-card-date">{item.date}</p>
+      <p className="timeline-card-date"><button type="button" className="timeline-date-trigger" onClick={activateDate} aria-label={item.date}>
+        <span style={anomalyYear === undefined ? undefined : { visibility: "hidden" }}>{item.date}</span>
+        {anomalyYear !== undefined && <span className="timeline-anomaly-year" aria-hidden="true">{anomalyYear} / ?</span>}
+      </button></p>
       <span className="timeline-event-dot" aria-hidden="true" />
       <motion.article
         initial={reduceMotion ? false : { opacity: 0, y: 16 }}

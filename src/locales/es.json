@@ -435,6 +435,14 @@
         "language_selector": "Elegir idioma"
     },
     "easter": {
+        "tardis": {
+            "label": "Visita inesperada del TARDIS",
+            "arrival": "Anomalía temporal detectada",
+            "landed": "El freno de mano. Otra vez.",
+            "departure": "Próxima parada: otro lugar.",
+            "title": "Solo cinco minutos…",
+            "joke": "Dije una pequeña pausa. No tres siglos."
+        },
         "breton": {
             "label": "Invasión bretona",
             "detected": "Código BZH interceptado",

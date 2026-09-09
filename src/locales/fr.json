@@ -490,6 +490,14 @@
         "loading_content": "Chargement du contenu"
     },
     "easter": {
+        "tardis": {
+            "label": "Visite imprévue du TARDIS",
+            "arrival": "Anomalie temporelle détectée",
+            "landed": "Frein à main oublié. Encore.",
+            "departure": "Prochain arrêt : ailleurs.",
+            "title": "Juste cinq minutes…",
+            "joke": "J’avais dit une petite pause. Pas trois siècles."
+        },
         "breton": {
             "label": "Invasion bretonne",
             "detected": "Code BZH intercepté",

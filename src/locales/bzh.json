@@ -488,6 +488,14 @@
         "language_selector": "Dibab ar yezh"
     },
     "easter": {
+        "tardis": {
+            "label": "Gweladenn dic’hortoz ar TARDIS",
+            "arrival": "Direizhder amzerel dinoet",
+            "landed": "An torfenn dorn a zo chomet. Adarre.",
+            "departure": "Ar paouez kentañ: e lec’h all.",
+            "title": "Pemp munutenn hepken…",
+            "joke": "Un ehan berr am boa lavaret. Neket tri c’hantved."
+        },
         "breton": {
             "label": "Aloubadeg vreizhat",
             "detected": "Kod BZH dinoet",

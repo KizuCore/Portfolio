@@ -1,5 +1,6 @@
 {
     "resume_page": {
+        "watch_demo": "Voir la démonstration vidéo",
         "all_skills": "Voir toutes mes compétences",
         "intro": "Des interfaces React aux API Django, je développe des applications web et mobiles avec une attention particulière aux performances et à la qualité du code.",
         "missions": "Interfaces React, rapports microbiote et visualisations de données avec Django.||API REST Django, Flask et Node.js ; bases PostgreSQL et MySQL.||Intégration de WooCommerce, Systempay, Brevo et LimeSurvey ; internationalisation et SEO technique.||Migration d’infrastructure, gestion des environnements et déploiements Docker / CI/CD.||Tests automatisés avec Playwright, Jest et Bruno ; travail en équipe Agile sur GitLab.",

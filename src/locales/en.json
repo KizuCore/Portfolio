@@ -1,5 +1,6 @@
 {
     "resume_page": {
+        "watch_demo": "Watch the video demo",
         "all_skills": "View all my skills",
         "intro": "From React interfaces to Django APIs, I build web and mobile applications with a focus on performance and code quality.",
         "missions": "React interfaces, microbiome reports and data visualisations with Django.||Django, Flask and Node.js REST APIs; PostgreSQL and MySQL databases.||WooCommerce, Systempay, Brevo and LimeSurvey integrations; internationalisation and technical SEO.||Infrastructure migration, environment management and Docker / CI/CD deployments.||Automated tests with Playwright, Jest and Bruno; Agile teamwork on GitLab.",

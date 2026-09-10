@@ -361,6 +361,7 @@ function buildRouteContent({ pathname, localeData, portfolio }) {
     <section><h2>${escapeHtml(tx(localeData, "Informations"))}</h2><p>${escapeHtml(tx(localeData, "contact_meta_availability_value"))}</p><p>${escapeHtml(tx(localeData, "contact_meta_response_value"))}</p><p>${escapeHtml(tx(localeData, "contact_meta_location_value"))}</p><p>${escapeHtml(tx(localeData, "contact_meta_rate_value"))}</p><p><a href="mailto:${escapeHtml(portfolio.SITE_PROFILE.email)}">${escapeHtml(portfolio.SITE_PROFILE.email)}</a></p></section>
   `;
 
+  const flambowVideo = portfolio.PORTFOLIO_PROJECTS.find(project => project.imageKey === "flambowFrontend")?.youtubeLink;
   const cv = `
     <p>${escapeHtml(tx(localeData, "resume_page.eyebrow"))}</p>
     <h1>${escapeHtml(portfolio.SITE_PROFILE.displayName)}</h1>
@@ -372,6 +373,7 @@ function buildRouteContent({ pathname, localeData, portfolio }) {
       <p>10 min → ~10 s — ${escapeHtml(tx(localeData, "resume_page.impact"))}</p>
       <ul>${tx(localeData, "resume_page.missions").split("||").map(point => `<li>${escapeHtml(point.trim())}</li>`).join("")}</ul>
       <h3>Flambow</h3><p>${escapeHtml(tx(localeData, "resume_page.project_label"))}</p><p>${escapeHtml(tx(localeData, "resume_page.flambow"))}</p>
+      ${flambowVideo ? `<a href="${escapeHtml(flambowVideo)}">${escapeHtml(tx(localeData, "resume_page.watch_demo"))}</a>` : ""}
       <a href="https://gitlab.com/Theo22100/flambow-front">${escapeHtml(tx(localeData, "resume_page.source"))}</a>
     </section>
     <section><h2>${escapeHtml(tx(localeData, "career.education"))}</h2><ol>${portfolio.RESUME_EDUCATION_IDS.map(id => `<li><h3>${escapeHtml(tx(localeData, `experience_${id}_title`))}</h3><p>${escapeHtml(tx(localeData, `experience_${id}_date`))} — ${escapeHtml(tx(localeData, `experience_${id}_subtitle`))}</p>${id !== 4 ? `<p>${escapeHtml(tx(localeData, `experience_${id}_diplome`))}</p>` : ""}</li>`).join("")}</ol><p>${escapeHtml(tx(localeData, "degree4"))}</p></section>

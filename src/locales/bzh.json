@@ -1,5 +1,6 @@
 {
     "resume_page": {
+        "watch_demo": "Gwelet ar video diskouez",
         "all_skills": "Gwelet ma holl varregezhioù",
         "intro": "Eus etrefasoù React da API Django, e tiorroan arloadoù web ha hezoug en ur deurel evezh ouzh an tizh ha kalite ar c’hod.",
         "missions": "Etrefasoù React, danevelloù mikrobiot ha gweledigezhioù roadennoù gant Django.||API REST Django, Flask ha Node.js; diazoù roadennoù PostgreSQL ha MySQL.||Kevreadur WooCommerce, Systempay, Brevo ha LimeSurvey; etrebroadelaat ha SEO teknikel.||Treuzkas an danframm, merañ an endroioù ha displegañ gant Docker / CI/CD.||Prouadoù emgefre gant Playwright, Jest ha Bruno; labour skipailh Agile war GitLab.",

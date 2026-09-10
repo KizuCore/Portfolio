@@ -6,10 +6,11 @@ import { useTranslation } from "react-i18next";
 import { FiArrowUpRight } from "@react-icons/all-files/fi/FiArrowUpRight";
 import { FiMapPin } from "@react-icons/all-files/fi/FiMapPin";
 import { getLocalizedPath, getShortLocale } from "../../config/seo";
-import { SITE_PROFILE, SOCIAL_LINKS, RESUME_SKILL_GROUPS, RESUME_EDUCATION_IDS } from "../../data/portfolio";
+import { SITE_PROFILE, SOCIAL_LINKS, RESUME_SKILL_GROUPS, RESUME_EDUCATION_IDS, PORTFOLIO_PROJECTS } from "../../data/portfolio";
 import "../../assets/styles/Resume/Resume.css";
 
 const ResumePreview = lazy(() => import("./ResumePreview"));
+const flambowVideo = PORTFOLIO_PROJECTS.find(project => project.imageKey === "flambowFrontend")?.youtubeLink;
 
 function Resume() {
   const { t, i18n } = useTranslation();
@@ -59,7 +60,10 @@ function Resume() {
                 <p className="resume-date">{t("resume_page.project_label")}</p>
                 <h3>Flambow</h3>
                 <p>{t("resume_page.flambow")}</p>
-                <a href="https://gitlab.com/Theo22100/flambow-front" target="_blank" rel="noopener noreferrer" className="resume-text-link">{t("resume_page.source")} <FiArrowUpRight aria-hidden="true" /></a>
+                <div className="resume-project-links">
+                  {flambowVideo && <a href={flambowVideo} target="_blank" rel="noopener noreferrer" className="resume-text-link">{t("resume_page.watch_demo")} <FiArrowUpRight aria-hidden="true" /></a>}
+                  <a href="https://gitlab.com/Theo22100/flambow-front" target="_blank" rel="noopener noreferrer" className="resume-text-link">{t("resume_page.source")} <FiArrowUpRight aria-hidden="true" /></a>
+                </div>
               </article>
             </section>
             <section className="resume-education" aria-labelledby="resume-education-title">

@@ -16,9 +16,9 @@ function Resume() {
   const { t, i18n } = useTranslation();
   const [previewOpen, setPreviewOpen] = useState(false);
   const locale = getShortLocale(i18n.resolvedLanguage || "fr");
-  // Breton uses the French document, as there is no translated PDF.
-  const language = i18n.resolvedLanguage?.startsWith("en") ? "EN" : "FR";
-  const pdf = `/pdf/CV-Guerin-Theo-${language}.pdf`;
+  // The French PDF is the shared document for every interface language.
+  const language = "FR";
+  const pdf = "/pdf/CV-Guerin-Theo-FR.pdf";
   const highlights = t("resume_page.missions").split("||").map(value => value.trim()).filter(Boolean);
 
   return (

@@ -380,7 +380,7 @@ function buildRouteContent({ pathname, localeData, portfolio }) {
     <section><h2>${escapeHtml(tx(localeData, "professional_skills"))}</h2>${portfolio.RESUME_SKILL_GROUPS.map(group => `<h3>${escapeHtml(tx(localeData, group.key))}</h3><ul>${group.skills.map(skill => `<li>${escapeHtml(skill)}</li>`).join("")}</ul>`).join("")}</section>
     <section><h2>${escapeHtml(tx(localeData, "resume_page.languages"))}</h2><p>${escapeHtml(tx(localeData, "language_options.en"))} : B2 · ${escapeHtml(tx(localeData, "language_options.es"))} : B1</p></section>
     <section><h2>${escapeHtml(tx(localeData, "resume_page.connect"))}</h2><p>${escapeHtml(tx(localeData, "resume_page.availability"))}</p><p>${escapeHtml(tx(localeData, "resume_page.mobility"))}</p><a href="mailto:${escapeHtml(portfolio.SITE_PROFILE.email)}">${escapeHtml(portfolio.SITE_PROFILE.email)}</a></section>
-    <ul><li><a href="/pdf/CV-Guerin-Theo-FR.pdf">CV français</a></li><li><a href="/pdf/CV-Guerin-Theo-EN.pdf">CV anglais</a></li></ul>
+    <ul><li><a href="/pdf/CV-Guerin-Theo-FR.pdf" hreflang="fr">${escapeHtml(tx(localeData, "downloadcv"))} — PDF · FR</a></li></ul>
   `;
 
   const legal = buildLegalContent(pathname, localeData);

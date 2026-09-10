@@ -1,4 +1,27 @@
 {
+    "resume_page": {
+        "all_skills": "Voir toutes mes compétences",
+        "intro": "Des interfaces React aux API Django, je développe des applications web et mobiles avec une attention particulière aux performances et à la qualité du code.",
+        "missions": "Interfaces React, rapports microbiote et visualisations de données avec Django.||API REST Django, Flask et Node.js ; bases PostgreSQL et MySQL.||Intégration de WooCommerce, Systempay, Brevo et LimeSurvey ; internationalisation et SEO technique.||Migration d’infrastructure, gestion des environnements et déploiements Docker / CI/CD.||Tests automatisés avec Playwright, Jest et Bruno ; travail en équipe Agile sur GitLab.",
+        "impact": "Temps de génération des rapports PDF chez Nahibu.",
+        "project_label": "Projet d’équipe · Responsable technique",
+        "flambow": "Développement d’une application intergénérationnelle de partage de compétences au sein d’une équipe pluridisciplinaire. React et TypeScript, paiements Stripe, échanges en temps réel avec Socket.io, tests automatisés et déploiement sur VPS.",
+        "source": "Explorer le code sur GitLab",
+        "languages": "Langues",
+        "availability": "À la recherche d’un poste en développement à partir de mars 2027.",
+        "mobility": "Mobilité : Rennes et ses alentours · Permis B",
+        "eyebrow": "Curriculum vitæ",
+        "role": "Développeur Full-Stack",
+        "contact": "Échangeons",
+        "full_journey": "Voir mon parcours complet",
+        "connect": "Travaillons ensemble",
+        "projects": "Découvrir mes projets",
+        "pdf_hint": "Consulter le document dans sa mise en page originale.",
+        "open_pdf": "Ouvrir le PDF",
+        "interfaces": "Interfaces web & mobile",
+        "backend": "API & bases de données",
+        "delivery": "Déploiement & qualité"
+    },
     "career": {
         "intro": "Mon parcours, du développement en entreprise aux formations qui l’ont construit.",
         "work": "Expérience professionnelle",

@@ -1,4 +1,5 @@
 /* Scoped to the lower About sections; skill categories and levels keep their meaning. */
+#about-skills-title { scroll-margin-top: 120px; }
 .about-skills-section, .about-code-section { margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid #94b7e726; text-align: left; }
 .about-section-title { margin: 0 0 2rem; font-size: clamp(1.65rem,3vw,2.5rem); line-height: 1.25; letter-spacing: -.025em; font-weight: 700; color: #f1f6ff; overflow-wrap: anywhere; }
 .about-skills-section .level-legend { justify-content: flex-start; gap: .6rem; margin: 0 0 1.5rem; }

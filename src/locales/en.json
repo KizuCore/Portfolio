@@ -1,4 +1,27 @@
 {
+    "resume_page": {
+        "all_skills": "View all my skills",
+        "intro": "From React interfaces to Django APIs, I build web and mobile applications with a focus on performance and code quality.",
+        "missions": "React interfaces, microbiome reports and data visualisations with Django.||Django, Flask and Node.js REST APIs; PostgreSQL and MySQL databases.||WooCommerce, Systempay, Brevo and LimeSurvey integrations; internationalisation and technical SEO.||Infrastructure migration, environment management and Docker / CI/CD deployments.||Automated tests with Playwright, Jest and Bruno; Agile teamwork on GitLab.",
+        "impact": "PDF report generation time at Nahibu.",
+        "project_label": "Team project · Technical lead",
+        "flambow": "Development of an intergenerational skill-sharing application within a multidisciplinary team. React and TypeScript, Stripe payments, real-time exchanges with Socket.io, automated tests and VPS deployment.",
+        "source": "Explore the code on GitLab",
+        "languages": "Languages",
+        "availability": "Seeking a development position starting in March 2027.",
+        "mobility": "Mobility: Rennes and surrounding areas · Driving licence (B)",
+        "eyebrow": "Curriculum vitae",
+        "role": "Full-Stack Developer",
+        "contact": "Let’s talk",
+        "full_journey": "View my full journey",
+        "connect": "Let’s work together",
+        "projects": "Explore my projects",
+        "pdf_hint": "View the document in its original layout.",
+        "open_pdf": "Open PDF",
+        "interfaces": "Web & mobile interfaces",
+        "backend": "APIs & databases",
+        "delivery": "Deployment & quality"
+    },
     "career": {
         "intro": "My journey, from building software at work to the education behind it.",
         "work": "Professional experience",

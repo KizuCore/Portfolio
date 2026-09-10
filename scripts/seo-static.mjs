@@ -362,11 +362,22 @@ function buildRouteContent({ pathname, localeData, portfolio }) {
   `;
 
   const cv = `
-    <h1>${escapeHtml(tx(localeData, "cv"))}</h1>
-    <p>${escapeHtml(tx(localeData, "seo_routes.cv_description"))}</p>
-    <section><h2>${escapeHtml(portfolio.SITE_PROFILE.displayName)}</h2><p>${escapeHtml(portfolio.SITE_PROFILE.jobTitle)} - ${escapeHtml(tx(localeData, "contact_meta_location_value"))}</p><p>${escapeHtml(tx(localeData, "seo_routes.experience_description"))}</p></section>
-    <section><h2>${escapeHtml(tx(localeData, "professional_skills"))}</h2><p>${escapeHtml(skills.join(", "))}</p></section>
-    <section><h2>${escapeHtml(tx(localeData, "qualifications_title"))}</h2><ul>${["degree5", "degree1", "degree2", "degree3"].map((key) => `<li>${escapeHtml(tx(localeData, key))}</li>`).join("")}</ul></section>
+    <p>${escapeHtml(tx(localeData, "resume_page.eyebrow"))}</p>
+    <h1>${escapeHtml(portfolio.SITE_PROFILE.displayName)}</h1>
+    <p>${escapeHtml(tx(localeData, "resume_page.role"))}</p>
+    <p>${escapeHtml(tx(localeData, "resume_page.intro"))}</p>
+    <p>${escapeHtml(tx(localeData, "contact_meta_location_value"))}</p>
+    <section><h2>${escapeHtml(tx(localeData, "career.work"))}</h2>
+      <h3>${escapeHtml(tx(localeData, "experience_1_title"))}</h3><p>${escapeHtml(tx(localeData, "experience_1_date"))}</p>
+      <p>10 min → ~10 s — ${escapeHtml(tx(localeData, "resume_page.impact"))}</p>
+      <ul>${tx(localeData, "resume_page.missions").split("||").map(point => `<li>${escapeHtml(point.trim())}</li>`).join("")}</ul>
+      <h3>Flambow</h3><p>${escapeHtml(tx(localeData, "resume_page.project_label"))}</p><p>${escapeHtml(tx(localeData, "resume_page.flambow"))}</p>
+      <a href="https://gitlab.com/Theo22100/flambow-front">${escapeHtml(tx(localeData, "resume_page.source"))}</a>
+    </section>
+    <section><h2>${escapeHtml(tx(localeData, "career.education"))}</h2><ol>${portfolio.RESUME_EDUCATION_IDS.map(id => `<li><h3>${escapeHtml(tx(localeData, `experience_${id}_title`))}</h3><p>${escapeHtml(tx(localeData, `experience_${id}_date`))} — ${escapeHtml(tx(localeData, `experience_${id}_subtitle`))}</p>${id !== 4 ? `<p>${escapeHtml(tx(localeData, `experience_${id}_diplome`))}</p>` : ""}</li>`).join("")}</ol><p>${escapeHtml(tx(localeData, "degree4"))}</p></section>
+    <section><h2>${escapeHtml(tx(localeData, "professional_skills"))}</h2>${portfolio.RESUME_SKILL_GROUPS.map(group => `<h3>${escapeHtml(tx(localeData, group.key))}</h3><ul>${group.skills.map(skill => `<li>${escapeHtml(skill)}</li>`).join("")}</ul>`).join("")}</section>
+    <section><h2>${escapeHtml(tx(localeData, "resume_page.languages"))}</h2><p>${escapeHtml(tx(localeData, "language_options.en"))} : B2 · ${escapeHtml(tx(localeData, "language_options.es"))} : B1</p></section>
+    <section><h2>${escapeHtml(tx(localeData, "resume_page.connect"))}</h2><p>${escapeHtml(tx(localeData, "resume_page.availability"))}</p><p>${escapeHtml(tx(localeData, "resume_page.mobility"))}</p><a href="mailto:${escapeHtml(portfolio.SITE_PROFILE.email)}">${escapeHtml(portfolio.SITE_PROFILE.email)}</a></section>
     <ul><li><a href="/pdf/CV-Guerin-Theo-FR.pdf">CV français</a></li><li><a href="/pdf/CV-Guerin-Theo-EN.pdf">CV anglais</a></li></ul>
   `;
 

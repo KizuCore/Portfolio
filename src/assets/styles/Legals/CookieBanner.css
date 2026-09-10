@@ -1,4 +1,4 @@
-/* Keep consent choices together and give accepting/refusing equal prominence. */
+/* Regroupe les choix de consentement et donne la même visibilité à l’acceptation et au refus. */
 .cookie-banner {
   position: fixed; left: 1rem; right: 1rem;
   bottom: calc(1rem + env(safe-area-inset-bottom, 0px));

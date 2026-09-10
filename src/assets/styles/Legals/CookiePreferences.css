@@ -1,4 +1,4 @@
-/* Consent dialog shares the banner's surfaces and accessible control sizes. */
+/* La fenêtre de consentement reprend les surfaces de la bannière et la taille accessible de ses commandes. */
 .cookie-prefs-modal { position: fixed; inset: 0; z-index: 1200; display: flex; align-items: center; justify-content: center; padding: 1rem; }
 .cookie-prefs-backdrop { position: absolute; inset: 0; border: 0; background: #02070fb8; backdrop-filter: blur(4px); }
 .cookie-prefs-dialog { position: relative; width: min(560px,100%); max-height: calc(100dvh - 2rem); overflow: auto; border: 1px solid #94b7e733; border-radius: 18px; background: #101d30; color: #d4e1f2; box-shadow: 0 16px 48px #02091666; }

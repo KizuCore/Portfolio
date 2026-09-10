@@ -1,6 +1,6 @@
 ﻿import { Fragment } from "react";
 
-/** Word wrappers retain normal wrapping; the intact label remains readable to assistive technology. */
+/** Les conteneurs de mots préservent les retours à la ligne ; le libellé complet reste lisible par les technologies d’assistance. */
 export default function GravityText({ children }: { children: string }) {
   return <span className="gravity-text" aria-label={children}>{children.split(/(\s+)/).map((word, index) =>
     /\s/.test(word)

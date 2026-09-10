@@ -39,7 +39,7 @@ export function useContactForm(recaptchaSiteKey: string) {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Keep validation local and field-specific before asking reCAPTCHA or the API.
+    // Valide chaque champ localement avant de solliciter reCAPTCHA ou l’API.
     const nextFieldErrors = Object.entries(formData).reduce<ContactFieldErrors>((errors, [name, value]) => {
       if (!value.trim()) {
         errors[name as ContactFormFieldName] = "errors.missing_fields";
@@ -63,7 +63,7 @@ export function useContactForm(recaptchaSiteKey: string) {
     setIsSubmitting(true);
 
     try {
-      // Load reCAPTCHA only on submit to avoid third-party iframe console noise during page audits.
+      // Charge reCAPTCHA uniquement à l’envoi pour éviter les messages des cadres tiers dans la console pendant les audits.
       const recaptchaToken = await getRecaptchaToken(recaptchaSiteKey, RECAPTCHA_ACTION);
       const result = await sendContactEmail({ ...formData, recaptchaToken });
 

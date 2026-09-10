@@ -3,7 +3,7 @@ import { SITE_PROFILE, SOCIAL_LINKS } from "../../config/site";
 
 const DETAIL_KEYS = ["response", "location", "rate"] as const;
 
-// Supporting information stays secondary to the form, with one readable definition list.
+// Les informations complémentaires restent secondaires au formulaire, dans une liste de définitions lisible.
 export default function ContactAside() {
   const { t } = useTranslation();
   return <aside className="contact-aside" aria-labelledby="contact-aside-title">

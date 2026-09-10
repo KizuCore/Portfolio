@@ -1,4 +1,4 @@
-/* Page structure: a quiet navigation column and one detailed project. */
+/* Structure de page : une colonne de navigation sobre et un projet détaillé. */
 .project-section { position: relative; z-index: 1; padding: 9.5rem 0 5rem; min-height: 100vh; text-align: left; color: #eaf2ff; }
 .projects-title { margin: 0; font-size: clamp(2rem,4vw,3.2rem); font-weight: 700; letter-spacing: -.035em; line-height: 1.15; }
 .projects-title::before { content: ''; display: block; width: 42px; height: 3px; margin-bottom: 1.25rem; border-radius: 3px; background: #4d92ff; box-shadow: 0 0 12px #367fec55; }
@@ -32,7 +32,7 @@
 .project-switch-btn:disabled { opacity: .4; cursor: not-allowed; }
 .project-section :focus-visible { outline: 2px solid #94c3ff; outline-offset: 3px; }
 
-/* A large preview precedes the content; internal sections need no extra boxes. */
+/* Un grand aperçu précède le contenu ; les sections internes n’ont pas besoin de cadres supplémentaires. */
 .project-card-view.card { display: flex; flex-direction: column; overflow: hidden; padding: 0; border: 1px solid #94b7e733; border-radius: 18px; background: linear-gradient(135deg,rgba(24,43,70,.86),rgba(13,23,39,.96)); color: #eaf2ff; }
 .project-img-wrapper { width: 100%; padding: 1rem; background: #08121f; border-bottom: 1px solid #94b7e726; }
 .project-img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: contain; border-radius: 8px; }
@@ -67,7 +67,7 @@
   .project-section { padding-top: 7.5rem; }
   .project-explorer { grid-template-columns: minmax(0,1fr); }
   .project-nav { position: static; }
-  /* Horizontal project choices keep the selected preview near the navigation. */
+  /* Le choix horizontal des projets garde l’aperçu sélectionné près de la navigation. */
   .project-nav-list { flex-direction: row; max-height: none; overflow-x: auto; scroll-snap-type: x proximity; }
   .project-nav-item { flex: 0 0 225px; scroll-snap-align: start; }
   .project-nav-header { margin-bottom: .5rem; }

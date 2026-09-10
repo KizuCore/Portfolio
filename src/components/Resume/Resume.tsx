@@ -16,7 +16,7 @@ function Resume() {
   const { t, i18n } = useTranslation();
   const [previewOpen, setPreviewOpen] = useState(false);
   const locale = getShortLocale(i18n.resolvedLanguage || "fr");
-  // The French PDF is the shared document for every interface language.
+  // Le PDF français est le document commun à toutes les langues de l’interface.
   const language = "FR";
   const pdf = "/pdf/CV-Guerin-Theo-FR.pdf";
   const highlights = t("resume_page.missions").split("||").map(value => value.trim()).filter(Boolean);

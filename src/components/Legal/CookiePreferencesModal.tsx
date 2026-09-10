@@ -10,7 +10,7 @@ export default function CookiePreferencesModal() {
   const [analyticsOn, setAnalyticsOn] = useState(false);
 
   useEffect(() => {
-    // Expose a tiny imperative bridge for links outside React routing context.
+    // Expose une petite passerelle impérative pour les liens situés hors du contexte de routage React.
     window.openCookiePreferences = () => {
       const current = getConsent();
       setAnalyticsOn(current === "granted");
@@ -31,7 +31,7 @@ export default function CookiePreferencesModal() {
     const controls = () => Array.from(dialogRef.current?.querySelectorAll<HTMLElement>('button, input') ?? []);
     controls()[0]?.focus();
     const previousOverflow = document.body.style.overflow;
-    // Lock the page behind the modal and let Escape close it like a native dialog.
+    // Bloque la page derrière la fenêtre modale et permet de la fermer avec Échap, comme une fenêtre native.
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Tab") {
         const items = controls();

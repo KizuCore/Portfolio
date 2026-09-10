@@ -13,7 +13,7 @@ export default function BretonTakeover({ language, onComplete }: Props) {
   const { t } = useTranslation();
   const reducedMotion = useReducedMotion();
   const [stage, setStage] = useState(0);
-  // Keep the joke in the visitor's previous language while the page switches to Breton.
+  // Garde la plaisanterie dans la langue précédente du visiteur pendant le passage de la page en breton.
   const text = (key: string) => t(`easter.breton.${key}`, { lng: language });
 
   useEffect(() => {

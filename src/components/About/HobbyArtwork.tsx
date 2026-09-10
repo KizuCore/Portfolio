@@ -1,4 +1,4 @@
-﻿/** Small vector scenes keep each hobby distinct without image downloads. */
+﻿/** De petites scènes vectorielles distinguent chaque loisir sans téléchargement d’images. */
 export default function HobbyArtwork({ index }: { index: number }) {
   return <svg className="hobby-scene" viewBox="130 0 190 90" fill="none" aria-hidden="true" preserveAspectRatio="xMaxYMid meet">
     {index === 0 && <>

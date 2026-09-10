@@ -6,7 +6,7 @@ import type { DestroyType, ISourceOptions, MoveDirection } from "@tsparticles/en
 
 let particlesEnginePromise: Promise<void> | null = null;
 
-// Stable positions prevent the sky from jumping between renders and routes.
+// Des positions stables empêchent le ciel de se déplacer brusquement entre les rendus et les pages.
 const DISTANT_STARS = Array.from({ length: 100 }, (_, index) => {
   const x = ((index * 0.61803398875 + 0.13) % 1) * 100;
   const y = ((index * index * 0.41421356 + 0.07) % 1) * 100;
@@ -16,7 +16,7 @@ const BEACONS = [ [8, 19], [79, 12], [93, 62], [17, 79], [65, 86], [42, 7] ];
 
 function ensureParticlesEngine() {
   if (!particlesEnginePromise) {
-    // tsparticles must be initialized once before any Particles instance can render.
+    // tsparticles doit être initialisé une fois avant l’affichage de toute instance Particles.
     particlesEnginePromise = initParticlesEngine(async (engine) => {
       await loadFull(engine);
     });
@@ -42,7 +42,7 @@ function ParticleBackground() {
       if (mounted) {
         setIsReady(true);
       }
-    }).catch(() => { /* The static star field remains available if the engine fails. */ });
+    }).catch(() => { /* Le champ d’étoiles statique reste visible si le moteur échoue. */ });
 
     return () => {
       mounted = false;
@@ -60,7 +60,7 @@ function ParticleBackground() {
     const nav = navigator as Navigator & { deviceMemory?: number };
 
     const computePerfProfile = () => {
-      // Blend memory, CPU threads, DPI and viewport size into one lightweight performance profile.
+      // Combine la mémoire, les fils d’exécution du processeur, la densité de pixels et la taille de la fenêtre dans un profil de performances léger.
       const lowMemory = typeof nav.deviceMemory === "number" && nav.deviceMemory <= 4;
       const lowThreads = typeof nav.hardwareConcurrency === "number" && nav.hardwareConcurrency <= 4;
       const highDpi = window.devicePixelRatio > 1.75;
@@ -87,7 +87,7 @@ function ParticleBackground() {
   const particleOptions = useMemo<ISourceOptions>(
     () => ({
       fullScreen: { enable: false },
-      // Lower motion and frame rate on constrained devices to keep the portfolio responsive.
+      // Réduit les mouvements et la fréquence d’affichage sur les appareils limités pour garder le portfolio réactif.
       fpsLimit: prefersReducedMotion ? 1 : isLowPerfDevice ? 24 : 40,
       detectRetina: !isLowPerfDevice,
       pauseOnBlur: true,
@@ -143,7 +143,7 @@ function ParticleBackground() {
     return null;
   }
 
-  // Stay in the App stacking context, below content and above its background gradient.
+  // Reste dans le contexte d’empilement de l’application, sous le contenu et au-dessus du dégradé de fond.
   return (
     <div
       className={`particles-layer ${isReady ? "particles-layer--ready" : "particles-layer--loading"}`}

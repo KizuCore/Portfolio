@@ -11,7 +11,7 @@ export default function Contact() {
         <h1 id="contact-title">{t("social")}</h1>
         <p className="contact-lead">{t("contact_intro")}</p>
       </header>
-      {/* DOM and visual order agree: the form comes first, including on mobile. */}
+      {/* L’ordre du DOM correspond à l’ordre visuel : le formulaire vient en premier, y compris sur mobile. */}
       <div className="contact-columns">
         <ContactForm />
         <ContactAside />

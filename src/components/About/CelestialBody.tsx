@@ -7,7 +7,7 @@ interface CelestialBodyProps {
   isSun?: boolean;
 }
 
-// These bodies are illustrations, not controls: there is no action to activate.
+// Ces astres sont des illustrations et ne déclenchent aucune action.
 function CelestialBody({ name, className, children, isSun }: CelestialBodyProps) {
   return (
     <div

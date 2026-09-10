@@ -15,7 +15,7 @@ import { SITE_PROFILE } from "../../../config/site";
 import "../../../assets/styles/Easter/style_easter.css";
 import "../../../assets/styles/Header/Navigation.css";
 
-// Timing values for the hidden long-press logo interaction.
+// Durées de l’interaction cachée déclenchée par un appui long sur le logo.
 const FAST_CLICK_THRESHOLD = 500;
 const LONG_CLICK_REDIRECT_DELAY = 9500;
 const MENU_FOCUSABLE_SELECTOR = [
@@ -27,7 +27,7 @@ const MENU_FOCUSABLE_SELECTOR = [
   "[tabindex]:not([tabindex='-1'])",
 ].join(",");
 
-// Keeps the hidden logo interaction isolated from the visual navbar state.
+// Isole l’interaction cachée du logo de l’état visuel de la barre de navigation.
 function useLogoNavigation(navigate: ReturnType<typeof useNavigate>) {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isLongClick, setIsLongClick] = useState(false);
@@ -94,7 +94,7 @@ function NavBar(): JSX.Element {
   const { isAnimating, handleMouseDown, handleMouseUp, handleMouseLeave } = useLogoNavigation(navigate);
 
   useEffect(() => {
-    // The sticky class only changes when the scroll threshold is crossed.
+    // La classe sticky change uniquement lorsque le seuil de défilement est franchi.
     const scrollHandler = () => {
       const shouldUseStickyStyle = window.scrollY >= 20;
       setNavColour((previous) => (previous === shouldUseStickyStyle ? previous : shouldUseStickyStyle));
@@ -106,7 +106,7 @@ function NavBar(): JSX.Element {
   }, []);
 
   useEffect(() => {
-    // Close the mobile menu after navigation, including browser back/forward actions.
+    // Ferme le menu mobile après une navigation, y compris avec les boutons précédent et suivant du navigateur.
     setExpand(false);
   }, [location.pathname]);
 
@@ -120,7 +120,7 @@ function NavBar(): JSX.Element {
         (element) => !element.hasAttribute("disabled") && element.tabIndex !== -1
       );
 
-    // Trap focus inside the expanded mobile menu until it closes.
+    // Maintient le focus dans le menu mobile ouvert jusqu’à sa fermeture.
     const handleMenuKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setExpand(false);
@@ -155,7 +155,7 @@ function NavBar(): JSX.Element {
     return () => window.removeEventListener("keydown", handleMenuKeyDown);
   }, [expand]);
 
-  // Build nav items from the current locale so labels and paths stay in sync.
+  // Construit les éléments de navigation selon la langue actuelle pour synchroniser les libellés et les chemins.
   const navItems = [
     { to: getLocalizedPath(currentLocale, "/"), icon: <FiHome />, label: t("home"), ariaLabel: t("home_aria") },
     { to: getLocalizedPath(currentLocale, "/about"), icon: <FiUser />, label: t("about"), ariaLabel: t("about_aria") },

@@ -5,7 +5,7 @@ import "../../assets/styles/LoadingImage.css";
 type Props = ImgHTMLAttributes<HTMLImageElement>;
 
 export default function LoadingImage(props: Props) {
-  // A new source gets its own loading state, including when browsing projects.
+  // Chaque nouvelle source possède son propre état de chargement, y compris lors du parcours des projets.
   return <ImageState key={props.src} {...props} />;
 }
 
@@ -14,7 +14,7 @@ function ImageState({ alt = "", onLoad, onError, ...props }: Props) {
   const image = useRef<HTMLImageElement>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   useEffect(() => {
-    // Cached images may finish before React attaches the load handler.
+    // Les images en cache peuvent finir de charger avant que React n’attache le gestionnaire de chargement.
     if (image.current?.complete && image.current.naturalWidth > 0) setStatus("ready");
   }, []);
   return (

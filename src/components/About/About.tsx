@@ -20,7 +20,7 @@ function About(): JSX.Element {
   const { hash } = useLocation();
   useEffect(() => {
     if (hash !== "#about-skills-title") return;
-    // Wait for this lazy route to mount before following the CV's skills link.
+    // Attend le montage de cette route chargée à la demande avant de suivre le lien des compétences du CV.
     const frame = requestAnimationFrame(() => {
       const heading = document.getElementById("about-skills-title");
       heading?.scrollIntoView({ block: "start", behavior: "instant" });

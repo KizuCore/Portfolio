@@ -44,7 +44,7 @@
 .profile-hobby-card .profile-hobby-secret:active,
 .profile-hobby-card .profile-hobby-secret * { cursor: default; }
 
-/* Each hobby has its own miniature scene, while the reading area stays calm. */
+/* Chaque loisir possède sa propre scène miniature, tandis que la zone de lecture reste sobre. */
 .profile-hobby-card[data-hobby] {
   --hobby-accent: 145, 190, 246;
   position: relative;
@@ -79,7 +79,7 @@
   .profile-hobby-card:hover .hobby-star { animation: none; }
 }
 
-/* The title and illustration share one header instead of repeating an icon below. */
+/* Le titre et l’illustration partagent un en-tête, sans répéter une icône en dessous. */
 .profile-hobby-banner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(110px, 48%); align-items: center; min-height: 90px; margin: -14px -14px 0; border-bottom: 1px solid rgba(var(--hobby-accent), .15); background: radial-gradient(ellipse at 85% 20%, rgba(var(--hobby-accent), .08), transparent 75%); }
 .profile-hobby-banner .profile-hobby-heading { padding: 14px 0 14px 16px; }
 .profile-hobby-banner .profile-hobby-heading strong { font-size: 14px; font-weight: 600; }

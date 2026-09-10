@@ -1,6 +1,6 @@
 @import "./fonts.css";
 
-/* Readable fallback when JavaScript is disabled or the application cannot start. */
+/* Contenu de repli lisible lorsque JavaScript est désactivé ou que l’application ne démarre pas. */
 #seo-prerender { max-width: 76ch; margin: 0 auto; padding: 2rem 1.5rem; color: #f5f9ff; background: #080e1a; line-height: 1.8; }
 #seo-prerender h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.25; }
 #seo-prerender h2 { margin-top: 2rem; font-size: 1.4rem; }

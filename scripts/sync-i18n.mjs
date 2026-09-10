@@ -118,7 +118,7 @@ async function readLocaleJson(locale) {
     const raw = await fs.readFile(filePath, "utf8");
     return {
         filePath,
-        // Accept UTF-8 JSON exported by editors that prepend a byte-order mark.
+        // Accepte les fichiers JSON UTF-8 exportés avec un marqueur d’ordre des octets.
         data: JSON.parse(raw.replace(/^\uFEFF/, "")),
     };
 }

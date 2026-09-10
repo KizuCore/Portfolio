@@ -14,8 +14,8 @@ export type BusinessPage = {
   questions: { question: string; answer: string }[];
 };
 
-// Editorial content is shared by React and the static SEO build. Keep claims factual.
-// Services remain in French; case studies use the shared locale JSON files.
+// Le contenu rédactionnel est partagé par React et la génération SEO statique. Les affirmations doivent rester factuelles.
+// Les services restent en français ; les études de cas utilisent les fichiers JSON de traduction partagés.
 export const BUSINESS_PAGES: BusinessPage[] = [
   { path: "/realisations/a-table", kind: "case-study", ...fr.business_pages.cases["a-table"] },
   {

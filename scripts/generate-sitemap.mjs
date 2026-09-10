@@ -26,7 +26,7 @@ function escapeXml(value) {
 
 function readSeoConfig() {
   const source = fs.readFileSync(SEO_CONFIG_PATH, "utf8");
-  // The app config is TypeScript; transpiling it here keeps the sitemap source of truth in one place.
+  // La configuration est en TypeScript ; sa transpilation permet de conserver une source unique pour le sitemap.
   const output = ts.transpileModule(source, {
     compilerOptions: {
       module: ts.ModuleKind.CommonJS,
@@ -45,7 +45,7 @@ function readSeoConfig() {
 }
 
 function getRouteMeta(pathname) {
-  // Keep crawl hints conservative: portfolio pages move more often than legal pages.
+  // Reste prudent sur la fréquence d’exploration : le portfolio évolue plus souvent que les pages juridiques.
   if (pathname.startsWith("/mentions-") || pathname.startsWith("/politique-")) {
     return ROUTE_SITEMAP_META.legal;
   }
@@ -69,7 +69,7 @@ function buildSitemap({ routes, getIndexableLocales, getLocalizedPath, getHtmlLa
       lines.push("  <url>");
       lines.push(`    <loc>${escapeXml(`${siteUrl}${localizedPath}`)}</loc>`);
 
-      // Each localized URL advertises the full cluster of language alternatives.
+      // Chaque URL traduite annonce toutes ses variantes linguistiques.
       for (const alternateLocale of indexableLocales) {
         const alternatePath = getLocalizedPath(alternateLocale, pathname);
         lines.push(

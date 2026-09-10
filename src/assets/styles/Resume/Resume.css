@@ -1,4 +1,4 @@
-/* The page owns the layout; ResumePreview owns PDF rendering and its states. */
+/* La page gère la mise en page ; ResumePreview gère le rendu du PDF et ses états. */
 .resume-section { position: relative; z-index: 1; padding: 9.5rem 0 5rem; min-height: 100vh; color: #eaf2ff; text-align: left; }
 .resume-header { display: flex; align-items: center; justify-content: space-between; gap: 3rem; padding-bottom: 2.75rem; margin-bottom: 2.75rem; border-bottom: 1px solid #94b7e72b; }
 .resume-title { margin: 0; font-size: clamp(2.8rem,5vw,4.5rem); font-weight: 700; letter-spacing: -.055em; line-height: 1.12; }
@@ -18,7 +18,7 @@
 .resume-format { display: inline-flex; gap: .6rem; font-size: .75rem; color: #9db9de; }
 .resume-preview { position: relative; min-width: 0; min-height: 280px; }
 .resume-preview[aria-busy='true'] { aspect-ratio: 1 / 1.414; }
-/* Keep PDF text/link overlays inside the rendered sheet when resizing. */
+/* Garde les calques de texte et de liens du PDF dans la feuille affichée lors du redimensionnement. */
 .resume-preview .react-pdf__Page { margin-bottom: 1rem; overflow: hidden; }
 .resume-preview .react-pdf__Page:last-child { margin-bottom: 0; }
 .resume-preview .react-pdf__Page canvas { display: block; max-width: 100%; height: auto !important; }

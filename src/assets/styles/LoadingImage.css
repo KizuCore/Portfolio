@@ -1,4 +1,4 @@
-/* Reserve the image's space so completion does not move nearby content. */
+/* Réserve l’espace de l’image pour que son chargement ne déplace pas le contenu voisin. */
 .loading-image { display: block; position: relative; width: 100%; min-width: 0; background: #101c30; border-radius: inherit; overflow: hidden; }
 .loading-image > img { display: block; }
 .loading-image--loading > img, .loading-image--error > img { opacity: 0; }

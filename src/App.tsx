@@ -41,7 +41,7 @@ function AppContent() {
     }
   }, [i18n, routeLocale]);
 
-  // Keep route transitions subtle, and disable movement for users who reduce motion.
+  // Garde les transitions entre pages discrètes et désactive les mouvements selon les préférences d’accessibilité.
   const routeInitial = reduceMotion
     ? { opacity: 1, y: 0 }
     : { opacity: 0, y: 12 };
@@ -61,7 +61,7 @@ function AppContent() {
       <ScrollProgress />
 
       <div className="App" id="scroll">
-        {/* Keep one particle engine alive while users navigate between routes. */}
+        {/* Conserve un seul moteur de particules pendant la navigation entre les pages. */}
         <ParticleBackground />
         <SeoMeta />
         <NavBar />
@@ -74,7 +74,7 @@ function AppContent() {
 
           <Suspense fallback={<RouteSkeleton />}>
             <AnimatePresence mode="wait" initial={false}>
-              {/* Keying by pathname gives each page its own enter/exit animation. */}
+              {/* La clé fondée sur pathname donne à chaque page sa propre animation d’entrée et de sortie. */}
               <motion.div
                 key={location.pathname}
                 className="route-stage"
@@ -102,11 +102,11 @@ function AppContent() {
 
 function App() {
   useLayoutEffect(() => {
-    // Reveal the application only after React commits its first view.
+    // Affiche l’application seulement après le premier rendu effectif de React.
     document.documentElement.removeAttribute("data-app-loading");
   }, []);
 
-  // Render immediately: loading decoration must not delay access to the portfolio.
+  // Affiche le contenu immédiatement : l’animation de chargement ne doit pas retarder l’accès au portfolio.
   return (
     <Router>
       <AppContent />

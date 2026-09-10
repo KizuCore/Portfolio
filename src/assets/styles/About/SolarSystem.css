@@ -1,5 +1,5 @@
 ﻿/* =======================
-   SOLAR SYSTEM CONTAINER
+   CONTENEUR DU SYSTÈME SOLAIRE
 ========================== */
 
 .solar-container {
@@ -10,12 +10,12 @@
 }
 
 /* =======================
-   BACKGROUND & ROTATION
+   ARRIÈRE-PLAN ET ROTATION
 ========================== */
 
 
 
-/* Prevent the column from creating horizontal page scroll. */
+/* Empêche la colonne de provoquer un défilement horizontal de la page. */
 .about-img { 
   overflow: hidden !important; 
   padding-top: 100px;
@@ -26,7 +26,7 @@
 
 
 
-/* Slightly shrink on very small screens so the orbit never touches the edges. */
+/* Réduit légèrement la taille sur les très petits écrans pour que l’orbite ne touche pas les bords. */
 @media (max-width: 380px) {
   .canvas-container { --size: clamp(280px, 92vw, 400px); }
   .about-img {
@@ -36,7 +36,7 @@
 
 
 /* =======================
-   SUN
+   SOLEIL
 ========================== */
 
 .sun {
@@ -53,7 +53,7 @@
 }
 
 /* =======================
-   ORBITS (rotation path animation)
+   ORBITES (ANIMATION DES TRAJECTOIRES)
 ========================== */
 
 .orbit {
@@ -80,7 +80,7 @@
 }
 
 /* =======================
-   BASE PLANET STYLES
+   STYLES DE BASE DES PLANÈTES
 ========================== */
 
 .planet {
@@ -125,10 +125,10 @@
 
 
 /* =======================
-   PLANET STYLES
+   STYLES DES PLANÈTES
 ========================== */
 
-/* MERCURY */
+/* MERCURE */
 .orbit-mercure {
   width: 80px;
   height: 80px;
@@ -143,7 +143,7 @@
   opacity: 1;
 }
 
-/* VENUS */
+/* VÉNUS */
 .orbit-venus {
   width: 116px;
   height: 116px;
@@ -157,7 +157,7 @@
   box-shadow: 0 0 6px rgba(232, 198, 108, 0.7);
 }
 
-/* EARTH */
+/* TERRE */
 .orbit-earth {
   width: 158px;
   height: 158px;
@@ -173,7 +173,7 @@
   z-index: 2;
 }
 
-/* MOON */
+/* LUNE */
 .planet-earth .moon {
   position: absolute;
   width: 3px;
@@ -186,7 +186,7 @@
   animation: orbitMoon 6s linear infinite;
 }
 
-/* Keep the moon centered on its own orbit throughout the rotation. */
+/* Garde la Lune centrée sur sa propre orbite pendant toute la rotation. */
 @keyframes orbitMoon {
   0% {
     transform: translate(-50%, -50%) rotate(0deg) translateX(11px) rotate(0deg);
@@ -293,7 +293,7 @@
   box-shadow: 0 0 6px rgba(0, 119, 190, 0.7);
 }
 
-/* ASTEROID BELT */
+/* CEINTURE D’ASTÉROÏDES */
 
 .asteroid-belt {
   position: absolute;
@@ -326,7 +326,7 @@
   border-radius: 50%;
 }
 
-/* The fixed orbital stage scales as a whole, preserving the planet trajectories. */
+/* La scène orbitale fixe est redimensionnée dans son ensemble pour préserver les trajectoires des planètes. */
 .about-intro .about-img { padding-top: 1.5rem; padding-bottom: 1.5rem !important; }
 .about-intro .canvas-container { width: 100%; max-width: 480px; height: auto; }
 .solar-container { width: 100%; height: auto; pointer-events: auto; }
@@ -365,7 +365,7 @@
     background: radial-gradient(ellipse at center, #25589930, transparent 72%);
   }
   .solar-system { transform: translate(-50%,-50%) scale(.56); }
-  /* Compensate for the thinner lines and smaller particles after scaling. */
+  /* Compense l’amincissement des lignes et la réduction des particules après redimensionnement. */
   .solar-system .orbit { border-width: 1.5px; border-color: #b3ccef66; }
   .solar-system .orbit-earth { border-color: #8cc4ff99; }
   .solar-system .asteroid { opacity: .75; }
@@ -373,7 +373,7 @@
     box-shadow: inset -1px -1px 3px #02071366, 0 0 10px #9bc8ff80;
   }
 }
-/* Use more of the available width while keeping the outer belt in view. */
+/* Utilise davantage la largeur disponible tout en gardant la ceinture extérieure visible. */
 @media (min-width: 375px) and (max-width: 413px) {
   .solar-stage { height: 350px; }
   .solar-system { transform: translate(-50%,-50%) scale(.62); }
@@ -394,12 +394,12 @@
   .solar-container * { animation-play-state: paused !important; transition: none !important; }
 }
 
-/* Names remain upright in the caption while the orbital plane rotates. */
+/* Les noms restent droits dans la légende pendant la rotation du plan orbital. */
 .solar-system .celestial-body-tooltip { display: none; }
 
-/* Pluto is placed within the outer icy belt in this stylized model. */
+/* Pluton est placée dans la ceinture glacée extérieure de ce modèle stylisé. */
 .orbit-pluto { width: 488px; height: 488px; animation-duration: 160s; }
-/* Keep the outer belt as scattered particles, without a drawn orbit through it. */
+/* Représente la ceinture extérieure par des particules dispersées, sans y tracer d’orbite. */
 .solar-system .orbit-pluto { border: 0; }
 .solar-system .planet-pluto { --orbit-radius: 488px; width: 9px; height: 9px; background: radial-gradient(circle at 30% 25%,#e5d3b9,#b49682 55%,#675348); }
 

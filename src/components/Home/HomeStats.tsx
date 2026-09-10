@@ -28,7 +28,7 @@ function HomeStats() {
             animate={visible || reduceMotion ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: reduceMotion ? 0 : 0.45, delay: reduceMotion ? 0 : index * 0.3 }}
           >
-            {/* Announce the final figure once, rather than every counting frame. */}
+            {/* Annonce le chiffre final une seule fois, sans lire chaque étape du compteur. */}
             <span className="visually-hidden">{stat.prefix}{stat.value} {stat.labels.join(' ')}</span>
             <div className="stat-item stat-item-combo" aria-hidden="true">
               {stat.prefix && <span className="stat-plus">{stat.prefix}</span>}

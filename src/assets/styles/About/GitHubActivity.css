@@ -1,4 +1,4 @@
-/* One compact surface holds both profile links and the GitHub activity. */
+/* Une surface compacte regroupe les liens des profils et l’activité GitHub. */
 .code-activity-card { border: 1px solid #94b7e72b; border-radius: 16px; background: linear-gradient(135deg,#182b46a6,#0d1727e6); overflow: hidden; }
 .code-activity-header { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.5rem 1.75rem; border-bottom: 1px solid #94b7e726; }
 .code-activity-identity { display: flex; align-items: center; gap: .9rem; color: #c5deff; }

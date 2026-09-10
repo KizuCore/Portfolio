@@ -1,9 +1,9 @@
-/* Contact uses a single primary surface; the aside is deliberately unframed. */
+/* La page Contact utilise une seule surface principale ; la colonne secondaire reste sans cadre. */
 .contact-page { padding: 9.5rem 0 4rem; color: var(--text-primary); text-align: left; }
 .contact-layout { width: calc(100% - 3rem); max-width: 1180px; margin: auto; }
 .contact-header { max-width: 760px; margin-bottom: 2.75rem; }
 .contact-header h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; color: #f1f6ff; line-height: 1.15; letter-spacing: -.035em; margin: 0 0 1.25rem; }
-/* Match the title accent used on Projects, Experience and Resume. */
+/* Reprend l’accent des titres des pages Projets, Expériences et CV. */
 .contact-header h1::before { content: ''; display: block; width: 42px; height: 3px; margin-bottom: 1.25rem; border-radius: 3px; background: #4d92ff; box-shadow: 0 0 12px #367fec55; }
 .contact-lead { color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin: 0; }
 .contact-columns { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: start; gap: clamp(2rem, 5vw, 4.5rem); }
@@ -19,7 +19,7 @@
 .contact-form-card .custom-form:focus { outline: 2px solid #9dc6ff; outline-offset: 2px; border-color: #9dc6ff; box-shadow: none; }
 .contact-form-card .custom-form[aria-invalid="true"] { border-color: #f4a1b1; }
 .contact-form-card textarea.custom-form { min-height: 180px; resize: vertical; }
-/* Scope autofill to this form so it cannot change controls elsewhere in the site. */
+/* Limite les styles de remplissage automatique à ce formulaire pour préserver les autres champs du site. */
 .contact-form-card input:-webkit-autofill { -webkit-text-fill-color: #f5f9ff; box-shadow: 0 0 0 1000px #091323 inset; }
 .contact-form-card .contact-submit-btn { display: inline-flex; justify-content: center; align-items: center; gap: .6rem; min-height: 48px; padding: .8rem 1.75rem; border: 1px solid transparent; border-radius: 9px; background: #b7d9ff; color: #091324; font-weight: 700; box-shadow: none; }
 .contact-form-card .contact-submit-btn:hover, .contact-form-card .contact-submit-btn:active { background: #d3e8ff; color: #091324; border-color: #d3e8ff; }

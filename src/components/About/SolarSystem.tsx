@@ -33,7 +33,7 @@ function generateAsteroidsDynamic(count: number, radiusMin: number, radiusMax: n
 }
 
 function randomOrbitDelay(maxDurationInSec: number) {
-  // Negative delays randomize the initial planet positions without changing the orbit animation.
+  // Les délais négatifs répartissent les positions initiales des planètes sans modifier l’animation des orbites.
   return `-${Math.floor(Math.random() * maxDurationInSec)}s`;
 }
 
@@ -41,7 +41,7 @@ function SolarSystem() {
   const { t } = useTranslation();
   const reduceMotion = useReducedMotion();
   const [activeName, setActiveName] = useState<string | null>(null);
-  // Generate the belts once so interactions do not scatter the asteroids again.
+  // Génère les ceintures une seule fois pour éviter de redistribuer les astéroïdes à chaque interaction.
   const innerBelt = useMemo(() => generateAsteroidsDynamic(100, 116, 123), []);
   const outerBelt = useMemo(() => generateAsteroidsDynamic(160, 240, 250), []);
   const delays = useMemo(() => ({

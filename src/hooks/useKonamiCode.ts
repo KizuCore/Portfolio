@@ -10,7 +10,7 @@ const konamiCode = [
 ];
 
 /**
- * Watches keyboard input for the Konami sequence and opens the hidden Gojo route.
+ * Détecte la séquence Konami au clavier et ouvre la page cachée Gojo.
  */
 function useKonamiCode(): void {
   const [, setInput] = useState<string[]>([]);

@@ -13,7 +13,7 @@ import PolitiqueConfidentialite from "../components/Legal/PolitiqueConfidentiali
 import PolitiqueCookies from "../components/Legal/PolitiqueCookies";
 import { getLocalizedPath, SUPPORTED_LOCALES } from "../config/seo";
 
-// Public routes are eager so direct visits do not shift from a skeleton into the final page.
+// Charge immédiatement les pages publiques pour éviter le passage d’un squelette au contenu lors d’un accès direct.
 const Gojo = lazy(() => import("../components/Easter/Gojo"));
 const RouteSecret = lazy(() => import("../components/Easter/Arcane"));
 
@@ -37,10 +37,10 @@ export const APP_ROUTES: AppRoute[] = [
   { path: "/arcane", element: <RouteSecret /> },
 ];
 
-// Secret pages stay language-neutral because they are reached through hidden interactions.
+// Les pages secrètes restent indépendantes de la langue, car elles sont accessibles par des interactions cachées.
 const LOCALIZABLE_ROUTES = APP_ROUTES.filter((route) => !["/gojo", "/arcane"].includes(route.path));
 
-// Localized route entries reuse the same components; SEO helpers decide the visible URL.
+// Les routes traduites réutilisent les mêmes composants ; les fonctions SEO déterminent l’URL visible.
 export const LOCALIZED_APP_ROUTES: AppRoute[] = SUPPORTED_LOCALES.flatMap((locale) =>
   LOCALIZABLE_ROUTES.map((route) => ({
     path: getLocalizedPath(locale, route.path),

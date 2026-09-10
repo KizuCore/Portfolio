@@ -1,4 +1,4 @@
-/* Editorial surfaces reuse the portfolio palette; no extra animation or font payload. */
+/* Les blocs rédactionnels reprennent la palette du portfolio, sans ajouter d’animation ni de police. */
 .business-page { max-width: 1140px; margin: auto; padding: 8rem 1.5rem 4rem; color: var(--text-primary); text-align: left; }
 .business-breadcrumb { display: flex; flex-wrap: wrap; gap: .8rem; font-size: .85rem; color: var(--text-muted); margin-bottom: 3rem; }
 .business-breadcrumb a, .business-text-link { color: #a9d1ff; text-decoration: underline; text-underline-offset: 5px; }

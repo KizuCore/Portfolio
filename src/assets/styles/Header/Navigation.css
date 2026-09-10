@@ -1,9 +1,9 @@
 /* ========================
-   NAVBAR SECTION
+   BARRE DE NAVIGATION
 ======================== */
 
 /* ------------------------
-   Language selector
+   SÉLECTEUR DE LANGUE
 ------------------------ */
 .language-selector {
   position: relative;
@@ -139,7 +139,7 @@
 }
 
 /* ------------------------
-   NAVBAR Sticky / Layout
+   POSITION FIXE ET DISPOSITION DE LA NAVIGATION
 ------------------------ */
 .navbar {
   position: fixed;
@@ -177,7 +177,7 @@
 
 
 /* ------------------------
-   Hamburger button
+   BOUTON DU MENU MOBILE
 ------------------------ */
 .navbar-toggler {
   position: relative;
@@ -194,7 +194,7 @@
   transition: background .2s ease, border-color .2s ease;
 }
 
-/* Fixed bar positions let the cross animate without moving the button's layout. */
+/* La position fixe des barres permet d’animer la croix sans déplacer le bouton. */
 .navbar-toggler span {
   position: absolute;
   left: 10px;
@@ -225,7 +225,7 @@
 }
 
 /* ------------------------
-   Logo and navigation links
+   LOGO ET LIENS DE NAVIGATION
 ------------------------ */
 .navbar-brand {
   color: rgb(250, 250, 250) !important;
@@ -305,7 +305,7 @@
   z-index: 1;
 }
 
-/* Animated line under the link */
+/* Ligne animée sous le lien */
 .navbar-nav .nav-item a::after {
   content: none;
 }
@@ -348,7 +348,7 @@
   transition: opacity 0.25s ease;
 }
 
-/* Hover and active states */
+/* États de survol et d’activation */
 .navbar-nav .nav-item a:hover .nav-label {
   color: #f6fbff;
 }
@@ -367,7 +367,7 @@
   opacity: 1;
 }
 
-/* Prevent labels from wrapping inside compact nav pills. */
+/* Empêche le retour à la ligne des libellés dans les boutons de navigation compacts. */
 .navbar-nav .nav-item .nav-link {
   white-space: nowrap;
   min-height: 44px;
@@ -479,7 +479,7 @@
   }
 }
 /* ------------------------
-   Easter egg banner
+   BANNIÈRE DE LA SURPRISE CACHÉE
 ------------------------ */
 .easter-egg-banner {
   position: fixed;
@@ -507,7 +507,7 @@
 
 
 /* ========================
-   RESPONSIVE (mobile)
+   ADAPTATION AU MOBILE
 ======================== */
 @media (max-width: 767px) {
   .navbar {
@@ -632,14 +632,14 @@
   }
 }
 
-/* One action switches between the two public languages. */
+/* Une action permet de passer d’une langue publique à l’autre. */
 .language-selector .lang-switch { gap: 0.55rem; font-size: 0.82rem; font-weight: 600; }
 .lang-switch > span { color: #a0b4ce; }
 .lang-switch > .is-current { color: #f2f8ff; font-weight: 800; }
 .lang-switch .lang-switch-divider { color: #6b83a3; }
 .lang-switch:focus-visible { outline: 2px solid #94c3ff; outline-offset: 3px; }
 
-/* Match the quieter surfaces of the portfolio while preserving navigation targets. */
+/* Reprend les surfaces sobres du portfolio tout en préservant les cibles de navigation. */
 .navbar.navbar-polished {
   border-color: #94b7e726;
   background: rgba(10, 22, 39, .9) !important;

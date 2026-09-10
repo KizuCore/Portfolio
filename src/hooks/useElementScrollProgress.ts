@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
 /**
- * Tracks how far an element has progressed through the viewport.
+ * Suit la progression d’un élément dans la zone visible de la page.
  *
- * @param ref HTML element to observe.
- * @returns A value between 0 and 100 representing the visible scroll progress.
+ * @param ref Élément HTML à observer.
+ * @returns Une valeur de 0 à 100 représentant la progression du défilement visible.
  */
 const useElementScrollProgress = (ref: React.RefObject<HTMLElement | null>) => {
   const [scrollPercentage, setScrollPercentage] = useState(0);
@@ -16,7 +16,7 @@ const useElementScrollProgress = (ref: React.RefObject<HTMLElement | null>) => {
       const { top, height } = ref.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Clamp the computed ratio so CSS consumers never receive values outside 0-100.
+      // Borne le rapport calculé pour que les styles CSS ne reçoivent que des valeurs entre 0 et 100.
       const scrolled = Math.min(Math.max((windowHeight - top) / (height * 1.05), 0), 1);
       setScrollPercentage(scrolled * 100);
     };

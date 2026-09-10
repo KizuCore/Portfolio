@@ -24,7 +24,7 @@ export default function GojoCursedTechnique() {
     let frame = 0;
     let previous = performance.now();
     const tick = (now: number) => {
-      // Hidden tabs pause the sequence instead of skipping its climax.
+      // Les onglets masqués mettent la séquence en pause pour ne pas en sauter le point culminant.
       if (!document.hidden) elapsed.current += Math.min(now - previous, 100);
       previous = now;
       const next = CUES.reduce((current, cue, index) => elapsed.current >= cue ? index : current, 0);

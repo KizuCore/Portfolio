@@ -1,4 +1,4 @@
-﻿// Shared editorial data is passed in by the build; escape text at the HTML boundary.
+﻿// La compilation fournit les données rédactionnelles partagées ; le texte est échappé lors de sa conversion en HTML.
 export function renderBusinessPage(page, pages, project, escapeHtml, locale, labels) {
   const e = escapeHtml;
   const sections = page.sections.map((section) => `<section><h2>${e(section.title)}</h2><p>${e(section.text)}</p>${section.items ? `<ul>${section.items.map((item) => `<li>${e(item)}</li>`).join("")}</ul>` : ""}</section>`).join("");

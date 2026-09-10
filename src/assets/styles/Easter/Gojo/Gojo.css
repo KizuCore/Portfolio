@@ -98,7 +98,7 @@
   .gojo-route *, .gojo-route *::before, .gojo-route *::after { animation: none !important; transition: none !important; }
 }
 
-/* Join the immersive scene directly to the footer on this route. */
+/* Relie directement la scène immersive au pied de page sur cette route. */
 .main-content:has(.gojo-route) ~ .footer-section .footer-shell {
   margin-top: 0;
 }

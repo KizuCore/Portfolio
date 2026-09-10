@@ -1,5 +1,5 @@
 /* ========================
-   SECTION HOME 
+   SECTION D’ACCUEIL
 ======================== */
 .home-section {
   position: relative;
@@ -29,7 +29,7 @@
 
 
 /* ========================
-   HEADINGS / TEXT
+   TITRES ET TEXTES
 ======================== */
 .heading {
   font-size: clamp(2rem, 2vw + 1.2rem, 2.6rem) !important;
@@ -100,7 +100,7 @@
 
 
 /* ========================
-   TYPEWRITER EFFET
+   EFFET MACHINE À ÉCRIRE
 ======================== */
 .Typewriter__wrapper {
   font-size: 2.2em !important;
@@ -141,7 +141,7 @@
 
 
 /* ========================
-   MAIN COUCOU ANIMATION
+   ANIMATION DE LA MAIN QUI SALUE
 ======================== */
 .wave {
   display: inline-block;
@@ -246,7 +246,7 @@
 
 
 /* ========================
-   SECTION HOME STATS
+   STATISTIQUES DE L’ACCUEIL
 ======================== */
 .home-stats {
   display: flex;
@@ -308,7 +308,7 @@
 }
 
 /* ========================
-   HERO BOUTONS
+   BOUTONS DE L’ACCUEIL
 ======================== */
 .hero-buttons-style {
   display: flex;
@@ -359,7 +359,7 @@
 
 
 /* ========================
-   CV BUTTON 
+   BOUTON CV
 ======================== */
 .cv-btn {
   display: inline-flex;
@@ -394,7 +394,7 @@
 
 
 /* ========================
-   ICON BOUTONS (Social)
+   BOUTONS À ICÔNES (RÉSEAUX SOCIAUX)
 ======================== */
 .icon-btn {
   display: inline-flex;
@@ -427,7 +427,7 @@
 
 
 /* ========================
-   SECTION ABOUT HOME 
+   PRÉSENTATION SUR L’ACCUEIL
 ======================== */
 .home-about-section {
   position: relative;
@@ -482,7 +482,7 @@
   opacity: .8;
   transition: opacity .7s;
 }
-/* The far side of the disk appears as a broad, gravitationally lensed arc. */
+/* La partie arrière du disque apparaît sous la forme d’un large arc déformé par la lentille gravitationnelle. */
 .black-hole-lensing {
   position: absolute;
   inset: 16% 20% 20%;
@@ -522,7 +522,7 @@
   border-radius: inherit;
   background: radial-gradient(ellipse, transparent 20%, #fffbed70 27%, #ffe1ab45 39%, #e6a65720 54%, transparent 71%);
 }
-/* Keep the fine elliptical strands above the softer, rotating light. */
+/* Garde les fins filaments elliptiques au-dessus de la lumière diffuse en rotation. */
 .accretion-disk::after {
   content: '';
   position: absolute;

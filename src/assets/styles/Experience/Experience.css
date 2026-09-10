@@ -1,4 +1,4 @@
-/* Dates share one axis; content stays in reading order on every screen. */
+/* Les dates partagent un même axe ; le contenu conserve son ordre de lecture sur tous les écrans. */
 .timeline-page { position: relative; z-index: 1; min-height: 100vh; }
 .timeline-container { padding: 9.5rem 1rem 5rem; color: #eaf2ff; text-align: left; }
 .experience-title {
@@ -80,7 +80,7 @@
   .timeline-line-progress { display: none; }
 }
 
-/* Professional work leads; education uses a quieter, compact chronology. */
+/* L’expérience professionnelle vient en premier ; la formation adopte une chronologie plus sobre et compacte. */
 .timeline-container .experience-title { margin-bottom: 1rem; }
 .experience-intro { max-width: 650px; margin: 0 0 3.5rem; color: #aabed8; font-size: 1rem; line-height: 1.8; }
 .career-section + .career-section { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid #8fb5e526; }

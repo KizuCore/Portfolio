@@ -1,6 +1,6 @@
 @import "../Business/Business.css";
 
-/* Shared hierarchy preserves the existing orbital artwork and portfolio palette. */
+/* La hiérarchie commune préserve l’illustration orbitale et la palette du portfolio. */
 .home-offer { text-align: left; max-width: 650px; }
 .home-offer h1 { font-size: clamp(2.15rem, 3.3vw, 3.25rem); line-height: 1.16; letter-spacing: -.04em; font-weight: 750; text-wrap: balance; margin: 1.2rem 0 1.5rem; }
 .home-offer h1 .home-offer-specialty { color: #9ec9ff; }

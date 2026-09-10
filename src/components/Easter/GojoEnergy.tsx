@@ -4,7 +4,7 @@ type Props = { elapsed: RefObject<number>; complete: boolean; reducedMotion: boo
 const TAU = Math.PI * 2;
 const ease = (value: number) => { const x = Math.max(0, Math.min(1, value)); return x * x * (3 - 2 * x); };
 
-/** One bounded canvas loop: no per-particle React updates or external assets. */
+/** Une seule boucle de dessin bornée, sans mise à jour React par particule ni ressource externe. */
 export default function GojoEnergy({ elapsed, complete, reducedMotion }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function GojoEnergy({ elapsed, complete, reducedMotion }: Props) 
       const cx = width / 2, cy = height * 0.47;
       const unit = Math.min(width, height);
       ctx.globalCompositeOperation = "screen";
-      // Deterministic star field stays stable on resize and replay.
+      // Le champ d’étoiles déterministe reste stable lors du redimensionnement et de la relecture.
       for (let i = 0; i < 100; i++) {
         const x = ((Math.sin(i * 127.1) * 43758.5453) % 1 + 1) % 1 * width;
         const y = ((Math.sin(i * 311.7) * 9631.912) % 1 + 1) % 1 * height;
@@ -53,7 +53,7 @@ export default function GojoEnergy({ elapsed, complete, reducedMotion }: Props) 
           const a = angle + side * Math.PI;
           const x = cx + Math.cos(a) * distance, y = cy + Math.sin(a) * distance * 0.47;
           glow(x, y, radius * 6, color, reveal * 0.42);
-          // Spiraling filaments converge on each energy core.
+          // Les filaments en spirale convergent vers chaque noyau d’énergie.
           for (let strand = 0; strand < 7; strand++) {
             ctx.beginPath();
             for (let step = 0; step < 90; step++) {
@@ -67,7 +67,7 @@ export default function GojoEnergy({ elapsed, complete, reducedMotion }: Props) 
           }
           glow(x, y, radius * 1.8, color, reveal);
           glow(x, y, radius * 0.65, "235,238,255", reveal);
-          // Particles accelerate towards the cores, then eject into the void.
+          // Les particules accélèrent vers les noyaux avant d’être éjectées dans le vide.
           for (let i = 0; i < 95; i++) {
             const p = (i / 95 + time * 0.16) % 1;
             const theta = i * 2.39996 + time * 0.25;

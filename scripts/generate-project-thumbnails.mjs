@@ -2,7 +2,7 @@
 import path from 'node:path';
 import sharp from 'sharp';
 
-// Rebuild small navigation images without modifying the source screenshots.
+// Régénère les petites images de navigation sans modifier les captures d’origine.
 const root = path.resolve('src/assets/images/Projects');
 const output = path.join(root, 'thumbnails');
 await fs.mkdir(output, { recursive: true });

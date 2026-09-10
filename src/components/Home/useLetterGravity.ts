@@ -51,7 +51,7 @@ export default function useLetterGravity(root: RefObject<HTMLElement>, active: b
       if (active && progress.current === 1) return;
       frame = requestAnimationFrame(tick);
     };
-    // A resize changes the destination; restore before measuring the new layout.
+    // Le redimensionnement change la destination ; rétablit l’état initial avant de mesurer la nouvelle disposition.
     const resize = () => { reset(); measure(); };
     window.addEventListener("resize", resize);
     frame = requestAnimationFrame(tick);

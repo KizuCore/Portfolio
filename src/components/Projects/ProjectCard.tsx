@@ -26,7 +26,7 @@ interface ProjectCardProps {
 }
 
 function resolveResultKey(hasLiveDemo: boolean, hasVideo: boolean) {
-  // Pick the result copy from the links that actually exist for the project.
+  // Choisit le texte du résultat selon les liens réellement disponibles pour le projet.
   if (hasLiveDemo && hasVideo) {
     return "project_card.result_live_video_and_code";
   }
@@ -49,7 +49,7 @@ function ProjectCard(props: ProjectCardProps) {
   return (
     <Card className={`project-card-view ${props.featured ? "project-card-featured" : ""}`}>
       <div className={`project-img-wrapper ${props.imageMode === "contain" ? "project-img-wrapper-contain" : ""}`}>
-        {/* imageMode keeps tall screenshots readable without cropping them. */}
+        {/* imageMode garde les captures verticales lisibles sans les recadrer. */}
         <LoadingImage
           src={props.imgPath}
           alt={props.altText}
@@ -79,7 +79,7 @@ function ProjectCard(props: ProjectCardProps) {
         <div className="project-info-grid">
           <div className="project-panel">
             <h3 className="project-panel-title">{t("project_card.stack")}</h3>
-            {/* Text badges stay readable even when a tech has no matching icon. */}
+            {/* Les badges textuels restent lisibles même lorsqu’une technologie n’a pas d’icône associée. */}
             <div className="project-tech-badges">
               {props.techStack.map((tech) => (
                 <span key={`${props.title}-${tech}`} className="project-tech-badge">

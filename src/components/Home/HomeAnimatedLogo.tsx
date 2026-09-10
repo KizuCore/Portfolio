@@ -7,7 +7,7 @@ import "../../assets/styles/Home/HomeAnimatedLogo.css";
 
 type Props = { onDragStateChange: (dragging: boolean) => void; onExposureChange: (exposed: boolean) => void };
 
-// Only the SVG moves: the black hole stays anchored behind it in the hero.
+// Seul le SVG se déplace : le trou noir reste ancré derrière lui dans la section d’accueil.
 export default function HomeAnimatedLogo({ onDragStateChange, onExposureChange }: Props) {
   const { t } = useTranslation();
   const reduceMotion = useReducedMotion();

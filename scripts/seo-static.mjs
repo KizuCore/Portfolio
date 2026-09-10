@@ -16,7 +16,7 @@ const LOCALES_DIR = path.join(ROOT_DIR, "src", "locales");
 const { getBusinessPage, getBusinessPages, getBusinessLabels } = loadTsModule(path.join(ROOT_DIR, "src", "data", "businessPages.ts"));
 const { getBusinessSchema } = loadTsModule(path.join(ROOT_DIR, "src", "config", "businessSchema.ts"));
 
-// Load a TypeScript config/data file inside the Node SEO scripts without requiring a build step.
+// Charge un fichier de configuration ou de données TypeScript dans les scripts SEO Node sans compilation préalable.
 function loadTsModule(filePath) {
   const source = fs.readFileSync(filePath, "utf8");
   const output = ts.transpileModule(source, {
@@ -37,7 +37,7 @@ function loadTsModule(filePath) {
   return sandbox.exports;
 }
 
-// Escape text before injecting it into generated HTML.
+// Échappe le texte avant son insertion dans le HTML généré.
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -46,17 +46,17 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
-// Serialize JSON-LD safely so it cannot accidentally close the script tag.
+// Sérialise le JSON-LD en empêchant la fermeture accidentelle de la balise script.
 function escapeJsonScript(value) {
   return JSON.stringify(value).replaceAll("</script", "<\\/script");
 }
 
-// Keep generated Markdown links readable when source content contains square brackets.
+// Garde les liens Markdown générés lisibles lorsque le contenu d’origine contient des crochets.
 function stripMarkdownUnsafe(value) {
   return String(value).replaceAll("[", "\\[").replaceAll("]", "\\]");
 }
 
-// Resolve a dot-notated i18n key and interpolate simple {{param}} placeholders.
+// Résout une clé i18n en notation pointée et remplace les paramètres simples {{param}}.
 function tx(localeData, key, fallback = key, params = {}) {
   const value = key.split(".").reduce((current, segment) => current?.[segment], localeData);
   const translated = typeof value === "string" ? value : fallback;
@@ -66,7 +66,7 @@ function tx(localeData, key, fallback = key, params = {}) {
   );
 }
 
-// Convert the compact i18n highlights format into a list for HTML and Markdown outputs.
+// Convertit les points clés i18n en liste pour les sorties HTML et Markdown.
 function parseHighlights(value) {
   return String(value || "")
     .split("||")
@@ -74,12 +74,12 @@ function parseHighlights(value) {
     .filter(Boolean);
 }
 
-// Build an absolute preview image URL from the shared public profile data.
+// Construit l’URL absolue de l’image d’aperçu à partir des données publiques partagées du profil.
 function getPreviewImageUrl(profile) {
   return `${SITE_URL}${profile.previewImagePath}`;
 }
 
-// Build the route title with the same route/base-title convention as the React SEO component.
+// Construit le titre de la route selon la même convention que le composant SEO React.
 function buildTitle({ pathname, routeSeo, localeData }) {
   const page = getBusinessPage(pathname, localeData.business_pages.locale);
   if (page) return `${page.title} | Théo Guérin`;
@@ -89,7 +89,7 @@ function buildTitle({ pathname, routeSeo, localeData }) {
   return pathname === "/" || !pageTitle ? baseTitle : `${pageTitle} | ${baseTitle}`;
 }
 
-// Build the route description from the localized SEO metadata.
+// Construit la description de la route à partir des métadonnées SEO traduites.
 function buildDescription({ pathname, routeSeo, localeData }) {
   const page = getBusinessPage(pathname, localeData.business_pages.locale);
   if (page) return page.description;
@@ -99,17 +99,17 @@ function buildDescription({ pathname, routeSeo, localeData }) {
     : tx(localeData, "seo_description");
 }
 
-// Resolve a translated project title from the shared project data.
+// Récupère le titre traduit d’un projet à partir des données partagées.
 function projectTitle(project, localeData) {
   return tx(localeData, project.titleKey);
 }
 
-// Resolve a translated project description from the shared project data.
+// Récupère la description traduite d’un projet à partir des données partagées.
 function projectDescription(project, localeData) {
   return tx(localeData, project.descriptionKey);
 }
 
-// Keep project ordering aligned with the interactive React project explorer.
+// Conserve le même ordre de projets que dans l’explorateur interactif React.
 function getSortedProjects(projects) {
   return [...projects].sort((a, b) => {
     const pinTopPriority = Number(Boolean(b.pinTop)) - Number(Boolean(a.pinTop));
@@ -117,7 +117,7 @@ function getSortedProjects(projects) {
   });
 }
 
-// Rebuild timeline entries from existing i18n keys so the static output shares the UI source text.
+// Reconstruit le parcours à partir des clés i18n existantes pour partager les textes entre la version statique et l’interface.
 function getExperiences(localeData) {
   return [
     {
@@ -161,7 +161,7 @@ function getExperiences(localeData) {
   ];
 }
 
-// Build the central Schema.org Person entity from public portfolio data only.
+// Construit l’entité centrale Schema.org Person uniquement à partir des données publiques du portfolio.
 function buildPersonSchema({ profile, socialLinks, professionalTopics, educationOrganizations, freelanceOffer, imageUrl }) {
   return {
     "@type": "Person",
@@ -201,7 +201,7 @@ function buildPersonSchema({ profile, socialLinks, professionalTopics, education
   };
 }
 
-// Build a simple breadcrumb graph for internal pages.
+// Construit un graphe simple de fil d’Ariane pour les pages internes.
 function buildBreadcrumbSchema({ canonicalUrl, pathname, title }) {
   if (pathname === "/") {
     return null;
@@ -226,7 +226,7 @@ function buildBreadcrumbSchema({ canonicalUrl, pathname, title }) {
   };
 }
 
-// Build the route-specific Schema.org graph used in each prerendered HTML file.
+// Construit le graphe Schema.org propre à chaque route dans les fichiers HTML prérendus.
 function buildStructuredData({ pathname, canonicalUrl, title, description, htmlLang, localeData, portfolio, routeSchemaType }) {
   const imageUrl = getPreviewImageUrl(portfolio.SITE_PROFILE);
   const personSchema = buildPersonSchema({
@@ -295,7 +295,7 @@ function buildStructuredData({ pathname, canonicalUrl, title, description, htmlL
   };
 }
 
-// Build the no-JavaScript body content for each public route from shared data and translations.
+// Construit le contenu sans JavaScript de chaque route publique à partir des données et traductions partagées.
 function buildRouteContent({ pathname, localeData, portfolio }) {
   const businessPage = getBusinessPage(pathname, localeData.business_pages.locale);
   if (businessPage) {
@@ -400,7 +400,7 @@ function buildRouteContent({ pathname, localeData, portfolio }) {
   return `<div id="seo-prerender">${contentByPath[pathname] || home}</div>`;
 }
 
-// Resolve the visible title for legal routes maintained through i18n.
+// Récupère le titre visible des pages juridiques gérées par i18n.
 function buildLegalTitle(pathname, localeData) {
   if (pathname === "/mentions-legales") return tx(localeData, "mentions_legales.title");
   if (pathname === "/politique-de-confidentialite") return tx(localeData, "politique_confidentialite.title");
@@ -408,7 +408,7 @@ function buildLegalTitle(pathname, localeData) {
   return tx(localeData, "portfolio_theo");
 }
 
-// Build enough legal-page text for crawlers while still relying on the existing i18n content.
+// Génère un contenu juridique suffisant pour les robots à partir des textes i18n existants.
 function buildLegalContent(pathname, localeData) {
   if (pathname === "/mentions-legales") {
     const sections = [
@@ -460,7 +460,7 @@ function buildLegalContent(pathname, localeData) {
   `;
 }
 
-// Render one legal i18n object as a compact HTML section.
+// Transforme un objet i18n juridique en section HTML compacte.
 function buildLegalSection(localeData, key) {
   const value = key.split(".").reduce((current, segment) => current?.[segment], localeData);
   if (!value || typeof value !== "object") {
@@ -476,7 +476,7 @@ function buildLegalSection(localeData, key) {
   return `<section><h2>${escapeHtml(title)}</h2>${paragraphs}</section>`;
 }
 
-// Build SEO head tags for the static HTML; React Helmet keeps the browser runtime aligned after hydration.
+// Construit les balises SEO du HTML statique ; React Helmet maintient leur cohérence dans le navigateur après hydratation.
 function buildHead({ pathname, canonicalUrl, title, description, structuredData, localeData, routeSeo, seoConfig, portfolio }) {
   const imageUrl = getPreviewImageUrl(portfolio.SITE_PROFILE);
   const isNoindex = routeSeo[pathname]?.noindex ?? false;
@@ -518,7 +518,7 @@ function buildHead({ pathname, canonicalUrl, title, description, structuredData,
   <script type="application/ld+json">${escapeJsonScript(structuredData)}</script>`;
 }
 
-// Remove SEO tags from Vite's generic index before injecting route-specific metadata.
+// Retire les balises SEO de l’index générique de Vite avant d’insérer les métadonnées propres à la route.
 function stripGeneratedHead(html) {
   return html
     .replace(/<title>[\s\S]*?<\/title>/gi, "")
@@ -536,7 +536,7 @@ function stripGeneratedHead(html) {
     .replace(/<script\s+type=["']application\/ld\+json["'][\s\S]*?<\/script>/gi, "");
 }
 
-// Inject route-specific head and body content into the built Vite HTML shell.
+// Insère les métadonnées et le contenu propres à la route dans la structure HTML produite par Vite.
 function injectHtml({ template, head, content, htmlLang }) {
   return stripGeneratedHead(template)
     .replace(/<html\s+lang=["'][^"']+["']/i, `<html lang="${escapeHtml(htmlLang)}"`)
@@ -545,7 +545,7 @@ function injectHtml({ template, head, content, htmlLang }) {
     .replace('<div id="root"></div>', `<div id="root">${content}</div>`);
 }
 
-// Map a public route to the static files hosts can serve with and without a trailing slash.
+// Associe une route publique aux fichiers statiques servis avec ou sans barre oblique finale.
 function htmlOutputPaths(routePath) {
   if (routePath === "/") {
     return [INDEX_HTML_PATH];
@@ -558,25 +558,25 @@ function htmlOutputPaths(routePath) {
   ];
 }
 
-// Write generated files after creating their parent directories.
+// Écrit les fichiers générés après avoir créé leurs répertoires parents.
 function writeFileEnsured(filePath, contents) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, contents, "utf8");
 }
 
-// Read JSON files that may contain a UTF-8 BOM.
+// Lit les fichiers JSON pouvant contenir un marqueur BOM UTF-8.
 function readJsonFile(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8").replace(/^\uFEFF/, ""));
 }
 
-// Load all i18n dictionaries needed by localized prerendered routes.
+// Charge tous les dictionnaires i18n nécessaires aux routes traduites prérendues.
 function readLocales(locales) {
   return Object.fromEntries(
     locales.map((locale) => [locale, readJsonFile(path.join(LOCALES_DIR, `${locale}.json`))]),
   );
 }
 
-// Generate concise Markdown resources for LLM crawlers from the same portfolio data.
+// Génère des ressources Markdown concises pour les robots des modèles de langage à partir des mêmes données du portfolio.
 function buildMarkdownFiles({ localeData, portfolio }) {
   const projects = getSortedProjects(portfolio.PORTFOLIO_PROJECTS);
   const experiences = getExperiences(localeData);
@@ -648,7 +648,7 @@ ${tx(localeData, "contact_intro")}
   };
 }
 
-// Generate the main llms.txt entry point that links to canonical pages and Markdown resources.
+// Génère le point d’entrée llms.txt reliant les pages canoniques et les ressources Markdown.
 function buildLlmsTxt({ portfolio }) {
   return `# ${portfolio.SITE_PROFILE.displayName}
 
@@ -679,7 +679,7 @@ Ce site présente son profil professionnel, ses compétences techniques, ses exp
 `;
 }
 
-// Generate route HTML, Markdown resources, and llms.txt after Vite has produced dist/index.html.
+// Génère le HTML des routes, les ressources Markdown et llms.txt après la création de dist/index.html par Vite.
 function main() {
   if (!fs.existsSync(INDEX_HTML_PATH)) {
     throw new Error("dist/index.html introuvable. Lancez vite build avant seo-static.");

@@ -30,7 +30,7 @@ const GitHubActivity: React.FC = () => {
             </a>
           </div>
         </header>
-        {/* Keep the calendar in its own row so it never competes with profile links. */}
+        {/* Place le calendrier sur sa propre ligne pour le séparer des liens des profils. */}
         <div className="code-activity-calendar">
           <Suspense fallback={<div className="code-activity-loading" role="status"><Spinner animation="border" aria-hidden="true" /><span>{t("a11y.loading_content")}</span></div>}>
             <GitHubCalendar

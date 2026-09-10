@@ -1,6 +1,6 @@
 import type { BusinessPage } from "../data/businessPages";
 
-// Build the same linked entities for the client head and statically generated HTML.
+// Construit les mêmes entités liées pour les métadonnées côté client et le HTML généré.
 export function getBusinessSchema(page: BusinessPage | undefined, siteUrl: string, locale: string = "fr", homeLabel: string = "Accueil") {
   if (!page) return [];
   const url = `${siteUrl}/${locale}${page.path}`;

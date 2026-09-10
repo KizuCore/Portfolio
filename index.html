@@ -7,10 +7,10 @@
   <meta name="color-scheme" content="dark light" />
   <meta name="application-name" content="Théo Guérin Portfolio" />
   <script>
-    // Set before the body is parsed so the static fallback never flashes during startup.
+    // Définit cet état avant l’analyse du corps HTML pour éviter un affichage furtif du contenu statique au démarrage.
     document.documentElement.setAttribute("data-app-loading", "");
     window.setTimeout(function () {
-      // Keep the document accessible if the application bundle fails to start.
+      // Garde le document accessible si le code de l’application ne démarre pas.
       document.documentElement.removeAttribute("data-app-loading");
     }, 8000);
   </script>

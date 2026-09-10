@@ -1,4 +1,4 @@
-/* One section, one grid: no framed container around already framed cards. */
+/* Une section et une grille, sans cadre supplémentaire autour des cartes déjà encadrées. */
 .home-services { margin: 4.5rem 0 2rem; text-align: left; scroll-margin-top: 110px; }
 .home-services-header { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; }
 .home-services-header h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -.03em; margin: .8rem 0; color: var(--text-primary); }

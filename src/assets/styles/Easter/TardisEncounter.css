@@ -33,5 +33,5 @@
 @media (max-width: 600px), (max-height: 780px) { .tardis-scene { width: 190px; height: 307px; } .tardis-message { margin-top: 22px; } .tardis-joke { font-size: 13px; } }
 @media (max-height: 550px) { .tardis-encounter { flex-direction: row; gap: 25px; padding: 25px; } .tardis-scene { flex-shrink: 0; width: 150px; height: 242px; } .tardis-message { width: min(350px, 55%); margin: 0; } }
 @media (prefers-reduced-motion: reduce) { .tardis-encounter * { animation: none !important; transition: none !important; } .tardis-vortex { opacity: .4; } }
-/* Keep the punchline readable over the original timeline on narrow screens. */
+/* Garde la chute de la plaisanterie lisible au-dessus du parcours d’origine sur les écrans étroits. */
 .tardis-message { padding: 18px 12px; background: radial-gradient(ellipse, #050b17f0 35%, #050b17b0 62%, transparent 76%); }

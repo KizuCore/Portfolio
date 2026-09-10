@@ -7,7 +7,7 @@ import { PROJECTS } from "../Projects/data/projects";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Business/Business.css";
 
-// The template owns layout only; copy stays shared with the non-JavaScript build.
+// Le modèle gère seulement la mise en page ; les textes restent partagés avec la version sans JavaScript.
 export default function BusinessPage({ page: sourcePage }: { page: BusinessPageContent }) {
   const { i18n } = useTranslation();
   const locale = getContentLocale(getShortLocale(i18n.resolvedLanguage ?? i18n.language), sourcePage.path);
@@ -62,7 +62,7 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
 
       {page.questions.length > 0 && <section className="business-faq" aria-labelledby="business-faq-title">
         <p className="business-eyebrow">{labels.before}</p><h2 id="business-faq-title">{labels.faq}</h2>
-        {/* Native details remain keyboard accessible and work without JavaScript. */}
+        {/* Les éléments details natifs restent accessibles au clavier et fonctionnent sans JavaScript. */}
         {page.questions.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}
       </section>}
 

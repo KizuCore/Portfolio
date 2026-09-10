@@ -3,7 +3,7 @@ import HomeButtons from "./HomeButtons";
 import GravityText from "./GravityText";
 import "../../assets/styles/Home/HomeOffer.css";
 
-// Keep the primary offer readable on first paint, without an animation delay.
+// Garde l’offre principale lisible dès le premier affichage, sans délai d’animation.
 export default function HomeOffer() {
   const { t } = useTranslation();
   return <div className="home-offer">

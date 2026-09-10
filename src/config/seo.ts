@@ -72,7 +72,7 @@ export function splitLocalizedPath(pathname: string): { locale: SupportedLocale 
   const normalizedPath = normalizePath(pathname);
   const [, firstSegment, ...remainingSegments] = normalizedPath.split("/");
 
-  // Localized routes are aliases over the same React views, e.g. /en/about -> /about.
+  // Les routes traduites sont des alias des mêmes vues React, par exemple /en/about -> /about.
   if (SUPPORTED_LOCALES.includes(firstSegment as SupportedLocale)) {
     const localizedPathname = remainingSegments.length > 0 ? `/${remainingSegments.join("/")}` : "/";
     return {
@@ -98,14 +98,14 @@ export function getShortLocale(input: string): SupportedLocale {
 }
 
 export function getContentLocale(locale: SupportedLocale, pathname: string): SupportedLocale {
-  // Only advertise languages in which the editorial content is maintained.
+  // N’annonce que les langues dont le contenu rédactionnel est maintenu.
   const fixedLocale = ROUTE_SEO[pathname]?.contentLocale;
   if (fixedLocale) return fixedLocale;
   if (!LEGAL_ROUTES.has(pathname)) {
     return locale;
   }
 
-  // Legal content is only maintained in French and English for now.
+  // Le contenu juridique est maintenu uniquement en français et en anglais pour le moment.
   if (locale === "bzh") {
     return "fr";
   }
@@ -130,7 +130,7 @@ export function getHtmlLang(locale: SupportedLocale): string {
 }
 
 export function getLanguageAlternates(siteUrl: string, pathname: string) {
-  // Search engines expect one absolute alternate URL per language variant.
+  // Les moteurs de recherche attendent une URL alternative absolue par variante linguistique.
   return getIndexableLocales(pathname).map((locale) => {
     return {
       href: `${siteUrl}${getLocalizedPath(locale, pathname)}`,

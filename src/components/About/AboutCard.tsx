@@ -34,7 +34,7 @@ function AboutCard(): JSX.Element {
 
   useEffect(() => {
     if (secretClickCount === 3 && audioRef.current) {
-      void audioRef.current.play().catch(() => { /* Audio may be blocked by browser settings. */ });
+      void audioRef.current.play().catch(() => { /* Les réglages du navigateur peuvent bloquer le son. */ });
       setSecretClickCount(0);
       setIsCooldown(true);
     }
@@ -65,7 +65,7 @@ function AboutCard(): JSX.Element {
             tabIndex={selectedTab === key ? 0 : -1}
             onClick={() => setSelectedTab(key)}
             onKeyDown={(event) => {
-              // A single tab stop; arrows and Home/End navigate the tab group.
+              // Un seul arrêt de tabulation ; les flèches et les touches Début/Fin permettent de parcourir les onglets.
               const next = event.key === 'ArrowRight' ? (index + 1) % tabs.length
                 : event.key === 'ArrowLeft' ? (index + tabs.length - 1) % tabs.length
                   : event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : null;

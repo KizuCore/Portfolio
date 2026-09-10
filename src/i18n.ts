@@ -22,7 +22,7 @@ if (!i18n.isInitialized) {
       debug: import.meta.env.MODE === 'development',
       interpolation: { escapeValue: false },
       detection: {
-        // Prefer the URL prefix, then the user's saved choice, then the browser language.
+        // Privilégie le préfixe de l’URL, puis le choix enregistré, puis la langue du navigateur.
         order: ['path', 'localStorage', 'navigator'],
         caches: ['localStorage'],
         lookupFromPathIndex: 0, 

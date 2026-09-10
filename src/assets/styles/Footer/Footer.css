@@ -1,5 +1,5 @@
 /* ========================
-   FOOTER
+   PIED DE PAGE
 ======================== */
 .footer-section {
   background: transparent;
@@ -37,7 +37,7 @@
   text-align: left;
 }
 
-/* Override display conflict: email link has both classes */
+/* Résout le conflit d’affichage : le lien de courriel possède les deux classes. */
 .footer-contact-line.footer-external-link {
   display: flex;
 }
@@ -182,7 +182,7 @@
 }
 
 /* ========================
-   RESPONSIVE (mobile)
+   ADAPTATION AU MOBILE
 ======================== */
 @media (max-width: 1024px) {
   .footer-grid {
@@ -260,7 +260,7 @@
 
   .footer-bottom {
     width: calc(100% - 2rem);
-    /* Leave a clear area for the fixed back-to-top button below the copyright. */
+    /* Réserve un espace sous la mention de droits d’auteur pour le bouton fixe de retour en haut. */
     padding: 1rem 0 calc(4.5rem + env(safe-area-inset-bottom, 0px));
   }
 

@@ -11,7 +11,7 @@ export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Show the banner only until the visitor makes an explicit consent choice.
+    // Affiche la bannière jusqu’à ce que le visiteur exprime son choix de consentement.
     const saved = localStorage.getItem(LS_KEY);
     if (!saved) setVisible(true);
     const onConsentSaved = () => setVisible(false);

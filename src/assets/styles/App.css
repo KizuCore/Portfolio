@@ -34,7 +34,7 @@
   z-index: 0;
 }
 
-/* Keep the decorative canvas behind page content, without trapping fixed cookie dialogs. */
+/* Garde le canevas décoratif derrière le contenu, sans emprisonner les fenêtres fixes de gestion des cookies. */
 .route-stage,
 .footer-section {
   position: relative;
@@ -244,7 +244,7 @@
 }
 
 
-/* Three depths: static dust, slow particles, and a few bright foreground stars. */
+/* Trois profondeurs : poussière immobile, particules lentes et quelques étoiles lumineuses au premier plan. */
 .particles-layer { overflow: hidden; isolation: isolate; }
 .sky-nebula, .sky-distant-stars, .sky-beacons, .sky-meteors { position: absolute; inset: 0; pointer-events: none; }
 .sky-nebula {

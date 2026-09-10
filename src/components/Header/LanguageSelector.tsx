@@ -19,7 +19,7 @@ function LanguageSelector(): JSX.Element {
   const nextLanguage = currentLanguage === "fr" ? "en" : "fr";
   const changeLanguage = useCallback((lang: SupportedLocale) => {
     void i18n.changeLanguage(lang);
-    // Preserve the current page, query parameters and anchor when switching.
+    // Conserve la page actuelle, les paramètres de requête et l’ancre lors du changement de langue.
     if (canLocalizeCurrentRoute) {
       navigate({ pathname: getLocalizedPath(lang, currentRoutePath), search: location.search, hash: location.hash }, { replace: true });
     }
@@ -30,7 +30,7 @@ function LanguageSelector(): JSX.Element {
   }, [currentLanguage, currentRoutePath]);
 
   useEffect(() => {
-    // Hidden shortcut: typing "bzh" enables the Breton locale without adding it to the main menu.
+    // Raccourci caché : saisir "bzh" active le breton sans l’ajouter au menu principal.
     const handleKeydown = (event: KeyboardEvent) => {
       if (event.ctrlKey || event.metaKey || event.altKey || event.repeat || event.isComposing) return;
       const target = event.target as HTMLElement | null;

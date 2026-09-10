@@ -1,4 +1,4 @@
-/* Scoped to the introduction: stack filters and technology cards keep their styles. */
+/* Styles limités à l’introduction : les filtres et les cartes des technologies conservent leurs styles. */
 .about-intro {
   padding-top: 2rem;
   text-align: left;
@@ -111,7 +111,7 @@
   .about-profile .hobbies-list { grid-template-columns: 1fr; }
 }
 
-/* Keep the animated orbits beside the copy, with room on narrow screens. */
+/* Garde les orbites animées à côté du texte, avec suffisamment d’espace sur les écrans étroits. */
 .about-intro .about-img { padding-top: 0; padding-bottom: 0 !important; }
 
 @media (max-width: 575px) {

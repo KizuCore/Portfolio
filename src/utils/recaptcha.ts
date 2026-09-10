@@ -9,7 +9,7 @@ declare global {
 
 const RECAPTCHA_SCRIPT_ID = "google-recaptcha-v3";
 
-// Shared promise prevents multiple components from injecting the same external script.
+// Une promesse partagée évite que plusieurs composants injectent le même script externe.
 let recaptchaScriptPromise: Promise<void> | null = null;
 
 export function loadRecaptcha(siteKey: string) {
@@ -25,7 +25,7 @@ export function loadRecaptcha(siteKey: string) {
     const existingScript = document.getElementById(RECAPTCHA_SCRIPT_ID);
 
     if (existingScript) {
-      // Reuse a script tag that may have been injected before this module loaded.
+      // Réutilise une balise de script éventuellement injectée avant le chargement de ce module.
       existingScript.addEventListener("load", () => resolve(), { once: true });
       existingScript.addEventListener("error", () => reject(new Error("recaptcha_load_failed")), { once: true });
       return;
@@ -54,7 +54,7 @@ export async function getRecaptchaToken(siteKey: string, action: string) {
       return;
     }
 
-    // ready() waits for Google internals even after the script element has loaded.
+    // ready() attend que les services internes de Google soient prêts, même après le chargement du script.
     window.grecaptcha.ready(() => {
       window.grecaptcha
         ?.execute(siteKey, { action })

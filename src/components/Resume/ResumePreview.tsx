@@ -19,7 +19,7 @@ export default function ResumePreview({ file }: { file: string }) {
   useEffect(() => {
     const element = container.current;
     if (!element) return;
-    // Measure the actual preview column instead of estimating from the viewport.
+    // Mesure la largeur réelle de la colonne d’aperçu plutôt que de l’estimer à partir de la fenêtre.
     const observer = new ResizeObserver(([entry]) => {
       setWidth(Math.max(1, Math.floor(entry.contentRect.width)));
     });

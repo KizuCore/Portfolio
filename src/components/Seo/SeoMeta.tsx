@@ -36,7 +36,7 @@ function SeoMeta(): JSX.Element {
   const currentRoute = ROUTE_SEO[pathname];
   const canonicalLocale = localizedPath.locale ?? DEFAULT_LOCALE;
   const contentLocaleSeed = localizedPath.locale ?? DEFAULT_LOCALE;
-  // Some localized URLs intentionally reuse fallback content until full translations exist.
+  // Certaines URL traduites réutilisent volontairement un contenu de repli en attendant une traduction complète.
   const contentLang = getContentLocale(contentLocaleSeed, pathname);
   const htmlLang = getHtmlLang(contentLang);
   const tx = i18n.getFixedT(contentLang);
@@ -52,7 +52,7 @@ function SeoMeta(): JSX.Element {
   const canonicalPath = currentRoute?.noindex ? pathname : getCanonicalPath(canonicalLocale, pathname);
   const canonicalUrl = `${siteUrl}${canonicalPath}`;
   const imageUrl = getPreviewImageUrl(siteUrl);
-  // Hidden or utility routes should not advertise hreflang clusters.
+  // Les routes cachées ou utilitaires ne doivent pas annoncer de variantes hreflang.
   const languageAlternates = currentRoute?.noindex ? [] : getLanguageAlternates(siteUrl, pathname);
   const isNoindex = currentRoute?.noindex ?? false;
   const robotsContent = isNoindex
@@ -62,7 +62,7 @@ function SeoMeta(): JSX.Element {
     defaultValue: "Théo Guérin, développeur full-stack, React, Django, Python, portfolio",
   });
 
-  // Person schema gives search engines the freelance offer and professional identity in one graph.
+  // Le schéma Person présente aux moteurs de recherche l’offre freelance et l’identité professionnelle dans un même graphe.
   const personSchema = {
     "@type": "Person",
     "@id": `${siteUrl}/#person`,
@@ -108,7 +108,7 @@ function SeoMeta(): JSX.Element {
     inLanguage: ["fr", "en", "br"],
   };
 
-  // The page node changes by route while still pointing back to the same person entity.
+  // Le nœud de page varie selon la route tout en renvoyant vers la même entité Person.
   const webPageType = ROUTE_SCHEMA_TYPE[pathname] ?? "WebPage";
   const webPageSchema = {
     "@type": webPageType,
@@ -181,7 +181,7 @@ function SeoMeta(): JSX.Element {
       <meta name="twitter:image" content={imageUrl} />
       <meta name="twitter:image:alt" content={tx("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
 
-      {/* Structured data */}
+      {/* Données structurées */}
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
     </Helmet>
   );

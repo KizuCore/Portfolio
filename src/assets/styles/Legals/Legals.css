@@ -1,4 +1,4 @@
-/* Shared presentation for legal documents; content and consent actions stay in their pages. */
+/* Présentation commune aux documents juridiques ; les contenus et actions de consentement restent dans leurs pages. */
 .legal-page { position: relative; isolation: isolate; min-height: 100vh; padding: 9.5rem 0 5rem; color: #eaf2ff; text-align: left; }
 .legal-content-container { position: relative; z-index: 1; }
 .legal-title { margin: 0 0 2.5rem; font-size: clamp(2rem,4vw,3.2rem); font-weight: 700; line-height: 1.15; letter-spacing: -.035em; color: #f1f6ff; text-align: left; overflow-wrap: anywhere; }

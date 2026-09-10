@@ -5,7 +5,7 @@
 .profile-inline-trigger:hover { color: #e3f1ff; border-color: #b6d8ff; }
 .profile-inline-trigger > span:last-child { font-size: .8em; }
 .profile-minecraft { position: relative; }
-.minecraft-trigger { border-bottom-color: #8abf6570; }
+.minecraft-trigger { border-bottom: 0; }
 .minecraft-block { position: relative; display: inline-block; vertical-align: -.15em; margin-right: 0; width: 19px; height: 19px; background: repeating-conic-gradient(#805835 0 25%, #986e47 0 50%) 0 0 / 8px 8px; box-shadow: inset -4px -3px #0003, 1px 1px #c1a27530; image-rendering: pixelated; transition: transform .2s; }
 .minecraft-block i { display: block; height: 7px; background: repeating-linear-gradient(90deg, #77a94c 0 4px, #5b8e37 4px 8px); box-shadow: 0 3px #507d3b; }
 .minecraft-trigger:hover .minecraft-block { transform: translateY(-3px) rotate(-8deg); }

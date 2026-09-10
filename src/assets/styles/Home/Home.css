@@ -466,61 +466,85 @@
 ======================== */
 .black-hole {
   position: absolute;
-  inset: 21%;
+  inset: 33.5%;
   pointer-events: none;
   z-index: 0;
   isolation: isolate;
-  transform: rotate(-18deg);
-  opacity: .72;
+  transform: rotate(-5deg);
+  opacity: .88;
   transition: opacity .7s ease, filter .7s ease;
 }
 .black-hole-aura {
   position: absolute;
-  inset: -22%;
+  inset: -38%;
   border-radius: 50%;
-  background: radial-gradient(ellipse, #04070c 14%, #183b642a 35%, #3d91ef21 46%, transparent 69%);
-  opacity: .6;
+  background: radial-gradient(ellipse, #000 15%, #ac64231a 32%, #e6a35018 43%, transparent 67%);
+  opacity: .8;
   transition: opacity .7s;
 }
-/* The far-side light bends above and below the dark centre. */
+/* The far side of the disk appears as a broad, gravitationally lensed arc. */
 .black-hole-lensing {
   position: absolute;
-  inset: 19%;
+  inset: 16% 20% 20%;
   border-radius: 50%;
-  border: 1px solid #9bceff80;
-  box-shadow: 0 -5px 12px #8ec8ff50, 0 4px 9px #569dec30, inset 0 0 9px #c2e2ff50;
-  background: conic-gradient(from 70deg, #5799ef05, #79baff60, #e4f4ffa0, #4385dc20, #98caff55, #5799ef05);
-  mask: radial-gradient(closest-side, transparent 83%, #000 94%, transparent 100%);
+  background: radial-gradient(ellipse, transparent 59%, #b8753680 64%, #ffdba5 69%, #fff8e5 72%, #ffe6babb 75%, #c18a4d66 81%, transparent 91%);
+  filter: drop-shadow(0 -2px 5px #ffce8b70);
+  mask: linear-gradient(to bottom, #000 35%, #000b 58%, transparent 83%);
+}
+.black-hole-lensing::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-radial-gradient(ellipse, transparent 0 2px, #fff4da70 3px, transparent 4px 6px);
+  mask: radial-gradient(ellipse, transparent 65%, #000 70%, #0008 79%, transparent 87%);
 }
 .accretion-disk {
   position: absolute;
-  inset: -12%;
+  inset: -24%;
   border-radius: 50%;
-  transform: scaleY(.29);
-  filter: drop-shadow(0 0 7px #72bbff75);
+  transform: scaleY(.16);
+  filter: drop-shadow(0 0 2px #ffda9d90) drop-shadow(0 0 10px #d8944b40);
+}
+.accretion-disk::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse, transparent 20%, #fffbed70 27%, #ffe1ab45 39%, #e6a65720 54%, transparent 71%);
+}
+/* Keep the fine elliptical strands above the softer, rotating light. */
+.accretion-disk::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-radial-gradient(ellipse, transparent 0 5px, #9c5e3030 6px 8px, #ffe5bba0 9px, #fff8e5e6 11px, transparent 13px 19px);
+  mask: radial-gradient(closest-side, transparent 24%, #0009 33%, #000 43%, #000b 58%, #0004 70%, transparent 82%);
 }
 .accretion-flow {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: repeating-conic-gradient(from 20deg, #83beff08 0deg, #c5e8ffb0 16deg, #5c98e03b 27deg, #edf8ffe0 43deg, #5b99e422 61deg, #83beff08 90deg);
-  mask: radial-gradient(closest-side, transparent 33%, #0008 39%, #000 43%, #0005 47%, #000d 50%, #0003 55%, #0009 59%, #0002 66%, #0008 70%, transparent 78%);
-  animation: blackHoleFlow 22s linear infinite;
+  background: repeating-conic-gradient(from 20deg, #9b5f2720 0deg, #ffdda6cc 16deg, #dba36870 27deg, #fff9e9 43deg, #c58a4b66 61deg, #9b5f2720 90deg);
+  mask: radial-gradient(closest-side, transparent 19%, #0008 25%, #000 30%, #0007 37%, #000 42%, #0006 49%, #000d 55%, #0005 63%, #0008 70%, transparent 84%);
+  animation: blackHoleFlow 48s linear infinite;
 }
 .accretion-flow::after {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: repeating-radial-gradient(ellipse, transparent 0 5px, #d3edff60 6px, transparent 7px 12px);
+  background: repeating-radial-gradient(ellipse, transparent 0 7px, #fff2d570 9px, transparent 11px 17px);
+  mask: conic-gradient(from 35deg, #000 0deg, transparent 65deg, #000b 140deg, transparent 205deg, #000 285deg, #000 360deg);
 }
 .event-horizon {
   position: absolute;
   inset: 27%;
   z-index: 1;
   border-radius: 50%;
-  background: #010207;
-  box-shadow: inset 0 0 15px 4px #000, 0 0 2px 1px #e1f2ff, 0 0 10px 2px #75b7ff80, 0 0 25px 4px #488cde35;
+  background: #000;
+  box-shadow: 0 0 2px 1px #fff1d5, 0 -2px 8px 2px #ffd598a0, 0 0 22px 3px #b77a3838;
 }
 .accretion-foreground {
   z-index: 2;
@@ -531,11 +555,11 @@
   z-index: 3;
   inset: 26%;
   border-radius: 50%;
-  border: 1px solid #b6daff90;
-  box-shadow: inset 0 0 4px #95cfff60, 0 0 5px #95cfff50;
-  mask: linear-gradient(180deg, #000 0%, transparent 48%, transparent 63%, #000 100%);
+  border: 1px solid #fff1d2d9;
+  box-shadow: inset 0 0 3px #ffe1a980, 0 0 6px #ffcf8970;
+  mask: linear-gradient(180deg, #000 0%, #0009 35%, transparent 48%, transparent 61%, #0009 83%, #000 100%);
 }
-.home-logo-orbit.dragging .black-hole { opacity: 1; filter: drop-shadow(0 0 12px #4a9cfb30); }
+.home-logo-orbit.dragging .black-hole { opacity: 1; filter: drop-shadow(0 0 12px #e9b76b30); }
 .home-logo-orbit.dragging .black-hole-aura { opacity: 1; }
 @keyframes blackHoleFlow { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) {

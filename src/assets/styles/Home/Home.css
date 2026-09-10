@@ -499,6 +499,15 @@
   background: repeating-radial-gradient(ellipse, transparent 0 2px, #fff4da70 3px, transparent 4px 6px);
   mask: radial-gradient(ellipse, transparent 65%, #000 70%, #0008 79%, transparent 87%);
 }
+.black-hole-lensing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(from 15deg, transparent 0deg 35deg, #ffdf9d80 65deg, #fff8e9 82deg, transparent 100deg 210deg, #ffcd8580 245deg, #fff0cacc 265deg, transparent 285deg 360deg);
+  mask: radial-gradient(ellipse, transparent 63%, #000 69%, #000 76%, transparent 84%);
+  animation: blackHoleFlow 18s linear infinite;
+}
 .accretion-disk {
   position: absolute;
   inset: -24%;
@@ -528,7 +537,15 @@
   border-radius: 50%;
   background: repeating-conic-gradient(from 20deg, #9b5f2720 0deg, #ffdda6cc 16deg, #dba36870 27deg, #fff9e9 43deg, #c58a4b66 61deg, #9b5f2720 90deg);
   mask: radial-gradient(closest-side, transparent 19%, #0008 25%, #000 30%, #0007 37%, #000 42%, #0006 49%, #000d 55%, #0005 63%, #0008 70%, transparent 84%);
-  animation: blackHoleFlow 48s linear infinite;
+  animation: blackHoleFlow 20s linear infinite;
+}
+.accretion-flow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(from 30deg, transparent 0deg 40deg, #ffe2ab90 65deg, #fff9ec 78deg, transparent 94deg 225deg, #ffe7bccc 250deg, transparent 275deg 360deg);
+  mask: radial-gradient(closest-side, transparent 32%, #000 37%, transparent 43%, transparent 54%, #000 59%, transparent 65%);
 }
 .accretion-flow::after {
   content: '';
@@ -564,5 +581,5 @@
 @keyframes blackHoleFlow { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) {
   .black-hole, .black-hole-aura { transition: none; }
-  .accretion-flow { animation: none; }
+  .accretion-flow, .black-hole-lensing::before { animation: none; }
 }

@@ -2,6 +2,7 @@ import type { ContactFormFields } from "../components/Contact/contact.types";
 
 export interface ContactApiPayload extends ContactFormFields {
   recaptchaToken: string;
+  locale: 'fr' | 'en';
 }
 
 export interface ContactApiResponse {

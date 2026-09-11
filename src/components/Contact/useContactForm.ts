@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { sendContactEmail } from "../../services/contactApi";
 import { getRecaptchaToken } from "../../utils/recaptcha";
 import type { ContactFieldErrors, ContactFormFieldName, ContactFormFields, ContactFormStatus } from "./contact.types";
@@ -13,6 +14,7 @@ const EMPTY_FORM: ContactFormFields = {
 const RECAPTCHA_ACTION = "contact";
 
 export function useContactForm(recaptchaSiteKey: string) {
+  const { i18n } = useTranslation();
   const [formData, setFormData] = useState<ContactFormFields>(EMPTY_FORM);
   const [fieldErrors, setFieldErrors] = useState<ContactFieldErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -65,7 +67,8 @@ export function useContactForm(recaptchaSiteKey: string) {
     try {
       // Charge reCAPTCHA uniquement à l’envoi pour éviter les messages des cadres tiers dans la console pendant les audits.
       const recaptchaToken = await getRecaptchaToken(recaptchaSiteKey, RECAPTCHA_ACTION);
-      const result = await sendContactEmail({ ...formData, recaptchaToken });
+      const locale = (i18n.resolvedLanguage ?? i18n.language).split('-')[0] === 'en' ? 'en' : 'fr';
+      const result = await sendContactEmail({ ...formData, recaptchaToken, locale });
 
       if (result.ok && result.data.success) {
         setStatus({ variant: "success", translationKey: "message_success" });

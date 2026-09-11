@@ -66,7 +66,6 @@
 
 .about-profile-content {
   padding: 2rem;
-  min-height: 355px;
   color: #c8d4e5;
   line-height: 1.8;
   text-align: left;
@@ -121,6 +120,6 @@
   .about-profile-tabs { padding: 0 1rem; gap: 0; justify-content: space-between; }
   .about-profile-tabs button { font-size: 0.8rem; gap: 0.3rem; padding: 1rem 0; }
   .about-profile-tabs button span { display: none; }
-  .about-profile-content { padding: 1.35rem; min-height: 0; }
+  .about-profile-content { padding: 1.35rem; }
   .about-profile-lead { font-size: 1.05rem; }
 }

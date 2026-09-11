@@ -38,7 +38,7 @@ function About(): JSX.Element {
   return (
     <Container fluid className="about-section">
       <Container>
-        <Row className="about-intro align-items-center">
+        <Row className="about-intro align-items-start">
 
           <motion.h1
             className="about-intro-title"

@@ -93,7 +93,7 @@ function AboutCard(): JSX.Element {
             id={`about-panel-${key}`}
             aria-labelledby={`about-tab-${key}`}
             hidden={selectedTab !== key}
-            tabIndex={0}
+            tabIndex={selectedTab === key ? 0 : -1}
             initial={false}
             animate={selectedTab === key ? { opacity: 1, y: 0 } : { opacity: 0, y: reducedMotion ? 0 : 8 }}
             transition={{ duration: reducedMotion ? 0 : .28 }}

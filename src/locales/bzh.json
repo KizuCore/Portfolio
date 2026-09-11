@@ -251,15 +251,11 @@
     "completed": "echuet",
     "technologies": "Teknologiezhioù",
     "presentation": {
-        "text_1": "Krog on da skrivañ kod er skolaj, ha gwir eo e stumm on e barzh ar diorren e ",
-        "text_bold_1": "2017 dre Minecraft",
-        "text_2": ". Ar c’hoari-mañ en deus roet din tro da ",
-        "text_bold_2": "ren raktresoù, merañ servijerioù ha kenurzhiañ un ekip",
-        "text_3": ". An dazont-se en deus saveteet ma ",
-        "text_bold_3": "c’hoant bras da skrivañ kod",
-        "text_4": ", ma fennad aozerezh hag ar ",
-        "text_bold_4": "labour a-stroll",
-        "text_5": ", hag en deus roet din c’hoant da ober anezhañ ma domani pennañ."
+        "introduction": "Demat, <strong>Théo Guérin</strong> eo ma anv ! 25 bloaz on ha diorroer web full-stack on e Roazhon.",
+        "background": "Un MBA Diorroer Web Full-Stack (RNCP live 7) am eus. Met er penn-kentañ e oa dreist-holl ar c’hoant da zizoleiñ ha da grouiñ un dra din-me.",
+        "first_website": "Kroget em eus gant ul lec’hienn diwar-benn an anime <strong>Food Wars</strong>, evit klask HTML ha CSS hepken. Ha plijet bras on bet : dibab ar pajennaozañ, cheñch pep munud, ha gwelet ma lec’hienn enlinenn ! Gallout kregiñ gant ur soñj ha sevel pep tra ma-unan en deus roet din c’hoant da vont pelloc’h.",
+        "minecraft": "<minecraft /> en deus bet ur plas bras em hentad ivez, adalek 2017. Ouzhpenn merañ servijerioù, e raen war-dro skipailhoù hag aozadur ar raktresoù. Desket em eus kenurzhiañ labour pep hini, ha dreist-holl kavet plijadur o <strong>sevel un dra a-stroll</strong>. Evel-se eo deuet ar c’hod, mererezh ar raktresoù hag al labour a-stroll asambles en un doare naturel.",
+        "minecraft_label": "Minecraft"
     },
     "Informations": "Titouroù",
     "Vous avez un projet ?": "Un raktres hoc'h eus ?",

@@ -1,5 +1,5 @@
 import { JSX, useState, useEffect, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import type { TFunction } from "i18next";
 import { motion, useReducedMotion } from 'framer-motion';
 import { MinecraftMemory } from './ProfileInteractions';
@@ -112,16 +112,14 @@ function Presentation({ t }: { t: TFunction }): JSX.Element {
   return (
     <>
       <p className="about-profile-lead">
-        {t('greeting')} <strong className="profile-emphasis">Théo Guérin</strong> {t('from')}
-        {t('rennes')}.
+        <Trans t={t} i18nKey="presentation.introduction" components={{ strong: <strong className="profile-emphasis" /> }} />
+      </p>
+      <p>{t('presentation.background')}</p>
+      <p>
+        <Trans t={t} i18nKey="presentation.first_website" components={{ strong: <strong className="profile-emphasis" /> }} />
       </p>
       <p>
-        {t('current_position1')} <strong className="profile-emphasis">{t('developperAge')}</strong>
-        {t('current_position2')} <span className="profile-accent">{t('firstmaster')}</span>
-        {t('current_position3')}
-      </p>
-      <p>
-        {t('presentation.text_1')}<MinecraftMemory />{t('presentation.text_2')}{t('presentation.text_bold_2')}{t('presentation.text_3')}{t('presentation.text_bold_3')}{t('presentation.text_4')}<strong className="profile-emphasis">{t('presentation.text_bold_4')}</strong>{t('presentation.text_5')}
+        <Trans t={t} i18nKey="presentation.minecraft" components={{ minecraft: <MinecraftMemory />, strong: <strong className="profile-emphasis" /> }} />
       </p>
     </>
   );

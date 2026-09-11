@@ -16,7 +16,7 @@
 .contact-form-card .custom-form { border: 1px solid #354b6b; border-radius: 8px; background: #091323; color: #f5f9ff; min-height: 48px; padding: .8rem .9rem; font-size: .95rem; line-height: 1.5; box-shadow: none; }
 .contact-form-card .custom-form::placeholder { color: #90a2bf; opacity: 1; }
 .contact-form-card .custom-form:hover { border-color: #6884aa; }
-.contact-form-card .custom-form:focus { outline: 2px solid #9dc6ff; outline-offset: 2px; border-color: #9dc6ff; box-shadow: none; }
+.contact-form-card .custom-form:focus { background-color: #091323; color: #f5f9ff; outline: 2px solid #9dc6ff; outline-offset: 2px; border-color: #9dc6ff; box-shadow: none; }
 .contact-form-card .custom-form[aria-invalid="true"] { border-color: #f4a1b1; }
 .contact-form-card textarea.custom-form { min-height: 180px; resize: vertical; }
 /* Limite les styles de remplissage automatique à ce formulaire pour préserver les autres champs du site. */

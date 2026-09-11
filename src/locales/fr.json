@@ -262,7 +262,7 @@
     "presentation": {
         "introduction": "Salut, moi c’est <strong>Théo Guérin</strong> ! J’ai 25 ans et je suis développeur web full-stack à Rennes.",
         "background": "Je suis diplômé d’un MBA Développeur Web Full-Stack (RNCP de niveau 7). Mais au départ, il y avait surtout la curiosité et l’envie de créer quelque chose à moi.",
-        "first_website": "J’ai commencé avec un site sur l’animé <strong>Food Wars</strong>, juste pour essayer le HTML et le CSS. Et j’ai adoré : choisir la mise en page, toucher à chaque détail, puis voir mon propre site en ligne ! Pouvoir partir d’une idée et tout construire moi-même, c’est ce qui m’a donné envie d’aller plus loin.",
+        "first_website": "J’ai commencé avec un site sur l’animé <foodwars>Food Wars</foodwars>, juste pour essayer le <website>HTML et le CSS</website>. Et j’ai adoré : choisir la mise en page, toucher à chaque détail, puis voir mon propre site en ligne ! Pouvoir partir d’une idée et tout construire moi-même, c’est ce qui m’a donné envie d’aller plus loin.",
         "minecraft": "<minecraft /> a aussi beaucoup compté dans mon parcours, dès 2017. En plus d’administrer des serveurs, je m’occupais des équipes et de l’organisation des projets. J’y ai appris à coordonner le travail de chacun, et surtout pris goût à <strong>construire quelque chose ensemble</strong>. Le code, la gestion de projet et le travail en équipe se sont rejoints assez naturellement.",
         "minecraft_label": "Minecraft"
     },

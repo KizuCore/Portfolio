@@ -253,7 +253,7 @@
     "presentation": {
         "introduction": "Hi, I’m <strong>Théo Guérin</strong>! I’m 25 and a full-stack web developer based in Rennes, France.",
         "background": "I hold an MBA in Full-Stack Web Development (RNCP level 7). But it all started with curiosity and the urge to create something of my own.",
-        "first_website": "I started with a website about the anime <strong>Food Wars</strong>, just to try out HTML and CSS. And I loved it: choosing the layout, tweaking every detail, then seeing my own site online! Being able to take an idea and build it myself made me want to go further.",
+        "first_website": "I started with a website about the anime <foodwars>Food Wars</foodwars>, just to try out <website>HTML and CSS</website>. And I loved it: choosing the layout, tweaking every detail, then seeing my own site online! Being able to take an idea and build it myself made me want to go further.",
         "minecraft": "<minecraft /> also played a big part in my journey, starting in 2017. Alongside running servers, I looked after teams and organised projects. I learned to coordinate everyone’s work and, above all, discovered how much I enjoyed <strong>building something together</strong>. Coding, project management, and teamwork came together quite naturally.",
         "minecraft_label": "Minecraft"
     },

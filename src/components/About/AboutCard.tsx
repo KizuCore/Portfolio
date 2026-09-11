@@ -116,7 +116,7 @@ function Presentation({ t }: { t: TFunction }): JSX.Element {
       </p>
       <p>{t('presentation.background')}</p>
       <p>
-        <Trans t={t} i18nKey="presentation.first_website" components={{ strong: <strong className="profile-emphasis" /> }} />
+        <Trans t={t} i18nKey="presentation.first_website" components={{ foodwars: <strong className="profile-emphasis" />, website: <strong className="profile-emphasis" /> }} />
       </p>
       <p>
         <Trans t={t} i18nKey="presentation.minecraft" components={{ minecraft: <MinecraftMemory />, strong: <strong className="profile-emphasis" /> }} />

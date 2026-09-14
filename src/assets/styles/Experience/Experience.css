@@ -1,6 +1,14 @@
 /* Les dates partagent un même axe ; le contenu conserve son ordre de lecture sur tous les écrans. */
-.timeline-page { position: relative; z-index: 1; min-height: 100vh; }
-.timeline-container { padding: 9.5rem 1rem 5rem; color: #eaf2ff; text-align: left; }
+.timeline-page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+.timeline-container {
+  padding: 9.5rem 1rem 5rem;
+  color: #eaf2ff;
+  text-align: left;
+}
 .experience-title {
   margin: 0 0 3rem;
   font-size: clamp(2rem, 4vw, 3.2rem);
@@ -9,110 +17,351 @@
   line-height: 1.15;
 }
 .experience-title::before {
-  content: ''; display: block; width: 42px; height: 3px;
-  margin-bottom: 1.25rem; border-radius: 3px;
-  background: #4d92ff; box-shadow: 0 0 12px #367fec55;
+  content: "";
+  display: block;
+  width: 42px;
+  height: 3px;
+  margin-bottom: 1.25rem;
+  border-radius: 3px;
+  background: #4d92ff;
+  box-shadow: 0 0 12px #367fec55;
 }
-.timeline { position: relative; --timeline-axis: 190px; }
-.timeline-line-track, .timeline-line-progress {
-  position: absolute; top: 23px; bottom: 24px;
-  left: var(--timeline-axis); width: 2px; pointer-events: none;
+.timeline {
+  position: relative;
+  --timeline-axis: 190px;
+}
+.timeline-line-track,
+.timeline-line-progress {
+  position: absolute;
+  top: 23px;
+  bottom: 24px;
+  left: var(--timeline-axis);
+  width: 2px;
+  pointer-events: none;
   background: #749bd32e;
 }
 .timeline-line-progress {
-  background: #73aaff; transform: scaleY(var(--timeline-progress, 0));
-  transform-origin: top; box-shadow: 0 0 8px #367fec44;
+  background: #73aaff;
+  transform: scaleY(var(--timeline-progress, 0));
+  transform-origin: top;
+  box-shadow: 0 0 8px #367fec44;
 }
 .timeline-event {
-  position: relative; display: grid;
+  position: relative;
+  display: grid;
   grid-template-columns: 160px minmax(0, 1fr);
-  column-gap: 64px; padding-bottom: 1.75rem;
+  column-gap: 64px;
+  padding-bottom: 1.75rem;
 }
-.timeline-event:last-child { padding-bottom: 0; }
+.timeline-event:last-child {
+  padding-bottom: 0;
+}
 .timeline-card-date {
-  padding-top: 1.35rem; margin: 0; color: #a8c9f0;
-  font-size: 0.95rem; line-height: 1.6; font-weight: 600;
+  padding-top: 1.35rem;
+  margin: 0;
+  color: #a8c9f0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 600;
 }
 .timeline-event-dot {
-  position: absolute; top: 25px; left: calc(var(--timeline-axis) - 5px);
-  width: 12px; height: 12px; border: 2px solid #86b6f8;
-  border-radius: 50%; background: #101e32;
+  position: absolute;
+  top: 25px;
+  left: calc(var(--timeline-axis) - 5px);
+  width: 12px;
+  height: 12px;
+  border: 2px solid #86b6f8;
+  border-radius: 50%;
+  background: #101e32;
 }
-.timeline-event:first-child .timeline-event-dot { background: #86b6f8; box-shadow: 0 0 12px #5997ff66; }
+.timeline-event:first-child .timeline-event-dot {
+  background: #86b6f8;
+  box-shadow: 0 0 12px #5997ff66;
+}
 .timeline-card {
-  min-width: 0; padding: 1.75rem 2rem;
-  border: 1px solid #94b7e72b; border-radius: 18px;
-  background: linear-gradient(135deg, rgba(24,43,70,.8), rgba(13,23,39,.94));
+  min-width: 0;
+  padding: 1.75rem 2rem;
+  border: 1px solid #94b7e72b;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(24, 43, 70, 0.8),
+    rgba(13, 23, 39, 0.94)
+  );
 }
-.timeline-card-header { display: flex; align-items: flex-start; gap: 0.8rem; }
-.timeline-card-icon { display: inline-flex; color: #9fc8ff; margin-top: 0.3rem; flex-shrink: 0; }
-.timeline-card-title { margin: 0; font-size: clamp(1.15rem, 2vw, 1.55rem); line-height: 1.35; font-weight: 700; color: #f1f6ff; }
-.timeline-card-subtitle { margin: 0.65rem 0 0; color: #badbff; font-size: 1rem; line-height: 1.6; }
-.timeline-card-description, .timeline-card-rncp { margin: 1rem 0 0; color: #c8d4e5; line-height: 1.75; }
-.timeline-card-diploma { margin: 0.9rem 0 0; }
-.timeline-card-diploma-label { color: #96d5b6; font-size: 0.85rem; font-weight: 600; }
-.timeline-card-detailed { border-color: #94b7e74d; }
+.timeline-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+.timeline-card-icon {
+  display: inline-flex;
+  color: #9fc8ff;
+  margin-top: 0.3rem;
+  flex-shrink: 0;
+}
+.timeline-card-title {
+  margin: 0;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  line-height: 1.35;
+  font-weight: 700;
+  color: #f1f6ff;
+}
+.timeline-card-subtitle {
+  margin: 0.65rem 0 0;
+  color: #badbff;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.timeline-card-description,
+.timeline-card-rncp {
+  margin: 1rem 0 0;
+  color: #c8d4e5;
+  line-height: 1.75;
+}
+.timeline-card-diploma {
+  margin: 0.9rem 0 0;
+}
+.timeline-card-diploma-label {
+  color: #96d5b6;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.timeline-card-detailed {
+  border-color: #94b7e74d;
+}
 .timeline-card-list {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem 1.75rem; margin: 1.25rem 0 0; padding-left: 1.1rem;
-  color: #d3dfef; line-height: 1.65; font-size: 0.95rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem 1.75rem;
+  margin: 1.25rem 0 0;
+  padding-left: 1.1rem;
+  color: #d3dfef;
+  line-height: 1.65;
+  font-size: 0.95rem;
 }
-.timeline-card-list li::marker { color: #88b9ff; }
-.timeline-stack-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid #94b7e726; }
-.timeline-stack-badge { padding: 0.3rem 0.65rem; border-radius: 6px; background: #81b4ff12; color: #bcd8fc; font-size: 0.8rem; overflow-wrap: anywhere; }
+.timeline-card-list li::marker {
+  color: #88b9ff;
+}
+.timeline-stack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #94b7e726;
+}
+.timeline-stack-badge {
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  background: #81b4ff12;
+  color: #bcd8fc;
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
 @media (max-width: 991px) {
-  .timeline { --timeline-axis: 150px; }
-  .timeline-event { grid-template-columns: 125px minmax(0, 1fr); gap: 50px; }
-  .timeline-card-list { grid-template-columns: 1fr; }
-  .timeline-card { padding: 1.5rem; }
+  .timeline {
+    --timeline-axis: 150px;
+  }
+  .timeline-event {
+    grid-template-columns: 125px minmax(0, 1fr);
+    gap: 50px;
+  }
+  .timeline-card-list {
+    grid-template-columns: 1fr;
+  }
+  .timeline-card {
+    padding: 1.5rem;
+  }
 }
 @media (max-width: 575px) {
-  .timeline-container { padding: 7.5rem 0.5rem 3rem; }
-  .experience-title { margin-bottom: 2rem; overflow-wrap: anywhere; }
-  .timeline { --timeline-axis: 5px; }
-  .timeline-event { display: block; padding-left: 26px; padding-bottom: 1.75rem; }
-  .timeline-card-date { padding: 0; margin-bottom: 0.75rem; font-size: 0.85rem; }
-  .timeline-event-dot { top: 6px; }
-  .timeline-line-track, .timeline-line-progress { top: 6px; }
-  .timeline-card { padding: 1.15rem; border-radius: 14px; }
+  .timeline-container {
+    padding: 7.5rem 0.5rem 3rem;
+  }
+  .experience-title {
+    margin-bottom: 2rem;
+    overflow-wrap: anywhere;
+  }
+  .timeline {
+    --timeline-axis: 5px;
+  }
+  .timeline-event {
+    display: block;
+    padding-left: 26px;
+    padding-bottom: 1.75rem;
+  }
+  .timeline-card-date {
+    padding: 0;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+  }
+  .timeline-event-dot {
+    top: 6px;
+  }
+  .timeline-line-track,
+  .timeline-line-progress {
+    top: 6px;
+  }
+  .timeline-card {
+    padding: 1.15rem;
+    border-radius: 14px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .timeline-line-progress { display: none; }
+  .timeline-line-progress {
+    display: none;
+  }
 }
 
 /* L’expérience professionnelle vient en premier ; la formation adopte une chronologie plus sobre et compacte. */
-.timeline-container .experience-title { margin-bottom: 1rem; }
-.experience-intro { max-width: 650px; margin: 0 0 3.5rem; color: #aabed8; font-size: 1rem; line-height: 1.8; }
-.career-section + .career-section { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid #8fb5e526; }
-.career-section-heading { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 2rem; }
-.career-section-heading > span { display: grid; place-items: center; flex-shrink: 0; width: 38px; height: 38px; border: 1px solid #8fb5e536; border-radius: 10px; background: #568fe912; color: #9bc4ff; font: 12px monospace; }
-.career-section-heading h2 { margin: 0 0 7px; color: #e7f1ff; font-size: clamp(1.35rem, 2.5vw, 1.8rem); font-weight: 600; letter-spacing: -.025em; }
-.career-section-heading p { margin: 0; color: #9bb0ca; font-size: .9rem; line-height: 1.65; }
-.career-work .timeline-event-dot { display: none; }
-.career-work .timeline-event { column-gap: 32px; grid-template-columns: 155px minmax(0,1fr); }
-.career-work .timeline-card { padding: clamp(1.3rem,3vw,2.3rem); border-color: #83b7ff55; background: radial-gradient(ellipse at 100% 0, #3d7bc51c, transparent 65%), linear-gradient(135deg,#152b46,#0d1829); box-shadow: 0 18px 60px #00000018; }
-.career-work .timeline-card-subtitle { font-size: 1.15rem; color: #a6d0ff; }
-.career-work .timeline-card-list { margin-top: 1.6rem; gap: 1rem 2rem; }
-.career-education .timeline { --timeline-axis: 168px; }
-.career-education .timeline-event { grid-template-columns: 140px minmax(0,1fr); column-gap: 58px; padding-bottom: 1.3rem; }
-.career-education .timeline-card { padding: 1.1rem 0 1.5rem; border: 0; border-bottom: 1px solid #8fb5e520; border-radius: 0; background: transparent; }
-.career-education .timeline-event:last-child .timeline-card { border-bottom: 0; padding-bottom: 0; }
-.career-education .timeline-card-title { font-size: 1.1rem; }
-.career-education .timeline-card-icon { font-size: .85rem; margin-top: .2rem; opacity: .7; }
-.career-education .timeline-card-subtitle { margin-top: .5rem; font-size: .9rem; color: #a6bdd7; }
-.career-education .timeline-card-rncp, .career-education .timeline-card-description { margin-top: .55rem; font-size: .85rem; color: #9fb3cb; }
-.career-education .timeline-card-diploma { margin-top: .55rem; }
-.career-education .timeline-card-diploma-label { font-size: .75rem; }
-.career-education .timeline-card-date { font-size: .85rem; }
+.timeline-container .experience-title {
+  margin-bottom: 1rem;
+}
+.experience-intro {
+  max-width: 650px;
+  margin: 0 0 3.5rem;
+  color: #aabed8;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.career-section + .career-section {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid #8fb5e526;
+}
+.career-section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 2rem;
+}
+.career-section-heading > span {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #8fb5e536;
+  border-radius: 10px;
+  background: #568fe912;
+  color: #9bc4ff;
+  font: 12px monospace;
+}
+.career-section-heading h2 {
+  margin: 0 0 7px;
+  color: #e7f1ff;
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.career-section-heading p {
+  margin: 0;
+  color: #9bb0ca;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.career-work .timeline-event-dot {
+  display: none;
+}
+.career-work .timeline-event {
+  column-gap: 32px;
+  grid-template-columns: 155px minmax(0, 1fr);
+}
+.career-work .timeline-card {
+  padding: clamp(1.3rem, 3vw, 2.3rem);
+  border-color: #83b7ff55;
+  background:
+    radial-gradient(ellipse at 100% 0, #3d7bc51c, transparent 65%),
+    linear-gradient(135deg, #152b46, #0d1829);
+  box-shadow: 0 18px 60px #00000018;
+}
+.career-work .timeline-card-subtitle {
+  font-size: 1.15rem;
+  color: #a6d0ff;
+}
+.career-work .timeline-card-list {
+  margin-top: 1.6rem;
+  gap: 1rem 2rem;
+}
+.career-education .timeline {
+  --timeline-axis: 168px;
+}
+.career-education .timeline-event {
+  grid-template-columns: 140px minmax(0, 1fr);
+  column-gap: 58px;
+  padding-bottom: 1.3rem;
+}
+.career-education .timeline-card {
+  padding: 1.1rem 0 1.5rem;
+  border: 0;
+  border-bottom: 1px solid #8fb5e520;
+  border-radius: 0;
+  background: transparent;
+}
+.career-education .timeline-event:last-child .timeline-card {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.career-education .timeline-card-title {
+  font-size: 1.1rem;
+}
+.career-education .timeline-card-icon {
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+  opacity: 0.7;
+}
+.career-education .timeline-card-subtitle {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #a6bdd7;
+}
+.career-education .timeline-card-rncp,
+.career-education .timeline-card-description {
+  margin-top: 0.55rem;
+  font-size: 0.85rem;
+  color: #9fb3cb;
+}
+.career-education .timeline-card-diploma {
+  margin-top: 0.55rem;
+}
+.career-education .timeline-card-diploma-label {
+  font-size: 0.75rem;
+}
+.career-education .timeline-card-date {
+  font-size: 0.85rem;
+}
 @media (max-width: 575px) {
-  .experience-intro { font-size: .9rem; margin-bottom: 2.5rem; }
-  .career-section-heading { gap: 12px; }
-  .career-section-heading > span { width: 30px; height: 30px; }
-  .career-section-heading p { font-size: .82rem; }
-  .career-work .timeline-event { padding-left: 0; }
-  .career-work .timeline-card-date { margin-bottom: 12px; }
-  .career-education .timeline { --timeline-axis: 5px; }
-  .career-education .timeline-event { padding-left: 26px; }
-  .career-education .timeline-card { padding-top: .15rem; }
-  .career-section + .career-section { margin-top: 2.5rem; padding-top: 2rem; }
+  .experience-intro {
+    font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+  }
+  .career-section-heading {
+    gap: 12px;
+  }
+  .career-section-heading > span {
+    width: 30px;
+    height: 30px;
+  }
+  .career-section-heading p {
+    font-size: 0.82rem;
+  }
+  .career-work .timeline-event {
+    padding-left: 0;
+  }
+  .career-work .timeline-card-date {
+    margin-bottom: 12px;
+  }
+  .career-education .timeline {
+    --timeline-axis: 5px;
+  }
+  .career-education .timeline-event {
+    padding-left: 26px;
+  }
+  .career-education .timeline-card {
+    padding-top: 0.15rem;
+  }
+  .career-section + .career-section {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+  }
 }

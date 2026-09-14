@@ -13,121 +13,538 @@
   min-height: max(820px, 100svh);
   overflow: hidden;
   isolation: isolate;
-  background: radial-gradient(ellipse at 40% 40%, #24514029, transparent 60%), radial-gradient(ellipse at 90% 70%, #a1326515, transparent 50%);
+  background:
+    radial-gradient(ellipse at 40% 40%, #24514029, transparent 60%),
+    radial-gradient(ellipse at 90% 70%, #a1326515, transparent 50%);
 }
-.arcane-paper, .arcane-aura { position: absolute; inset: 0; pointer-events: none; }
+.arcane-paper,
+.arcane-aura {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
 .arcane-paper {
-  opacity: .22;
-  background: repeating-linear-gradient(115deg, transparent 0 5px, #c4a77c08 5px 6px), repeating-linear-gradient(0deg, transparent 0 3px, #c4a77c0a 3px 4px);
+  opacity: 0.22;
+  background:
+    repeating-linear-gradient(115deg, transparent 0 5px, #c4a77c08 5px 6px),
+    repeating-linear-gradient(0deg, transparent 0 3px, #c4a77c0a 3px 4px);
   z-index: 5;
 }
-.arcane-aura { background: radial-gradient(ellipse at 50% 44%, #75e9af15, transparent 42%); transition: opacity 1s; }
-.arcane-topline, .arcane-console {
+.arcane-aura {
+  background: radial-gradient(ellipse at 50% 44%, #75e9af15, transparent 42%);
+  transition: opacity 1s;
+}
+.arcane-topline,
+.arcane-console {
   position: absolute;
   z-index: 6;
-  left: 5%; right: 5%;
+  left: 5%;
+  right: 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
 }
-.arcane-topline { top: 106px; border-bottom: 1px solid #c4a77c33; padding-bottom: 20px; font: 10px/1.6 monospace; letter-spacing: .17em; text-transform: uppercase; color: #c4b398; }
-.arcane-topline a { display: inline-flex; align-items: center; min-height: 44px; gap: 12px; color: #e9e4d5; text-decoration: none; }
-.arcane-topline a:hover { color: var(--arcane-mint); }
-.arcane-topline a:focus-visible { outline: 2px solid var(--arcane-mint); outline-offset: 5px; }
-.arcane-topline a span { font-size: 20px; }
-.arcane-topline i { color: var(--arcane-mint); margin: 0 12px; font-style: normal; }
-.arcane-machine { position: absolute; top: 44%; left: 50%; width: min(46vw, 440px); aspect-ratio: 1; transform: translate(-50%, -50%); }
-.arcane-dial { width: 100%; height: 100%; overflow: visible; transition: opacity .8s, filter .8s, transform 1.5s; }
-.arcane-fine-ring { stroke: #c4a77c45; stroke-width: .6; }
-.arcane-brass-ring { stroke: #c4a77c99; stroke-width: 1.5; }
-.arcane-major-tick { stroke: #d7bf95; stroke-width: 2; }
-.arcane-minor-tick { stroke: #c4a77c70; stroke-width: 1; }
-.arcane-inner-dial { stroke: #91e6bd35; stroke-width: .8; transform-origin: 250px 250px; transform: rotate(calc(var(--hand, 0deg) * -.25)); }
-.arcane-hand, .arcane-second-hand { transform-origin: 250px 250px; transform: rotate(var(--hand, 0deg)); stroke: #c6edcf; stroke-width: 1.4; }
-.arcane-second-hand { transform: rotate(calc(var(--hand, 0deg) * .3)); stroke: #c4a77c; stroke-width: 3; }
-.arcane-hourglass { stroke: #c8f0d4; stroke-width: 2; filter: drop-shadow(0 0 8px #79e5ab); transition: opacity .6s; }
-.arcane-progress-ring { stroke: var(--arcane-mint); stroke-width: 2; stroke-dasharray: 1; stroke-dashoffset: var(--rewind, 0); transform: rotate(-90deg); transform-origin: 250px 250px; opacity: 0; filter: drop-shadow(0 0 5px #91e6bd); }
-.arcane-crystal { position: absolute; inset: 37%; z-index: -1; background: radial-gradient(ellipse, #7cffe950, #84d6ae08 60%, transparent 70%); filter: blur(14px); }
-.arcane-inscription { position: absolute; top: 40%; display: flex; flex-direction: column; gap: 14px; text-align: left; }
-.arcane-inscription-left { left: 9%; color: var(--arcane-mint); }
-.arcane-inscription-right { right: 9%; color: var(--arcane-pink); text-align: right; }
-.arcane-inscription span { font: 9px monospace; letter-spacing: .2em; text-transform: uppercase; }
-.arcane-inscription b { font: italic clamp(18px, 2.5vw, 32px) Georgia, serif; font-weight: 400; }
-.arcane-intro { position: absolute; top: 73%; left: 5%; right: 5%; text-align: center; animation: arcane-arrive 1.4s both; transition: opacity .6s; }
-.arcane-eyebrow { display: block; color: #c4b398; font: 9px/1.6 monospace; letter-spacing: .25em; text-transform: uppercase; margin: 0 0 12px; }
-.arcane-intro h1, .arcane-reveal h1 { color: #e9e4d5; font: clamp(36px, 5.5vw, 65px)/1.1 Georgia, serif; letter-spacing: -.035em; margin: 0; }
-.arcane-intro h1 em, .arcane-reveal h1 em { color: var(--arcane-gold); font-weight: 400; }
-.arcane-subtitle { color: #b3b8ab; font-size: 13px; line-height: 1.7; margin: 14px 0 0; }
-.arcane-fragments { position: absolute; inset: 0; pointer-events: none; }
+.arcane-topline {
+  top: 106px;
+  border-bottom: 1px solid #c4a77c33;
+  padding-bottom: 20px;
+  font: 10px/1.6 monospace;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: #c4b398;
+}
+.arcane-topline a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  gap: 12px;
+  color: #e9e4d5;
+  text-decoration: none;
+}
+.arcane-topline a:hover {
+  color: var(--arcane-mint);
+}
+.arcane-topline a:focus-visible {
+  outline: 2px solid var(--arcane-mint);
+  outline-offset: 5px;
+}
+.arcane-topline a span {
+  font-size: 20px;
+}
+.arcane-topline i {
+  color: var(--arcane-mint);
+  margin: 0 12px;
+  font-style: normal;
+}
+.arcane-machine {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  width: min(46vw, 440px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+}
+.arcane-dial {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transition:
+    opacity 0.8s,
+    filter 0.8s,
+    transform 1.5s;
+}
+.arcane-fine-ring {
+  stroke: #c4a77c45;
+  stroke-width: 0.6;
+}
+.arcane-brass-ring {
+  stroke: #c4a77c99;
+  stroke-width: 1.5;
+}
+.arcane-major-tick {
+  stroke: #d7bf95;
+  stroke-width: 2;
+}
+.arcane-minor-tick {
+  stroke: #c4a77c70;
+  stroke-width: 1;
+}
+.arcane-inner-dial {
+  stroke: #91e6bd35;
+  stroke-width: 0.8;
+  transform-origin: 250px 250px;
+  transform: rotate(calc(var(--hand, 0deg) * -0.25));
+}
+.arcane-hand,
+.arcane-second-hand {
+  transform-origin: 250px 250px;
+  transform: rotate(var(--hand, 0deg));
+  stroke: #c6edcf;
+  stroke-width: 1.4;
+}
+.arcane-second-hand {
+  transform: rotate(calc(var(--hand, 0deg) * 0.3));
+  stroke: #c4a77c;
+  stroke-width: 3;
+}
+.arcane-hourglass {
+  stroke: #c8f0d4;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 8px #79e5ab);
+  transition: opacity 0.6s;
+}
+.arcane-progress-ring {
+  stroke: var(--arcane-mint);
+  stroke-width: 2;
+  stroke-dasharray: 1;
+  stroke-dashoffset: var(--rewind, 0);
+  transform: rotate(-90deg);
+  transform-origin: 250px 250px;
+  opacity: 0;
+  filter: drop-shadow(0 0 5px #91e6bd);
+}
+.arcane-crystal {
+  position: absolute;
+  inset: 37%;
+  z-index: -1;
+  background: radial-gradient(
+    ellipse,
+    #7cffe950,
+    #84d6ae08 60%,
+    transparent 70%
+  );
+  filter: blur(14px);
+}
+.arcane-inscription {
+  position: absolute;
+  top: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+.arcane-inscription-left {
+  left: 9%;
+  color: var(--arcane-mint);
+}
+.arcane-inscription-right {
+  right: 9%;
+  color: var(--arcane-pink);
+  text-align: right;
+}
+.arcane-inscription span {
+  font: 9px monospace;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.arcane-inscription b {
+  font:
+    italic clamp(18px, 2.5vw, 32px) Georgia,
+    serif;
+  font-weight: 400;
+}
+.arcane-intro {
+  position: absolute;
+  top: 73%;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  animation: arcane-arrive 1.4s both;
+  transition: opacity 0.6s;
+}
+.arcane-eyebrow {
+  display: block;
+  color: #c4b398;
+  font: 9px/1.6 monospace;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+.arcane-intro h1,
+.arcane-reveal h1 {
+  color: #e9e4d5;
+  font:
+    clamp(36px, 5.5vw, 65px) / 1.1 Georgia,
+    serif;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+.arcane-intro h1 em,
+.arcane-reveal h1 em {
+  color: var(--arcane-gold);
+  font-weight: 400;
+}
+.arcane-subtitle {
+  color: #b3b8ab;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 14px 0 0;
+}
+.arcane-fragments {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
 .arcane-fragments i {
-  position: absolute; left: 50%; top: 50%; width: 9px; height: 33px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 9px;
+  height: 33px;
   background: linear-gradient(135deg, #c1ffeaa8, #67b6a41a);
   clip-path: polygon(0 0, 100% 32%, 25% 100%);
   transform: rotate(var(--angle)) translateY(-45px) rotate(25deg);
   opacity: 0;
-  transition: transform 1.15s cubic-bezier(.12,.75,.24,1), opacity .7s;
+  transition:
+    transform 1.15s cubic-bezier(0.12, 0.75, 0.24, 1),
+    opacity 0.7s;
 }
-.arcane-fragments i:nth-child(3n) { background: linear-gradient(135deg, #f1b4d5b0, #f1b4d51a); }
-[data-phase='fracture'] .arcane-fragments i { opacity: .9; transform: rotate(var(--angle)) translateY(calc(-1 * var(--reach))) rotate(85deg); }
-[data-phase='fracture'] .arcane-dial { transform: scale(1.08) rotate(8deg); filter: drop-shadow(0 0 12px #84e6b055); opacity: .35; }
-[data-phase='fracture'] .arcane-hourglass, [data-phase='rewind'] .arcane-hourglass { opacity: 0; }
-[data-phase='rewind'] .arcane-fragments i { transition-duration: 4s; opacity: .25; transform: rotate(calc(var(--angle) - 220deg)) translateY(-20px) rotate(-90deg); }
-[data-phase='rewind'] .arcane-dial { filter: drop-shadow(0 0 8px #84e6b030); }
-[data-phase='rewind'] .arcane-progress-ring { opacity: .85; }
-.arcane-count { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity .5s; text-shadow: 0 0 40px #78e7ad40; }
-.arcane-count strong { font: clamp(65px, 10vw, 110px)/1 Georgia, serif; font-variant-numeric: tabular-nums; color: #dcf5e6; }
-.arcane-count span { font: 8px monospace; letter-spacing: .24em; text-transform: uppercase; color: var(--arcane-mint); margin-top: 12px; }
-[data-phase='rewind'] .arcane-count { opacity: 1; }
-.arcane-rift { position: absolute; inset: 4%; border: 1px solid #a7efbf80; border-radius: 50%; opacity: 0; box-shadow: 0 0 40px #84e6b015, inset 0 0 40px #84e6b015; }
-[data-phase='bloom'] .arcane-rift { animation: arcane-rift-open 1.8s both; }
-[data-phase='bloom'] .arcane-dial { transform: scale(1.65) rotate(-35deg); opacity: 0; }
-[data-phase='bloom'] .arcane-intro, [data-phase='bloom'] .arcane-inscription { opacity: 0; }
-.arcane-bloom-title { position: absolute; top: 39%; left: 5%; right: 5%; text-align: center; opacity: 0; pointer-events: none; }
-.arcane-bloom-title span { display: block; color: var(--arcane-mint); font: 10px monospace; letter-spacing: .25em; text-transform: uppercase; margin-bottom: 15px; }
-.arcane-bloom-title strong { font: italic clamp(42px, 8vw, 92px) Georgia, serif; color: #edf3dc; }
-[data-phase='bloom'] .arcane-bloom-title { animation: arcane-arrive 1s both; }
-.arcane-fireflies { position: absolute; inset: 0; pointer-events: none; }
-.arcane-fireflies i { position: absolute; width: 3px; height: 3px; background: #b6f4ca; border-radius: 50%; box-shadow: 0 0 9px 2px #88eab555; animation: arcane-firefly 5s ease-in-out infinite alternate; animation-delay: calc(var(--i) * -.31s); }
-.arcane-fireflies i:nth-child(3n) { background: #e7a3c6; box-shadow: 0 0 9px #e7a3c655; }
-[data-phase='rewind'] .arcane-fireflies i { animation-direction: alternate-reverse; }
-.arcane-console { bottom: 30px; padding-top: 21px; border-top: 1px solid #c4a77c33; text-align: left; }
-.arcane-console .arcane-eyebrow { margin-bottom: 5px; font-size: 8px; }
-.arcane-console strong { font-size: 11px; font-weight: 400; color: #cfd8c8; }
-.arcane-timeline { display: flex; gap: 18px; }
-.arcane-timeline span { color: #7f8b80; font: 9px monospace; }
-.arcane-timeline i { display: block; width: 28px; height: 2px; background: #c4a77c25; margin-bottom: 9px; transition: background .5s; }
-.arcane-timeline .is-lit { color: var(--arcane-mint); }
-.arcane-timeline .is-lit i { background: var(--arcane-mint); box-shadow: 0 0 9px #91e6bd40; }
-.arcane-console-note { color: #9aab9e; font: 9px monospace; letter-spacing: .08em; }
-.arcane-reveal { position: relative; z-index: 3; width: min(860px, 88%); margin: 210px auto 150px; text-align: center; animation: arcane-arrive 1.2s both; }
-.arcane-film { position: relative; margin-top: 30px; padding: 8px; background: #c4a77c05; border: 1px solid #c4a77c55; box-shadow: -25px 10px 90px #5cde9b0a, 25px 10px 90px #eb8cbc0a; }
-.arcane-film-header { display: flex; justify-content: space-between; padding: 7px 5px 13px; color: #c4b398; font: 9px monospace; letter-spacing: .2em; text-transform: uppercase; }
-.arcane-film video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #030706; }
-.main-content:has(.arcane-route) ~ .footer-section .footer-shell { margin-top: 0; }
-@keyframes arcane-arrive { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes arcane-rift-open { 0% { opacity: .8; transform: scale(.75); } 100% { opacity: 0; transform: scale(3.5); } }
-@keyframes arcane-firefly { from { opacity: .1; transform: translate3d(-12px, 15px, 0); } to { opacity: .8; transform: translate3d(18px, -25px, 0); } }
+.arcane-fragments i:nth-child(3n) {
+  background: linear-gradient(135deg, #f1b4d5b0, #f1b4d51a);
+}
+[data-phase="fracture"] .arcane-fragments i {
+  opacity: 0.9;
+  transform: rotate(var(--angle)) translateY(calc(-1 * var(--reach)))
+    rotate(85deg);
+}
+[data-phase="fracture"] .arcane-dial {
+  transform: scale(1.08) rotate(8deg);
+  filter: drop-shadow(0 0 12px #84e6b055);
+  opacity: 0.35;
+}
+[data-phase="fracture"] .arcane-hourglass,
+[data-phase="rewind"] .arcane-hourglass {
+  opacity: 0;
+}
+[data-phase="rewind"] .arcane-fragments i {
+  transition-duration: 4s;
+  opacity: 0.25;
+  transform: rotate(calc(var(--angle) - 220deg)) translateY(-20px)
+    rotate(-90deg);
+}
+[data-phase="rewind"] .arcane-dial {
+  filter: drop-shadow(0 0 8px #84e6b030);
+}
+[data-phase="rewind"] .arcane-progress-ring {
+  opacity: 0.85;
+}
+.arcane-count {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+  text-shadow: 0 0 40px #78e7ad40;
+}
+.arcane-count strong {
+  font:
+    clamp(65px, 10vw, 110px) / 1 Georgia,
+    serif;
+  font-variant-numeric: tabular-nums;
+  color: #dcf5e6;
+}
+.arcane-count span {
+  font: 8px monospace;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--arcane-mint);
+  margin-top: 12px;
+}
+[data-phase="rewind"] .arcane-count {
+  opacity: 1;
+}
+.arcane-rift {
+  position: absolute;
+  inset: 4%;
+  border: 1px solid #a7efbf80;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow:
+    0 0 40px #84e6b015,
+    inset 0 0 40px #84e6b015;
+}
+[data-phase="bloom"] .arcane-rift {
+  animation: arcane-rift-open 1.8s both;
+}
+[data-phase="bloom"] .arcane-dial {
+  transform: scale(1.65) rotate(-35deg);
+  opacity: 0;
+}
+[data-phase="bloom"] .arcane-intro,
+[data-phase="bloom"] .arcane-inscription {
+  opacity: 0;
+}
+.arcane-bloom-title {
+  position: absolute;
+  top: 39%;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+}
+.arcane-bloom-title span {
+  display: block;
+  color: var(--arcane-mint);
+  font: 10px monospace;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.arcane-bloom-title strong {
+  font:
+    italic clamp(42px, 8vw, 92px) Georgia,
+    serif;
+  color: #edf3dc;
+}
+[data-phase="bloom"] .arcane-bloom-title {
+  animation: arcane-arrive 1s both;
+}
+.arcane-fireflies {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.arcane-fireflies i {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #b6f4ca;
+  border-radius: 50%;
+  box-shadow: 0 0 9px 2px #88eab555;
+  animation: arcane-firefly 5s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * -0.31s);
+}
+.arcane-fireflies i:nth-child(3n) {
+  background: #e7a3c6;
+  box-shadow: 0 0 9px #e7a3c655;
+}
+[data-phase="rewind"] .arcane-fireflies i {
+  animation-direction: alternate-reverse;
+}
+.arcane-console {
+  bottom: 30px;
+  padding-top: 21px;
+  border-top: 1px solid #c4a77c33;
+  text-align: left;
+}
+.arcane-console .arcane-eyebrow {
+  margin-bottom: 5px;
+  font-size: 8px;
+}
+.arcane-console strong {
+  font-size: 11px;
+  font-weight: 400;
+  color: #cfd8c8;
+}
+.arcane-timeline {
+  display: flex;
+  gap: 18px;
+}
+.arcane-timeline span {
+  color: #7f8b80;
+  font: 9px monospace;
+}
+.arcane-timeline i {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: #c4a77c25;
+  margin-bottom: 9px;
+  transition: background 0.5s;
+}
+.arcane-timeline .is-lit {
+  color: var(--arcane-mint);
+}
+.arcane-timeline .is-lit i {
+  background: var(--arcane-mint);
+  box-shadow: 0 0 9px #91e6bd40;
+}
+.arcane-console-note {
+  color: #9aab9e;
+  font: 9px monospace;
+  letter-spacing: 0.08em;
+}
+.arcane-reveal {
+  position: relative;
+  z-index: 3;
+  width: min(860px, 88%);
+  margin: 210px auto 150px;
+  text-align: center;
+  animation: arcane-arrive 1.2s both;
+}
+.arcane-film {
+  position: relative;
+  margin-top: 30px;
+  padding: 8px;
+  background: #c4a77c05;
+  border: 1px solid #c4a77c55;
+  box-shadow:
+    -25px 10px 90px #5cde9b0a,
+    25px 10px 90px #eb8cbc0a;
+}
+.arcane-film-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 5px 13px;
+  color: #c4b398;
+  font: 9px monospace;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.arcane-film video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #030706;
+}
+.main-content:has(.arcane-route) ~ .footer-section .footer-shell {
+  margin-top: 0;
+}
+@keyframes arcane-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes arcane-rift-open {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.75);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.5);
+  }
+}
+@keyframes arcane-firefly {
+  from {
+    opacity: 0.1;
+    transform: translate3d(-12px, 15px, 0);
+  }
+  to {
+    opacity: 0.8;
+    transform: translate3d(18px, -25px, 0);
+  }
+}
 @media (max-width: 600px) {
-  .arcane-world { min-height: max(780px, 100svh); }
-  .arcane-topline { top: 85px; font-size: 8px; letter-spacing: .07em; gap: 10px; }
-  .arcane-topline i { margin: 0 5px; }
-  .arcane-file { display: none; }
-  .arcane-machine { width: 76vw; top: 46%; }
-  .arcane-inscription { top: 25%; }
-  .arcane-inscription-left { left: 7%; } .arcane-inscription-right { right: 7%; }
-  .arcane-inscription span { font-size: 8px; }
-  .arcane-inscription b { font-size: 19px; }
-  .arcane-intro { top: 71%; }
-  .arcane-subtitle { font-size: 12px; }
-  .arcane-console { gap: 15px; bottom: 25px; }
-  .arcane-console-note { display: none; }
-  .arcane-timeline { gap: 9px; }
-  .arcane-timeline i { width: 17px; }
-  .arcane-console strong { font-size: 10px; }
-  .arcane-reveal { width: 90%; margin-top: 220px; }
-  .arcane-reveal h1 { font-size: 38px; }
+  .arcane-world {
+    min-height: max(780px, 100svh);
+  }
+  .arcane-topline {
+    top: 85px;
+    font-size: 8px;
+    letter-spacing: 0.07em;
+    gap: 10px;
+  }
+  .arcane-topline i {
+    margin: 0 5px;
+  }
+  .arcane-file {
+    display: none;
+  }
+  .arcane-machine {
+    width: 76vw;
+    top: 46%;
+  }
+  .arcane-inscription {
+    top: 25%;
+  }
+  .arcane-inscription-left {
+    left: 7%;
+  }
+  .arcane-inscription-right {
+    right: 7%;
+  }
+  .arcane-inscription span {
+    font-size: 8px;
+  }
+  .arcane-inscription b {
+    font-size: 19px;
+  }
+  .arcane-intro {
+    top: 71%;
+  }
+  .arcane-subtitle {
+    font-size: 12px;
+  }
+  .arcane-console {
+    gap: 15px;
+    bottom: 25px;
+  }
+  .arcane-console-note {
+    display: none;
+  }
+  .arcane-timeline {
+    gap: 9px;
+  }
+  .arcane-timeline i {
+    width: 17px;
+  }
+  .arcane-console strong {
+    font-size: 10px;
+  }
+  .arcane-reveal {
+    width: 90%;
+    margin-top: 220px;
+  }
+  .arcane-reveal h1 {
+    font-size: 38px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .arcane-route *, .arcane-route *::before, .arcane-route *::after { animation: none !important; transition: none !important; }
+  .arcane-route *,
+  .arcane-route *::before,
+  .arcane-route *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

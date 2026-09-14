@@ -9,8 +9,16 @@
 
 .footer-shell {
   background:
-    radial-gradient(1000px 350px at 10% -20%, rgba(44, 117, 236, 0.22), transparent 58%),
-    radial-gradient(700px 280px at 95% 0%, rgba(46, 196, 182, 0.1), transparent 64%),
+    radial-gradient(
+      1000px 350px at 10% -20%,
+      rgba(44, 117, 236, 0.22),
+      transparent 58%
+    ),
+    radial-gradient(
+      700px 280px at 95% 0%,
+      rgba(46, 196, 182, 0.1),
+      transparent 64%
+    ),
     #020b21;
   border-top: 1px solid rgba(126, 173, 244, 0.25);
   margin-top: clamp(2.2rem, 4vw, 3.2rem);
@@ -23,7 +31,9 @@
   margin: 0 auto;
   padding: clamp(1.35rem, 2.8vw, 2.1rem) 0 clamp(1rem, 2.4vw, 1.5rem);
   display: grid;
-  grid-template-columns: minmax(280px, 1.25fr) minmax(160px, 0.85fr) minmax(160px, 0.85fr) minmax(220px, 1fr);
+  grid-template-columns:
+    minmax(280px, 1.25fr) minmax(160px, 0.85fr) minmax(160px, 0.85fr)
+    minmax(220px, 1fr);
   gap: clamp(2rem, 4vw, 3.5rem);
   align-items: start;
   justify-content: space-between;
@@ -59,7 +69,11 @@
   width: 26px;
   height: 2px;
   border-radius: 99px;
-  background: linear-gradient(90deg, rgba(95, 194, 255, 0.95), rgba(40, 115, 235, 0.65));
+  background: linear-gradient(
+    90deg,
+    rgba(95, 194, 255, 0.95),
+    rgba(40, 115, 235, 0.65)
+  );
   box-shadow: 0 0 12px rgba(95, 194, 255, 0.4);
 }
 
@@ -268,4 +282,3 @@
     font-size: 0.9rem;
   }
 }
-

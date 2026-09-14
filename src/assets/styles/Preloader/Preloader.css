@@ -43,7 +43,7 @@
 }
 
 .preloader-wordmark-main {
-  font-family: 'Montserrat', serif;
+  font-family: "Montserrat", serif;
   text-transform: uppercase !important;
   font-size: 1.22rem;
   font-weight: 700;
@@ -74,7 +74,6 @@
   animation: fadeInScale 0.8s ease-in-out forwards;
 }
 
-
 .preloader-logo svg {
   width: 100%;
   height: 100%;
@@ -88,8 +87,6 @@
   display: block;
   margin: 0 auto;
 }
-
-
 
 /* === DESSIN DU CONTOUR DU CERCLE DE FOND === */
 .svg-circle {
@@ -115,12 +112,11 @@
   animation: draw-stroke 1.8s ease forwards;
 }
 
-.contour{
+.contour {
   stroke-width: 4px;
   filter: drop-shadow(0 0 5px var(--dark-blue));
 }
 .glow {
-
   filter: drop-shadow(0 0 7px rgba(39, 109, 238, 0.8));
 }
 .svg-fill-blue {
@@ -129,7 +125,6 @@
   animation: fade-fill 0.8s ease forwards;
   animation-delay: 1.9s;
 }
-
 
 /* === DÉLAIS DÉCALÉS DES TRACÉS === */
 .delay-1 {

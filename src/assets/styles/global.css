@@ -12,11 +12,26 @@
   --btn-text: #edf6ff;
   --btn-border: rgba(170, 211, 255, 0.44);
   --btn-border-hover: rgba(211, 233, 255, 0.92);
-  --btn-bg: linear-gradient(140deg, rgba(13, 32, 60, 0.95), rgba(36, 97, 181, 0.9));
-  --btn-bg-hover: linear-gradient(140deg, rgba(17, 42, 79, 0.98), rgba(52, 128, 230, 0.92));
-  --btn-shadow: 0 10px 24px rgba(3, 12, 27, 0.38), 0 0 18px rgba(68, 146, 255, 0.16);
-  --btn-shadow-hover: 0 14px 30px rgba(3, 12, 27, 0.5), 0 0 24px rgba(83, 161, 255, 0.34);
-  --section-background-color: linear-gradient(145deg, #05080f 0%, #0b1221 44%, #121d34 100%);
+  --btn-bg: linear-gradient(
+    140deg,
+    rgba(13, 32, 60, 0.95),
+    rgba(36, 97, 181, 0.9)
+  );
+  --btn-bg-hover: linear-gradient(
+    140deg,
+    rgba(17, 42, 79, 0.98),
+    rgba(52, 128, 230, 0.92)
+  );
+  --btn-shadow:
+    0 10px 24px rgba(3, 12, 27, 0.38), 0 0 18px rgba(68, 146, 255, 0.16);
+  --btn-shadow-hover:
+    0 14px 30px rgba(3, 12, 27, 0.5), 0 0 24px rgba(83, 161, 255, 0.34);
+  --section-background-color: linear-gradient(
+    145deg,
+    #05080f 0%,
+    #0b1221 44%,
+    #121d34 100%
+  );
   --glow: 0 0 40px rgba(64, 144, 255, 0.2);
 }
 
@@ -30,8 +45,16 @@ body {
   overflow-x: hidden !important;
   color: var(--text-primary);
   background:
-    radial-gradient(circle at 0% 15%, rgba(72, 129, 255, 0.12), transparent 42%),
-    radial-gradient(circle at 100% 0%, rgba(88, 196, 255, 0.08), transparent 35%),
+    radial-gradient(
+      circle at 0% 15%,
+      rgba(72, 129, 255, 0.12),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(88, 196, 255, 0.08),
+      transparent 35%
+    ),
     linear-gradient(160deg, #04070d 0%, #080e1a 42%, #101a2e 100%);
 }
 
@@ -74,7 +97,7 @@ select:focus-visible {
 }
 
 .blue-title {
-  font-family: 'Montserrat', serif !important;
+  font-family: "Montserrat", serif !important;
   font-weight: 700;
   background: linear-gradient(90deg, var(--dark-blue), var(--dark-blue-2));
   background-clip: text;
@@ -88,12 +111,12 @@ select:focus-visible {
 
 .light-blue-title {
   color: #91c4ff !important;
-  font-family: 'Montserrat', serif !important;
+  font-family: "Montserrat", serif !important;
   font-weight: 700;
 }
 
 .custom-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 800;
   font-size: 3rem;
   text-transform: uppercase;
@@ -129,12 +152,12 @@ select:focus-visible {
 }
 
 .title-font {
-  font-family: 'Montserrat', serif !important;
+  font-family: "Montserrat", serif !important;
   font-weight: 700;
 }
 
 .title-font-easter {
-  font-family: 'Permanent Marker', cursive !important;
+  font-family: "Permanent Marker", cursive !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -248,4 +271,9 @@ select:focus-visible {
   }
 }
 
-.professional-availability { color: #b9d6fb; font-size: .95rem; line-height: 1.65; margin: 1rem 0 1.5rem; }
+.professional-availability {
+  color: #b9d6fb;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 1rem 0 1.5rem;
+}

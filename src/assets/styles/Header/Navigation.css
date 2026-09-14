@@ -647,11 +647,32 @@
   transition: padding .2s ease, top .2s ease, background .2s ease;
 }
 .navbar-polished .navbar-nav .nav-item .nav-link.active {
-  border-color: #88baff44;
-  background: #387bdb28;
+  border-color: transparent;
+  background: transparent;
   box-shadow: none;
 }
-.navbar-polished .navbar-nav .nav-item .nav-link:hover { background: #8ab5f212; border-color: #94b7e733; }
+.navbar-polished .navbar-nav .nav-item .nav-link.active::after {
+  content: "";
+  position: absolute;
+  right: 0.72rem;
+  bottom: 0.18rem;
+  left: 0.72rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #72aeff, #b9dcff);
+  box-shadow: 0 0 8px rgba(114, 174, 255, 0.45);
+  transform: scaleX(1);
+}
+.navbar-polished .navbar-nav .nav-item .nav-link.active .nav-icon,
+.navbar-polished .navbar-nav .nav-item .nav-link.active .nav-label {
+  color: #9ccaff !important;
+  -webkit-text-fill-color: #9ccaff !important;
+}
+.navbar-polished .navbar-nav .nav-item .nav-link:hover:not(.active) {
+  background: #8ab5f20d;
+  border-color: transparent;
+  transform: translateY(-1px);
+}
 .navbar-polished .navbar-nav .nav-item a::before { content: none; }
 .navbar-polished .language-selector .lang-toggle {
   background: #14263d !important;

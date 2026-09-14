@@ -1,62 +1,48 @@
-import CountUp from 'react-countup';
-import { useInView } from 'react-intersection-observer';
+import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
+import CountUp from 'react-countup';
 
 function HomeStats() {
-  const { ref, inView } = useInView({ triggerOnce: true });
   const { t } = useTranslation();
+  const section = useRef<HTMLDivElement>(null);
+  const visible = useInView(section, { once: true, amount: 0.4 });
+  const reduceMotion = useReducedMotion();
+  const codingStartYear = 2017;
+  const stats = [
+    { value: new Date().getFullYear() - codingStartYear, labels: [t('coding_years'), t('coding_since', { year: codingStartYear })] },
+    { value: 2, labels: [t('years'), t('experience_home')] },
+    { value: 5, labels: [t('years'), t('studies')] },
+    { value: 40, prefix: '+', labels: [t('projects'), t('completed')] },
+    { value: 37, prefix: '+', labels: [t('technologies')] },
+  ];
 
   return (
-    <div className="home-stats" ref={ref}>
+    <div className="home-stats" ref={section}>
       <div className="row g-3 g-md-5 justify-content-center">
-        <div className="col-12 col-md-3 d-flex justify-content-center">
-          <div className="stat-item stat-item-combo">
-            <span className="stat-number bold-number">
-              {inView && <CountUp start={0} end={2} duration={1.5} delay={1.5} />}
-            </span>
-            <div className="stat-label-wrapper">
-              <span className="stat-label">{t('years')}</span>
-              <span className="stat-label">{t('experience_home')}</span>
+        {stats.map((stat, index) => (
+          <motion.div
+            key={index}
+            className="col-6 col-md-4 col-lg d-flex justify-content-center"
+            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+            animate={visible || reduceMotion ? { opacity: 1, y: 0 } : undefined}
+            transition={{ duration: reduceMotion ? 0 : 0.45, delay: reduceMotion ? 0 : index * 0.3 }}
+          >
+            {/* Annonce le chiffre final une seule fois, sans lire chaque étape du compteur. */}
+            <span className="visually-hidden">{stat.prefix}{stat.value} {stat.labels.join(' ')}</span>
+            <div className="stat-item stat-item-combo" aria-hidden="true">
+              {stat.prefix && <span className="stat-plus">{stat.prefix}</span>}
+              <span className="stat-number bold-number" style={{ minWidth: `${String(stat.value).length}ch`, fontVariantNumeric: 'tabular-nums' }}>
+                {reduceMotion ? stat.value : visible ? (
+                  <CountUp start={0} end={stat.value} delay={index * 0.3} duration={1.6} useEasing={false} />
+                ) : 0}
+              </span>
+              <div className="stat-label-wrapper">
+                {stat.labels.map((label, labelIndex) => <span className="stat-label" key={labelIndex}>{label}</span>)}
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div className="col-12 col-md-3 d-flex justify-content-center">
-          <div className="stat-item stat-item-combo">
-            <span className="stat-number">
-              {inView && <CountUp start={0} end={5} duration={1.5} delay={1.7} />}
-            </span>
-            <div className="stat-label-wrapper">
-              <span className="stat-label">{t('years')}</span>
-              <span className="stat-label">{t('studies')}</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-12 col-md-3 d-flex justify-content-center">
-          <div className="stat-item stat-item-combo">
-            <span className="stat-plus">+</span>
-            <span className="stat-number bold-number">
-              {inView && <CountUp start={0} end={40} duration={2.5} delay={1.9} />}
-            </span>
-            <div className="stat-label-wrapper">
-              <span className="stat-label">{t('projects')}</span>
-              <span className="stat-label">{t('completed')}</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-12 col-md-3 d-flex justify-content-center">
-          <div className="stat-item stat-item-combo">
-            <span className="stat-plus">+</span>
-            <span className="stat-number bold-number">
-              {inView && <CountUp start={0} end={37} duration={2.5} delay={2.1} />}
-            </span>
-            <div className="stat-label-wrapper">
-              <span className="stat-label">{t('technologies')}</span>
-            </div>
-          </div>
-        </div>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

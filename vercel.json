@@ -1,5 +1,143 @@
 {
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/fr",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/fr/about",
+      "permanent": true
+    },
+    {
+      "source": "/experience",
+      "destination": "/fr/experience",
+      "permanent": true
+    },
+    {
+      "source": "/project",
+      "destination": "/fr/project",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/fr/contact",
+      "permanent": true
+    },
+    {
+      "source": "/cv",
+      "destination": "/fr/cv",
+      "permanent": true
+    },
+    {
+      "source": "/mentions-legales",
+      "destination": "/fr/mentions-legales",
+      "permanent": true
+    },
+    {
+      "source": "/politique-de-confidentialite",
+      "destination": "/fr/politique-de-confidentialite",
+      "permanent": true
+    },
+    {
+      "source": "/politique-des-cookies",
+      "destination": "/fr/politique-des-cookies",
+      "permanent": true
+    },
+    {
+      "source": "/services/developpeur-react",
+      "destination": "/fr/services/developpeur-react",
+      "permanent": true
+    },
+    {
+      "source": "/services/creation-site-internet-rennes",
+      "destination": "/fr/services/creation-site-internet-rennes",
+      "permanent": true
+    },
+    {
+      "source": "/realisations/les-portes-de-montafilan",
+      "destination": "/fr/realisations/les-portes-de-montafilan",
+      "permanent": true
+    },
+    {
+      "source": "/services/developpeur-django",
+      "destination": "/fr/services/developpeur-django",
+      "permanent": true
+    },
+    {
+      "source": "/services/developpeur-flutter",
+      "destination": "/fr/services/developpeur-flutter",
+      "permanent": true
+    }
+  ],
   "headers": [
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"
+        },
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"
+        },
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/llms-fr.txt",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"
+        },
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/llms-en.txt",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800"
+        },
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
     {
       "source": "/images/(.*)",
       "headers": [
@@ -39,7 +177,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!api/|assets/|fonts/|images/|locales/|pdf/|robots.txt|sitemap.xml|manifest.json|llms(?:-[a-z]{2})?\\.txt|favicon.ico).*)",
+      "source": "/((?!api/|assets/|fonts/|images/|locales/|pdf/|robots.txt|sitemap.xml|manifest.json|llms(?:-[a-z]{2})?\\.txt|[a-z-]+\\.md|favicon.ico).*)",
       "destination": "/index.html"
     }
   ]

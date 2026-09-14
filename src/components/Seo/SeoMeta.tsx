@@ -2,12 +2,15 @@ import { JSX } from "react";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
+import { getBusinessPage } from "../../data/businessPages";
+import { getBusinessSchema } from "../../config/businessSchema";
 import {
   getContentLocale,
+  getCanonicalPath,
   getHtmlLang,
   getLanguageAlternates,
   getLocalizedPath,
-  getShortLocale,
+  DEFAULT_LOCALE,
   normalizePath,
   OPEN_GRAPH_LOCALES,
   ROUTE_SCHEMA_TYPE,
@@ -31,23 +34,25 @@ function SeoMeta(): JSX.Element {
   const pathname = normalizePath(localizedPath.pathname);
   const siteUrl = getSiteUrl();
   const currentRoute = ROUTE_SEO[pathname];
-  const lang = localizedPath.locale ?? getShortLocale(i18n.resolvedLanguage ?? i18n.language ?? "fr");
-  // Some localized URLs intentionally reuse fallback content until full translations exist.
-  const contentLang = getContentLocale(lang, pathname);
+  const canonicalLocale = localizedPath.locale ?? DEFAULT_LOCALE;
+  const contentLocaleSeed = localizedPath.locale ?? DEFAULT_LOCALE;
+  // Certaines URL traduites réutilisent volontairement un contenu de repli en attendant une traduction complète.
+  const contentLang = getContentLocale(contentLocaleSeed, pathname);
   const htmlLang = getHtmlLang(contentLang);
   const tx = i18n.getFixedT(contentLang);
 
   const baseTitle = tx("seo_title");
+  const businessPage = getBusinessPage(pathname, contentLang);
   const pageTitle = currentRoute ? tx(currentRoute.titleKey) : "";
-  const fullTitle = pathname === "/" || !pageTitle ? baseTitle : `${pageTitle} | ${baseTitle}`;
-  const description = currentRoute?.descriptionKey
+  const fullTitle = businessPage ? `${businessPage.title} | Théo Guérin` : pathname === "/" || !pageTitle ? baseTitle : `${pageTitle} | ${baseTitle}`;
+  const description = businessPage?.description ?? (currentRoute?.descriptionKey
     ? tx(currentRoute.descriptionKey, { defaultValue: tx("seo_description") })
-    : tx("seo_description");
+    : tx("seo_description"));
 
-  const canonicalPath = currentRoute?.noindex ? pathname : getLocalizedPath(lang, pathname);
+  const canonicalPath = currentRoute?.noindex ? pathname : getCanonicalPath(canonicalLocale, pathname);
   const canonicalUrl = `${siteUrl}${canonicalPath}`;
   const imageUrl = getPreviewImageUrl(siteUrl);
-  // Hidden or utility routes should not advertise hreflang clusters.
+  // Les routes cachées ou utilitaires ne doivent pas annoncer de variantes hreflang.
   const languageAlternates = currentRoute?.noindex ? [] : getLanguageAlternates(siteUrl, pathname);
   const isNoindex = currentRoute?.noindex ?? false;
   const robotsContent = isNoindex
@@ -57,7 +62,7 @@ function SeoMeta(): JSX.Element {
     defaultValue: "Théo Guérin, développeur full-stack, React, Django, Python, portfolio",
   });
 
-  // Person schema gives search engines the freelance offer and professional identity in one graph.
+  // Le schéma Person présente aux moteurs de recherche l’offre freelance et l’identité professionnelle dans un même graphe.
   const personSchema = {
     "@type": "Person",
     "@id": `${siteUrl}/#person`,
@@ -72,7 +77,7 @@ function SeoMeta(): JSX.Element {
       postalCode: SITE_PROFILE.postalCode,
       addressCountry: SITE_PROFILE.countryCode,
     },
-    sameAs: [SOCIAL_LINKS.github, SOCIAL_LINKS.linkedin],
+    sameAs: [SOCIAL_LINKS.github, SOCIAL_LINKS.gitlab, SOCIAL_LINKS.linkedin],
     knowsAbout: [...PROFESSIONAL_TOPICS],
     alumniOf: EDUCATION_ORGANIZATIONS.map((name) => ({ "@type": "CollegeOrUniversity", name })),
     makesOffer: {
@@ -97,15 +102,16 @@ function SeoMeta(): JSX.Element {
   const websiteSchema = {
     "@type": "WebSite",
     "@id": `${siteUrl}/#website`,
-    name: `${SITE_PROFILE.displayName} | Portfolio`,
+    name: `Portfolio de ${SITE_PROFILE.displayName}`,
     url: siteUrl,
     author: { "@id": `${siteUrl}/#person` },
-    inLanguage: ["fr", "en", "es", "br"],
+    inLanguage: ["fr", "en", "br"],
   };
 
-  // The page node changes by route while still pointing back to the same person entity.
+  // Le nœud de page varie selon la route tout en renvoyant vers la même entité Person.
+  const webPageType = ROUTE_SCHEMA_TYPE[pathname] ?? "WebPage";
   const webPageSchema = {
-    "@type": ROUTE_SCHEMA_TYPE[pathname] ?? "WebPage",
+    "@type": webPageType,
     "@id": `${canonicalUrl}#webpage`,
     name: fullTitle,
     description,
@@ -113,11 +119,12 @@ function SeoMeta(): JSX.Element {
     inLanguage: htmlLang,
     isPartOf: { "@id": `${siteUrl}/#website` },
     about: { "@id": `${siteUrl}/#person` },
+    ...(webPageType === "ProfilePage" ? { mainEntity: { "@id": `${siteUrl}/#person` } } : {}),
   };
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@graph": pathname === "/" ? [personSchema, websiteSchema, webPageSchema] : [personSchema, webPageSchema],
+    "@graph": [personSchema, websiteSchema, webPageSchema, ...getBusinessSchema(businessPage, siteUrl, contentLang, tx("business_pages.labels.home"))],
   };
 
   return (
@@ -174,7 +181,7 @@ function SeoMeta(): JSX.Element {
       <meta name="twitter:image" content={imageUrl} />
       <meta name="twitter:image:alt" content={tx("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
 
-      {/* Structured data */}
+      {/* Données structurées */}
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
     </Helmet>
   );

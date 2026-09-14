@@ -11,13 +11,13 @@ function MentionsLegales(): JSX.Element {
   const tx = i18n.getFixedT(legalLang);
 
   return (
-    <Container fluid className="legal-page legal-cookie-page py-5 mb-4" id="mentions-legales">
-      <Container className="legal-content-container pt-4 pt-md-5 mt-3 mt-md-0">
+    <Container fluid className="legal-page" id="mentions-legales">
+      <Container className="legal-content-container">
         <Row className="justify-content-center p-0">
-          <h1 className="custom-title legal-title pb-4 pt-4 mt-4">{tx("mentions_legales.title")}</h1>
+          <h1 className="legal-title">{tx("mentions_legales.title")}</h1>
 
-          <Col md={10} lg={9} className="order-1">
-            <div className="background-box-2">
+          <Col xs={12}>
+            <div className="legal-document">
               <div className="legal-info-box">
                 <section className="mb-4">
                   <h2 className="h4">{tx("mentions_legales.editor.title")}</h2>

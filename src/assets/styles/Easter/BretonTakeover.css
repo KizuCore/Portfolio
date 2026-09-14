@@ -1,0 +1,82 @@
+﻿.bzh-takeover {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  pointer-events: none;
+  isolation: isolate;
+  color: #171917;
+  font-family: system-ui, sans-serif;
+}
+.bzh-curtain { position: absolute; inset: 0; background: #081310bc; backdrop-filter: blur(7px); animation: bzh-curtain-in .5s both; }
+.bzh-ticket {
+  position: relative;
+  width: min(510px, 94vw);
+  padding: 22px 30px 0;
+  background: #f5f1e7;
+  box-shadow: 12px 16px 0 #0003, 0 30px 100px #0006;
+  transform: rotate(-2deg);
+  animation: bzh-ticket-in .7s cubic-bezier(.2,.8,.25,1) both;
+  text-align: left;
+}
+.bzh-ticket::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .22; background: repeating-linear-gradient(0deg, transparent 0 3px, #917b5014 3px 4px); }
+.bzh-ticket-top, .bzh-ticket-bottom { display: flex; justify-content: space-between; gap: 15px; font: 8px/1.5 monospace; letter-spacing: .1em; }
+.bzh-ticket-top { padding-bottom: 15px; border-bottom: 1px dashed #242a2455; }
+.bzh-flag-scene { position: relative; height: 192px; width: 260px; margin: 20px auto 15px; perspective: 600px; }
+.bzh-flagpole { position: absolute; left: 12px; top: 4px; height: 163px; width: 4px; background: linear-gradient(90deg, #777, #ccc, #555); box-shadow: 3px 2px 0 #0001; }
+.bzh-flagpole::before { content: ''; position: absolute; width: 9px; height: 9px; background: #b3985b; border-radius: 50%; top: -8px; left: -3px; }
+.bzh-flag { position: absolute; left: 16px; top: 8px; width: 221px; height: 147px; transform-origin: left center; animation: bzh-unfurl 1.1s .2s both, bzh-wave 2s 1.3s ease-in-out 3 alternate; box-shadow: 7px 9px 12px #0002; }
+.bzh-flag img { display: block; width: 100%; height: 100%; }
+.bzh-fabric { position: absolute; inset: 0; background: linear-gradient(100deg, transparent, #0002 23%, #fff6 43%, #0003 70%, transparent); background-size: 200% 100%; animation: bzh-fabric 2s ease-in-out 4 alternate; }
+.bzh-flag-caption { position: absolute; bottom: 2px; left: 15px; font: 7px monospace; letter-spacing: .13em; color: #63675e; }
+.bzh-overline { margin: 0 0 8px; font: 9px monospace; text-transform: uppercase; letter-spacing: .18em; color: #466751; }
+.bzh-ticket h2 { font-size: clamp(29px, 5vw, 43px); line-height: 1.04; letter-spacing: -.065em; font-weight: 900; color: #171917; margin: 0 0 19px; }
+.bzh-ticket h2 span { display: block; color: #346746; }
+.bzh-diagnostics { min-height: 65px; padding: 12px 0; border-top: 1px solid #242a2424; border-bottom: 1px solid #242a2424; }
+.bzh-diagnostics p { margin: 0; font: 10px/1.9 monospace; }
+.bzh-diagnostics p span { display: inline-block; width: 20px; color: #346746; font-weight: 700; }
+.bzh-stamp { position: absolute; right: 24px; top: 185px; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 118px; height: 85px; border: 3px double #306842; color: #306842; transform: rotate(12deg); background: #f5f1e7eb; opacity: 0; }
+.bzh-stamp span { font: 11px monospace; letter-spacing: .2em; }
+.bzh-stamp strong { font: 900 20px/1.2 system-ui, sans-serif; letter-spacing: -.05em; }
+.bzh-stamp small { font: 6px monospace; letter-spacing: .06em; margin-top: 4px; }
+.bzh-takeover[data-stage='2'] .bzh-stamp { animation: bzh-stamp-in .5s both; }
+.bzh-punchline { margin: 15px 0 19px; font: italic 14px/1.5 Georgia, serif; }
+.bzh-ticket-bottom { border-top: 1px dashed #242a2455; padding: 12px 0 15px; color: #586252; font-size: 7px; }
+.bzh-duration { height: 3px; margin: 0 -30px; background: #346746; transform-origin: left; animation: bzh-countdown 8s linear both; }
+.bzh-confetti { position: absolute; inset: 0; overflow: hidden; }
+.bzh-confetti i { position: absolute; top: -25px; width: 9px; height: 15px; background: #eee; animation: bzh-confetti-fall 3.8s cubic-bezier(.2,.4,.6,1) both; animation-delay: calc(1s + var(--i) * .045s); }
+.bzh-confetti i:nth-child(2n) { background: #141414; border: 1px solid #ffffff45; }
+.bzh-confetti i:nth-child(5n) { width: 7px; height: 7px; border-radius: 50%; }
+@keyframes bzh-curtain-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes bzh-ticket-in { from { opacity: 0; transform: translateY(45px) rotate(5deg) scale(.85); } to { opacity: 1; transform: rotate(-2deg); } }
+@keyframes bzh-unfurl { from { transform: scaleX(.02) rotateY(-60deg); } to { transform: scaleX(1) rotateY(0); } }
+@keyframes bzh-wave { from { transform: rotateY(-8deg) skewY(1deg); } to { transform: rotateY(8deg) skewY(-2deg); } }
+@keyframes bzh-fabric { from { background-position: 0 0; } to { background-position: 100% 0; } }
+@keyframes bzh-stamp-in { from { opacity: 0; transform: scale(1.7) rotate(20deg); } to { opacity: 1; transform: scale(1) rotate(12deg); } }
+@keyframes bzh-countdown { to { transform: scaleX(0); } }
+@keyframes bzh-confetti-fall { 0% { opacity: 0; transform: translate3d(0, -20px, 0) rotate(0); } 10% { opacity: 1; } 100% { opacity: 0; transform: translate3d(var(--drift), 105vh, 0) rotate(630deg); } }
+@media (max-width: 600px), (max-height: 720px) {
+  .bzh-ticket { padding: 16px 22px 0; }
+  .bzh-flag-scene { height: 155px; margin: 14px auto 10px; width: 220px; }
+  .bzh-flag { width: 180px; height: 120px; }
+  .bzh-flagpole { height: 136px; }
+  .bzh-stamp { top: 143px; right: 19px; width: 98px; height: 73px; }
+  .bzh-stamp strong { font-size: 17px; }
+  .bzh-duration { margin-inline: -22px; }
+  .bzh-diagnostics p { font-size: 9px; }
+}
+@media (max-height: 540px) {
+  .bzh-ticket { width: min(600px, 92vw); }
+  .bzh-flag-scene { float: right; margin: 16px 0 0 10px; width: 205px; }
+  .bzh-ticket h2 { font-size: 29px; margin-top: 8px; }
+  .bzh-overline { margin-top: 15px; }
+  .bzh-stamp { top: 145px; }
+  .bzh-ticket-bottom { clear: both; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bzh-takeover *, .bzh-takeover *::before { animation: none !important; }
+  .bzh-takeover[data-stage='2'] .bzh-stamp { opacity: 1; }
+  .bzh-duration { display: none; }
+}

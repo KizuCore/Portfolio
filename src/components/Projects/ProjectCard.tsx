@@ -1,6 +1,9 @@
+import LoadingImage from "../Layout/LoadingImage";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
+import { getShortLocale, getLocalizedPath, getHtmlLang } from "../../config/seo";
+import { Link } from "react-router-dom";
 import "../../assets/styles/Projects/Projects.css";
 import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import { FaYoutube } from "@react-icons/all-files/fa/FaYoutube";
@@ -15,6 +18,7 @@ interface ProjectCardProps {
   ghLink: string;
   youtubeLink?: string;
   seeLink?: string;
+  caseStudyPath?: string;
   isGitLab?: boolean;
   featured?: boolean;
   featuredLabel?: string;
@@ -22,7 +26,7 @@ interface ProjectCardProps {
 }
 
 function resolveResultKey(hasLiveDemo: boolean, hasVideo: boolean) {
-  // Pick the result copy from the links that actually exist for the project.
+  // Choisit le texte du résultat selon les liens réellement disponibles pour le projet.
   if (hasLiveDemo && hasVideo) {
     return "project_card.result_live_video_and_code";
   }
@@ -39,19 +43,19 @@ function resolveResultKey(hasLiveDemo: boolean, hasVideo: boolean) {
 }
 
 function ProjectCard(props: ProjectCardProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const resultText = t(resolveResultKey(Boolean(props.seeLink), Boolean(props.youtubeLink)));
 
   return (
     <Card className={`project-card-view ${props.featured ? "project-card-featured" : ""}`}>
       <div className={`project-img-wrapper ${props.imageMode === "contain" ? "project-img-wrapper-contain" : ""}`}>
-        {/* imageMode keeps tall screenshots readable without cropping them. */}
-        <Card.Img
-          variant="top"
+        {/* imageMode garde les captures verticales lisibles sans les recadrer. */}
+        <LoadingImage
           src={props.imgPath}
           alt={props.altText}
           decoding="async"
           loading="eager"
+          fetchPriority="high"
           className={`project-img ${props.imageMode === "contain" ? "project-img-contain" : ""}`}
         />
       </div>
@@ -75,7 +79,7 @@ function ProjectCard(props: ProjectCardProps) {
         <div className="project-info-grid">
           <div className="project-panel">
             <h3 className="project-panel-title">{t("project_card.stack")}</h3>
-            {/* Text badges stay readable even when a tech has no matching icon. */}
+            {/* Les badges textuels restent lisibles même lorsqu’une technologie n’a pas d’icône associée. */}
             <div className="project-tech-badges">
               {props.techStack.map((tech) => (
                 <span key={`${props.title}-${tech}`} className="project-tech-badge">
@@ -92,6 +96,7 @@ function ProjectCard(props: ProjectCardProps) {
         </div>
 
         <div className="button-group">
+          {props.caseStudyPath && <Link className="business-button" to={getLocalizedPath(getShortLocale(i18n.language), props.caseStudyPath)} hrefLang={getHtmlLang(getShortLocale(i18n.language))}>{t("home_offer.case_link")} ↗</Link>}
           <Button
             className="button-github"
             href={props.ghLink}

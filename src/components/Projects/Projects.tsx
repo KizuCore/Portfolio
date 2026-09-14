@@ -2,20 +2,20 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import ProjectCard from "./ProjectCard";
-import { easeOut, motion } from "framer-motion";
+import { easeOut, motion, MotionConfig, useReducedMotion } from "framer-motion";
 
 import "../../assets/styles/About/About.css";
 import "../../assets/styles/Projects/Projects.css";
-import { PROJECT_FILTERS, PROJECT_IMAGE_SOURCES, PROJECTS, type ProjectFilter } from "./data/projects";
+import { PROJECT_FILTERS, PROJECTS, type ProjectFilter } from "./data/projects";
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
+  const reduceMotion = useReducedMotion();
   const [activeFilter, setActiveFilter] = React.useState<ProjectFilter>("all");
   const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const preloadedImagesRef = React.useRef<HTMLImageElement[]>([]);
 
   const sortedProjects = React.useMemo(
-    // Display pinned projects first, then featured projects.
+    // Affiche d’abord les projets épinglés, puis les projets mis en avant.
     () =>
       [...PROJECTS].sort((a, b) => {
         const pinTopPriority = Number(Boolean(b.pinTop)) - Number(Boolean(a.pinTop));
@@ -29,7 +29,7 @@ const Projects: React.FC = () => {
   );
 
   const filteredProjects = React.useMemo(() => {
-    // "all" keeps the main ordering; other filters preserve that order within one category.
+    // "all" conserve l’ordre principal ; les autres filtres préservent cet ordre dans une catégorie.
     if (activeFilter === "all") {
       return sortedProjects;
     }
@@ -38,75 +38,18 @@ const Projects: React.FC = () => {
   }, [activeFilter, sortedProjects]);
 
   React.useEffect(() => {
-    // Reset to the first matching project whenever the filter changes.
+    // Revient au premier projet correspondant à chaque changement de filtre.
     setSelectedIndex(0);
   }, [activeFilter]);
 
   React.useEffect(() => {
-    // Keep the selected index valid when the filtered list becomes shorter.
+    // Garde l’index sélectionné valide lorsque la liste filtrée raccourcit.
     if (selectedIndex >= filteredProjects.length) {
       setSelectedIndex(Math.max(filteredProjects.length - 1, 0));
     }
   }, [filteredProjects, selectedIndex]);
 
   const selectedProject = filteredProjects[selectedIndex] || null;
-
-  React.useEffect(() => {
-    if (!selectedProject) {
-      return;
-    }
-
-    const selectedImage = new Image();
-    selectedImage.decoding = "async";
-    selectedImage.src = selectedProject.imgPath;
-    preloadedImagesRef.current = [
-      selectedImage,
-      ...preloadedImagesRef.current.filter((image) => image.src !== selectedImage.src),
-    ];
-  }, [selectedProject]);
-
-  React.useEffect(() => {
-    const preloadLinks = PROJECT_IMAGE_SOURCES.map((src) => {
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "image";
-      link.href = src;
-      document.head.appendChild(link);
-      return link;
-    });
-
-    const preloadImages = () => {
-      preloadedImagesRef.current = PROJECT_IMAGE_SOURCES.map((src) => {
-        const image = new Image();
-        image.decoding = "async";
-        image.src = src;
-        return image;
-      });
-    };
-
-    const cleanupPreloadLinks = () => {
-      preloadLinks.forEach((link) => link.remove());
-    };
-
-    const win = window as Window & {
-      requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
-      cancelIdleCallback?: (handle: number) => void;
-    };
-
-    if (win.requestIdleCallback) {
-      const handle = win.requestIdleCallback(preloadImages, { timeout: 1000 });
-      return () => {
-        win.cancelIdleCallback?.(handle);
-        cleanupPreloadLinks();
-      };
-    }
-
-    const handle = window.setTimeout(preloadImages, 150);
-    return () => {
-      window.clearTimeout(handle);
-      cleanupPreloadLinks();
-    };
-  }, []);
 
   const featuredPillLabel = t("project_featured_label");
   const positionText = t("project_explorer.position", {
@@ -115,12 +58,13 @@ const Projects: React.FC = () => {
   });
 
   return (
-    <Container fluid className="project-section text-center">
+    <MotionConfig reducedMotion="user">
+    <Container fluid className="project-section">
 
       <Container>
         <motion.h1
-          className="custom-title pt-5"
-          initial={{ opacity: 0, y: 20 }}
+          className="projects-title"
+          initial={{ opacity: reduceMotion ? 1 : 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: easeOut }}
         >
@@ -129,7 +73,7 @@ const Projects: React.FC = () => {
 
         <motion.p
           className="projects-intro"
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: reduceMotion ? 1 : 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: easeOut, delay: 0.2 }}
         >
@@ -138,7 +82,7 @@ const Projects: React.FC = () => {
 
         <motion.div
           className="project-filter-shell"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: reduceMotion ? 1 : 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.3 }}
         >
@@ -152,21 +96,21 @@ const Projects: React.FC = () => {
                   type="button"
                   className={`project-filter-chip ${isActive ? "active" : ""}`}
                   aria-pressed={isActive}
-                  onClick={() => setActiveFilter(filter)}
+                  onClick={() => { setActiveFilter(filter); setSelectedIndex(0); }}
                 >
                   {t(`project_filters.${filter}`)}
                 </button>
               );
             })}
           </div>
-          <div className="project-filter-count">
+          <div className="project-filter-count" role="status">
             {filteredProjects.length} {t("projects")}
           </div>
         </motion.div>
 
         <motion.div
           className="project-explorer"
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: reduceMotion ? 1 : 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.35 }}
         >
@@ -185,8 +129,9 @@ const Projects: React.FC = () => {
                     className={`project-nav-item ${isSelected ? "active" : ""}`}
                     onClick={() => setSelectedIndex(index)}
                     aria-current={isSelected ? "true" : undefined}
+                    aria-controls="project-detail"
                   >
-                    <span className="project-nav-index">{String(index + 1).padStart(2, "0")}</span>
+                    <img className="project-nav-thumbnail" src={project.thumbnailPath} width={112} height={86} alt="" loading="lazy" decoding="async" />
                     <span className="project-nav-copy">
                       <span className="project-nav-name">{t(project.titleKey)}</span>
                       <span className="project-nav-meta">
@@ -202,11 +147,11 @@ const Projects: React.FC = () => {
             </div>
           </aside>
 
-          <div className="project-detail">
+          <div className="project-detail" id="project-detail">
             {selectedProject ? (
               <>
                 <div className="project-detail-toolbar">
-                  <p className="project-detail-position">{positionText}</p>
+                  <p className="project-detail-position" role="status">{positionText}</p>
                   <div className="project-detail-switches">
                     <button
                       type="button"
@@ -231,7 +176,7 @@ const Projects: React.FC = () => {
 
                 <motion.div
                   key={selectedProject.ghLink}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: reduceMotion ? 1 : 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, ease: easeOut }}
                 >
@@ -244,6 +189,7 @@ const Projects: React.FC = () => {
                     isGitLab={selectedProject.isGitLab}
                     youtubeLink={selectedProject.youtubeLink}
                     seeLink={selectedProject.seeLink}
+                    caseStudyPath={selectedProject.caseStudyPath}
                     techStack={selectedProject.techStack}
                     featured={selectedProject.featured}
                     featuredLabel={featuredPillLabel}
@@ -258,6 +204,7 @@ const Projects: React.FC = () => {
         </motion.div>
       </Container>
     </Container>
+    </MotionConfig>
   );
 };
 

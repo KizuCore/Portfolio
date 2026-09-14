@@ -1,17 +1,17 @@
 import type { ComponentType, SVGProps } from "react";
-import { FiCode } from "@react-icons/all-files/fi/FiCode";
 import { FiLayers } from "@react-icons/all-files/fi/FiLayers";
 import { FiServer } from "@react-icons/all-files/fi/FiServer";
-import { FiTrendingUp } from "@react-icons/all-files/fi/FiTrendingUp";
+import { FiSmartphone } from "@react-icons/all-files/fi/FiSmartphone";
 
 export interface ServiceItem {
   key: string;
+  path?: string;
+  technology: string;
   icon: ComponentType<SVGProps<SVGSVGElement>>;
 }
 
 export const SERVICE_ITEMS: ServiceItem[] = [
-  { key: "websites", icon: FiCode },
-  { key: "apps", icon: FiLayers },
-  { key: "api", icon: FiServer },
-  { key: "optimization", icon: FiTrendingUp },
+  { key: "apps", technology: "React", icon: FiLayers, path: "/fr/services/developpeur-react" },
+  { key: "api", technology: "Django", icon: FiServer, path: "/fr/services/developpeur-django" },
+  { key: "mobile", technology: "Flutter", icon: FiSmartphone, path: "/fr/services/developpeur-flutter" },
 ];

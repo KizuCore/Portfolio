@@ -12,16 +12,16 @@ function PolitiqueCookies(): JSX.Element {
     const tx = i18n.getFixedT(legalLang);
 
     return (
-        <Container fluid className="legal-page legal-cookie-page py-5 mb-4" id="politique-cookies">
-            <Container className="legal-content-container pt-4 pt-md-5 mt-3 mt-md-0">
+        <Container fluid className="legal-page" id="politique-cookies">
+            <Container className="legal-content-container">
                 <section aria-labelledby="cookie-policy-title">
                     <Row className="justify-content-center p-0">
-                        <h1 id="cookie-policy-title" className="custom-title legal-title pb-4 pt-4 mt-4">
+                        <h1 id="cookie-policy-title" className="legal-title">
                             {tx("cookie_policy.title")}
                         </h1>
 
-                        <Col md={10} lg={9}>
-                            <div className="background-box-2">
+                        <Col xs={12}>
+                            <div className="legal-document">
                                 <div className="legal-info-box">
                                     <section className="mb-4" aria-labelledby="cp-what-title">
                                         <h2 id="cp-what-title" className="h4">

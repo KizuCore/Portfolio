@@ -1,271 +1,105 @@
-import { JSX, useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+﻿import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { getLocalizedPath, getShortLocale } from "../../config/seo";
 import video from "@media/secret.mp4";
 import "../../assets/styles/Easter/Arcane/Arcane.css";
 
-type ArcanePhase = "prelude" | "rewind" | "burst" | "reveal";
+const PHASES = ["spark", "fracture", "rewind", "bloom", "reveal"] as const;
+const CUES = [0, 2200, 3400, 7400, 9200];
+const MARKS = Array.from({ length: 60 }, (_, index) => index);
+const FRAGMENTS = Array.from({ length: 24 }, (_, index) => index);
 
-const TIMELINE = {
-  prelude: 1500,
-  rewind: 1800,
-  burst: 820,
-};
-
-const SHARD_COUNT = 12;
-
-function RouteSecret(): JSX.Element {
-  const { t } = useTranslation();
-  const prefersReducedMotion = useReducedMotion();
-  const [phase, setPhase] = useState<ArcanePhase>("prelude");
+export default function RouteSecret() {
+  const { t, i18n } = useTranslation();
+  const reducedMotion = useReducedMotion();
+  const scene = useRef<HTMLDivElement>(null);
+  const [stage, setStage] = useState(0);
+  const [seconds, setSeconds] = useState(4);
+  const complete = !!reducedMotion || stage === 4;
+  const phase = complete ? "reveal" : PHASES[stage];
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      setPhase("reveal");
-      return;
-    }
-
-    const preludeTimer = window.setTimeout(() => setPhase("rewind"), TIMELINE.prelude);
-    const burstTimer = window.setTimeout(() => setPhase("burst"), TIMELINE.prelude + TIMELINE.rewind);
-    const revealTimer = window.setTimeout(
-      () => setPhase("reveal"),
-      TIMELINE.prelude + TIMELINE.rewind + TIMELINE.burst
-    );
-
-    return () => {
-      window.clearTimeout(preludeTimer);
-      window.clearTimeout(burstTimer);
-      window.clearTimeout(revealTimer);
+    if (reducedMotion) return;
+    let elapsed = 0;
+    let previous = performance.now();
+    let frame = 0;
+    const tick = (now: number) => {
+      if (!document.hidden) elapsed += Math.min(now - previous, 100);
+      previous = now;
+      const next = CUES.reduce((value, cue, index) => elapsed >= cue ? index : value, 0);
+      setStage(current => current === next ? current : next);
+      const rewind = Math.max(0, Math.min(1, (elapsed - 3400) / 4000));
+      setSeconds(Math.ceil(4 * (1 - rewind)));
+      scene.current?.style.setProperty("--hand", `${elapsed < 3400 ? elapsed * 0.06 : 204 - rewind * 1440}deg`);
+      scene.current?.style.setProperty("--rewind", String(rewind));
+      if (next < 4) frame = requestAnimationFrame(tick);
     };
-  }, [prefersReducedMotion]);
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [reducedMotion]);
 
   return (
-    <section className="arcane-route" aria-label={t("easter.arcane.aria_label")}>
+    <section className="arcane-route" data-phase={phase} aria-label={t("easter.arcane.aria_label")}>
+      <div className="arcane-world" ref={scene}>
+        <div className="arcane-paper" aria-hidden="true" />
+        <div className="arcane-aura" aria-hidden="true" />
+        <header className="arcane-topline">
+          <Link to={getLocalizedPath(getShortLocale(i18n.resolvedLanguage ?? i18n.language), "/")}><span aria-hidden="true">↖</span> {t("easter.arcane.back")}</Link>
+          <span>ZAUN <i aria-hidden="true">✦</i> {t("easter.arcane.archive")}</span>
+          <span className="arcane-file">Z / 04</span>
+        </header>
 
-      <Container fluid className="arcane-shell">
-        <div className="arcane-bg" aria-hidden="true" />
-        <div className="arcane-noise" aria-hidden="true" />
-        <div className="arcane-vignette" aria-hidden="true" />
+        {!complete ? (
+          <>
+            <div className="arcane-fireflies" aria-hidden="true">
+              {FRAGMENTS.map(index => <i key={index} style={{ "--i": index, left: `${(index * 37 + 9) % 100}%`, top: `${20 + (index * 19) % 62}%` } as CSSProperties} />)}
+            </div>
+            <div className="arcane-inscription arcane-inscription-left" aria-hidden="true"><span>01 / {t("easter.arcane.ekko")}</span><b>{t("easter.arcane.time")}</b></div>
+            <div className="arcane-inscription arcane-inscription-right" aria-hidden="true"><span>02 / {t("easter.arcane.powder")}</span><b>{t("easter.arcane.memory")}</b></div>
+            <div className="arcane-machine" aria-hidden="true">
+              <svg className="arcane-dial" viewBox="0 0 500 500" fill="none">
+                <circle cx="250" cy="250" r="238" className="arcane-fine-ring" />
+                <circle cx="250" cy="250" r="219" className="arcane-brass-ring" />
+                <circle cx="250" cy="250" r="194" className="arcane-fine-ring" />
+                {MARKS.map(index => <path key={index} d={`M250 ${index % 5 === 0 ? 37 : 42} V${index % 5 === 0 ? 59 : 50}`} transform={`rotate(${index * 6} 250 250)`} className={index % 5 === 0 ? "arcane-major-tick" : "arcane-minor-tick"} />)}
+                <g className="arcane-inner-dial"><circle cx="250" cy="250" r="161" /><path d="M250 89 389 330 111 330Z M250 411 111 170 389 170Z" /><circle cx="250" cy="250" r="120" /></g>
+                <g className="arcane-hand"><path d="M250 250V75 M244 100 250 75 256 100" /><circle cx="250" cy="75" r="4" /></g>
+                <g className="arcane-second-hand"><path d="M250 280V108" /></g>
+                <path className="arcane-hourglass" d="M215 209H285L220 291H280ZM220 209 280 291M215 291H285" />
+                <circle className="arcane-progress-ring" cx="250" cy="250" r="230" pathLength="1" />
+              </svg>
+              <div className="arcane-crystal" />
+              <div className="arcane-fragments">{FRAGMENTS.map(index => <i key={index} style={{ "--i": index, "--angle": `${index * 15}deg`, "--reach": `${135 + (index % 4) * 25}px` } as CSSProperties} />)}</div>
+              <div className="arcane-rift" />
+              <div className="arcane-count"><strong>{String(seconds).padStart(2, "0")}</strong><span>{t("easter.arcane.seconds")}</span></div>
+            </div>
+            <div className="arcane-intro">
+              <p className="arcane-eyebrow">{t("easter.arcane.experiment")}</p>
+              <h1>{t("easter.arcane.ekko")} <em>&</em> {t("easter.arcane.powder")}</h1>
+              <p className="arcane-subtitle">{t("easter.arcane.subtitle")}</p>
+            </div>
+            <div className="arcane-bloom-title" aria-hidden="true"><span>{t("easter.arcane.another")}</span><strong>{t("easter.arcane.chance")}</strong></div>
+          </>
+        ) : (
+          <div className="arcane-reveal">
+            <p className="arcane-eyebrow">{t("easter.arcane.found")}</p>
+            <h1>{t("easter.arcane.ekko")} <em>&</em> {t("easter.arcane.powder")}</h1>
+            <p className="arcane-subtitle">{t("easter.arcane.result")}</p>
+            <div className="arcane-film">
+              <div className="arcane-film-header"><span>{t("easter.arcane.memory")}</span><span>∞ / 04</span></div>
+              <video src={video} autoPlay={!reducedMotion} muted controls playsInline preload="metadata" aria-label={t("easter.arcane.video_label")} />
+            </div>
+          </div>
+        )}
 
-        <motion.div
-          className="arcane-stage"
-          animate={
-            phase === "burst" && !prefersReducedMotion
-              ? {
-                x: [0, -4, 4, -3, 2, 0],
-                y: [0, 2, -2, 1, -1, 0],
-                rotate: [0, -0.4, 0.35, -0.2, 0.1, 0],
-              }
-              : { x: 0, y: 0, rotate: 0 }
-          }
-          transition={{ duration: 0.45, ease: "easeOut" }}
-        >
-          <AnimatePresence mode="wait">
-            {phase === "prelude" && (
-              <motion.div
-                key="prelude"
-                className="arcane-prelude"
-                initial={{ opacity: 0, y: 12, filter: "blur(8px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -8, filter: "blur(8px)" }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-              >
-                <p className="arcane-kicker">{t("easter.arcane.kicker")}</p>
-                <h1 className="title-font-easter arcane-title">{t("easter.arcane.title")}</h1>
-                <p className="arcane-subtitle">{t("easter.arcane.subtitle")}</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <AnimatePresence>
-            {(phase === "rewind" || phase === "burst") && (
-              <motion.div
-                key="rewind-scene"
-                className="arcane-rewind-scene"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, transition: { duration: 0.3 } }}
-              >
-                <div className="arcane-center-anchor arcane-anchor-character">
-                  <motion.div
-                    className="arcane-character-card arcane-character-powder"
-                    initial={{ x: "-42vw", y: 14, opacity: 0, rotate: -12 }}
-                    animate={
-                      phase === "rewind"
-                        ? {
-                          x: ["-42vw", "-19vw", "-16vw"],
-                          y: [14, 6, 0],
-                          opacity: [0, 1, 1],
-                          rotate: [-12, -6, -4],
-                          scale: [0.92, 1.04, 1],
-                        }
-                        : {
-                          x: "-8vw",
-                          y: -2,
-                          opacity: 0.88,
-                          rotate: -2,
-                          scale: 0.96,
-                        }
-                    }
-                    transition={{
-                      duration: phase === "rewind" ? TIMELINE.rewind / 1000 : TIMELINE.burst / 1000,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <span className="arcane-character-tag">{t("easter.arcane.powder")}</span>
-                  </motion.div>
-                </div>
-
-                <div className="arcane-center-anchor arcane-anchor-character">
-                  <motion.div
-                    className="arcane-character-card arcane-character-ekko"
-                    initial={{ x: "42vw", y: -14, opacity: 0, rotate: 12 }}
-                    animate={
-                      phase === "rewind"
-                        ? {
-                          x: ["42vw", "19vw", "16vw"],
-                          y: [-14, -6, 0],
-                          opacity: [0, 1, 1],
-                          rotate: [12, 6, 4],
-                          scale: [0.92, 1.04, 1],
-                        }
-                        : {
-                          x: "8vw",
-                          y: 2,
-                          opacity: 0.88,
-                          rotate: 2,
-                          scale: 0.96,
-                        }
-                    }
-                    transition={{
-                      duration: phase === "rewind" ? TIMELINE.rewind / 1000 : TIMELINE.burst / 1000,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <span className="arcane-character-tag">{t("easter.arcane.ekko")}</span>
-                  </motion.div>
-                </div>
-
-                <div className="arcane-center-anchor arcane-anchor-track">
-                  <motion.div
-                    className="arcane-rewind-track"
-                    initial={{ scaleX: 0.2, opacity: 0 }}
-                    animate={
-                      phase === "rewind"
-                        ? { scaleX: 1, opacity: 0.95 }
-                        : { scaleX: 0.7, opacity: 0.45 }
-                    }
-                    transition={{
-                      duration: phase === "rewind" ? TIMELINE.rewind / 1000 : TIMELINE.burst / 1000,
-                      ease: "easeInOut",
-                    }}
-                  />
-                </div>
-
-                <div className="arcane-center-anchor arcane-anchor-gate">
-                  <motion.div
-                    className="arcane-time-gate"
-                    initial={{ scale: 0.6, opacity: 0, rotate: -12 }}
-                    animate={
-                      phase === "rewind"
-                        ? {
-                          scale: [0.6, 1.08, 1],
-                          opacity: [0, 1, 0.94],
-                          rotate: [-12, 4, 0],
-                        }
-                        : {
-                          scale: [1, 1.2, 0.78],
-                          opacity: [0.94, 0.8, 0],
-                          rotate: [0, 10, 18],
-                        }
-                    }
-                    transition={{
-                      duration: phase === "rewind" ? TIMELINE.rewind / 1000 : TIMELINE.burst / 1000,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <span className="arcane-gate-symbol">{t("easter.arcane.rewind")}</span>
-                  </motion.div>
-                </div>
-
-                <AnimatePresence>
-                  {phase === "burst" && (
-                    <motion.div
-                      key="burst-layer"
-                      className="arcane-burst-layer"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                    >
-                      <motion.div
-                        className="arcane-burst-flash"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: [0, 1, 0] }}
-                        transition={{ duration: 0.32, ease: "easeOut" }}
-                      />
-
-                      <motion.div
-                        className="arcane-burst-prism"
-                        initial={{ scale: 0.2, opacity: 0.9, rotate: -12 }}
-                        animate={{ scale: 5.9, opacity: 0, rotate: 20 }}
-                        transition={{ duration: TIMELINE.burst / 1000, ease: "easeOut" }}
-                      />
-
-                      <motion.div
-                        className="arcane-time-tear"
-                        initial={{ scaleY: 0.1, opacity: 0.85 }}
-                        animate={{ scaleY: 1.5, opacity: 0 }}
-                        transition={{ duration: TIMELINE.burst / 1000, ease: "easeOut" }}
-                      />
-
-                      <div className="arcane-shards" aria-hidden="true">
-                        {Array.from({ length: SHARD_COUNT }).map((_, index) => (
-                          <motion.span
-                            key={index}
-                            className="arcane-shard"
-                            style={{
-                              rotate: `${(360 / SHARD_COUNT) * index}deg`,
-                            }}
-                            initial={{ scaleY: 0.2, opacity: 0.9 }}
-                            animate={{ scaleY: 1.45, opacity: 0 }}
-                            transition={{ duration: TIMELINE.burst / 1000, ease: "easeOut", delay: index * 0.018 }}
-                          />
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <AnimatePresence>
-            {phase === "reveal" && (
-              <motion.div
-                key="reveal"
-                className="arcane-video-wrap"
-                initial={{ opacity: 0, y: 20, scale: 0.96, filter: "blur(8px)" }}
-                animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-                transition={{ duration: 0.58, ease: "easeOut" }}
-              >
-                <div className="arcane-video-glow" aria-hidden="true" />
-
-                <div className="arcane-video-frame">
-                  <div className="arcane-video-head">
-                    <span className="arcane-chip arcane-chip-powder">{t("easter.arcane.powder")}</span>
-                    <span className="arcane-chip arcane-chip-ekko">{t("easter.arcane.ekko")}</span>
-                  </div>
-
-                  <video src={video} autoPlay controls playsInline className="arcane-video" />
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
-      </Container>
+        <footer className="arcane-console">
+          <div role="status"><span className="arcane-eyebrow">{t("easter.arcane.device")}</span><strong>{t(`easter.arcane.phases.${phase}`)}</strong></div>
+          <div className="arcane-timeline" aria-hidden="true">{[4, 3, 2, 1, 0].map(value => <span key={value} className={complete || seconds <= value ? "is-lit" : ""}><i />{String(value).padStart(2, "0")}</span>)}</div>
+          <span className="arcane-console-note">{t("easter.arcane.limit")}</span>
+        </footer>
+      </div>
     </section>
   );
 }
-
-export default RouteSecret;

@@ -4,7 +4,7 @@ import path from "node:path";
 const ROOT = process.cwd();
 const SRC_DIR = path.join(ROOT, "src");
 const LOCALE_DIR = path.join(SRC_DIR, "locales");
-const LOCALES = ["fr", "en", "es", "bzh"];
+const LOCALES = ["fr", "en", "bzh"];
 const BASE_LOCALE = "fr";
 const CODE_FILE_EXTENSIONS = new Set([".ts", ".tsx", ".js", ".jsx"]);
 
@@ -118,7 +118,7 @@ async function readLocaleJson(locale) {
     const raw = await fs.readFile(filePath, "utf8");
     return {
         filePath,
-        // Accept UTF-8 JSON exported by editors that prepend a byte-order mark.
+        // Accepte les fichiers JSON UTF-8 exportés avec un marqueur d’ordre des octets.
         data: JSON.parse(raw.replace(/^\uFEFF/, "")),
     };
 }

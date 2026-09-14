@@ -2,6 +2,7 @@ import type { ContactFormFields } from "../components/Contact/contact.types";
 
 export interface ContactApiPayload extends ContactFormFields {
   recaptchaToken: string;
+  locale: 'fr' | 'en';
 }
 
 export interface ContactApiResponse {
@@ -15,7 +16,7 @@ export interface ContactApiResult {
   data: ContactApiResponse;
 }
 
-// Keep the network boundary small so UI code only handles typed results.
+// Limite la couche réseau pour que l’interface ne manipule que des résultats typés.
 export async function sendContactEmail(payload: ContactApiPayload): Promise<ContactApiResult> {
   const response = await fetch("/api/sendEmail", {
     method: "POST",

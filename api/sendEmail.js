@@ -1,3 +1,5 @@
+import { buildContactNotificationHtml, buildContactNotificationText } from '../lib/email/contactNotification.js';
+import { buildContactReceiptHtml, buildContactReceiptText, getContactReceiptSubject } from '../lib/email/contactReceipt.js';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -29,15 +31,6 @@ function cleanField(value, maxLength) {
   return String(value || '').trim().slice(0, maxLength);
 }
 
-function escapeHtml(value) {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
-
 function normalizePayload(body) {
   return {
     name: cleanField(body.name, MAX_FIELD_LENGTHS.name),
@@ -45,6 +38,7 @@ function normalizePayload(body) {
     subject: cleanField(body.subject, MAX_FIELD_LENGTHS.subject),
     message: cleanField(body.message, MAX_FIELD_LENGTHS.message),
     recaptchaToken: cleanField(body.recaptchaToken, 4096),
+    locale: body.locale === 'en' ? 'en' : 'fr',
   };
 }
 
@@ -108,43 +102,29 @@ async function verifyRecaptcha(token, ip) {
   }
 }
 
-function buildEmailHtml({ name, email, message, ip }) {
-  const safeName = escapeHtml(name);
-  const safeEmail = escapeHtml(email);
-  const safeMessage = escapeHtml(message);
-  const safeIp = escapeHtml(ip);
-
-  return `
-    <div style="font-family: Arial, sans-serif; font-size: 16px; color: #333;">
-      <h2 style="color: #276DEE;">Nouveau message reçu via le portfolio</h2>
-      <table cellpadding="6" cellspacing="0" style="border-collapse: collapse;">
-        <tr><td><strong>Nom :</strong></td><td>${safeName}</td></tr>
-        <tr><td><strong>Email :</strong></td><td><a href="mailto:${safeEmail}">${safeEmail}</a></td></tr>
-        <tr><td><strong>Message :</strong></td><td style="white-space: pre-wrap;">${safeMessage}</td></tr>
-        <tr><td><strong>Adresse IP :</strong></td><td>${safeIp}</td></tr>
-      </table>
-      <p style="margin-top: 2rem; font-size: 14px; color: #999;">
-        Envoyé automatiquement depuis le portfolio KizuCore.
-      </p>
-    </div>
-  `;
-}
-
 async function sendContactEmail(payload, ip) {
-  return resend.emails.send({
+  const result = await resend.emails.send({
     from: RESEND_FROM,
     to: CONTACT_EMAIL,
+    replyTo: payload.email,
     subject: `Portfolio | ${payload.subject}`,
-    html: buildEmailHtml({ ...payload, ip }),
-    text: [
-      `Nom : ${payload.name}`,
-      `Email : ${payload.email}`,
-      '',
-      payload.message,
-      '',
-      `Adresse IP : ${ip}`,
-    ].join('\n'),
+    html: buildContactNotificationHtml({ ...payload, ip }),
+    text: buildContactNotificationText(payload, ip),
   });
+  if (result.error) throw new Error(result.error.message);
+}
+
+async function sendContactReceipt({ name, email, subject, locale }) {
+  const result = await resend.emails.send({
+    from: RESEND_FROM,
+    to: email,
+    replyTo: CONTACT_EMAIL,
+    subject: getContactReceiptSubject(locale),
+    html: buildContactReceiptHtml({ name, subject, locale }),
+    text: buildContactReceiptText({ name, subject, locale }),
+    headers: { 'Auto-Submitted': 'auto-replied', 'X-Auto-Response-Suppress': 'All' },
+  });
+  if (result.error) throw new Error(result.error.message);
 }
 
 export default async function handler(req, res) {
@@ -194,6 +174,12 @@ export default async function handler(req, res) {
 
   try {
     await sendContactEmail(payload, ip);
+    // Une erreur sur l’accusé ne doit pas inciter à renvoyer un message déjà reçu.
+    try {
+      await sendContactReceipt(payload);
+    } catch (error) {
+      console.error("Erreur lors de l’envoi de l’accusé de réception :", error?.message || error);
+    }
     return res.status(200).json({
       success: true,
       message: 'Email envoyé avec succès',

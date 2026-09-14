@@ -1,4 +1,63 @@
-﻿{
+{
+    "resume_page": {
+        "watch_demo": "Voir la démonstration vidéo",
+        "all_skills": "Voir toutes mes compétences",
+        "intro": "Des interfaces React aux API Django, je développe des applications web et mobiles avec une attention particulière aux performances et à la qualité du code.",
+        "missions": "Interfaces React, rapports microbiote et visualisations de données avec Django.||API REST Django, Flask et Node.js ; bases PostgreSQL et MySQL.||Intégration de WooCommerce, Systempay, Brevo et LimeSurvey ; internationalisation et SEO technique.||Migration d’infrastructure, gestion des environnements et déploiements Docker / CI/CD.||Tests automatisés avec Playwright, Jest et Bruno ; travail en équipe Agile sur GitLab.",
+        "impact": "Temps de génération des rapports PDF chez Nahibu.",
+        "project_label": "Projet d’équipe · Responsable technique",
+        "flambow": "Développement d’une application intergénérationnelle de partage de compétences au sein d’une équipe pluridisciplinaire. React et TypeScript, paiements Stripe, échanges en temps réel avec Socket.io, tests automatisés et déploiement sur VPS.",
+        "source": "Explorer le code sur GitLab",
+        "languages": "Langues",
+        "availability": "À la recherche d’un poste en développement à partir de mars 2027.",
+        "mobility": "Mobilité : Rennes et ses alentours · Permis B",
+        "eyebrow": "Curriculum vitæ",
+        "role": "Développeur Full-Stack",
+        "contact": "Échangeons",
+        "full_journey": "Voir mon parcours complet",
+        "connect": "Travaillons ensemble",
+        "projects": "Découvrir mes projets",
+        "pdf_hint": "Consulter le document dans sa mise en page originale.",
+        "open_pdf": "Ouvrir le PDF",
+        "interfaces": "Interfaces web & mobile",
+        "backend": "API & bases de données",
+        "delivery": "Déploiement & qualité"
+    },
+    "career": {
+        "intro": "Mon parcours, du développement en entreprise aux formations qui l’ont construit.",
+        "work": "Expérience professionnelle",
+        "work_intro": "Les projets, les responsabilités et les technologies du quotidien.",
+        "education": "Formation",
+        "education_intro": "Les étapes de mon parcours académique, de la plus récente à la plus ancienne."
+    },
+    "coding_years": "Ans à coder",
+    "coding_since": "depuis {{year}}",
+    "about_interactions": {
+        "mine_label": "2017 grâce à Minecraft  miner le bloc",
+        "mined": "Bloc miné ! Le début de l’aventure, en 2017.",
+        "computing": "Informatique",
+        "applications": "Conception d’applications",
+        "security": "Cybersécurité",
+        "hobby_details": {
+            "1": "Deux voyages dont je rêve : le Japon et l’Islande, notamment pour ses paysages.",
+            "2": "J’adore préparer des desserts, surtout le flan aux œufs. Et côté salé : un poulet au curry !",
+            "3": "Ce qui me passionne dans l’astronomie, c’est qu’on en apprend tous les jours. Chaque découverte soulève de nouvelles questions : je me demande si on arrivera un jour à tout comprendre.",
+            "4": "Les chats, sans hésiter. Difficile de résister à ces petites boules de poils.",
+            "5": "Sortir avec mes amis, partir en balade, créer des souvenirs… Profiter des petits moments et vivre pleinement, tout simplement.",
+            "6": "Partager une partie, se prendre au jeu et passer un bon moment.",
+            "7": "Fan de Doctor Who. Le temps et l’espace ne manquent pas de bonnes histoires.",
+            "8": "Se laisser embarquer dans une histoire et chercher ensemble la solution."
+        }
+    },
+    "professional_availability": "Disponible pour des missions freelance et ouvert à un poste en équipe.",
+    "solar_kuiper_name": "Ceinture de Kuiper",
+    "solar_pluto_name": "Pluton",
+    "solar_kuiper_description": "Au-delà de Neptune, cette région abrite de nombreux petits corps glacés, vestiges de la formation du Système solaire. Pluton en fait partie.",
+    "solar_pluto_description": "Pluton est une planète naine de la ceinture de Kuiper. La sonde New Horizons l’a survolée en 2015.",
+    "solar_scale_note": "Représentation artistique : tailles et distances non à l’échelle.",
+    "solar_explore": "Explorez les planètes",
+    "solar_pause": "Pause",
+    "skill_level_filter": "Filtrer par niveau",
     "hello": "Bonjour !",
     "iam": "Je suis  ",
     "nametheo": "Théo Guérin",
@@ -32,10 +91,11 @@
     "hobby1": "Voyager",
     "hobby2": "Cuisiner",
     "hobby3": "Astronomie",
-    "hobby4": "M'occuper d'animaux",
+    "hobby4": "Les animaux",
     "hobby5": "Profiter de la vie",
     "hobby6": "E-sports",
     "hobby7": "Séries / Films",
+    "hobby8": "Escape games et énigmes",
     "my_projects": "Mes",
     "projects": "Projets",
     "projects_description": "Une sélection de projets représentatifs de mon approche : architecture, UX, API et livraison web/mobile.",
@@ -113,12 +173,12 @@
     "cv_aria": "Voir mon CV",
     "web_dev_illustration": "Illustration de développement web Théo Guérin",
     "theo_developer": "Avatar de Théo Guérin, Développeur Web",
-    "seo_title": "Théo Guérin | Développeur Freelance Full-Stack à Rennes",
-    "seo_description": "Théo Guérin, développeur freelance Full-Stack à Rennes, conçoit des sites, applications React et API performantes. Découvrez ses projets et services.",
-    "seo_og_title": "Théo Guérin | Développeur Freelance Full-Stack à Rennes",
+    "seo_title": "Théo Guérin | Développeur web & mobile freelance à Rennes",
+    "seo_description": "Théo Guérin, développeur web et mobile freelance à Rennes : React, Django et Flutter. Découvrez mes services, mes réalisations et contactez-moi pour votre projet.",
+    "seo_og_title": "Théo Guérin | Développeur web & mobile freelance à Rennes",
     "seo_og_description": "Développeur freelance Full-Stack à Rennes, j'accompagne vos projets de sites web, applications React et API, de la conception à la mise en ligne.",
     "seo_og_image_alt": "Aperçu du portfolio de Théo Guérin",
-    "seo_twitter_title": "Théo Guérin | Développeur Freelance Full-Stack à Rennes",
+    "seo_twitter_title": "Théo Guérin | Développeur web & mobile freelance à Rennes",
     "seo_twitter_description": "Développeur freelance Full-Stack à Rennes, j'accompagne vos projets de sites web, applications React et API, de la conception à la mise en ligne.",
     "flag_fr": "Drapeau Français",
     "flag_es": "Drapeau Espagnol",
@@ -128,12 +188,12 @@
     "contact_eyebrow": "Parlons de votre projet",
     "contact_intro": "Une idée, une mission freelance ou un poste à proposer ? Écrivez-moi, je vous réponds rapidement.",
     "contact_panel_title": "Un projet à lancer ?",
-    "contact_panel_description": "Je peux intervenir sur la création, la refonte et l'optimisation de produits web.",
+    "contact_panel_description": "Interfaces React, API Django ou applications Flutter : échangeons sur votre projet web ou mobile.",
     "contact_point_1": "Audit rapide du besoin et cadrage clair",
     "contact_point_2": "Proposition technique adaptée à vos objectifs",
     "contact_point_3": "Suivi transparent du début à la livraison",
     "contact_meta_availability_label": "Disponibilité",
-    "contact_meta_availability_value": "Ouvert aux nouveaux projets",
+    "contact_meta_availability_value": "Disponible pour des missions freelance et ouvert à un poste en équipe.",
     "contact_meta_response_label": "Délai de réponse",
     "contact_meta_response_value": "Retour sous 24h",
     "contact_meta_location_label": "Localisation",
@@ -200,15 +260,11 @@
     "Bizarre": "Bizarre",
     "all": "Tous",
     "presentation": {
-        "text_1": "J’ai commencé à coder au lycée, puis j’ai réellement plongé dans le développement en ",
-        "text_bold_1": "2017 grâce à Minecraft",
-        "text_2": ". Ce jeu m’a permis de ",
-        "text_bold_2": "mener des projets, administrer des serveurs et coordonner une équipe",
-        "text_3": ". C’est cette expérience qui a éveillé ma ",
-        "text_bold_3": "passion pour le code",
-        "text_4": ", l’organisation et le ",
-        "text_bold_4": "travail en équipe",
-        "text_5": ", et qui m’a donné envie d’en faire mon domaine de prédilection."
+        "introduction": "Salut, moi c’est <strong>Théo Guérin</strong> ! J’ai 25 ans et je suis développeur web full-stack à Rennes.",
+        "background": "Je suis diplômé d’un MBA Développeur Web Full-Stack (RNCP de niveau 7). Mais au départ, il y avait surtout la curiosité et l’envie de créer quelque chose à moi.",
+        "first_website": "J’ai commencé avec un site sur l’animé <foodwars>Food Wars</foodwars>, juste pour essayer le <website>HTML et le CSS</website>. Et j’ai adoré : choisir la mise en page, toucher à chaque détail, puis voir mon propre site en ligne ! Pouvoir partir d’une idée et tout construire moi-même, c’est ce qui m’a donné envie d’aller plus loin.",
+        "minecraft": "<minecraft /> a aussi beaucoup compté dans mon parcours, dès 2017. En plus d’administrer des serveurs, je m’occupais des équipes et de l’organisation des projets. J’y ai appris à coordonner le travail de chacun, et surtout pris goût à <strong>construire quelque chose ensemble</strong>. Le code, la gestion de projet et le travail en équipe se sont rejoints assez naturellement.",
+        "minecraft_label": "Minecraft"
     },
     "categories": {
         "All": "Tous",
@@ -480,7 +536,41 @@
         "loading_content": "Chargement du contenu"
     },
     "easter": {
+        "tardis": {
+            "label": "Visite imprévue du TARDIS",
+            "arrival": "Anomalie temporelle détectée",
+            "landed": "Frein à main oublié. Encore.",
+            "departure": "Prochain arrêt : ailleurs.",
+            "title": "Juste cinq minutes…",
+            "joke": "J’avais dit une petite pause. Pas trois siècles."
+        },
+        "breton": {
+            "label": "Invasion bretonne",
+            "detected": "Code BZH intercepté",
+            "title": "Ce territoire est",
+            "territory": "désormais breton.",
+            "butter": "Beurre doux détecté. Intervention…",
+            "butter_fixed": "Beurre demi-sel installé. Ouf.",
+            "weather": "Vérification de la météo…",
+            "weather_fixed": "Crachin activé. Tout est normal.",
+            "punchline": "Résistance inutile. Prenez une galette.",
+            "exit": "RETOUR AU SITE · ÉCHAP"
+        },
         "gojo": {
+            "back": "Portfolio",
+            "classification": "Classe spéciale",
+            "quote": "« Ne t’inquiète pas. Je suis le plus fort. »",
+            "unlocked": "Technique secrète débloquée",
+            "result": "Entre l’attraction et la répulsion, il ne reste que le néant.",
+            "watch": "Voir le combat",
+            "output": "Énergie occulte",
+            "phases": {
+                "awakening": "Éveil des Six Yeux",
+                "duality": "Attraction × Répulsion",
+                "convergence": "Convergence des infinis",
+                "purple": "Technique imaginaire : Violet",
+                "complete": "Infini atteint"
+            },
             "seo_title": "Hollow Purple",
             "aria_label": "Easter egg Gojo Hollow Purple",
             "kicker": "TECHNIQUE MAUDITE",
@@ -497,13 +587,33 @@
             "subtitle": "Remonter le moment. Réécrire l'issue.",
             "powder": "Powder",
             "ekko": "Ekko",
-            "rewind": "RETOUR"
+            "rewind": "RETOUR",
+            "back": "Portfolio",
+            "archive": "Une autre réalité",
+            "time": "Le temps",
+            "memory": "Le souvenir",
+            "seconds": "secondes",
+            "experiment": "Projet Z / Anomalie temporelle",
+            "another": "Et si on avait",
+            "chance": "une autre chance ?",
+            "found": "Une autre réalité retrouvée",
+            "result": "Certains instants méritent de durer plus de quatre secondes.",
+            "video_label": "Ekko et Powder  une autre réalité",
+            "device": "Résonance temporelle",
+            "limit": "LIMITE / 4 SECONDES",
+            "phases": {
+                "spark": "Initialisation du Z-Drive",
+                "fracture": "Fracture temporelle",
+                "rewind": "Retour quatre secondes en arrière",
+                "bloom": "Une nouvelle possibilité",
+                "reveal": "Cet instant nous appartient"
+            }
         }
     },
     "services": {
         "eyebrow": "Ce que je propose",
         "title": "Services",
-        "subtitle": "Je conçois et développe des solutions web solides, accessibles et performantes, de la réflexion jusqu’à la mise en ligne.",
+        "subtitle": "Du web au mobile, je construis les interfaces et les services qui donnent vie à votre projet.",
         "cta": "Parler de votre projet",
         "items": {
             "websites": {
@@ -512,11 +622,15 @@
             },
             "apps": {
                 "title": "Applications web React",
-                "description": "Interfaces, composants maintenables et expérience utilisateur fluide sur desktop et mobile."
+                "description": "Interfaces web React, composants réutilisables et parcours adaptés aux ordinateurs comme aux mobiles."
             },
             "api": {
                 "title": "API & backend",
-                "description": "Architecture Node.js, authentification, base de données et endpoints propres pour un socle solide."
+                "description": "API Django et Python, logique métier, authentification et bases de données pour vos applications."
+            },
+            "mobile": {
+                "title": "Applications mobiles Flutter",
+                "description": "Applications Flutter et Dart : navigation, stockage local et connexion à vos API."
             },
             "optimization": {
                 "title": "SEO technique",
@@ -524,6 +638,7 @@
             }
         }
     },
+    "footer_description": "Développeur full-stack",
     "footer_navigation": "Navigation de pied de page",
     "footer_products_title": "Pages",
     "footer_social_title": "Réseaux",
@@ -541,7 +656,7 @@
     },
     "seo_keywords": "Théo Guérin, développeur freelance, développeur freelance Rennes, freelance full-stack, React, Django, Python, Node.js, Flutter, portfolio, Rennes, développeur web",
     "seo_routes": {
-        "home_description": "Théo Guérin, développeur freelance Full-Stack à Rennes, conçoit des sites, applications React et API performantes. Découvrez ses projets et services.",
+        "home_description": "Théo Guérin, développeur web et mobile freelance à Rennes : React, Django et Flutter. Découvrez mes services, mes réalisations et contactez-moi pour votre projet.",
         "about_description": "Découvrez Théo Guérin : développeur Full-Stack passionné basé à Rennes, ses loisirs, qualifications et son parcours professionnel.",
         "experience_description": "Parcours de Théo Guérin : expérience Full-Stack chez Nahibu, MBA Web Full-Stack, Bachelor et Licence Informatique à Rennes.",
         "project_description": "Projets web de Théo Guérin : applications React, API REST Django, Flutter et sites vitrine réalisés dans des contextes professionnels et académiques.",
@@ -550,5 +665,156 @@
         "legal_description": "Mentions légales du portfolio de Théo Guérin, développeur web Full-Stack basé à Rennes.",
         "privacy_description": "Politique de confidentialité du portfolio de Théo Guérin - traitement des données, cookies et vos droits.",
         "cookies_description": "Politique des cookies du portfolio de Théo Guérin : types de cookies, finalités, durée de conservation et gestion du consentement."
+    },
+    "home_offer": {
+        "location": "Rennes, Bretagne",
+        "title": "Développeur web & mobile freelance à Rennes.",
+        "specialty": "React, Django & Flutter.",
+        "description": "Je suis Théo Guérin. Je développe des interfaces React, des API Django et des applications mobiles Flutter, de la conception à la mise en ligne.",
+        "contact": "Parlons de votre projet",
+        "projects": "Voir mes réalisations",
+        "case_label": "Du besoin à la réalisation",
+        "case_description": "Un site de gîte avec tarifs modifiables dans Google Sheets, disponibilités Airbnb et estimation du séjour.",
+        "case_link": "Découvrir l’étude de cas",
+        "service_link": "Découvrir ce service"
+    },
+    "business_pages": {
+        "locale": "fr",
+        "labels": {
+            "breadcrumb": "Fil d’Ariane",
+            "home": "Accueil",
+            "services": "Services",
+            "project": "Réalisation",
+            "tags": "Domaines du projet",
+            "talk": "Parlons de votre projet",
+            "details": "Découvrir en détail",
+            "credit": "Conception et développement par Théo Guérin",
+            "service_eyebrow": "De l’idée à la livraison",
+            "case_eyebrow": "Dans les coulisses",
+            "service_heading": "Un projet clair, à chaque étape.",
+            "case_heading": "Le besoin, les choix, la réalisation.",
+            "developer": "Développeur web freelance à Rennes",
+            "experience": "Découvrir mon parcours",
+            "visit": "Voir le site",
+            "new_tab": "nouvel onglet",
+            "code": "Explorer le code",
+            "before": "Avant de démarrer",
+            "faq": "Vos questions, en pratique.",
+            "related": "Pour aller plus loin",
+            "service": "Service",
+            "case_study": "Étude de cas",
+            "next_project": "Votre prochain projet",
+            "contact_heading": "Commençons par votre besoin.",
+            "contact_description": "Votre objectif, votre échéance, les outils que vous utilisez : quelques lignes suffisent pour engager la discussion.",
+            "contact": "Décrire mon projet"
+        },
+        "cases": {
+            "a-table": {
+                "eyebrow": "Projet personnel · Application Flutter",
+                "title": "À table ! - Garder un œil sur sa cuisine",
+                "description": "Étude de cas À table ! : une application Flutter développée par Théo Guérin pour gérer les aliments, suivre leur péremption et recevoir des rappels.",
+                "intro": "Chez nous, je voulais retrouver facilement les aliments disponibles et savoir lesquels arrivaient à péremption. Je ne connaissais pas d’application qui répondait à mon besoin : j’ai créé À table ! pour garder cette liste à portée de main et éviter d’oublier des produits au fond du frigo.",
+                "tags": [
+                    "Projet personnel",
+                    "Flutter · Dart",
+                    "Inventaire alimentaire",
+                    "Rappels de péremption",
+                    "Hors connexion"
+                ],
+                "sections": [
+                    {
+                        "title": "Un besoin concret à la maison",
+                        "text": "Au départ, je cherchais un outil autour des courses et des aliments que nous avions déjà chez nous. L’idée était simple : pouvoir consulter le contenu de la cuisine, renseigner les dates et repérer ce qui attendait depuis trop longtemps. J’ai construit le projet autour de cet inventaire du quotidien."
+                    },
+                    {
+                        "title": "Retrouver ce qu’on a, sans tout vérifier",
+                        "text": "Chaque aliment possède une fiche avec son nom, sa quantité, son emplacement et, si elles sont connues, sa date d’achat et sa date limite. L’inventaire se trie par échéance pour faire ressortir les produits à surveiller.",
+                        "items": [
+                            "Ajouter, modifier ou supprimer un aliment.",
+                            "Filtrer le contenu du frigo, du congélateur ou du placard.",
+                            "Renseigner une date limite, avec des raccourcis comme +2, +7 ou +30 jours."
+                        ]
+                    },
+                    {
+                        "title": "Anticiper les dates plutôt que les oublier",
+                        "text": "L’application distingue les aliments OK, bientôt périmés et périmés. Une vue calendrier permet de retrouver les échéances. Des notifications locales rappellent qu’un produit approche de sa date limite, avec un délai d’anticipation réglable.",
+                        "items": [
+                            "Des repères dans l’inventaire lorsque la date approche ou est dépassée.",
+                            "Un calendrier pour visualiser les prochaines échéances.",
+                            "Des rappels avant la date limite, selon les autorisations et la plateforme utilisées."
+                        ]
+                    },
+                    {
+                        "title": "Une application utilisable hors connexion",
+                        "text": "J’ai choisi Flutter et Dart pour l’interface, avec Material 3. Les aliments sont conservés sur l’appareil dans une base Isar : consulter et mettre à jour son inventaire ne dépend pas d’une connexion réseau.",
+                        "items": [
+                            "Riverpod pour gérer l’état et les mises à jour de l’interface.",
+                            "Isar pour le stockage local des aliments.",
+                            "GoRouter pour la navigation et TableCalendar pour les échéances.",
+                            "Des responsabilités séparées entre écrans, modèles de données, accès à la base et notifications."
+                        ]
+                    },
+                    {
+                        "title": "Du besoin personnel à un projet concret",
+                        "text": "À table ! réunit l’inventaire, les dates et les rappels dans un même outil. Ce projet montre ma façon de partir d’un usage réel, de concevoir les parcours essentiels et de relier une interface Flutter à un stockage local et aux notifications de l’appareil. Son objectif est d’aider à moins oublier les aliments et à limiter le gaspillage."
+                    }
+                ],
+                "questions": [
+                    {
+                        "question": "Est-ce une liste de courses ?",
+                        "answer": "Le projet est né d’un besoin autour des courses à la maison. La version présentée se concentre sur la liste des aliments déjà disponibles, leurs quantités, leurs emplacements et leurs dates limites. Cet inventaire aide aussi à vérifier ce qu’on a avant de faire les courses."
+                    },
+                    {
+                        "question": "Comment fonctionnent les alertes ?",
+                        "answer": "Une notification locale peut être programmée avant la date limite, selon le délai choisi dans les réglages. Les aliments dont la date est dépassée restent identifiables dans l’inventaire. Les notifications dépendent des autorisations de l’appareil et ne sont pas programmées sous Linux dans cette version."
+                    },
+                    {
+                        "question": "Les données sont-elles accessibles sans Internet ?",
+                        "answer": "Oui, l’inventaire est stocké localement avec Isar. Cette version fonctionne sur mobile et desktop ; elle ne propose pas de synchronisation de l’inventaire entre plusieurs appareils."
+                    }
+                ]
+            },
+            "les-portes-de-montafilan": {
+                "eyebrow": "Étude de cas · Site de gîte",
+                "title": "Les Portes de Montafilan : un site de gîte connecté à Airbnb",
+                "description": "Étude de cas React et TypeScript : un site de gîte avec tarifs Google Sheets, indisponibilités Airbnb via iCal et estimation du séjour, par Théo Guérin.",
+                "intro": "Présenter le gîte, aider les visiteurs à préparer leur séjour et laisser le propriétaire modifier ses tarifs simplement : trois besoins réunis dans une interface React et TypeScript.",
+                "tags": [
+                    "React",
+                    "TypeScript",
+                    "Google Sheets",
+                    "iCal"
+                ],
+                "sections": [
+                    {
+                        "title": "Le besoin et les contraintes",
+                        "text": "Le projet devait éviter un abonnement mensuel de plateforme et un backend complexe, tout en conservant des tarifs modifiables sans code depuis un tableur. Le site devait également tenir compte des indisponibilités Airbnb."
+                    },
+                    {
+                        "title": "La solution réalisée",
+                        "text": "J’ai développé un site qui présente le gîte et relie la préparation du séjour aux outils déjà utilisés pour sa gestion.",
+                        "items": [
+                            "Lecture des tarifs depuis Google Sheets.",
+                            "Synchronisation des indisponibilités Airbnb au format iCal.",
+                            "Calcul d’une estimation lisible à partir des dates choisies.",
+                            "Redirection vers Airbnb avec les dates préremplies."
+                        ]
+                    },
+                    {
+                        "title": "Le parcours du visiteur",
+                        "text": "Le visiteur découvre le lieu, choisit ses dates et consulte une estimation du séjour. Il poursuit ensuite sa réservation sur Airbnb. Le site accompagne le choix du séjour ; la réservation finale reste gérée sur Airbnb."
+                    },
+                    {
+                        "title": "Les choix techniques",
+                        "text": "React et TypeScript structurent l’interface, Vite assure la construction du projet et Tailwind CSS sa présentation. Le projet utilise Vercel pour le déploiement, Brevo pour les emails et Vitest et Playwright pour les tests."
+                    },
+                    {
+                        "title": "Ce que le site permet",
+                        "text": "Le propriétaire peut ajuster ses tarifs depuis son tableur. Les visiteurs disposent d’un aperçu du gîte, des dates et d’une estimation avant de rejoindre Airbnb. Le site et son code sont consultables ci-dessous pour découvrir la réalisation."
+                    }
+                ],
+                "questions": []
+            }
+        }
     }
 }

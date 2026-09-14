@@ -1,40 +1,24 @@
-import { useEffect, useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 interface CelestialBodyProps {
-    name: string;
-    className: string;
-    children?: ReactNode;
-    isSun?: boolean;
+  name: string;
+  className: string;
+  children?: ReactNode;
+  isSun?: boolean;
 }
 
+// Ces astres sont des illustrations et ne déclenchent aucune action.
 function CelestialBody({ name, className, children, isSun }: CelestialBodyProps) {
-    const [visible, setVisible] = useState(false);
-    const [hovered, setHovered] = useState(false);
-
-    useEffect(() => {
-        let timeout: ReturnType<typeof setTimeout>;
-
-        if (hovered) {
-            timeout = setTimeout(() => setVisible(true), 0);
-        } else {
-            timeout = setTimeout(() => setVisible(false), 700); // Delay hiding so hover transitions feel smoother.
-        }
-
-        return () => clearTimeout(timeout);
-    }, [hovered]);
-
-    return (
-        <div
-            className={`${isSun ? "" : "planet"} ${className}`}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-        >
-            <div className={`celestial-body-tooltip ${visible ? "visible" : "hidden"}`}>
-                {name}
-            </div>
-            {children}
-        </div>
-    );
+  return (
+    <div
+      className={`celestial-body ${isSun ? "" : "planet"} ${className}`}
+      role="img"
+      aria-label={name}
+      data-body-name={name}
+    >
+      {children}
+    </div>
+  );
 }
 
 export default CelestialBody;

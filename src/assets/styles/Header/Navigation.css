@@ -1,9 +1,9 @@
 /* ========================
-   NAVBAR SECTION
+   BARRE DE NAVIGATION
 ======================== */
 
 /* ------------------------
-   Language selector
+   SÉLECTEUR DE LANGUE
 ------------------------ */
 .language-selector {
   position: relative;
@@ -139,7 +139,7 @@
 }
 
 /* ------------------------
-   NAVBAR Sticky / Layout
+   POSITION FIXE ET DISPOSITION DE LA NAVIGATION
 ------------------------ */
 .navbar {
   position: fixed;
@@ -177,68 +177,55 @@
 
 
 /* ------------------------
-   Hamburger button
+   BOUTON DU MENU MOBILE
 ------------------------ */
 .navbar-toggler {
   position: relative;
-  background-color: transparent;
-  border-color: transparent;
-  margin-left: auto;
+  width: 44px;
+  height: 44px;
   min-width: 44px;
   min-height: 44px;
-}
-
-.navbar-toggler span {
-  display: block;
-  background-color: #2776DE;
-  height: 4px;
-  width: 27px;
-  border-radius: 5px;
-  margin: 5px 0;
-}
-
-.navbar-toggler:focus-visible {
-  outline: 2px solid rgba(162, 210, 255, 0.95);
-  outline-offset: 3px;
-  border-radius: 8px;
-}
-
-/* Slightly shorten the middle bar for a calmer hamburger icon. */
-.navbar-toggler span:nth-child(2) {
-  width: 22px;
+  padding: 0;
   margin-left: auto;
+  border: 1px solid #94b7e780;
+  border-radius: 10px;
+  background: #142b49;
+  box-shadow: none;
+  transition: background .2s ease, border-color .2s ease;
 }
 
-/* Hamburger menu animation */
-.navbar-toggler span:nth-child(1),
-.navbar-toggler span:nth-child(3) {
-  transition: transform 0.35s ease-in-out;
-}
-
-.navbar-toggler:not(.collapsed) span:nth-child(1) {
+/* La position fixe des barres permet d’animer la croix sans déplacer le bouton. */
+.navbar-toggler span {
   position: absolute;
-  left: 12px;
-  top: 10px;
-  transform: rotate(135deg);
-  opacity: 0.9;
+  left: 10px;
+  top: 20px;
+  display: block;
+  width: 22px;
+  height: 3px;
+  margin: 0;
+  border-radius: 2px;
+  background: #f2f8ff;
+  transform-origin: center;
+  transition: transform .22s ease, opacity .16s ease;
 }
-
-.navbar-toggler:not(.collapsed) span:nth-child(2) {
-  visibility: hidden;
-  height: 12px;
+.navbar-toggler span:nth-child(1) { transform: translateY(-7px); }
+.navbar-toggler span:nth-child(3) { transform: translateY(7px); }
+.navbar-toggler:not(.collapsed) span:nth-child(1) { transform: rotate(45deg); }
+.navbar-toggler:not(.collapsed) span:nth-child(2) { opacity: 0; transform: scaleX(.5); }
+.navbar-toggler:not(.collapsed) span:nth-child(3) { transform: rotate(-45deg); }
+.navbar-toggler:not(.collapsed) { background: #204574; border-color: #a8cfff; }
+.navbar-toggler:hover { background: #1c3b63; border-color: #bad9ff; }
+.navbar-toggler:focus { box-shadow: none; }
+.navbar-toggler:focus-visible {
+  outline: 2px solid #94c3ff;
+  outline-offset: 3px;
 }
-
-.navbar-toggler:not(.collapsed) span:nth-child(3) {
-  position: absolute;
-  left: 12px;
-  top: 10px;
-  transform: rotate(-135deg);
-  opacity: 0.9;
+@media (prefers-reduced-motion: reduce) {
+  .navbar-toggler, .navbar-toggler span { transition: none; }
 }
-
 
 /* ------------------------
-   Logo and navigation links
+   LOGO ET LIENS DE NAVIGATION
 ------------------------ */
 .navbar-brand {
   color: rgb(250, 250, 250) !important;
@@ -318,7 +305,7 @@
   z-index: 1;
 }
 
-/* Animated line under the link */
+/* Ligne animée sous le lien */
 .navbar-nav .nav-item a::after {
   content: none;
 }
@@ -361,7 +348,7 @@
   transition: opacity 0.25s ease;
 }
 
-/* Hover and active states */
+/* États de survol et d’activation */
 .navbar-nav .nav-item a:hover .nav-label {
   color: #f6fbff;
 }
@@ -380,7 +367,7 @@
   opacity: 1;
 }
 
-/* Prevent labels from wrapping inside compact nav pills. */
+/* Empêche le retour à la ligne des libellés dans les boutons de navigation compacts. */
 .navbar-nav .nav-item .nav-link {
   white-space: nowrap;
   min-height: 44px;
@@ -492,7 +479,7 @@
   }
 }
 /* ------------------------
-   Easter egg banner
+   BANNIÈRE DE LA SURPRISE CACHÉE
 ------------------------ */
 .easter-egg-banner {
   position: fixed;
@@ -520,7 +507,7 @@
 
 
 /* ========================
-   RESPONSIVE (mobile)
+   ADAPTATION AU MOBILE
 ======================== */
 @media (max-width: 767px) {
   .navbar {
@@ -644,3 +631,38 @@
     }
   }
 }
+
+/* Une action permet de passer d’une langue publique à l’autre. */
+.language-selector .lang-switch { gap: 0.55rem; font-size: 0.82rem; font-weight: 600; }
+.lang-switch > span { color: #a0b4ce; }
+.lang-switch > .is-current { color: #f2f8ff; font-weight: 800; }
+.lang-switch .lang-switch-divider { color: #6b83a3; }
+.lang-switch:focus-visible { outline: 2px solid #94c3ff; outline-offset: 3px; }
+
+/* Reprend les surfaces sobres du portfolio tout en préservant les cibles de navigation. */
+.navbar.navbar-polished {
+  border-color: #94b7e726;
+  background: rgba(10, 22, 39, .9) !important;
+  box-shadow: 0 6px 20px #020a1829;
+  transition: padding .2s ease, top .2s ease, background .2s ease;
+}
+.navbar-polished .navbar-nav .nav-item .nav-link.active {
+  border-color: #88baff44;
+  background: #387bdb28;
+  box-shadow: none;
+}
+.navbar-polished .navbar-nav .nav-item .nav-link:hover { background: #8ab5f212; border-color: #94b7e733; }
+.navbar-polished .navbar-nav .nav-item a::before { content: none; }
+.navbar-polished .language-selector .lang-toggle {
+  background: #14263d !important;
+  border-color: #94b7e733 !important;
+  box-shadow: none;
+}
+.navbar-polished .language-selector .lang-toggle:hover,
+.navbar-polished .language-selector .lang-toggle:focus-visible { border-color: #94c3ff !important; box-shadow: none; }
+.navbar.navbar-polished.sticky:not(.menu-open) {
+  top: .4rem; padding-top: .15rem !important; padding-bottom: .15rem !important;
+  background: rgba(10, 22, 39, .97) !important;
+  border-color: #94b7e72e; box-shadow: 0 5px 16px #020a1833;
+}
+@media (prefers-reduced-motion: reduce) { .navbar.navbar-polished { transition: none; } }

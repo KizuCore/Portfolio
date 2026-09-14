@@ -1,8 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { TimelineItem as TimelineItemType } from "./data/timeline";
 import { FaBriefcase } from "@react-icons/all-files/fa/FaBriefcase";
 import { FaUserGraduate } from "@react-icons/all-files/fa/FaUserGraduate";
 import { useTranslation } from "react-i18next";
+import { useRef } from "react";
 
 const getIcon = (type: string) =>
   type === "C" ? (
@@ -13,35 +14,35 @@ const getIcon = (type: string) =>
 
 type Props = {
   item: TimelineItemType;
-  isLeft: boolean;
+  onTimeAnomaly: () => void;
+  anomalyYear?: number;
 };
 
-const TimelineItem = ({ item, isLeft }: Props) => {
+const TimelineItem = ({ item, onTimeAnomaly, anomalyYear }: Props) => {
+  const clicks = useRef({ count: 0, last: 0 });
+  const activateDate = () => {
+    const now = performance.now();
+    clicks.current.count = now - clicks.current.last < 650 ? clicks.current.count + 1 : 1;
+    clicks.current.last = now;
+    if (clicks.current.count === 3) { clicks.current.count = 0; onTimeAnomaly(); }
+  };
   const { t } = useTranslation();
-  const xOffset = isLeft ? -26 : 26;
+  const reduceMotion = useReducedMotion();
   const hasHighlights = Boolean(item.highlights?.length);
   const showRncpLine = (item.diplome || "").toLowerCase().includes("rncp");
 
   return (
-    <div className={`timeline-event ${isLeft ? "left" : "right"}`}>
-      <motion.span
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        transition={{ duration: 0.24, delay: 0.05 }}
-        className="timeline-event-dot"
-      />
-
-      <motion.span
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        transition={{ duration: 0.3, delay: 0.1 }}
-        className={`timeline-event-branch ${isLeft ? "left" : "right"}`}
-      />
-
+    <div className="timeline-event">
+      <p className="timeline-card-date"><button type="button" className="timeline-date-trigger" onClick={activateDate} aria-label={item.date}>
+        <span style={anomalyYear === undefined ? undefined : { visibility: "hidden" }}>{item.date}</span>
+        {anomalyYear !== undefined && <span className="timeline-anomaly-year" aria-hidden="true">{anomalyYear} / ?</span>}
+      </button></p>
+      <span className="timeline-event-dot" aria-hidden="true" />
       <motion.article
-        initial={{ opacity: 0, x: xOffset, y: 20 }}
-        whileInView={{ opacity: 1, x: 0, y: 0 }}
-        transition={{ duration: 0.45, ease: "easeOut" }}
+        initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: reduceMotion ? 0 : 0.45, ease: "easeOut" }}
         className={`timeline-card ${hasHighlights ? "timeline-card-detailed" : ""}`}
         role="region"
         aria-label={`${item.title} - ${item.date}`}
@@ -50,10 +51,9 @@ const TimelineItem = ({ item, isLeft }: Props) => {
           <span className="timeline-card-icon blue" aria-hidden="true">
             {getIcon(item.type)}
           </span>
-          <h2 className="timeline-card-title">{item.title}</h2>
+          <h3 className="timeline-card-title">{item.title}</h3>
         </header>
 
-        <p className="timeline-card-date">{item.date}</p>
 
         {item.subtitle && <p className="timeline-card-subtitle">{item.subtitle}</p>}
         {showRncpLine && <p className="timeline-card-rncp">{item.diplome}</p>}
@@ -73,17 +73,11 @@ const TimelineItem = ({ item, isLeft }: Props) => {
         )}
 
         {item.stack && (
-          hasHighlights ? (
-            <p className="timeline-stack-inline mt-2">{item.stack}</p>
-          ) : (
-            <div className="timeline-stack-tags mt-2" aria-label={t("technologies")}>
-              {item.stack.split(",").map((tech, i) => (
-                <span key={i} className="timeline-stack-badge">
-                  {tech.trim()}
-                </span>
-              ))}
-            </div>
-          )
+          <div className="timeline-stack-tags" aria-label={t("technologies")}>
+            {item.stack.split(",").map((tech) => (
+              <span key={tech.trim()} className="timeline-stack-badge">{tech.trim()}</span>
+            ))}
+          </div>
         )}
       </motion.article>
     </div>

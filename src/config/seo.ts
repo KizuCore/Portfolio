@@ -1,15 +1,22 @@
-export type SupportedLocale = "fr" | "en" | "es" | "bzh";
+export type SupportedLocale = "fr" | "en" | "bzh";
 
 export type RouteSeo = {
   titleKey: string;
   descriptionKey?: string;
   noindex?: boolean;
+  contentLocale?: SupportedLocale;
 };
 
-export const SUPPORTED_LOCALES: SupportedLocale[] = ["fr", "en", "es", "bzh"];
+export const SUPPORTED_LOCALES: SupportedLocale[] = ["fr", "en", "bzh"];
 export const DEFAULT_LOCALE: SupportedLocale = "fr";
 
 export const ROUTE_SEO: Record<string, RouteSeo> = {
+  "/services/developpeur-react": { titleKey: "services.items.apps.title", contentLocale: "fr" },
+  "/services/developpeur-django": { titleKey: "services.items.api.title", contentLocale: "fr" },
+  "/services/developpeur-flutter": { titleKey: "services.items.mobile.title", contentLocale: "fr" },
+  "/services/creation-site-internet-rennes": { titleKey: "services.items.websites.title", contentLocale: "fr" },
+  "/realisations/a-table": { titleKey: "categories_projects.atable_title" },
+  "/realisations/les-portes-de-montafilan": { titleKey: "categories_projects.portes_montafilan_title" },
   "/": { titleKey: "home", descriptionKey: "seo_routes.home_description" },
   "/about": { titleKey: "about", descriptionKey: "seo_routes.about_description" },
   "/experience": { titleKey: "experience", descriptionKey: "seo_routes.experience_description" },
@@ -50,7 +57,6 @@ export const LEGAL_ROUTES = new Set([
 export const OPEN_GRAPH_LOCALES: Record<SupportedLocale, string> = {
   fr: "fr_FR",
   en: "en_US",
-  es: "es_ES",
   bzh: "br_FR",
 };
 
@@ -66,7 +72,7 @@ export function splitLocalizedPath(pathname: string): { locale: SupportedLocale 
   const normalizedPath = normalizePath(pathname);
   const [, firstSegment, ...remainingSegments] = normalizedPath.split("/");
 
-  // Localized routes are aliases over the same React views, e.g. /en/about -> /about.
+  // Les routes traduites sont des alias des mêmes vues React, par exemple /en/about -> /about.
   if (SUPPORTED_LOCALES.includes(firstSegment as SupportedLocale)) {
     const localizedPathname = remainingSegments.length > 0 ? `/${remainingSegments.join("/")}` : "/";
     return {
@@ -92,15 +98,14 @@ export function getShortLocale(input: string): SupportedLocale {
 }
 
 export function getContentLocale(locale: SupportedLocale, pathname: string): SupportedLocale {
+  // N’annonce que les langues dont le contenu rédactionnel est maintenu.
+  const fixedLocale = ROUTE_SEO[pathname]?.contentLocale;
+  if (fixedLocale) return fixedLocale;
   if (!LEGAL_ROUTES.has(pathname)) {
     return locale;
   }
 
-  // Legal content is only maintained in French and English for now.
-  if (locale === "es") {
-    return "en";
-  }
-
+  // Le contenu juridique est maintenu uniquement en français et en anglais pour le moment.
   if (locale === "bzh") {
     return "fr";
   }
@@ -108,13 +113,25 @@ export function getContentLocale(locale: SupportedLocale, pathname: string): Sup
   return locale;
 }
 
+export function getCanonicalLocale(locale: SupportedLocale, pathname: string): SupportedLocale {
+  return getContentLocale(locale, pathname);
+}
+
+export function getCanonicalPath(locale: SupportedLocale, pathname: string): string {
+  return getLocalizedPath(getCanonicalLocale(locale, pathname), pathname);
+}
+
+export function getIndexableLocales(pathname: string): SupportedLocale[] {
+  return SUPPORTED_LOCALES.filter((locale) => getCanonicalLocale(locale, pathname) === locale);
+}
+
 export function getHtmlLang(locale: SupportedLocale): string {
   return locale === "bzh" ? "br" : locale;
 }
 
 export function getLanguageAlternates(siteUrl: string, pathname: string) {
-  // Search engines expect one absolute alternate URL per language variant.
-  return SUPPORTED_LOCALES.map((locale) => {
+  // Les moteurs de recherche attendent une URL alternative absolue par variante linguistique.
+  return getIndexableLocales(pathname).map((locale) => {
     return {
       href: `${siteUrl}${getLocalizedPath(locale, pathname)}`,
       hrefLang: getHtmlLang(locale),

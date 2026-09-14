@@ -7,7 +7,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
-    /* Bundler mode */
+    /* Mode de regroupement des modules */
     "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"]
@@ -18,7 +18,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    /* Linting */
+    /* Analyse statique du code */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

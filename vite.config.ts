@@ -58,7 +58,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      // Keep cross-feature imports stable when files move between feature folders.
+      // Garde les imports entre fonctionnalités stables lorsque les fichiers changent de dossier.
       "@": path.resolve(__dirname, "src"),
       "@image": path.resolve(__dirname, "src/assets/images"),
       "@sound": path.resolve(__dirname, "src/assets/sound"),

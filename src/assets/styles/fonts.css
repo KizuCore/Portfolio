@@ -1,4 +1,4 @@
-/* Local font files remove the runtime dependency on Google Fonts. */
+/* Les polices locales évitent de dépendre de Google Fonts pendant l’affichage. */
 @font-face {
   font-family: "Sora";
   font-style: normal;

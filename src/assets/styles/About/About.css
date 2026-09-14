@@ -1,5 +1,5 @@
 /* ========================
-   ABOUT CARD
+   CARTE DE PRÉSENTATION
 ======================== */
 .quote-card-view {
   border: none;
@@ -18,7 +18,7 @@
 }
 
 .about-img {
-  /* Keep the image breathing room compact on smaller screens. */
+  /* Réduit l’espace autour de l’image sur les petits écrans. */
   padding-top: 0;
 }
 
@@ -45,7 +45,7 @@
 
 
 /* ========================
-   TECH ICONS (generic)
+   ICÔNES DES TECHNOLOGIES (STYLES GÉNÉRIQUES)
 ======================== */
 .tech-icons,
 .tech-icons-1 {
@@ -81,13 +81,13 @@
   hyphens: auto;
 }
 
-/* Blue-bordered variant */
+/* Variante à bordure bleue */
 .tech-icons-1 {
   padding: 10px;
   border: 1.7px solid rgba(78, 134, 240, 0.637);
 }
 
-/* Generic hover state */
+/* État de survol générique */
 .tech-icons:hover,
 .tech-icons-1:hover {
   transform: scale(1.05);
@@ -97,7 +97,7 @@
   box-shadow: 0 0 20px rgba(78, 134, 240, 0.637);
 }
 
-/* Responsive icon sizing on mobile */
+/* Taille des icônes adaptée au mobile */
 @media (max-width: 767px) {
   .tech-icons,
   .tech-icons-1 {
@@ -119,10 +119,10 @@
 
 
 /* ========================
-   TECH ICONS - Levels
+   ICÔNES DES TECHNOLOGIES : NIVEAUX
 ======================== */
 
-/* Borders by level */
+/* Bordures par niveau */
 .border-orange {
   border: 1.7px solid rgb(255, 145, 0);
 }
@@ -139,7 +139,7 @@
   border: 1.7px solid rgb(39, 184, 241);
 }
 
-/* Dynamic hover states by level */
+/* États de survol dynamiques par niveau */
 .border-orange:hover {
   box-shadow: 0 0 20px rgba(255, 145, 0, 0.4);
   border: 1.7px solid rgba(255, 145, 0, 0.8);
@@ -162,7 +162,7 @@
 
 
 /* ========================
-   OTHER ICON STYLES
+   AUTRES STYLES D’ICÔNES
 ======================== */
 .tech-icon-images {
   padding: 20px;
@@ -178,7 +178,7 @@
 
 
 /* ========================
-   HOBBIES
+   LOISIRS
 ======================== */
 .hobbies-list {
   display: flex;
@@ -242,7 +242,7 @@
 
 
 /* ========================
-   ABOUT TABS
+   ONGLETS DE PRÉSENTATION
 ======================== */
 .about-tabs {
   display: flex;
@@ -275,7 +275,7 @@
 
 
 /* ========================
-   CONTAINERS
+   CONTENEURS
 ======================== */
 .minheight-about {
   min-height: 290px;
@@ -289,7 +289,7 @@
 
 
 /* ========================
-   TECH / CATEGORY BUTTONS
+   BOUTONS DES TECHNOLOGIES ET CATÉGORIES
 ======================== */
 .category-buttons .btn-primary {
   background: linear-gradient(140deg, rgba(23, 57, 106, 0.96), rgba(54, 130, 228, 0.9));
@@ -321,7 +321,7 @@
 
 
 /* ========================
-   LEVEL LEGEND
+   LÉGENDE DES NIVEAUX
 ======================== */
 .level-legend {
   display: flex;
@@ -354,7 +354,7 @@
   opacity: 1;
 }
 
-/* Active states */
+/* États actifs */
 .level-badge.active {
   border: 1px solid white;
   opacity: 1;
@@ -365,7 +365,7 @@
   cursor: default;
 }
 
-/* Specific colors */
+/* Couleurs spécifiques */
 .level-badge.all {
   background-color: rgba(25, 40, 68, 0.9);
   border-color: rgba(204, 226, 255, 0.92);

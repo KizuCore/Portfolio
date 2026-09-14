@@ -1,6 +1,5 @@
 import {
   Alert,
-  Button,
   Col,
   Form,
   Row,
@@ -16,11 +15,11 @@ function ContactForm() {
   const { t } = useTranslation();
   const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
   const { formData, fieldErrors, isSubmitting, status, clearStatus, handleChange, handleSubmit } = useContactForm(recaptchaSiteKey);
-  // Status messages stay translated while API fallbacks can still be surfaced verbatim.
+  // Les messages d’état restent traduits, tandis que les messages de repli de l’API peuvent être affichés tels quels.
   const responseMessage = status ? t(status.translationKey, status.fallbackMessage || t("message_fail")) : "";
 
   return (
-    <div className="contact-form-card background-box">
+    <div className="contact-form-card">
       <header className="contact-form-header">
         <h2 className="contact-form-title">{t("contact_form_title")}</h2>
         <p className="contact-form-subtitle">{t("contact_form_subtitle")}</p>
@@ -43,7 +42,7 @@ function ContactForm() {
         <Row className="g-3">
           {CONTACT_FORM_FIELDS.map((field) => {
             const errorKey = fieldErrors[field.name];
-            // The generated id links each field to its own validation message for screen readers.
+            // L’identifiant généré relie chaque champ à son message de validation pour les lecteurs d’écran.
             const errorId = `${field.controlId}-error`;
 
             return (
@@ -76,9 +75,9 @@ function ContactForm() {
           })}
         </Row>
 
-        <Button
+        <button
           type="submit"
-          className="mt-4 button-cv contact-submit-btn"
+          className="mt-4 contact-submit-btn"
           disabled={isSubmitting}
           aria-describedby={status ? "contact-form-status" : undefined}
         >
@@ -93,7 +92,7 @@ function ContactForm() {
               {t("send_message")}
             </>
           )}
-        </Button>
+        </button>
       </Form>
     </div>
   );

@@ -11,7 +11,13 @@ let thumbnailBytes = 0;
 for (const name of (await fs.readdir(root)).filter(name => name.endsWith('.webp')).sort()) {
   const input = path.join(root, name);
   const target = path.join(output, name);
-  await sharp(input).resize(112, 86, { fit: 'cover', position: 'attention' }).webp({ quality: 65 }).toFile(target);
+  await sharp(input)
+    .resize(112, 86, {
+      fit: 'contain',
+      background: { r: 21, g: 36, b: 59, alpha: 1 },
+    })
+    .webp({ quality: 65 })
+    .toFile(target);
   sourceBytes += (await fs.stat(input)).size;
   thumbnailBytes += (await fs.stat(target)).size;
 }

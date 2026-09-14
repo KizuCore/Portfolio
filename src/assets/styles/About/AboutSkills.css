@@ -20,6 +20,8 @@
 .about-skills-section .tech-icons, .about-skills-section .tech-icons-1 { position: relative; width: auto; max-width: none; margin: 0; padding: 1rem .5rem; min-height: 115px; gap: .75rem; border: 1px solid #94b7e72b; border-radius: 12px; background: linear-gradient(135deg,#182b46b8,#0d1727e6); box-shadow: none; transition: border-color .2s ease, background .2s ease; opacity: 1; }
 .about-skills-section .tech-icons:hover, .about-skills-section .tech-icons-1:hover { transform: none; border-color: #8dbbfa66; box-shadow: none; background: #1c3453; }
 .about-skills-section .tech-icons::after { content: ''; position: absolute; top: .7rem; right: .7rem; width: 10px; height: 10px; border-radius: 50%; background: var(--level-color); }
+.about-skills-section .tech-icons.is-favorite { --level-color: #6ab3ff; }
+.about-skills-section .tech-icons.is-favorite .tech-icon-label { font-weight: 750; }
 .about-skills-section .border-orange { --level-color: #ffab52; }
 .about-skills-section .border-yellow { --level-color: #f5db58; }
 .about-skills-section .border-green { --level-color: #58d79a; }

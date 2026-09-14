@@ -37,7 +37,7 @@ import { SiLaravel } from "@react-icons/all-files/si/SiLaravel";
 import { SiSwift } from "@react-icons/all-files/si/SiSwift";
 import { SiMariadb } from "@react-icons/all-files/si/SiMariadb";
 
-export type SkillLevel = 0 | 1 | 2 | 3;
+export type SkillLevel = 0 | 1 | 2;
 export type SkillCategory = "Programming Languages" | "Front-End" | "Back-End" | "Database" | "Hosting" | "Mobile" | "CMS";
 export type SkillFilter = SkillCategory | "All";
 
@@ -48,6 +48,7 @@ export interface TechSkill {
   name: string;
   level: SkillLevel;
   category: SkillCategory;
+  favorite?: boolean;
 }
 
 export const TECH_CATEGORIES: SkillFilter[] = [
@@ -62,29 +63,29 @@ export const TECH_CATEGORIES: SkillFilter[] = [
 ];
 
 export const TECH_SKILLS: TechSkill[] = [
-  { component: SiFlutter, name: "Flutter", level: 3, category: "Mobile" },
-  { component: DiReact, name: "React", level: 3, category: "Front-End" },
-  { component: DiNodejs, name: "Node.js", level: 3, category: "Back-End" },
-  { component: SiTailwindcss, name: "Tailwind", level: 3, category: "Front-End" },
-  { component: DiMysql, name: "MySQL", level: 3, category: "Database" },
+  { component: SiFlutter, name: "Flutter", level: 2, category: "Mobile", favorite: true },
+  { component: DiReact, name: "React", level: 2, category: "Front-End", favorite: true },
+  { component: DiNodejs, name: "Node.js", level: 2, category: "Back-End", favorite: true },
+  { component: SiTailwindcss, name: "Tailwind", level: 2, category: "Front-End" },
+  { component: DiMysql, name: "MySQL", level: 2, category: "Database" },
   { component: SiBootstrap, name: "Bootstrap", level: 2, category: "Front-End" },
   { component: SiCss3, name: "CSS", level: 2, category: "Front-End" },
-  { component: FaJava, name: "Java", level: 2, category: "Programming Languages" },
-  { component: DiJavascript1, name: "JavaScript", level: 2, category: "Programming Languages" },
-  { component: SiTypescript, name: "TypeScript", level: 3, category: "Programming Languages" },
+  { component: FaJava, name: "Java", level: 1, category: "Programming Languages" },
+  { component: DiJavascript1, name: "JavaScript", level: 1, category: "Programming Languages" },
+  { component: SiTypescript, name: "TypeScript", level: 2, category: "Programming Languages", favorite: true },
   { component: SiHtml5, name: "HTML", level: 2, category: "Front-End" },
-  { component: DiPython, name: "Python", level: 2, category: "Programming Languages" },
-  { component: DiPhp, name: "PHP", level: 2, category: "Programming Languages" },
+  { component: DiPython, name: "Python", level: 2, category: "Programming Languages", favorite: true },
+  { component: DiPhp, name: "PHP", level: 1, category: "Programming Languages" },
   { component: DiScala, name: "Scala", level: 2, category: "Programming Languages" },
   { component: FaCheck, name: "Why3", level: 2, category: "Programming Languages" },
   { component: DiWordpress, name: "Wordpress - CMS", level: 2, category: "CMS" },
   { component: FaWix, name: "Wix - CMS", level: 2, category: "CMS" },
-  { component: FaVuejs, name: "Vue.js", level: 2, category: "Front-End" },
+  { component: FaVuejs, name: "Vue.js", level: 1, category: "Front-End" },
   { component: FaCloud, name: "Vercel", level: 2, category: "Hosting" },
   { component: SiNginx, name: "Nginx", level: 2, category: "Hosting" },
   { component: SiGnubash, name: "Bash", level: 1, category: "Programming Languages" },
-  { component: DiDjango, name: "Django", level: 2, category: "Back-End" },
-  { component: SiPostgresql, name: "PostgreSQL", level: 1, category: "Database" },
+  { component: DiDjango, name: "Django", level: 2, category: "Back-End", favorite: true },
+  { component: SiPostgresql, name: "PostgreSQL", level: 2, category: "Database" },
   { component: SiMariadb, name: "MariaDB", level: 0, category: "Database" },
   { component: FaFileExcel, name: "VBA", level: 1, category: "Programming Languages" },
   { component: SiAngular, name: "Angular", level: 1, category: "Front-End" },
@@ -93,7 +94,7 @@ export const TECH_SKILLS: TechSkill[] = [
   { component: SiNuxtDotJs, name: "Nuxt", level: 1, category: "Front-End" },
   { component: SiCplusplus, name: "C++", level: 1, category: "Programming Languages" },
   { component: SiKotlin, name: "Kotlin", level: 1, category: "Mobile" },
-  { component: SiFlask, name: "Flask", level: 1, category: "Back-End" },
+  { component: SiFlask, name: "Flask", level: 2, category: "Back-End" },
   { component: SiHeroku, name: "Heroku", level: 0, category: "Hosting" },
   { component: SiGraphql, name: "GraphQL", level: 0, category: "Back-End" },
   { component: SiRust, name: "Rust", level: 0, category: "Back-End" },

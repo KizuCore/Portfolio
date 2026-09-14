@@ -9,7 +9,7 @@ const Tooltip = React.lazy(() => import("react-tooltip").then((module) => ({ def
 function TechStack() {
   const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<SkillFilter>("All");
-  const [selectedLevel, setSelectedLevel] = useState<number | "All">("All");
+  const [selectedLevel, setSelectedLevel] = useState<number | "All" | "Favorite">("All");
 
   return (
     <div>
@@ -50,9 +50,9 @@ function TechStack() {
         </button>
         <button
           type="button"
-          className={`level-badge favorite ${selectedLevel === 3 ? "active" : ""}`}
-          aria-pressed={selectedLevel === 3}
-          onClick={() => setSelectedLevel(3)}
+          className={`level-badge favorite ${selectedLevel === "Favorite" ? "active" : ""}`}
+          aria-pressed={selectedLevel === "Favorite"}
+          onClick={() => setSelectedLevel("Favorite")}
         >
           {t("favorite2")}
         </button>
@@ -85,11 +85,11 @@ function TechStack() {
               (selectedCategory === "All" || icon.category === selectedCategory) &&
               (selectedLevel === "All"
                 ? true
-                : selectedLevel === 2
-                  ? icon.level === 2 || icon.level === 3
+                : selectedLevel === "Favorite"
+                  ? Boolean(icon.favorite)
                   : icon.level === selectedLevel),
           )
-          .sort((a, b) => b.level - a.level)
+          .sort((a, b) => b.level - a.level || Number(Boolean(b.favorite)) - Number(Boolean(a.favorite)))
           .map((icon, index) => {
             const IconComponent = icon.component;
             const levelClass =
@@ -97,25 +97,21 @@ function TechStack() {
                 ? "border-orange"
                 : icon.level === 1
                   ? "border-yellow"
-                  : icon.level === 2
-                    ? "border-green"
-                    : "border-blue";
+                  : "border-green";
 
             return (
               <Col
                 key={index}
                 xs={3}
                 md={2}
-                className={`tech-icons ${levelClass}`}
+                className={`tech-icons ${levelClass}${icon.favorite ? " is-favorite" : ""}`}
                 data-tooltip-id="tech-tooltip"
                 data-tooltip-content={`${icon.name} - ${icon.level === 0
                   ? t("novice")
                   : icon.level === 1
                     ? t("intermediate")
-                    : icon.level === 2
-                      ? t("advanced")
-                      : t("favorite")
-                  }`}
+                    : t("advanced")
+                  }${icon.favorite ? ` · ${t("favorite2")}` : ""}`}
               >
                 <div className="tech-icon-glyph">
                   <IconComponent aria-hidden="true" />

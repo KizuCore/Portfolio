@@ -1,7 +1,6 @@
 import React, { Suspense, useState } from "react";
 import { Col, Row, Spinner, Button } from "react-bootstrap";
 import "../../assets/styles/About/About.css";
-import { easeOut, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { TOOL_CATEGORIES, TOOLS } from "./data/tools";
 
@@ -13,15 +12,12 @@ const ToolStack: React.FC = () => {
 
   return (
     <section className="about-skills-section" aria-labelledby="about-tools-title">
-      <motion.h2
+      <h2
         id="about-tools-title"
         className="about-section-title"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: easeOut }}
       >
         {t("tools")} {t("i_use")}
-      </motion.h2>
+      </h2>
 
       <div className="category-buttons stack-filter-buttons">
         {TOOL_CATEGORIES.map((cat) => (

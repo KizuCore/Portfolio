@@ -42,16 +42,12 @@ function AppContent() {
   }, [i18n, routeLocale]);
 
   // Garde les transitions entre pages discrètes et désactive les mouvements selon les préférences d’accessibilité.
-  const routeInitial = reduceMotion
-    ? { opacity: 1, y: 0 }
-    : { opacity: 0, y: 12 };
-  const routeAnimate = { opacity: 1, y: 0 };
-  const routeExit = reduceMotion
-    ? { opacity: 1, y: 0 }
-    : { opacity: 0, y: -8 };
+  const routeInitial = reduceMotion ? { opacity: 1 } : { opacity: 0 };
+  const routeAnimate = { opacity: 1 };
+  const routeExit = { opacity: reduceMotion ? 1 : 0 };
   const routeTransition = reduceMotion
     ? { duration: 0 }
-    : { duration: 0.34, ease: [0.22, 1, 0.36, 1] as const };
+    : { duration: 0.22, ease: [0.22, 1, 0.36, 1] as const };
 
   return (
     <>

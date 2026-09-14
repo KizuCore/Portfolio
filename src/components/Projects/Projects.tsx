@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import ProjectCard from "./ProjectCard";
-import { easeOut, motion, MotionConfig, useReducedMotion } from "framer-motion";
+import { AnimatePresence, easeOut, motion, MotionConfig, useReducedMotion, type Variants } from "framer-motion";
 
 import "../../assets/styles/About/About.css";
 import "../../assets/styles/Projects/Projects.css";
@@ -13,6 +13,7 @@ const Projects: React.FC = () => {
   const reduceMotion = useReducedMotion();
   const [activeFilter, setActiveFilter] = React.useState<ProjectFilter>("all");
   const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [navigationDirection, setNavigationDirection] = React.useState(0);
 
   const sortedProjects = React.useMemo(
     // Affiche d’abord les projets épinglés, puis les projets mis en avant.
@@ -39,6 +40,7 @@ const Projects: React.FC = () => {
 
   React.useEffect(() => {
     // Revient au premier projet correspondant à chaque changement de filtre.
+    setNavigationDirection(0);
     setSelectedIndex(0);
   }, [activeFilter]);
 
@@ -56,36 +58,32 @@ const Projects: React.FC = () => {
     current: selectedProject ? selectedIndex + 1 : 0,
     total: filteredProjects.length,
   });
+  const projectTransitionVariants: Variants = {
+    enter: (direction: number) => ({
+      opacity: reduceMotion ? 1 : 0,
+      x: reduceMotion ? 0 : direction * 14,
+    }),
+    center: { opacity: 1, x: 0 },
+    exit: (direction: number) => ({
+      opacity: reduceMotion ? 1 : 0,
+      x: reduceMotion ? 0 : direction * -10,
+    }),
+  };
 
   return (
     <MotionConfig reducedMotion="user">
     <Container fluid className="project-section">
 
       <Container>
-        <motion.h1
-          className="projects-title"
-          initial={{ opacity: reduceMotion ? 1 : 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: easeOut }}
-        >
+        <h1 className="projects-title">
           {t("my_projects")} {t("projects")}
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          className="projects-intro"
-          initial={{ opacity: reduceMotion ? 1 : 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: easeOut, delay: 0.2 }}
-        >
+        <p className="projects-intro">
           {t("projects_description")}
-        </motion.p>
+        </p>
 
-        <motion.div
-          className="project-filter-shell"
-          initial={{ opacity: reduceMotion ? 1 : 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: easeOut, delay: 0.3 }}
-        >
+        <div className="project-filter-shell">
           <div className="project-filter-bar" aria-label={t("project_aria")}>
             {PROJECT_FILTERS.map((filter) => {
               const isActive = filter === activeFilter;
@@ -96,7 +94,7 @@ const Projects: React.FC = () => {
                   type="button"
                   className={`project-filter-chip ${isActive ? "active" : ""}`}
                   aria-pressed={isActive}
-                  onClick={() => { setActiveFilter(filter); setSelectedIndex(0); }}
+                  onClick={() => setActiveFilter(filter)}
                 >
                   {t(`project_filters.${filter}`)}
                 </button>
@@ -106,14 +104,9 @@ const Projects: React.FC = () => {
           <div className="project-filter-count" role="status">
             {filteredProjects.length} {t("projects")}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="project-explorer"
-          initial={{ opacity: reduceMotion ? 1 : 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: easeOut, delay: 0.35 }}
-        >
+        <div className="project-explorer">
           <aside className="project-nav" aria-label={t("project_explorer.browse")}>
             <div className="project-nav-header">
               <p className="project-nav-title">{t("project_explorer.browse")}</p>
@@ -127,7 +120,10 @@ const Projects: React.FC = () => {
                     key={`${project.ghLink}-${index}`}
                     type="button"
                     className={`project-nav-item ${isSelected ? "active" : ""}`}
-                    onClick={() => setSelectedIndex(index)}
+                    onClick={() => {
+                      setNavigationDirection(index > selectedIndex ? 1 : index < selectedIndex ? -1 : 0);
+                      setSelectedIndex(index);
+                    }}
                     aria-current={isSelected ? "true" : undefined}
                     aria-controls="project-detail"
                   >
@@ -156,7 +152,10 @@ const Projects: React.FC = () => {
                     <button
                       type="button"
                       className="project-switch-btn"
-                      onClick={() => setSelectedIndex((prev) => Math.max(prev - 1, 0))}
+                      onClick={() => {
+                        setNavigationDirection(-1);
+                        setSelectedIndex((prev) => Math.max(prev - 1, 0));
+                      }}
                       disabled={selectedIndex === 0}
                     >
                       {t("project_explorer.previous")}
@@ -164,9 +163,10 @@ const Projects: React.FC = () => {
                     <button
                       type="button"
                       className="project-switch-btn"
-                      onClick={() =>
-                        setSelectedIndex((prev) => Math.min(prev + 1, filteredProjects.length - 1))
-                      }
+                      onClick={() => {
+                        setNavigationDirection(1);
+                        setSelectedIndex((prev) => Math.min(prev + 1, filteredProjects.length - 1));
+                      }}
                       disabled={selectedIndex === filteredProjects.length - 1}
                     >
                       {t("project_explorer.next")}
@@ -174,34 +174,41 @@ const Projects: React.FC = () => {
                   </div>
                 </div>
 
-                <motion.div
-                  key={selectedProject.ghLink}
-                  initial={{ opacity: reduceMotion ? 1 : 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, ease: easeOut }}
-                >
-                  <ProjectCard
-                    imgPath={selectedProject.imgPath}
-                    altText={t(selectedProject.altTextKey)}
-                    title={t(selectedProject.titleKey)}
-                    description={t(selectedProject.descriptionKey)}
-                    ghLink={selectedProject.ghLink}
-                    isGitLab={selectedProject.isGitLab}
-                    youtubeLink={selectedProject.youtubeLink}
-                    seeLink={selectedProject.seeLink}
-                    caseStudyPath={selectedProject.caseStudyPath}
-                    techStack={selectedProject.techStack}
-                    featured={selectedProject.featured}
-                    featuredLabel={featuredPillLabel}
-                    imageMode={selectedProject.imageMode}
-                  />
-                </motion.div>
+                <div className="project-detail-stage" aria-live="polite">
+                  <AnimatePresence initial={false} custom={navigationDirection}>
+                    <motion.div
+                      key={selectedProject.ghLink}
+                      custom={navigationDirection}
+                      variants={projectTransitionVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{ duration: reduceMotion ? 0 : 0.24, ease: easeOut }}
+                    >
+                      <ProjectCard
+                        imgPath={selectedProject.imgPath}
+                        altText={t(selectedProject.altTextKey)}
+                        title={t(selectedProject.titleKey)}
+                        description={t(selectedProject.descriptionKey)}
+                        ghLink={selectedProject.ghLink}
+                        isGitLab={selectedProject.isGitLab}
+                        youtubeLink={selectedProject.youtubeLink}
+                        seeLink={selectedProject.seeLink}
+                        caseStudyPath={selectedProject.caseStudyPath}
+                        techStack={selectedProject.techStack}
+                        featured={selectedProject.featured}
+                        featuredLabel={featuredPillLabel}
+                        imageMode={selectedProject.imageMode}
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
               </>
             ) : (
               <p className="project-empty">{t("project_explorer.empty")}</p>
             )}
           </div>
-        </motion.div>
+        </div>
       </Container>
     </Container>
     </MotionConfig>

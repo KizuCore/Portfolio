@@ -2,7 +2,7 @@ import { JSX, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
-import { easeOut, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import GitHubActivity from "./GitHubActivity";
 import TechStack from "./TechnologyStack";
 import AboutCard from "./AboutCard";
@@ -40,14 +40,9 @@ function About(): JSX.Element {
       <Container>
         <Row className="about-intro align-items-start">
 
-          <motion.h1
-            className="about-intro-title"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: easeOut }}
-          >
+          <h1 className="about-intro-title">
             {t('about_me')}
-          </motion.h1>
+          </h1>
 
           <Col lg={7} xs={12} className="about-intro-copy">
             <AboutCard />
@@ -68,16 +63,13 @@ function About(): JSX.Element {
         </Row>
 
         <section className="about-skills-section" aria-labelledby="about-skills-title">
-        <motion.h2
+        <h2
           id="about-skills-title"
           tabIndex={-1}
           className="about-section-title"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: easeOut }}
         >
           {t('professional_skills')} {t('skills')}
-        </motion.h2>
+        </h2>
         <TechStack />
         </section>
         <ToolStack />

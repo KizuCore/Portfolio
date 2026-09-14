@@ -5,7 +5,6 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { MinecraftMemory } from './ProfileInteractions';
 import HobbyArtwork from './HobbyArtwork';
 import '../../assets/styles/About/ProfileInteractions.css';
-import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/About/About.css';
 import secretSound from '@sound/voice.mp3';
 import { FaGraduationCap } from "@react-icons/all-files/fa/FaGraduationCap";
@@ -15,7 +14,6 @@ import { FaPuzzlePiece } from "@react-icons/all-files/fa/FaPuzzlePiece";
 function AboutCard(): JSX.Element {
   const { t } = useTranslation();
   const reducedMotion = useReducedMotion();
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const [selectedTab, setSelectedTab] = useState<'presentation' | 'qualifications' | 'hobbies'>('presentation');
   const [secretClickCount, setSecretClickCount] = useState(0);
   const [isCooldown, setIsCooldown] = useState(false);
@@ -80,12 +78,7 @@ function AboutCard(): JSX.Element {
           </button>
         ))}
       </div>
-      <motion.div
-        ref={ref}
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : {}}
-        className="about-profile-content"
-      >
+      <div className="about-profile-content">
         {tabs.map(({ key }) => (
           <motion.div
             key={key}
@@ -103,7 +96,7 @@ function AboutCard(): JSX.Element {
             {key === 'hobbies' && <Hobbies t={t} onSecretClick={handleSecretClick} />}
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }

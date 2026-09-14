@@ -4,7 +4,7 @@ import TardisEncounter from "../Easter/TardisEncounter";
 import { useTimelineData } from "./data/timeline";
 import TimelineItem from "./TimelineItem";
 import '../../assets/styles/Experience/Experience.css';
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import useElementScrollProgress from "@/hooks/useElementScrollProgress";
 
@@ -32,14 +32,9 @@ const ExperienceTimeline = () => {
     <Container fluid className="timeline-page">
       {encounter && <TardisEncounter beat={beat} reducedMotion={!!reducedMotion} />}
       <Container className="timeline-container">
-        <motion.h1
-          className="experience-title"
-          initial={reducedMotion ? false : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
+        <h1 className="experience-title">
           {t("about_experience")}
-        </motion.h1>
+        </h1>
         <p className="experience-intro">{t("career.intro")}</p>
 
         <section className="career-section career-work" aria-labelledby="career-work-title">

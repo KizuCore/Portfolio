@@ -2,21 +2,19 @@ import "../../assets/styles/Legals/CookieBanner.css";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { updateConsent } from "../../utils/consent";
-
-const LS_KEY = "cookie-consent";
+import { CONSENT_EVENT, getConsent, updateConsent } from "../../utils/consent";
+import { getLocalizedPath, getShortLocale } from "../../config/seo";
 
 export default function CookieBanner() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     // Affiche la bannière jusqu’à ce que le visiteur exprime son choix de consentement.
-    const saved = localStorage.getItem(LS_KEY);
-    if (!saved) setVisible(true);
-    const onConsentSaved = () => setVisible(false);
-    window.addEventListener("cookie-consent-updated", onConsentSaved);
-    return () => window.removeEventListener("cookie-consent-updated", onConsentSaved);
+    const onConsentSaved = () => setVisible(getConsent() === null);
+    onConsentSaved();
+    window.addEventListener(CONSENT_EVENT, onConsentSaved);
+    return () => window.removeEventListener(CONSENT_EVENT, onConsentSaved);
   }, []);
 
   if (!visible) return null;
@@ -33,7 +31,7 @@ export default function CookieBanner() {
           {t("cookie_banner.text")}
           {" "}
           <Link
-            to="/politique-des-cookies"
+            to={getLocalizedPath(getShortLocale(i18n.language), "/politique-des-cookies")}
             className="cookie-banner-link"
             aria-label={t("footer_links.aria_cookies_policy")}
           >

@@ -11,15 +11,16 @@ const { default: handler } = await import('../api/sendEmail.js');
 
 const payload = {
   name: 'Camille <Martin>', email: 'client@example.com', subject: 'Projet <web>',
-  message: 'Bonjour !\nUne demande privée.', recaptchaToken: 'test-token',
+  message: 'Bonjour !\nUne demande privée.', recaptchaToken: 'test-token', captchaConsent: true,
 };
 
 test('contact notification and receipt', async (t) => {
   let nextIp = 0;
-  async function submit(t, { rejectSend = 0, captcha = true, locale } = {}) {
+  async function submit(t, { rejectSend = 0, captcha = true, captchaConsent = true, locale } = {}) {
     const sent = [];
     t.mock.method(globalThis, 'fetch', async (url, options) => {
       if (String(url) === 'https://www.google.com/recaptcha/api/siteverify') {
+        assert.equal(captchaConsent, true, 'No Google verification without specific consent');
         return Response.json({ success: captcha, action: 'contact', score: 0.9 });
       }
       assert.equal(String(url), 'https://api.resend.com/emails');
@@ -34,7 +35,7 @@ test('contact notification and receipt', async (t) => {
       json(body) { this.body = body; return this; },
     };
     const ip = `192.0.2.${++nextIp}`;
-    await handler({ method: 'POST', body: { ...payload, locale }, headers: { 'x-forwarded-for': ip } }, res);
+    await handler({ method: 'POST', body: { ...payload, captchaConsent, locale }, headers: { 'x-forwarded-for': ip } }, res);
     return { sent, res, ip };
   }
 
@@ -78,6 +79,15 @@ test('contact notification and receipt', async (t) => {
     assert.equal(sent.length, 0);
     assert.equal(res.code, 400);
   });
+
+  for (const captchaConsent of [false, null, 'true']) {
+    await t.test(`requires explicit captcha consent (${captchaConsent})`, async (t) => {
+      const { sent, res } = await submit(t, { captchaConsent });
+      assert.equal(sent.length, 0);
+      assert.equal(res.code, 400);
+      assert.equal(res.body.errorCode, 'captcha_consent_required');
+    });
+  }
 
   for (const locale of ['en', 'fr', 'bzh', 'unknown', undefined]) {
     await t.test(`receipt language for ${locale ?? 'missing locale'}`, async (t) => {

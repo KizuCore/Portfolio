@@ -5,6 +5,9 @@ import './assets/styles/index.css';
 import App from './App';
 import './i18n';
 import Preloader from '@/components/Layout/Preloader/Preloader';
+import { initializeAnalytics } from './services/analytics';
+
+initializeAnalytics();
 
 const CHUNK_RELOAD_KEY = 'vite-chunk-reload-once';
 

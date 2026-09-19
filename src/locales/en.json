@@ -359,7 +359,8 @@
         "invalid_email": "Please enter a valid email address.",
         "rate_limited": "Too many attempts. Please try again in a few seconds.",
         "send_failed": "An error occurred while sending the message.",
-        "method_not_allowed": "Method not allowed."
+        "method_not_allowed": "Method not allowed.",
+        "captcha_consent_required": "To submit the form, allow reCAPTCHA verification or use the email link provided."
     },
     "mentions_legales": {
         "title": "Legal Notice",
@@ -368,16 +369,18 @@
             "title": "1. Site Publisher",
             "site": "Website: theo-guerin.fr",
             "publisher": "Publisher: Théo Guérin – Sole Trader (KizuCore)",
-            "address": "Address withheld in accordance with Article 6 III-2 of French Law No. 2004-575 (LCEN). The host holds full contact details.",
+            "address": "Business address: 2 rue François Désiré Roulin, 35700 Rennes, France",
             "contact": "Email: theo.guerin35000@gmail.com",
-            "director": "Publication Director: Théo Guérin"
+            "director": "Publication Director: Théo Guérin",
+            "phone": "Phone: +33 7 70 45 40 02"
         },
         "host": {
             "title": "2. Hosting",
             "name": "Host: Vercel Inc.",
-            "address": "Address: 340 S Lemon Ave #4133, Walnut, CA 91789, USA",
+            "address": "Address: 440 N Barranca Avenue #4133, Covina, CA 91723, United States",
             "website": "Website: vercel.com",
-            "email": "Email: support@vercel.com"
+            "email": "Email: support@vercel.com",
+            "phone": "Phone: +1 559 288 7060"
         },
         "domain": {
             "title": "3. Domain Name",
@@ -387,11 +390,11 @@
         },
         "status": {
             "title": "4. Website Status",
-            "text": "This website is a personal portfolio presenting the publisher's professional activity. It does not offer online sales or an account area. The activity is registered under a SIRET number, displayed at the bottom of this page."
+            "text": "This professional website presents the work and services of Théo Guérin, a sole trader operating under the trade name KizuCore. Visitors can enquire about a project; the website offers no online payment or customer account. The SIRET registration number is provided below."
         },
         "ip": {
             "title": "5. Intellectual Property",
-            "text": "Unless otherwise stated, all content on this website (texts, images, logos, videos, code, and graphic resources) is the exclusive property of Théo Guérin. Embedded YouTube videos and third-party content remain the property of their respective authors and are used in accordance with their terms of use."
+            "text": "Original text and creations by Théo Guérin are protected by intellectual property law. Trademarks, screenshots of client projects, libraries, videos and third-party resources remain subject to their owners’ rights and licences. Public repositories specify any applicable terms for reusing their code."
         },
         "links": {
             "title": "6. External Links",
@@ -405,17 +408,17 @@
         },
         "cookies": {
             "title": "8. Cookies and Analytics",
-            "p1": "This site uses Google Analytics 4 only after your consent. Until you accept, no non-essential analytics cookies are set and no data is sent to Google. The contact form also uses Google reCAPTCHA v3 as a technical anti-spam protection mechanism.",
-            "p2": "Legal basis: consent (Article 6(1)(a) GDPR). You can change your preferences at any time via “Manage my cookies”.",
-            "p3": "Google Ireland Limited acts as a processor. Data transfers outside the EU may occur and are governed by the EU Standard Contractual Clauses. GA4 anonymizes IP addresses by default."
+            "p1": "Google Analytics 4 is loaded only after you accept audience measurement. Before acceptance or after refusal, the website makes no requests to that service. reCAPTCHA is separate and runs only when you submit the form after giving specific permission.",
+            "p2": "Audience measurement trackers and reCAPTCHA verification rely on your consent. Use “Manage my cookies” to withdraw analytics consent. You can email the publisher directly without using reCAPTCHA.",
+            "p3": "Audience measurement data is pseudonymised, which does not make it anonymous. Service providers, international transfers and retention periods are described in the privacy and cookie policies."
         },
         "security": {
             "title": "9. Security",
-            "text": "Reasonable measures are implemented to ensure the site’s security. The publisher cannot be held liable in the event of intrusion or malware."
+            "text": "Security measures protect the website and its contact form. No system can guarantee that an incident will never occur. The publisher remains subject to the responsibilities imposed by applicable law."
         },
         "law": {
             "title": "10. Governing Law",
-            "text": "This legal notice is governed by French law. In the event of a dispute and failing an amicable settlement, French courts shall have exclusive jurisdiction."
+            "text": "The website is governed by French law, subject to applicable mandatory provisions. Disputes are subject to statutory jurisdiction rules, including those protecting consumers."
         },
         "contact": {
             "title": "11. Contact",
@@ -430,52 +433,68 @@
         "controller": {
             "title": "1. Data Controller",
             "intro": "The controller of personal data collected on this website is:",
-            "name_line": "Théo Guérin",
+            "name_line": "Théo Guérin — Sole trader (KizuCore)",
             "email_label": "Email",
-            "site_label": "Website"
+            "site_label": "Website",
+            "address": "2 rue François Désiré Roulin, 35700 Rennes, France",
+            "phone": "Phone: +33 7 70 45 40 02",
+            "contact": "Contact: theo.guerin35000@gmail.com — theo-guerin.fr"
         },
         "data": {
             "title": "2. Data Collected and Purposes",
-            "intro": "Data on this site are collected solely for:",
-            "contact_form": "Contact form: name, email, message, and reCAPTCHA technical token. Purpose: to respond to your request and prevent abusive automated submissions.",
-            "analytics": "Audience measurement: via Google Analytics 4 (GA4). Purpose: anonymized statistics to improve the site.",
+            "intro": "The website processes information for the following purposes:",
+            "contact_form": "Contact: name, email address, subject, message and reply language, used to respond and send a receipt. The IP address is used to limit abuse and appears in the notification received by the publisher.",
+            "analytics": "Optional audience measurement: pages and interactions, browser and device characteristics, technical connection information and pseudonymous cookie identifiers. Statistics help understand website traffic. Names, email addresses and form contents are not intentionally sent to Analytics.",
             "legal_basis_intro": "Legal basis:",
-            "legal_basis_contact": "Legitimate interest for handling messages received via the contact form and preventing spam/abuse.",
-            "legal_basis_analytics": "Explicit consent for enabling Google Analytics."
+            "legal_basis_contact": "General enquiries and abuse prevention: the publisher’s legitimate interest in communicating with visitors and protecting the service (GDPR Article 6(1)(f)). Requests for quotes or services rely on pre-contractual steps taken at your request (Article 6(1)(b)).",
+            "legal_basis_analytics": "Optional analytics: consent (GDPR Article 6(1)(a)).",
+            "antispam": "Optional anti-bot verification: reCAPTCHA processes technical browser and connection information to assess abuse risks. The token and score validate the submission and are not included in emails. The service runs only with your specific consent.",
+            "hosting": "Hosting and security: Vercel processes requests, IP addresses and technical logs needed to deliver and protect the website.",
+            "required": "All four form fields are needed to process a submission. If you do not provide them or consent to anti-bot verification, you can use the email link instead. Refusing analytics does not prevent browsing or contacting the publisher.",
+            "legal_basis_captcha": "Activation of reCAPTCHA and its trackers: separate consent for each submission. Its score may block automatic submission; you can always email the publisher directly for a human response."
         },
         "ga4": {
             "title": "3. Google Analytics (GA4)",
-            "p1": "This site uses Google Analytics 4 only after your consent. Google Ireland Limited acts as a processor. Data transfers outside the EU may occur and are governed by the EU Standard Contractual Clauses.",
+            "p1": "Google Analytics 4, provided by Google, runs only after you agree. No Analytics script or cookieless measurement runs before acceptance. Advertising features and Google Signals are disabled in the website code. The data is pseudonymised, not described as anonymous.",
             "p2": "Details about cookie types, retention period, and consent management are provided in the Cookie Policy page.",
             "manage_button": "Manage my cookies",
             "manage_button_aria": "Open cookie preferences"
         },
         "recipients": {
             "title": "4. Data Recipients",
-            "text": "Data collected via the form are accessible only to the site owner. Audience data are sent to Google as the analytics provider. Technical anti-bot verification data are processed by Google (reCAPTCHA)."
+            "text": "Théo Guérin receives and handles enquiries. Vercel hosts the website and executes the contact endpoint. Resend (Plus Five Five, Inc.) delivers notifications and receipts. Recipients’ email providers, including Gmail for the publisher, store correspondence. Google provides Analytics and reCAPTCHA separately when you authorise them. These providers may process the data needed to operate their services.",
+            "transfers": "These services may involve processing outside the European Economic Area, including in the United States. Safeguards depend on each service and contract: standard contractual clauses and, where the recipient and processing are eligible, an adequacy decision. Provider documents are linked below; you may ask the publisher for details of the safeguards applicable to your data."
         },
         "rights": {
-            "title": "5. Your Rights",
-            "intro": "In accordance with the GDPR, you have the following rights:",
+            "title": "6. Your rights",
+            "intro": "Subject to the conditions in the GDPR and the legal basis for each processing activity, you may exercise the following rights:",
             "access": "Right of access",
             "rectification": "Right to rectification",
             "erasure": "Right to erasure",
             "restriction": "Right to restriction of processing",
             "objection": "Right to object",
-            "portability": "Right to data portability",
-            "exercise": "To exercise your rights, please write to:"
+            "portability": "Portability, for automated processing based on consent or a contract",
+            "exercise": "To exercise your rights, please write to:",
+            "withdrawal": "You may withdraw analytics consent at any time using “Manage my cookies”, without affecting the lawfulness of previous processing. reCAPTCHA consent is requested for each submission and can be unchecked before verification. The third-party code is unloaded when verification ends. Rights requests normally receive a response within one month; any lawful extension is explained.",
+            "complaint": "If you consider that your rights have not been respected, you may lodge a complaint with the French supervisory authority,"
         },
         "security": {
-            "title": "6. Security",
+            "title": "7. Security",
             "text": "Appropriate technical and organizational measures are implemented to protect personal data from loss, unauthorized access or disclosure. However, no system is completely secure."
         },
         "changes": {
-            "title": "7. Changes",
+            "title": "8. Changes",
             "text": "This policy may be updated as the site or regulations evolve. Any significant change will be indicated on this page."
         },
         "contact_update": {
-            "title": "8. Contact & Update",
+            "title": "9. Contact & updates",
             "text": "For any question about this policy, please write to:"
+        },
+        "retention": {
+            "title": "5. Retention periods",
+            "messages": "Enquiries that do not lead to a business relationship, and their notifications, are kept for no more than 12 months after the last exchange. Records needed for a contract or legal obligation are kept separately for the period applicable to their purpose. Messages are not stored in a database belonging to this website.",
+            "providers": "Technical copies held by providers follow their deletion schedules: Resend states 30 days for emails and logs on Free, Pro and Scale plans, with 7-day backups. Hosting and security logs depend on the subscribed services. The website uses the reCAPTCHA token for verification and does not retain it afterwards.",
+            "analytics": "Your analytics choice expires after a maximum of six months. Analytics cookies set by this site expire no later than that date, without automatic renewal on each visit. Google Analytics user data and event data retention are set to 2 months, with no reset of user data retention on new activity. Google deletes expired data during its monthly deletion cycle. This retention period does not apply to standard aggregated reports."
         }
     },
     "cookie_policy": {
@@ -484,25 +503,29 @@
         "what": {
             "title": "1. What is a cookie?",
             "p1": "A cookie is a small text file stored on your device when you browse a website.",
-            "p2": "It can be used to remember browsing preferences or to measure website traffic."
+            "p2": "This policy also covers similar storage, including localStorage for cookie choices and language, and sessionStorage for a technical reload marker."
         },
         "types": {
             "title": "2. Types of cookies used",
-            "necessary": "Strictly necessary cookies: required for the technical operation of the website, including reCAPTCHA anti-abuse protection on the contact form.",
-            "analytics": "Analytics cookies: Google Analytics (GA4), enabled only after your consent."
+            "necessary": "Functional storage: your consent choice (cookie-consent), language (i18nextLng) and a temporary marker preventing repeated reloads (vite-chunk-reload-once). These are not used for audience measurement.",
+            "analytics": "Optional audience measurement: Google Analytics _ga and _ga_* cookies, activated only after acceptance.",
+            "captcha": "Optional anti-bot verification: reCAPTCHA may read or set Google trackers, including _GRECAPTCHA. It requires specific permission on the form, independently of your Analytics choice."
         },
         "use": {
             "title": "3. Purposes",
-            "p1": "Technical cookies are used to ensure some website features work properly.",
-            "p2": "Analytics cookies are used to understand site usage and improve content quality."
+            "p1": "Functional storage remembers preferences and supports the website. reCAPTCHA helps limit automated submissions and has its own consent choice; direct email contact remains available.",
+            "p2": "Statistics help understand visits and improve pages. The website does not load Analytics before acceptance, sends no cookieless measurements after refusal and disables its advertising features in its configuration."
         },
         "duration": {
             "title": "4. Retention period",
-            "p1": "Consent preferences are stored for up to 6 months. Audience data are retained for a limited period, in line with applicable recommendations."
+            "p1": "Your analytics acceptance or refusal is remembered for no more than six months. You are asked again when it expires. Legacy choices without a date are also requested again. If browser storage is unavailable, the choice lasts only for the open page.",
+            "analytics": "The _ga and _ga_* cookies set by this site are limited to the time remaining before your choice expires, without automatic renewal on each visit. On Google Analytics servers, user data and event data retention are set to 2 months, without resetting retention on new user activity. Deletion follows Google’s monthly cycle. Standard aggregated reports are not subject to this retention period.",
+            "captcha": "reCAPTCHA permission is not saved for future submissions. The verification frame is removed after the response or after a maximum of 20 seconds. This does not delete third-party cookies already set by Google: their lifetime and deletion depend on Google and your browser settings.",
+            "storage": "The language preference stays in localStorage until you or your browser clear it. The reload marker is removed after a successful load or when the tab’s session ends."
         },
         "manage": {
             "title": "5. Manage your consent",
-            "p1": "You can accept or decline analytics cookies at any time.",
+            "p1": "Use “Manage my cookies” to change your Analytics choice. Withdrawal disables measurement, deletes accessible Analytics cookies on this domain and reloads the page to stop the loaded script. It does not retroactively delete data already sent. For reCAPTCHA, leave the form checkbox unchecked and use the email link. Your browser settings also allow you to delete third-party cookies.",
             "button": "Manage my cookies"
         },
         "update": {
@@ -513,12 +536,12 @@
     "cookie_prefs": {
         "title": "Privacy Preferences",
         "intro_1": "Manage your consent for cookies and similar technologies.",
-        "intro_2": "for anonymized statistics.",
+        "intro_2": "to measure traffic with your permission.",
         "analytics_label": "Audience measurement (Google Analytics)",
         "note": "Enabled only with your consent. You can change this at any time."
     },
     "cookie_banner": {
-        "text": "This site uses Google Analytics only with your consent for anonymized statistics.",
+        "text": "Google Analytics measures traffic only if you accept. You can refuse or change your choice at any time.",
         "learn_more": "Learn more",
         "decline": "Decline",
         "accept": "Accept",
@@ -895,5 +918,14 @@
                 "questions": []
             }
         }
+    },
+    "contact_privacy": {
+        "notice": "Théo Guérin uses this information to reply and send a receipt. Enquiries without a business follow-up are kept for no more than 12 months after the last exchange. To learn about providers and exercise your rights:",
+        "captcha_consent": "I agree to activate Google reCAPTCHA to verify this submission.",
+        "captcha_details": "Verification sends technical information to Google and may use its cookies. Google may also process this data for its own purposes. This choice is separate from analytics and requested for every submission. This form is protected by reCAPTCHA; the following Google policies apply:",
+        "google_privacy": "Privacy Policy",
+        "google_terms": "Terms of Service",
+        "alternative": "Prefer not to use reCAPTCHA? Email directly at",
+        "captcha_required": "To submit the form, allow reCAPTCHA verification or use the email link provided."
     }
 }

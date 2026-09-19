@@ -2,11 +2,12 @@ import { JSX } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Legals/Legals.css";
+import { LEGAL_UPDATED_HUMAN, LEGAL_UPDATED_ISO } from "../../data/legal";
 
 function PolitiqueCookies(): JSX.Element {
     const { i18n } = useTranslation();
-    const lastUpdateHuman = "13/03/2026";
-    const lastUpdateISO = "2026-03-13";
+    const lastUpdateHuman = LEGAL_UPDATED_HUMAN;
+    const lastUpdateISO = LEGAL_UPDATED_ISO;
     const currentLang = (i18n.resolvedLanguage ?? i18n.language ?? "fr").split("-")[0].toLowerCase();
     const legalLang = currentLang === "es" ? "en" : currentLang === "bzh" ? "fr" : currentLang === "en" ? "en" : "fr";
     const tx = i18n.getFixedT(legalLang);
@@ -38,6 +39,7 @@ function PolitiqueCookies(): JSX.Element {
                                         <ul>
                                             <li>{tx("cookie_policy.types.necessary")}</li>
                                             <li>{tx("cookie_policy.types.analytics")}</li>
+                                            <li>{tx("cookie_policy.types.captcha")}</li>
                                         </ul>
                                     </section>
 
@@ -54,6 +56,9 @@ function PolitiqueCookies(): JSX.Element {
                                             {tx("cookie_policy.duration.title")}
                                         </h2>
                                         <p>{tx("cookie_policy.duration.p1")}</p>
+                                        <p>{tx("cookie_policy.duration.analytics")}</p>
+                                        <p>{tx("cookie_policy.duration.captcha")}</p>
+                                        <p>{tx("cookie_policy.duration.storage")}</p>
                                     </section>
 
                                     <section className="mb-4" aria-labelledby="cp-manage-title">

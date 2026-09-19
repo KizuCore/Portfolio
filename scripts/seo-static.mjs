@@ -15,6 +15,7 @@ const PORTFOLIO_DATA_PATH = path.join(ROOT_DIR, "src", "data", "portfolio.ts");
 const LOCALES_DIR = path.join(ROOT_DIR, "src", "locales");
 const { getBusinessPage, getBusinessPages, getBusinessLabels } = loadTsModule(path.join(ROOT_DIR, "src", "data", "businessPages.ts"));
 const { getBusinessSchema } = loadTsModule(path.join(ROOT_DIR, "src", "config", "businessSchema.ts"));
+const { LEGAL_UPDATED_HUMAN, PRIVACY_RESOURCES } = loadTsModule(path.join(ROOT_DIR, "src", "data", "legal.ts"));
 
 // Charge un fichier de configuration ou de données TypeScript dans les scripts SEO Node sans compilation préalable.
 function loadTsModule(filePath) {
@@ -390,7 +391,7 @@ function buildRouteContent({ pathname, localeData, portfolio, seoConfig }) {
     <ul><li><a href="/pdf/CV-Guerin-Theo-FR.pdf" hreflang="fr">${escapeHtml(tx(localeData, "downloadcv"))} — PDF · FR</a></li></ul>
   `;
 
-  const legal = buildLegalContent(pathname, localeData);
+  const legal = buildLegalContent(pathname, localeData, portfolio.SITE_PROFILE.email);
 
   const contentByPath = {
     "/": home,
@@ -416,7 +417,7 @@ function buildLegalTitle(pathname, localeData) {
 }
 
 // Génère un contenu juridique suffisant pour les robots à partir des textes i18n existants.
-function buildLegalContent(pathname, localeData) {
+function buildLegalContent(pathname, localeData, email) {
   if (pathname === "/mentions-legales") {
     const sections = [
       "mentions_legales.editor",
@@ -424,31 +425,47 @@ function buildLegalContent(pathname, localeData) {
       "mentions_legales.domain",
       "mentions_legales.status",
       "mentions_legales.ip",
+      "mentions_legales.links",
       "mentions_legales.privacy",
       "mentions_legales.cookies",
+      "mentions_legales.security",
+      "mentions_legales.law",
       "mentions_legales.contact",
     ];
 
     return `
       <h1>${escapeHtml(tx(localeData, "mentions_legales.title"))}</h1>
       ${sections.map((key) => buildLegalSection(localeData, key)).join("")}
+      <p>${escapeHtml(tx(localeData, "mentions_legales.business_info"))}</p>
+      <p>${escapeHtml(tx(localeData, "mentions_legales.reference_clause"))}</p>
+      <p>${escapeHtml(tx(localeData, "mentions_legales.last_update", "", { date: LEGAL_UPDATED_HUMAN }))}</p>
     `;
   }
 
   if (pathname === "/politique-de-confidentialite") {
+    const emailLink = `<a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a>.`;
+    const suffixes = {
+      "politique_confidentialite.rights.exercise": emailLink,
+      "politique_confidentialite.rights.complaint": '<a href="https://www.cnil.fr/fr/plaintes">CNIL</a>.',
+      "politique_confidentialite.contact_update.text": emailLink,
+    };
     const sections = [
       "politique_confidentialite.controller",
       "politique_confidentialite.data",
       "politique_confidentialite.ga4",
       "politique_confidentialite.recipients",
+      "politique_confidentialite.retention",
       "politique_confidentialite.rights",
       "politique_confidentialite.security",
+      "politique_confidentialite.changes",
       "politique_confidentialite.contact_update",
     ];
 
     return `
       <h1>${escapeHtml(tx(localeData, "politique_confidentialite.title"))}</h1>
-      ${sections.map((key) => buildLegalSection(localeData, key)).join("")}
+      ${sections.map((key) => buildLegalSection(localeData, key, suffixes)).join("")}
+      <ul>${PRIVACY_RESOURCES.map(({ label, href }) => `<li><a href="${escapeHtml(href)}">${escapeHtml(label)}</a></li>`).join("")}</ul>
+      <p>${escapeHtml(tx(localeData, "politique_confidentialite.last_update", "", { date: LEGAL_UPDATED_HUMAN }))}</p>
     `;
   }
 
@@ -464,11 +481,12 @@ function buildLegalContent(pathname, localeData) {
   return `
     <h1>${escapeHtml(tx(localeData, "cookie_policy.title"))}</h1>
     ${sections.map((key) => buildLegalSection(localeData, key)).join("")}
+    <p>${escapeHtml(tx(localeData, "cookie_policy.last_update", "", { date: LEGAL_UPDATED_HUMAN }))}</p>
   `;
 }
 
 // Transforme un objet i18n juridique en section HTML compacte.
-function buildLegalSection(localeData, key) {
+function buildLegalSection(localeData, key, suffixes = {}) {
   const value = key.split(".").reduce((current, segment) => current?.[segment], localeData);
   if (!value || typeof value !== "object") {
     return "";
@@ -476,8 +494,8 @@ function buildLegalSection(localeData, key) {
 
   const title = typeof value.title === "string" ? value.title : key;
   const paragraphs = Object.entries(value)
-    .filter(([name, text]) => name !== "title" && typeof text === "string")
-    .map(([, text]) => `<p>${escapeHtml(text)}</p>`)
+    .filter(([name, text]) => name !== "title" && !/button|_label$|_aria$/.test(name) && typeof text === "string")
+    .map(([name, text]) => `<p>${escapeHtml(text)}${suffixes[`${key}.${name}`] ? ` ${suffixes[`${key}.${name}`]}` : ""}</p>`)
     .join("");
 
   return `<section><h2>${escapeHtml(title)}</h2>${paragraphs}</section>`;

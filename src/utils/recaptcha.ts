@@ -1,65 +1,31 @@
-declare global {
-  interface Window {
-    grecaptcha?: {
-      ready: (callback: () => void) => void;
-      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+// Le cadre temporaire isole le script tiers et disparaît après chaque vérification.
+export function getRecaptchaToken(siteKey: string, action: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const frame = document.createElement("iframe");
+    const requestId = crypto.randomUUID();
+    frame.src = "/recaptcha.html";
+    frame.hidden = true;
+    frame.title = "reCAPTCHA";
+    frame.setAttribute("aria-hidden", "true");
+    const cleanup = () => {
+      window.clearTimeout(timeout);
+      window.removeEventListener("message", receive);
+      window.removeEventListener("pagehide", cancel);
+      frame.remove();
     };
-  }
-}
-
-const RECAPTCHA_SCRIPT_ID = "google-recaptcha-v3";
-
-// Une promesse partagée évite que plusieurs composants injectent le même script externe.
-let recaptchaScriptPromise: Promise<void> | null = null;
-
-export function loadRecaptcha(siteKey: string) {
-  if (window.grecaptcha) {
-    return Promise.resolve();
-  }
-
-  if (recaptchaScriptPromise) {
-    return recaptchaScriptPromise;
-  }
-
-  recaptchaScriptPromise = new Promise<void>((resolve, reject) => {
-    const existingScript = document.getElementById(RECAPTCHA_SCRIPT_ID);
-
-    if (existingScript) {
-      // Réutilise une balise de script éventuellement injectée avant le chargement de ce module.
-      existingScript.addEventListener("load", () => resolve(), { once: true });
-      existingScript.addEventListener("error", () => reject(new Error("recaptcha_load_failed")), { once: true });
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.id = RECAPTCHA_SCRIPT_ID;
-    script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(siteKey)}`;
-    script.async = true;
-    script.defer = true;
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error("recaptcha_load_failed"));
-
-    document.head.appendChild(script);
-  });
-
-  return recaptchaScriptPromise;
-}
-
-export async function getRecaptchaToken(siteKey: string, action: string) {
-  await loadRecaptcha(siteKey);
-
-  return new Promise<string>((resolve, reject) => {
-    if (!window.grecaptcha) {
-      reject(new Error("recaptcha_unavailable"));
-      return;
-    }
-
-    // ready() attend que les services internes de Google soient prêts, même après le chargement du script.
-    window.grecaptcha.ready(() => {
-      window.grecaptcha
-        ?.execute(siteKey, { action })
-        .then(resolve)
-        .catch(reject);
-    });
+    const cancel = () => { cleanup(); reject(new Error("recaptcha_cancelled")); };
+    const receive = (event: MessageEvent) => {
+      if (event.origin !== location.origin || event.source !== frame.contentWindow || event.data?.requestId !== requestId) return;
+      if (event.data.type !== "recaptcha-result") return;
+      cleanup();
+      if (typeof event.data.token === "string" && event.data.token) resolve(event.data.token);
+      else reject(new Error("recaptcha_failed"));
+    };
+    const timeout = window.setTimeout(() => { cleanup(); reject(new Error("recaptcha_timeout")); }, 20000);
+    window.addEventListener("message", receive);
+    window.addEventListener("pagehide", cancel);
+    frame.onload = () => frame.contentWindow?.postMessage({ type: "recaptcha-start", requestId, siteKey, action }, location.origin);
+    frame.onerror = () => { cleanup(); reject(new Error("recaptcha_load_failed")); };
+    document.body.appendChild(frame);
   });
 }

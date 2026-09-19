@@ -38,6 +38,7 @@ function normalizePayload(body) {
     subject: cleanField(body.subject, MAX_FIELD_LENGTHS.subject),
     message: cleanField(body.message, MAX_FIELD_LENGTHS.message),
     recaptchaToken: cleanField(body.recaptchaToken, 4096),
+    captchaConsent: body.captchaConsent === true,
     locale: body.locale === 'en' ? 'en' : 'fr',
   };
 }
@@ -138,6 +139,10 @@ export default async function handler(req, res) {
 
   const payload = normalizePayload(req.body || {});
   const ip = getIp(req);
+
+  if (!payload.captchaConsent) {
+    return res.status(400).json({ success: false, errorCode: 'captcha_consent_required' });
+  }
 
   if (!payload.name || !payload.email || !payload.subject || !payload.message || !payload.recaptchaToken) {
     return res.status(400).json({

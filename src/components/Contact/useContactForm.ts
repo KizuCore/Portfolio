@@ -18,6 +18,7 @@ export function useContactForm(recaptchaSiteKey: string) {
   const [formData, setFormData] = useState<ContactFormFields>(EMPTY_FORM);
   const [fieldErrors, setFieldErrors] = useState<ContactFieldErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaConsent, setCaptchaConsent] = useState(false);
   const [status, setStatus] = useState<ContactFormStatus | null>(null);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -40,6 +41,7 @@ export function useContactForm(recaptchaSiteKey: string) {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (isSubmitting) return;
 
     // Valide chaque champ localement avant de solliciter reCAPTCHA ou l’API.
     const nextFieldErrors = Object.entries(formData).reduce<ContactFieldErrors>((errors, [name, value]) => {
@@ -57,6 +59,10 @@ export function useContactForm(recaptchaSiteKey: string) {
       return;
     }
 
+    if (!captchaConsent) {
+      setStatus({ variant: "danger", translationKey: "contact_privacy.captcha_required" });
+      return;
+    }
     if (!recaptchaSiteKey) {
       setStatus({ variant: "danger", translationKey: "errors.captcha_failed" });
       return;
@@ -65,10 +71,10 @@ export function useContactForm(recaptchaSiteKey: string) {
     setIsSubmitting(true);
 
     try {
-      // Charge reCAPTCHA uniquement à l’envoi pour éviter les messages des cadres tiers dans la console pendant les audits.
+      // L’accord est distinct du consentement aux statistiques et renouvelé pour chaque envoi.
       const recaptchaToken = await getRecaptchaToken(recaptchaSiteKey, RECAPTCHA_ACTION);
       const locale = (i18n.resolvedLanguage ?? i18n.language).split('-')[0] === 'en' ? 'en' : 'fr';
-      const result = await sendContactEmail({ ...formData, recaptchaToken, locale });
+      const result = await sendContactEmail({ ...formData, recaptchaToken, captchaConsent: true, locale });
 
       if (result.ok && result.data.success) {
         setStatus({ variant: "success", translationKey: "message_success" });
@@ -85,6 +91,7 @@ export function useContactForm(recaptchaSiteKey: string) {
       setStatus({ variant: "danger", translationKey: "message_error" });
     } finally {
       setIsSubmitting(false);
+      setCaptchaConsent(false);
     }
   };
 
@@ -92,6 +99,8 @@ export function useContactForm(recaptchaSiteKey: string) {
     formData,
     fieldErrors,
     isSubmitting,
+    captchaConsent,
+    setCaptchaConsent,
     status,
     clearStatus,
     handleChange,

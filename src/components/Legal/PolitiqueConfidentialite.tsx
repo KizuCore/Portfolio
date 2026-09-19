@@ -4,11 +4,12 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import "../../assets/styles/Legals/Legals.css";
 import { SITE_PROFILE, getSiteUrl } from "../../config/site";
+import { LEGAL_UPDATED_HUMAN, LEGAL_UPDATED_ISO, PRIVACY_RESOURCES } from "../../data/legal";
 
 function PolitiqueConfidentialite(): JSX.Element {
   const { i18n } = useTranslation();
-  const lastUpdateHuman = "13/03/2026";
-  const lastUpdateISO = "2026-03-13";
+  const lastUpdateHuman = LEGAL_UPDATED_HUMAN;
+  const lastUpdateISO = LEGAL_UPDATED_ISO;
   const email = SITE_PROFILE.email;
   const siteHostname = new URL(getSiteUrl()).hostname;
   const currentLang = (i18n.resolvedLanguage ?? i18n.language ?? "fr").split("-")[0].toLowerCase();
@@ -38,6 +39,8 @@ function PolitiqueConfidentialite(): JSX.Element {
                     </p>
 
                     <address>
+                      <p>{tx("politique_confidentialite.controller.address")}</p>
+                      <p>{tx("politique_confidentialite.controller.phone")}</p>
                       <p>
                         {tx("politique_confidentialite.controller.email_label")}: <a href={`mailto:${email}`}>{email}</a>
                       </p>
@@ -55,11 +58,15 @@ function PolitiqueConfidentialite(): JSX.Element {
                     <ul>
                       <li>{tx("politique_confidentialite.data.contact_form")}</li>
                       <li>{tx("politique_confidentialite.data.analytics")}</li>
+                      <li>{tx("politique_confidentialite.data.antispam")}</li>
+                      <li>{tx("politique_confidentialite.data.hosting")}</li>
                     </ul>
+                    <p>{tx("politique_confidentialite.data.required")}</p>
                     <p>{tx("politique_confidentialite.data.legal_basis_intro")}</p>
                     <ul>
                       <li>{tx("politique_confidentialite.data.legal_basis_contact")}</li>
                       <li>{tx("politique_confidentialite.data.legal_basis_analytics")}</li>
+                      <li>{tx("politique_confidentialite.data.legal_basis_captcha")}</li>
                     </ul>
                   </section>
 
@@ -70,7 +77,7 @@ function PolitiqueConfidentialite(): JSX.Element {
                     <p>{tx("politique_confidentialite.ga4.p1")}</p>
                     <p>{tx("politique_confidentialite.ga4.p2")}</p>
                     <p>
-                      <Link to="/politique-des-cookies">{tx("footer_links.cookies_policy")}</Link>
+                      <Link to={`/${legalLang}/politique-des-cookies`}>{tx("footer_links.cookies_policy")}</Link>
                     </p>
 
                     <button
@@ -88,6 +95,15 @@ function PolitiqueConfidentialite(): JSX.Element {
                       {tx("politique_confidentialite.recipients.title")}
                     </h2>
                     <p>{tx("politique_confidentialite.recipients.text")}</p>
+                    <p>{tx("politique_confidentialite.recipients.transfers")}</p>
+                    <ul>{PRIVACY_RESOURCES.map((resource) => <li key={resource.href}><a href={resource.href} target="_blank" rel="noopener noreferrer">{resource.label}</a></li>)}</ul>
+                  </section>
+
+                  <section className="mb-4" aria-labelledby="pc-retention-title">
+                    <h2 id="pc-retention-title" className="h4">{tx("politique_confidentialite.retention.title")}</h2>
+                    <p>{tx("politique_confidentialite.retention.messages")}</p>
+                    <p>{tx("politique_confidentialite.retention.providers")}</p>
+                    <p>{tx("politique_confidentialite.retention.analytics")}</p>
                   </section>
 
                   <section className="mb-4" aria-labelledby="pc-rights-title">
@@ -106,6 +122,8 @@ function PolitiqueConfidentialite(): JSX.Element {
                     <p>
                       {tx("politique_confidentialite.rights.exercise")} <a href={`mailto:${email}`}>{email}</a>.
                     </p>
+                    <p>{tx("politique_confidentialite.rights.withdrawal")}</p>
+                    <p>{tx("politique_confidentialite.rights.complaint")} <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener noreferrer">CNIL</a>.</p>
                   </section>
 
                   <section className="mb-4" aria-labelledby="pc-security-title">

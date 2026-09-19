@@ -2,10 +2,11 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Legals/Legals.css";
+import { LEGAL_UPDATED_HUMAN } from "../../data/legal";
 
 function MentionsLegales(): JSX.Element {
   const { i18n } = useTranslation();
-  const lastUpdate = "13/03/2026";
+  const lastUpdate = LEGAL_UPDATED_HUMAN;
   const currentLang = (i18n.resolvedLanguage ?? i18n.language ?? "fr").split("-")[0].toLowerCase();
   const legalLang = currentLang === "es" ? "en" : currentLang === "bzh" ? "fr" : currentLang === "en" ? "en" : "fr";
   const tx = i18n.getFixedT(legalLang);
@@ -25,6 +26,7 @@ function MentionsLegales(): JSX.Element {
                   <p>{tx("mentions_legales.editor.publisher")}</p>
                   <p>{tx("mentions_legales.editor.address")}</p>
                   <p>{tx("mentions_legales.editor.contact")}</p>
+                  <p>{tx("mentions_legales.editor.phone")}</p>
                   <p>{tx("mentions_legales.editor.director")}</p>
                 </section>
 
@@ -34,6 +36,7 @@ function MentionsLegales(): JSX.Element {
                   <p>{tx("mentions_legales.host.address")}</p>
                   <p>{tx("mentions_legales.host.website")}</p>
                   <p>{tx("mentions_legales.host.email")}</p>
+                  <p>{tx("mentions_legales.host.phone")}</p>
                 </section>
 
                 <section className="mb-4">

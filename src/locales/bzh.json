@@ -359,166 +359,189 @@
         "invalid_email": "Skrivit ur chomlec'h postel talvoudek mar plij.",
         "rate_limited": "Re a c'houlennadoù. Klaskit en-dro a-benn nebeud.",
         "send_failed": "Ur fazi zo c'hoarvezet e-pad kas ar c'hemennadenn.",
-        "method_not_allowed": "Doare n'eo ket aotreet."
+        "method_not_allowed": "Doare n'eo ket aotreet.",
+        "captcha_consent_required": "Evit kas ar furmskrid, asantit da reCAPTCHA pe implijit al liamm postel."
     },
     "mentions_legales": {
-        "title": "Menegoù lezennel",
-        "last_update": "Hizivaat diwezhañ : {{date}}",
+        "title": "Mentions légales",
+        "last_update": "Dernière mise à jour : {{date}}",
         "editor": {
-            "title": "1. Embanner al lec'hienn",
-            "site": "Lec'hienn : theo-guerin.fr",
-            "publisher": "Embanner : Théo Guérin – Entreprenour hiniennel (KizuCore)",
-            "address": "Chomlec'h n’eo ket embannet hervez lezenn n°2004-575 eus an 21 a viz even 2004. An ostiz (Vercel) a zalc’h an titouroù klok.",
-            "contact": "Darempred : theo.guerin35000@gmail.com",
-            "director": "Rener an embann : Théo Guérin"
+            "title": "1. Éditeur du site",
+            "site": "Site : theo-guerin.fr",
+            "publisher": "Éditeur : Théo Guérin – Entrepreneur individuel (KizuCore)",
+            "address": "Adresse professionnelle : 2 rue François Désiré Roulin, 35700 Rennes, France",
+            "contact": "Contact : theo.guerin35000@gmail.com",
+            "director": "Directeur de la publication : Théo Guérin",
+            "phone": "Téléphone : 07 70 45 40 02"
         },
         "host": {
-            "title": "2. Ostiz",
-            "name": "Ostiz : Vercel Inc.",
-            "address": "Chomlec'h : 340 S Lemon Ave #4133, Walnut, CA 91789, SUA",
-            "website": "Lec'hienn : vercel.com",
-            "email": "Postel : support@vercel.com"
+            "title": "2. Hébergement",
+            "name": "Hébergeur : Vercel Inc.",
+            "address": "Adresse : 440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis",
+            "website": "Site : vercel.com",
+            "email": "Email : support@vercel.com",
+            "phone": "Téléphone : +1 559 288 7060"
         },
         "domain": {
-            "title": "3. Anv-domani",
-            "registrar": "Enroller an anv-domani : OVHcloud",
-            "registrar_address": "Chomlec'h : 2 rue Kellermann, 59100 Roubaix, Frañs",
-            "registrar_site": "Lec'hienn : ovhcloud.com"
+            "title": "3. Nom de domaine",
+            "registrar": "Bureau d’enregistrement : OVHcloud",
+            "registrar_address": "Adresse : 2 rue Kellermann, 59100 Roubaix, France",
+            "registrar_site": "Site : ovhcloud.com"
         },
         "status": {
-            "title": "4. Statud al lec'hienn",
-            "text": "Ur portfolio personel eo al lec'hienn-mañ, hep pal kenwerzhel eeun. N'eus na gwerzh enlinenn na gkontoù implijer. Hep obererezh micherel, n'eus ket ezhomm a niver SIREN/SIRET."
+            "title": "4. Statut du site",
+            "text": "Ce site professionnel présente les réalisations et les prestations de Théo Guérin, entrepreneur individuel exerçant sous le nom commercial KizuCore. Il permet de prendre contact pour un projet ; il ne propose pas de paiement en ligne ni d’espace client. Le numéro SIRET figure ci-dessous."
         },
         "ip": {
-            "title": "5. Gwirioù-perchennañ war ar spered",
-            "text": "Nemet ma vo meneg all, holl an danvez war al lec’hienn-mañ (testoù, skeudennoù, logoioù, videoioù, kod ha loadoù grafek) a zo perzh-pren Théo Guérin. Ar videoioù YouTube enframet hag an danvezioù a zeu eus an trede-tuden a chom perzh-pren o autoresoù ha vez implijet hervez o c’hondisionoù-implij."
+            "title": "5. Propriété intellectuelle",
+            "text": "Les textes et créations originales de Théo Guérin sont protégés par le droit de la propriété intellectuelle. Les marques, captures de projets clients, bibliothèques, vidéos et ressources de tiers restent soumises aux droits et licences de leurs titulaires. Les liens vers les dépôts publics précisent, le cas échéant, les conditions de réutilisation du code."
         },
         "links": {
-            "title": "6. Liammoù diavaez",
-            "text": "Ne gemer ket an embanner e zlead war al liammoù etrezek lec'hiennoù all. Mont d'al lec'hiennoù trede a reer dindan ho riskl hoc'h-unan."
+            "title": "6. Liens externes",
+            "text": "Les liens hypertextes vers d’autres sites ne sauraient engager la responsabilité de l’éditeur. L’accès à ces sites tiers se fait sous votre seule responsabilité."
         },
         "privacy": {
-            "title": "7. Roadennoù personel",
-            "p1": "Gallout a ra al lec'hienn dastum roadennoù dre ar furmskrid darempredin, dre ur gwiriadenn anti-abuz reCAPTCHA v3 (Google), ha dre binvioù muzuliañ ar boblañs.",
-            "p2": "Hoc'h eus ar gwirioù moned, reizhañ, diverkañ, enebiñ, bevenniñ hag heñchañ (portabilite). Evit o c'houlenniñ : theo.guerin35000@gmail.com.",
-            "p3": "Evit muioc'h a ditouroù, gwelit ar Bolitikerezh prevezded."
+            "title": "7. Données personnelles",
+            "p1": "Ce site peut collecter des données personnelles via le formulaire de contact, via un mécanisme anti-abus reCAPTCHA v3 (Google) et via des outils de mesure d'audience.",
+            "p2": "Vous disposez des droits d’accès, de rectification, d’effacement, d’opposition, de limitation et de portabilité de vos données. Pour exercer vos droits : theo.guerin35000@gmail.com.",
+            "p3": "Pour plus d’informations, consultez la Politique de confidentialité."
         },
         "cookies": {
-            "title": "8. Toupinoù (cookies) ha muzuliñ ar boblañs",
-            "p1": "Implijet e vez Google Analytics 4 nemet goude ho asant. Ken na asantit, ne vo lakaet toupin analiz ebet ha ne vo kaset roadenn ebet da Google. Ar furmskrid darempredin a implij ivez Google reCAPTCHA v3 evit difenn ouzh ar spam teknik.",
-            "p2": "Diazez lezennel : asant (artikl 6(1)(a) RGPD). Gallout a rit kemmañ ho gwellvezioù forzh pegoulz dre « Merañ ma zoupinoù ».",
-            "p3": "Google Ireland Limited zo evel prenadour-implij. Gall a ra bezañ treuzkasadennoù e-diavaez an UE, renet gant ar C'homenadoù Kendivizel Skouer. GA4 a zianonimezañ an IP dre ziouer."
+            "title": "8. Cookies et mesure d’audience",
+            "p1": "Google Analytics 4 est chargé uniquement après acceptation de la mesure d’audience. Avant cet accord ou après un refus, aucun appel à ce service n’est déclenché par le site. reCAPTCHA est un service distinct, activé uniquement à l’envoi du formulaire après un accord spécifique.",
+            "p2": "Les traceurs de mesure d’audience et la vérification reCAPTCHA reposent sur votre consentement. « Gérer mes cookies » permet de retirer l’accord aux statistiques. Vous pouvez contacter directement l’éditeur par email sans utiliser reCAPTCHA.",
+            "p3": "Les données de mesure d’audience sont pseudonymisées, ce qui ne signifie pas qu’elles sont anonymes. Les prestataires, les transferts internationaux et les durées de conservation sont décrits dans la politique de confidentialité et la politique des cookies."
         },
         "security": {
-            "title": "9. Surentez",
-            "text": "Mijoù dereat a vez lakaet e plas evit gwareziñ al lec'hienn. Ne c'hall ket an embanner bezañ dalc'het da zispign pa'z eus un enankadenn pe ur viros."
+            "title": "9. Sécurité",
+            "text": "Des mesures de sécurité sont mises en œuvre pour protéger le site et son formulaire. Aucun système ne peut garantir une absence totale d’incident. Les responsabilités de l’éditeur restent celles prévues par la législation applicable."
         },
         "law": {
-            "title": "10. Lezenn a denn",
-            "text": "Menegoù lezennel-mañ a zo dindan lezenn Frañs. E kasez a dabutoù, mar bez hep kendiviz, e vo barnet gant lez-varn Frañs."
+            "title": "10. Droit applicable",
+            "text": "Le site est soumis au droit français, sous réserve des dispositions impératives applicables. En cas de différend, les règles légales de compétence juridictionnelle s’appliquent, notamment celles protégeant les consommateurs."
         },
         "contact": {
-            "title": "11. Darempred",
-            "text": "Evit pep goulenn : theo.guerin35000@gmail.com"
+            "title": "11. Contact",
+            "text": "Pour toute demande : theo.guerin35000@gmail.com"
         },
-        "reference_clause": "Ma vez diforc'h etre an troidigezhioù, ar stumm galleg a ra feur.",
-        "business_info": "KizuCore zo merk kenwerzhel implijet gant Théo Guérin en e obererezh entreprenour hiniennel gant SIRET 992 406 397 00016."
+        "reference_clause": "En cas de divergence entre les traductions, la version française fait foi.",
+        "business_info": "KizuCore est une marque commerciale utilisée par Théo Guérin dans le cadre de son activité d'entrepreneur individuel enregistrée sous le SIRET 992 406 397 00016."
     },
     "politique_confidentialite": {
-        "title": "Politikerezh prevezded",
-        "last_update": "Hizivaat diwezhañ : {{date}}",
+        "title": "Politique de confidentialité",
+        "last_update": "Dernière mise à jour : {{date}}",
         "controller": {
-            "title": "1. An den karg ouzh an treterezh",
-            "intro": "An den karg ouzh treterezh ar roadennoù personel war al lec'hienn-mañ eo :",
-            "name_line": "Théo Guérin",
-            "email_label": "Postel",
-            "site_label": "Lec'hienn"
+            "title": "1. Responsable du traitement",
+            "intro": "Le responsable du traitement des données personnelles collectées sur ce site est :",
+            "name_line": "Théo Guérin — Entrepreneur individuel (KizuCore)",
+            "email_label": "Email",
+            "site_label": "Site",
+            "address": "2 rue François Désiré Roulin, 35700 Rennes, France",
+            "phone": "Téléphone : 07 70 45 40 02",
+            "contact": "Contact : theo.guerin35000@gmail.com — theo-guerin.fr"
         },
         "data": {
-            "title": "2. Roadennoù dastumet ha palioù",
-            "intro": "Dastumet e vez ar roadennoù war al lec'hienn evit :",
-            "contact_form": "Furmskrid darempredin : anv, postel, kemennadenn ha jeton teknik reCAPTCHA. Pal : respont d'ho koulenn ha prevenin kasadennoù emgefreek re-abuz.",
-            "analytics": "Muzuliñ ar boblañs : dre Google Analytics 4 (GA4). Pal : stadegoù dianon evit gwellaat al lec'hienn.",
-            "legal_basis_intro": "Diazez lezennel :",
-            "legal_basis_contact": "Interest talvoudus evit meran ar c'hemennadenno dre ar furmskrid ha prevenin spam/abuz.",
-            "legal_basis_analytics": "Asant splann evit gweredekaat Google Analytics."
+            "title": "2. Données collectées et finalités",
+            "intro": "Le site traite les informations nécessaires aux finalités suivantes :",
+            "contact_form": "Contact : nom, adresse email, objet, contenu du message et langue de réponse. Ces informations servent à répondre à votre demande et à vous envoyer un accusé de réception. L’adresse IP est utilisée pour limiter les abus et figure dans la notification reçue par l’éditeur.",
+            "analytics": "Mesure d’audience facultative : pages et interactions, caractéristiques du navigateur et de l’appareil, informations techniques de connexion et identifiants de cookies pseudonymes. Les statistiques servent à comprendre la fréquentation du site. Aucun nom, email ou contenu du formulaire n’est volontairement transmis à Analytics.",
+            "legal_basis_intro": "Base légale du traitement :",
+            "legal_basis_contact": "Réponse aux demandes générales et prévention des abus : intérêt légitime de l’éditeur à communiquer avec ses visiteurs et à protéger le service (article 6(1)(f) du RGPD). Une demande de devis ou de prestation relève des mesures précontractuelles prises à votre demande (article 6(1)(b)).",
+            "legal_basis_analytics": "Statistiques facultatives : consentement (article 6(1)(a) du RGPD).",
+            "antispam": "Vérification antirobot facultative : reCAPTCHA traite des informations techniques sur votre navigateur et votre connexion pour évaluer le risque d’abus. Le jeton et le score servent à valider l’envoi ; ils ne sont pas inclus dans les emails. Le service ne fonctionne qu’après votre accord spécifique.",
+            "hosting": "Hébergement et sécurité : Vercel traite les requêtes, adresses IP et journaux techniques nécessaires à la fourniture et à la protection du site.",
+            "required": "Les quatre champs du formulaire sont nécessaires pour traiter l’envoi. Sans ces informations ou sans accord à la vérification antirobot, vous pouvez utiliser le lien email proposé. Le refus des statistiques n’empêche pas de naviguer ou de prendre contact.",
+            "legal_basis_captcha": "Activation de reCAPTCHA et des traceurs associés : consentement distinct à chaque envoi. Le score peut empêcher l’envoi automatique ; vous pouvez toujours écrire directement par email pour obtenir une réponse humaine."
         },
         "ga4": {
             "title": "3. Google Analytics (GA4)",
-            "p1": "Implijet e vez GA4 nemet goude ho asant. Google Ireland Limited a zo prenadour-implij. Gallout a ra bezañ treuzkasadennoù e-diavaez an UE, renet gant ar C'homenadoù Kendivizel Skouer.",
-            "p2": "Anv-an-dreist (IP) a vez dianoniet dre ziouer ha miret e vez ar roadennoù e-pad ur prantad strizh. Gallout a rit kemmañ ho gwellvezioù forzh pegoulz dre ar banell dindan pe al liamm « Merañ ma zoupinoù » er foñz pajenn.",
-            "manage_button": "Merañ ma zoupinoù",
-            "manage_button_aria": "Digeriñ gwellvezioù an toupinoù"
+            "p1": "Google Analytics 4, fourni par Google, est activé uniquement après votre accord. Aucun script Analytics ni mesure sans cookie n’est chargé avant acceptation. Les fonctions publicitaires et Google Signals sont désactivés dans le code du site. Les données restent pseudonymisées : elles ne sont pas présentées comme anonymes.",
+            "p2": "Le détail des cookies, de leur durée de conservation et des modalités de gestion du consentement est présenté dans la Politique des cookies.",
+            "manage_button": "Gérer mes cookies",
+            "manage_button_aria": "Gérer les préférences de cookies"
         },
         "recipients": {
-            "title": "4. Degemererien ar roadennoù",
-            "text": "Ar roadennoù kaset dre ar furmskrid a vez tennet-gwered gant perc'henn al lec'hienn hepken. Ar roadennoù stadegel a vez kaset da Google evel pourchaser analiz. Ar roadennoù teknik anti-bot a vez trezet gant Google (reCAPTCHA)."
+            "title": "4. Destinataires des données",
+            "text": "Théo Guérin reçoit et traite les demandes. Vercel héberge le site et exécute le formulaire. Resend (Plus Five Five, Inc.) achemine les notifications et accusés de réception. La messagerie du destinataire, notamment Gmail pour l’éditeur, conserve les échanges. Google intervient séparément pour Analytics et reCAPTCHA lorsque vous les autorisez. Ces prestataires peuvent traiter les données nécessaires à leurs services.",
+            "transfers": "Ces services peuvent impliquer un traitement hors de l’Espace économique européen, notamment aux États-Unis. Les garanties dépendent du service et de son contrat : clauses contractuelles types et, lorsque le destinataire et le traitement y sont éligibles, décision d’adéquation. Les documents des prestataires sont accessibles ci-dessous ; vous pouvez demander à l’éditeur des précisions sur les garanties applicables à vos données."
         },
         "rights": {
-            "title": "5. Ho gwirioù",
-            "intro": "Hervez ar RGPD, hoc'h eus ar gwirioù da-heul :",
-            "access": "Gwir moned",
-            "rectification": "Gwir reizhañ",
-            "erasure": "Gwir diverkañ",
-            "restriction": "Gwir bevenniñ an treterezh",
-            "objection": "Gwir enebiñ",
-            "portability": "Gwir heñchañ (portabilite)",
-            "exercise": "Evit goulenn implij ho gwirioù, skrivait da :"
+            "title": "6. Vos droits",
+            "intro": "Selon les conditions prévues par le RGPD et la base légale du traitement, vous pouvez exercer les droits suivants :",
+            "access": "Droit d’accès",
+            "rectification": "Droit de rectification",
+            "erasure": "Droit à l’effacement",
+            "restriction": "Droit à la limitation du traitement",
+            "objection": "Droit d’opposition",
+            "portability": "Portabilité, pour les traitements automatisés fondés sur le consentement ou un contrat",
+            "exercise": "Pour exercer vos droits, vous pouvez écrire à :",
+            "withdrawal": "Vous pouvez retirer votre consentement aux statistiques à tout moment via « Gérer mes cookies », sans affecter la licéité des traitements antérieurs. L’accord à reCAPTCHA est demandé à chaque envoi et peut être décoché avant la vérification. Le code tiers est déchargé à la fin de cette vérification. Les demandes d’exercice des droits reçoivent en principe une réponse sous un mois ; toute prolongation légale est expliquée.",
+            "complaint": "Si vous estimez que vos droits ne sont pas respectés, vous pouvez déposer une réclamation auprès de la"
         },
         "security": {
-            "title": "6. Surentez",
-            "text": "Mijoù teknik hag aozadel a vez lakaet e plas evit gwareziñ ar roadennoù. Koulskoude, n'eus reizhiad ebet kalet-da-vat."
+            "title": "7. Sécurité",
+            "text": "Des mesures techniques et organisationnelles adaptées sont mises en œuvre pour protéger les données personnelles contre la perte, l’accès non autorisé ou la divulgation. Cependant, aucun système n’est totalement sécurisé."
         },
         "changes": {
-            "title": "7. Kemmoù",
-            "text": "Gallout a ra ar bolitikerezh-mañ bezañ hizivaet hervez diorren al lec'hienn pe al lezenn. Kemmoù pouezus a vo menegeret amañ."
+            "title": "8. Modifications",
+            "text": "Cette politique peut être mise à jour en fonction de l’évolution du site ou de la réglementation. Toute modification importante sera indiquée sur cette page."
         },
         "contact_update": {
-            "title": "8. Darempred & hizivadenn",
-            "text": "Evit goulennoù diwar-benn ar bolitikerezh-mañ, skrivait da :"
+            "title": "9. Contact & mise à jour",
+            "text": "Pour toute question concernant cette politique, vous pouvez écrire à :"
+        },
+        "retention": {
+            "title": "5. Durées de conservation",
+            "messages": "Les demandes sans suite commerciale et leurs notifications sont conservées au maximum 12 mois après le dernier échange. Les documents nécessaires à une relation contractuelle ou à une obligation légale sont conservés séparément pendant la durée applicable à leur finalité. Les messages ne sont pas enregistrés dans une base de données propre à ce site.",
+            "providers": "Les copies techniques chez les prestataires suivent leurs propres délais de suppression : Resend annonce 30 jours pour les emails et journaux des offres Free, Pro et Scale, avec des sauvegardes de 7 jours. Les journaux d’hébergement et de sécurité dépendent des services souscrits. Le jeton reCAPTCHA est utilisé pour la vérification puis n’est pas conservé par le site.",
+            "analytics": "Le choix relatif aux statistiques expire après six mois au maximum. Les cookies Analytics du site expirent au plus tard à cette échéance, sans prolongation automatique à chaque visite. Dans Google Analytics, la conservation des données utilisateur et des données d’événement est réglée sur 2 mois, sans réinitialisation de la durée des données utilisateur lors d’une nouvelle activité. Google supprime les données arrivées à échéance lors de son cycle mensuel. Cette durée ne s’applique pas aux rapports standards agrégés."
         }
     },
     "cookie_policy": {
-        "title": "Politikerezh toupinoù",
-        "last_update": "Hizivaat diwezhañ : {{date}}",
+        "title": "Politique des cookies",
+        "last_update": "Dernière mise à jour : {{date}}",
         "what": {
-            "title": "1. Petra eo un toupin?",
-            "p1": "Un toupin zo ur restr testenn bihan enrollet war ho trevnad pa welit ul lec'hienn web.",
-            "p2": "Gallout a ra bezañ implijet evit derc'hel soñj eus gwellvezioù merdeiñ pe evit muzuliñ an ergerzhadeg war al lec'hienn."
+            "title": "1. Qu’est-ce qu’un cookie ?",
+            "p1": "Un cookie est un petit fichier texte déposé sur votre appareil lorsque vous consultez un site web.",
+            "p2": "La présente politique couvre aussi les stockages similaires, notamment localStorage pour le choix des cookies et la langue, et sessionStorage pour un indicateur technique de rechargement."
         },
         "types": {
-            "title": "2. Rizhioù toupinoù implijet",
-            "necessary": "Toupinoù strizh-ret : ret evit mont en-dro teknik al lec'hienn, en o zouez difenn anti-abuz reCAPTCHA war ar furmskrid darempredin.",
-            "analytics": "Toupinoù stadelerezh : Google Analytics (GA4), gweredekaet nemet goude hoc'h asant."
+            "title": "2. Types de cookies utilisés",
+            "necessary": "Stockages fonctionnels : mémorisation de votre choix de consentement (cookie-consent), de la langue (i18nextLng) et d’un indicateur temporaire évitant les rechargements répétés (vite-chunk-reload-once). Ils ne servent pas à mesurer l’audience.",
+            "analytics": "Mesure d’audience facultative : cookies _ga et _ga_* de Google Analytics, activés uniquement après acceptation.",
+            "captcha": "Vérification antirobot facultative : reCAPTCHA peut lire ou déposer des traceurs Google, notamment _GRECAPTCHA. Il nécessite un accord spécifique au formulaire et ne dépend pas de votre choix pour Analytics."
         },
         "use": {
-            "title": "3. Palioù",
-            "p1": "An toupinoù teknik a servij d'ar fonksionoù pennañ da vont en-dro mat.",
-            "p2": "An toupinoù stadelerezh a servij da gompren implij al lec'hienn ha gwellaat an danvez."
+            "title": "3. Finalités",
+            "p1": "Les stockages fonctionnels mémorisent vos préférences et contribuent au fonctionnement du site. La vérification reCAPTCHA sert à limiter les envois automatisés et fait l’objet d’un choix distinct ; un contact direct par email reste possible.",
+            "p2": "Les statistiques servent à comprendre les visites et à améliorer les pages. Le site ne charge pas Analytics avant acceptation, ne transmet pas de mesures sans cookie après un refus et désactive ses fonctions publicitaires dans sa configuration."
         },
         "duration": {
-            "title": "4. Pad miret",
-            "p1": "Miret e vez ar gwellvezioù asant betek 6 miz. Ar roadennoù boblañs a vez miret e-pad ur prantad bevennet hervez ar c'hinnigoù e pleustr."
+            "title": "4. Durée de conservation",
+            "p1": "Votre acceptation ou refus des statistiques est mémorisé pendant six mois au maximum. À l’échéance, le choix est redemandé. Les anciens choix sans date sont également redemandés. Si le navigateur refuse le stockage, le choix reste valable uniquement dans la page ouverte.",
+            "analytics": "Les cookies _ga et _ga_* déposés par le site sont limités au temps restant avant l’expiration du choix, sans renouvellement automatique à chaque visite. Sur les serveurs Google Analytics, les données utilisateur et les données d’événement sont configurées pour une conservation de 2 mois, sans réinitialisation lors d’une nouvelle activité de l’utilisateur. Leur suppression suit le cycle mensuel de Google. Les rapports standards agrégés ne sont pas concernés par cette durée.",
+            "captcha": "L’accord à reCAPTCHA n’est pas mémorisé pour les envois suivants. Le cadre de vérification est supprimé après la réponse ou au plus tard après 20 secondes. Cela ne supprime pas les cookies tiers déjà déposés par Google : leur durée et leur suppression dépendent de Google et des réglages de votre navigateur.",
+            "storage": "La préférence de langue reste dans localStorage jusqu’à son effacement par vous ou votre navigateur. L’indicateur de rechargement est supprimé après le chargement réussi ou à la fermeture de la session de l’onglet."
         },
         "manage": {
-            "title": "5. Merañ hoc'h asant",
-            "p1": "Gallout a rit asantiñ pe nac'hañ an toupinoù stadelerezh forzh pegoulz.",
-            "button": "Merañ ma zoupinoù"
+            "title": "5. Gérer votre consentement",
+            "p1": "« Gérer mes cookies » permet de modifier votre choix pour Analytics. Un retrait désactive la mesure, supprime les cookies Analytics accessibles sur ce domaine puis recharge la page pour arrêter le script déjà chargé. Il ne supprime pas rétroactivement les données déjà transmises. Pour reCAPTCHA, ne cochez pas l’accord au formulaire et utilisez le lien email. Les réglages de votre navigateur permettent aussi de supprimer les cookies tiers.",
+            "button": "Gérer mes cookies"
         },
         "update": {
-            "title": "6. Hizivadenn ar bolitikerezh-mañ",
-            "p1": "Gallout a ra ar bolitikerezh bezañ kemmet hervez kemmoù lezennel pe teknik."
+            "title": "6. Mise à jour de cette politique",
+            "p1": "Cette politique peut évoluer en fonction des obligations légales ou techniques."
         }
     },
     "cookie_prefs": {
         "title": "Gwellvezioù prevezded",
         "intro_1": "Merit ho asant evit an toupinoù ha teknologiezh heñvel.",
-        "intro_2": "evit stadegoù dianon.",
+        "intro_2": "evit muzuliañ ar gweladennoù gant hoc’h asant.",
         "analytics_label": "Muzuliñ ar boblañs (Google Analytics)",
         "note": "Gweredekaet nemet gant hoc'h asant. Gallout a rit kemmañ kement-se forzh pegoulz."
     },
     "cookie_banner": {
-        "text": "Al lec'hienn-mañ a implij Google Analytics nemet gant hoc'h asant evit stadegoù dianon.",
+        "text": "Google Analytics a vuzul ar gweladennoù ma asantit hepken. Gallout a rit nac’hañ pe kemmañ ho tibab pa fell deoc’h.",
         "learn_more": "Gouzout hiroc'h",
         "decline": "Nac'hañ",
         "accept": "Asantiñ",
@@ -895,5 +918,14 @@
                 "questions": []
             }
         }
+    },
+    "contact_privacy": {
+        "notice": "Théo Guérin a implij ar roadennoù-mañ evit respont ha kas un testeni resev. Miret e vez ar c’hemennadennoù hep heuliad kenwerzhel e-pad 12 miz d’ar muiañ goude an eskemm diwezhañ. Evit ar prestourien hag ho kwirioù :",
+        "captcha_consent": "Asantiñ a ran da weredekaat Google reCAPTCHA evit gwiriañ ar c’has-mañ.",
+        "captcha_details": "Ar gwiriañ a gas roadennoù teknikel da Google hag a c’hall implijout e doupinoù. Google a c’hall implijout ar roadennoù evit e balioù dezhañ ivez. Distag eo an asant-mañ diouzh ar stadegoù ha goulennet e vo en-dro evit pep kas. Gwarezet eo ar furmskrid gant reCAPTCHA ; reolennoù Google a dalvez :",
+        "google_privacy": "Prevezded",
+        "google_terms": "Divizoù implijout",
+        "alternative": "Ne fell ket deoc’h implijout reCAPTCHA ? Kasit ur postel da",
+        "captcha_required": "Evit kas ar furmskrid, asantit da reCAPTCHA pe implijit al liamm postel."
     }
 }

@@ -109,49 +109,6 @@
     crossorigin
   />
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V5X3P7LFL6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      window.dataLayer.push(arguments);
-    }
-    window.gtag = window.gtag || gtag;
-
-    gtag("consent", "default", {
-      ad_storage: "denied",
-      analytics_storage: "denied",
-      functionality_storage: "denied",
-      personalization_storage: "denied",
-      security_storage: "granted"
-    });
-
-    gtag("js", new Date());
-    gtag("config", "G-V5X3P7LFL6", { anonymize_ip: true });
-
-    (function () {
-      try {
-        var saved = localStorage.getItem("cookie-consent");
-        if (saved === "granted") {
-          gtag("consent", "update", {
-            ad_storage: "denied",
-            analytics_storage: "granted",
-            functionality_storage: "granted",
-            personalization_storage: "denied",
-            security_storage: "granted"
-          });
-        } else if (saved === "denied") {
-          gtag("consent", "update", {
-            ad_storage: "denied",
-            analytics_storage: "denied",
-            functionality_storage: "denied",
-            personalization_storage: "denied",
-            security_storage: "granted"
-          });
-        }
-      } catch (_error) {
-      }
-    })();
-  </script>
 </head>
 <body>
   <noscript>Version simplifiée : les animations et le formulaire interactif nécessitent JavaScript.</noscript>

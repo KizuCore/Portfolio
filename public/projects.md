@@ -1,5 +1,14 @@
 # Projets - Théo Guérin
 
+## La Marée Malouine
+
+Site vitrine et application Click & Collect pour une poissonnerie : catalogue, promotions, commande avec choix du créneau et paiement au retrait. Un espace commerçant permet de gérer produits, stocks, commandes et messages sans toucher au code. Les prix et capacités sont contrôlés côté serveur, avec des notifications Brevo et un suivi des envois.
+
+- Catégorie : web
+- Technologies : React, TypeScript, TanStack Start, Tailwind CSS, PostgreSQL, Drizzle ORM, Brevo, Docker
+- Site : https://lamareemalouine.fr/
+- Étude de cas : https://theo-guerin.fr/fr/realisations/la-maree-malouine
+
 ## Les Portes de Montafilan
 
 Site vitrine bilingue et outil de pré-réservation pour un gîte, conçu avec des contraintes claires : pas d'abonnement mensuel, pas de backend complexe et des tarifs modifiables sans code depuis un tableur type Excel, branché via Google Sheets. Le site présente le gîte, synchronise les indisponibilités Airbnb via iCal, calcule une estimation lisible et redirige vers Airbnb avec les dates préremplies.
@@ -7,7 +16,8 @@ Site vitrine bilingue et outil de pré-réservation pour un gîte, conçu avec d
 - Catégorie : web
 - Technologies : React, TypeScript, Vite, Tailwind CSS, Vercel, Brevo, Vitest, Playwright
 - Code : https://github.com/KizuCore/PortesDeMontafilan
-- Démo : https://www.lesportesdemontafilan.com/
+- Site : https://www.lesportesdemontafilan.com/
+- Étude de cas : https://theo-guerin.fr/fr/realisations/les-portes-de-montafilan
 
 ## Flambow Frontend
 
@@ -33,6 +43,7 @@ Application Flutter offline-first pour gérer le contenu de sa cuisine, suivre l
 - Catégorie : mobile
 - Technologies : Flutter, Dart, Riverpod, Isar, GoRouter, TableCalendar, Material 3
 - Code : https://github.com/KizuCore/a_table
+- Étude de cas : https://theo-guerin.fr/fr/realisations/a-table
 
 ## Application Librairie
 
@@ -82,7 +93,7 @@ Landing page responsive de Flambow, concue pour presenter le concept, expliquer 
 - Catégorie : web
 - Technologies : React, JavaScript, Bootstrap, CSS, Axios
 - Code : https://github.com/KizuCore/Flambow
-- Démo : https://flambow.vercel.app/
+- Site : https://flambow.vercel.app/
 
 ## Minuteur mobile
 
@@ -116,5 +127,5 @@ Première version de mon portfolio, développée en Vue.js pour poser les bases 
 - Catégorie : web
 - Technologies : Vue.js, JavaScript, HTML, CSS
 - Code : https://github.com/KizuCore/Old-PortFolio
-- Démo : https://theo-guerin.netlify.app/
+- Site : https://theo-guerin.netlify.app/
 

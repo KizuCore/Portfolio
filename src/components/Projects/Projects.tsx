@@ -117,7 +117,7 @@ const Projects: React.FC = () => {
                 const isSelected = selectedIndex === index;
                 return (
                   <button
-                    key={`${project.ghLink}-${index}`}
+                    key={project.titleKey}
                     type="button"
                     className={`project-nav-item ${isSelected ? "active" : ""}`}
                     onClick={() => {
@@ -177,7 +177,7 @@ const Projects: React.FC = () => {
                 <div className="project-detail-stage" aria-live="polite">
                   <AnimatePresence initial={false} custom={navigationDirection}>
                     <motion.div
-                      key={selectedProject.ghLink}
+                      key={selectedProject.titleKey}
                       custom={navigationDirection}
                       variants={projectTransitionVariants}
                       initial="enter"

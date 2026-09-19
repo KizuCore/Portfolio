@@ -126,7 +126,11 @@
         "result_github_only": "Ar c'hod orin a zo hegerz war GitHub.",
         "result_live_and_code": "Ur demo enlinenn a zo hegerz, gant ar c'hod orin foran.",
         "result_video_and_code": "Ur video demo a zo hegerz, gant ar c'hod orin foran.",
-        "result_live_video_and_code": "Demo enlinenn ha video a zo hegerz, gant ar c'hod orin foran."
+        "result_live_video_and_code": "Demo enlinenn ha video a zo hegerz, gant ar c'hod orin foran.",
+        "result_live_only": "Al lec’hienn enlinenn a c’haller gwelout dre al liamm amañ dindan.",
+        "result_live_and_video": "Lec’hienn enlinenn ha video diskouez hegerz.",
+        "result_video_only": "Video diskouez hegerz.",
+        "result_case_only": "Raktres kinniget en enklask-mañ."
     },
     "see": "Gwelout",
     "downloadcv": "Pellgargañ",
@@ -327,7 +331,10 @@
         "flambow_image_alt": "Skeudenn ar raktres Flambow Landing Page",
         "flambow_frontend_image_alt": "Skeudenn ar raktres Flambow Frontend",
         "badmintonapi_image_alt": "Skeudenn ar raktres API Badminton",
-        "portes_montafilan_image_alt": "Tapadenn skramm eus pajenn degemer Les Portes de Montafilan"
+        "portes_montafilan_image_alt": "Tapadenn skramm eus pajenn degemer Les Portes de Montafilan",
+        "maree_malouine_title": "La Marée Malouine",
+        "maree_malouine_description": "Lec’hienn diskouez hag arload Click & Collect evit ur stal besked : katalog, kinnigadennoù, urzhioù gant dibab ur c’houlzad da zont da gerc’hat ha paeamant war al lec’h. Ur rann brevez a ro tu d’ar c’henwerzher da verañ produioù, stok, urzhioù ha kemennadennoù hep kemmañ ar c’hod. Gwiriet e vez ar prizioù hag ar c’houlzadoù war ar servijer, gant kemennoù dre Brevo.",
+        "maree_malouine_image_alt": "Tapadenn skramm eus pajenn degemer La Marée Malouine ha pazennoù ar Click & Collect"
     },
     "solar_system": {
         "sun": "Heol",
@@ -674,7 +681,7 @@
         "contact": "Komz eus ho raktres",
         "projects": "Gwelet ma raktresoù",
         "case_label": "Eus ar soñj d’ar raktres",
-        "case_description": "Ul lec’hienn evit ur gwirti gant prizioù e Google Sheets, deiziadoù Airbnb hag ur priz rakwelet evit ar chomadenn.",
+        "case_description": "Ur stal besked gant urzhioù enlinenn, koulzadoù da zont da gerc’hat hag ur rann brevez da verañ produioù, stok hag urzhioù en emren.",
         "case_link": "Lenn an studiadenn",
         "service_link": "Gwelet ar servij (e galleg)"
     },
@@ -811,6 +818,78 @@
                     {
                         "title": "Petra a c’haller ober gant al lec’hienn",
                         "text": "Gallout a ra ar perc’henn kemmañ e brizioù diwar e daolenner. Ar weladennerien a gav ur sell war ar gwirti, an deiziadoù hag ur priz rakwelet a-raok mont da Airbnb. Al lec’hienn hag he c’hod a c’haller gwelet amañ dindan evit dizoloiñ ar raktres."
+                    }
+                ],
+                "questions": []
+            },
+            "la-maree-malouine": {
+                "eyebrow": "Enklask war ur raktres · Stal besked & Click & Collect",
+                "title": "La Marée Malouine : eus ar c’hatalog betek ar stal",
+                "description": "Raktres La Marée Malouine gant Théo Guérin : lec’hienn stal besked, Click & Collect, rann ar c’henwerzher hag urzhioù gant React ha PostgreSQL.",
+                "intro": "Reiñ tu d’ar c’hliented da brientiñ o urzh war o fellgomzer ha d’ar c’henwerzher da verañ e obererezh : savet em eus ul lec’hienn diskouez hag un arload Click & Collect evit La Marée Malouine.",
+                "tags": [
+                    "Click & Collect",
+                    "React",
+                    "TanStack Start",
+                    "PostgreSQL",
+                    "Brevo"
+                ],
+                "sections": [
+                    {
+                        "title": "An ezhomm : urzhiañ enlinenn, paeañ er stal",
+                        "text": "Ar stal besked a felle dezhi kinnig ar produioù nevez, lakaat ar c’hinnigadennoù war wel ha degemer urzhioù evit koulzadoù dibabet. Ret e oa kaout un hent aes war bellgomzer hag ur c’hatalog da vezañ kemmet bemdez gant ar c’henwerzher hep sikour teknikel.",
+                        "items": [
+                            "Gwelout ar produioù hag urzhiañ diwar ur pellgomzer.",
+                            "Dibab ur c’houlzad gant un niver bevennet a urzhioù.",
+                            "Paeañ er stal, gant ur sammad istimet evit ar produioù gwerzhet hervez o fouez."
+                        ]
+                    },
+                    {
+                        "title": "Hent ar c’hliant betek ar stal",
+                        "text": "Ar gweladenner a furch er rummadoù, a lenn pajenn ur produ hag a ra e zibab. Lakaat a ra e zaveennoù, dibab ur c’houlzad hegerz ha resev un dave urzh. Ar c’henwerzher a zegemer pe a nac’h ar goulenn, hag a c’hall kas ur c’hemenn pa vez prest.",
+                        "items": [
+                            "Katalog gant siloù ha kinnigadennoù war ar produioù a sell outo.",
+                            "Diverradur ar c’hementadoù, ar prizioù hag al lec’h da gerc’hat.",
+                            "Posteloù evit resev, degemer, nac’hañ ha kemenniñ un urzh prest."
+                        ]
+                    },
+                    {
+                        "title": "Ur rann brevez evit al labour pemdeziek",
+                        "text": "An oberioù boas zo bodet en ur rann verañ gwarezet. Ar c’henwerzher a gemm e zibab hervez ar produioù degouezhet, a aoz ar c’houlzadoù hag a heuilh ar goulennoù en hevelep etrefas.",
+                        "items": [
+                            "Krouiñ ha kemmañ produioù, luc’hskeudennoù, stok, prizioù ha hegerzded.",
+                            "Kinnigadennoù gant deiziadoù ha krouiñ koulzadoù ingal gant ur vevenn urzhioù.",
+                            "Heuliañ urzhioù gant klask ha siloù hervez ar stad.",
+                            "Lenn ha respont d’ar c’hemennadennoù, kemmañ an daveennoù hag an eurioù digeriñ."
+                        ]
+                    },
+                    {
+                        "title": "Urzhioù kempoell, memes pa vez klasket en-dro",
+                        "text": "Ar servijer a adjed ar prizioù hag ar c’hinnigadennoù, hag a wir ar stok hag ar c’houlzad en un treuzgread PostgreSQL. Un anaouder kas a ro tu da adkemer ur goulenn hep krouiñ un eil urzh.",
+                        "items": [
+                            "Gwiriañ ar produioù hegerz pa vez kadarnaet an urzh.",
+                            "Kemennoù enrollet gant an urzh ha kaset en drekleur dre Brevo.",
+                            "Klask kas en-dro goude ur fazi ha heuliañ stad ar posteloù."
+                        ]
+                    },
+                    {
+                        "title": "Kiriegezhioù dispartiet ha pajennoù evit ar c’hlask",
+                        "text": "React, TypeScript ha TanStack Start a ver an etrefas hag ar rendu war ar servijer. An hentoù a aoz ar pajennoù, ar servijoù a ver reolennoù ar stal hag ar modulennoù roadennoù a implij Drizzle ORM ha PostgreSQL. An disparti-se a aesaa an emdroadurioù.",
+                        "items": [
+                            "Tailwind CSS evit an etrefas war bellgomzer hag urzhiataer.",
+                            "Metaroadennoù, URL kanonel, sitemap ha roadennoù frammet evit ar pajennoù foran.",
+                            "Dilesa ar merour, gwiriañ war ar servijer ha gwarez a-enep robotoù.",
+                            "Un endalc’her Docker evit an deployañ war VPS."
+                        ]
+                    },
+                    {
+                        "title": "Ul lec’hienn hag ur sturlevr evit kregiñ",
+                        "text": "Al lec’hienn zo enlinenn, gant binvioù da leuniañ ar c’hatalog ha da aozañ ar c’houlzadoù. Ur sturlevr a zispleg an oberioù pemdeziek. En istor an oberioù e c’haller heuliañ ar c’hemmoù ; un ezporzh gwareziñ hag un hentenn adsevel evit an oberataer zo ivez.",
+                        "items": [
+                            "Prouadoù evit reolennoù an urzhioù hag an oberioù war un dro en diaz roadennoù.",
+                            "Gwiriañ ar respontoù, ar surentez hag an adsevel.",
+                            "Ur sturlevr evit implij pemdeziek ar c’henwerzher."
+                        ]
                     }
                 ],
                 "questions": []

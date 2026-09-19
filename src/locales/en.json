@@ -126,7 +126,11 @@
         "result_github_only": "Source code is available and versioned on GitHub.",
         "result_live_and_code": "Live demo is available, with public source code.",
         "result_video_and_code": "Video walkthrough is available, with public source code.",
-        "result_live_video_and_code": "Live demo and video walkthrough are available, with public source code."
+        "result_live_video_and_code": "Live demo and video walkthrough are available, with public source code.",
+        "result_live_only": "Live website available through the link below.",
+        "result_live_and_video": "Live website and video demonstration available.",
+        "result_video_only": "Video demonstration available.",
+        "result_case_only": "Project presented in this case study."
     },
     "see": "See",
     "downloadcv": "Download",
@@ -327,7 +331,10 @@
         "badmintonapi_image_alt": "Image of the Badminton API project",
         "flambow_image_alt": "Image of the Flambow Landing Page project",
         "flambow_frontend_image_alt": "Image of the Flambow Frontend project",
-        "portes_montafilan_image_alt": "Screenshot of the Les Portes de Montafilan homepage"
+        "portes_montafilan_image_alt": "Screenshot of the Les Portes de Montafilan homepage",
+        "maree_malouine_title": "La Marée Malouine",
+        "maree_malouine_description": "Showcase website and Click & Collect application for a fishmonger: catalogue, promotions, ordering with a pickup slot and payment on collection. A merchant dashboard manages products, stock, orders and messages without code changes. Prices and slot capacity are checked on the server, with Brevo notifications and email status tracking.",
+        "maree_malouine_image_alt": "Screenshot of the La Marée Malouine homepage and its Click & Collect steps"
     },
     "solar_system": {
         "sun": "Sun",
@@ -674,7 +681,7 @@
         "contact": "Let’s discuss your project",
         "projects": "View my work",
         "case_label": "From brief to delivery",
-        "case_description": "A holiday cottage website with Google Sheets pricing, Airbnb availability and a stay estimate.",
+        "case_description": "A fishmonger’s website with online ordering, pickup slots and a merchant dashboard to manage products, stock and orders independently.",
         "case_link": "Read the case study",
         "service_link": "Explore this service (French)"
     },
@@ -811,6 +818,78 @@
                     {
                         "title": "What the website makes possible",
                         "text": "The owner can adjust prices in their spreadsheet. Visitors get an overview of the cottage, dates and an estimate before moving on to Airbnb. The website and its code are linked below so you can explore the finished project."
+                    }
+                ],
+                "questions": []
+            },
+            "la-maree-malouine": {
+                "eyebrow": "Case study · Fishmonger & Click & Collect",
+                "title": "La Marée Malouine: from catalogue to collection",
+                "description": "La Marée Malouine case study by Théo Guérin: a fishmonger’s website, Click & Collect, merchant dashboard and orders built with React and PostgreSQL.",
+                "intro": "Let customers prepare their orders on their phones while giving the merchant control over daily operations: I built a showcase website and Click & Collect application for La Marée Malouine.",
+                "tags": [
+                    "Click & Collect",
+                    "React",
+                    "TanStack Start",
+                    "PostgreSQL",
+                    "Brevo"
+                ],
+                "sections": [
+                    {
+                        "title": "The need: order online, pay on collection",
+                        "text": "The fishmonger needed to present fresh arrivals, promote special offers and receive orders for defined pickup slots. The experience had to be simple on mobile, with a catalogue the merchant could update every day without technical help.",
+                        "items": [
+                            "Browse products and place an order from a phone.",
+                            "Choose a pickup slot with capacity suited to preparation.",
+                            "Pay on collection, with an estimated total for products sold by weight."
+                        ]
+                    },
+                    {
+                        "title": "A customer journey through to collection",
+                        "text": "Visitors browse categories, view product details and build their selection. They enter their contact details, choose an available slot and receive an order reference. The merchant accepts or declines the request and can notify the customer when it is ready.",
+                        "items": [
+                            "Filterable catalogue and promotions displayed on relevant products.",
+                            "Summary of quantities, prices and pickup location.",
+                            "Receipt, acceptance, refusal and ready-for-collection emails as the order progresses."
+                        ]
+                    },
+                    {
+                        "title": "A dashboard for daily operations",
+                        "text": "A protected administration area brings routine tasks together. The merchant updates the selection as deliveries arrive, organises pickups and handles requests from the same interface.",
+                        "items": [
+                            "Create and edit products, photos, stock, prices and availability.",
+                            "Schedule promotions and generate recurring slots with a maximum capacity.",
+                            "Track orders with search and status filters.",
+                            "Read and reply to customer messages, and update contact details and opening hours."
+                        ]
+                    },
+                    {
+                        "title": "Consistent orders, including retries",
+                        "text": "Order validation recalculates prices and promotions on the server, then checks stock and slot capacity within a PostgreSQL transaction. A submission identifier lets a request resume without creating another order.",
+                        "items": [
+                            "Availability checks when the order is submitted.",
+                            "Notifications saved with the order, then sent in the background through Brevo.",
+                            "Retries after sending failures and email status tracking for the merchant."
+                        ]
+                    },
+                    {
+                        "title": "Clear responsibilities and indexable pages",
+                        "text": "React, TypeScript and TanStack Start handle the interface and server rendering. Routes compose pages, services implement business rules, and data access modules use Drizzle ORM and PostgreSQL. This separation supports changes to customer and merchant workflows without mixing presentation and persistence.",
+                        "items": [
+                            "Tailwind CSS for layouts that adapt to mobile and desktop.",
+                            "Metadata, canonical URLs, sitemap and structured data for public pages.",
+                            "Admin authentication, server validation and anti-bot protection for forms.",
+                            "A Docker container for deployment on a VPS."
+                        ]
+                    },
+                    {
+                        "title": "Delivery with practical guidance",
+                        "text": "The site is online, with management tools for the merchant to populate the catalogue and organise pickups. A user guide documents everyday operations. The project also includes an action history, backup export and a restoration procedure reserved for the operator.",
+                        "items": [
+                            "Tests for order rules and concurrent database operations.",
+                            "Checks covering message replies, security and restoration.",
+                            "A merchant guide for everyday use."
+                        ]
                     }
                 ],
                 "questions": []

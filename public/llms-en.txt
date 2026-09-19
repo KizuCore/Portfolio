@@ -34,6 +34,10 @@
 - Tools: Git, GitHub, GitLab, Postman, VS Code, IntelliJ IDEA, Android Studio, Linux, Windows, WordPress, Jira, Trello, Confluence, Figma
 
 ## Proof Points By Project
+- La Marée Malouine: React, TypeScript, TanStack Start, Tailwind CSS, PostgreSQL, Drizzle ORM, Brevo, Docker
+  - Website: [La Marée Malouine](https://lamareemalouine.fr/)
+  - Case study: [From catalogue to collection](https://theo-guerin.fr/en/realisations/la-maree-malouine)
+  - Highlights: Click & Collect, pickup slots, stock and order management, merchant dashboard, notifications with email status tracking
 - Les Portes de Montafilan: React, TypeScript, Vite, Tailwind CSS, Vercel, Brevo, Vitest, Playwright
   - Repo: [https://github.com/KizuCore/PortesDeMontafilan](https://github.com/KizuCore/PortesDeMontafilan)
   - Website: [https://www.lesportesdemontafilan.com/](https://www.lesportesdemontafilan.com/)

@@ -62,6 +62,7 @@ export type ProjectImageKey =
   | "flambow"
   | "flambowFrontend"
   | "lemonmaze"
+  | "laMareeMalouine"
   | "portesDeMontafilan"
   | "portfolio"
   | "portfoliov2"
@@ -72,7 +73,7 @@ export type PortfolioProject = {
   altTextKey: string;
   titleKey: string;
   descriptionKey: string;
-  ghLink: string;
+  ghLink?: string;
   isGitLab?: boolean;
   youtubeLink?: string;
   seeLink?: string;
@@ -85,8 +86,21 @@ export type PortfolioProject = {
 };
 
 export const PROJECT_FILTERS: ProjectFilter[] = ["all", "web", "mobile", "api", "game"];
+export const HOME_CASE_STUDY_PATH = "/fr/realisations/la-maree-malouine";
 
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
+  {
+    imageKey: "laMareeMalouine",
+    caseStudyPath: HOME_CASE_STUDY_PATH,
+    altTextKey: "categories_projects.maree_malouine_image_alt",
+    titleKey: "categories_projects.maree_malouine_title",
+    descriptionKey: "categories_projects.maree_malouine_description",
+    seeLink: "https://lamareemalouine.fr/",
+    techStack: ["React", "TypeScript", "TanStack Start", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Brevo", "Docker"],
+    category: "web",
+    featured: true,
+    pinTop: true,
+  },
   {
     imageKey: "portesDeMontafilan",
     caseStudyPath: "/fr/realisations/les-portes-de-montafilan",

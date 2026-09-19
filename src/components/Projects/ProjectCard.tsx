@@ -15,7 +15,7 @@ interface ProjectCardProps {
   title: string;
   description: string;
   techStack: string[];
-  ghLink: string;
+  ghLink?: string;
   youtubeLink?: string;
   seeLink?: string;
   caseStudyPath?: string;
@@ -25,8 +25,14 @@ interface ProjectCardProps {
   imageMode?: "cover" | "contain";
 }
 
-function resolveResultKey(hasLiveDemo: boolean, hasVideo: boolean) {
+function resolveResultKey(hasLiveDemo: boolean, hasVideo: boolean, hasCode: boolean) {
   // Choisit le texte du résultat selon les liens réellement disponibles pour le projet.
+  if (!hasCode) {
+    if (hasLiveDemo && hasVideo) return "project_card.result_live_and_video";
+    if (hasLiveDemo) return "project_card.result_live_only";
+    if (hasVideo) return "project_card.result_video_only";
+    return "project_card.result_case_only";
+  }
   if (hasLiveDemo && hasVideo) {
     return "project_card.result_live_video_and_code";
   }
@@ -44,7 +50,7 @@ function resolveResultKey(hasLiveDemo: boolean, hasVideo: boolean) {
 
 function ProjectCard(props: ProjectCardProps) {
   const { t, i18n } = useTranslation();
-  const resultText = t(resolveResultKey(Boolean(props.seeLink), Boolean(props.youtubeLink)));
+  const resultText = t(resolveResultKey(Boolean(props.seeLink), Boolean(props.youtubeLink), Boolean(props.ghLink)));
 
   return (
     <Card className={`project-card-view ${props.featured ? "project-card-featured" : ""}`}>
@@ -97,7 +103,7 @@ function ProjectCard(props: ProjectCardProps) {
 
         <div className="button-group">
           {props.caseStudyPath && <Link className="business-button" to={getLocalizedPath(getShortLocale(i18n.language), props.caseStudyPath)} hrefLang={getHtmlLang(getShortLocale(i18n.language))}>{t("home_offer.case_link")} ↗</Link>}
-          <Button
+          {props.ghLink && <Button
             className="button-github"
             href={props.ghLink}
             target="_blank"
@@ -106,7 +112,7 @@ function ProjectCard(props: ProjectCardProps) {
           >
             <FaGithub className="project-button-icon" aria-hidden="true" />
             {props.isGitLab ? "GitLab" : "GitHub"}
-          </Button>
+          </Button>}
 
           {props.youtubeLink && (
             <Button

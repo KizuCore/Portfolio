@@ -55,7 +55,7 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
           ))}
           {page.kind === "case-study" && project && <div className="business-actions">
             {project.seeLink && <a className="business-button" href={project.seeLink} target="_blank" rel="noopener noreferrer">{labels.visit} <span className="visually-hidden">({labels.new_tab})</span> ↗</a>}
-            <a className="business-text-link" href={project.ghLink} target="_blank" rel="noopener noreferrer">{labels.code} <span className="visually-hidden">({labels.new_tab})</span> ↗</a>
+            {project.ghLink && <a className="business-text-link" href={project.ghLink} target="_blank" rel="noopener noreferrer">{labels.code} <span className="visually-hidden">({labels.new_tab})</span> ↗</a>}
           </div>}
         </div>
       </div>

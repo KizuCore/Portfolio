@@ -277,7 +277,7 @@ function buildStructuredData({ pathname, canonicalUrl, title, description, htmlL
         name: projectTitle(project, localeData),
         description: projectDescription(project, localeData),
         url: project.seeLink || project.ghLink,
-        codeRepository: project.ghLink,
+        ...(project.ghLink ? { codeRepository: project.ghLink } : {}),
         creator: { "@id": `${SITE_URL}/#person` },
         keywords: project.techStack.join(", "),
       });
@@ -296,7 +296,7 @@ function buildStructuredData({ pathname, canonicalUrl, title, description, htmlL
 }
 
 // Construit le contenu sans JavaScript de chaque route publique à partir des données et traductions partagées.
-function buildRouteContent({ pathname, localeData, portfolio }) {
+function buildRouteContent({ pathname, localeData, portfolio, seoConfig }) {
   const businessPage = getBusinessPage(pathname, localeData.business_pages.locale);
   if (businessPage) {
     const project = portfolio.PORTFOLIO_PROJECTS.find((item) => item.caseStudyPath === `/fr${businessPage.path}`);
@@ -305,12 +305,14 @@ function buildRouteContent({ pathname, localeData, portfolio }) {
   const projects = getSortedProjects(portfolio.PORTFOLIO_PROJECTS);
   const experiences = getExperiences(localeData);
   const skills = [...portfolio.PROFESSIONAL_TOPICS];
+  const homeProject = projects.find((item) => item.caseStudyPath === portfolio.HOME_CASE_STUDY_PATH);
 
   const home = `
     <p>${escapeHtml(portfolio.SITE_PROFILE.displayName)} · ${escapeHtml(tx(localeData, "home_offer.location"))}</p>
     <h1>${escapeHtml(tx(localeData, "home_offer.title"))} ${escapeHtml(tx(localeData, "home_offer.specialty"))}</h1>
     <p>${escapeHtml(tx(localeData, "home_offer.description"))}</p>
     <p>${escapeHtml(tx(localeData, "professional_availability"))}</p>
+    ${homeProject ? `<section><p>${escapeHtml(tx(localeData, "home_offer.case_label"))}</p><h2>${escapeHtml(projectTitle(homeProject, localeData))}</h2><p>${escapeHtml(tx(localeData, "home_offer.case_description"))}</p><a href="${escapeHtml(seoConfig.getLocalizedPath(localeData.business_pages.locale, homeProject.caseStudyPath))}">${escapeHtml(tx(localeData, "home_offer.case_link"))}</a></section>` : ""}
     <nav aria-label="Services"><ul>${getBusinessPages(localeData.business_pages.locale).map((page) => `<li><a href="/${page.kind === "case-study" ? localeData.business_pages.locale : "fr"}${escapeHtml(page.path)}">${escapeHtml(page.title)}</a></li>`).join("")}</ul></nav>
     <section><h2>${escapeHtml(tx(localeData, "services.title"))}</h2><p>${escapeHtml(tx(localeData, "services.subtitle"))}</p></section>
     <section><h2>${escapeHtml(tx(localeData, "professional_skills"))}</h2><p>${escapeHtml(skills.join(", "))}</p></section>
@@ -349,7 +351,12 @@ function buildRouteContent({ pathname, localeData, portfolio }) {
         <h3>${escapeHtml(projectTitle(item, localeData))}</h3>
         <p>${escapeHtml(projectDescription(item, localeData))}</p>
         <p>${escapeHtml(item.techStack.join(", "))}</p>
-        <p><a href="${escapeHtml(item.ghLink)}">${escapeHtml(item.isGitLab ? "GitLab" : "GitHub")}</a>${item.seeLink ? ` - <a href="${escapeHtml(item.seeLink)}">Démo</a>` : ""}${item.youtubeLink ? ` - <a href="${escapeHtml(item.youtubeLink)}">Vidéo</a>` : ""}</p>
+        <p>${[
+          item.caseStudyPath && `<a href="${escapeHtml(seoConfig.getLocalizedPath(localeData.business_pages.locale, item.caseStudyPath))}">${escapeHtml(tx(localeData, "home_offer.case_link"))}</a>`,
+          item.ghLink && `<a href="${escapeHtml(item.ghLink)}">${escapeHtml(item.isGitLab ? "GitLab" : "GitHub")}</a>`,
+          item.seeLink && `<a href="${escapeHtml(item.seeLink)}">${escapeHtml(tx(localeData, "see"))}</a>`,
+          item.youtubeLink && `<a href="${escapeHtml(item.youtubeLink)}">${escapeHtml(tx(localeData, "video"))}</a>`,
+        ].filter(Boolean).join(" - ")}</p>
       </article>
     `).join("")}</section>
   `;
@@ -577,7 +584,7 @@ function readLocales(locales) {
 }
 
 // Génère des ressources Markdown concises pour les robots des modèles de langage à partir des mêmes données du portfolio.
-function buildMarkdownFiles({ localeData, portfolio }) {
+function buildMarkdownFiles({ localeData, portfolio, seoConfig }) {
   const projects = getSortedProjects(portfolio.PORTFOLIO_PROJECTS);
   const experiences = getExperiences(localeData);
   const profileMarkdown = `# ${portfolio.SITE_PROFILE.displayName}
@@ -622,8 +629,7 @@ ${stripMarkdownUnsafe(projectDescription(project, localeData))}
 
 - Catégorie : ${project.category}
 - Technologies : ${project.techStack.join(", ")}
-- Code : ${project.ghLink}
-${project.seeLink ? `- Démo : ${project.seeLink}\n` : ""}${project.youtubeLink ? `- Vidéo : ${project.youtubeLink}\n` : ""}`).join("\n")}
+${project.ghLink ? `- Code : ${project.ghLink}\n` : ""}${project.seeLink ? `- Site : ${project.seeLink}\n` : ""}${project.youtubeLink ? `- Vidéo : ${project.youtubeLink}\n` : ""}${project.caseStudyPath ? `- Étude de cas : ${SITE_URL}${seoConfig.getLocalizedPath(localeData.business_pages.locale, project.caseStudyPath)}\n` : ""}`).join("\n")}
 `;
 
   const contactMarkdown = `# Contact - ${portfolio.SITE_PROFILE.displayName}
@@ -730,14 +736,14 @@ function main() {
       seoConfig,
       portfolio,
     });
-    const content = buildRouteContent({ pathname, localeData, portfolio });
+    const content = buildRouteContent({ pathname, localeData, portfolio, seoConfig });
     const routeHtml = injectHtml({ template, head, content, htmlLang });
     for (const outputPath of htmlOutputPaths(routePath)) {
       writeFileEnsured(outputPath, routeHtml);
     }
   }
 
-  const markdownFiles = buildMarkdownFiles({ localeData: fallbackLocaleData, portfolio });
+  const markdownFiles = buildMarkdownFiles({ localeData: fallbackLocaleData, portfolio, seoConfig });
   for (const [filename, markdown] of Object.entries(markdownFiles)) {
     writeFileEnsured(path.join(PUBLIC_DIR, filename), markdown);
     writeFileEnsured(path.join(DIST_DIR, filename), markdown);

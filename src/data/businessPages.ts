@@ -17,6 +17,7 @@ export type BusinessPage = {
 // Le contenu rédactionnel est partagé par React et la génération SEO statique. Les affirmations doivent rester factuelles.
 // Les services restent en français ; les études de cas utilisent les fichiers JSON de traduction partagés.
 export const BUSINESS_PAGES: BusinessPage[] = [
+  { path: "/realisations/la-maree-malouine", kind: "case-study", ...fr.business_pages.cases["la-maree-malouine"] },
   { path: "/realisations/a-table", kind: "case-study", ...fr.business_pages.cases["a-table"] },
   {
     path: "/services/developpeur-react",

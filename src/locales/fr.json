@@ -126,7 +126,11 @@
         "result_github_only": "Code source disponible et versionné sur GitHub.",
         "result_live_and_code": "Application en ligne accessible, avec code source public.",
         "result_video_and_code": "Démonstration vidéo disponible avec code source public.",
-        "result_live_video_and_code": "Démo en ligne et vidéo disponibles, avec code source public."
+        "result_live_video_and_code": "Démo en ligne et vidéo disponibles, avec code source public.",
+        "result_live_only": "Site en ligne accessible depuis le lien ci-dessous.",
+        "result_live_and_video": "Site en ligne et démonstration vidéo disponibles.",
+        "result_video_only": "Démonstration vidéo disponible.",
+        "result_case_only": "Réalisation présentée dans cette étude de cas."
     },
     "see": "Voir",
     "downloadcv": "Télécharger",
@@ -329,7 +333,10 @@
         "flambow_image_alt": "Image du projet Flambow Landing Page",
         "flambow_frontend_image_alt": "Image du projet Flambow Frontend",
         "badmintonapi_image_alt": "Image du projet API Badminton",
-        "portes_montafilan_image_alt": "Capture de la page d'accueil du site Les Portes de Montafilan"
+        "portes_montafilan_image_alt": "Capture de la page d'accueil du site Les Portes de Montafilan",
+        "maree_malouine_title": "La Marée Malouine",
+        "maree_malouine_description": "Site vitrine et application Click & Collect pour une poissonnerie : catalogue, promotions, commande avec choix du créneau et paiement au retrait. Un espace commerçant permet de gérer produits, stocks, commandes et messages sans toucher au code. Les prix et capacités sont contrôlés côté serveur, avec des notifications Brevo et un suivi des envois.",
+        "maree_malouine_image_alt": "Capture de la page d’accueil de La Marée Malouine et des étapes du Click & Collect"
     },
     "solar_system": {
         "sun": "Soleil",
@@ -674,7 +681,7 @@
         "contact": "Parlons de votre projet",
         "projects": "Voir mes réalisations",
         "case_label": "Du besoin à la réalisation",
-        "case_description": "Un site de gîte avec tarifs modifiables dans Google Sheets, disponibilités Airbnb et estimation du séjour.",
+        "case_description": "Une poissonnerie avec commande en ligne, créneaux de retrait et espace commerçant pour gérer produits, stocks et commandes en autonomie.",
         "case_link": "Découvrir l’étude de cas",
         "service_link": "Découvrir ce service"
     },
@@ -811,6 +818,78 @@
                     {
                         "title": "Ce que le site permet",
                         "text": "Le propriétaire peut ajuster ses tarifs depuis son tableur. Les visiteurs disposent d’un aperçu du gîte, des dates et d’une estimation avant de rejoindre Airbnb. Le site et son code sont consultables ci-dessous pour découvrir la réalisation."
+                    }
+                ],
+                "questions": []
+            },
+            "la-maree-malouine": {
+                "eyebrow": "Étude de cas · Poissonnerie & Click & Collect",
+                "title": "La Marée Malouine : du catalogue au retrait en boutique",
+                "description": "Étude de cas La Marée Malouine par Théo Guérin : site de poissonnerie, Click & Collect, espace commerçant et commandes avec React et PostgreSQL.",
+                "intro": "Permettre aux clients de préparer leur commande depuis leur téléphone, tout en donnant au commerçant la main sur son activité : j’ai conçu un site vitrine et une application Click & Collect pour La Marée Malouine.",
+                "tags": [
+                    "Click & Collect",
+                    "React",
+                    "TanStack Start",
+                    "PostgreSQL",
+                    "Brevo"
+                ],
+                "sections": [
+                    {
+                        "title": "Le besoin : vendre en ligne, encaisser sur place",
+                        "text": "La poissonnerie souhaitait présenter ses arrivages, mettre en avant ses promotions et recevoir des commandes sur des créneaux de retrait définis. Le parcours devait rester simple sur mobile et le commerçant devait pouvoir faire évoluer son catalogue au quotidien, sans intervention technique.",
+                        "items": [
+                            "Consultation des produits et réservation depuis un téléphone.",
+                            "Choix d’un créneau avec une capacité adaptée à la préparation.",
+                            "Paiement au retrait et montant estimatif pour les produits vendus au poids."
+                        ]
+                    },
+                    {
+                        "title": "Un parcours client jusqu’au retrait",
+                        "text": "Le visiteur parcourt les catégories, consulte une fiche produit et compose sa sélection. Il renseigne ses coordonnées, choisit un créneau disponible puis reçoit une référence de commande. Le commerçant accepte ou refuse la demande, et peut prévenir le client lorsque la préparation est prête.",
+                        "items": [
+                            "Catalogue filtrable et promotions visibles sur les produits concernés.",
+                            "Récapitulatif des quantités, des tarifs et du lieu de retrait.",
+                            "Emails de réception, d’acceptation, de refus ou de commande prête selon son avancement."
+                        ]
+                    },
+                    {
+                        "title": "Un espace commerçant pour le quotidien",
+                        "text": "L’administration rassemble les opérations courantes dans un espace protégé. Le commerçant ajuste sa sélection selon les arrivages, organise les retraits et suit les demandes dans la même interface.",
+                        "items": [
+                            "Création et modification des produits, photos, stocks, prix et disponibilités.",
+                            "Promotions datées et génération de créneaux récurrents avec capacité maximale.",
+                            "Suivi des commandes, recherche et filtres par statut.",
+                            "Messages clients, réponses depuis l’interface, coordonnées et horaires modifiables."
+                        ]
+                    },
+                    {
+                        "title": "Des commandes cohérentes, même en cas de reprise",
+                        "text": "La validation d’une commande recalcule les prix et promotions côté serveur, puis contrôle les stocks et la capacité du créneau dans une transaction PostgreSQL. Un identifiant de soumission permet de reprendre une demande sans créer une seconde commande.",
+                        "items": [
+                            "Contrôles de disponibilité au moment de la validation.",
+                            "Notifications enregistrées avec la commande, puis envoyées en arrière-plan via Brevo.",
+                            "Nouvelle tentative en cas d’échec d’envoi et suivi consultable par le commerçant."
+                        ]
+                    },
+                    {
+                        "title": "Une architecture structurée et des pages indexables",
+                        "text": "React, TypeScript et TanStack Start assurent l’interface et le rendu serveur. Les routes composent les pages ; les services portent les règles métier ; les modules d’accès aux données utilisent Drizzle ORM et PostgreSQL. Cette séparation permet de faire évoluer les parcours et la gestion sans mêler affichage et persistance.",
+                        "items": [
+                            "Tailwind CSS pour une interface adaptée au mobile et au bureau.",
+                            "Métadonnées, URL canoniques, sitemap et données structurées pour les pages publiques.",
+                            "Authentification de l’administration, validation serveur et protection anti-robot des formulaires.",
+                            "Application conteneurisée avec Docker pour le déploiement sur VPS."
+                        ]
+                    },
+                    {
+                        "title": "Une réalisation accompagnée jusqu’à la prise en main",
+                        "text": "Le site est en ligne et les outils de gestion permettent au commerçant d’alimenter son catalogue et d’organiser ses retraits. Un guide de prise en main documente les opérations courantes. Le projet comprend aussi un historique des actions, un export de sauvegarde et une procédure de restauration réservée à l’exploitant.",
+                        "items": [
+                            "Tests des règles de commande et des scénarios de concurrence en base.",
+                            "Vérifications des réponses aux messages, de la sécurité et de la restauration.",
+                            "Transmission d’un guide commerçant pour l’utilisation au quotidien."
+                        ]
                     }
                 ],
                 "questions": []

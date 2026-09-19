@@ -28,6 +28,7 @@
   <link rel="icon" type="image/svg+xml" href="/images/favicon/icon.svg" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="/images/favicon/site.webmanifest" />
+  <link rel="preload" href="/images/cat-mark.svg" as="image" />
 
   <style>
     html {
@@ -57,26 +58,30 @@
       display: none;
     }
 
-    html[data-app-loading] #root::before {
+    /* Partage le même indicateur avant React et pendant son éventuel chargement. */
+    html[data-app-loading] #root::before,
+    .startup-loader:not(.loaded)::before {
       content: "";
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background: #04070d;
+      background: #04070d url("/images/cat-mark.svg") center / 120px 120px no-repeat;
     }
 
-    html[data-app-loading] #root::after {
+    html[data-app-loading] #root::after,
+    .startup-loader:not(.loaded)::after {
       content: "";
       position: fixed;
-      top: calc(50% - 16px);
-      left: calc(50% - 16px);
+      top: calc(50% - 64px);
+      left: calc(50% - 64px);
       z-index: 10000;
-      width: 32px;
-      height: 32px;
+      box-sizing: border-box;
+      width: 128px;
+      height: 128px;
       border: 2px solid #25354c;
       border-top-color: #9dc6ff;
       border-radius: 50%;
-      animation: app-startup-spin 0.8s linear infinite;
+      animation: app-startup-spin 1s linear infinite;
     }
 
     @keyframes app-startup-spin {
@@ -84,7 +89,8 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html[data-app-loading] #root::after { animation: none; }
+      html[data-app-loading] #root::after,
+      .startup-loader::after { animation: none; }
     }
   </style>
 

@@ -1,7 +1,4 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
-import "../../../assets/styles/Preloader/Preloader.css";
-import PreloaderLogo from "./PreloaderLogo";
 
 interface PreloaderProps {
   load?: boolean;
@@ -9,22 +6,12 @@ interface PreloaderProps {
 }
 
 const Preloader: React.FC<PreloaderProps> = ({ load = true, className = "" }) => {
-  const { t } = useTranslation();
-
+  // Les styles critiques d’index.html affichent le même chat fixe avant le démarrage de React.
   return (
     <div
-      id="preloader"
-      className={`preloader ${className} ${load ? "" : "loaded"}`}
+      className={`startup-loader ${className} ${load ? "" : "loaded"}`}
       aria-hidden="true"
-    >
-      <div className="preloader-content">
-        <PreloaderLogo />
-        <p className="preloader-wordmark" aria-label="KizuCore">
-          <span className="preloader-wordmark-main">KizuCore</span>
-          <span className="preloader-wordmark-sub">{t("preloader_subtitle")}</span>
-        </p>
-      </div>
-    </div>
+    />
   );
 };
 

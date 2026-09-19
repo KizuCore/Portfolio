@@ -56,7 +56,6 @@ export type ProjectImageKey =
   | "aTable"
   | "apibook"
   | "badmintonapi"
-  | "breizhcoin"
   | "chrono"
   | "cosmiclink"
   | "flambow"
@@ -64,7 +63,6 @@ export type ProjectImageKey =
   | "lemonmaze"
   | "laMareeMalouine"
   | "portesDeMontafilan"
-  | "portfolio"
   | "portfoliov2"
   | "tboi";
 
@@ -215,16 +213,6 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     category: "mobile",
   },
   {
-    imageKey: "breizhcoin",
-    altTextKey: "categories_projects.breizhcoin_image_alt",
-    titleKey: "categories_projects.breizhcoin_title",
-    descriptionKey: "categories_projects.breizhcoin_description",
-    ghLink: "https://github.com/KizuCore/BreizhCoin",
-    youtubeLink: "https://youtu.be/OqgS7SW_8tU",
-    techStack: ["PHP", "JavaScript", "HTML", "CSS"],
-    category: "web",
-  },
-  {
     imageKey: "tboi",
     altTextKey: "categories_projects.tboi_image_alt",
     titleKey: "categories_projects.thebindingofisaac_title",
@@ -232,15 +220,5 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     ghLink: "https://github.com/KizuCore/TheBindingOfIsaac",
     techStack: ["Java"],
     category: "game",
-  },
-  {
-    imageKey: "portfolio",
-    altTextKey: "categories_projects.portfolio_image_alt",
-    titleKey: "categories_projects.portfolio_v1_title",
-    descriptionKey: "categories_projects.portfolio_v1_description",
-    ghLink: "https://github.com/KizuCore/Old-PortFolio",
-    seeLink: "https://theo-guerin.netlify.app/",
-    techStack: ["Vue.js", "JavaScript", "HTML", "CSS"],
-    category: "web",
   },
 ];

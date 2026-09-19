@@ -3,8 +3,6 @@ import cosmiclinkThumb from "@image/Projects/thumbnails/CosmicLink.webp";
 import chronoThumb from "@image/Projects/thumbnails/chrono.webp";
 import aTableThumb from "@image/Projects/thumbnails/aTable.webp";
 import tboiThumb from "@image/Projects/thumbnails/TBOI.webp";
-import breizhcoinThumb from "@image/Projects/thumbnails/breizhcoin.webp";
-import portfolioThumb from "@image/Projects/thumbnails/portfolio.webp";
 import portfoliov2Thumb from "@image/Projects/thumbnails/portfoliov2.webp";
 import apibookThumb from "@image/Projects/thumbnails/apibook.webp";
 import flambowThumb from "@image/Projects/thumbnails/flambowImg.webp";
@@ -17,8 +15,6 @@ import cosmiclink from "@image/Projects/CosmicLink.webp";
 import chrono from "@image/Projects/chrono.webp";
 import aTable from "@image/Projects/aTable.webp";
 import tboi from "@image/Projects/TBOI.webp";
-import breizhcoin from "@image/Projects/breizhcoin.webp";
-import portfolio from "@image/Projects/portfolio.webp";
 import portfoliov2 from "@image/Projects/portfoliov2.webp";
 import apibook from "@image/Projects/apibook.webp";
 import flambow from "@image/Projects/flambowImg.webp";
@@ -43,7 +39,6 @@ const PROJECT_IMAGES: Record<PortfolioProject["imageKey"], string> = {
   aTable,
   apibook,
   badmintonapi,
-  breizhcoin,
   chrono,
   cosmiclink,
   flambow,
@@ -51,7 +46,6 @@ const PROJECT_IMAGES: Record<PortfolioProject["imageKey"], string> = {
   lemonmaze,
   portesDeMontafilan,
   laMareeMalouine,
-  portfolio,
   portfoliov2,
   tboi,
 };
@@ -62,8 +56,6 @@ const PROJECT_THUMBNAILS: Record<PortfolioProject["imageKey"], string> = {
   chrono: chronoThumb,
   aTable: aTableThumb,
   tboi: tboiThumb,
-  breizhcoin: breizhcoinThumb,
-  portfolio: portfolioThumb,
   portfoliov2: portfoliov2Thumb,
   apibook: apibookThumb,
   flambow: flambowThumb,

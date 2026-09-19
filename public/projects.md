@@ -103,15 +103,6 @@ Application Kotlin de minuteurs multi-profils (oeufs + personnalisables), execut
 - Technologies : Kotlin
 - Code : https://github.com/KizuCore/MDS-ExamMobile2024
 
-## BreizhCoin
-
-Projet universitaire type marketplace (inspire Leboncoin) centre sur le backend PHP: gestion des annonces, comptes utilisateurs, favoris et categories.
-
-- Catégorie : web
-- Technologies : PHP, JavaScript, HTML, CSS
-- Code : https://github.com/KizuCore/BreizhCoin
-- Vidéo : https://youtu.be/OqgS7SW_8tU
-
 ## TheBindingOfIsaac
 
 Jeu Java inspire de The Binding of Isaac: generation de salles, IA d'ennemis/boss, inventaire et mecanisme de sauvegarde/chargement.
@@ -119,13 +110,4 @@ Jeu Java inspire de The Binding of Isaac: generation de salles, IA d'ennemis/bos
 - Catégorie : game
 - Technologies : Java
 - Code : https://github.com/KizuCore/TheBindingOfIsaac
-
-## Ancien Portfolio
-
-Première version de mon portfolio, développée en Vue.js pour poser les bases du responsive et de la présentation projet.
-
-- Catégorie : web
-- Technologies : Vue.js, JavaScript, HTML, CSS
-- Code : https://github.com/KizuCore/Old-PortFolio
-- Site : https://theo-guerin.netlify.app/
 

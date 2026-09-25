@@ -13,10 +13,7 @@ const skyNoise = (seed: number) => {
 };
 const DISTANT_STARS = Array.from({ length: 160 }, (_, index) => {
   const x = skyNoise(index + 1) * 100;
-  // Une bande irrégulière plus dense traverse un ciel autrement clairsemé.
-  const y = index < 60
-    ? 15 + x * 0.58 + (skyNoise(index + 201) - 0.5) * 22
-    : skyNoise(index + 201) * 100;
+  const y = skyNoise(index + 201) * 100;
   const radius = 0.35 + Math.pow(skyNoise(index + 401), 3) * 0.95;
   const opacity = 0.14 + skyNoise(index + 601) * 0.44;
   const color = index % 11 === 0 ? "239,221,196" : index % 3 === 0 ? "232,240,255" : "174,199,235";

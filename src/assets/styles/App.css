@@ -344,21 +344,14 @@
 }
 .sky-nebula {
   background:
-    radial-gradient(ellipse at 89% 23%, #33599716 0%, transparent 46%),
-    radial-gradient(ellipse at 14% 73%, #653a8e12 0%, transparent 39%),
-    radial-gradient(ellipse at 73% 83%, #246a7410 0%, transparent 38%),
-    linear-gradient(
-      122deg,
-      transparent 35%,
-      #5070ad06 45%,
-      #748bd009 48%,
-      transparent 58%
-    );
+    radial-gradient(ellipse 16% 24% at 0% 23%, #426aa326, transparent 90%),
+    radial-gradient(ellipse 26% 40% at 100% 74%, #77509d42, transparent 90%),
+    radial-gradient(ellipse 30% 28% at 88% 8%, #364d8029, transparent 90%);
 }
 .sky-distant-stars {
   opacity: 0.85;
   mask-image:
-    radial-gradient(ellipse at 30% 40%, #0005, #000 65%);
+    radial-gradient(ellipse at 36% 35%, #0003, #0009 12%, #000 45%);
 }
 .sky-beacons i {
   position: absolute;

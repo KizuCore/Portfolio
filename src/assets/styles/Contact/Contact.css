@@ -78,6 +78,10 @@
   font-weight: 600;
   margin-bottom: 0.55rem;
 }
+.contact-required-marker {
+  color: #ff9aaa;
+  font-weight: 700;
+}
 .contact-form-card .custom-form {
   border: 1px solid #354b6b;
   border-radius: 8px;
@@ -281,12 +285,29 @@
   }
 }
 .contact-privacy {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
   color: var(--text-muted);
-  font-size: 0.85rem;
-  line-height: 1.7;
+  font-size: 0.8rem;
+  line-height: 1.6;
 }
-.contact-privacy a { color: #a9d1ff; text-underline-offset: 3px; }
+.contact-privacy > p { margin-bottom: 0.75rem; }
+.contact-privacy a,
+.contact-email-alternative a { color: #a9d1ff; text-underline-offset: 3px; }
 .contact-privacy .form-check { margin-bottom: 0.75rem; }
+.contact-privacy-details summary {
+  width: fit-content;
+  cursor: pointer;
+  color: #a9d1ff;
+}
+.contact-privacy-details p { margin: 0.75rem 0 0; }
+.contact-email-alternative {
+  margin: 1rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.contact-email-alternative a:focus-visible,
+.contact-privacy summary:focus-visible,
 .contact-privacy a:focus-visible,
 .contact-privacy input:focus-visible { outline: 2px solid #a9d1ff; outline-offset: 3px; }

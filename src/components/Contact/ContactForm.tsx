@@ -18,6 +18,7 @@ function ContactForm() {
   const { t, i18n } = useTranslation();
   const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
   const { formData, fieldErrors, isSubmitting, captchaConsent, setCaptchaConsent, status, clearStatus, handleChange, handleSubmit } = useContactForm(recaptchaSiteKey);
+  const canSubmit = captchaConsent && CONTACT_FORM_FIELDS.every((field) => formData[field.name].trim().length > 0);
   // Les messages d’état restent traduits, tandis que les messages de repli de l’API peuvent être affichés tels quels.
   const responseMessage = status ? t(status.translationKey, status.fallbackMessage || t("message_fail")) : "";
 
@@ -26,7 +27,7 @@ function ContactForm() {
       <header className="contact-form-header">
         <h2 className="contact-form-title">{t("contact_form_title")}</h2>
         <p className="contact-form-subtitle">{t("contact_form_subtitle")}</p>
-        <p className="contact-form-required">{t("contact_form_required_hint")}</p>
+        <p className="contact-form-required"><span className="contact-required-marker" aria-hidden="true">*</span> {t("contact_form_required_hint")}</p>
       </header>
 
       {status && (
@@ -51,7 +52,7 @@ function ContactForm() {
             return (
               <Col key={field.name} md={field.colMd} xs={12}>
                 <Form.Group controlId={field.controlId}>
-                  <Form.Label>{t(field.labelKey)}</Form.Label>
+                  <Form.Label>{t(field.labelKey)} <span className="contact-required-marker" aria-hidden="true">*</span></Form.Label>
                   <Form.Control
                     as={field.as}
                     type={field.type}
@@ -79,18 +80,21 @@ function ContactForm() {
         </Row>
 
         <div className="contact-privacy">
-          <p>{t("contact_privacy.notice")} <Link to={getLocalizedPath(getShortLocale(i18n.language), "/politique-de-confidentialite")}>{t("footer_links.privacy")}</Link></p>
+          <p>{t("contact_privacy.summary")} <Link to={getLocalizedPath(getShortLocale(i18n.language), "/politique-de-confidentialite")}>{t("contact_privacy.google_privacy")}</Link></p>
           <Form.Check id="contact-captcha-consent" type="checkbox" checked={captchaConsent}
             disabled={isSubmitting} onChange={(event) => setCaptchaConsent(event.currentTarget.checked)}
             label={t("contact_privacy.captcha_consent")} aria-describedby="contact-captcha-details" />
-          <p id="contact-captcha-details">{t("contact_privacy.captcha_details")} <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">{t("contact_privacy.google_privacy")}</a> · <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">{t("contact_privacy.google_terms")}</a></p>
-          <p>{t("contact_privacy.alternative")} <a href={`mailto:${SITE_PROFILE.email}`}>{SITE_PROFILE.email}</a></p>
+          <details className="contact-privacy-details">
+            <summary>{t("contact_privacy.details_label")}</summary>
+            <p id="contact-captcha-details">{t("contact_privacy.captcha_details")} <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">{t("contact_privacy.google_privacy")}</a> · <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">{t("contact_privacy.google_terms")}</a></p>
+            <p>{t("contact_privacy.notice")} <Link to={getLocalizedPath(getShortLocale(i18n.language), "/politique-de-confidentialite")}>{t("footer_links.privacy")}</Link></p>
+          </details>
         </div>
 
         <button
           type="submit"
           className="mt-4 contact-submit-btn"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !canSubmit}
           aria-describedby={status ? "contact-form-status" : undefined}
         >
           {isSubmitting ? (
@@ -105,6 +109,7 @@ function ContactForm() {
             </>
           )}
         </button>
+        <p className="contact-email-alternative">{t("contact_privacy.alternative_short")} <a href={`mailto:${SITE_PROFILE.email}`}>{SITE_PROFILE.email}</a></p>
       </Form>
     </div>
   );

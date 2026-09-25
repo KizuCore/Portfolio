@@ -920,6 +920,9 @@
         }
     },
     "contact_privacy": {
+        "summary": "Vos informations servent à traiter votre demande.",
+        "details_label": "Détails sur reCAPTCHA et vos données",
+        "alternative_short": "Sans reCAPTCHA :",
         "notice": "Théo Guérin utilise ces informations pour répondre à votre demande et envoyer un accusé de réception. Les messages sans suite commerciale sont conservés au maximum 12 mois après le dernier échange. Pour connaître les prestataires et exercer vos droits :",
         "captcha_consent": "J’accepte l’activation de Google reCAPTCHA pour vérifier cet envoi.",
         "captcha_details": "Cette vérification transmet des informations techniques à Google et peut utiliser ses cookies. Google peut aussi traiter ces données pour ses propres finalités. L’accord est distinct des statistiques et sera redemandé à chaque envoi. Ce formulaire est protégé par reCAPTCHA ; les règles suivantes de Google s’appliquent :",

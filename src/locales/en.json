@@ -920,6 +920,9 @@
         }
     },
     "contact_privacy": {
+        "summary": "Your information is used to handle your enquiry.",
+        "details_label": "Details about reCAPTCHA and your data",
+        "alternative_short": "Without reCAPTCHA:",
         "notice": "Théo Guérin uses this information to reply and send a receipt. Enquiries without a business follow-up are kept for no more than 12 months after the last exchange. To learn about providers and exercise your rights:",
         "captcha_consent": "I agree to activate Google reCAPTCHA to verify this submission.",
         "captcha_details": "Verification sends technical information to Google and may use its cookies. Google may also process this data for its own purposes. This choice is separate from analytics and requested for every submission. This form is protected by reCAPTCHA; the following Google policies apply:",

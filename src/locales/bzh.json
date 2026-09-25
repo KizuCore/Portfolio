@@ -920,6 +920,9 @@
         }
     },
     "contact_privacy": {
+        "summary": "Ho roadennoù a servij da respont d’ho koulenn.",
+        "details_label": "Munudoù diwar-benn reCAPTCHA hag ho roadennoù",
+        "alternative_short": "Hep reCAPTCHA :",
         "notice": "Théo Guérin a implij ar roadennoù-mañ evit respont ha kas un testeni resev. Miret e vez ar c’hemennadennoù hep heuliad kenwerzhel e-pad 12 miz d’ar muiañ goude an eskemm diwezhañ. Evit ar prestourien hag ho kwirioù :",
         "captcha_consent": "Asantiñ a ran da weredekaat Google reCAPTCHA evit gwiriañ ar c’has-mañ.",
         "captcha_details": "Ar gwiriañ a gas roadennoù teknikel da Google hag a c’hall implijout e doupinoù. Google a c’hall implijout ar roadennoù evit e balioù dezhañ ivez. Distag eo an asant-mañ diouzh ar stadegoù ha goulennet e vo en-dro evit pep kas. Gwarezet eo ar furmskrid gant reCAPTCHA ; reolennoù Google a dalvez :",

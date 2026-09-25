@@ -34,7 +34,7 @@
   grid-template-columns:
     minmax(280px, 1.25fr) minmax(160px, 0.85fr) minmax(160px, 0.85fr)
     minmax(220px, 1fr);
-  gap: clamp(2rem, 4vw, 3.5rem);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
   align-items: start;
   justify-content: space-between;
 }
@@ -118,7 +118,7 @@
 }
 
 .footer-column-title {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.6rem;
   font-size: clamp(1rem, 0.96rem + 0.12vw, 1.1rem);
   font-weight: 700;
   color: #f5f9ff;
@@ -131,14 +131,14 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.52rem;
+  gap: 0.25rem;
   align-items: flex-start;
 }
 
 .footer-pages-list {
   display: flex;
   flex-direction: column;
-  gap: 0.52rem;
+  gap: 0.25rem;
 }
 
 .footer-nav-link,
@@ -209,7 +209,7 @@
   }
 
   .footer-pages-list {
-    gap: 0.48rem;
+    gap: 0.25rem;
   }
 }
 

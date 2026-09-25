@@ -14,7 +14,7 @@ function PolitiqueCookies(): JSX.Element {
 
     return (
         <Container fluid className="legal-page" id="politique-cookies">
-            <Container className="legal-content-container">
+            <Container className="legal-content-container page-content">
                 <section aria-labelledby="cookie-policy-title">
                     <Row className="justify-content-center p-0">
                         <h1 id="cookie-policy-title" className="legal-title">

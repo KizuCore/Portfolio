@@ -13,7 +13,7 @@ function MentionsLegales(): JSX.Element {
 
   return (
     <Container fluid className="legal-page" id="mentions-legales">
-      <Container className="legal-content-container">
+      <Container className="legal-content-container page-content">
         <Row className="justify-content-center p-0">
           <h1 className="legal-title">{tx("mentions_legales.title")}</h1>
 

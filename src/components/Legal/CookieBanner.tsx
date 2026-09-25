@@ -27,6 +27,8 @@ export default function CookieBanner() {
       aria-label={t("cookie_banner.aria_label")}
     >
       <div className="cookie-banner-inner">
+        <div className="cookie-banner-copy">
+        <h2 className="cookie-banner-title">{t("cookie_banner.title")}</h2>
         <p className="cookie-banner-text mb-0">
           {t("cookie_banner.text")}
           {" "}
@@ -38,6 +40,7 @@ export default function CookieBanner() {
             {t("footer_links.cookies_policy")}
           </Link>
         </p>
+        </div>
 
         <div className="cookie-banner-actions">
           <button
@@ -66,9 +69,9 @@ export default function CookieBanner() {
             type="button"
             className="cookie-manage"
             onClick={() => window.openCookiePreferences?.()}
-            aria-label={t("cookie_banner.manage")}
+            aria-label={t("cookie_banner.customize")}
           >
-            {t("cookie_banner.manage")}
+            {t("cookie_banner.customize")}
           </button>
         </div>
       </div>

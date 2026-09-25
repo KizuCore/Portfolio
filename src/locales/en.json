@@ -541,7 +541,9 @@
         "note": "Enabled only with your consent. You can change this at any time."
     },
     "cookie_banner": {
-        "text": "Google Analytics measures traffic only if you accept. You can refuse or change your choice at any time.",
+        "title": "A little help to improve the site?",
+        "customize": "Customize",
+        "text": "With your permission, Google Analytics helps me understand which pages are visited. You can change your mind at any time.",
         "learn_more": "Learn more",
         "decline": "Decline",
         "accept": "Accept",

@@ -543,7 +543,9 @@
         "note": "Activation uniquement avec votre consentement. Modifiable à tout moment."
     },
     "cookie_banner": {
-        "text": "Google Analytics mesure la fréquentation uniquement si vous l’acceptez. Vous pouvez refuser ou modifier votre choix à tout moment.",
+        "title": "Un coup de pouce pour améliorer le site ?",
+        "customize": "Personnaliser",
+        "text": "Avec votre accord, Google Analytics m’aide à comprendre quelles pages sont consultées. Vous pouvez changer d’avis à tout moment.",
         "learn_more": "En savoir plus",
         "decline": "Refuser",
         "accept": "Accepter",

@@ -541,7 +541,9 @@
         "note": "Gweredekaet nemet gant hoc'h asant. Gallout a rit kemmañ kement-se forzh pegoulz."
     },
     "cookie_banner": {
-        "text": "Google Analytics a vuzul ar gweladennoù ma asantit hepken. Gallout a rit nac’hañ pe kemmañ ho tibab pa fell deoc’h.",
+        "title": "Un tamm sikour evit gwellaat al lec’hienn ?",
+        "customize": "Personelaat",
+        "text": "Gant hoc’h asant, Google Analytics a sikour ac’hanon da gompren peseurt pajennoù a vez gwelet. Gallout a rit kemmañ ho soñj pa fell deoc’h.",
         "learn_more": "Gouzout hiroc'h",
         "decline": "Nac'hañ",
         "accept": "Asantiñ",

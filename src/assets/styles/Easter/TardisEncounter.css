@@ -164,14 +164,11 @@
   border-radius: 3px;
 }
 .timeline-card-date,
+.timeline-event .timeline-card-date .timeline-date-trigger,
 .timeline-date-trigger *,
 .timeline-date-trigger:hover,
 .timeline-date-trigger:active {
   cursor: default;
-}
-.timeline-date-trigger:hover {
-  color: #d1e7ff;
-  text-shadow: 0 0 14px #5aa4ff60;
 }
 .timeline-date-trigger:focus-visible {
   outline: 2px solid #91bfff;

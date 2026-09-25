@@ -60,20 +60,20 @@
 .cookie-banner-actions button {
   min-height: 44px;
   padding: 0.6rem 1.15rem;
-  border-radius: 8px;
+  border-radius: 7px;
   font-size: 0.8rem;
   line-height: 1.4;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
 }
 .cookie-choice {
-  background: #b7d9ff;
-  color: #091324;
-  border: 1px solid #b7d9ff;
+  background: #14263d;
+  color: #dcecff;
+  border: 1px solid #648bb8;
 }
 .cookie-choice:hover {
-  background: #d3e8ff;
-  border-color: #d3e8ff;
+  background: #203b5c;
+  border-color: #9dc6ff;
 }
 .cookie-manage {
   grid-column: 1 / -1;

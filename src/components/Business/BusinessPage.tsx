@@ -16,7 +16,7 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
   const labels = getBusinessLabels(locale);
   const project = PROJECTS.find((item) => item.caseStudyPath === `/fr${page.path}`);
   return (
-    <article className="business-page" lang={getHtmlLang(locale)}>
+    <article className={`business-page${page.kind === "case-study" ? " business-case-study" : ""}`} lang={getHtmlLang(locale)}>
       <nav className="business-breadcrumb" aria-label={labels.breadcrumb}>
         <Link to={`/${locale}`}>{labels.home}</Link><span aria-hidden="true">/</span><span>{page.kind === "service" ? labels.services : labels.project}</span>
       </nav>

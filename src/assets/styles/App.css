@@ -475,3 +475,11 @@
     display: none;
   }
 }
+
+/* Même cadre horizontal que le contenu de l'accueil. */
+.container.page-content {
+  max-width: 1180px;
+  width: calc(100% - 3rem);
+  padding-left: 0;
+  padding-right: 0;
+}

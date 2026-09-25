@@ -6,6 +6,13 @@
   color: var(--text-primary);
   text-align: left;
 }
+/* Inclut la gouttière extérieure de l'accueil, sans conteneur intermédiaire. */
+.business-page.business-case-study {
+  max-width: 1180px;
+  width: calc(100% - 4.5rem);
+  padding-left: 0;
+  padding-right: 0;
+}
 .business-breadcrumb {
   display: flex;
   flex-wrap: wrap;

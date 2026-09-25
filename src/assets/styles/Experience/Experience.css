@@ -5,7 +5,7 @@
   min-height: 100vh;
 }
 .timeline-container {
-  padding: 9.5rem 1rem 5rem;
+  padding: 9.5rem 0 5rem;
   color: #eaf2ff;
   text-align: left;
 }
@@ -176,7 +176,7 @@
 }
 @media (max-width: 575px) {
   .timeline-container {
-    padding: 7.5rem 0.5rem 3rem;
+    padding: 7.5rem 0 3rem;
   }
   .experience-title {
     margin-bottom: 2rem;

@@ -920,6 +920,8 @@
         }
     },
     "contact_privacy": {
+        "missing_fields_hint": "Da leuniañ : {{fields}}.",
+        "missing_consent_hint": "Asantit da Google reCAPTCHA evit kas.",
         "summary": "Ho roadennoù a servij da respont d’ho koulenn.",
         "details_label": "Munudoù diwar-benn reCAPTCHA hag ho roadennoù",
         "alternative_short": "Hep reCAPTCHA :",

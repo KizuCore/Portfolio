@@ -143,6 +143,64 @@
 .contact-form-card .contact-submit-btn:disabled {
   opacity: 0.65;
 }
+.contact-submit-area {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+}
+.contact-submit-area:focus-visible {
+  outline: 2px solid #9dc6ff;
+  outline-offset: 4px;
+  border-radius: 9px;
+}
+.contact-submit-hint {
+  position: absolute;
+  z-index: 10;
+  bottom: calc(100% + 0.75rem);
+  left: 0;
+  width: min(20rem, calc(100vw - 6rem));
+  margin: 0;
+  padding: 0.8rem 1rem;
+  border: 1px solid #496589;
+  border-radius: 10px;
+  background: #15263d;
+  box-shadow: 0 8px 24px #0006;
+  color: #e3ecfa;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  visibility: hidden;
+}
+.contact-submit-hint::after {
+  content: "";
+  position: absolute;
+  left: 2rem;
+  bottom: -6px;
+  width: 10px;
+  height: 10px;
+  background: #15263d;
+  border-right: 1px solid #496589;
+  border-bottom: 1px solid #496589;
+  transform: rotate(45deg);
+}
+/* Maintient le survol pendant le passage du bouton à la bulle. */
+.contact-submit-hint::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 0.75rem;
+}
+.contact-submit-area:not(.hint-dismissed):hover .contact-submit-hint,
+.contact-submit-area:not(.hint-dismissed):focus-within .contact-submit-hint {
+  visibility: visible;
+}
+.contact-submit-area .contact-submit-btn:disabled {
+  pointer-events: none;
+}
+@media (max-width: 575px) {
+  .contact-submit-area { width: 100%; }
+}
 .contact-form-card .contact-submit-btn:focus-visible,
 .contact-aside a:focus-visible {
   outline: 3px solid #9dc6ff !important;

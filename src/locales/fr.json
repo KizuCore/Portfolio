@@ -920,6 +920,8 @@
         }
     },
     "contact_privacy": {
+        "missing_fields_hint": "À remplir : {{fields}}.",
+        "missing_consent_hint": "Cochez l’accord Google reCAPTCHA pour envoyer.",
         "summary": "Vos informations servent à traiter votre demande.",
         "details_label": "Détails sur reCAPTCHA et vos données",
         "alternative_short": "Sans reCAPTCHA :",

@@ -920,6 +920,8 @@
         }
     },
     "contact_privacy": {
+        "missing_fields_hint": "Please fill in: {{fields}}.",
+        "missing_consent_hint": "Select the Google reCAPTCHA consent checkbox to send.",
         "summary": "Your information is used to handle your enquiry.",
         "details_label": "Details about reCAPTCHA and your data",
         "alternative_short": "Without reCAPTCHA:",

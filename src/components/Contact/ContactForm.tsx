@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Alert,
   Col,
@@ -15,10 +16,17 @@ import { getLocalizedPath, getShortLocale } from "../../config/seo";
 import { SITE_PROFILE } from "../../data/portfolio";
 
 function ContactForm() {
+  const [hintDismissed, setHintDismissed] = useState(false);
   const { t, i18n } = useTranslation();
   const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
   const { formData, fieldErrors, isSubmitting, captchaConsent, setCaptchaConsent, status, clearStatus, handleChange, handleSubmit } = useContactForm(recaptchaSiteKey);
-  const canSubmit = captchaConsent && CONTACT_FORM_FIELDS.every((field) => formData[field.name].trim().length > 0);
+  const missingFields = CONTACT_FORM_FIELDS.filter((field) => !formData[field.name].trim());
+  const canSubmit = captchaConsent && missingFields.length === 0;
+  const submitHint = [
+    missingFields.length > 0 ? t("contact_privacy.missing_fields_hint", { fields: missingFields.map((field) => t(field.labelKey)).join(", ") }) : "",
+    !captchaConsent ? t("contact_privacy.missing_consent_hint") : "",
+  ].filter(Boolean).join(" ");
+  const showSubmitHint = !canSubmit && !isSubmitting;
   // Les messages d’état restent traduits, tandis que les messages de repli de l’API peuvent être affichés tels quels.
   const responseMessage = status ? t(status.translationKey, status.fallbackMessage || t("message_fail")) : "";
 
@@ -91,9 +99,17 @@ function ContactForm() {
           </details>
         </div>
 
+        <div className={`contact-submit-area mt-4${hintDismissed ? " hint-dismissed" : ""}`}
+          role="group" aria-label={t("send_message")}
+          tabIndex={showSubmitHint ? 0 : undefined}
+          onMouseLeave={() => setHintDismissed(false)}
+          onBlur={() => setHintDismissed(false)}
+          onKeyDown={(event) => { if (event.key === "Escape") setHintDismissed(true); }}
+          onClick={(event) => { if (showSubmitHint) event.currentTarget.focus(); }}
+          aria-describedby={showSubmitHint ? "contact-submit-hint" : undefined}>
         <button
           type="submit"
-          className="mt-4 contact-submit-btn"
+          className="contact-submit-btn"
           disabled={isSubmitting || !canSubmit}
           aria-describedby={status ? "contact-form-status" : undefined}
         >
@@ -109,6 +125,8 @@ function ContactForm() {
             </>
           )}
         </button>
+        {showSubmitHint && <p id="contact-submit-hint" role="tooltip" className="contact-submit-hint">{submitHint}</p>}
+        </div>
         <p className="contact-email-alternative">{t("contact_privacy.alternative_short")} <a href={`mailto:${SITE_PROFILE.email}`}>{SITE_PROFILE.email}</a></p>
       </Form>
     </div>

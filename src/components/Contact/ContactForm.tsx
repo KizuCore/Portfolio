@@ -99,7 +99,8 @@ function ContactForm() {
           </details>
         </div>
 
-        <div className={`contact-submit-area mt-4${hintDismissed ? " hint-dismissed" : ""}`}
+        <div className="contact-form-actions">
+        <div className={`contact-submit-area${hintDismissed ? " hint-dismissed" : ""}`}
           role="group" aria-label={t("send_message")}
           tabIndex={showSubmitHint ? 0 : undefined}
           onMouseLeave={() => setHintDismissed(false)}
@@ -127,7 +128,8 @@ function ContactForm() {
         </button>
         {showSubmitHint && <p id="contact-submit-hint" role="tooltip" className="contact-submit-hint">{submitHint}</p>}
         </div>
-        <p className="contact-email-alternative">{t("contact_privacy.alternative_short")} <a href={`mailto:${SITE_PROFILE.email}`}>{SITE_PROFILE.email}</a></p>
+        <p className="contact-email-alternative"><a href={`mailto:${SITE_PROFILE.email}`}>{t("contact_privacy.alternative_short")}</a></p>
+        </div>
       </Form>
     </div>
   );

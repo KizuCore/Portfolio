@@ -7,10 +7,20 @@ import type { DestroyType, ISourceOptions, MoveDirection } from "@tsparticles/en
 let particlesEnginePromise: Promise<void> | null = null;
 
 // Des positions stables empêchent le ciel de se déplacer brusquement entre les rendus et les pages.
-const DISTANT_STARS = Array.from({ length: 100 }, (_, index) => {
-  const x = ((index * 0.61803398875 + 0.13) % 1) * 100;
-  const y = ((index * index * 0.41421356 + 0.07) % 1) * 100;
-  return `radial-gradient(circle at ${x.toFixed(2)}% ${y.toFixed(2)}%, rgba(186,210,247,${index % 4 === 0 ? .5 : .23}) 0 ${index % 5 === 0 ? .9 : .55}px, transparent 1.3px)`;
+const skyNoise = (seed: number) => {
+  const value = Math.sin(seed * 127.1 + 311.7) * 43758.5453;
+  return value - Math.floor(value);
+};
+const DISTANT_STARS = Array.from({ length: 160 }, (_, index) => {
+  const x = skyNoise(index + 1) * 100;
+  // Une bande irrégulière plus dense traverse un ciel autrement clairsemé.
+  const y = index < 60
+    ? 15 + x * 0.58 + (skyNoise(index + 201) - 0.5) * 22
+    : skyNoise(index + 201) * 100;
+  const radius = 0.35 + Math.pow(skyNoise(index + 401), 3) * 0.95;
+  const opacity = 0.14 + skyNoise(index + 601) * 0.44;
+  const color = index % 11 === 0 ? "239,221,196" : index % 3 === 0 ? "232,240,255" : "174,199,235";
+  return `radial-gradient(circle at ${x.toFixed(2)}% ${y.toFixed(2)}%, rgba(${color},${opacity.toFixed(2)}) 0 ${radius.toFixed(2)}px, transparent ${(radius + 0.65).toFixed(2)}px)`;
 }).join(",");
 const BEACONS = [ [8, 19], [79, 12], [93, 62], [17, 79], [65, 86], [42, 7] ];
 
@@ -94,7 +104,7 @@ function ParticleBackground() {
       pauseOnOutsideViewport: true,
       particles: {
         number: {
-          value: isMobile ? 24 : isLowPerfDevice ? 32 : 65,
+          value: isMobile ? 16 : isLowPerfDevice ? 24 : 38,
           density: {
             enable: true,
             area: 1100,
@@ -106,7 +116,7 @@ function ParticleBackground() {
         move: {
           enable: !prefersReducedMotion,
           direction: "none" as MoveDirection,
-          speed: isLowPerfDevice ? 0.06 : 0.09,
+          speed: isLowPerfDevice ? 0.025 : 0.04,
           outModes: { default: "out" },
         },
         size: {

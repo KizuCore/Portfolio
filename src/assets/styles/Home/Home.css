@@ -1,6 +1,35 @@
 /* ========================
    SECTION D’ACCUEIL
 ======================== */
+.home-sky-illustration {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Nuages fixes et asymétriques, concentrés autour de l'illustration. */
+.home-nebula {
+  position: absolute;
+  inset: -18% 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 51% 47%, #060c1870 0%, transparent 28%),
+    radial-gradient(ellipse 22% 13% at 60% 33%, #89aaff1c, transparent 85%),
+    radial-gradient(ellipse 29% 19% at 39% 62%, #7476d22e, transparent 85%),
+    radial-gradient(ellipse 20% 34% at 72% 48%, #7854b537, transparent 82%),
+    radial-gradient(ellipse 36% 24% at 51% 34%, #456cad40, transparent 82%),
+    radial-gradient(ellipse 32% 21% at 30% 52%, #234d8745, transparent 85%),
+    radial-gradient(ellipse 40% 35% at 58% 58%, #55366e24, transparent 85%);
+  mask-image: radial-gradient(ellipse, #000 25%, transparent 72%);
+}
+
+@media (max-width: 767px) {
+  .home-nebula {
+    inset: -8% 0;
+    opacity: 0.75;
+  }
+}
+
 .home-section {
   position: relative;
   z-index: -1;

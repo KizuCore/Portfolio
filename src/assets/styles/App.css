@@ -356,8 +356,9 @@
     );
 }
 .sky-distant-stars {
-  opacity: 0.8;
-  mask-image: radial-gradient(ellipse at center, #0009, #000 80%);
+  opacity: 0.85;
+  mask-image:
+    radial-gradient(ellipse at 30% 40%, #0005, #000 65%);
 }
 .sky-beacons i {
   position: absolute;
@@ -366,7 +367,7 @@
   border-radius: 50%;
   background: #e1efff;
   opacity: 0.55;
-  box-shadow: 0 0 6px 1px #a1caff65;
+  box-shadow: 0 0 4px 1px #c3dcff70, 0 0 14px 4px #7ea9e52b;
 }
 .sky-beacons i::before,
 .sky-beacons i::after {
@@ -375,20 +376,20 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(transparent, #b3d3ff85, transparent);
+  background: linear-gradient(transparent, #b3d3ff50, transparent);
   width: 1px;
-  height: 12px;
+  height: 8px;
 }
 .sky-beacons i::after {
   transform: translate(-50%, -50%) rotate(90deg);
-  height: 8px;
+  height: 6px;
 }
 .sky-beacons i:nth-child(3n) {
   background: #f3e4ce;
-  box-shadow: 0 0 7px #e2cba44d;
+  box-shadow: 0 0 5px 1px #e2cba45c, 0 0 15px 3px #d6b89120;
 }
 [data-sky-motion="true"] .sky-beacons i {
-  animation: skyTwinkle 9s ease-in-out infinite;
+  animation: skyTwinkle 15s ease-in-out infinite;
   animation-delay: var(--star-delay);
 }
 .sky-meteors i {
@@ -428,10 +429,10 @@
 @keyframes skyTwinkle {
   0%,
   100% {
-    opacity: 0.25;
+    opacity: 0.4;
   }
   45% {
-    opacity: 0.75;
+    opacity: 0.65;
   }
   60% {
     opacity: 0.45;

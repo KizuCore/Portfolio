@@ -22,12 +22,12 @@ export default function Services() {
         const Icon = item.icon;
         return <article className="service-tile" key={item.key}>
           <Icon className="service-tile-icon" aria-hidden="true" />
-          <h3>{item.technology}</h3>
+          <h3>{t(`services.items.${item.key}.title`)}</h3>
+          <span className="service-tile-technology">{item.technology}</span>
           <p>{t(`services.items.${item.key}.description`)}</p>
           {item.path && <Link className="business-text-link" to={item.path} hrefLang="fr">{t("home_offer.service_link")} ↗</Link>}
         </article>;
       })}
     </div>
-    <div className="home-services-footer"><Link className="business-text-link" to="/fr/services/creation-site-internet-rennes" hrefLang="fr">{t("services.items.websites.title")} ↗</Link></div>
   </section>;
 }

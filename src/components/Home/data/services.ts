@@ -11,7 +11,7 @@ export interface ServiceItem {
 }
 
 export const SERVICE_ITEMS: ServiceItem[] = [
-  { key: "apps", technology: "React", icon: FiLayers, path: "/fr/services/developpeur-react" },
-  { key: "api", technology: "Django", icon: FiServer, path: "/fr/services/developpeur-django" },
+  { key: "websites", technology: "React", icon: FiLayers, path: "/fr/services/creation-site-internet-rennes" },
+  { key: "api", technology: "Django · Node.js", icon: FiServer, path: "/fr/services/developpement-api" },
   { key: "mobile", technology: "Flutter", icon: FiSmartphone, path: "/fr/services/developpeur-flutter" },
 ];

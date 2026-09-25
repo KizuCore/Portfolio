@@ -11,6 +11,7 @@ export const SUPPORTED_LOCALES: SupportedLocale[] = ["fr", "en", "bzh"];
 export const DEFAULT_LOCALE: SupportedLocale = "fr";
 
 export const ROUTE_SEO: Record<string, RouteSeo> = {
+  "/services/developpement-api": { titleKey: "footer_services.api", contentLocale: "fr" },
   "/services/developpeur-react": { titleKey: "services.items.apps.title", contentLocale: "fr" },
   "/services/developpeur-django": { titleKey: "services.items.api.title", contentLocale: "fr" },
   "/services/developpeur-flutter": { titleKey: "services.items.mobile.title", contentLocale: "fr" },

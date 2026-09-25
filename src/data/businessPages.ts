@@ -17,6 +17,26 @@ export type BusinessPage = {
 // Le contenu rédactionnel est partagé par React et la génération SEO statique. Les affirmations doivent rester factuelles.
 // Les services restent en français ; les études de cas utilisent les fichiers JSON de traduction partagés.
 export const BUSINESS_PAGES: BusinessPage[] = [
+  {
+    path: "/services/developpement-api",
+    kind: "service",
+    eyebrow: "API & backend · Rennes",
+    title: "Développement d’API sur mesure à Rennes",
+    description: "Théo Guérin, développeur freelance à Rennes : création et intégration d’API avec Django (Python) ou Node.js, authentification et bases de données.",
+    intro: "Votre application web, mobile ou métier doit accéder à des données et communiquer avec vos outils. Je développe des API avec Django (Python) ou Node.js, selon votre projet et les technologies déjà en place.",
+    tags: ["API REST", "Django · Python", "Node.js", "Intégrations"],
+    sections: [
+      { title: "Partir des échanges dont vous avez besoin", text: "Nous identifions les données à exposer, les actions possibles et les utilisateurs autorisés. L’API est définie autour de ces usages, qu’elle alimente une interface React, une application Flutter ou un outil interne.", items: ["Définition des endpoints et des formats de réponse.", "Validation des entrées, gestion des erreurs et règles métier.", "Authentification et permissions selon les rôles."] },
+      { title: "Django ou Node.js : choisir selon le projet", text: "Le choix dépend de votre code existant, de votre équipe et des services à connecter. Django permet de construire un backend Python avec ses modèles de données et son administration. Node.js permet de développer les services côté serveur en JavaScript ou TypeScript. Nous retenons la solution adaptée au périmètre et à la maintenance attendue." },
+      { title: "Relier vos applications et vos services", text: "Je peux créer une API ou intégrer celle d’un prestataire : catalogue, commandes, formulaires ou notifications. Mon expérience comprend notamment des intégrations avec WooCommerce, Systempay, Brevo et LimeSurvey.", items: ["Connexion aux bases PostgreSQL ou MySQL selon le projet.", "Gestion des identifiants techniques côté serveur.", "Traitement des erreurs et des réponses des services externes."] },
+      { title: "Livrer une API que vous pouvez reprendre", text: "La mission comprend un périmètre et des livrables définis ensemble. La documentation et les vérifications portent sur les échanges réellement utilisés par votre application.", items: ["Exemples de requêtes et description des réponses.", "Tests des parcours importants et des accès autorisés.", "Préparation du déploiement et transmission des informations utiles."] },
+    ],
+    questions: [
+      { question: "Faut-il choisir Django ou Node.js avant de vous contacter ?", answer: "Non. Présentez-moi votre besoin et votre environnement actuel. Nous pouvons choisir la technologie lors du cadrage, en tenant compte de la maintenance et des contraintes d’hébergement." },
+      { question: "Pouvez-vous intégrer une API existante ?", answer: "Oui. Je commence par sa documentation, ses moyens d’authentification et ses limites d’utilisation pour définir les échanges et les cas d’erreur à gérer." },
+      { question: "Pouvez-vous faire évoluer un backend Django ?", answer: "Oui. Je propose aussi des interventions dédiées à Django : reprise de code, évolution des modèles de données, ajout de fonctionnalités et maintenance. La page Développement Django détaille cette offre." },
+    ],
+  },
   { path: "/realisations/la-maree-malouine", kind: "case-study", ...fr.business_pages.cases["la-maree-malouine"] },
   { path: "/realisations/a-table", kind: "case-study", ...fr.business_pages.cases["a-table"] },
   {

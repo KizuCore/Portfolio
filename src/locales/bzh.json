@@ -640,13 +640,17 @@
             }
         }
     },
+    "footer_services": {
+        "api": "Diorren API",
+        "django": "Diorren Django"
+    },
     "services": {
         "title": "Servijoù",
         "subtitle": "Eus ar web d’an hezoug, sevel a ran etrefasoù ha servijoù evit ho raktres.",
         "cta": "Kaozeal diwar-benn ho raktres",
         "items": {
             "websites": {
-                "title": "Lec'hiennoù premium",
+                "title": "Lec’hiennoù vitrin",
                 "description": "Landing pages ha lec'hiennoù embregerezh a-feson SEO, buander ha konversión."
             },
             "apps": {
@@ -655,10 +659,10 @@
             },
             "api": {
                 "title": "API ha backend",
-                "description": "API Django ha Python, dilesa hag diazoù roadennoù evit hoc’h arloadoù."
+                "description": "API gant Django (Python) pe Node.js, dilesa hag diazoù roadennoù evit hoc’h arloadoù."
             },
             "mobile": {
-                "title": "Arloadoù hezoug Flutter",
+                "title": "Arloadoù hezoug",
                 "description": "Arloadoù Flutter ha Dart : merdeiñ, mirout roadennoù lec’hel ha kevreañ ouzh API."
             },
             "optimization": {

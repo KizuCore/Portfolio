@@ -1,4 +1,5 @@
 import LoadingImage from "../Layout/LoadingImage";
+import FaqItem from "./FaqItem";
 import { getContentLocale, getShortLocale, getHtmlLang } from "../../config/seo";
 import { Link } from "react-router-dom";
 import type { BusinessPage as BusinessPageContent } from "../../data/businessPages";
@@ -63,7 +64,7 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
       {page.questions.length > 0 && <section className="business-faq" aria-labelledby="business-faq-title">
         <p className="business-eyebrow">{labels.before}</p><h2 id="business-faq-title">{labels.faq}</h2>
         {/* Les éléments details natifs restent accessibles au clavier et fonctionnent sans JavaScript. */}
-        {page.questions.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}
+        {page.questions.map((item) => <FaqItem key={item.question} question={item.question} answer={item.answer} />)}
       </section>}
 
       <section className="business-related" aria-labelledby="business-related-title">

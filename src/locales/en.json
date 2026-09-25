@@ -640,6 +640,10 @@
             }
         }
     },
+    "footer_services": {
+        "api": "API development",
+        "django": "Django development"
+    },
     "services": {
         "eyebrow": "What I deliver",
         "title": "Services",
@@ -647,7 +651,7 @@
         "cta": "Discuss your project",
         "items": {
             "websites": {
-                "title": "Premium websites",
+                "title": "Business websites",
                 "description": "Landing pages and company sites focused on speed, SEO and conversion."
             },
             "apps": {
@@ -656,10 +660,10 @@
             },
             "api": {
                 "title": "API & backend",
-                "description": "Django and Python APIs, business logic, authentication and databases for your applications."
+                "description": "APIs with Django (Python) or Node.js, business logic, authentication and databases for your applications."
             },
             "mobile": {
-                "title": "Flutter mobile applications",
+                "title": "Mobile applications",
                 "description": "Flutter and Dart applications: navigation, local storage and API integration."
             },
             "optimization": {

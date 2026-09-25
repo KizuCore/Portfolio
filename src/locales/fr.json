@@ -642,6 +642,10 @@
             }
         }
     },
+    "footer_services": {
+        "api": "Développement d’API",
+        "django": "Développement Django"
+    },
     "services": {
         "eyebrow": "Ce que je propose",
         "title": "Services",
@@ -658,10 +662,10 @@
             },
             "api": {
                 "title": "API & backend",
-                "description": "API Django et Python, logique métier, authentification et bases de données pour vos applications."
+                "description": "API avec Django (Python) ou Node.js, logique métier, authentification et bases de données pour vos applications."
             },
             "mobile": {
-                "title": "Applications mobiles Flutter",
+                "title": "Applications mobiles",
                 "description": "Applications Flutter et Dart : navigation, stockage local et connexion à vos API."
             },
             "optimization": {

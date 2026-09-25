@@ -2,7 +2,7 @@
 .resume-section {
   position: relative;
   z-index: 1;
-  padding: 9.5rem 0 5rem;
+  padding: 9.5rem 0.75rem 5rem;
   min-height: 100vh;
   color: #eaf2ff;
   text-align: left;

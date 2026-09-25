@@ -1,6 +1,10 @@
 /* Styles limités à l’introduction : les filtres et les cartes des technologies conservent leurs styles. */
+.about-section.about-page {
+  padding-top: 9.5rem !important;
+}
+
 .about-intro {
-  padding-top: 2rem;
+  padding-top: 0;
   text-align: left;
 }
 
@@ -192,12 +196,15 @@
   padding-bottom: 0 !important;
 }
 
+@media (max-width: 767px) {
+  .about-section.about-page {
+    padding-top: 7.5rem !important;
+  }
+}
+
 @media (max-width: 575px) {
   .about-section .custom-title-1 {
     overflow-wrap: anywhere;
-  }
-  .about-intro {
-    padding-top: 1rem;
   }
   .about-intro-title {
     margin-bottom: 1.75rem;

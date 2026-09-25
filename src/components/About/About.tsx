@@ -36,7 +36,7 @@ function About(): JSX.Element {
 
 
   return (
-    <Container fluid className="about-section">
+    <Container fluid className="about-section about-page">
       <Container className="page-content">
         <Row className="about-intro align-items-start">
 

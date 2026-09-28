@@ -1,4 +1,9 @@
-.case-table { --case-accent: #a9d6af; }
-.table-features .case-card { border-top: 3px solid var(--case-accent); }
-.table-offline { padding: clamp(1.5rem, 4vw, 3rem); background: linear-gradient(135deg, #132e2c, #101c30); border: 1px solid #365554; border-radius: 18px; }
-.table-offline .case-section { max-width: 850px; }
+.table-reminders { background: var(--surface-800); }
+.table-reminders .case-section:last-child { border-left: 2px solid var(--case-accent); padding-left: 2rem; }
+.case-table .showcase-hero-visual { transform: rotate(1.5deg); }
+@media (max-width: 1000px) {
+  .case-table .showcase-hero-visual { transform: none; }
+}
+@media (max-width: 767px) {
+  .table-reminders .case-section:last-child { padding-left: 1.25rem; }
+}

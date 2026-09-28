@@ -747,9 +747,9 @@
         "cases": {
             "a-table": {
                 "eyebrow": "Projet personnel · Application Flutter",
-                "title": "À table ! - Garder un œil sur sa cuisine",
+                "title": "À table !",
                 "description": "Étude de cas À table ! : une application Flutter développée par Théo Guérin pour gérer les aliments, suivre leur péremption et recevoir des rappels.",
-                "intro": "Chez nous, je voulais retrouver facilement les aliments disponibles et savoir lesquels arrivaient à péremption. Je ne connaissais pas d’application qui répondait à mon besoin : j’ai créé À table ! pour garder cette liste à portée de main et éviter d’oublier des produits au fond du frigo.",
+                "intro": "J’ai créé À table ! pour retrouver les aliments disponibles à la maison, suivre leurs dates limites et éviter les produits oubliés au fond du frigo. Une application Flutter utilisable hors connexion.",
                 "tags": [
                     "Projet personnel",
                     "Flutter · Dart",
@@ -813,11 +813,61 @@
                         "question": "Les données sont-elles accessibles sans Internet ?",
                         "answer": "Oui, l’inventaire est stocké localement avec Isar. Cette version fonctionne sur mobile et desktop ; elle ne propose pas de synchronisation de l’inventaire entre plusieurs appareils."
                     }
+                ],
+                "presentation": {
+                    "headline": "Garder un œil sur sa cuisine.",
+                    "visualLabel": "L’application en aperçu",
+                    "format": "Flutter · Mobile & desktop",
+                    "navigation": "Dans cette étude de cas",
+                    "experience": "L’inventaire",
+                    "reminders": "Les rappels",
+                    "engineering": "Sous le capot",
+                    "outcome": "Le projet",
+                    "engineeringTitle": "L’inventaire reste à portée de main.",
+                    "engineeringIntro": "Le fonctionnement hors connexion est au cœur du projet. Découvrez comment l’interface, les données locales et les notifications s’articulent.",
+                    "technical": [
+                        {
+                            "id": "hors-connexion",
+                            "label": "Architecture & stockage local",
+                            "hint": "Flutter, Riverpod et Isar, sans dépendre d’une connexion réseau."
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "title": "Recenser",
+                            "text": "Ajouter ses aliments, leurs quantités et leur emplacement."
+                        },
+                        {
+                            "title": "Repérer",
+                            "text": "Consulter l’inventaire et les dates limites à surveiller."
+                        },
+                        {
+                            "title": "Anticiper",
+                            "text": "Retrouver les échéances dans le calendrier et activer des rappels."
+                        }
+                    ]
+                },
+                "overview": [
+                    {
+                        "label": "Mon rôle",
+                        "value": "Un projet personnel",
+                        "detail": "Conception et développement d’une application à partir d’un besoin à la maison."
+                    },
+                    {
+                        "label": "Le périmètre",
+                        "value": "Inventaire & rappels",
+                        "detail": "Aliments, quantités, emplacements, dates limites et calendrier."
+                    },
+                    {
+                        "label": "Le choix technique",
+                        "value": "Fonctionner hors connexion",
+                        "detail": "Les données de l’inventaire restent sur l’appareil avec Isar."
+                    }
                 ]
             },
             "les-portes-de-montafilan": {
                 "eyebrow": "Étude de cas · Site de gîte",
-                "title": "Les Portes de Montafilan : un site de gîte connecté à Airbnb",
+                "title": "Les Portes de Montafilan",
                 "description": "Étude de cas React et TypeScript : un site de gîte avec tarifs Google Sheets, indisponibilités Airbnb via iCal et estimation du séjour, par Théo Guérin.",
                 "intro": "Présenter le gîte, aider les visiteurs à préparer leur séjour et laisser le propriétaire modifier ses tarifs simplement : trois besoins réunis dans une interface React et TypeScript.",
                 "tags": [
@@ -859,7 +909,57 @@
                         "id": "resultat"
                     }
                 ],
-                "questions": []
+                "questions": [],
+                "presentation": {
+                    "headline": "Donner envie de venir. Faciliter le séjour.",
+                    "visualLabel": "Découvrir le gîte",
+                    "format": "Site vitrine",
+                    "navigation": "Dans cette étude de cas",
+                    "experience": "Le séjour",
+                    "solution": "La gestion",
+                    "engineering": "Sous le capot",
+                    "outcome": "Le résultat",
+                    "engineeringTitle": "Un site relié aux outils du propriétaire.",
+                    "engineeringIntro": "Une interface React, des tarifs dans Google Sheets et les indisponibilités Airbnb. Retrouvez les choix techniques en détail.",
+                    "technical": [
+                        {
+                            "id": "technique",
+                            "label": "Architecture, tests & déploiement",
+                            "hint": "React, TypeScript, Vitest, Playwright et Vercel."
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "title": "Découvrir",
+                            "text": "Explorer le gîte et se projeter dans son séjour."
+                        },
+                        {
+                            "title": "Préparer",
+                            "text": "Choisir ses dates et consulter une estimation du tarif."
+                        },
+                        {
+                            "title": "Réserver",
+                            "text": "Rejoindre Airbnb avec ses dates préremplies pour finaliser."
+                        }
+                    ]
+                },
+                "overview": [
+                    {
+                        "label": "Mon rôle",
+                        "value": "Développement web",
+                        "detail": "Une interface React et TypeScript connectée aux outils du propriétaire."
+                    },
+                    {
+                        "label": "Le parcours",
+                        "value": "Du gîte à la réservation",
+                        "detail": "Présentation du lieu, choix des dates et passage vers Airbnb."
+                    },
+                    {
+                        "label": "Le défi",
+                        "value": "Une gestion sans code",
+                        "detail": "Des tarifs modifiables depuis Google Sheets et des indisponibilités issues d’Airbnb."
+                    }
+                ]
             },
             "la-maree-malouine": {
                 "eyebrow": "Étude de cas · Application web full-stack",

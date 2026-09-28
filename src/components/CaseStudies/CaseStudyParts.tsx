@@ -44,30 +44,10 @@ export function CaseStudyLinks({ study }: StudyProps) {
   </div>;
 }
 
-export function CaseStudyHero({ study }: StudyProps) {
-  const { page, labels } = study;
-  return <header className="business-hero case-hero">
-    <p className="business-eyebrow">{page.eyebrow}</p>
-    <h1>{page.title}</h1>
-    <p className="business-lead">{page.intro}</p>
-    <ul className="business-tags" aria-label={labels.tags}>{page.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
-    <CaseStudyLinks study={study} />
-    <a className="business-text-link case-detail-link" href="#en-detail">{labels.details} <span aria-hidden="true">↓</span></a>
-  </header>;
-}
-
 export function CaseStudyOverview({ study }: StudyProps) {
   return study.page.overview && <dl className="business-overview">{study.page.overview.map((item) => (
     <div key={item.label}><dt>{item.label}</dt><dd><strong>{item.value}</strong><span>{item.detail}</span></dd></div>
   ))}</dl>;
-}
-
-export function CaseStudyPreview({ study, width, height, priority = false }: StudyProps & { width: number; height: number; priority?: boolean }) {
-  const { project, labels, t } = study;
-  return <figure className="business-preview case-preview">
-    <LoadingImage src={project.imgPath} alt={t(project.altTextKey)} width={width} height={height} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : "auto"} />
-    <figcaption>{t(project.titleKey)} · {labels.credit}</figcaption>
-  </figure>;
 }
 
 export function CaseStudySection({ section, className = "" }: { section: ReturnType<CaseStudy["section"]>; className?: string }) {

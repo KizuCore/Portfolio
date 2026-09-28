@@ -747,9 +747,9 @@
         "cases": {
             "a-table": {
                 "eyebrow": "Raktres personel · Arload Flutter",
-                "title": "À table ! — Mirout un lagad war ho kegin",
+                "title": "À table !",
                 "description": "Studiadenn À table ! : un arload Flutter diorroet gant Théo Guérin evit merañ ar boued, heuliañ an deiziadoù diamzer ha resev degasadennoù da soñj.",
-                "intro": "Er gêr e felle din gouzout aes peseurt boued a oa ganeomp ha peseurt produioù a oa o tostaat d’o deiziad diamzer. Ne anavezen ket un arload a glote gant ma ezhomm : krouet em eus À table ! evit kaout al listenn-se dindan an dorn ha chom hep ankouaat produioù e foñs ar yenerez.",
+                "intro": "Savet em eus À table ! evit adkavout ar boued a zo er gêr, heuliañ an deiziadoù termen hag en em ziwall diouzh produioù ankouaet er yenerez. Un arload Flutter a ya en-dro hep kevreadur.",
                 "tags": [
                     "Raktres personel",
                     "Flutter · Dart",
@@ -813,11 +813,61 @@
                         "question": "Ha hegerz eo ar roadennoù hep Internet?",
                         "answer": "Ya, miret eo ar roll ent lec’hel gant Isar. Ar stumm-mañ a ya en-dro war hezoug ha war urzhiataer ; ne ginnig ket goubredañ ar roll etre meur a drevnad."
                     }
+                ],
+                "presentation": {
+                    "headline": "Mirout ul lagad war e gegin.",
+                    "visualLabel": "Un alberz eus an arload",
+                    "format": "Flutter · Hezoug ha urzhiataer",
+                    "navigation": "Er studi degouezh-mañ",
+                    "experience": "An inventar",
+                    "reminders": "Ar c’hounadennoù",
+                    "engineering": "A-dreñv an etrefas",
+                    "outcome": "Ar raktres",
+                    "engineeringTitle": "An inventar a chom tost d’an dorn.",
+                    "engineeringIntro": "Mont en-dro hep kevreadur a zo e-kreiz ar raktres. Dizoloit penaos e labour an etrefas, ar roadennoù lec’hel hag ar c’hemennoù asambles.",
+                    "technical": [
+                        {
+                            "id": "hors-connexion",
+                            "label": "Arkitektouriezh ha stokañ lec’hel",
+                            "hint": "Flutter, Riverpod hag Isar, hep bezañ diouzh ur gevreadur rouedad."
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "title": "Enrollañ",
+                            "text": "Ouzhpennañ boued, kementadoù ha lec’hioù stokañ."
+                        },
+                        {
+                            "title": "Gwiriañ",
+                            "text": "Gwelet an inventar hag an deiziadoù termen da evezhiañ."
+                        },
+                        {
+                            "title": "Rakwelout",
+                            "text": "Adkavout an deiziadoù en deiziataer ha gweredekaat kounadennoù."
+                        }
+                    ]
+                },
+                "overview": [
+                    {
+                        "label": "Ma roll",
+                        "value": "Ur raktres personel",
+                        "detail": "Empenniñ ha diorren un arload diwar un ezhomm er gêr."
+                    },
+                    {
+                        "label": "Ar perzh",
+                        "value": "Inventar ha kounadennoù",
+                        "detail": "Boued, kementadoù, lec’hioù, deiziadoù termen ha deiziataer."
+                    },
+                    {
+                        "label": "An dibab teknikel",
+                        "value": "Hep kevreadur",
+                        "detail": "Roadennoù an inventar a chom war an aparailh gant Isar."
+                    }
                 ]
             },
             "les-portes-de-montafilan": {
                 "eyebrow": "Studiadenn · Lec’hienn ur gwirti",
-                "title": "Les Portes de Montafilan : ul lec’hienn gwirti liammet ouzh Airbnb",
+                "title": "Les Portes de Montafilan",
                 "description": "Studiadenn React ha TypeScript : ul lec’hienn gwirti gant prizioù Google Sheets, deiziadoù dihegerz Airbnb dre iCal ha priz rakwelet ar chomadenn, gant Théo Guérin.",
                 "intro": "Kinnig ar gwirti, sikour ar weladennerien da brientiñ o chomadenn ha lezel ar perc’henn da gemmañ e brizioù aes : tri ezhomm bodet en un etrefas React ha TypeScript.",
                 "tags": [
@@ -859,7 +909,57 @@
                         "id": "resultat"
                     }
                 ],
-                "questions": []
+                "questions": [],
+                "presentation": {
+                    "headline": "Reiñ c’hoant da zont. Aesaat ar prientiñ.",
+                    "visualLabel": "Dizoleiñ ar bod",
+                    "format": "Lec’hienn diskouez",
+                    "navigation": "Er studi degouezh-mañ",
+                    "experience": "Ar chomadenn",
+                    "solution": "Ar merañ",
+                    "engineering": "A-dreñv an etrefas",
+                    "outcome": "An disoc’h",
+                    "engineeringTitle": "Ul lec’hienn liammet ouzh ostilhoù ar perc’henn.",
+                    "engineeringIntro": "Un etrefas React, prizioù e Google Sheets ha deiziadoù dihegerz Airbnb. Dizoloit an dibaboù teknikel.",
+                    "technical": [
+                        {
+                            "id": "technique",
+                            "label": "Arkitektouriezh, amprouadennoù ha desplegañ",
+                            "hint": "React, TypeScript, Vitest, Playwright ha Vercel."
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "title": "Dizoleiñ",
+                            "text": "Gwelout ar bod hag ijinañ ar chomadenn."
+                        },
+                        {
+                            "title": "Prientiñ",
+                            "text": "Dibab deiziadoù ha gwelet ur priz istimet."
+                        },
+                        {
+                            "title": "Mirout",
+                            "text": "Mont da Airbnb gant an deiziadoù leuniet evit echuiñ ar mirout."
+                        }
+                    ]
+                },
+                "overview": [
+                    {
+                        "label": "Ma roll",
+                        "value": "Diorren web",
+                        "detail": "Un etrefas React ha TypeScript liammet ouzh ostilhoù ar perc’henn."
+                    },
+                    {
+                        "label": "An hent",
+                        "value": "Eus ar bod betek ar mirout",
+                        "detail": "Kinnig al lec’h, dibab deiziadoù ha mont da Airbnb."
+                    },
+                    {
+                        "label": "An dae",
+                        "value": "Merañ hep kod",
+                        "detail": "Prizioù kemmus e Google Sheets ha deiziadoù dihegerz eus Airbnb."
+                    }
+                ]
             },
             "la-maree-malouine": {
                 "eyebrow": "Studi degouezh · Arload web full-stack",

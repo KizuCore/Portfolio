@@ -1,5 +1,6 @@
 import { CaseStudyGallery, CaseStudyLayout, CaseStudyLinks, CaseStudyOverview, CaseStudySection } from "./CaseStudyParts";
 import { useCaseStudy } from "./useCaseStudy";
+import { ShowcaseJourney, ShowcaseNavigation } from "./ShowcaseParts";
 import { getMareePresentation } from "./maree/content";
 import MareeHero from "./maree/MareeHero";
 import MareeTechnicalDetails from "./maree/MareeTechnicalDetails";
@@ -8,36 +9,34 @@ import "../../assets/styles/CaseStudies/LaMareeMalouine.css";
 export default function LaMareeMalouine() {
   const study = useCaseStudy("la-maree-malouine");
   const content = getMareePresentation(study.locale);
-  return <CaseStudyLayout study={study} className="case-maree">
+  return <CaseStudyLayout study={study} className="case-maree case-showcase">
     <MareeHero study={study} content={content} />
     <CaseStudyOverview study={study} />
-    <nav className="maree-navigation" aria-label={content.navigation}>
-      <a href="#en-detail"><span aria-hidden="true">01</span>{content.experience}</a>
-      <a href="#administration"><span aria-hidden="true">02</span>{content.administration}</a>
-      <a href="#technique"><span aria-hidden="true">03</span>{content.engineering}</a>
-      <a href="#methode"><span aria-hidden="true">04</span>{content.approach}</a>
-    </nav>
-    <div id="en-detail" className="maree-customer maree-panel">
-      <p className="maree-kicker">{content.client}</p>
+    <ShowcaseNavigation label={content.navigation} links={[
+      { id: "en-detail", label: content.experience },
+      { id: "administration", label: content.administration },
+      { id: "technique", label: content.engineering },
+      { id: "methode", label: content.approach },
+    ]} />
+    <div id="en-detail" className="showcase-customer showcase-panel">
+      <p className="showcase-kicker">{content.client}</p>
       <CaseStudySection section={study.section("parcours-client")} />
-      <ol className="maree-journey">{content.steps.map((step, index) => (
-        <li key={step.title}><span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><h3>{step.title}</h3><p>{step.text}</p></li>
-      ))}</ol>
+      <ShowcaseJourney steps={content.steps} />
     </div>
-    <div className="maree-admin maree-panel">
-      <p className="maree-kicker">{content.merchant}</p>
+    <div className="showcase-admin showcase-panel">
+      <p className="showcase-kicker">{content.merchant}</p>
       <CaseStudySection section={study.section("administration")} />
       <CaseStudyGallery study={study} />
     </div>
     <MareeTechnicalDetails study={study} content={content} />
-    <div id="methode" className="maree-method">
+    <div id="methode" className="showcase-method">
       <p className="business-eyebrow">{content.approach}</p>
       <div className="case-grid">
         <CaseStudySection section={study.section("besoin")} />
         <CaseStudySection section={study.section("sprints")} />
       </div>
     </div>
-    <div className="maree-delivery">
+    <div className="showcase-delivery">
       <CaseStudySection section={study.section("livraison")} />
       <CaseStudyLinks study={study} />
     </div>

@@ -747,9 +747,9 @@
         "cases": {
             "a-table": {
                 "eyebrow": "Personal project · Flutter application",
-                "title": "À table! — Keep track of your kitchen",
+                "title": "À table !",
                 "description": "À table! case study: a Flutter application developed by Théo Guérin to manage food, track expiry dates and receive reminders.",
-                "intro": "At home, I wanted to easily find out what food we had and what was approaching its expiry date. I did not know of an application that met my needs, so I created À table! to keep that list close at hand and avoid forgetting products at the back of the fridge.",
+                "intro": "I created À table ! to find the food available at home, track expiry dates and avoid forgotten items at the back of the fridge. A Flutter application that works offline.",
                 "tags": [
                     "Personal project",
                     "Flutter · Dart",
@@ -813,11 +813,61 @@
                         "question": "Can I access my data without the Internet?",
                         "answer": "Yes, the inventory is stored locally with Isar. This version works on mobile and desktop; it does not offer inventory synchronisation across devices."
                     }
+                ],
+                "presentation": {
+                    "headline": "Keep an eye on your kitchen.",
+                    "visualLabel": "A look at the application",
+                    "format": "Flutter · Mobile & desktop",
+                    "navigation": "In this case study",
+                    "experience": "Inventory",
+                    "reminders": "Reminders",
+                    "engineering": "Behind the interface",
+                    "outcome": "The project",
+                    "engineeringTitle": "Your inventory stays close at hand.",
+                    "engineeringIntro": "Offline use is central to the project. Explore how the interface, local data and notifications work together.",
+                    "technical": [
+                        {
+                            "id": "hors-connexion",
+                            "label": "Architecture & local storage",
+                            "hint": "Flutter, Riverpod and Isar, without relying on a network connection."
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "title": "List",
+                            "text": "Add food items, quantities and storage locations."
+                        },
+                        {
+                            "title": "Check",
+                            "text": "Review your inventory and expiry dates to watch."
+                        },
+                        {
+                            "title": "Plan ahead",
+                            "text": "Find upcoming dates in the calendar and enable reminders."
+                        }
+                    ]
+                },
+                "overview": [
+                    {
+                        "label": "My role",
+                        "value": "A personal project",
+                        "detail": "Design and development of an application born from a need at home."
+                    },
+                    {
+                        "label": "Scope",
+                        "value": "Inventory & reminders",
+                        "detail": "Food, quantities, locations, expiry dates and a calendar."
+                    },
+                    {
+                        "label": "Technical choice",
+                        "value": "Offline use",
+                        "detail": "Inventory data stays on the device with Isar."
+                    }
                 ]
             },
             "les-portes-de-montafilan": {
                 "eyebrow": "Case study · Holiday cottage website",
-                "title": "Les Portes de Montafilan: a holiday cottage website connected to Airbnb",
+                "title": "Les Portes de Montafilan",
                 "description": "React and TypeScript case study: a holiday cottage website with Google Sheets pricing, Airbnb unavailable dates via iCal and stay estimates, by Théo Guérin.",
                 "intro": "Present the cottage, help visitors plan their stay and let the owner update prices easily: three needs brought together in a React and TypeScript interface.",
                 "tags": [
@@ -859,7 +909,57 @@
                         "id": "resultat"
                     }
                 ],
-                "questions": []
+                "questions": [],
+                "presentation": {
+                    "headline": "Inspire a visit. Make planning easier.",
+                    "visualLabel": "Discover the holiday home",
+                    "format": "Showcase website",
+                    "navigation": "In this case study",
+                    "experience": "The stay",
+                    "solution": "Management",
+                    "engineering": "Behind the interface",
+                    "outcome": "The result",
+                    "engineeringTitle": "A website connected to the owner’s tools.",
+                    "engineeringIntro": "A React interface, rates in Google Sheets and Airbnb availability. Explore the technical decisions in detail.",
+                    "technical": [
+                        {
+                            "id": "technique",
+                            "label": "Architecture, testing & deployment",
+                            "hint": "React, TypeScript, Vitest, Playwright and Vercel."
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "title": "Discover",
+                            "text": "Explore the holiday home and picture the stay."
+                        },
+                        {
+                            "title": "Plan",
+                            "text": "Choose dates and review an estimated price."
+                        },
+                        {
+                            "title": "Book",
+                            "text": "Continue to Airbnb with prefilled dates to complete the booking."
+                        }
+                    ]
+                },
+                "overview": [
+                    {
+                        "label": "My role",
+                        "value": "Web development",
+                        "detail": "A React and TypeScript interface connected to the owner’s tools."
+                    },
+                    {
+                        "label": "The journey",
+                        "value": "From discovery to booking",
+                        "detail": "Property presentation, date selection and a handoff to Airbnb."
+                    },
+                    {
+                        "label": "The challenge",
+                        "value": "Management without code",
+                        "detail": "Rates editable in Google Sheets and unavailable dates from Airbnb."
+                    }
+                ]
             },
             "la-maree-malouine": {
                 "eyebrow": "Case study · Full-stack web application",

@@ -1,7 +1,7 @@
 ﻿// La compilation fournit les données rédactionnelles partagées ; le texte est échappé lors de sa conversion en HTML.
 export function renderBusinessPage(page, pages, project, escapeHtml, locale, labels) {
   const e = escapeHtml;
-  // La version statique conserve aussi l’accroche et le parcours illustré propres à La Marée Malouine.
+  // La version statique conserve aussi l’accroche et les étapes propres à chaque étude de cas.
   const presentation = page.presentation ? `<p>${e(page.presentation.headline)}</p><ol>${page.presentation.steps.map((step) => `<li><strong>${e(step.title)}</strong><p>${e(step.text)}</p></li>`).join("")}</ol>` : "";
   const overview = page.overview ? `<dl>${page.overview.map((item) => `<div><dt>${e(item.label)}</dt><dd><strong>${e(item.value)}</strong><p>${e(item.detail)}</p></dd></div>`).join("")}</dl>` : "";
   const gallery = page.gallery ? `<section><h2>${e(page.gallery.title)}</h2><p>${e(page.gallery.description)}</p>${page.gallery.images.map((shot) => `<figure><a href="${e(shot.src)}"><img src="${e(shot.src)}" alt="${e(shot.alt)}" width="1440" height="1000" loading="lazy" style="max-width:100%;height:auto"><span>${e(page.gallery.enlarge)}</span></a><figcaption><h3>${e(shot.title)}</h3><p>${e(shot.caption)}</p></figcaption></figure>`).join("")}</section>` : "";

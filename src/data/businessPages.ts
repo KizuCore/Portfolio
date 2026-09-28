@@ -10,6 +10,13 @@ export type BusinessPage = {
   description: string;
   intro: string;
   tags: string[];
+  overview?: { label: string; value: string; detail: string }[];
+  gallery?: {
+    title: string;
+    description: string;
+    enlarge: string;
+    images: { src: string; alt: string; title: string; caption: string }[];
+  };
   sections: { title: string; text: string; items?: string[] }[];
   questions: { question: string; answer: string }[];
 };

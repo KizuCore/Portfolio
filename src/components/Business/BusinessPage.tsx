@@ -27,17 +27,36 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
         <p className="business-lead">{page.intro}</p>
         <ul className="business-tags" aria-label={labels.tags}>{page.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
         <div className="business-actions">
-          <Link className="business-button" to={`/${locale}/contact`}>{labels.talk} <span aria-hidden="true">↗</span></Link>
+          {page.overview && project?.seeLink
+            ? <a className="business-button" href={project.seeLink} target="_blank" rel="noopener noreferrer">{labels.visit} <span className="visually-hidden">({labels.new_tab})</span> <span aria-hidden="true">↗</span></a>
+            : <Link className="business-button" to={`/${locale}/contact`}>{labels.talk} <span aria-hidden="true">↗</span></Link>}
           <a className="business-text-link" href="#en-detail">{labels.details} <span aria-hidden="true">↓</span></a>
         </div>
       </header>
 
+      {page.overview && <dl className="business-overview">{page.overview.map((item) => (
+        <div key={item.label}><dt>{item.label}</dt><dd><strong>{item.value}</strong><span>{item.detail}</span></dd></div>
+      ))}</dl>}
+
       {page.kind === "case-study" && project && (
         <figure className="business-preview">
-          <LoadingImage src={project.imgPath} alt={t(project.altTextKey)} width="1600" height="1000" fetchPriority="high" />
+          <LoadingImage src={project.imgPath} alt={t(project.altTextKey)} width={page.overview ? 1440 : 1600} height={page.overview ? 756 : 1000} fetchPriority="high" />
           <figcaption>{t(project.titleKey)} · {labels.credit}</figcaption>
         </figure>
       )}
+
+      {page.gallery && <section className="business-gallery" aria-labelledby="business-gallery-title">
+        <div className="business-gallery-heading"><h2 id="business-gallery-title">{page.gallery.title}</h2><p>{page.gallery.description}</p></div>
+        <div className="business-gallery-grid">{page.gallery.images.map((shot) => (
+          <figure key={shot.src}>
+            <a href={shot.src} target="_blank" rel="noopener noreferrer" aria-label={`${page.gallery!.enlarge} : ${shot.title} (${labels.new_tab})`}>
+              <LoadingImage src={shot.src} alt={shot.alt} width="1440" height="1000" loading="lazy" decoding="async" />
+              <span className="business-gallery-enlarge">{page.gallery!.enlarge} <span aria-hidden="true">↗</span></span>
+            </a>
+            <figcaption><h3>{shot.title}</h3><p>{shot.caption}</p></figcaption>
+          </figure>
+        ))}</div>
+      </section>}
 
       <div className="business-detail" id="en-detail">
         <aside className="business-aside">
@@ -69,7 +88,7 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
 
       <section className="business-related" aria-labelledby="business-related-title">
         <h2 id="business-related-title">{labels.related}</h2>
-        <div className="business-related-grid">{getBusinessPages(locale).filter((item) => item.path !== page.path).map((item) => (
+        <div className="business-related-grid">{getBusinessPages(locale).filter((item) => item.path !== page.path && (!page.overview || item.kind === "case-study")).map((item) => (
           <Link key={item.path} to={`/${getContentLocale(locale, item.path)}${item.path}`}><span className="business-eyebrow">{item.kind === "service" ? labels.service : labels.case_study}</span><span>{item.title}</span><span aria-hidden="true">↗</span></Link>
         ))}</div>
       </section>

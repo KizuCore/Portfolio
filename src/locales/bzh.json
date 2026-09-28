@@ -334,7 +334,7 @@
         "portes_montafilan_image_alt": "Tapadenn skramm eus pajenn degemer Les Portes de Montafilan",
         "maree_malouine_title": "La Marée Malouine",
         "maree_malouine_description": "Lec’hienn diskouez hag arload Click & Collect evit ur stal besked : katalog, kinnigadennoù, urzhiañ dre bazennoù ha paeañ enlinenn gant kartenn dre Stripe. Rann ar c’henwerzher a vod ar stok, ar c’houlzadoù, an adpaeamantoù hag istor ar c’hliented. Stok miret e-pad ar paeamant ha kemennoù dre Brevo.",
-        "maree_malouine_image_alt": "Tapadenn skramm eus pajenn degemer La Marée Malouine ha pazennoù ar Click & Collect"
+        "maree_malouine_image_alt": "Pajenn degemer La Marée Malouine : kinnig ar stal besked ha liammoù d’ar c’hatalog ha d’an urzhiañ"
     },
     "solar_system": {
         "sun": "Heol",
@@ -852,10 +852,10 @@
                 "questions": []
             },
             "la-maree-malouine": {
-                "eyebrow": "Enklask war ur raktres · Stal besked & Click & Collect",
-                "title": "La Marée Malouine : eus ar c’hatalog betek ar stal",
+                "eyebrow": "Studi degouezh · Arload web full-stack",
+                "title": "La Marée Malouine",
                 "description": "Raktres La Marée Malouine gant Théo Guérin : Click & Collect, paeamant Stripe, merañ ar stok ha rann ar c’henwerzher gant React ha PostgreSQL.",
-                "intro": "Reiñ tu d’ar c’hliented da urzhiañ ha da baeañ diwar o fellgomzer ha d’ar c’henwerzher da verañ e obererezh : savet em eus ul lec’hienn diskouez hag un arload Click & Collect gant paeamant Stripe evit La Marée Malouine.",
+                "intro": "Eus ar c’hatalog enlinenn betek prientiñ an urzhioù : savet em eus un arload Click & Collect evit ur stal besked. Un etrefas evit urzhiañ dre bellgomzer, ur rann evit ar c’henwerzher hag ur servijer evit kenurzhiañ ar stok, ar c’houlzadoù hag ar paeamantoù.",
                 "tags": [
                     "Click & Collect",
                     "React",
@@ -874,6 +874,10 @@
                             "Dibab ur c’houlzad gant un niver bevennet a urzhioù.",
                             "Paeañ gant kartenn dre Stripe Checkout, gant ur sammad dibenn diskouezet a-raok kadarnaat."
                         ]
+                    },
+                    {
+                        "title": "Sprintoù hag ur bilañs bep sizhun",
+                        "text": "Aozet eo bet an diorren dre sprintoù, gant ur bilañs bep sizhun evit diskouez ar c’heweriusterioù savet ha komz eus araokadur al labour. Gant an diskouezadegoù e oa tu da welout ar skrammoù, da eskemm diwar-benn o mont en-dro ha da gomz eus ar bazennoù da zont. Ar ritm ingal-se a roe an tu da geñveriañ an arload gant ezhommoù ar stal besked a-hed ar raktres."
                     },
                     {
                         "title": "Hent ar c’hliant betek ar stal",
@@ -905,27 +909,81 @@
                         ]
                     },
                     {
+                        "title": "Diogelroez : gwareziñ ar moned d’ar merañ",
+                        "text": "Rann ar c’henwerzher a ro moned d’an urzhioù ha da roadennoù ar c’hliented. Enframmet em eus un dilesa e daou bazenn : ar ger-tremen, ha goude-se ur c’hod berrbad eus un arload Authenticator (TOTP) pe un alc’hwez moned WebAuthn. Krouet e vez an estez merour goude gwiriañ an hent a-bezh hepken.",
+                        "items": [
+                            "Gwarez a-enep adimplij ur c’hod TOTP ha bevenniñ an taolioù kevreañ dre gont ha dre chomlec’h IP.",
+                            "Merañ an hentoù kevreañ hag ar c’hodoù sikour unimplij ; o roudoù hachet hepken a vez miret en diaz.",
+                            "Gwiriañ an identelezh a-raok ur cheñchamant diogelroez, nullañ an estezioù all ha skrivañ ar cheñchamantoù en deizlevr.",
+                            "Gwiriañ ar roadennoù hag an aotreoù war ar servijer, gerioù-tremen hachet gant scrypt ha toupinoù estez HttpOnly."
+                        ]
+                    },
+                    {
                         "title": "Kiriegezhioù dispartiet ha pajennoù evit ar c’hlask",
                         "text": "React, TypeScript ha TanStack Start a ver an etrefas hag ar rendu war ar servijer. An hentoù a aoz ar pajennoù, ar servijoù a ver reolennoù ar stal hag ar modulennoù roadennoù a implij Drizzle ORM ha PostgreSQL. An disparti-se a aesaa an emdroadurioù.",
                         "items": [
                             "Tailwind CSS evit an etrefas war bellgomzer hag urzhiataer.",
                             "Metaroadennoù, URL kanonel, sitemap ha roadennoù frammet evit ar pajennoù foran.",
-                            "Dilesa ar merour, gwiriañ war ar servijer ha gwarez a-enep robotoù.",
                             "Pipeline GitLab CI/CD : prouadoù emgefre, sevel ha dielfennañ ar skeudenn Docker gant Trivy, ha displegañ war VPS evit an tagoù gwarezet.",
                             "Mod trezalc’h da weredekaat er rann verañ, gant moned ar c’henwerzher dalc’hmat hegerz."
                         ]
                     },
                     {
-                        "title": "Ul lec’hienn hag ur sturlevr evit kregiñ",
+                        "title": "Amprouadennoù : gwiriañ ar c’hasoù a c’hall c’hwitañ",
+                        "text": "Ar steudad a vod amprouadennoù unanel, amprouadennoù enframmañ PostgreSQL hag un hent merdeer gant Playwright. Gwiriañ a ra ar reolennoù micher, ar monedoù hag an adkemer goude ur c’hwitadenn, da skouer pa glask daou urzh mirout plas diwezhañ ur c’houlzad.",
+                        "items": [
+                            "Reolennoù micher : kementadoù, mizoù, koulzadoù ha cheñchamantoù stad an urzhioù.",
+                            "Enframmañ PostgreSQL : urzhioù war un dro, stok, barregezh tennañ hag ezvezañs doublennoù. Amprouadennoù ar paeamant a implij an diaz gwir gant eskemmoù Stripe dre simulation : kadarnaat, termen, adkemer hag adpaeañ.",
+                            "Diogelroez ha merdeer : moned nac’het a-raok an eil faktor, kefluniañ TOTP, nac’hañ ur c’hod implijet dija, alc’hwezioù WebAuthn ha merañ diogelroez ar gont.",
+                            "Livrañ : CI GitLab a brient diazoù test gouestlet hag a seven ar migroù, an amprouadennoù, ar c’hompilañ hag ar gwiriadennoù TypeScript ha HTML/SEO. Un urzh a-ziforc’h zo evit hent Playwright."
+                        ]
+                    },
+                    {
+                        "title": "Livrañ ha kemer e dorn",
                         "text": "Al lec’hienn zo enlinenn, gant binvioù da leuniañ ar c’hatalog ha da aozañ ar c’houlzadoù. Ur sturlevr a zispleg an oberioù pemdeziek. En istor an oberioù e c’haller heuliañ ar c’hemmoù ; un ezporzh gwareziñ hag un hentenn adsevel evit an oberataer zo ivez.",
                         "items": [
-                            "Prouadoù evit ar paeamantoù, an adpaeamantoù, reolennoù an urzhioù hag ar goulennoù war un dro er stlennvon.",
-                            "Gwiriañ ar respontoù, ar surentez hag an adsevel.",
-                            "Ur sturlevr evit implij pemdeziek ar c’henwerzher."
+                            "Ur sturlevr evit obererezhioù pemdeziek ar c’henwerzher.",
+                            "Ezporzh gwarediñ hag ur c’hinnig adsevel, gant un amprouad enframmañ gouestlet."
                         ]
                     }
                 ],
-                "questions": []
+                "questions": [],
+                "overview": [
+                    {
+                        "label": "Ma roll",
+                        "value": "Diorren full-stack",
+                        "detail": "Hent ar c’hlient, merañ, reolennoù micher hag enframmañ ar paeamantoù hag an ebostoù."
+                    },
+                    {
+                        "label": "Ar perzh",
+                        "value": "Lec’hienn hag ostilhoù merañ",
+                        "detail": "Katalog, urzhioù, tennañ er stal, stok hag istor ar c’hliented en un arload hepken."
+                    },
+                    {
+                        "label": "An dae teknikel",
+                        "value": "Urzhioù fiziañs",
+                        "detail": "Mirout ar stok hag ar c’houlzadoù, kadarnaat ar paeamant hag adkemer hep doublennoù."
+                    }
+                ],
+                "gallery": {
+                    "title": "Evit ar c’henwerzher : ostilhoù ar pemdez",
+                    "description": "Tapadennoù skramm eus an arload loc’hel gant roadennoù faltazi. An urzhioù diskouez a vez paeet er stal ; an hent enlinenn a enframm Stripe Checkout.",
+                    "enlarge": "Brasaat an dapadenn",
+                    "images": [
+                        {
+                            "src": "/images/case-studies/la-maree-malouine/commandes.webp",
+                            "title": "Heuliañ pep urzh betek an tennañ",
+                            "alt": "Merañ : konterioù, enklask, siloù stad hag urzhioù faltazi da brientiñ pe prest.",
+                            "caption": "Ar stadoù hag an obererezhioù prientiñ a zo war an hevelep skramm. Ar c’henwerzher a gav un urzh, a verk anezhañ prest, ha goude-se tennet."
+                        },
+                        {
+                            "src": "/images/case-studies/la-maree-malouine/produits.webp",
+                            "title": "Merañ ar c’hatalog hag ar stok",
+                            "alt": "Merañ : roll ar produioù, kementadoù e stok, hegerzder, hewelder ha nozelennoù kemmañ.",
+                            "caption": "Prizioù, kementadoù, hegerzder hag hewelder a vez meret er c’hatalog. Gwelout a reer diouzhtu pa n’eus stok ebet ken."
+                        }
+                    ]
+                }
             }
         }
     },

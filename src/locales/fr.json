@@ -336,7 +336,7 @@
         "portes_montafilan_image_alt": "Capture de la page d'accueil du site Les Portes de Montafilan",
         "maree_malouine_title": "La Marée Malouine",
         "maree_malouine_description": "Site vitrine et application Click & Collect pour une poissonnerie : catalogue, promotions, commande en étapes et paiement en ligne par carte via Stripe. L’espace commerçant centralise les stocks, les créneaux, les remboursements et le suivi des clients. Réservation temporaire du stock pendant le paiement et notifications par email via Brevo.",
-        "maree_malouine_image_alt": "Capture de la page d’accueil de La Marée Malouine et des étapes du Click & Collect"
+        "maree_malouine_image_alt": "Page d’accueil de La Marée Malouine : présentation de la poissonnerie et accès au catalogue et à la commande"
     },
     "solar_system": {
         "sun": "Soleil",
@@ -852,10 +852,10 @@
                 "questions": []
             },
             "la-maree-malouine": {
-                "eyebrow": "Étude de cas · Poissonnerie & Click & Collect",
-                "title": "La Marée Malouine : du catalogue au retrait en boutique",
+                "eyebrow": "Étude de cas · Application web full-stack",
+                "title": "La Marée Malouine",
                 "description": "Étude de cas La Marée Malouine par Théo Guérin : Click & Collect, paiement Stripe, gestion des stocks et espace commerçant avec React et PostgreSQL.",
-                "intro": "Permettre aux clients de commander et de payer depuis leur téléphone, tout en donnant au commerçant la main sur son activité : j’ai conçu un site vitrine et une application Click & Collect avec paiement Stripe pour La Marée Malouine.",
+                "intro": "Du catalogue en ligne à la préparation des commandes : j’ai conçu et développé une application Click & Collect pour une poissonnerie. Une interface pour commander sur mobile, un espace commerçant pour gérer l’activité et un serveur qui coordonne les stocks, les créneaux et les paiements.",
                 "tags": [
                     "Click & Collect",
                     "React",
@@ -867,13 +867,17 @@
                 ],
                 "sections": [
                     {
-                        "title": "Le besoin : commander et payer en ligne, retirer en boutique",
-                        "text": "La poissonnerie souhaitait présenter ses arrivages, mettre en avant ses promotions et recevoir des commandes sur des créneaux de retrait définis. Le parcours devait rester simple sur mobile et le commerçant devait pouvoir faire évoluer son catalogue au quotidien, sans intervention technique.",
+                        "title": "Le besoin : relier la vente en ligne à la boutique",
+                        "text": "La poissonnerie doit présenter ses arrivages et ses promotions, recevoir des commandes sur des créneaux définis et faire évoluer son catalogue au quotidien. J’ai organisé l’application autour de deux usages : commander simplement sur téléphone et préparer les retraits depuis l’espace commerçant.",
                         "items": [
-                            "Consultation des produits et réservation depuis un téléphone.",
-                            "Choix d’un créneau avec une capacité adaptée à la préparation.",
-                            "Paiement par carte via Stripe Checkout, avec un montant définitif affiché avant validation."
+                            "Un catalogue consultable sans compte client.",
+                            "Des créneaux dont la capacité tient compte de la préparation.",
+                            "Un récapitulatif et un montant définitif avant le paiement."
                         ]
+                    },
+                    {
+                        "title": "Des sprints et une revue chaque semaine",
+                        "text": "Le développement a été organisé en sprints, avec une revue hebdomadaire pour présenter les fonctionnalités réalisées et faire le point sur l’avancement. Ces démonstrations rendaient le travail concret : nous pouvions parcourir les écrans, échanger sur leur fonctionnement et discuter des prochaines étapes. Un rythme régulier pour confronter l’application aux besoins de la poissonnerie tout au long du projet."
                     },
                     {
                         "title": "Un parcours client jusqu’au retrait",
@@ -885,18 +889,17 @@
                         ]
                     },
                     {
-                        "title": "Un espace commerçant pour le quotidien",
-                        "text": "L’administration rassemble les opérations courantes dans un espace protégé. Le commerçant gère les arrivages et les mouvements de stock, organise les retraits, suit les paiements et retrouve l’historique de ses clients.",
+                        "title": "Une administration pensée pour l’activité",
+                        "text": "J’ai regroupé la gestion des produits, des commandes et des retraits dans un espace protégé. Les captures ci-dessus montrent les deux écrans au cœur de cette gestion ; les autres modules complètent le suivi au quotidien.",
                         "items": [
-                            "Création et modification des produits, photos, prix et disponibilités ; suivi des mouvements de stock.",
-                            "Promotions datées et créneaux récurrents à capacité limitée.",
-                            "Suivi des commandes et paiements, annulation avec remboursement Stripe et relance en cas d’échec.",
-                            "Fiches clients avec historique des commandes et export CSV des adresses email.",
-                            "Recherche et filtres dans les messages clients, réponses depuis l’interface, coordonnées et horaires modifiables."
+                            "Produits, photos, prix, promotions datées et historique des mouvements de stock.",
+                            "Créneaux récurrents, capacités de retrait et suivi des commandes.",
+                            "Annulations, remboursements Stripe et reprise des opérations en attente.",
+                            "Historique client, messagerie et paramètres de la boutique."
                         ]
                     },
                     {
-                        "title": "Des stocks réservés et des paiements vérifiés côté serveur",
+                        "title": "Le point clé : coordonner stock et paiement",
                         "text": "Le serveur recalcule les prix et promotions, puis réserve le stock et une place de retrait dans une transaction PostgreSQL pour environ 30 minutes. Le paiement est confirmé par les événements Stripe signés ou par une vérification périodique côté serveur. Une expiration vérifiée libère les réservations ; les reprises évitent de créer une seconde commande ou de répéter une opération de paiement.",
                         "items": [
                             "Vérification de la signature des webhooks et traitement des événements reçus plusieurs fois.",
@@ -905,27 +908,81 @@
                         ]
                     },
                     {
-                        "title": "Une architecture structurée et des pages indexables",
-                        "text": "React, TypeScript et TanStack Start assurent l’interface et le rendu serveur. Les routes composent les pages ; les services portent les règles métier ; les modules d’accès aux données utilisent Drizzle ORM et PostgreSQL. Cette séparation permet de faire évoluer les parcours et la gestion sans mêler affichage et persistance.",
+                        "title": "Sécurité : protéger l’accès à l’administration",
+                        "text": "L’espace commerçant donne accès aux commandes et aux données clients. J’ai intégré une authentification à deux étapes : le mot de passe, puis un code temporaire d’application Authenticator (TOTP) ou une clé d’accès WebAuthn. La session administrateur n’est créée qu’après validation du parcours complet.",
+                        "items": [
+                            "Protection contre la réutilisation d’un code TOTP et limitation des tentatives de connexion par compte et par adresse IP.",
+                            "Gestion des méthodes de connexion et codes de secours à usage unique, dont seuls les condensats sont conservés en base.",
+                            "Confirmation de l’identité avant une modification de sécurité, révocation des autres sessions et journalisation des changements.",
+                            "Validation des entrées et contrôle des autorisations côté serveur, mots de passe hachés avec scrypt et cookies de session HttpOnly."
+                        ]
+                    },
+                    {
+                        "title": "Mes choix d’architecture et de livraison",
+                        "text": "J’ai retenu React, TypeScript et TanStack Start pour réunir l’interface et le rendu serveur dans une seule application à déployer. Les routes composent les pages, les services portent les règles métier et les modules d’accès aux données utilisent Drizzle ORM et PostgreSQL. Cette séparation permet de faire évoluer la gestion sans mêler affichage et persistance.",
                         "items": [
                             "Tailwind CSS pour une interface adaptée au mobile et au bureau.",
                             "Métadonnées, URL canoniques, sitemap et données structurées pour les pages publiques.",
-                            "Authentification de l’administration, validation serveur et protection anti-robot des formulaires.",
                             "Pipeline GitLab CI/CD : tests automatisés, construction et analyse de l’image Docker avec Trivy, puis déploiement sur VPS pour les tags protégés.",
                             "Mode maintenance activable depuis l’administration, avec maintien de l’accès commerçant."
                         ]
                     },
                     {
-                        "title": "Une réalisation accompagnée jusqu’à la prise en main",
+                        "title": "Tests : vérifier les scénarios qui peuvent faire défaut",
+                        "text": "La suite associe tests unitaires, tests d’intégration sur PostgreSQL et un parcours navigateur avec Playwright. Elle cible les règles métier, les accès et les reprises après échec, avec des cas comme deux commandes qui tentent de réserver la dernière place d’un créneau.",
+                        "items": [
+                            "Règles métier : quantités, frais, créneaux et transitions de commande.",
+                            "Intégration PostgreSQL : commandes concurrentes, stock, capacité de retrait et absence de doublons. Les tests de paiement utilisent la vraie base avec les échanges Stripe simulés : confirmation, expiration, reprise et remboursement.",
+                            "Sécurité et navigateur : accès refusé avant le second facteur, configuration TOTP, rejet d’un code déjà utilisé, clés d’accès WebAuthn et gestion de la sécurité du compte.",
+                            "Livraison : la CI GitLab prépare des bases de test dédiées, exécute les migrations, les tests, la compilation et les contrôles TypeScript et HTML/SEO. Le parcours Playwright dispose d’une commande séparée."
+                        ]
+                    },
+                    {
+                        "title": "La livraison et la prise en main",
                         "text": "Le site est en ligne et les outils de gestion permettent au commerçant d’alimenter son catalogue et d’organiser ses retraits. Un guide de prise en main documente les opérations courantes. Le projet comprend aussi un historique des actions, un export de sauvegarde et une procédure de restauration réservée à l’exploitant.",
                         "items": [
-                            "Tests des paiements, remboursements, règles de commande et scénarios de concurrence en base.",
-                            "Vérifications des réponses aux messages, de la sécurité et de la restauration.",
-                            "Transmission d’un guide commerçant pour l’utilisation au quotidien."
+                            "Guide commerçant pour les opérations du quotidien.",
+                            "Export de sauvegarde et procédure de restauration, avec un test d’intégration dédié."
                         ]
                     }
                 ],
-                "questions": []
+                "questions": [],
+                "overview": [
+                    {
+                        "label": "Mon rôle",
+                        "value": "Développement full-stack",
+                        "detail": "Parcours client, administration, logique métier et intégration des services de paiement et d’email."
+                    },
+                    {
+                        "label": "Le périmètre",
+                        "value": "Du site à l’outil de gestion",
+                        "detail": "Catalogue, commande, retrait en boutique, stocks et suivi des clients dans une même application."
+                    },
+                    {
+                        "label": "Le défi technique",
+                        "value": "Fiabiliser la commande",
+                        "detail": "Réserver les stocks et les créneaux, confirmer le paiement et gérer les reprises sans doublon."
+                    }
+                ],
+                "gallery": {
+                    "title": "Côté commerçant : les outils du quotidien",
+                    "description": "Captures de l’application exécutée en local avec des données fictives. Les commandes de démonstration illustrent le paiement au retrait ; le parcours en ligne intègre Stripe Checkout.",
+                    "enlarge": "Agrandir la capture",
+                    "images": [
+                        {
+                            "src": "/images/case-studies/la-maree-malouine/commandes.webp",
+                            "title": "Suivre chaque commande jusqu’au retrait",
+                            "alt": "Administration : compteurs, recherche, filtres par statut et commandes fictives à préparer ou prêtes.",
+                            "caption": "Les statuts et les actions de préparation sont réunis sur un seul écran. Le commerçant retrouve une commande, la marque prête, puis récupérée."
+                        },
+                        {
+                            "src": "/images/case-studies/la-maree-malouine/produits.webp",
+                            "title": "Garder la main sur le catalogue et les stocks",
+                            "alt": "Administration : liste des produits, quantités en stock, disponibilité, visibilité et boutons de modification.",
+                            "caption": "Prix, quantités, disponibilité et visibilité se pilotent depuis le catalogue. Une rupture de stock est immédiatement identifiable."
+                        }
+                    ]
+                }
             }
         }
     },

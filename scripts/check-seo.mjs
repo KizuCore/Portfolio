@@ -273,8 +273,12 @@ function main() {
       for (const item of businessPage.questions) {
         assert(bodyText.includes(item.question) && bodyText.includes(item.answer), `${routePath}: question ou réponse absente`, errors);
       }
-      for (const related of BUSINESS_PAGES.filter((page) => page.path !== businessPage.path)) {
+      for (const related of BUSINESS_PAGES.filter((page) => page.path !== businessPage.path && (!businessPage.overview || page.kind === "case-study"))) {
         assert(html.includes(`href="/${related.kind === "case-study" ? businessLocale : "fr"}${related.path}"`), `${routePath}: lien connexe manquant`, errors);
+      }
+      for (const shot of businessPage.gallery?.images ?? []) {
+        assert(html.includes(`src="${shot.src}"`) && bodyText.includes(shot.caption), `${routePath}: capture ou légende absente`, errors);
+        assert(fs.existsSync(path.join(DIST_DIR, shot.src)), `${routePath}: fichier de capture absent`, errors);
       }
       assert(graph.some((node) => node["@type"] === "BreadcrumbList"), `${routePath}: fil d’Ariane JSON-LD absent`, errors);
       if (businessPage.kind === "service") {

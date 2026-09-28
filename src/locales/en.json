@@ -334,7 +334,7 @@
         "portes_montafilan_image_alt": "Screenshot of the Les Portes de Montafilan homepage",
         "maree_malouine_title": "La Marée Malouine",
         "maree_malouine_description": "Showcase website and Click & Collect application for a fishmonger: catalogue, promotions, step-by-step ordering and online card payments through Stripe. The merchant dashboard brings together stock, pickup slots, refunds and customer history. Stock is reserved temporarily during payment, with email notifications through Brevo.",
-        "maree_malouine_image_alt": "Screenshot of the La Marée Malouine homepage and its Click & Collect steps"
+        "maree_malouine_image_alt": "La Marée Malouine homepage: fishmonger introduction and links to the catalogue and ordering"
     },
     "solar_system": {
         "sun": "Sun",
@@ -852,10 +852,10 @@
                 "questions": []
             },
             "la-maree-malouine": {
-                "eyebrow": "Case study · Fishmonger & Click & Collect",
-                "title": "La Marée Malouine: from catalogue to collection",
+                "eyebrow": "Case study · Full-stack web application",
+                "title": "La Marée Malouine",
                 "description": "La Marée Malouine case study by Théo Guérin: Click & Collect, Stripe payments, stock management and a merchant dashboard built with React and PostgreSQL.",
-                "intro": "Let customers order and pay from their phones while giving the merchant control over daily operations: I built a showcase website and Click & Collect application with Stripe payments for La Marée Malouine.",
+                "intro": "From an online catalogue to order preparation: I designed and built a Click & Collect application for a fishmonger. A mobile ordering interface, a merchant dashboard for daily operations and a server coordinating stock, collection slots and payments.",
                 "tags": [
                     "Click & Collect",
                     "React",
@@ -874,6 +874,10 @@
                             "Choose a pickup slot with capacity suited to preparation.",
                             "Card payment through Stripe Checkout, with a final total shown before confirmation."
                         ]
+                    },
+                    {
+                        "title": "Sprints with a review every week",
+                        "text": "Development was organised into sprints, with a weekly review to demonstrate completed features and discuss progress. These demonstrations made the work tangible: we could walk through the screens, discuss how they worked and consider the next steps. This regular rhythm provided opportunities to check the application against the fishmonger’s needs throughout the project."
                     },
                     {
                         "title": "A customer journey through to collection",
@@ -905,27 +909,81 @@
                         ]
                     },
                     {
+                        "title": "Security: protecting access to administration",
+                        "text": "The merchant dashboard provides access to orders and customer data. I integrated two-step authentication: a password, followed by a temporary authenticator app code (TOTP) or a WebAuthn passkey. An administrator session is only created once the complete flow has been validated.",
+                        "items": [
+                            "TOTP replay protection and login rate limits per account and IP address.",
+                            "Management of sign-in methods and single-use recovery codes, with only their hashes stored in the database.",
+                            "Identity verification before security changes, revocation of other sessions and an audit trail of changes.",
+                            "Server-side input validation and permission checks, scrypt password hashing and HttpOnly session cookies."
+                        ]
+                    },
+                    {
                         "title": "Clear responsibilities and indexable pages",
                         "text": "React, TypeScript and TanStack Start handle the interface and server rendering. Routes compose pages, services implement business rules, and data access modules use Drizzle ORM and PostgreSQL. This separation supports changes to customer and merchant workflows without mixing presentation and persistence.",
                         "items": [
                             "Tailwind CSS for layouts that adapt to mobile and desktop.",
                             "Metadata, canonical URLs, sitemap and structured data for public pages.",
-                            "Admin authentication, server validation and anti-bot protection for forms.",
                             "GitLab CI/CD pipeline: automated tests, Docker image build and scanning with Trivy, then VPS deployment for protected tags.",
                             "Maintenance mode controlled from the dashboard, keeping merchant access available."
                         ]
                     },
                     {
-                        "title": "Delivery with practical guidance",
+                        "title": "Testing: checking scenarios that can fail",
+                        "text": "The suite combines unit tests, PostgreSQL integration tests and a Playwright browser flow. It targets business rules, access controls and recovery after failures, including cases where two orders compete for the last available collection slot.",
+                        "items": [
+                            "Business rules: quantities, fees, collection slots and order transitions.",
+                            "PostgreSQL integration: concurrent orders, stock, collection capacity and duplicate prevention. Payment tests use the real database with simulated Stripe calls for confirmation, expiry, retries and refunds.",
+                            "Security and browser: access denied before the second factor, TOTP setup, rejection of reused codes, WebAuthn passkeys and account security management.",
+                            "Delivery: GitLab CI prepares dedicated test databases and runs migrations, tests, builds, TypeScript checks and HTML/SEO checks. The Playwright flow has a separate command."
+                        ]
+                    },
+                    {
+                        "title": "Delivery and handover",
                         "text": "The site is online, with management tools for the merchant to populate the catalogue and organise pickups. A user guide documents everyday operations. The project also includes an action history, backup export and a restoration procedure reserved for the operator.",
                         "items": [
-                            "Tests for payments, refunds, order rules and database concurrency scenarios.",
-                            "Checks covering message replies, security and restoration.",
-                            "A merchant guide for everyday use."
+                            "A merchant guide for daily operations.",
+                            "Backup export and a restoration procedure, with a dedicated integration test."
                         ]
                     }
                 ],
-                "questions": []
+                "questions": [],
+                "overview": [
+                    {
+                        "label": "My role",
+                        "value": "Full-stack development",
+                        "detail": "Customer journey, administration, business logic and payment and email integrations."
+                    },
+                    {
+                        "label": "Scope",
+                        "value": "Website and management tools",
+                        "detail": "Catalogue, ordering, shop collection, stock and customer history in one application."
+                    },
+                    {
+                        "label": "Technical challenge",
+                        "value": "Reliable ordering",
+                        "detail": "Reserve stock and collection slots, confirm payments and handle retries without duplicates."
+                    }
+                ],
+                "gallery": {
+                    "title": "For the merchant: everyday management tools",
+                    "description": "Screenshots of the application running locally with fictional data. Demo orders illustrate payment on collection; the online journey integrates Stripe Checkout.",
+                    "enlarge": "Enlarge screenshot",
+                    "images": [
+                        {
+                            "src": "/images/case-studies/la-maree-malouine/commandes.webp",
+                            "title": "Track each order through to collection",
+                            "alt": "Administration: counters, search, status filters and fictional orders awaiting preparation or ready for collection.",
+                            "caption": "Statuses and preparation actions share one screen. The merchant can find an order, mark it ready and record its collection."
+                        },
+                        {
+                            "src": "/images/case-studies/la-maree-malouine/produits.webp",
+                            "title": "Manage the catalogue and stock",
+                            "alt": "Administration: product list, stock quantities, availability, visibility and editing controls.",
+                            "caption": "Prices, quantities, availability and visibility are managed from the catalogue. Out-of-stock products are immediately identifiable."
+                        }
+                    ]
+                }
             }
         }
     },

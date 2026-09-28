@@ -333,7 +333,7 @@
         "flambow_frontend_image_alt": "Image of the Flambow Frontend project",
         "portes_montafilan_image_alt": "Screenshot of the Les Portes de Montafilan homepage",
         "maree_malouine_title": "La Marée Malouine",
-        "maree_malouine_description": "Showcase website and Click & Collect application for a fishmonger: catalogue, promotions, ordering with a pickup slot and payment on collection. A merchant dashboard manages products, stock, orders and messages without code changes. Prices and slot capacity are checked on the server, with Brevo notifications and email status tracking.",
+        "maree_malouine_description": "Showcase website and Click & Collect application for a fishmonger: catalogue, promotions, step-by-step ordering and online card payments through Stripe. The merchant dashboard brings together stock, pickup slots, refunds and customer history. Stock is reserved temporarily during payment, with email notifications through Brevo.",
         "maree_malouine_image_alt": "Screenshot of the La Marée Malouine homepage and its Click & Collect steps"
     },
     "solar_system": {
@@ -854,51 +854,54 @@
             "la-maree-malouine": {
                 "eyebrow": "Case study · Fishmonger & Click & Collect",
                 "title": "La Marée Malouine: from catalogue to collection",
-                "description": "La Marée Malouine case study by Théo Guérin: a fishmonger’s website, Click & Collect, merchant dashboard and orders built with React and PostgreSQL.",
-                "intro": "Let customers prepare their orders on their phones while giving the merchant control over daily operations: I built a showcase website and Click & Collect application for La Marée Malouine.",
+                "description": "La Marée Malouine case study by Théo Guérin: Click & Collect, Stripe payments, stock management and a merchant dashboard built with React and PostgreSQL.",
+                "intro": "Let customers order and pay from their phones while giving the merchant control over daily operations: I built a showcase website and Click & Collect application with Stripe payments for La Marée Malouine.",
                 "tags": [
                     "Click & Collect",
                     "React",
                     "TanStack Start",
                     "PostgreSQL",
-                    "Brevo"
+                    "Stripe",
+                    "Brevo",
+                    "GitLab CI/CD"
                 ],
                 "sections": [
                     {
-                        "title": "The need: order online, pay on collection",
+                        "title": "The need: order and pay online, collect in store",
                         "text": "The fishmonger needed to present fresh arrivals, promote special offers and receive orders for defined pickup slots. The experience had to be simple on mobile, with a catalogue the merchant could update every day without technical help.",
                         "items": [
                             "Browse products and place an order from a phone.",
                             "Choose a pickup slot with capacity suited to preparation.",
-                            "Pay on collection, with an estimated total for products sold by weight."
+                            "Card payment through Stripe Checkout, with a final total shown before confirmation."
                         ]
                     },
                     {
                         "title": "A customer journey through to collection",
-                        "text": "Visitors browse categories, view product details and build their selection. They enter their contact details, choose an available slot and receive an order reference. The merchant accepts or declines the request and can notify the customer when it is ready.",
+                        "text": "Visitors browse the catalogue and build their selection. Ordering has three steps: basket, pickup slot and contact details. They then pay by card on the Stripe-hosted page. Once the server verifies payment, the order moves to preparation; the merchant marks it ready, then collected.",
                         "items": [
                             "Filterable catalogue and promotions displayed on relevant products.",
                             "Summary of quantities, prices and pickup location.",
-                            "Receipt, acceptance, refusal and ready-for-collection emails as the order progresses."
+                            "Payment confirmation, ready-for-collection and cancellation emails through Brevo."
                         ]
                     },
                     {
                         "title": "A dashboard for daily operations",
-                        "text": "A protected administration area brings routine tasks together. The merchant updates the selection as deliveries arrive, organises pickups and handles requests from the same interface.",
+                        "text": "A protected administration area brings routine tasks together. The merchant manages deliveries and stock movements, organises pickups, tracks payments and views customer order history.",
                         "items": [
-                            "Create and edit products, photos, stock, prices and availability.",
-                            "Schedule promotions and generate recurring slots with a maximum capacity.",
-                            "Track orders with search and status filters.",
-                            "Read and reply to customer messages, and update contact details and opening hours."
+                            "Create and edit products, photos, prices and availability, and track stock movements.",
+                            "Schedule promotions and generate recurring slots with limited capacity.",
+                            "Track orders and payments, cancel with a Stripe refund and retry failed refunds.",
+                            "Customer records with order history and CSV export of email addresses.",
+                            "Search and filter customer messages, reply from the dashboard, and update contact details and opening hours."
                         ]
                     },
                     {
-                        "title": "Consistent orders, including retries",
-                        "text": "Order validation recalculates prices and promotions on the server, then checks stock and slot capacity within a PostgreSQL transaction. A submission identifier lets a request resume without creating another order.",
+                        "title": "Reserved stock and server-verified payments",
+                        "text": "The server recalculates prices and promotions, then reserves stock and a pickup place within a PostgreSQL transaction for around 30 minutes. Payment is confirmed through signed Stripe events or periodic server checks. Verified expiry releases reservations; retries avoid creating a second order or repeating a payment operation.",
                         "items": [
-                            "Availability checks when the order is submitted.",
-                            "Notifications saved with the order, then sent in the background through Brevo.",
-                            "Retries after sending failures and email status tracking for the merchant."
+                            "Webhook signature verification and handling of duplicate events.",
+                            "Refund tracking and automatic retries for pending operations.",
+                            "Notifications saved with the order and sent in the background through Brevo, with retries and delivery tracking."
                         ]
                     },
                     {
@@ -908,14 +911,15 @@
                             "Tailwind CSS for layouts that adapt to mobile and desktop.",
                             "Metadata, canonical URLs, sitemap and structured data for public pages.",
                             "Admin authentication, server validation and anti-bot protection for forms.",
-                            "A Docker container for deployment on a VPS."
+                            "GitLab CI/CD pipeline: automated tests, Docker image build and scanning with Trivy, then VPS deployment for protected tags.",
+                            "Maintenance mode controlled from the dashboard, keeping merchant access available."
                         ]
                     },
                     {
                         "title": "Delivery with practical guidance",
                         "text": "The site is online, with management tools for the merchant to populate the catalogue and organise pickups. A user guide documents everyday operations. The project also includes an action history, backup export and a restoration procedure reserved for the operator.",
                         "items": [
-                            "Tests for order rules and concurrent database operations.",
+                            "Tests for payments, refunds, order rules and database concurrency scenarios.",
                             "Checks covering message replies, security and restoration.",
                             "A merchant guide for everyday use."
                         ]

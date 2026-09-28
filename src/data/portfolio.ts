@@ -94,7 +94,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     titleKey: "categories_projects.maree_malouine_title",
     descriptionKey: "categories_projects.maree_malouine_description",
     seeLink: "https://lamareemalouine.fr/",
-    techStack: ["React", "TypeScript", "TanStack Start", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Brevo", "Docker"],
+    techStack: ["React", "TypeScript", "TanStack Start", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Stripe", "Brevo", "Docker", "GitLab CI/CD"],
     category: "web",
     featured: true,
     pinTop: true,

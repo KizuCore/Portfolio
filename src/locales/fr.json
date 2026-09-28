@@ -335,7 +335,7 @@
         "badmintonapi_image_alt": "Image du projet API Badminton",
         "portes_montafilan_image_alt": "Capture de la page d'accueil du site Les Portes de Montafilan",
         "maree_malouine_title": "La Marée Malouine",
-        "maree_malouine_description": "Site vitrine et application Click & Collect pour une poissonnerie : catalogue, promotions, commande avec choix du créneau et paiement au retrait. Un espace commerçant permet de gérer produits, stocks, commandes et messages sans toucher au code. Les prix et capacités sont contrôlés côté serveur, avec des notifications Brevo et un suivi des envois.",
+        "maree_malouine_description": "Site vitrine et application Click & Collect pour une poissonnerie : catalogue, promotions, commande en étapes et paiement en ligne par carte via Stripe. L’espace commerçant centralise les stocks, les créneaux, les remboursements et le suivi des clients. Réservation temporaire du stock pendant le paiement et notifications par email via Brevo.",
         "maree_malouine_image_alt": "Capture de la page d’accueil de La Marée Malouine et des étapes du Click & Collect"
     },
     "solar_system": {
@@ -854,51 +854,54 @@
             "la-maree-malouine": {
                 "eyebrow": "Étude de cas · Poissonnerie & Click & Collect",
                 "title": "La Marée Malouine : du catalogue au retrait en boutique",
-                "description": "Étude de cas La Marée Malouine par Théo Guérin : site de poissonnerie, Click & Collect, espace commerçant et commandes avec React et PostgreSQL.",
-                "intro": "Permettre aux clients de préparer leur commande depuis leur téléphone, tout en donnant au commerçant la main sur son activité : j’ai conçu un site vitrine et une application Click & Collect pour La Marée Malouine.",
+                "description": "Étude de cas La Marée Malouine par Théo Guérin : Click & Collect, paiement Stripe, gestion des stocks et espace commerçant avec React et PostgreSQL.",
+                "intro": "Permettre aux clients de commander et de payer depuis leur téléphone, tout en donnant au commerçant la main sur son activité : j’ai conçu un site vitrine et une application Click & Collect avec paiement Stripe pour La Marée Malouine.",
                 "tags": [
                     "Click & Collect",
                     "React",
                     "TanStack Start",
                     "PostgreSQL",
-                    "Brevo"
+                    "Stripe",
+                    "Brevo",
+                    "GitLab CI/CD"
                 ],
                 "sections": [
                     {
-                        "title": "Le besoin : vendre en ligne, encaisser sur place",
+                        "title": "Le besoin : commander et payer en ligne, retirer en boutique",
                         "text": "La poissonnerie souhaitait présenter ses arrivages, mettre en avant ses promotions et recevoir des commandes sur des créneaux de retrait définis. Le parcours devait rester simple sur mobile et le commerçant devait pouvoir faire évoluer son catalogue au quotidien, sans intervention technique.",
                         "items": [
                             "Consultation des produits et réservation depuis un téléphone.",
                             "Choix d’un créneau avec une capacité adaptée à la préparation.",
-                            "Paiement au retrait et montant estimatif pour les produits vendus au poids."
+                            "Paiement par carte via Stripe Checkout, avec un montant définitif affiché avant validation."
                         ]
                     },
                     {
                         "title": "Un parcours client jusqu’au retrait",
-                        "text": "Le visiteur parcourt les catégories, consulte une fiche produit et compose sa sélection. Il renseigne ses coordonnées, choisit un créneau disponible puis reçoit une référence de commande. Le commerçant accepte ou refuse la demande, et peut prévenir le client lorsque la préparation est prête.",
+                        "text": "Le visiteur parcourt le catalogue et compose sa sélection. La commande se déroule en trois étapes : panier, créneau de retrait et coordonnées. Il règle ensuite par carte sur la page hébergée par Stripe. Après vérification du paiement côté serveur, la commande passe à préparer ; le commerçant la marque prête, puis récupérée.",
                         "items": [
                             "Catalogue filtrable et promotions visibles sur les produits concernés.",
                             "Récapitulatif des quantités, des tarifs et du lieu de retrait.",
-                            "Emails de réception, d’acceptation, de refus ou de commande prête selon son avancement."
+                            "Emails de confirmation du paiement, de commande prête et d’annulation via Brevo."
                         ]
                     },
                     {
                         "title": "Un espace commerçant pour le quotidien",
-                        "text": "L’administration rassemble les opérations courantes dans un espace protégé. Le commerçant ajuste sa sélection selon les arrivages, organise les retraits et suit les demandes dans la même interface.",
+                        "text": "L’administration rassemble les opérations courantes dans un espace protégé. Le commerçant gère les arrivages et les mouvements de stock, organise les retraits, suit les paiements et retrouve l’historique de ses clients.",
                         "items": [
-                            "Création et modification des produits, photos, stocks, prix et disponibilités.",
-                            "Promotions datées et génération de créneaux récurrents avec capacité maximale.",
-                            "Suivi des commandes, recherche et filtres par statut.",
-                            "Messages clients, réponses depuis l’interface, coordonnées et horaires modifiables."
+                            "Création et modification des produits, photos, prix et disponibilités ; suivi des mouvements de stock.",
+                            "Promotions datées et créneaux récurrents à capacité limitée.",
+                            "Suivi des commandes et paiements, annulation avec remboursement Stripe et relance en cas d’échec.",
+                            "Fiches clients avec historique des commandes et export CSV des adresses email.",
+                            "Recherche et filtres dans les messages clients, réponses depuis l’interface, coordonnées et horaires modifiables."
                         ]
                     },
                     {
-                        "title": "Des commandes cohérentes, même en cas de reprise",
-                        "text": "La validation d’une commande recalcule les prix et promotions côté serveur, puis contrôle les stocks et la capacité du créneau dans une transaction PostgreSQL. Un identifiant de soumission permet de reprendre une demande sans créer une seconde commande.",
+                        "title": "Des stocks réservés et des paiements vérifiés côté serveur",
+                        "text": "Le serveur recalcule les prix et promotions, puis réserve le stock et une place de retrait dans une transaction PostgreSQL pour environ 30 minutes. Le paiement est confirmé par les événements Stripe signés ou par une vérification périodique côté serveur. Une expiration vérifiée libère les réservations ; les reprises évitent de créer une seconde commande ou de répéter une opération de paiement.",
                         "items": [
-                            "Contrôles de disponibilité au moment de la validation.",
-                            "Notifications enregistrées avec la commande, puis envoyées en arrière-plan via Brevo.",
-                            "Nouvelle tentative en cas d’échec d’envoi et suivi consultable par le commerçant."
+                            "Vérification de la signature des webhooks et traitement des événements reçus plusieurs fois.",
+                            "Suivi des remboursements et reprise automatique des opérations en attente.",
+                            "Notifications enregistrées avec la commande, envoyées en arrière-plan via Brevo, avec nouvelles tentatives et suivi des envois."
                         ]
                     },
                     {
@@ -908,14 +911,15 @@
                             "Tailwind CSS pour une interface adaptée au mobile et au bureau.",
                             "Métadonnées, URL canoniques, sitemap et données structurées pour les pages publiques.",
                             "Authentification de l’administration, validation serveur et protection anti-robot des formulaires.",
-                            "Application conteneurisée avec Docker pour le déploiement sur VPS."
+                            "Pipeline GitLab CI/CD : tests automatisés, construction et analyse de l’image Docker avec Trivy, puis déploiement sur VPS pour les tags protégés.",
+                            "Mode maintenance activable depuis l’administration, avec maintien de l’accès commerçant."
                         ]
                     },
                     {
                         "title": "Une réalisation accompagnée jusqu’à la prise en main",
                         "text": "Le site est en ligne et les outils de gestion permettent au commerçant d’alimenter son catalogue et d’organiser ses retraits. Un guide de prise en main documente les opérations courantes. Le projet comprend aussi un historique des actions, un export de sauvegarde et une procédure de restauration réservée à l’exploitant.",
                         "items": [
-                            "Tests des règles de commande et des scénarios de concurrence en base.",
+                            "Tests des paiements, remboursements, règles de commande et scénarios de concurrence en base.",
                             "Vérifications des réponses aux messages, de la sécurité et de la restauration.",
                             "Transmission d’un guide commerçant pour l’utilisation au quotidien."
                         ]

@@ -1,25 +1,21 @@
-import LoadingImage from "../Layout/LoadingImage";
 import FaqItem from "./FaqItem";
 import { getContentLocale, getShortLocale, getHtmlLang } from "../../config/seo";
 import { Link } from "react-router-dom";
 import type { BusinessPage as BusinessPageContent } from "../../data/businessPages";
 import { getBusinessPage, getBusinessPages, getBusinessLabels } from "../../data/businessPages";
-import { PROJECTS } from "../Projects/data/projects";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Business/Business.css";
 
-// Le modèle gère seulement la mise en page ; les textes restent partagés avec la version sans JavaScript.
+// Ce modèle est réservé aux services ; les études de cas ont chacune leur propre page React.
 export default function BusinessPage({ page: sourcePage }: { page: BusinessPageContent }) {
   const { i18n } = useTranslation();
   const locale = getContentLocale(getShortLocale(i18n.resolvedLanguage ?? i18n.language), sourcePage.path);
-  const t = i18n.getFixedT(locale);
   const page = getBusinessPage(sourcePage.path, locale)!;
   const labels = getBusinessLabels(locale);
-  const project = PROJECTS.find((item) => item.caseStudyPath === `/fr${page.path}`);
   return (
-    <article className={`business-page${page.kind === "case-study" ? " business-case-study" : ""}`} lang={getHtmlLang(locale)}>
+    <article className="business-page" lang={getHtmlLang(locale)}>
       <nav className="business-breadcrumb" aria-label={labels.breadcrumb}>
-        <Link to={`/${locale}`}>{labels.home}</Link><span aria-hidden="true">/</span><span>{page.kind === "service" ? labels.services : labels.project}</span>
+        <Link to={`/${locale}`}>{labels.home}</Link><span aria-hidden="true">/</span><span>{labels.services}</span>
       </nav>
       <header className="business-hero">
         <p className="business-eyebrow">{page.eyebrow}</p>
@@ -27,41 +23,14 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
         <p className="business-lead">{page.intro}</p>
         <ul className="business-tags" aria-label={labels.tags}>{page.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
         <div className="business-actions">
-          {page.overview && project?.seeLink
-            ? <a className="business-button" href={project.seeLink} target="_blank" rel="noopener noreferrer">{labels.visit} <span className="visually-hidden">({labels.new_tab})</span> <span aria-hidden="true">↗</span></a>
-            : <Link className="business-button" to={`/${locale}/contact`}>{labels.talk} <span aria-hidden="true">↗</span></Link>}
+          <Link className="business-button" to={`/${locale}/contact`}>{labels.talk} <span aria-hidden="true">↗</span></Link>
           <a className="business-text-link" href="#en-detail">{labels.details} <span aria-hidden="true">↓</span></a>
         </div>
       </header>
-
-      {page.overview && <dl className="business-overview">{page.overview.map((item) => (
-        <div key={item.label}><dt>{item.label}</dt><dd><strong>{item.value}</strong><span>{item.detail}</span></dd></div>
-      ))}</dl>}
-
-      {page.kind === "case-study" && project && (
-        <figure className="business-preview">
-          <LoadingImage src={project.imgPath} alt={t(project.altTextKey)} width={page.overview ? 1440 : 1600} height={page.overview ? 756 : 1000} fetchPriority="high" />
-          <figcaption>{t(project.titleKey)} · {labels.credit}</figcaption>
-        </figure>
-      )}
-
-      {page.gallery && <section className="business-gallery" aria-labelledby="business-gallery-title">
-        <div className="business-gallery-heading"><h2 id="business-gallery-title">{page.gallery.title}</h2><p>{page.gallery.description}</p></div>
-        <div className="business-gallery-grid">{page.gallery.images.map((shot) => (
-          <figure key={shot.src}>
-            <a href={shot.src} target="_blank" rel="noopener noreferrer" aria-label={`${page.gallery!.enlarge} : ${shot.title} (${labels.new_tab})`}>
-              <LoadingImage src={shot.src} alt={shot.alt} width="1440" height="1000" loading="lazy" decoding="async" />
-              <span className="business-gallery-enlarge">{page.gallery!.enlarge} <span aria-hidden="true">↗</span></span>
-            </a>
-            <figcaption><h3>{shot.title}</h3><p>{shot.caption}</p></figcaption>
-          </figure>
-        ))}</div>
-      </section>}
-
       <div className="business-detail" id="en-detail">
         <aside className="business-aside">
-          <p className="business-eyebrow">{page.kind === "service" ? labels.service_eyebrow : labels.case_eyebrow}</p>
-          <h2>{page.kind === "service" ? labels.service_heading : labels.case_heading}</h2>
+          <p className="business-eyebrow">{labels.service_eyebrow}</p>
+          <h2>{labels.service_heading}</h2>
           <p>Théo Guérin<br />{labels.developer}</p>
           <Link className="business-text-link" to={`/${locale}/experience`}>{labels.experience} ↗</Link>
         </aside>
@@ -73,22 +42,15 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
               {section.items && <ul>{section.items.map((item) => <li key={item}>{item}</li>)}</ul>}
             </section>
           ))}
-          {page.kind === "case-study" && project && <div className="business-actions">
-            {project.seeLink && <a className="business-button" href={project.seeLink} target="_blank" rel="noopener noreferrer">{labels.visit} <span className="visually-hidden">({labels.new_tab})</span> ↗</a>}
-            {project.ghLink && <a className="business-text-link" href={project.ghLink} target="_blank" rel="noopener noreferrer">{labels.code} <span className="visually-hidden">({labels.new_tab})</span> ↗</a>}
-          </div>}
         </div>
       </div>
-
       {page.questions.length > 0 && <section className="business-faq" aria-labelledby="business-faq-title">
         <p className="business-eyebrow">{labels.before}</p><h2 id="business-faq-title">{labels.faq}</h2>
-        {/* Les éléments details natifs restent accessibles au clavier et fonctionnent sans JavaScript. */}
-        {page.questions.map((item) => <FaqItem key={item.question} question={item.question} answer={item.answer} />)}
+        {page.questions.map((item) => <FaqItem key={item.question} {...item} />)}
       </section>}
-
       <section className="business-related" aria-labelledby="business-related-title">
         <h2 id="business-related-title">{labels.related}</h2>
-        <div className="business-related-grid">{getBusinessPages(locale).filter((item) => item.path !== page.path && (!page.overview || item.kind === "case-study")).map((item) => (
+        <div className="business-related-grid">{getBusinessPages(locale).filter((item) => item.path !== page.path).map((item) => (
           <Link key={item.path} to={`/${getContentLocale(locale, item.path)}${item.path}`}><span className="business-eyebrow">{item.kind === "service" ? labels.service : labels.case_study}</span><span>{item.title}</span><span aria-hidden="true">↗</span></Link>
         ))}</div>
       </section>

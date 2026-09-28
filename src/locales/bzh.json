@@ -760,7 +760,8 @@
                 "sections": [
                     {
                         "title": "Un ezhomm fetis er gêr",
-                        "text": "Da gentañ e klasken un ostilh evit ar prenadennoù hag ar boued a oa dija er gêr. Eeun e oa ar soñj : gallout gwelet petra a oa er gegin, merkañ an deiziadoù ha kavout ar produioù a oa eno abaoe re bell. Savet em eus ar raktres tro-dro da roll ar boued pemdeziek."
+                        "text": "Da gentañ e klasken un ostilh evit ar prenadennoù hag ar boued a oa dija er gêr. Eeun e oa ar soñj : gallout gwelet petra a oa er gegin, merkañ an deiziadoù ha kavout ar produioù a oa eno abaoe re bell. Savet em eus ar raktres tro-dro da roll ar boued pemdeziek.",
+                        "id": "besoin"
                     },
                     {
                         "title": "Gouzout petra hon eus hep gwiriañ pep tra",
@@ -769,7 +770,8 @@
                             "Ouzhpennañ, kemmañ pe dilemel ur boued.",
                             "Silañ boued ar yenerez, ar skornerez pe ar pres.",
                             "Merkañ un deiziad diamzer gant berradennoù evel +2, +7 pe +30 devezh."
-                        ]
+                        ],
+                        "id": "inventaire"
                     },
                     {
                         "title": "Rakwelout an deiziadoù e-lec’h o ankouaat",
@@ -778,7 +780,8 @@
                             "Merkoù er roll pa vez an deiziad o tostaat pe tremenet.",
                             "Un deiziadur evit gwelet an deiziadoù da zont.",
                             "Degasadennoù da soñj a-raok an deiziad diamzer, hervez an aotreoù hag ar savenn implijet."
-                        ]
+                        ],
+                        "id": "rappels"
                     },
                     {
                         "title": "Un arload a c’haller implijout hep kenrouedad",
@@ -788,11 +791,13 @@
                             "Isar evit mirout roadennoù ar boued ent lec’hel.",
                             "GoRouter evit ar merdeiñ ha TableCalendar evit an deiziadoù.",
                             "Kefridioù dispartiet etre ar skrammoù, ar patromoù roadennoù, an haeziñ d’ar stlennvon hag ar c’hemennadennoù."
-                        ]
+                        ],
+                        "id": "hors-connexion"
                     },
                     {
                         "title": "Eus un ezhomm personel d’ur raktres fetis",
-                        "text": "À table ! a vod roll ar boued, an deiziadoù hag an degasadennoù da soñj en un ostilh hepken. Ar raktres-mañ a ziskouez penaos e loc’han eus un implij gwirion, e tresan an hentadoù pennañ hag e liamman un etrefas Flutter ouzh ur stokañ lec’hel hag ouzh kemennadennoù an trevnad. E bal eo sikour da ankouaat nebeutoc’h a voued ha da wastañ nebeutoc’h."
+                        "text": "À table ! a vod roll ar boued, an deiziadoù hag an degasadennoù da soñj en un ostilh hepken. Ar raktres-mañ a ziskouez penaos e loc’han eus un implij gwirion, e tresan an hentadoù pennañ hag e liamman un etrefas Flutter ouzh ur stokañ lec’hel hag ouzh kemennadennoù an trevnad. E bal eo sikour da ankouaat nebeutoc’h a voued ha da wastañ nebeutoc’h.",
+                        "id": "resultat"
                     }
                 ],
                 "questions": [
@@ -824,7 +829,8 @@
                 "sections": [
                     {
                         "title": "An ezhommoù hag ar redioù",
-                        "text": "Ret e oa d’ar raktres tremen hep koumanant miziek d’ur savenn ha hep backend kemplezh, en ur virout prizioù a c’haller kemmañ hep kod en un taolenner. Ret e oa ivez d’al lec’hienn derc’hel kont eus an deiziadoù dihegerz war Airbnb."
+                        "text": "Ret e oa d’ar raktres tremen hep koumanant miziek d’ur savenn ha hep backend kemplezh, en ur virout prizioù a c’haller kemmañ hep kod en un taolenner. Ret e oa ivez d’al lec’hienn derc’hel kont eus an deiziadoù dihegerz war Airbnb.",
+                        "id": "besoin"
                     },
                     {
                         "title": "An diskoulm savet",
@@ -834,19 +840,23 @@
                             "Goubredañ an deiziadoù dihegerz Airbnb er furmad iCal.",
                             "Jediñ ur priz rakwelet sklaer diwar an deiziadoù dibabet.",
                             "Adkas da Airbnb gant an deiziadoù leuniet en a-raok."
-                        ]
+                        ],
+                        "id": "solution"
                     },
                     {
                         "title": "Hentad ar gweladenner",
-                        "text": "Ar gweladenner a zizolo al lec’h, a zibab e zeiziadoù hag a sell ouzh priz rakwelet ar chomadenn. Kenderc’hel a ra neuze gant e viradenn war Airbnb. Al lec’hienn a sikour da zibab ar chomadenn ; ar viradenn diwezhañ a chom meret war Airbnb."
+                        "text": "Ar gweladenner a zizolo al lec’h, a zibab e zeiziadoù hag a sell ouzh priz rakwelet ar chomadenn. Kenderc’hel a ra neuze gant e viradenn war Airbnb. Al lec’hienn a sikour da zibab ar chomadenn ; ar viradenn diwezhañ a chom meret war Airbnb.",
+                        "id": "parcours-visiteur"
                     },
                     {
                         "title": "An dibaboù teknikel",
-                        "text": "React ha TypeScript a aoz an etrefas, Vite a sav ar raktres ha Tailwind CSS a ra war-dro e neuz. Implijout a ra ar raktres Vercel evit al lakaat enlinenn, Brevo evit ar posteloù ha Vitest ha Playwright evit ar prouadoù."
+                        "text": "React ha TypeScript a aoz an etrefas, Vite a sav ar raktres ha Tailwind CSS a ra war-dro e neuz. Implijout a ra ar raktres Vercel evit al lakaat enlinenn, Brevo evit ar posteloù ha Vitest ha Playwright evit ar prouadoù.",
+                        "id": "technique"
                     },
                     {
                         "title": "Petra a c’haller ober gant al lec’hienn",
-                        "text": "Gallout a ra ar perc’henn kemmañ e brizioù diwar e daolenner. Ar weladennerien a gav ur sell war ar gwirti, an deiziadoù hag ur priz rakwelet a-raok mont da Airbnb. Al lec’hienn hag he c’hod a c’haller gwelet amañ dindan evit dizoloiñ ar raktres."
+                        "text": "Gallout a ra ar perc’henn kemmañ e brizioù diwar e daolenner. Ar weladennerien a gav ur sell war ar gwirti, an deiziadoù hag ur priz rakwelet a-raok mont da Airbnb. Al lec’hienn hag he c’hod a c’haller gwelet amañ dindan evit dizoloiñ ar raktres.",
+                        "id": "resultat"
                     }
                 ],
                 "questions": []
@@ -855,7 +865,7 @@
                 "eyebrow": "Studi degouezh · Arload web full-stack",
                 "title": "La Marée Malouine",
                 "description": "Raktres La Marée Malouine gant Théo Guérin : Click & Collect, paeamant Stripe, merañ ar stok ha rann ar c’henwerzher gant React ha PostgreSQL.",
-                "intro": "Eus ar c’hatalog enlinenn betek prientiñ an urzhioù : savet em eus un arload Click & Collect evit ur stal besked. Un etrefas evit urzhiañ dre bellgomzer, ur rann evit ar c’henwerzher hag ur servijer evit kenurzhiañ ar stok, ar c’houlzadoù hag ar paeamantoù.",
+                "intro": "Savet em eus un arload Click & Collect a liamm an urzhioù enlinenn ouzh labour pemdeziek ur stal besked, eus dibab ar produioù betek o c’herc’hat er stal.",
                 "tags": [
                     "Click & Collect",
                     "React",
@@ -873,11 +883,13 @@
                             "Gwelout ar produioù hag urzhiañ diwar ur pellgomzer.",
                             "Dibab ur c’houlzad gant un niver bevennet a urzhioù.",
                             "Paeañ gant kartenn dre Stripe Checkout, gant ur sammad dibenn diskouezet a-raok kadarnaat."
-                        ]
+                        ],
+                        "id": "besoin"
                     },
                     {
                         "title": "Sprintoù hag ur bilañs bep sizhun",
-                        "text": "Aozet eo bet an diorren dre sprintoù, gant ur bilañs bep sizhun evit diskouez ar c’heweriusterioù savet ha komz eus araokadur al labour. Gant an diskouezadegoù e oa tu da welout ar skrammoù, da eskemm diwar-benn o mont en-dro ha da gomz eus ar bazennoù da zont. Ar ritm ingal-se a roe an tu da geñveriañ an arload gant ezhommoù ar stal besked a-hed ar raktres."
+                        "text": "Aozet eo bet an diorren dre sprintoù, gant ur bilañs bep sizhun evit diskouez ar c’heweriusterioù savet ha komz eus araokadur al labour. Gant an diskouezadegoù e oa tu da welout ar skrammoù, da eskemm diwar-benn o mont en-dro ha da gomz eus ar bazennoù da zont. Ar ritm ingal-se a roe an tu da geñveriañ an arload gant ezhommoù ar stal besked a-hed ar raktres.",
+                        "id": "sprints"
                     },
                     {
                         "title": "Hent ar c’hliant betek ar stal",
@@ -886,7 +898,8 @@
                             "Katalog gant siloù ha kinnigadennoù war ar produioù a sell outo.",
                             "Diverradur ar c’hementadoù, ar prizioù hag al lec’h da gerc’hat.",
                             "Posteloù dre Brevo evit kadarnaat ar paeamant, kemenniñ un urzh prest pe un nullañ."
-                        ]
+                        ],
+                        "id": "parcours-client"
                     },
                     {
                         "title": "Ur rann brevez evit al labour pemdeziek",
@@ -897,7 +910,8 @@
                             "Heuliañ urzhioù ha paeamantoù, nullañ gant adpaeamant Stripe hag adlañsañ goude ur fazi.",
                             "Fichennoù kliant gant istor an urzhioù hag ezporzh CSV ar chomlec’hioù postel.",
                             "Klask ha silañ kemennadennoù ar c’hliented, respont en etrefas, kemmañ an daveennoù hag an eurioù digeriñ."
-                        ]
+                        ],
+                        "id": "administration"
                     },
                     {
                         "title": "Stok miret ha paeamantoù gwiriet war ar servijer",
@@ -906,7 +920,8 @@
                             "Gwiriañ sinadur ar webhooks ha merañ an darvoudoù resevet meur a wech.",
                             "Heuliañ an adpaeamantoù hag adklask emgefre evit an oberioù o c’hortoz.",
                             "Kemennoù enrollet gant an urzh ha kaset en drekleur dre Brevo, gant adklaskoù ha heuliañ ar c’has."
-                        ]
+                        ],
+                        "id": "stock-paiement"
                     },
                     {
                         "title": "Diogelroez : gwareziñ ar moned d’ar merañ",
@@ -916,7 +931,8 @@
                             "Merañ an hentoù kevreañ hag ar c’hodoù sikour unimplij ; o roudoù hachet hepken a vez miret en diaz.",
                             "Gwiriañ an identelezh a-raok ur cheñchamant diogelroez, nullañ an estezioù all ha skrivañ ar cheñchamantoù en deizlevr.",
                             "Gwiriañ ar roadennoù hag an aotreoù war ar servijer, gerioù-tremen hachet gant scrypt ha toupinoù estez HttpOnly."
-                        ]
+                        ],
+                        "id": "securite"
                     },
                     {
                         "title": "Kiriegezhioù dispartiet ha pajennoù evit ar c’hlask",
@@ -926,7 +942,8 @@
                             "Metaroadennoù, URL kanonel, sitemap ha roadennoù frammet evit ar pajennoù foran.",
                             "Pipeline GitLab CI/CD : prouadoù emgefre, sevel ha dielfennañ ar skeudenn Docker gant Trivy, ha displegañ war VPS evit an tagoù gwarezet.",
                             "Mod trezalc’h da weredekaat er rann verañ, gant moned ar c’henwerzher dalc’hmat hegerz."
-                        ]
+                        ],
+                        "id": "architecture"
                     },
                     {
                         "title": "Amprouadennoù : gwiriañ ar c’hasoù a c’hall c’hwitañ",
@@ -936,7 +953,8 @@
                             "Enframmañ PostgreSQL : urzhioù war un dro, stok, barregezh tennañ hag ezvezañs doublennoù. Amprouadennoù ar paeamant a implij an diaz gwir gant eskemmoù Stripe dre simulation : kadarnaat, termen, adkemer hag adpaeañ.",
                             "Diogelroez ha merdeer : moned nac’het a-raok an eil faktor, kefluniañ TOTP, nac’hañ ur c’hod implijet dija, alc’hwezioù WebAuthn ha merañ diogelroez ar gont.",
                             "Livrañ : CI GitLab a brient diazoù test gouestlet hag a seven ar migroù, an amprouadennoù, ar c’hompilañ hag ar gwiriadennoù TypeScript ha HTML/SEO. Un urzh a-ziforc’h zo evit hent Playwright."
-                        ]
+                        ],
+                        "id": "tests"
                     },
                     {
                         "title": "Livrañ ha kemer e dorn",
@@ -944,7 +962,8 @@
                         "items": [
                             "Ur sturlevr evit obererezhioù pemdeziek ar c’henwerzher.",
                             "Ezporzh gwarediñ hag ur c’hinnig adsevel, gant un amprouad enframmañ gouestlet."
-                        ]
+                        ],
+                        "id": "livraison"
                     }
                 ],
                 "questions": [],
@@ -981,6 +1000,54 @@
                             "title": "Merañ ar c’hatalog hag ar stok",
                             "alt": "Merañ : roll ar produioù, kementadoù e stok, hegerzder, hewelder ha nozelennoù kemmañ.",
                             "caption": "Prizioù, kementadoù, hegerzder hag hewelder a vez meret er c’hatalog. Gwelout a reer diouzhtu pa n’eus stok ebet ken."
+                        }
+                    ]
+                },
+                "presentation": {
+                    "headline": "Ar stal lec’hel, enlinenn ivez.",
+                    "client": "Hent ar c’hliant",
+                    "merchant": "Rann ar c’henwerzher",
+                    "navigation": "Er studi degouezh-mañ",
+                    "experience": "Urzhiañ",
+                    "administration": "Merañ ar stal",
+                    "engineering": "A-dreñv an etrefas",
+                    "approach": "An hentenn",
+                    "engineeringTitle": "Un etrefas eeun. Labour teknikel a-dreñv.",
+                    "engineeringIntro": "Stok, paeamantoù, diogelroez hag amprouadennoù : an dibaboù evit un hent fiziañs. Digorit un danvez evit gwelet ar munudoù.",
+                    "technical": [
+                        {
+                            "id": "stock-paiement",
+                            "label": "Stok ha paeamantoù",
+                            "hint": "Mirout, kadarnaat hag adkemer hep doublennoù."
+                        },
+                        {
+                            "id": "securite",
+                            "label": "Diogelroez ha dilesa e daou bazenn",
+                            "hint": "TOTP, alc’hwezioù WebAuthn hag estezioù gwiriet."
+                        },
+                        {
+                            "id": "tests",
+                            "label": "Amprouadennoù ha casoù gwir",
+                            "hint": "Urzhioù war un dro gant PostgreSQL, paeamantoù ha Playwright."
+                        },
+                        {
+                            "id": "architecture",
+                            "label": "Arkitektouriezh ha desplegañ",
+                            "hint": "React, TanStack Start, PostgreSQL ha GitLab CI/CD."
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "title": "Dibab",
+                            "text": "Sevel ur paner gant ar c’hatalog hag ar c’hinnigadennoù."
+                        },
+                        {
+                            "title": "Mirout ha paeañ",
+                            "text": "Dibab ur c’houlzad da gerc’hat, ha paeañ dre Stripe."
+                        },
+                        {
+                            "title": "Kerc’hat",
+                            "text": "Resev ar gadarnadenn, ha kerc’hat an urzh er stal."
                         }
                     ]
                 }

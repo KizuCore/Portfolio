@@ -264,6 +264,14 @@ function main() {
     const businessPage = getBusinessPage(localizedRoute.pathname, businessLocale);
     if (businessPage) {
       assert(h1 === businessPage.title, `${routePath}: titre éditorial absent du HTML`, errors);
+      // Les pages dédiées retrouvent leurs sections par identifiant, quelle que soit la langue.
+      if (businessPage.kind === "case-study") {
+        const ids = businessPage.sections.map((section) => section.id);
+        const reference = BUSINESS_PAGES.find((page) => page.path === businessPage.path);
+        const expectedIds = reference.sections.map((section) => section.id);
+        assert(ids.every((id) => typeof id === "string" && id.length > 0) && new Set(ids).size === ids.length, `${routePath}: identifiants de sections absents ou dupliqués`, errors);
+        assert(JSON.stringify([...ids].sort()) === JSON.stringify([...expectedIds].sort()), `${routePath}: identifiants de sections incohérents entre les langues`, errors);
+      }
       for (const section of businessPage.sections) {
         assert(bodyText.includes(section.text), `${routePath}: contenu de section absent (${section.title})`, errors);
         for (const item of section.items ?? []) {
@@ -273,7 +281,7 @@ function main() {
       for (const item of businessPage.questions) {
         assert(bodyText.includes(item.question) && bodyText.includes(item.answer), `${routePath}: question ou réponse absente`, errors);
       }
-      for (const related of BUSINESS_PAGES.filter((page) => page.path !== businessPage.path && (!businessPage.overview || page.kind === "case-study"))) {
+      for (const related of BUSINESS_PAGES.filter((page) => page.path !== businessPage.path && (businessPage.kind === "service" || page.kind === "case-study"))) {
         assert(html.includes(`href="/${related.kind === "case-study" ? businessLocale : "fr"}${related.path}"`), `${routePath}: lien connexe manquant`, errors);
       }
       for (const shot of businessPage.gallery?.images ?? []) {

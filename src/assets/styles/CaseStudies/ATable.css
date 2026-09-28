@@ -1,0 +1,4 @@
+.case-table { --case-accent: #a9d6af; }
+.table-features .case-card { border-top: 3px solid var(--case-accent); }
+.table-offline { padding: clamp(1.5rem, 4vw, 3rem); background: linear-gradient(135deg, #132e2c, #101c30); border: 1px solid #365554; border-radius: 18px; }
+.table-offline .case-section { max-width: 850px; }

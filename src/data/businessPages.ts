@@ -17,7 +17,7 @@ export type BusinessPage = {
     enlarge: string;
     images: { src: string; alt: string; title: string; caption: string }[];
   };
-  sections: { title: string; text: string; items?: string[] }[];
+  sections: { id?: string; title: string; text: string; items?: string[] }[];
   questions: { question: string; answer: string }[];
 };
 

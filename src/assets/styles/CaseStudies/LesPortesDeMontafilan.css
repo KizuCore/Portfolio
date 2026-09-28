@@ -1,0 +1,8 @@
+.case-montafilan { --case-accent: #e7c49b; }
+.case-montafilan .case-hero { max-width: 1050px; }
+.montafilan-brief { grid-template-columns: 0.8fr 1.2fr; }
+.montafilan-journey { border-block: 1px solid #625344; padding: 2.5rem 0; }
+.montafilan-journey .case-section { max-width: 800px; margin: auto; }
+@media (max-width: 767px) {
+  .montafilan-brief { grid-template-columns: 1fr; }
+}

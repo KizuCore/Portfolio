@@ -92,26 +92,6 @@
   outline: 3px solid #b7d9ff;
   outline-offset: 5px;
 }
-.business-preview {
-  background: var(--surface-800);
-  border: 1px solid #334969;
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 0 0 4rem;
-}
-.business-preview img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 560px;
-  object-fit: contain;
-  background: #10172a;
-}
-.business-preview figcaption {
-  padding: 1rem 1.4rem;
-  color: var(--text-muted);
-  font-size: 0.8rem;
-}
 .business-detail {
   display: grid;
   grid-template-columns: 1fr 1.8fr;
@@ -120,35 +100,6 @@
   padding-top: 3rem;
   scroll-margin-top: 110px;
 }
-.business-overview {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  overflow: hidden;
-  border: 1px solid #334969;
-  border-radius: 16px;
-  background: #334969;
-  margin: 0 0 2rem;
-}
-.business-overview > div { padding: 1.5rem; background: #101c30; }
-.business-overview dt { color: #9dc6ff; font-size: 0.8rem; margin-bottom: 0.7rem; }
-.business-overview dd { margin: 0; }
-.business-overview strong { display: block; font-size: 1.1rem; margin-bottom: 0.6rem; }
-.business-overview dd span { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; }
-.business-gallery { margin: 0 0 4rem; }
-.business-gallery-heading { max-width: 780px; margin-bottom: 1.75rem; }
-.business-gallery h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); margin-bottom: 1rem; }
-.business-gallery p { color: var(--text-muted); line-height: 1.8; margin: 0; }
-.business-gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
-.business-gallery figure { margin: 0; border: 1px solid #334969; border-radius: 16px; background: #101c30; overflow: hidden; }
-.business-gallery figure > a { display: block; position: relative; color: #dcecff; }
-.business-gallery figure > a:focus-visible { outline-offset: -4px; }
-.business-gallery img { display: block; width: 100%; height: auto; }
-.business-gallery-enlarge { display: flex; justify-content: space-between; padding: 0.7rem 1.2rem; background: #14263d; font-size: 0.8rem; }
-.business-gallery figure > a:hover .business-gallery-enlarge { background: #203b5c; }
-.business-gallery figcaption { padding: 1.4rem; }
-.business-gallery h3 { font-size: 1.15rem; line-height: 1.4; margin-bottom: 0.65rem; }
-.business-gallery figcaption p { font-size: 0.9rem; }
 .business-aside h2 {
   font-size: 1.8rem;
   line-height: 1.3;
@@ -269,7 +220,7 @@
   max-width: 600px;
 }
 @media (max-width: 767px) {
-  .business-overview, .business-gallery-grid { grid-template-columns: 1fr; }
+
   .business-page {
     padding-top: 6.5rem;
   }

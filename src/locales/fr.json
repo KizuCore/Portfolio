@@ -760,7 +760,8 @@
                 "sections": [
                     {
                         "title": "Un besoin concret à la maison",
-                        "text": "Au départ, je cherchais un outil autour des courses et des aliments que nous avions déjà chez nous. L’idée était simple : pouvoir consulter le contenu de la cuisine, renseigner les dates et repérer ce qui attendait depuis trop longtemps. J’ai construit le projet autour de cet inventaire du quotidien."
+                        "text": "Au départ, je cherchais un outil autour des courses et des aliments que nous avions déjà chez nous. L’idée était simple : pouvoir consulter le contenu de la cuisine, renseigner les dates et repérer ce qui attendait depuis trop longtemps. J’ai construit le projet autour de cet inventaire du quotidien.",
+                        "id": "besoin"
                     },
                     {
                         "title": "Retrouver ce qu’on a, sans tout vérifier",
@@ -769,7 +770,8 @@
                             "Ajouter, modifier ou supprimer un aliment.",
                             "Filtrer le contenu du frigo, du congélateur ou du placard.",
                             "Renseigner une date limite, avec des raccourcis comme +2, +7 ou +30 jours."
-                        ]
+                        ],
+                        "id": "inventaire"
                     },
                     {
                         "title": "Anticiper les dates plutôt que les oublier",
@@ -778,7 +780,8 @@
                             "Des repères dans l’inventaire lorsque la date approche ou est dépassée.",
                             "Un calendrier pour visualiser les prochaines échéances.",
                             "Des rappels avant la date limite, selon les autorisations et la plateforme utilisées."
-                        ]
+                        ],
+                        "id": "rappels"
                     },
                     {
                         "title": "Une application utilisable hors connexion",
@@ -788,11 +791,13 @@
                             "Isar pour le stockage local des aliments.",
                             "GoRouter pour la navigation et TableCalendar pour les échéances.",
                             "Des responsabilités séparées entre écrans, modèles de données, accès à la base et notifications."
-                        ]
+                        ],
+                        "id": "hors-connexion"
                     },
                     {
                         "title": "Du besoin personnel à un projet concret",
-                        "text": "À table ! réunit l’inventaire, les dates et les rappels dans un même outil. Ce projet montre ma façon de partir d’un usage réel, de concevoir les parcours essentiels et de relier une interface Flutter à un stockage local et aux notifications de l’appareil. Son objectif est d’aider à moins oublier les aliments et à limiter le gaspillage."
+                        "text": "À table ! réunit l’inventaire, les dates et les rappels dans un même outil. Ce projet montre ma façon de partir d’un usage réel, de concevoir les parcours essentiels et de relier une interface Flutter à un stockage local et aux notifications de l’appareil. Son objectif est d’aider à moins oublier les aliments et à limiter le gaspillage.",
+                        "id": "resultat"
                     }
                 ],
                 "questions": [
@@ -824,7 +829,8 @@
                 "sections": [
                     {
                         "title": "Le besoin et les contraintes",
-                        "text": "Le projet devait éviter un abonnement mensuel de plateforme et un backend complexe, tout en conservant des tarifs modifiables sans code depuis un tableur. Le site devait également tenir compte des indisponibilités Airbnb."
+                        "text": "Le projet devait éviter un abonnement mensuel de plateforme et un backend complexe, tout en conservant des tarifs modifiables sans code depuis un tableur. Le site devait également tenir compte des indisponibilités Airbnb.",
+                        "id": "besoin"
                     },
                     {
                         "title": "La solution réalisée",
@@ -834,19 +840,23 @@
                             "Synchronisation des indisponibilités Airbnb au format iCal.",
                             "Calcul d’une estimation lisible à partir des dates choisies.",
                             "Redirection vers Airbnb avec les dates préremplies."
-                        ]
+                        ],
+                        "id": "solution"
                     },
                     {
                         "title": "Le parcours du visiteur",
-                        "text": "Le visiteur découvre le lieu, choisit ses dates et consulte une estimation du séjour. Il poursuit ensuite sa réservation sur Airbnb. Le site accompagne le choix du séjour ; la réservation finale reste gérée sur Airbnb."
+                        "text": "Le visiteur découvre le lieu, choisit ses dates et consulte une estimation du séjour. Il poursuit ensuite sa réservation sur Airbnb. Le site accompagne le choix du séjour ; la réservation finale reste gérée sur Airbnb.",
+                        "id": "parcours-visiteur"
                     },
                     {
                         "title": "Les choix techniques",
-                        "text": "React et TypeScript structurent l’interface, Vite assure la construction du projet et Tailwind CSS sa présentation. Le projet utilise Vercel pour le déploiement, Brevo pour les emails et Vitest et Playwright pour les tests."
+                        "text": "React et TypeScript structurent l’interface, Vite assure la construction du projet et Tailwind CSS sa présentation. Le projet utilise Vercel pour le déploiement, Brevo pour les emails et Vitest et Playwright pour les tests.",
+                        "id": "technique"
                     },
                     {
                         "title": "Ce que le site permet",
-                        "text": "Le propriétaire peut ajuster ses tarifs depuis son tableur. Les visiteurs disposent d’un aperçu du gîte, des dates et d’une estimation avant de rejoindre Airbnb. Le site et son code sont consultables ci-dessous pour découvrir la réalisation."
+                        "text": "Le propriétaire peut ajuster ses tarifs depuis son tableur. Les visiteurs disposent d’un aperçu du gîte, des dates et d’une estimation avant de rejoindre Airbnb. Le site et son code sont consultables ci-dessous pour découvrir la réalisation.",
+                        "id": "resultat"
                     }
                 ],
                 "questions": []
@@ -855,7 +865,7 @@
                 "eyebrow": "Étude de cas · Application web full-stack",
                 "title": "La Marée Malouine",
                 "description": "Étude de cas La Marée Malouine par Théo Guérin : Click & Collect, paiement Stripe, gestion des stocks et espace commerçant avec React et PostgreSQL.",
-                "intro": "Du catalogue en ligne à la préparation des commandes : j’ai conçu et développé une application Click & Collect pour une poissonnerie. Une interface pour commander sur mobile, un espace commerçant pour gérer l’activité et un serveur qui coordonne les stocks, les créneaux et les paiements.",
+                "intro": "J’ai conçu une application Click & Collect qui relie les commandes en ligne au quotidien d’une poissonnerie : du choix des produits à leur retrait en boutique.",
                 "tags": [
                     "Click & Collect",
                     "React",
@@ -873,11 +883,13 @@
                             "Un catalogue consultable sans compte client.",
                             "Des créneaux dont la capacité tient compte de la préparation.",
                             "Un récapitulatif et un montant définitif avant le paiement."
-                        ]
+                        ],
+                        "id": "besoin"
                     },
                     {
                         "title": "Des sprints et une revue chaque semaine",
-                        "text": "Le développement a été organisé en sprints, avec une revue hebdomadaire pour présenter les fonctionnalités réalisées et faire le point sur l’avancement. Ces démonstrations rendaient le travail concret : nous pouvions parcourir les écrans, échanger sur leur fonctionnement et discuter des prochaines étapes. Un rythme régulier pour confronter l’application aux besoins de la poissonnerie tout au long du projet."
+                        "text": "Le développement a été organisé en sprints, avec une revue hebdomadaire pour présenter les fonctionnalités réalisées et faire le point sur l’avancement. Ces démonstrations rendaient le travail concret : nous pouvions parcourir les écrans, échanger sur leur fonctionnement et discuter des prochaines étapes. Un rythme régulier pour confronter l’application aux besoins de la poissonnerie tout au long du projet.",
+                        "id": "sprints"
                     },
                     {
                         "title": "Un parcours client jusqu’au retrait",
@@ -886,17 +898,19 @@
                             "Catalogue filtrable et promotions visibles sur les produits concernés.",
                             "Récapitulatif des quantités, des tarifs et du lieu de retrait.",
                             "Emails de confirmation du paiement, de commande prête et d’annulation via Brevo."
-                        ]
+                        ],
+                        "id": "parcours-client"
                     },
                     {
                         "title": "Une administration pensée pour l’activité",
-                        "text": "J’ai regroupé la gestion des produits, des commandes et des retraits dans un espace protégé. Les captures ci-dessus montrent les deux écrans au cœur de cette gestion ; les autres modules complètent le suivi au quotidien.",
+                        "text": "J’ai regroupé la gestion des produits, des commandes et des retraits dans un espace protégé. Les captures de l’administration montrent les deux écrans au cœur de cette gestion ; les autres modules complètent le suivi au quotidien.",
                         "items": [
                             "Produits, photos, prix, promotions datées et historique des mouvements de stock.",
                             "Créneaux récurrents, capacités de retrait et suivi des commandes.",
                             "Annulations, remboursements Stripe et reprise des opérations en attente.",
                             "Historique client, messagerie et paramètres de la boutique."
-                        ]
+                        ],
+                        "id": "administration"
                     },
                     {
                         "title": "Le point clé : coordonner stock et paiement",
@@ -905,7 +919,8 @@
                             "Vérification de la signature des webhooks et traitement des événements reçus plusieurs fois.",
                             "Suivi des remboursements et reprise automatique des opérations en attente.",
                             "Notifications enregistrées avec la commande, envoyées en arrière-plan via Brevo, avec nouvelles tentatives et suivi des envois."
-                        ]
+                        ],
+                        "id": "stock-paiement"
                     },
                     {
                         "title": "Sécurité : protéger l’accès à l’administration",
@@ -915,7 +930,8 @@
                             "Gestion des méthodes de connexion et codes de secours à usage unique, dont seuls les condensats sont conservés en base.",
                             "Confirmation de l’identité avant une modification de sécurité, révocation des autres sessions et journalisation des changements.",
                             "Validation des entrées et contrôle des autorisations côté serveur, mots de passe hachés avec scrypt et cookies de session HttpOnly."
-                        ]
+                        ],
+                        "id": "securite"
                     },
                     {
                         "title": "Mes choix d’architecture et de livraison",
@@ -925,7 +941,8 @@
                             "Métadonnées, URL canoniques, sitemap et données structurées pour les pages publiques.",
                             "Pipeline GitLab CI/CD : tests automatisés, construction et analyse de l’image Docker avec Trivy, puis déploiement sur VPS pour les tags protégés.",
                             "Mode maintenance activable depuis l’administration, avec maintien de l’accès commerçant."
-                        ]
+                        ],
+                        "id": "architecture"
                     },
                     {
                         "title": "Tests : vérifier les scénarios qui peuvent faire défaut",
@@ -935,7 +952,8 @@
                             "Intégration PostgreSQL : commandes concurrentes, stock, capacité de retrait et absence de doublons. Les tests de paiement utilisent la vraie base avec les échanges Stripe simulés : confirmation, expiration, reprise et remboursement.",
                             "Sécurité et navigateur : accès refusé avant le second facteur, configuration TOTP, rejet d’un code déjà utilisé, clés d’accès WebAuthn et gestion de la sécurité du compte.",
                             "Livraison : la CI GitLab prépare des bases de test dédiées, exécute les migrations, les tests, la compilation et les contrôles TypeScript et HTML/SEO. Le parcours Playwright dispose d’une commande séparée."
-                        ]
+                        ],
+                        "id": "tests"
                     },
                     {
                         "title": "La livraison et la prise en main",
@@ -943,7 +961,8 @@
                         "items": [
                             "Guide commerçant pour les opérations du quotidien.",
                             "Export de sauvegarde et procédure de restauration, avec un test d’intégration dédié."
-                        ]
+                        ],
+                        "id": "livraison"
                     }
                 ],
                 "questions": [],
@@ -980,6 +999,54 @@
                             "title": "Garder la main sur le catalogue et les stocks",
                             "alt": "Administration : liste des produits, quantités en stock, disponibilité, visibilité et boutons de modification.",
                             "caption": "Prix, quantités, disponibilité et visibilité se pilotent depuis le catalogue. Une rupture de stock est immédiatement identifiable."
+                        }
+                    ]
+                },
+                "presentation": {
+                    "headline": "Le commerce de proximité, aussi en ligne.",
+                    "client": "L’expérience client",
+                    "merchant": "L’espace commerçant",
+                    "navigation": "Dans cette étude de cas",
+                    "experience": "Commander",
+                    "administration": "Gérer la boutique",
+                    "engineering": "Sous le capot",
+                    "approach": "La méthode",
+                    "engineeringTitle": "Une interface simple. Un vrai travail derrière.",
+                    "engineeringIntro": "Stocks, paiements, sécurité et tests : les choix qui rendent le parcours fiable. Ouvrez un sujet pour découvrir les détails.",
+                    "technical": [
+                        {
+                            "id": "stock-paiement",
+                            "label": "Stock & paiement",
+                            "hint": "Réserver, confirmer et reprendre sans doublon."
+                        },
+                        {
+                            "id": "securite",
+                            "label": "Sécurité & double authentification",
+                            "hint": "TOTP, clés d’accès WebAuthn et sessions contrôlées."
+                        },
+                        {
+                            "id": "tests",
+                            "label": "Tests & scénarios réels",
+                            "hint": "Concurrence PostgreSQL, paiements et parcours Playwright."
+                        },
+                        {
+                            "id": "architecture",
+                            "label": "Architecture & déploiement",
+                            "hint": "React, TanStack Start, PostgreSQL et GitLab CI/CD."
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "title": "Choisir",
+                            "text": "Composer son panier à partir du catalogue et des promotions."
+                        },
+                        {
+                            "title": "Réserver & payer",
+                            "text": "Choisir son créneau de retrait, puis régler avec Stripe."
+                        },
+                        {
+                            "title": "Retirer",
+                            "text": "Recevoir la confirmation, puis récupérer sa commande en boutique."
                         }
                     ]
                 }

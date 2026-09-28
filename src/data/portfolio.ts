@@ -93,6 +93,8 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     altTextKey: "categories_projects.maree_malouine_image_alt",
     titleKey: "categories_projects.maree_malouine_title",
     descriptionKey: "categories_projects.maree_malouine_description",
+    ghLink: "https://gitlab.com/Theo22100/La-Maree-Malouine",
+    isGitLab: true,
     seeLink: "https://lamareemalouine.fr/",
     techStack: ["React", "TypeScript", "TanStack Start", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Stripe", "Brevo", "Docker", "GitLab CI/CD"],
     category: "web",

@@ -2,10 +2,11 @@
 
 ## La Marée Malouine
 
-Site vitrine et application Click & Collect pour une poissonnerie : catalogue, promotions, commande avec choix du créneau et paiement au retrait. Un espace commerçant permet de gérer produits, stocks, commandes et messages sans toucher au code. Les prix et capacités sont contrôlés côté serveur, avec des notifications Brevo et un suivi des envois.
+Site vitrine et application Click & Collect pour une poissonnerie : catalogue, promotions, commande en étapes et paiement en ligne par carte via Stripe. L’espace commerçant centralise les stocks, les créneaux, les remboursements et le suivi des clients. Réservation temporaire du stock pendant le paiement et notifications par email via Brevo.
 
 - Catégorie : web
-- Technologies : React, TypeScript, TanStack Start, Tailwind CSS, PostgreSQL, Drizzle ORM, Brevo, Docker
+- Technologies : React, TypeScript, TanStack Start, Tailwind CSS, PostgreSQL, Drizzle ORM, Stripe, Brevo, Docker, GitLab CI/CD
+- Code : https://gitlab.com/Theo22100/La-Maree-Malouine
 - Site : https://lamareemalouine.fr/
 - Étude de cas : https://theo-guerin.fr/fr/realisations/la-maree-malouine
 

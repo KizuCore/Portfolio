@@ -227,7 +227,7 @@
     "experience_1_subtitle": "Nahibu - Rennes",
     "experience_1_description": "Conception et evolution de la plateforme Nahibu.",
     "experience_1_highlights": "Développement d'interfaces React pour la plateforme Nahibu||Implémentation de rapports microbiote et visualisations de données avec Django||Développement d’une API Node.js avec Sequelize (ORM) synchronisant les données utilisateurs entre WooCommerce, l’espace client et Brevo||Développement et maintenance d'API REST avec Django et Flask||Conception et gestion de bases de données (PostgreSQL, MySQL)||Intégration de services externes : WooCommerce, Systempay, Brevo, LimeSurvey||Participation au déploiement via Docker et CI/CD||Mise en place de tests automatisés avec Playwright, Jest et Bruno",
-    "experience_1_stack": "Python, Django, Flask, Node.js, Sequelize, React, PostgreSQL, MySQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
+    "experience_1_stack": "Django, React, Node.js, PostgreSQL, Docker, Flask, Python, Sequelize, MySQL, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
     "experience_2_title": "MBA Développeur Web Full-Stack",
     "experience_2_subtitle": "My Digital School Rennes",
     "experience_2_diplome": "Titre RNCP niveau 7 « Manager de Projet Web Digital » - parcours Développement Digital",

@@ -225,7 +225,7 @@
     "experience_1_subtitle": "Nahibu - Rennes",
     "experience_1_description": "Design and evolution of the Nahibu platform.",
     "experience_1_highlights": "Development of React interfaces for the Nahibu platform||Implementation of microbiome reports and data visualizations with Django||Development of a Node.js API with Sequelize (ORM) synchronising user data between WooCommerce, the customer portal and Brevo||Development and maintenance of REST APIs with Django and Flask||Design and management of databases (PostgreSQL, MySQL)||Integration of external services: WooCommerce, Systempay, Brevo, LimeSurvey||Participation in deployment using Docker and CI/CD||Setup of automated tests with Playwright, Jest and Bruno",
-    "experience_1_stack": "Python, Django, Flask, Node.js, Sequelize, React, PostgreSQL, MySQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
+    "experience_1_stack": "Django, React, Node.js, PostgreSQL, Docker, Flask, Python, Sequelize, MySQL, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
     "experience_2_title": "MBA Full-Stack Web Developer",
     "experience_2_subtitle": "My Digital School",
     "experience_2_diplome": "Level 7 RNCP title “Web Digital Project Manager” - Digital Development pathway",

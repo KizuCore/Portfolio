@@ -226,7 +226,7 @@
     "experience_1_subtitle": "Nahibu - Roazhon",
     "experience_1_description": "Diorren ha kempenn ar bladenn Nahibu.",
     "experience_1_highlights": "Diorren etrefasoù React evit ar bladenn Nahibu||Implij raportoù microbiot hag heweladur roadennoù gant Django||Diorren un API Node.js gant Sequelize (ORM) evit sinkronelaat roadennoù an implijerien etre WooCommerce, takad ar c’hliented ha Brevo||Diorren ha kempenn API REST gant Django ha Flask||Krouidigezh ha merañ stlennvonioù (PostgreSQL, MySQL)||Enframmañ servijoù diavaez: WooCommerce, Systempay, Brevo, LimeSurvey||Kemer perzh er deployment gant Docker ha CI/CD||Sevel amprouadennoù emgefreek gant Playwright, Jest ha Bruno",
-    "experience_1_stack": "Python, Django, Flask, Node.js, Sequelize, React, PostgreSQL, MySQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
+    "experience_1_stack": "Django, React, Node.js, PostgreSQL, Docker, Flask, Python, Sequelize, MySQL, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
     "experience_2_title": "MBA Diorroer Web a-bezh",
     "experience_2_subtitle": "My Digital School Roazhon",
     "experience_2_diplome": "Titl RNCP live 7 « Manager de Projet Web Digital » - hent Diorren Digital",

@@ -16,7 +16,7 @@ Conception et evolution de la plateforme Nahibu.
 - Participation au déploiement via Docker et CI/CD
 - Mise en place de tests automatisés avec Playwright, Jest et Bruno
 
-Stack : Python, Django, Flask, Node.js, Sequelize, React, PostgreSQL, MySQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry
+Stack : Django, React, Node.js, PostgreSQL, Docker, Flask, Python, Sequelize, MySQL, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry
 
 ## MBA Développeur Web Full-Stack
 

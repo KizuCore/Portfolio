@@ -9,13 +9,14 @@ Conception et evolution de la plateforme Nahibu.
 
 - Développement d'interfaces React pour la plateforme Nahibu
 - Implémentation de rapports microbiote et visualisations de données avec Django
+- Développement d’une API Node.js avec Sequelize (ORM) synchronisant les données utilisateurs entre WooCommerce, l’espace client et Brevo
 - Développement et maintenance d'API REST avec Django et Flask
 - Conception et gestion de bases de données (PostgreSQL, MySQL)
 - Intégration de services externes : WooCommerce, Systempay, Brevo, LimeSurvey
 - Participation au déploiement via Docker et CI/CD
 - Mise en place de tests automatisés avec Playwright, Jest et Bruno
 
-Stack : Python, Django, Flask, React, PostgreSQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry
+Stack : Python, Django, Flask, Node.js, Sequelize, React, PostgreSQL, MySQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry
 
 ## MBA Développeur Web Full-Stack
 

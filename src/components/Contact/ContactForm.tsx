@@ -17,6 +17,7 @@ import { SITE_PROFILE } from "../../data/portfolio";
 
 function ContactForm() {
   const [hintDismissed, setHintDismissed] = useState(false);
+  const [privacyDetailsOpen, setPrivacyDetailsOpen] = useState(false);
   const { t, i18n } = useTranslation();
   const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
   const { formData, fieldErrors, isSubmitting, captchaConsent, setCaptchaConsent, status, clearStatus, handleChange, handleSubmit } = useContactForm(recaptchaSiteKey);
@@ -92,11 +93,24 @@ function ContactForm() {
           <Form.Check id="contact-captcha-consent" type="checkbox" checked={captchaConsent}
             disabled={isSubmitting} onChange={(event) => setCaptchaConsent(event.currentTarget.checked)}
             label={t("contact_privacy.captcha_consent")} aria-describedby="contact-captcha-details" />
-          <details className="contact-privacy-details">
-            <summary>{t("contact_privacy.details_label")}</summary>
-            <p id="contact-captcha-details">{t("contact_privacy.captcha_details")} <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">{t("contact_privacy.google_privacy")}</a> · <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">{t("contact_privacy.google_terms")}</a></p>
-            <p>{t("contact_privacy.notice")} <Link to={getLocalizedPath(getShortLocale(i18n.language), "/politique-de-confidentialite")}>{t("footer_links.privacy")}</Link></p>
-          </details>
+          <div className="contact-privacy-details">
+            <button
+              type="button"
+              className="contact-privacy-toggle"
+              aria-expanded={privacyDetailsOpen}
+              aria-controls="contact-privacy-panel"
+              onClick={() => setPrivacyDetailsOpen((open) => !open)}
+            >
+              <span>{t("contact_privacy.details_label")}</span>
+              <span className="contact-privacy-icon" aria-hidden="true" />
+            </button>
+            <div id="contact-privacy-panel" className="contact-privacy-panel" aria-hidden={!privacyDetailsOpen}>
+              <div className="contact-privacy-content">
+                <p id="contact-captcha-details">{t("contact_privacy.captcha_details")} <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" tabIndex={privacyDetailsOpen ? undefined : -1}>{t("contact_privacy.google_privacy")}</a> · <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" tabIndex={privacyDetailsOpen ? undefined : -1}>{t("contact_privacy.google_terms")}</a></p>
+                <p>{t("contact_privacy.notice")} <Link to={getLocalizedPath(getShortLocale(i18n.language), "/politique-de-confidentialite")} tabIndex={privacyDetailsOpen ? undefined : -1}>{t("footer_links.privacy")}</Link></p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="contact-form-actions">

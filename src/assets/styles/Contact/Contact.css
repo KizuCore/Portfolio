@@ -360,12 +360,71 @@
 .contact-privacy a,
 .contact-email-alternative a { color: #a9d1ff; text-underline-offset: 3px; }
 .contact-privacy .form-check { margin-bottom: 0.75rem; }
-.contact-privacy-details summary {
-  width: fit-content;
+.contact-privacy .form-check-input,
+.contact-privacy .form-check-label { cursor: pointer; }
+.contact-privacy .form-check-input:disabled,
+.contact-privacy .form-check-input:disabled ~ .form-check-label { cursor: not-allowed; }
+.contact-privacy-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.5rem 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  font: inherit;
+  text-align: left;
   cursor: pointer;
   color: #a9d1ff;
 }
+.contact-privacy-toggle:hover { color: #d6e9ff; }
+.contact-privacy-icon {
+  position: relative;
+  flex: 0 0 16px;
+  height: 16px;
+}
+.contact-privacy-icon::before,
+.contact-privacy-icon::after {
+  content: "";
+  position: absolute;
+  inset: 7px 1px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+}
+.contact-privacy-icon::after {
+  transform: rotate(90deg);
+  transition: transform 240ms ease, opacity 240ms ease;
+}
+.contact-privacy-toggle[aria-expanded="true"] .contact-privacy-icon::after {
+  transform: rotate(0deg);
+  opacity: 0;
+}
+.contact-privacy-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-rows 280ms ease, opacity 200ms ease, visibility 0s linear 280ms;
+}
+.contact-privacy-panel[aria-hidden="false"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+.contact-privacy-content {
+  min-height: 0;
+  overflow: hidden;
+}
 .contact-privacy-details p { margin: 0.75rem 0 0; }
+@media (prefers-reduced-motion: reduce) {
+  .contact-privacy-panel,
+  .contact-privacy-icon::after { transition: none; }
+}
 .contact-email-alternative {
   margin: 0;
   color: var(--text-muted);
@@ -374,6 +433,6 @@
   overflow-wrap: anywhere;
 }
 .contact-email-alternative a:focus-visible,
-.contact-privacy summary:focus-visible,
+.contact-privacy-toggle:focus-visible,
 .contact-privacy a:focus-visible,
 .contact-privacy input:focus-visible { outline: 2px solid #a9d1ff; outline-offset: 3px; }

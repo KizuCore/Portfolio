@@ -181,6 +181,21 @@ function validateMarkdownResources(errors) {
   }
 }
 
+// Le catalogue historique exige specVersion, contrairement au manifeste ARD récent.
+function validateAiCatalog(errors) {
+  const catalogPath = path.join(DIST_DIR, "ai-catalog.json");
+  let catalog;
+  try {
+    catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
+  } catch (error) {
+    errors.push(`ai-catalog.json: fichier absent ou JSON invalide (${error.message})`);
+    return;
+  }
+
+  assert(catalog?.specVersion === "1.0", 'ai-catalog.json: specVersion doit valoir "1.0"', errors);
+  assert(Array.isArray(catalog?.entries), "ai-catalog.json: entries doit être un tableau", errors);
+}
+
 // Calcule l’URL canonique attendue pour une route générée.
 function expectedCanonical(routePath, seoConfig) {
   const localized = seoConfig.splitLocalizedPath(routePath);
@@ -228,6 +243,7 @@ function main() {
 
   validateRobotsTxt(errors);
   validateMarkdownResources(errors);
+  validateAiCatalog(errors);
 
   for (const routePath of routes) {
     const filePath = htmlPath(routePath);

@@ -1,0 +1,48 @@
+{
+  "entries": [
+    {
+      "identifier": "urn:air:theo-guerin.fr:profile",
+      "displayName": "Profil de Théo Guérin",
+      "description": "Profil, compétences et formation de Théo Guérin, développeur freelance Full-Stack à Rennes.",
+      "type": "text/markdown",
+      "url": "https://theo-guerin.fr/profile.md",
+      "representativeQueries": [
+        "Quelles sont les compétences de Théo Guérin ?",
+        "Quelle est la formation de Théo Guérin ?"
+      ]
+    },
+    {
+      "identifier": "urn:air:theo-guerin.fr:projects",
+      "displayName": "Projets de Théo Guérin",
+      "description": "Sélection de projets web et mobiles, technologies utilisées et liens vers les réalisations.",
+      "type": "text/markdown",
+      "url": "https://theo-guerin.fr/projects.md",
+      "representativeQueries": [
+        "Quels projets Théo Guérin a-t-il réalisés ?",
+        "Quelles technologies Théo Guérin utilise-t-il dans ses projets ?"
+      ]
+    },
+    {
+      "identifier": "urn:air:theo-guerin.fr:experience",
+      "displayName": "Expériences de Théo Guérin",
+      "description": "Parcours professionnel, missions et formation de Théo Guérin.",
+      "type": "text/markdown",
+      "url": "https://theo-guerin.fr/experience.md",
+      "representativeQueries": [
+        "Quel est le parcours professionnel de Théo Guérin ?",
+        "Quelles missions Théo Guérin a-t-il effectuées chez Nahibu ?"
+      ]
+    },
+    {
+      "identifier": "urn:air:theo-guerin.fr:contact",
+      "displayName": "Contact professionnel de Théo Guérin",
+      "description": "Coordonnées publiques et informations pour proposer une mission à Théo Guérin.",
+      "type": "text/markdown",
+      "url": "https://theo-guerin.fr/contact.md",
+      "representativeQueries": [
+        "Comment contacter Théo Guérin pour un projet ?",
+        "Où trouver les profils professionnels de Théo Guérin ?"
+      ]
+    }
+  ]
+}

@@ -299,6 +299,9 @@ function main() {
     assert(description, `${routePath}: meta description manquante`, errors);
     assert(canonical, `${routePath}: canonical manquant`, errors);
     assert(canonical === expectedCanonicalUrl, `${routePath}: canonical ${canonical} au lieu de ${expectedCanonicalUrl}`, errors);
+    // Les balises du prérendu doivent pouvoir être remplacées par React Helmet à la navigation.
+    const managedTags = html.match(/<(?:meta|link|script)\b[^>]*(?:name="(?:description|robots|googlebot|bingbot)"|rel="canonical"|type="application\/ld\+json")[^>]*>/g) ?? [];
+    assert(managedTags.length >= 6 && managedTags.every((tag) => tag.includes('data-rh="true"')), `${routePath}: métadonnées statiques non gérées par React Helmet`, errors);
     assert(htmlLang === expectedLang, `${routePath}: html lang ${htmlLang || "absent"} au lieu de ${expectedLang}`, errors);
     assert(h1, `${routePath}: H1 manquant`, errors);
     assert(bodyText.length > 450, `${routePath}: HTML prérendu trop pauvre (${bodyText.length} caractères)`, errors);

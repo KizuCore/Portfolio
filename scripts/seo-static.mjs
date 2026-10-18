@@ -501,7 +501,8 @@ function buildLegalSection(localeData, key, suffixes = {}) {
   return `<section><h2>${escapeHtml(title)}</h2>${paragraphs}</section>`;
 }
 
-// Construit les balises SEO du HTML statique ; React Helmet maintient leur cohérence dans le navigateur après hydratation.
+// data-rh permet à React Helmet de reprendre les balises statiques et de les remplacer
+// à la navigation, au lieu de conserver deux canonical, robots ou graphes JSON-LD.
 function buildHead({ pathname, canonicalUrl, title, description, structuredData, localeData, routeSeo, seoConfig, portfolio }) {
   const imageUrl = getPreviewImageUrl(portfolio.SITE_PROFILE);
   const isNoindex = routeSeo[pathname]?.noindex ?? false;
@@ -510,37 +511,37 @@ function buildHead({ pathname, canonicalUrl, title, description, structuredData,
 
   return `
   <title>${escapeHtml(title)}</title>
-  <meta name="description" content="${escapeHtml(description)}" />
-  <meta name="author" content="${escapeHtml(portfolio.SITE_PROFILE.displayName)}" />
-  <meta name="robots" content="${escapeHtml(robots)}" />
-  <meta name="googlebot" content="${escapeHtml(robots)}" />
-  <meta name="bingbot" content="${escapeHtml(robots)}" />
-  <meta name="geo.region" content="${escapeHtml(portfolio.SITE_PROFILE.regionCode)}" />
-  <meta name="geo.placename" content="${escapeHtml(portfolio.SITE_PROFILE.city)}" />
-  <meta name="geo.position" content="${escapeHtml(portfolio.SITE_PROFILE.geoPosition)}" />
-  <meta name="ICBM" content="${escapeHtml(portfolio.SITE_PROFILE.geoICBM)}" />
-  <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
-  <link rel="alternate" type="text/markdown" href="${SITE_URL}/llms.txt" />
-  <link rel="alternate" type="text/markdown" href="${SITE_URL}/profile.md" />
-  <link rel="alternate" type="text/markdown" href="${SITE_URL}/projects.md" />
-  ${alternates.map((alternate) => `<link rel="alternate" href="${escapeHtml(alternate.href)}" hreflang="${escapeHtml(alternate.hrefLang)}" />`).join("\n  ")}
-  ${isNoindex ? "" : `<link rel="alternate" href="${SITE_URL}${seoConfig.getLocalizedPath("fr", pathname)}" hreflang="x-default" />`}
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="${escapeHtml(`Portfolio de ${portfolio.SITE_PROFILE.displayName}`)}" />
-  <meta property="og:title" content="${escapeHtml(title)}" />
-  <meta property="og:description" content="${escapeHtml(description)}" />
-  <meta property="og:url" content="${escapeHtml(canonicalUrl)}" />
-  <meta property="og:image" content="${escapeHtml(imageUrl)}" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:alt" content="${escapeHtml(tx(localeData, "seo_og_image_alt", "Aperçu du portfolio de Théo Guérin"))}" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="${escapeHtml(portfolio.SITE_PROFILE.twitterHandle)}" />
-  <meta name="twitter:title" content="${escapeHtml(title)}" />
-  <meta name="twitter:description" content="${escapeHtml(description)}" />
-  <meta name="twitter:image" content="${escapeHtml(imageUrl)}" />
-  <script type="application/ld+json">${escapeJsonScript(structuredData)}</script>`;
+  <meta name="description" content="${escapeHtml(description)}" data-rh="true" />
+  <meta name="author" content="${escapeHtml(portfolio.SITE_PROFILE.displayName)}" data-rh="true" />
+  <meta name="robots" content="${escapeHtml(robots)}" data-rh="true" />
+  <meta name="googlebot" content="${escapeHtml(robots)}" data-rh="true" />
+  <meta name="bingbot" content="${escapeHtml(robots)}" data-rh="true" />
+  <meta name="geo.region" content="${escapeHtml(portfolio.SITE_PROFILE.regionCode)}" data-rh="true" />
+  <meta name="geo.placename" content="${escapeHtml(portfolio.SITE_PROFILE.city)}" data-rh="true" />
+  <meta name="geo.position" content="${escapeHtml(portfolio.SITE_PROFILE.geoPosition)}" data-rh="true" />
+  <meta name="ICBM" content="${escapeHtml(portfolio.SITE_PROFILE.geoICBM)}" data-rh="true" />
+  <link rel="canonical" href="${escapeHtml(canonicalUrl)}" data-rh="true" />
+  <link rel="alternate" type="text/markdown" href="${SITE_URL}/llms.txt" data-rh="true" />
+  <link rel="alternate" type="text/markdown" href="${SITE_URL}/profile.md" data-rh="true" />
+  <link rel="alternate" type="text/markdown" href="${SITE_URL}/projects.md" data-rh="true" />
+  ${alternates.map((alternate) => `<link rel="alternate" href="${escapeHtml(alternate.href)}" hreflang="${escapeHtml(alternate.hrefLang)}" data-rh="true" />`).join("\n  ")}
+  ${isNoindex ? "" : `<link rel="alternate" href="${SITE_URL}${seoConfig.getLocalizedPath("fr", pathname)}" hreflang="x-default" data-rh="true" />`}
+  <meta property="og:type" content="website" data-rh="true" />
+  <meta property="og:site_name" content="${escapeHtml(`Portfolio de ${portfolio.SITE_PROFILE.displayName}`)}" data-rh="true" />
+  <meta property="og:title" content="${escapeHtml(title)}" data-rh="true" />
+  <meta property="og:description" content="${escapeHtml(description)}" data-rh="true" />
+  <meta property="og:url" content="${escapeHtml(canonicalUrl)}" data-rh="true" />
+  <meta property="og:image" content="${escapeHtml(imageUrl)}" data-rh="true" />
+  <meta property="og:image:width" content="1200" data-rh="true" />
+  <meta property="og:image:height" content="630" data-rh="true" />
+  <meta property="og:image:type" content="image/png" data-rh="true" />
+  <meta property="og:image:alt" content="${escapeHtml(tx(localeData, "seo_og_image_alt", "Aperçu du portfolio de Théo Guérin"))}" data-rh="true" />
+  <meta name="twitter:card" content="summary_large_image" data-rh="true" />
+  <meta name="twitter:site" content="${escapeHtml(portfolio.SITE_PROFILE.twitterHandle)}" data-rh="true" />
+  <meta name="twitter:title" content="${escapeHtml(title)}" data-rh="true" />
+  <meta name="twitter:description" content="${escapeHtml(description)}" data-rh="true" />
+  <meta name="twitter:image" content="${escapeHtml(imageUrl)}" data-rh="true" />
+  <script type="application/ld+json" data-rh="true">${escapeJsonScript(structuredData)}</script>`;
 }
 
 // Retire les balises SEO de l’index générique de Vite avant d’insérer les métadonnées propres à la route.

@@ -1,22 +1,22 @@
 import { lazy, type JSX } from "react";
 import LocaleFallbackRoute from "./LocaleFallbackRoute";
 import Home from "../components/Home/Home";
-import About from "../components/About/About";
-import Contact from "../components/Contact/Contact";
-import Resume from "../components/Resume/Resume";
-import Experience from "../components/Experience/ExperienceTimeline";
-import Projects from "../components/Projects/Projects";
-import BusinessPage from "../components/Business/BusinessPage";
-import LaMareeMalouine from "../components/CaseStudies/LaMareeMalouine";
-import LesPortesDeMontafilan from "../components/CaseStudies/LesPortesDeMontafilan";
-import ATable from "../components/CaseStudies/ATable";
 import { BUSINESS_PAGES } from "../data/businessPages";
-import MentionsLegales from "../components/Legal/MentionsLegales";
-import PolitiqueConfidentialite from "../components/Legal/PolitiqueConfidentialite";
-import PolitiqueCookies from "../components/Legal/PolitiqueCookies";
 import { getLocalizedPath, SUPPORTED_LOCALES } from "../config/seo";
 
-// Charge immédiatement les pages publiques pour éviter le passage d’un squelette au contenu lors d’un accès direct.
+// L’accueil reste immédiat ; les autres pages chargent leur code et leurs styles à la navigation.
+const About = lazy(() => import("../components/About/About"));
+const Contact = lazy(() => import("../components/Contact/Contact"));
+const Resume = lazy(() => import("../components/Resume/Resume"));
+const Experience = lazy(() => import("../components/Experience/ExperienceTimeline"));
+const Projects = lazy(() => import("../components/Projects/Projects"));
+const BusinessPage = lazy(() => import("../components/Business/BusinessPage"));
+const LaMareeMalouine = lazy(() => import("../components/CaseStudies/LaMareeMalouine"));
+const LesPortesDeMontafilan = lazy(() => import("../components/CaseStudies/LesPortesDeMontafilan"));
+const ATable = lazy(() => import("../components/CaseStudies/ATable"));
+const MentionsLegales = lazy(() => import("../components/Legal/MentionsLegales"));
+const PolitiqueConfidentialite = lazy(() => import("../components/Legal/PolitiqueConfidentialite"));
+const PolitiqueCookies = lazy(() => import("../components/Legal/PolitiqueCookies"));
 const Gojo = lazy(() => import("../components/Easter/Gojo"));
 const RouteSecret = lazy(() => import("../components/Easter/Arcane"));
 

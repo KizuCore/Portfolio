@@ -22,6 +22,9 @@ import flambowFrontend from "@image/Projects/FlambowFrontEnd.webp";
 import badmintonapi from "@image/Projects/badmintonapi.webp";
 import portesDeMontafilan from "@image/Projects/portesDeMontafilan.webp";
 import laMareeMalouine from "@image/Projects/laMareeMalouine.webp";
+import maree480 from "@image/Projects/responsive/laMareeMalouine-480.webp";
+import maree768 from "@image/Projects/responsive/laMareeMalouine-768.webp";
+import maree1024 from "@image/Projects/responsive/laMareeMalouine-1024.webp";
 import {
   PORTFOLIO_PROJECTS,
   PROJECT_FILTERS,
@@ -33,6 +36,7 @@ import {
 export type ProjectItem = {
   imgPath: string;
   thumbnailPath: string;
+  srcSet?: string;
 } & Omit<PortfolioProject, "imageKey">;
 
 const PROJECT_IMAGES: Record<PortfolioProject["imageKey"], string> = {
@@ -73,4 +77,7 @@ export const PROJECTS: ProjectItem[] = PORTFOLIO_PROJECTS.map(({ imageKey, ...pr
   ...project,
   imgPath: PROJECT_IMAGES[imageKey],
   thumbnailPath: PROJECT_THUMBNAILS[imageKey],
+  srcSet: imageKey === "laMareeMalouine"
+    ? `${maree480} 480w, ${maree768} 768w, ${maree1024} 1024w, ${laMareeMalouine} 1440w`
+    : undefined,
 }));

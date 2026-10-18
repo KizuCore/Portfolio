@@ -52,18 +52,14 @@ function ScrollProgress() {
     resizeObserver?.observe(document.body);
     resizeObserver?.observe(document.documentElement);
 
-    const mutationObserver = typeof MutationObserver !== "undefined"
-      ? new MutationObserver(scheduleUpdate)
-      : null;
-
-    mutationObserver?.observe(document.body, { childList: true, subtree: true, attributes: true });
+    // ResizeObserver suit déjà la hauteur après une navigation ou le chargement d’une image.
+    // Observer chaque attribut déclenchait une mesure à chaque image des animations.
 
     return () => {
       if (rafId !== 0) {
         window.cancelAnimationFrame(rafId);
       }
       resizeObserver?.disconnect();
-      mutationObserver?.disconnect();
       window.removeEventListener("scroll", scheduleUpdate);
       window.removeEventListener("resize", handleResize);
     };

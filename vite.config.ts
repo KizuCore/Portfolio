@@ -2,57 +2,32 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
-function manualChunks(id: string) {
-  if (!id.includes("node_modules")) {
-    return undefined;
-  }
-
-  if (id.includes("react-pdf") || id.includes("pdfjs-dist")) {
-    return "vendor-pdf";
-  }
-
-  if (id.includes("tsparticles") || id.includes("@tsparticles")) {
-    return "vendor-particles";
-  }
-
-  if (id.includes("framer-motion") || id.includes("motion") || id.includes("motion-plus")) {
-    return "vendor-motion";
-  }
-
-  if (id.includes("react-router") || id.includes("react-helmet-async") || id.includes("react-i18next")) {
-    return "vendor-react";
-  }
-
-  if (id.includes("i18next")) {
-    return "vendor-i18n";
-  }
-
-  if (id.includes("react-bootstrap")) {
-    return "vendor-react";
-  }
-
-  if (id.includes("bootstrap")) {
-    return "vendor-ui";
-  }
-
-  if (id.includes("@react-icons") || id.includes("react-icons")) {
-    return "vendor-icons";
-  }
-
-  if (id.includes("react") || id.includes("scheduler")) {
-    return "vendor-react";
-  }
-
-  return undefined;
-}
-
 export default defineConfig({
   plugins: [react()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Bootstrap 5 utilise encore les imports Sass historiques.
+        silenceDeprecations: ["import", "global-builtin", "color-functions", "if-function"],
+        quietDeps: true,
+      },
+    },
+  },
   build: {
     sourcemap: true,
+    // Le manifeste permet de vérifier le poids initial et les dépendances différées.
+    manifest: true,
     rollupOptions: {
       output: {
-        manualChunks,
+        // Groupe uniquement le socle React, sans y aspirer react-pdf ou react-github-calendar.
+        manualChunks(id) {
+          if (/\/node_modules\/(react|react-dom|scheduler)\//.test(id) || id.includes("commonjsHelpers")) {
+            return "vendor-react";
+          }
+          if (/\/node_modules\/(framer-motion|motion-dom|motion-utils)\//.test(id)) {
+            return "vendor-motion";
+          }
+        },
       },
     },
   },

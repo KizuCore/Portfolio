@@ -1,10 +1,16 @@
 import { useEffect, useId, useMemo, useState, type CSSProperties } from "react";
 import React from "react";
-import { Particles, initParticlesEngine } from "@tsparticles/react";
-import { loadFull } from "tsparticles";
 import type { DestroyType, ISourceOptions, MoveDirection } from "@tsparticles/engine";
 
-let particlesEnginePromise: Promise<void> | null = null;
+type ParticlesComponent = typeof import("@tsparticles/react")["Particles"];
+let particlesEnginePromise: Promise<ParticlesComponent> | null = null;
+
+function isLimitedDevice() {
+  const nav = navigator as Navigator & { deviceMemory?: number };
+  return (typeof nav.deviceMemory === "number" && nav.deviceMemory <= 4)
+    || (typeof nav.hardwareConcurrency === "number" && nav.hardwareConcurrency <= 4)
+    || (window.innerWidth <= 1024 && window.devicePixelRatio > 1.75);
+}
 
 // Des positions stables empêchent le ciel de se déplacer brusquement entre les rendus et les pages.
 const skyNoise = (seed: number) => {
@@ -24,8 +30,15 @@ const BEACONS = [ [8, 19], [79, 12], [93, 62], [17, 79], [65, 86], [42, 7] ];
 function ensureParticlesEngine() {
   if (!particlesEnginePromise) {
     // tsparticles doit être initialisé une fois avant l’affichage de toute instance Particles.
-    particlesEnginePromise = initParticlesEngine(async (engine) => {
-      await loadFull(engine);
+    particlesEnginePromise = Promise.all([
+      import("@tsparticles/react"),
+      import("tsparticles"),
+    ]).then(async ([{ Particles, initParticlesEngine }, { loadFull }]) => {
+      await initParticlesEngine(loadFull);
+      return Particles;
+    }).catch((error: unknown) => {
+      particlesEnginePromise = null;
+      throw error;
     });
   }
 
@@ -34,27 +47,44 @@ function ensureParticlesEngine() {
 
 function ParticleBackground() {
   const particleId = useId().replace(/:/g, "-");
-  const [isReady, setIsReady] = useState(false);
+  const [Particles, setParticles] = useState<ParticlesComponent | null>(null);
   const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
-  const [isLowPerfDevice, setIsLowPerfDevice] = useState(false);
+  const [isLowPerfDevice, setIsLowPerfDevice] = useState(isLimitedDevice);
   const [isHidden, setIsHidden] = useState(document.hidden);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
     window.matchMedia("(prefers-reduced-motion: reduce)").matches
   );
+  const animateParticles = !isMobile && !isLowPerfDevice && !prefersReducedMotion;
 
   useEffect(() => {
+    if (!animateParticles) return;
     let mounted = true;
+    let idleId: number | undefined;
+    let timerId: number | undefined;
 
-    ensureParticlesEngine().then(() => {
-      if (mounted) {
-        setIsReady(true);
+    const load = () => {
+      void ensureParticlesEngine().then((component) => {
+        if (mounted) setParticles(() => component);
+      }).catch(() => { /* Le ciel statique reste visible si le moteur échoue. */ });
+    };
+    // Le décor animé ne concurrence ni le rendu initial ni les ressources de la page.
+    const schedule = () => {
+      if (typeof window.requestIdleCallback === "function") {
+        idleId = window.requestIdleCallback(load, { timeout: 2000 });
+      } else {
+        timerId = window.setTimeout(load, 1000);
       }
-    }).catch(() => { /* Le champ d’étoiles statique reste visible si le moteur échoue. */ });
+    };
+    if (document.readyState === "complete") schedule();
+    else window.addEventListener("load", schedule, { once: true });
 
     return () => {
       mounted = false;
+      window.removeEventListener("load", schedule);
+      if (idleId !== undefined) window.cancelIdleCallback(idleId);
+      if (timerId !== undefined) window.clearTimeout(timerId);
     };
-  }, []);
+  }, [animateParticles]);
 
   useEffect(() => {
     const visibility = () => setIsHidden(document.hidden);
@@ -64,21 +94,11 @@ function ParticleBackground() {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const nav = navigator as Navigator & { deviceMemory?: number };
-
-    const computePerfProfile = () => {
-      // Combine la mémoire, les fils d’exécution du processeur, la densité de pixels et la taille de la fenêtre dans un profil de performances léger.
-      const lowMemory = typeof nav.deviceMemory === "number" && nav.deviceMemory <= 4;
-      const lowThreads = typeof nav.hardwareConcurrency === "number" && nav.hardwareConcurrency <= 4;
-      const highDpi = window.devicePixelRatio > 1.75;
-
-      setIsLowPerfDevice(lowMemory || lowThreads || (window.innerWidth <= 1024 && highDpi));
-    };
 
     const updateViewport = () => {
       setIsMobile(window.innerWidth <= 768);
       setPrefersReducedMotion(mediaQuery.matches);
-      computePerfProfile();
+      setIsLowPerfDevice(isLimitedDevice());
     };
 
     updateViewport();
@@ -153,8 +173,8 @@ function ParticleBackground() {
   // Reste dans le contexte d’empilement de l’application, sous le contenu et au-dessus du dégradé de fond.
   return (
     <div
-      className={`particles-layer ${isReady ? "particles-layer--ready" : "particles-layer--loading"}`}
-      data-sky-motion={!prefersReducedMotion && !isLowPerfDevice}
+      className={`particles-layer ${Particles || !animateParticles ? "particles-layer--ready" : "particles-layer--loading"}`}
+      data-sky-motion={animateParticles}
       data-sky-paused={isHidden}
       aria-hidden="true"
     >
@@ -162,7 +182,7 @@ function ParticleBackground() {
       <div className="sky-distant-stars" style={{ backgroundImage: DISTANT_STARS }} />
       <div className="sky-beacons">{BEACONS.map(([x, y], index) => <i key={index} style={{ left: `${x}%`, top: `${y}%`, "--star-delay": `${-index * 2.7}s` } as CSSProperties} />)}</div>
       {!isMobile && !isLowPerfDevice && !prefersReducedMotion && <div className="sky-meteors"><i /><i /></div>}
-      {isReady ? <Particles id={`particles-${particleId}`} options={particleOptions} /> : null}
+      {Particles && animateParticles ? <Particles id={`particles-${particleId}`} options={particleOptions} /> : null}
     </div>
   );
 }

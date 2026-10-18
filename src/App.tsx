@@ -4,7 +4,6 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "./assets/styles/global.css";
 import "./assets/styles/App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "@/components/Header/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import SeoMeta from "@/components/Seo/SeoMeta";

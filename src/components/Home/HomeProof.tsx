@@ -17,6 +17,15 @@ export default function HomeProof() {
       <p>{t("home_offer.case_description")}</p>
       <Link className="business-text-link" to={getLocalizedPath(getShortLocale(i18n.language), project.caseStudyPath)} hrefLang={getHtmlLang(getShortLocale(i18n.language))}>{t("home_offer.case_link")} ↗</Link>
     </div>
-    <LoadingImage src={project.imgPath} alt={t(project.altTextKey)} width="1600" height="1000" loading="lazy" decoding="async" />
+    <LoadingImage
+      src={project.imgPath}
+      srcSet={project.srcSet}
+      sizes="(max-width: 767px) calc(100vw - 4.5rem), (max-width: 1252px) calc((100vw - 7.5rem) / 2), 566px"
+      alt={t(project.altTextKey)}
+      width="1600"
+      height="1000"
+      loading="lazy"
+      decoding="async"
+    />
   </section>;
 }

@@ -32,9 +32,11 @@ function LogoImage({ isAnimating, t }: LogoImageProps) {
     >
       <motion.img
         src={logo}
+        width={64}
+        height={64}
         alt={t('brand')}
         className={`img-fluid logo ${showWhiteLogo ? "logo-turn-white" : ""}`}
-        loading="lazy"
+        loading="eager"
         decoding="async"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

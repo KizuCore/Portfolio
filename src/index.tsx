@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import './assets/styles/index.css';
 import App from './App';
+// Préserve l’ordre de cascade du site, notamment les utilitaires de grille et d’espacement.
+import './assets/styles/bootstrap.scss';
 import './i18n';
 import Preloader from '@/components/Layout/Preloader/Preloader';
 import { initializeAnalytics } from './services/analytics';

@@ -8,6 +8,7 @@
   },
   "scripts": {
     "images:thumbnails": "node scripts/generate-project-thumbnails.mjs",
+    "images:home": "node scripts/generate-home-image.mjs",
     "dev": "vite",
     "prebuild": "npm run sitemap:generate",
     "build": "tsc -b && vite build && npm run seo:generate",
@@ -19,7 +20,8 @@
     "i18n:sync": "node scripts/sync-i18n.mjs --write",
     "sitemap:generate": "node scripts/generate-sitemap.mjs",
     "seo:generate": "node scripts/seo-static.mjs",
-    "check:seo": "node scripts/check-seo.mjs"
+    "check:seo": "node scripts/check-seo.mjs",
+    "check:performance": "node scripts/check-performance.mjs"
   },
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
@@ -56,6 +58,7 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+    "sass": "^1.105.2",
     "sharp": "^0.35.4",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",

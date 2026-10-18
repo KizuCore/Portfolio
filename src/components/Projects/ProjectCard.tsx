@@ -6,6 +6,7 @@ import { getShortLocale, getLocalizedPath, getHtmlLang } from "../../config/seo"
 import { Link } from "react-router-dom";
 import "../../assets/styles/Projects/Projects.css";
 import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
+import { FaGitlab } from "@react-icons/all-files/fa/FaGitlab";
 import { FaYoutube } from "@react-icons/all-files/fa/FaYoutube";
 import { FaEye } from "@react-icons/all-files/fa/FaEye";
 
@@ -110,7 +111,9 @@ function ProjectCard(props: ProjectCardProps) {
             rel="noopener noreferrer"
             aria-label={`${props.isGitLab ? "GitLab" : "GitHub"} - ${props.title}`}
           >
-            <FaGithub className="project-button-icon" aria-hidden="true" />
+            {props.isGitLab
+              ? <FaGitlab className="project-button-icon" aria-hidden="true" />
+              : <FaGithub className="project-button-icon" aria-hidden="true" />}
             {props.isGitLab ? "GitLab" : "GitHub"}
           </Button>}
 

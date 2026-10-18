@@ -23,7 +23,7 @@ function Resume() {
 
   return (
     <Container fluid className="resume-section">
-      <Container>
+      <Container className="page-content">
         <header className="resume-header">
           <div className="resume-identity">
             <p className="resume-eyebrow">{t("resume_page.eyebrow")}</p>

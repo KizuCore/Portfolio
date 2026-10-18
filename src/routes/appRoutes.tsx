@@ -7,6 +7,9 @@ import Resume from "../components/Resume/Resume";
 import Experience from "../components/Experience/ExperienceTimeline";
 import Projects from "../components/Projects/Projects";
 import BusinessPage from "../components/Business/BusinessPage";
+import LaMareeMalouine from "../components/CaseStudies/LaMareeMalouine";
+import LesPortesDeMontafilan from "../components/CaseStudies/LesPortesDeMontafilan";
+import ATable from "../components/CaseStudies/ATable";
 import { BUSINESS_PAGES } from "../data/businessPages";
 import MentionsLegales from "../components/Legal/MentionsLegales";
 import PolitiqueConfidentialite from "../components/Legal/PolitiqueConfidentialite";
@@ -23,7 +26,10 @@ export type AppRoute = {
 };
 
 export const APP_ROUTES: AppRoute[] = [
-  ...BUSINESS_PAGES.map((page) => ({ path: page.path, element: <BusinessPage page={page} /> })),
+  ...BUSINESS_PAGES.filter((page) => page.kind === "service").map((page) => ({ path: page.path, element: <BusinessPage page={page} /> })),
+  { path: "/realisations/la-maree-malouine", element: <LaMareeMalouine /> },
+  { path: "/realisations/les-portes-de-montafilan", element: <LesPortesDeMontafilan /> },
+  { path: "/realisations/a-table", element: <ATable /> },
   { path: "/", element: <Home /> },
   { path: "/project", element: <Projects /> },
   { path: "/about", element: <About /> },

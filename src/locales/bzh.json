@@ -3,7 +3,7 @@
         "watch_demo": "Gwelet ar video diskouez",
         "all_skills": "Gwelet ma holl varregezhioù",
         "intro": "Eus etrefasoù React da API Django, e tiorroan arloadoù web ha hezoug en ur deurel evezh ouzh an tizh ha kalite ar c’hod.",
-        "missions": "Etrefasoù React, danevelloù mikrobiot ha gweledigezhioù roadennoù gant Django.||API REST Django, Flask ha Node.js; diazoù roadennoù PostgreSQL ha MySQL.||Kevreadur WooCommerce, Systempay, Brevo ha LimeSurvey; etrebroadelaat ha SEO teknikel.||Treuzkas an danframm, merañ an endroioù ha displegañ gant Docker / CI/CD.||Prouadoù emgefre gant Playwright, Jest ha Bruno; labour skipailh Agile war GitLab.",
+        "missions": "Etrefasoù React, danevelloù mikrobiot ha gweledigezhioù roadennoù gant Django.||Diorren ha kempenn API REST gant Django ha Flask; diazoù roadennoù PostgreSQL ha MySQL.||API Node.js gant Sequelize (ORM) evit sinkronelaat roadennoù an implijerien etre WooCommerce, takad ar c’hliented ha Brevo.||Kevreadur WooCommerce, Systempay, Brevo ha LimeSurvey; etrebroadelaat ha SEO teknikel.||Treuzkas an danframm, merañ an endroioù ha displegañ gant Docker / CI/CD.||Prouadoù emgefre gant Playwright, Jest ha Bruno; labour skipailh Agile war GitLab.",
         "impact": "Amzer krouiñ an danevelloù PDF e Nahibu.",
         "project_label": "Raktres skipailh · Atebeg teknikel",
         "flambow": "Diorren un arload evit rannañ barregezhioù etre rummadoù, gant ur skipailh liesdiskiblezh. React ha TypeScript, paeañ gant Stripe, eskemmoù diouzhtu gant Socket.io, prouadoù emgefre ha displegañ war VPS.",
@@ -190,7 +190,7 @@
     "contact_eyebrow": "Komzomp eus ho raktres",
     "contact_intro": "Ezhomm hoc'h eus eus ul lec'hienn nevez, ur cheñchamant pe ur c'henlabour freelance? Skrivit din ha respontet vo buan.",
     "contact_panel_title": "Prest da gregi?",
-    "contact_panel_description": "Etrefasoù React, API Django pe arloadoù Flutter : komzomp eus ho raktres web pe hezoug.",
+    "contact_panel_description": "Etrefasoù React, API Django pe Node.js, arloadoù Flutter : komzomp eus ho raktres web pe hezoug.",
     "contact_point_1": "Dielfenn buan hag amprouadur sklaer",
     "contact_point_2": "Kinnig teknik hervez ho palioù",
     "contact_point_3": "Kehentiñ eeun ha kasadur fizus",
@@ -225,8 +225,8 @@
     "experience_1_date": "Adalek Meurzh 2024",
     "experience_1_subtitle": "Nahibu - Roazhon",
     "experience_1_description": "Diorren ha kempenn ar bladenn Nahibu.",
-    "experience_1_highlights": "Diorren etrefasoù React evit ar bladenn Nahibu||Implij raportoù microbiot hag heweladur roadennoù gant Django||Diorren ha kempenn API REST gant Django ha Flask||Krouidigezh ha merañ stlennvonioù (PostgreSQL, MySQL)||Enframmañ servijoù diavaez: WooCommerce, Systempay, Brevo, LimeSurvey||Kemer perzh er deployment gant Docker ha CI/CD||Sevel amprouadennoù emgefreek gant Playwright, Jest ha Bruno",
-    "experience_1_stack": "Python, Django, Flask, React, PostgreSQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
+    "experience_1_highlights": "Diorren etrefasoù React evit ar bladenn Nahibu||Implij raportoù microbiot hag heweladur roadennoù gant Django||Diorren un API Node.js gant Sequelize (ORM) evit sinkronelaat roadennoù an implijerien etre WooCommerce, takad ar c’hliented ha Brevo||Diorren ha kempenn API REST gant Django ha Flask||Krouidigezh ha merañ stlennvonioù (PostgreSQL, MySQL)||Enframmañ servijoù diavaez: WooCommerce, Systempay, Brevo, LimeSurvey||Kemer perzh er deployment gant Docker ha CI/CD||Sevel amprouadennoù emgefreek gant Playwright, Jest ha Bruno",
+    "experience_1_stack": "Django, React, Node.js, PostgreSQL, Docker, Flask, Python, Sequelize, MySQL, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
     "experience_2_title": "MBA Diorroer Web a-bezh",
     "experience_2_subtitle": "My Digital School Roazhon",
     "experience_2_diplome": "Titl RNCP live 7 « Manager de Projet Web Digital » - hent Diorren Digital",
@@ -333,8 +333,8 @@
         "badmintonapi_image_alt": "Skeudenn ar raktres API Badminton",
         "portes_montafilan_image_alt": "Tapadenn skramm eus pajenn degemer Les Portes de Montafilan",
         "maree_malouine_title": "La Marée Malouine",
-        "maree_malouine_description": "Lec’hienn diskouez hag arload Click & Collect evit ur stal besked : katalog, kinnigadennoù, urzhioù gant dibab ur c’houlzad da zont da gerc’hat ha paeamant war al lec’h. Ur rann brevez a ro tu d’ar c’henwerzher da verañ produioù, stok, urzhioù ha kemennadennoù hep kemmañ ar c’hod. Gwiriet e vez ar prizioù hag ar c’houlzadoù war ar servijer, gant kemennoù dre Brevo.",
-        "maree_malouine_image_alt": "Tapadenn skramm eus pajenn degemer La Marée Malouine ha pazennoù ar Click & Collect"
+        "maree_malouine_description": "Lec’hienn diskouez hag arload Click & Collect evit ur stal besked : katalog, kinnigadennoù, urzhiañ dre bazennoù ha paeañ enlinenn gant kartenn dre Stripe. Rann ar c’henwerzher a vod ar stok, ar c’houlzadoù, an adpaeamantoù hag istor ar c’hliented. Stok miret e-pad ar paeamant ha kemennoù dre Brevo.",
+        "maree_malouine_image_alt": "Pajenn degemer La Marée Malouine : kinnig ar stal besked ha liammoù d’ar c’hatalog ha d’an urzhiañ"
     },
     "solar_system": {
         "sun": "Heol",
@@ -541,7 +541,9 @@
         "note": "Gweredekaet nemet gant hoc'h asant. Gallout a rit kemmañ kement-se forzh pegoulz."
     },
     "cookie_banner": {
-        "text": "Google Analytics a vuzul ar gweladennoù ma asantit hepken. Gallout a rit nac’hañ pe kemmañ ho tibab pa fell deoc’h.",
+        "title": "Un tamm sikour evit gwellaat al lec’hienn ?",
+        "customize": "Personelaat",
+        "text": "Gant hoc’h asant, Google Analytics a sikour ac’hanon da gompren peseurt pajennoù a vez gwelet. Gallout a rit kemmañ ho soñj pa fell deoc’h.",
         "learn_more": "Gouzout hiroc'h",
         "decline": "Nac'hañ",
         "accept": "Asantiñ",
@@ -638,13 +640,17 @@
             }
         }
     },
+    "footer_services": {
+        "api": "Diorren API",
+        "django": "Diorren Django"
+    },
     "services": {
         "title": "Servijoù",
         "subtitle": "Eus ar web d’an hezoug, sevel a ran etrefasoù ha servijoù evit ho raktres.",
         "cta": "Kaozeal diwar-benn ho raktres",
         "items": {
             "websites": {
-                "title": "Lec'hiennoù premium",
+                "title": "Lec’hiennoù vitrin",
                 "description": "Landing pages ha lec'hiennoù embregerezh a-feson SEO, buander ha konversión."
             },
             "apps": {
@@ -653,10 +659,10 @@
             },
             "api": {
                 "title": "API ha backend",
-                "description": "API Django ha Python, dilesa hag diazoù roadennoù evit hoc’h arloadoù."
+                "description": "API gant Django (Python) pe Node.js, dilesa hag diazoù roadennoù evit hoc’h arloadoù."
             },
             "mobile": {
-                "title": "Arloadoù hezoug Flutter",
+                "title": "Arloadoù hezoug",
                 "description": "Arloadoù Flutter ha Dart : merdeiñ, mirout roadennoù lec’hel ha kevreañ ouzh API."
             },
             "optimization": {
@@ -741,9 +747,9 @@
         "cases": {
             "a-table": {
                 "eyebrow": "Raktres personel · Arload Flutter",
-                "title": "À table ! — Mirout un lagad war ho kegin",
+                "title": "À table !",
                 "description": "Studiadenn À table ! : un arload Flutter diorroet gant Théo Guérin evit merañ ar boued, heuliañ an deiziadoù diamzer ha resev degasadennoù da soñj.",
-                "intro": "Er gêr e felle din gouzout aes peseurt boued a oa ganeomp ha peseurt produioù a oa o tostaat d’o deiziad diamzer. Ne anavezen ket un arload a glote gant ma ezhomm : krouet em eus À table ! evit kaout al listenn-se dindan an dorn ha chom hep ankouaat produioù e foñs ar yenerez.",
+                "intro": "Savet em eus À table ! evit adkavout ar boued a zo er gêr, heuliañ an deiziadoù termen hag en em ziwall diouzh produioù ankouaet er yenerez. Un arload Flutter a ya en-dro hep kevreadur.",
                 "tags": [
                     "Raktres personel",
                     "Flutter · Dart",
@@ -754,7 +760,8 @@
                 "sections": [
                     {
                         "title": "Un ezhomm fetis er gêr",
-                        "text": "Da gentañ e klasken un ostilh evit ar prenadennoù hag ar boued a oa dija er gêr. Eeun e oa ar soñj : gallout gwelet petra a oa er gegin, merkañ an deiziadoù ha kavout ar produioù a oa eno abaoe re bell. Savet em eus ar raktres tro-dro da roll ar boued pemdeziek."
+                        "text": "Da gentañ e klasken un ostilh evit ar prenadennoù hag ar boued a oa dija er gêr. Eeun e oa ar soñj : gallout gwelet petra a oa er gegin, merkañ an deiziadoù ha kavout ar produioù a oa eno abaoe re bell. Savet em eus ar raktres tro-dro da roll ar boued pemdeziek.",
+                        "id": "besoin"
                     },
                     {
                         "title": "Gouzout petra hon eus hep gwiriañ pep tra",
@@ -763,7 +770,8 @@
                             "Ouzhpennañ, kemmañ pe dilemel ur boued.",
                             "Silañ boued ar yenerez, ar skornerez pe ar pres.",
                             "Merkañ un deiziad diamzer gant berradennoù evel +2, +7 pe +30 devezh."
-                        ]
+                        ],
+                        "id": "inventaire"
                     },
                     {
                         "title": "Rakwelout an deiziadoù e-lec’h o ankouaat",
@@ -772,7 +780,8 @@
                             "Merkoù er roll pa vez an deiziad o tostaat pe tremenet.",
                             "Un deiziadur evit gwelet an deiziadoù da zont.",
                             "Degasadennoù da soñj a-raok an deiziad diamzer, hervez an aotreoù hag ar savenn implijet."
-                        ]
+                        ],
+                        "id": "rappels"
                     },
                     {
                         "title": "Un arload a c’haller implijout hep kenrouedad",
@@ -782,11 +791,13 @@
                             "Isar evit mirout roadennoù ar boued ent lec’hel.",
                             "GoRouter evit ar merdeiñ ha TableCalendar evit an deiziadoù.",
                             "Kefridioù dispartiet etre ar skrammoù, ar patromoù roadennoù, an haeziñ d’ar stlennvon hag ar c’hemennadennoù."
-                        ]
+                        ],
+                        "id": "hors-connexion"
                     },
                     {
                         "title": "Eus un ezhomm personel d’ur raktres fetis",
-                        "text": "À table ! a vod roll ar boued, an deiziadoù hag an degasadennoù da soñj en un ostilh hepken. Ar raktres-mañ a ziskouez penaos e loc’han eus un implij gwirion, e tresan an hentadoù pennañ hag e liamman un etrefas Flutter ouzh ur stokañ lec’hel hag ouzh kemennadennoù an trevnad. E bal eo sikour da ankouaat nebeutoc’h a voued ha da wastañ nebeutoc’h."
+                        "text": "À table ! a vod roll ar boued, an deiziadoù hag an degasadennoù da soñj en un ostilh hepken. Ar raktres-mañ a ziskouez penaos e loc’han eus un implij gwirion, e tresan an hentadoù pennañ hag e liamman un etrefas Flutter ouzh ur stokañ lec’hel hag ouzh kemennadennoù an trevnad. E bal eo sikour da ankouaat nebeutoc’h a voued ha da wastañ nebeutoc’h.",
+                        "id": "resultat"
                     }
                 ],
                 "questions": [
@@ -802,11 +813,61 @@
                         "question": "Ha hegerz eo ar roadennoù hep Internet?",
                         "answer": "Ya, miret eo ar roll ent lec’hel gant Isar. Ar stumm-mañ a ya en-dro war hezoug ha war urzhiataer ; ne ginnig ket goubredañ ar roll etre meur a drevnad."
                     }
+                ],
+                "presentation": {
+                    "headline": "Mirout ul lagad war e gegin.",
+                    "visualLabel": "Un alberz eus an arload",
+                    "format": "Flutter · Hezoug ha urzhiataer",
+                    "navigation": "Er studi degouezh-mañ",
+                    "experience": "An inventar",
+                    "reminders": "Ar c’hounadennoù",
+                    "engineering": "A-dreñv an etrefas",
+                    "outcome": "Ar raktres",
+                    "engineeringTitle": "An inventar a chom tost d’an dorn.",
+                    "engineeringIntro": "Mont en-dro hep kevreadur a zo e-kreiz ar raktres. Dizoloit penaos e labour an etrefas, ar roadennoù lec’hel hag ar c’hemennoù asambles.",
+                    "technical": [
+                        {
+                            "id": "hors-connexion",
+                            "label": "Arkitektouriezh ha stokañ lec’hel",
+                            "hint": "Flutter, Riverpod hag Isar, hep bezañ diouzh ur gevreadur rouedad."
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "title": "Enrollañ",
+                            "text": "Ouzhpennañ boued, kementadoù ha lec’hioù stokañ."
+                        },
+                        {
+                            "title": "Gwiriañ",
+                            "text": "Gwelet an inventar hag an deiziadoù termen da evezhiañ."
+                        },
+                        {
+                            "title": "Rakwelout",
+                            "text": "Adkavout an deiziadoù en deiziataer ha gweredekaat kounadennoù."
+                        }
+                    ]
+                },
+                "overview": [
+                    {
+                        "label": "Ma roll",
+                        "value": "Ur raktres personel",
+                        "detail": "Empenniñ ha diorren un arload diwar un ezhomm er gêr."
+                    },
+                    {
+                        "label": "Ar perzh",
+                        "value": "Inventar ha kounadennoù",
+                        "detail": "Boued, kementadoù, lec’hioù, deiziadoù termen ha deiziataer."
+                    },
+                    {
+                        "label": "An dibab teknikel",
+                        "value": "Hep kevreadur",
+                        "detail": "Roadennoù an inventar a chom war an aparailh gant Isar."
+                    }
                 ]
             },
             "les-portes-de-montafilan": {
                 "eyebrow": "Studiadenn · Lec’hienn ur gwirti",
-                "title": "Les Portes de Montafilan : ul lec’hienn gwirti liammet ouzh Airbnb",
+                "title": "Les Portes de Montafilan",
                 "description": "Studiadenn React ha TypeScript : ul lec’hienn gwirti gant prizioù Google Sheets, deiziadoù dihegerz Airbnb dre iCal ha priz rakwelet ar chomadenn, gant Théo Guérin.",
                 "intro": "Kinnig ar gwirti, sikour ar weladennerien da brientiñ o chomadenn ha lezel ar perc’henn da gemmañ e brizioù aes : tri ezhomm bodet en un etrefas React ha TypeScript.",
                 "tags": [
@@ -818,7 +879,8 @@
                 "sections": [
                     {
                         "title": "An ezhommoù hag ar redioù",
-                        "text": "Ret e oa d’ar raktres tremen hep koumanant miziek d’ur savenn ha hep backend kemplezh, en ur virout prizioù a c’haller kemmañ hep kod en un taolenner. Ret e oa ivez d’al lec’hienn derc’hel kont eus an deiziadoù dihegerz war Airbnb."
+                        "text": "Ret e oa d’ar raktres tremen hep koumanant miziek d’ur savenn ha hep backend kemplezh, en ur virout prizioù a c’haller kemmañ hep kod en un taolenner. Ret e oa ivez d’al lec’hienn derc’hel kont eus an deiziadoù dihegerz war Airbnb.",
+                        "id": "besoin"
                     },
                     {
                         "title": "An diskoulm savet",
@@ -828,72 +890,149 @@
                             "Goubredañ an deiziadoù dihegerz Airbnb er furmad iCal.",
                             "Jediñ ur priz rakwelet sklaer diwar an deiziadoù dibabet.",
                             "Adkas da Airbnb gant an deiziadoù leuniet en a-raok."
-                        ]
+                        ],
+                        "id": "solution"
                     },
                     {
                         "title": "Hentad ar gweladenner",
-                        "text": "Ar gweladenner a zizolo al lec’h, a zibab e zeiziadoù hag a sell ouzh priz rakwelet ar chomadenn. Kenderc’hel a ra neuze gant e viradenn war Airbnb. Al lec’hienn a sikour da zibab ar chomadenn ; ar viradenn diwezhañ a chom meret war Airbnb."
+                        "text": "Ar gweladenner a zizolo al lec’h, a zibab e zeiziadoù hag a sell ouzh priz rakwelet ar chomadenn. Kenderc’hel a ra neuze gant e viradenn war Airbnb. Al lec’hienn a sikour da zibab ar chomadenn ; ar viradenn diwezhañ a chom meret war Airbnb.",
+                        "id": "parcours-visiteur"
                     },
                     {
                         "title": "An dibaboù teknikel",
-                        "text": "React ha TypeScript a aoz an etrefas, Vite a sav ar raktres ha Tailwind CSS a ra war-dro e neuz. Implijout a ra ar raktres Vercel evit al lakaat enlinenn, Brevo evit ar posteloù ha Vitest ha Playwright evit ar prouadoù."
+                        "text": "React ha TypeScript a aoz an etrefas, Vite a sav ar raktres ha Tailwind CSS a ra war-dro e neuz. Implijout a ra ar raktres Vercel evit al lakaat enlinenn, Brevo evit ar posteloù ha Vitest ha Playwright evit ar prouadoù.",
+                        "id": "technique"
                     },
                     {
                         "title": "Petra a c’haller ober gant al lec’hienn",
-                        "text": "Gallout a ra ar perc’henn kemmañ e brizioù diwar e daolenner. Ar weladennerien a gav ur sell war ar gwirti, an deiziadoù hag ur priz rakwelet a-raok mont da Airbnb. Al lec’hienn hag he c’hod a c’haller gwelet amañ dindan evit dizoloiñ ar raktres."
+                        "text": "Gallout a ra ar perc’henn kemmañ e brizioù diwar e daolenner. Ar weladennerien a gav ur sell war ar gwirti, an deiziadoù hag ur priz rakwelet a-raok mont da Airbnb. Al lec’hienn hag he c’hod a c’haller gwelet amañ dindan evit dizoloiñ ar raktres.",
+                        "id": "resultat"
                     }
                 ],
-                "questions": []
+                "questions": [],
+                "presentation": {
+                    "headline": "Reiñ c’hoant da zont. Aesaat ar prientiñ.",
+                    "visualLabel": "Dizoleiñ ar bod",
+                    "format": "Lec’hienn diskouez",
+                    "navigation": "Er studi degouezh-mañ",
+                    "experience": "Ar chomadenn",
+                    "solution": "Ar merañ",
+                    "engineering": "A-dreñv an etrefas",
+                    "outcome": "An disoc’h",
+                    "engineeringTitle": "Ul lec’hienn liammet ouzh ostilhoù ar perc’henn.",
+                    "engineeringIntro": "Un etrefas React, prizioù e Google Sheets ha deiziadoù dihegerz Airbnb. Dizoloit an dibaboù teknikel.",
+                    "technical": [
+                        {
+                            "id": "technique",
+                            "label": "Arkitektouriezh, amprouadennoù ha desplegañ",
+                            "hint": "React, TypeScript, Vitest, Playwright ha Vercel."
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "title": "Dizoleiñ",
+                            "text": "Gwelout ar bod hag ijinañ ar chomadenn."
+                        },
+                        {
+                            "title": "Prientiñ",
+                            "text": "Dibab deiziadoù ha gwelet ur priz istimet."
+                        },
+                        {
+                            "title": "Mirout",
+                            "text": "Mont da Airbnb gant an deiziadoù leuniet evit echuiñ ar mirout."
+                        }
+                    ]
+                },
+                "overview": [
+                    {
+                        "label": "Ma roll",
+                        "value": "Diorren web",
+                        "detail": "Un etrefas React ha TypeScript liammet ouzh ostilhoù ar perc’henn."
+                    },
+                    {
+                        "label": "An hent",
+                        "value": "Eus ar bod betek ar mirout",
+                        "detail": "Kinnig al lec’h, dibab deiziadoù ha mont da Airbnb."
+                    },
+                    {
+                        "label": "An dae",
+                        "value": "Merañ hep kod",
+                        "detail": "Prizioù kemmus e Google Sheets ha deiziadoù dihegerz eus Airbnb."
+                    }
+                ]
             },
             "la-maree-malouine": {
-                "eyebrow": "Enklask war ur raktres · Stal besked & Click & Collect",
-                "title": "La Marée Malouine : eus ar c’hatalog betek ar stal",
-                "description": "Raktres La Marée Malouine gant Théo Guérin : lec’hienn stal besked, Click & Collect, rann ar c’henwerzher hag urzhioù gant React ha PostgreSQL.",
-                "intro": "Reiñ tu d’ar c’hliented da brientiñ o urzh war o fellgomzer ha d’ar c’henwerzher da verañ e obererezh : savet em eus ul lec’hienn diskouez hag un arload Click & Collect evit La Marée Malouine.",
+                "eyebrow": "Studi degouezh · Arload web full-stack",
+                "title": "La Marée Malouine",
+                "description": "Raktres La Marée Malouine gant Théo Guérin : Click & Collect, paeamant Stripe, merañ ar stok ha rann ar c’henwerzher gant React ha PostgreSQL.",
+                "intro": "Savet em eus un arload Click & Collect a liamm an urzhioù enlinenn ouzh labour pemdeziek ur stal besked, eus dibab ar produioù betek o c’herc’hat er stal.",
                 "tags": [
                     "Click & Collect",
                     "React",
                     "TanStack Start",
                     "PostgreSQL",
-                    "Brevo"
+                    "Stripe",
+                    "Brevo",
+                    "GitLab CI/CD"
                 ],
                 "sections": [
                     {
-                        "title": "An ezhomm : urzhiañ enlinenn, paeañ er stal",
+                        "title": "An ezhomm : urzhiañ ha paeañ enlinenn, kerc’hat er stal",
                         "text": "Ar stal besked a felle dezhi kinnig ar produioù nevez, lakaat ar c’hinnigadennoù war wel ha degemer urzhioù evit koulzadoù dibabet. Ret e oa kaout un hent aes war bellgomzer hag ur c’hatalog da vezañ kemmet bemdez gant ar c’henwerzher hep sikour teknikel.",
                         "items": [
                             "Gwelout ar produioù hag urzhiañ diwar ur pellgomzer.",
                             "Dibab ur c’houlzad gant un niver bevennet a urzhioù.",
-                            "Paeañ er stal, gant ur sammad istimet evit ar produioù gwerzhet hervez o fouez."
-                        ]
+                            "Paeañ gant kartenn dre Stripe Checkout, gant ur sammad dibenn diskouezet a-raok kadarnaat."
+                        ],
+                        "id": "besoin"
+                    },
+                    {
+                        "title": "Sprintoù hag ur bilañs bep sizhun",
+                        "text": "Aozet eo bet an diorren dre sprintoù, gant ur bilañs bep sizhun evit diskouez ar c’heweriusterioù savet ha komz eus araokadur al labour. Gant an diskouezadegoù e oa tu da welout ar skrammoù, da eskemm diwar-benn o mont en-dro ha da gomz eus ar bazennoù da zont. Ar ritm ingal-se a roe an tu da geñveriañ an arload gant ezhommoù ar stal besked a-hed ar raktres.",
+                        "id": "sprints"
                     },
                     {
                         "title": "Hent ar c’hliant betek ar stal",
-                        "text": "Ar gweladenner a furch er rummadoù, a lenn pajenn ur produ hag a ra e zibab. Lakaat a ra e zaveennoù, dibab ur c’houlzad hegerz ha resev un dave urzh. Ar c’henwerzher a zegemer pe a nac’h ar goulenn, hag a c’hall kas ur c’hemenn pa vez prest.",
+                        "text": "Ar gweladenner a furch er c’hatalog hag a ra e zibab. Teir fazenn zo evit urzhiañ : paner, koulzad da gerc’hat ha daveennoù. Paeañ a ra goude gant kartenn war bajenn Stripe. Goude gwiriañ ar paeamant war ar servijer e vez kaset an urzh da brientiñ ; ar c’henwerzher a verk anezhi prest, ha goude-se kerc’het.",
                         "items": [
                             "Katalog gant siloù ha kinnigadennoù war ar produioù a sell outo.",
                             "Diverradur ar c’hementadoù, ar prizioù hag al lec’h da gerc’hat.",
-                            "Posteloù evit resev, degemer, nac’hañ ha kemenniñ un urzh prest."
-                        ]
+                            "Posteloù dre Brevo evit kadarnaat ar paeamant, kemenniñ un urzh prest pe un nullañ."
+                        ],
+                        "id": "parcours-client"
                     },
                     {
                         "title": "Ur rann brevez evit al labour pemdeziek",
-                        "text": "An oberioù boas zo bodet en ur rann verañ gwarezet. Ar c’henwerzher a gemm e zibab hervez ar produioù degouezhet, a aoz ar c’houlzadoù hag a heuilh ar goulennoù en hevelep etrefas.",
+                        "text": "An oberioù boas zo bodet en ur rann verañ gwarezet. Ar c’henwerzher a ver ar produioù degouezhet hag ar fiñvadennoù stok, a aoz ar c’houlzadoù hag a heuilh ar paeamantoù hag istor ar c’hliented.",
                         "items": [
-                            "Krouiñ ha kemmañ produioù, luc’hskeudennoù, stok, prizioù ha hegerzded.",
-                            "Kinnigadennoù gant deiziadoù ha krouiñ koulzadoù ingal gant ur vevenn urzhioù.",
-                            "Heuliañ urzhioù gant klask ha siloù hervez ar stad.",
-                            "Lenn ha respont d’ar c’hemennadennoù, kemmañ an daveennoù hag an eurioù digeriñ."
-                        ]
+                            "Krouiñ ha kemmañ produioù, luc’hskeudennoù, prizioù ha hegerzded ; heuliañ ar fiñvadennoù stok.",
+                            "Kinnigadennoù gant deiziadoù ha koulzadoù ingal gant ur vevenn urzhioù.",
+                            "Heuliañ urzhioù ha paeamantoù, nullañ gant adpaeamant Stripe hag adlañsañ goude ur fazi.",
+                            "Fichennoù kliant gant istor an urzhioù hag ezporzh CSV ar chomlec’hioù postel.",
+                            "Klask ha silañ kemennadennoù ar c’hliented, respont en etrefas, kemmañ an daveennoù hag an eurioù digeriñ."
+                        ],
+                        "id": "administration"
                     },
                     {
-                        "title": "Urzhioù kempoell, memes pa vez klasket en-dro",
-                        "text": "Ar servijer a adjed ar prizioù hag ar c’hinnigadennoù, hag a wir ar stok hag ar c’houlzad en un treuzgread PostgreSQL. Un anaouder kas a ro tu da adkemer ur goulenn hep krouiñ un eil urzh.",
+                        "title": "Stok miret ha paeamantoù gwiriet war ar servijer",
+                        "text": "Ar servijer a adjed ar prizioù hag ar c’hinnigadennoù, hag a vir ar stok hag ur plas da gerc’hat en un treuzgread PostgreSQL e-pad war-dro 30 munutenn. Kadarnaet e vez ar paeamant dre zarvoudoù sinet Stripe pe dre wiriañ ingal war ar servijer. Dieubet e vez ar stok hag ar plas goude gwiriañ fin ar paeamant ; an adklaskoù ne grouont ket un eil urzh hag ne adgraont ket an hevelep ober paeamant.",
                         "items": [
-                            "Gwiriañ ar produioù hegerz pa vez kadarnaet an urzh.",
-                            "Kemennoù enrollet gant an urzh ha kaset en drekleur dre Brevo.",
-                            "Klask kas en-dro goude ur fazi ha heuliañ stad ar posteloù."
-                        ]
+                            "Gwiriañ sinadur ar webhooks ha merañ an darvoudoù resevet meur a wech.",
+                            "Heuliañ an adpaeamantoù hag adklask emgefre evit an oberioù o c’hortoz.",
+                            "Kemennoù enrollet gant an urzh ha kaset en drekleur dre Brevo, gant adklaskoù ha heuliañ ar c’has."
+                        ],
+                        "id": "stock-paiement"
+                    },
+                    {
+                        "title": "Diogelroez : gwareziñ ar moned d’ar merañ",
+                        "text": "Rann ar c’henwerzher a ro moned d’an urzhioù ha da roadennoù ar c’hliented. Enframmet em eus un dilesa e daou bazenn : ar ger-tremen, ha goude-se ur c’hod berrbad eus un arload Authenticator (TOTP) pe un alc’hwez moned WebAuthn. Krouet e vez an estez merour goude gwiriañ an hent a-bezh hepken.",
+                        "items": [
+                            "Gwarez a-enep adimplij ur c’hod TOTP ha bevenniñ an taolioù kevreañ dre gont ha dre chomlec’h IP.",
+                            "Merañ an hentoù kevreañ hag ar c’hodoù sikour unimplij ; o roudoù hachet hepken a vez miret en diaz.",
+                            "Gwiriañ an identelezh a-raok ur cheñchamant diogelroez, nullañ an estezioù all ha skrivañ ar cheñchamantoù en deizlevr.",
+                            "Gwiriañ ar roadennoù hag an aotreoù war ar servijer, gerioù-tremen hachet gant scrypt ha toupinoù estez HttpOnly."
+                        ],
+                        "id": "securite"
                     },
                     {
                         "title": "Kiriegezhioù dispartiet ha pajennoù evit ar c’hlask",
@@ -901,25 +1040,126 @@
                         "items": [
                             "Tailwind CSS evit an etrefas war bellgomzer hag urzhiataer.",
                             "Metaroadennoù, URL kanonel, sitemap ha roadennoù frammet evit ar pajennoù foran.",
-                            "Dilesa ar merour, gwiriañ war ar servijer ha gwarez a-enep robotoù.",
-                            "Un endalc’her Docker evit an deployañ war VPS."
-                        ]
+                            "Pipeline GitLab CI/CD : prouadoù emgefre, sevel ha dielfennañ ar skeudenn Docker gant Trivy, ha displegañ war VPS evit an tagoù gwarezet.",
+                            "Mod trezalc’h da weredekaat er rann verañ, gant moned ar c’henwerzher dalc’hmat hegerz."
+                        ],
+                        "id": "architecture"
                     },
                     {
-                        "title": "Ul lec’hienn hag ur sturlevr evit kregiñ",
+                        "title": "Amprouadennoù : gwiriañ ar c’hasoù a c’hall c’hwitañ",
+                        "text": "Ar steudad a vod amprouadennoù unanel, amprouadennoù enframmañ PostgreSQL hag un hent merdeer gant Playwright. Gwiriañ a ra ar reolennoù micher, ar monedoù hag an adkemer goude ur c’hwitadenn, da skouer pa glask daou urzh mirout plas diwezhañ ur c’houlzad.",
+                        "items": [
+                            "Reolennoù micher : kementadoù, mizoù, koulzadoù ha cheñchamantoù stad an urzhioù.",
+                            "Enframmañ PostgreSQL : urzhioù war un dro, stok, barregezh tennañ hag ezvezañs doublennoù. Amprouadennoù ar paeamant a implij an diaz gwir gant eskemmoù Stripe dre simulation : kadarnaat, termen, adkemer hag adpaeañ.",
+                            "Diogelroez ha merdeer : moned nac’het a-raok an eil faktor, kefluniañ TOTP, nac’hañ ur c’hod implijet dija, alc’hwezioù WebAuthn ha merañ diogelroez ar gont.",
+                            "Livrañ : CI GitLab a brient diazoù test gouestlet hag a seven ar migroù, an amprouadennoù, ar c’hompilañ hag ar gwiriadennoù TypeScript ha HTML/SEO. Un urzh a-ziforc’h zo evit hent Playwright."
+                        ],
+                        "id": "tests"
+                    },
+                    {
+                        "title": "Livrañ ha kemer e dorn",
                         "text": "Al lec’hienn zo enlinenn, gant binvioù da leuniañ ar c’hatalog ha da aozañ ar c’houlzadoù. Ur sturlevr a zispleg an oberioù pemdeziek. En istor an oberioù e c’haller heuliañ ar c’hemmoù ; un ezporzh gwareziñ hag un hentenn adsevel evit an oberataer zo ivez.",
                         "items": [
-                            "Prouadoù evit reolennoù an urzhioù hag an oberioù war un dro en diaz roadennoù.",
-                            "Gwiriañ ar respontoù, ar surentez hag an adsevel.",
-                            "Ur sturlevr evit implij pemdeziek ar c’henwerzher."
-                        ]
+                            "Ur sturlevr evit obererezhioù pemdeziek ar c’henwerzher.",
+                            "Ezporzh gwarediñ hag ur c’hinnig adsevel, gant un amprouad enframmañ gouestlet."
+                        ],
+                        "id": "livraison"
                     }
                 ],
-                "questions": []
+                "questions": [],
+                "overview": [
+                    {
+                        "label": "Ma roll",
+                        "value": "Diorren full-stack",
+                        "detail": "Hent ar c’hlient, merañ, reolennoù micher hag enframmañ ar paeamantoù hag an ebostoù."
+                    },
+                    {
+                        "label": "Ar perzh",
+                        "value": "Lec’hienn hag ostilhoù merañ",
+                        "detail": "Katalog, urzhioù, tennañ er stal, stok hag istor ar c’hliented en un arload hepken."
+                    },
+                    {
+                        "label": "An dae teknikel",
+                        "value": "Urzhioù fiziañs",
+                        "detail": "Mirout ar stok hag ar c’houlzadoù, kadarnaat ar paeamant hag adkemer hep doublennoù."
+                    }
+                ],
+                "gallery": {
+                    "title": "Evit ar c’henwerzher : ostilhoù ar pemdez",
+                    "description": "Tapadennoù skramm eus an arload loc’hel gant roadennoù faltazi. An urzhioù diskouez a vez paeet er stal ; an hent enlinenn a enframm Stripe Checkout.",
+                    "enlarge": "Brasaat an dapadenn",
+                    "images": [
+                        {
+                            "src": "/images/case-studies/la-maree-malouine/commandes.webp",
+                            "title": "Heuliañ pep urzh betek an tennañ",
+                            "alt": "Merañ : konterioù, enklask, siloù stad hag urzhioù faltazi da brientiñ pe prest.",
+                            "caption": "Ar stadoù hag an obererezhioù prientiñ a zo war an hevelep skramm. Ar c’henwerzher a gav un urzh, a verk anezhañ prest, ha goude-se tennet."
+                        },
+                        {
+                            "src": "/images/case-studies/la-maree-malouine/produits.webp",
+                            "title": "Merañ ar c’hatalog hag ar stok",
+                            "alt": "Merañ : roll ar produioù, kementadoù e stok, hegerzder, hewelder ha nozelennoù kemmañ.",
+                            "caption": "Prizioù, kementadoù, hegerzder hag hewelder a vez meret er c’hatalog. Gwelout a reer diouzhtu pa n’eus stok ebet ken."
+                        }
+                    ]
+                },
+                "presentation": {
+                    "headline": "Ar stal lec’hel, enlinenn ivez.",
+                    "client": "Hent ar c’hliant",
+                    "merchant": "Rann ar c’henwerzher",
+                    "navigation": "Er studi degouezh-mañ",
+                    "experience": "Urzhiañ",
+                    "administration": "Merañ ar stal",
+                    "engineering": "A-dreñv an etrefas",
+                    "approach": "An hentenn",
+                    "engineeringTitle": "Un etrefas eeun. Labour teknikel a-dreñv.",
+                    "engineeringIntro": "Stok, paeamantoù, diogelroez hag amprouadennoù : an dibaboù evit un hent fiziañs. Digorit un danvez evit gwelet ar munudoù.",
+                    "technical": [
+                        {
+                            "id": "stock-paiement",
+                            "label": "Stok ha paeamantoù",
+                            "hint": "Mirout, kadarnaat hag adkemer hep doublennoù."
+                        },
+                        {
+                            "id": "securite",
+                            "label": "Diogelroez ha dilesa e daou bazenn",
+                            "hint": "TOTP, alc’hwezioù WebAuthn hag estezioù gwiriet."
+                        },
+                        {
+                            "id": "tests",
+                            "label": "Amprouadennoù ha casoù gwir",
+                            "hint": "Urzhioù war un dro gant PostgreSQL, paeamantoù ha Playwright."
+                        },
+                        {
+                            "id": "architecture",
+                            "label": "Arkitektouriezh ha desplegañ",
+                            "hint": "React, TanStack Start, PostgreSQL ha GitLab CI/CD."
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "title": "Dibab",
+                            "text": "Sevel ur paner gant ar c’hatalog hag ar c’hinnigadennoù."
+                        },
+                        {
+                            "title": "Mirout ha paeañ",
+                            "text": "Dibab ur c’houlzad da gerc’hat, ha paeañ dre Stripe."
+                        },
+                        {
+                            "title": "Kerc’hat",
+                            "text": "Resev ar gadarnadenn, ha kerc’hat an urzh er stal."
+                        }
+                    ]
+                }
             }
         }
     },
     "contact_privacy": {
+        "missing_fields_hint": "Da leuniañ : {{fields}}.",
+        "missing_consent_hint": "Asantit da Google reCAPTCHA evit kas.",
+        "summary": "Ho roadennoù a servij da respont d’ho koulenn.",
+        "details_label": "Munudoù diwar-benn reCAPTCHA hag ho roadennoù",
+        "alternative_short": "pe dre bostel",
         "notice": "Théo Guérin a implij ar roadennoù-mañ evit respont ha kas un testeni resev. Miret e vez ar c’hemennadennoù hep heuliad kenwerzhel e-pad 12 miz d’ar muiañ goude an eskemm diwezhañ. Evit ar prestourien hag ho kwirioù :",
         "captcha_consent": "Asantiñ a ran da weredekaat Google reCAPTCHA evit gwiriañ ar c’has-mañ.",
         "captcha_details": "Ar gwiriañ a gas roadennoù teknikel da Google hag a c’hall implijout e doupinoù. Google a c’hall implijout ar roadennoù evit e balioù dezhañ ivez. Distag eo an asant-mañ diouzh ar stadegoù ha goulennet e vo en-dro evit pep kas. Gwarezet eo ar furmskrid gant reCAPTCHA ; reolennoù Google a dalvez :",

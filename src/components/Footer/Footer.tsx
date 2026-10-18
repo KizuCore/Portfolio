@@ -14,6 +14,12 @@ import "../../assets/styles/Footer/Footer.css";
 function Footer(): JSX.Element {
   const { t } = useTranslation();
   const year = new Date().getFullYear();
+  const serviceLinks = [
+    { to: "/fr/services/creation-site-internet-rennes", label: t("services.items.websites.title") },
+    { to: "/fr/services/developpement-api", label: t("footer_services.api") },
+    { to: "/fr/services/developpeur-flutter", label: t("services.items.mobile.title") },
+    { to: "/fr/services/developpeur-django", label: t("footer_services.django") },
+  ];
 
   const pageLinks = [
     { to: "/", label: t("home") },
@@ -63,6 +69,15 @@ function Footer(): JSX.Element {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          <div className="footer-link-column">
+            <p className="footer-column-title">{t("services.title")}</p>
+            <ul>
+              {serviceLinks.map((link) => <li key={link.to}>
+                <Link to={link.to} hrefLang="fr" className="footer-nav-link">{link.label}</Link>
+              </li>)}
             </ul>
           </div>
 

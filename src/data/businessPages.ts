@@ -10,13 +10,40 @@ export type BusinessPage = {
   description: string;
   intro: string;
   tags: string[];
-  sections: { title: string; text: string; items?: string[] }[];
+  overview?: { label: string; value: string; detail: string }[];
+  gallery?: {
+    title: string;
+    description: string;
+    enlarge: string;
+    images: { src: string; alt: string; title: string; caption: string }[];
+  };
+  sections: { id?: string; title: string; text: string; items?: string[] }[];
   questions: { question: string; answer: string }[];
 };
 
 // Le contenu rédactionnel est partagé par React et la génération SEO statique. Les affirmations doivent rester factuelles.
 // Les services restent en français ; les études de cas utilisent les fichiers JSON de traduction partagés.
 export const BUSINESS_PAGES: BusinessPage[] = [
+  {
+    path: "/services/developpement-api",
+    kind: "service",
+    eyebrow: "API & backend · Rennes",
+    title: "Développement d’API sur mesure à Rennes",
+    description: "Théo Guérin, développeur freelance à Rennes : création et intégration d’API avec Django (Python) ou Node.js, authentification et bases de données.",
+    intro: "Votre application web, mobile ou métier doit accéder à des données et communiquer avec vos outils. Je développe des API avec Django (Python) ou Node.js, selon votre projet et les technologies déjà en place.",
+    tags: ["API REST", "Django · Python", "Node.js", "Intégrations"],
+    sections: [
+      { title: "Partir des échanges dont vous avez besoin", text: "Nous identifions les données à exposer, les actions possibles et les utilisateurs autorisés. L’API est définie autour de ces usages, qu’elle alimente une interface React, une application Flutter ou un outil interne.", items: ["Définition des endpoints et des formats de réponse.", "Validation des entrées, gestion des erreurs et règles métier.", "Authentification et permissions selon les rôles."] },
+      { title: "Django ou Node.js : choisir selon le projet", text: "Le choix dépend de votre code existant, de votre équipe et des services à connecter. Django permet de construire un backend Python avec ses modèles de données et son administration. Node.js permet de développer les services côté serveur en JavaScript ou TypeScript. Nous retenons la solution adaptée au périmètre et à la maintenance attendue." },
+      { title: "Relier vos applications et vos services", text: "Je peux créer une API ou intégrer celle d’un prestataire : catalogue, commandes, formulaires ou notifications. Chez Nahibu, j’ai développé une API Node.js avec Sequelize (ORM) qui synchronise les données utilisateurs entre WooCommerce, l’espace client et Brevo. Mon expérience comprend aussi l’intégration de Systempay et LimeSurvey.", items: ["Connexion aux bases PostgreSQL ou MySQL selon le projet.", "Gestion des identifiants techniques côté serveur.", "Traitement des erreurs et des réponses des services externes."] },
+      { title: "Livrer une API que vous pouvez reprendre", text: "La mission comprend un périmètre et des livrables définis ensemble. La documentation et les vérifications portent sur les échanges réellement utilisés par votre application.", items: ["Exemples de requêtes et description des réponses.", "Tests des parcours importants et des accès autorisés.", "Préparation du déploiement et transmission des informations utiles."] },
+    ],
+    questions: [
+      { question: "Faut-il choisir Django ou Node.js avant de vous contacter ?", answer: "Non. Présentez-moi votre besoin et votre environnement actuel. Nous pouvons choisir la technologie lors du cadrage, en tenant compte de la maintenance et des contraintes d’hébergement." },
+      { question: "Pouvez-vous intégrer une API existante ?", answer: "Oui. Je commence par sa documentation, ses moyens d’authentification et ses limites d’utilisation pour définir les échanges et les cas d’erreur à gérer." },
+      { question: "Pouvez-vous faire évoluer un backend Django ?", answer: "Oui. Je propose aussi des interventions dédiées à Django : reprise de code, évolution des modèles de données, ajout de fonctionnalités et maintenance. La page Développement Django détaille cette offre." },
+    ],
+  },
   { path: "/realisations/la-maree-malouine", kind: "case-study", ...fr.business_pages.cases["la-maree-malouine"] },
   { path: "/realisations/a-table", kind: "case-study", ...fr.business_pages.cases["a-table"] },
   {
@@ -30,7 +57,7 @@ export const BUSINESS_PAGES: BusinessPage[] = [
     sections: [
       { title: "Une interface pensée pour vos utilisateurs", text: "Je développe des interfaces qui rendent les actions essentielles faciles à comprendre, sur ordinateur comme sur mobile.", items: ["Applications métier, tableaux de bord et formulaires.", "Composants réutilisables et parcours accessibles au clavier.", "Intégration de vos API, avec gestion des chargements et des erreurs."] },
       { title: "Faire évoluer un projet existant", text: "Je commence par comprendre votre code, vos contraintes et les difficultés rencontrées. Nous définissons ensuite les changements prioritaires et leur périmètre.", items: ["Ajout de fonctionnalités et correction de bugs.", "Séparation de l’interface, des données et de la logique métier.", "Tests des parcours importants et préparation du déploiement."] },
-      { title: "Une expérience concrète du front au back", text: "Chez Nahibu, je développe des interfaces React et des API Python avec Django et Flask. Le frontend Flambow associe React et TypeScript à des tests Vitest et Playwright. Ces expériences nourrissent ma façon de concevoir des interfaces reliées à des services réels." },
+      { title: "Une expérience concrète du front au back", text: "Chez Nahibu, je développe des interfaces React et des API REST avec Django et Flask, ainsi qu’une API Node.js avec Sequelize pour synchroniser les données utilisateurs entre WooCommerce, l’espace client et Brevo. Le frontend Flambow associe React et TypeScript à des tests Vitest et Playwright. Ces expériences nourrissent ma façon de concevoir des interfaces reliées à des services réels." },
       { title: "Comment se déroule une mission ?", text: "Nous avançons par étapes avec des points de validation définis ensemble.", items: ["Cadrage : utilisateurs, fonctionnalités, contraintes et code existant.", "Proposition : périmètre, estimation et livrables convenus avant développement.", "Réalisation : démonstrations et retours sur les parcours.", "Livraison : vérifications, mise en ligne et transmission des informations utiles."] },
     ],
     questions: [
@@ -70,7 +97,7 @@ export const BUSINESS_PAGES: BusinessPage[] = [
     tags: ["Django", "Python", "PostgreSQL", "API REST"],
     sections: [
       { title: "Une API adaptée à votre application", text: "Je conçois des services qui alimentent une interface React, une application mobile ou un outil interne, à partir de vos besoins fonctionnels.", items: ["Modélisation des données et règles métier.", "Endpoints REST, validation des entrées et gestion des erreurs.", "Authentification et permissions définies selon les rôles utilisateurs."] },
-      { title: "Connecter vos outils", text: "Une application doit souvent échanger avec des services externes. Mon expérience chez Nahibu inclut l’intégration de WooCommerce, Systempay, Brevo et LimeSurvey, ainsi que la maintenance d’API Django et Flask." },
+      { title: "Connecter vos outils", text: "Une application doit souvent échanger avec des services externes. Chez Nahibu, je développe et maintiens des API REST avec Django et Flask. La synchronisation des données utilisateurs entre WooCommerce, l’espace client et Brevo repose sur une API Node.js que j’ai développée avec Sequelize (ORM). Mon expérience inclut aussi l’intégration de Systempay et LimeSurvey." },
       { title: "Faire évoluer le backend dans la durée", text: "Je sépare les responsabilités pour faciliter les évolutions : accès aux données, logique métier et interface de l’API. Les parcours importants font l’objet de vérifications adaptées au projet.", items: ["Évolution des modèles et des bases PostgreSQL ou MySQL.", "Correction de bugs et ajout de fonctionnalités.", "Préparation du déploiement et documentation des points utiles à la reprise."] },
       { title: "Une mission définie ensemble", text: "Nous commençons par vos utilisateurs, vos données et vos contraintes d’hébergement. Si un backend existe déjà, sa lecture permet de préciser les changements, les dépendances et les livrables avant le développement." },
     ],

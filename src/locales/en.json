@@ -3,7 +3,7 @@
         "watch_demo": "Watch the video demo",
         "all_skills": "View all my skills",
         "intro": "From React interfaces to Django APIs, I build web and mobile applications with a focus on performance and code quality.",
-        "missions": "React interfaces, microbiome reports and data visualisations with Django.||Django, Flask and Node.js REST APIs; PostgreSQL and MySQL databases.||WooCommerce, Systempay, Brevo and LimeSurvey integrations; internationalisation and technical SEO.||Infrastructure migration, environment management and Docker / CI/CD deployments.||Automated tests with Playwright, Jest and Bruno; Agile teamwork on GitLab.",
+        "missions": "React interfaces, microbiome reports and data visualisations with Django.||Development and maintenance of REST APIs with Django and Flask; PostgreSQL and MySQL databases.||Node.js API with Sequelize (ORM) to synchronise user data between WooCommerce, the customer portal and Brevo.||WooCommerce, Systempay, Brevo and LimeSurvey integrations; internationalisation and technical SEO.||Infrastructure migration, environment management and Docker / CI/CD deployments.||Automated tests with Playwright, Jest and Bruno; Agile teamwork on GitLab.",
         "impact": "PDF report generation time at Nahibu.",
         "project_label": "Team project · Technical lead",
         "flambow": "Development of an intergenerational skill-sharing application within a multidisciplinary team. React and TypeScript, Stripe payments, real-time exchanges with Socket.io, automated tests and VPS deployment.",
@@ -190,7 +190,7 @@
     "contact_eyebrow": "Let us build your next project",
     "contact_intro": "Need a new website, a redesign, freelance support, or a role to discuss? Send a message and I will get back quickly.",
     "contact_panel_title": "Ready to start?",
-    "contact_panel_description": "React interfaces, Django APIs or Flutter applications: let's discuss your web or mobile project.",
+    "contact_panel_description": "React interfaces, Django or Node.js APIs, Flutter applications: let's discuss your web or mobile project.",
     "contact_point_1": "Fast discovery and clear scope definition",
     "contact_point_2": "Technical proposal aligned with your goals",
     "contact_point_3": "Simple communication and reliable delivery",
@@ -224,8 +224,8 @@
     "experience_1_date": "Since March. 2024",
     "experience_1_subtitle": "Nahibu - Rennes",
     "experience_1_description": "Design and evolution of the Nahibu platform.",
-    "experience_1_highlights": "Development of React interfaces for the Nahibu platform||Implementation of microbiome reports and data visualizations with Django||Development and maintenance of REST APIs with Django and Flask||Design and management of databases (PostgreSQL, MySQL)||Integration of external services: WooCommerce, Systempay, Brevo, LimeSurvey||Participation in deployment using Docker and CI/CD||Setup of automated tests with Playwright, Jest and Bruno",
-    "experience_1_stack": "Python, Django, Flask, React, PostgreSQL, Docker, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
+    "experience_1_highlights": "Development of React interfaces for the Nahibu platform||Implementation of microbiome reports and data visualizations with Django||Development of a Node.js API with Sequelize (ORM) synchronising user data between WooCommerce, the customer portal and Brevo||Development and maintenance of REST APIs with Django and Flask||Design and management of databases (PostgreSQL, MySQL)||Integration of external services: WooCommerce, Systempay, Brevo, LimeSurvey||Participation in deployment using Docker and CI/CD||Setup of automated tests with Playwright, Jest and Bruno",
+    "experience_1_stack": "Django, React, Node.js, PostgreSQL, Docker, Flask, Python, Sequelize, MySQL, AWS, Axios, Celery, Postman, Bash, Jupyter, WordPress, LimeSurvey, Nuxt, Sentry",
     "experience_2_title": "MBA Full-Stack Web Developer",
     "experience_2_subtitle": "My Digital School",
     "experience_2_diplome": "Level 7 RNCP title “Web Digital Project Manager” - Digital Development pathway",
@@ -333,8 +333,8 @@
         "flambow_frontend_image_alt": "Image of the Flambow Frontend project",
         "portes_montafilan_image_alt": "Screenshot of the Les Portes de Montafilan homepage",
         "maree_malouine_title": "La Marée Malouine",
-        "maree_malouine_description": "Showcase website and Click & Collect application for a fishmonger: catalogue, promotions, ordering with a pickup slot and payment on collection. A merchant dashboard manages products, stock, orders and messages without code changes. Prices and slot capacity are checked on the server, with Brevo notifications and email status tracking.",
-        "maree_malouine_image_alt": "Screenshot of the La Marée Malouine homepage and its Click & Collect steps"
+        "maree_malouine_description": "Showcase website and Click & Collect application for a fishmonger: catalogue, promotions, step-by-step ordering and online card payments through Stripe. The merchant dashboard brings together stock, pickup slots, refunds and customer history. Stock is reserved temporarily during payment, with email notifications through Brevo.",
+        "maree_malouine_image_alt": "La Marée Malouine homepage: fishmonger introduction and links to the catalogue and ordering"
     },
     "solar_system": {
         "sun": "Sun",
@@ -541,7 +541,9 @@
         "note": "Enabled only with your consent. You can change this at any time."
     },
     "cookie_banner": {
-        "text": "Google Analytics measures traffic only if you accept. You can refuse or change your choice at any time.",
+        "title": "A little help to improve the site?",
+        "customize": "Customize",
+        "text": "With your permission, Google Analytics helps me understand which pages are visited. You can change your mind at any time.",
         "learn_more": "Learn more",
         "decline": "Decline",
         "accept": "Accept",
@@ -638,6 +640,10 @@
             }
         }
     },
+    "footer_services": {
+        "api": "API development",
+        "django": "Django development"
+    },
     "services": {
         "eyebrow": "What I deliver",
         "title": "Services",
@@ -645,7 +651,7 @@
         "cta": "Discuss your project",
         "items": {
             "websites": {
-                "title": "Premium websites",
+                "title": "Business websites",
                 "description": "Landing pages and company sites focused on speed, SEO and conversion."
             },
             "apps": {
@@ -654,10 +660,10 @@
             },
             "api": {
                 "title": "API & backend",
-                "description": "Django and Python APIs, business logic, authentication and databases for your applications."
+                "description": "APIs with Django (Python) or Node.js, business logic, authentication and databases for your applications."
             },
             "mobile": {
-                "title": "Flutter mobile applications",
+                "title": "Mobile applications",
                 "description": "Flutter and Dart applications: navigation, local storage and API integration."
             },
             "optimization": {
@@ -741,9 +747,9 @@
         "cases": {
             "a-table": {
                 "eyebrow": "Personal project · Flutter application",
-                "title": "À table! — Keep track of your kitchen",
+                "title": "À table !",
                 "description": "À table! case study: a Flutter application developed by Théo Guérin to manage food, track expiry dates and receive reminders.",
-                "intro": "At home, I wanted to easily find out what food we had and what was approaching its expiry date. I did not know of an application that met my needs, so I created À table! to keep that list close at hand and avoid forgetting products at the back of the fridge.",
+                "intro": "I created À table ! to find the food available at home, track expiry dates and avoid forgotten items at the back of the fridge. A Flutter application that works offline.",
                 "tags": [
                     "Personal project",
                     "Flutter · Dart",
@@ -754,7 +760,8 @@
                 "sections": [
                     {
                         "title": "A practical need at home",
-                        "text": "Initially, I was looking for a tool to help with grocery shopping and the food we already had at home. The idea was simple: check what was in the kitchen, enter dates and spot anything that had been sitting there too long. I built the project around this everyday inventory."
+                        "text": "Initially, I was looking for a tool to help with grocery shopping and the food we already had at home. The idea was simple: check what was in the kitchen, enter dates and spot anything that had been sitting there too long. I built the project around this everyday inventory.",
+                        "id": "besoin"
                     },
                     {
                         "title": "Know what you have without checking everything",
@@ -763,7 +770,8 @@
                             "Add, edit or remove a food item.",
                             "Filter the contents of the fridge, freezer or cupboard.",
                             "Enter an expiry date using shortcuts such as +2, +7 or +30 days."
-                        ]
+                        ],
+                        "id": "inventaire"
                     },
                     {
                         "title": "Plan ahead instead of forgetting dates",
@@ -772,7 +780,8 @@
                             "Indicators in the inventory when an expiry date is approaching or has passed.",
                             "A calendar to view upcoming expiry dates.",
                             "Reminders before the expiry date, depending on permissions and the platform in use."
-                        ]
+                        ],
+                        "id": "rappels"
                     },
                     {
                         "title": "An application that works offline",
@@ -782,11 +791,13 @@
                             "Isar for local food storage.",
                             "GoRouter for navigation and TableCalendar for expiry dates.",
                             "Separate responsibilities for screens, data models, database access and notifications."
-                        ]
+                        ],
+                        "id": "hors-connexion"
                     },
                     {
                         "title": "From a personal need to a working project",
-                        "text": "À table! brings inventory, dates and reminders together in one tool. This project shows how I start from a real use case, design the essential user journeys and connect a Flutter interface to local storage and device notifications. Its aim is to help people forget fewer food items and reduce waste."
+                        "text": "À table! brings inventory, dates and reminders together in one tool. This project shows how I start from a real use case, design the essential user journeys and connect a Flutter interface to local storage and device notifications. Its aim is to help people forget fewer food items and reduce waste.",
+                        "id": "resultat"
                     }
                 ],
                 "questions": [
@@ -802,11 +813,61 @@
                         "question": "Can I access my data without the Internet?",
                         "answer": "Yes, the inventory is stored locally with Isar. This version works on mobile and desktop; it does not offer inventory synchronisation across devices."
                     }
+                ],
+                "presentation": {
+                    "headline": "Keep an eye on your kitchen.",
+                    "visualLabel": "A look at the application",
+                    "format": "Flutter · Mobile & desktop",
+                    "navigation": "In this case study",
+                    "experience": "Inventory",
+                    "reminders": "Reminders",
+                    "engineering": "Behind the interface",
+                    "outcome": "The project",
+                    "engineeringTitle": "Your inventory stays close at hand.",
+                    "engineeringIntro": "Offline use is central to the project. Explore how the interface, local data and notifications work together.",
+                    "technical": [
+                        {
+                            "id": "hors-connexion",
+                            "label": "Architecture & local storage",
+                            "hint": "Flutter, Riverpod and Isar, without relying on a network connection."
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "title": "List",
+                            "text": "Add food items, quantities and storage locations."
+                        },
+                        {
+                            "title": "Check",
+                            "text": "Review your inventory and expiry dates to watch."
+                        },
+                        {
+                            "title": "Plan ahead",
+                            "text": "Find upcoming dates in the calendar and enable reminders."
+                        }
+                    ]
+                },
+                "overview": [
+                    {
+                        "label": "My role",
+                        "value": "A personal project",
+                        "detail": "Design and development of an application born from a need at home."
+                    },
+                    {
+                        "label": "Scope",
+                        "value": "Inventory & reminders",
+                        "detail": "Food, quantities, locations, expiry dates and a calendar."
+                    },
+                    {
+                        "label": "Technical choice",
+                        "value": "Offline use",
+                        "detail": "Inventory data stays on the device with Isar."
+                    }
                 ]
             },
             "les-portes-de-montafilan": {
                 "eyebrow": "Case study · Holiday cottage website",
-                "title": "Les Portes de Montafilan: a holiday cottage website connected to Airbnb",
+                "title": "Les Portes de Montafilan",
                 "description": "React and TypeScript case study: a holiday cottage website with Google Sheets pricing, Airbnb unavailable dates via iCal and stay estimates, by Théo Guérin.",
                 "intro": "Present the cottage, help visitors plan their stay and let the owner update prices easily: three needs brought together in a React and TypeScript interface.",
                 "tags": [
@@ -818,7 +879,8 @@
                 "sections": [
                     {
                         "title": "The needs and constraints",
-                        "text": "The project needed to avoid a monthly platform subscription and a complex backend, while keeping prices editable without code in a spreadsheet. The website also had to take Airbnb unavailable dates into account."
+                        "text": "The project needed to avoid a monthly platform subscription and a complex backend, while keeping prices editable without code in a spreadsheet. The website also had to take Airbnb unavailable dates into account.",
+                        "id": "besoin"
                     },
                     {
                         "title": "The solution I built",
@@ -828,72 +890,149 @@
                             "Synchronise Airbnb unavailable dates through iCal.",
                             "Calculate a clear estimate from the selected dates.",
                             "Redirect to Airbnb with dates prefilled."
-                        ]
+                        ],
+                        "id": "solution"
                     },
                     {
                         "title": "The visitor journey",
-                        "text": "Visitors discover the property, choose their dates and view an estimate for their stay. They then continue their booking on Airbnb. The website helps them plan their stay; the final booking is handled on Airbnb."
+                        "text": "Visitors discover the property, choose their dates and view an estimate for their stay. They then continue their booking on Airbnb. The website helps them plan their stay; the final booking is handled on Airbnb.",
+                        "id": "parcours-visiteur"
                     },
                     {
                         "title": "Technical choices",
-                        "text": "React and TypeScript structure the interface, Vite builds the project and Tailwind CSS handles styling. The project uses Vercel for deployment, Brevo for emails, and Vitest and Playwright for testing."
+                        "text": "React and TypeScript structure the interface, Vite builds the project and Tailwind CSS handles styling. The project uses Vercel for deployment, Brevo for emails, and Vitest and Playwright for testing.",
+                        "id": "technique"
                     },
                     {
                         "title": "What the website makes possible",
-                        "text": "The owner can adjust prices in their spreadsheet. Visitors get an overview of the cottage, dates and an estimate before moving on to Airbnb. The website and its code are linked below so you can explore the finished project."
+                        "text": "The owner can adjust prices in their spreadsheet. Visitors get an overview of the cottage, dates and an estimate before moving on to Airbnb. The website and its code are linked below so you can explore the finished project.",
+                        "id": "resultat"
                     }
                 ],
-                "questions": []
+                "questions": [],
+                "presentation": {
+                    "headline": "Inspire a visit. Make planning easier.",
+                    "visualLabel": "Discover the holiday home",
+                    "format": "Showcase website",
+                    "navigation": "In this case study",
+                    "experience": "The stay",
+                    "solution": "Management",
+                    "engineering": "Behind the interface",
+                    "outcome": "The result",
+                    "engineeringTitle": "A website connected to the owner’s tools.",
+                    "engineeringIntro": "A React interface, rates in Google Sheets and Airbnb availability. Explore the technical decisions in detail.",
+                    "technical": [
+                        {
+                            "id": "technique",
+                            "label": "Architecture, testing & deployment",
+                            "hint": "React, TypeScript, Vitest, Playwright and Vercel."
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "title": "Discover",
+                            "text": "Explore the holiday home and picture the stay."
+                        },
+                        {
+                            "title": "Plan",
+                            "text": "Choose dates and review an estimated price."
+                        },
+                        {
+                            "title": "Book",
+                            "text": "Continue to Airbnb with prefilled dates to complete the booking."
+                        }
+                    ]
+                },
+                "overview": [
+                    {
+                        "label": "My role",
+                        "value": "Web development",
+                        "detail": "A React and TypeScript interface connected to the owner’s tools."
+                    },
+                    {
+                        "label": "The journey",
+                        "value": "From discovery to booking",
+                        "detail": "Property presentation, date selection and a handoff to Airbnb."
+                    },
+                    {
+                        "label": "The challenge",
+                        "value": "Management without code",
+                        "detail": "Rates editable in Google Sheets and unavailable dates from Airbnb."
+                    }
+                ]
             },
             "la-maree-malouine": {
-                "eyebrow": "Case study · Fishmonger & Click & Collect",
-                "title": "La Marée Malouine: from catalogue to collection",
-                "description": "La Marée Malouine case study by Théo Guérin: a fishmonger’s website, Click & Collect, merchant dashboard and orders built with React and PostgreSQL.",
-                "intro": "Let customers prepare their orders on their phones while giving the merchant control over daily operations: I built a showcase website and Click & Collect application for La Marée Malouine.",
+                "eyebrow": "Case study · Full-stack web application",
+                "title": "La Marée Malouine",
+                "description": "La Marée Malouine case study by Théo Guérin: Click & Collect, Stripe payments, stock management and a merchant dashboard built with React and PostgreSQL.",
+                "intro": "I designed a Click & Collect application connecting online orders to a fishmonger’s daily operations, from choosing products to collecting them in the shop.",
                 "tags": [
                     "Click & Collect",
                     "React",
                     "TanStack Start",
                     "PostgreSQL",
-                    "Brevo"
+                    "Stripe",
+                    "Brevo",
+                    "GitLab CI/CD"
                 ],
                 "sections": [
                     {
-                        "title": "The need: order online, pay on collection",
+                        "title": "The need: order and pay online, collect in store",
                         "text": "The fishmonger needed to present fresh arrivals, promote special offers and receive orders for defined pickup slots. The experience had to be simple on mobile, with a catalogue the merchant could update every day without technical help.",
                         "items": [
                             "Browse products and place an order from a phone.",
                             "Choose a pickup slot with capacity suited to preparation.",
-                            "Pay on collection, with an estimated total for products sold by weight."
-                        ]
+                            "Card payment through Stripe Checkout, with a final total shown before confirmation."
+                        ],
+                        "id": "besoin"
+                    },
+                    {
+                        "title": "Sprints with a review every week",
+                        "text": "Development was organised into sprints, with a weekly review to demonstrate completed features and discuss progress. These demonstrations made the work tangible: we could walk through the screens, discuss how they worked and consider the next steps. This regular rhythm provided opportunities to check the application against the fishmonger’s needs throughout the project.",
+                        "id": "sprints"
                     },
                     {
                         "title": "A customer journey through to collection",
-                        "text": "Visitors browse categories, view product details and build their selection. They enter their contact details, choose an available slot and receive an order reference. The merchant accepts or declines the request and can notify the customer when it is ready.",
+                        "text": "Visitors browse the catalogue and build their selection. Ordering has three steps: basket, pickup slot and contact details. They then pay by card on the Stripe-hosted page. Once the server verifies payment, the order moves to preparation; the merchant marks it ready, then collected.",
                         "items": [
                             "Filterable catalogue and promotions displayed on relevant products.",
                             "Summary of quantities, prices and pickup location.",
-                            "Receipt, acceptance, refusal and ready-for-collection emails as the order progresses."
-                        ]
+                            "Payment confirmation, ready-for-collection and cancellation emails through Brevo."
+                        ],
+                        "id": "parcours-client"
                     },
                     {
                         "title": "A dashboard for daily operations",
-                        "text": "A protected administration area brings routine tasks together. The merchant updates the selection as deliveries arrive, organises pickups and handles requests from the same interface.",
+                        "text": "A protected administration area brings routine tasks together. The merchant manages deliveries and stock movements, organises pickups, tracks payments and views customer order history.",
                         "items": [
-                            "Create and edit products, photos, stock, prices and availability.",
-                            "Schedule promotions and generate recurring slots with a maximum capacity.",
-                            "Track orders with search and status filters.",
-                            "Read and reply to customer messages, and update contact details and opening hours."
-                        ]
+                            "Create and edit products, photos, prices and availability, and track stock movements.",
+                            "Schedule promotions and generate recurring slots with limited capacity.",
+                            "Track orders and payments, cancel with a Stripe refund and retry failed refunds.",
+                            "Customer records with order history and CSV export of email addresses.",
+                            "Search and filter customer messages, reply from the dashboard, and update contact details and opening hours."
+                        ],
+                        "id": "administration"
                     },
                     {
-                        "title": "Consistent orders, including retries",
-                        "text": "Order validation recalculates prices and promotions on the server, then checks stock and slot capacity within a PostgreSQL transaction. A submission identifier lets a request resume without creating another order.",
+                        "title": "Reserved stock and server-verified payments",
+                        "text": "The server recalculates prices and promotions, then reserves stock and a pickup place within a PostgreSQL transaction for around 30 minutes. Payment is confirmed through signed Stripe events or periodic server checks. Verified expiry releases reservations; retries avoid creating a second order or repeating a payment operation.",
                         "items": [
-                            "Availability checks when the order is submitted.",
-                            "Notifications saved with the order, then sent in the background through Brevo.",
-                            "Retries after sending failures and email status tracking for the merchant."
-                        ]
+                            "Webhook signature verification and handling of duplicate events.",
+                            "Refund tracking and automatic retries for pending operations.",
+                            "Notifications saved with the order and sent in the background through Brevo, with retries and delivery tracking."
+                        ],
+                        "id": "stock-paiement"
+                    },
+                    {
+                        "title": "Security: protecting access to administration",
+                        "text": "The merchant dashboard provides access to orders and customer data. I integrated two-step authentication: a password, followed by a temporary authenticator app code (TOTP) or a WebAuthn passkey. An administrator session is only created once the complete flow has been validated.",
+                        "items": [
+                            "TOTP replay protection and login rate limits per account and IP address.",
+                            "Management of sign-in methods and single-use recovery codes, with only their hashes stored in the database.",
+                            "Identity verification before security changes, revocation of other sessions and an audit trail of changes.",
+                            "Server-side input validation and permission checks, scrypt password hashing and HttpOnly session cookies."
+                        ],
+                        "id": "securite"
                     },
                     {
                         "title": "Clear responsibilities and indexable pages",
@@ -901,25 +1040,126 @@
                         "items": [
                             "Tailwind CSS for layouts that adapt to mobile and desktop.",
                             "Metadata, canonical URLs, sitemap and structured data for public pages.",
-                            "Admin authentication, server validation and anti-bot protection for forms.",
-                            "A Docker container for deployment on a VPS."
-                        ]
+                            "GitLab CI/CD pipeline: automated tests, Docker image build and scanning with Trivy, then VPS deployment for protected tags.",
+                            "Maintenance mode controlled from the dashboard, keeping merchant access available."
+                        ],
+                        "id": "architecture"
                     },
                     {
-                        "title": "Delivery with practical guidance",
+                        "title": "Testing: checking scenarios that can fail",
+                        "text": "The suite combines unit tests, PostgreSQL integration tests and a Playwright browser flow. It targets business rules, access controls and recovery after failures, including cases where two orders compete for the last available collection slot.",
+                        "items": [
+                            "Business rules: quantities, fees, collection slots and order transitions.",
+                            "PostgreSQL integration: concurrent orders, stock, collection capacity and duplicate prevention. Payment tests use the real database with simulated Stripe calls for confirmation, expiry, retries and refunds.",
+                            "Security and browser: access denied before the second factor, TOTP setup, rejection of reused codes, WebAuthn passkeys and account security management.",
+                            "Delivery: GitLab CI prepares dedicated test databases and runs migrations, tests, builds, TypeScript checks and HTML/SEO checks. The Playwright flow has a separate command."
+                        ],
+                        "id": "tests"
+                    },
+                    {
+                        "title": "Delivery and handover",
                         "text": "The site is online, with management tools for the merchant to populate the catalogue and organise pickups. A user guide documents everyday operations. The project also includes an action history, backup export and a restoration procedure reserved for the operator.",
                         "items": [
-                            "Tests for order rules and concurrent database operations.",
-                            "Checks covering message replies, security and restoration.",
-                            "A merchant guide for everyday use."
-                        ]
+                            "A merchant guide for daily operations.",
+                            "Backup export and a restoration procedure, with a dedicated integration test."
+                        ],
+                        "id": "livraison"
                     }
                 ],
-                "questions": []
+                "questions": [],
+                "overview": [
+                    {
+                        "label": "My role",
+                        "value": "Full-stack development",
+                        "detail": "Customer journey, administration, business logic and payment and email integrations."
+                    },
+                    {
+                        "label": "Scope",
+                        "value": "Website and management tools",
+                        "detail": "Catalogue, ordering, shop collection, stock and customer history in one application."
+                    },
+                    {
+                        "label": "Technical challenge",
+                        "value": "Reliable ordering",
+                        "detail": "Reserve stock and collection slots, confirm payments and handle retries without duplicates."
+                    }
+                ],
+                "gallery": {
+                    "title": "For the merchant: everyday management tools",
+                    "description": "Screenshots of the application running locally with fictional data. Demo orders illustrate payment on collection; the online journey integrates Stripe Checkout.",
+                    "enlarge": "Enlarge screenshot",
+                    "images": [
+                        {
+                            "src": "/images/case-studies/la-maree-malouine/commandes.webp",
+                            "title": "Track each order through to collection",
+                            "alt": "Administration: counters, search, status filters and fictional orders awaiting preparation or ready for collection.",
+                            "caption": "Statuses and preparation actions share one screen. The merchant can find an order, mark it ready and record its collection."
+                        },
+                        {
+                            "src": "/images/case-studies/la-maree-malouine/produits.webp",
+                            "title": "Manage the catalogue and stock",
+                            "alt": "Administration: product list, stock quantities, availability, visibility and editing controls.",
+                            "caption": "Prices, quantities, availability and visibility are managed from the catalogue. Out-of-stock products are immediately identifiable."
+                        }
+                    ]
+                },
+                "presentation": {
+                    "headline": "Bringing the local shop online.",
+                    "client": "The customer experience",
+                    "merchant": "The merchant dashboard",
+                    "navigation": "In this case study",
+                    "experience": "Ordering",
+                    "administration": "Running the shop",
+                    "engineering": "Behind the interface",
+                    "approach": "The process",
+                    "engineeringTitle": "A simple interface. Thoughtful engineering.",
+                    "engineeringIntro": "Stock, payments, security and testing: the decisions behind a reliable journey. Open a topic to explore the details.",
+                    "technical": [
+                        {
+                            "id": "stock-paiement",
+                            "label": "Stock & payments",
+                            "hint": "Reserve, confirm and recover without duplicates."
+                        },
+                        {
+                            "id": "securite",
+                            "label": "Security & two-factor authentication",
+                            "hint": "TOTP, WebAuthn passkeys and controlled sessions."
+                        },
+                        {
+                            "id": "tests",
+                            "label": "Tests & real-world scenarios",
+                            "hint": "PostgreSQL concurrency, payments and Playwright flows."
+                        },
+                        {
+                            "id": "architecture",
+                            "label": "Architecture & deployment",
+                            "hint": "React, TanStack Start, PostgreSQL and GitLab CI/CD."
+                        }
+                    ],
+                    "steps": [
+                        {
+                            "title": "Choose",
+                            "text": "Build a basket from the catalogue and current offers."
+                        },
+                        {
+                            "title": "Book & pay",
+                            "text": "Choose a collection slot, then pay through Stripe."
+                        },
+                        {
+                            "title": "Collect",
+                            "text": "Receive confirmation, then collect the order from the shop."
+                        }
+                    ]
+                }
             }
         }
     },
     "contact_privacy": {
+        "missing_fields_hint": "Please fill in: {{fields}}.",
+        "missing_consent_hint": "Select the Google reCAPTCHA consent checkbox to send.",
+        "summary": "Your information is used to handle your enquiry.",
+        "details_label": "Details about reCAPTCHA and your data",
+        "alternative_short": "or by email",
         "notice": "Théo Guérin uses this information to reply and send a receipt. Enquiries without a business follow-up are kept for no more than 12 months after the last exchange. To learn about providers and exercise your rights:",
         "captcha_consent": "I agree to activate Google reCAPTCHA to verify this submission.",
         "captcha_details": "Verification sends technical information to Google and may use its cookies. Google may also process this data for its own purposes. This choice is separate from analytics and requested for every submission. This form is protected by reCAPTCHA; the following Google policies apply:",

@@ -3,7 +3,7 @@
   position: relative;
   isolation: isolate;
   min-height: 100vh;
-  padding: 9.5rem 0 5rem;
+  padding: 9.5rem 0.75rem 5rem;
   color: #eaf2ff;
   text-align: left;
 }
@@ -126,7 +126,7 @@
 }
 @media (max-width: 767px) {
   .legal-page {
-    padding: 7.5rem 0 3rem;
+    padding: 7.5rem 0.75rem 3rem;
   }
   .legal-title {
     margin-bottom: 2rem;

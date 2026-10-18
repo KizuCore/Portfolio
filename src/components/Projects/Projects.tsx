@@ -74,7 +74,7 @@ const Projects: React.FC = () => {
     <MotionConfig reducedMotion="user">
     <Container fluid className="project-section">
 
-      <Container>
+      <Container className="page-content">
         <h1 className="projects-title">
           {t("my_projects")} {t("projects")}
         </h1>

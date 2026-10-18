@@ -373,14 +373,6 @@
     0 0 22px #ffbc4766,
     0 0 55px #ffac2420;
 }
-.solar-system .sun::before {
-  content: "";
-  position: absolute;
-  inset: -11px;
-  border: 1px solid #ffc65b30;
-  border-radius: 50%;
-  animation: solar-breathe 5s ease-in-out infinite;
-}
 .solar-system .planet-mercure {
   width: 8px;
   height: 8px;
@@ -469,12 +461,6 @@
   font-size: 0.8rem;
   line-height: 1.5;
   min-height: 1.5em;
-}
-@keyframes solar-breathe {
-  50% {
-    transform: scale(1.18);
-    opacity: 0.4;
-  }
 }
 @media (max-width: 1199px) and (min-width: 992px) {
   .solar-stage {

@@ -1,0 +1,7 @@
+.case-montafilan .showcase-hero h1 { font-size: clamp(2.1rem, 3.8vw, 3.5rem); }
+.montafilan-management { background: var(--surface-800); }
+.montafilan-management .case-section:last-child { border-left: 2px solid var(--case-accent); padding-left: 2rem; }
+@media (max-width: 767px) {
+  .case-montafilan .showcase-hero h1 { font-size: clamp(1.8rem, 7.8vw, 2.6rem); }
+  .montafilan-management .case-section:last-child { padding-left: 1.25rem; }
+}

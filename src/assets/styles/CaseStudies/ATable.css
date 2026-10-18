@@ -1,0 +1,9 @@
+.table-reminders { background: var(--surface-800); }
+.table-reminders .case-section:last-child { border-left: 2px solid var(--case-accent); padding-left: 2rem; }
+.case-table .showcase-hero-visual { transform: rotate(1.5deg); }
+@media (max-width: 1000px) {
+  .case-table .showcase-hero-visual { transform: none; }
+}
+@media (max-width: 767px) {
+  .table-reminders .case-section:last-child { padding-left: 1.25rem; }
+}

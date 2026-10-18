@@ -31,7 +31,7 @@ const ExperienceTimeline = () => {
   return (
     <Container fluid className="timeline-page">
       {encounter && <TardisEncounter beat={beat} reducedMotion={!!reducedMotion} />}
-      <Container className="timeline-container">
+      <Container className="timeline-container page-content">
         <h1 className="experience-title">
           {t("about_experience")}
         </h1>

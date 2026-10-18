@@ -24,9 +24,8 @@ export default defineConfig({
           if (/\/node_modules\/(react|react-dom|scheduler)\//.test(id) || id.includes("commonjsHelpers")) {
             return "vendor-react";
           }
-          if (/\/node_modules\/(framer-motion|motion-dom|motion-utils)\//.test(id)) {
-            return "vendor-motion";
-          }
+          // Laisse Rollup séparer les animations simples des gestes et projections
+          // utilisés uniquement par les pages chargées à la demande.
         },
       },
     },

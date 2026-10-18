@@ -83,7 +83,7 @@ function useLogoNavigation(navigate: ReturnType<typeof useNavigate>) {
 function NavBar(): JSX.Element {
   const { i18n, t } = useTranslation();
   const [expand, setExpand] = useState(false);
-  const [navColour, setNavColour] = useState(false);
+  const [navColour, setNavColour] = useState(() => window.scrollY >= 20);
   const navigate = useNavigate();
   const location = useLocation();
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -100,7 +100,6 @@ function NavBar(): JSX.Element {
       setNavColour((previous) => (previous === shouldUseStickyStyle ? previous : shouldUseStickyStyle));
     };
 
-    scrollHandler();
     window.addEventListener("scroll", scrollHandler, { passive: true });
     return () => window.removeEventListener("scroll", scrollHandler);
   }, []);

@@ -4,7 +4,7 @@ import { AiOutlineArrowUp } from "@react-icons/all-files/ai/AiOutlineArrowUp";
 
 function BackToTop() {
   const { t } = useTranslation();
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(() => window.scrollY > 520);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,7 +14,6 @@ function BackToTop() {
       );
     };
 
-    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);

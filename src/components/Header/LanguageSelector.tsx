@@ -1,10 +1,11 @@
-import { JSX, useCallback, useEffect, useRef, useState } from "react";
-import BretonTakeover from "../Easter/BretonTakeover";
+import { JSX, lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getContentLocale, getHtmlLang, getLocalizedPath, getShortLocale, ROUTE_SEO, splitLocalizedPath } from "../../config/seo";
 import type { SupportedLocale } from "../../config/seo";
 import "../../assets/styles/Header/Navigation.css";
+
+const BretonTakeover = lazy(() => import("../Easter/BretonTakeover"));
 
 function LanguageSelector(): JSX.Element {
   const { i18n, t } = useTranslation();
@@ -67,7 +68,7 @@ function LanguageSelector(): JSX.Element {
 
   return (
     <div className="language-selector">
-      {takeover && <BretonTakeover language={takeover.language} onComplete={dismissTakeover} />}
+      {takeover && <Suspense fallback={null}><BretonTakeover language={takeover.language} onComplete={dismissTakeover} /></Suspense>}
       <button
         type="button"
         className="lang-toggle lang-switch"

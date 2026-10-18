@@ -10,6 +10,7 @@ import { useTranslation } from "react-i18next";
 import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
 import { CONTACT_FORM_FIELDS } from "./contactFormFields";
 import { useContactForm } from "./useContactForm";
+import "../../assets/styles/Contact/bootstrap-contact.scss";
 import "../../assets/styles/Contact/Contact.css";
 import { Link } from "react-router-dom";
 import { getLocalizedPath, getShortLocale } from "../../config/seo";

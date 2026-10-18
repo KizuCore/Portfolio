@@ -1,5 +1,4 @@
-// Conserve les composants utilisés et toutes les classes utilitaires responsives.
-// Pas de suppression automatique de sélecteurs : les états dynamiques restent disponibles.
+// Conserve la grille et les familles d'utilitaires réellement utilisées par le site.
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
@@ -7,21 +6,27 @@
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
 
+$portfolio-utilities: ();
+@each $name in (
+  "display", "justify-content", "align-items", "align-self",
+  "margin-top", "margin-end", "margin-bottom",
+  "padding", "padding-y", "padding-top",
+  "gap", "font-weight", "text-align", "color"
+) {
+  $portfolio-utilities: map-merge($portfolio-utilities, ($name: map-get($utilities, $name)));
+}
+$utilities: $portfolio-utilities;
+
 @import "bootstrap/scss/root";
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/type";
 @import "bootstrap/scss/images";
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
-@import "bootstrap/scss/forms";
 @import "bootstrap/scss/buttons";
 @import "bootstrap/scss/transitions";
-@import "bootstrap/scss/dropdown";
 @import "bootstrap/scss/nav";
 @import "bootstrap/scss/navbar";
-@import "bootstrap/scss/card";
-@import "bootstrap/scss/alert";
-@import "bootstrap/scss/close";
 @import "bootstrap/scss/spinners";
 @import "bootstrap/scss/helpers";
 @import "bootstrap/scss/utilities/api";

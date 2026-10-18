@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import logo from "@image/logodev.svg";
 import '../../../assets/styles/Easter/style_easter.css';
 import '../../../assets/styles/Header/Navigation.css';
@@ -24,13 +24,13 @@ function LogoImage({ isAnimating, t }: LogoImageProps) {
   }, [isAnimating]);
 
   return (
-    <motion.div
+    <m.div
       className="logo-container"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
-      <motion.img
+      <m.img
         src={logo}
         width={64}
         height={64}
@@ -42,7 +42,7 @@ function LogoImage({ isAnimating, t }: LogoImageProps) {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
       />
-    </motion.div>
+    </m.div>
   );
 }
 

@@ -1,5 +1,6 @@
 import LoadingImage from "../Layout/LoadingImage";
 import Card from "react-bootstrap/Card";
+import "../../assets/styles/Projects/bootstrap-card.scss";
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
 import { getShortLocale, getLocalizedPath, getHtmlLang } from "../../config/seo";

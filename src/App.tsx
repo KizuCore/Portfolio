@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import "./assets/styles/global.css";
 import "./assets/styles/App.css";
@@ -70,7 +70,7 @@ function AppContent() {
           <Suspense fallback={<RouteSkeleton />}>
             <AnimatePresence mode="wait" initial={false}>
               {/* La clé fondée sur pathname donne à chaque page sa propre animation d’entrée et de sortie. */}
-              <motion.div
+              <m.div
                 key={location.pathname}
                 className="route-stage"
                 initial={routeInitial}
@@ -83,7 +83,7 @@ function AppContent() {
                     <Route key={route.path} path={route.path} element={route.element} />
                   ))}
                 </Routes>
-              </motion.div>
+              </m.div>
             </AnimatePresence>
           </Suspense>
         </main>
@@ -103,9 +103,11 @@ function App() {
 
   // Affiche le contenu immédiatement : l’animation de chargement ne doit pas retarder l’accès au portfolio.
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <LazyMotion features={domAnimation}>
+      <Router>
+        <AppContent />
+      </Router>
+    </LazyMotion>
   );
 }
 

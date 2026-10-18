@@ -9,7 +9,7 @@ function isLimitedDevice() {
   const nav = navigator as Navigator & { deviceMemory?: number };
   return (typeof nav.deviceMemory === "number" && nav.deviceMemory <= 4)
     || (typeof nav.hardwareConcurrency === "number" && nav.hardwareConcurrency <= 4)
-    || (window.innerWidth <= 1024 && window.devicePixelRatio > 1.75);
+    || window.matchMedia("(max-width: 1024px) and (min-resolution: 1.75dppx)").matches;
 }
 
 // Des positions stables empêchent le ciel de se déplacer brusquement entre les rendus et les pages.
@@ -48,7 +48,7 @@ function ensureParticlesEngine() {
 function ParticleBackground() {
   const particleId = useId().replace(/:/g, "-");
   const [Particles, setParticles] = useState<ParticlesComponent | null>(null);
-  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia("(max-width: 768px)").matches);
   const [isLowPerfDevice, setIsLowPerfDevice] = useState(isLimitedDevice);
   const [isHidden, setIsHidden] = useState(document.hidden);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
@@ -94,19 +94,24 @@ function ParticleBackground() {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mobileQuery = window.matchMedia("(max-width: 768px)");
+    const limitedQuery = window.matchMedia("(max-width: 1024px) and (min-resolution: 1.75dppx)");
 
     const updateViewport = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(mobileQuery.matches);
       setPrefersReducedMotion(mediaQuery.matches);
       setIsLowPerfDevice(isLimitedDevice());
     };
 
-    updateViewport();
-    window.addEventListener("resize", updateViewport);
+    // Les valeurs initiales sont déjà lues avant le montage. Ne force pas une
+    // nouvelle mise en page juste après les écritures DOM du premier rendu.
+    mobileQuery.addEventListener("change", updateViewport);
+    limitedQuery.addEventListener("change", updateViewport);
     mediaQuery.addEventListener("change", updateViewport);
 
     return () => {
-      window.removeEventListener("resize", updateViewport);
+      mobileQuery.removeEventListener("change", updateViewport);
+      limitedQuery.removeEventListener("change", updateViewport);
       mediaQuery.removeEventListener("change", updateViewport);
     };
   }, []);

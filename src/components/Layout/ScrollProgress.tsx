@@ -40,8 +40,6 @@ function ScrollProgress() {
       scheduleUpdate();
     };
 
-    updateProgress();
-
     window.addEventListener("scroll", scheduleUpdate, { passive: true });
     window.addEventListener("resize", handleResize);
 
@@ -51,6 +49,8 @@ function ScrollProgress() {
 
     resizeObserver?.observe(document.body);
     resizeObserver?.observe(document.documentElement);
+    // La première notification arrive après le calcul de la mise en page.
+    if (!resizeObserver) scheduleUpdate();
 
     // ResizeObserver suit déjà la hauteur après une navigation ou le chargement d’une image.
     // Observer chaque attribut déclenchait une mesure à chaque image des animations.

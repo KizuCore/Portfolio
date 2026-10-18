@@ -1,7 +1,8 @@
-import { useRef } from 'react';
+import { lazy, Suspense, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
-import CountUp from 'react-countup';
+import { m, useInView, useReducedMotion } from 'framer-motion';
+
+const CountUp = lazy(() => import('react-countup'));
 
 function HomeStats() {
   const { t } = useTranslation();
@@ -18,10 +19,10 @@ function HomeStats() {
   ];
 
   return (
-    <div className="home-stats" ref={section}>
+    <div className="home-stats" ref={section} data-visible={visible}>
       <div className="row g-3 g-md-5 justify-content-center">
         {stats.map((stat, index) => (
-          <motion.div
+          <m.div
             key={index}
             className="col-6 col-md-4 col-lg d-flex justify-content-center"
             initial={reduceMotion ? false : { opacity: 0, y: 16 }}
@@ -34,14 +35,14 @@ function HomeStats() {
               {stat.prefix && <span className="stat-plus">{stat.prefix}</span>}
               <span className="stat-number bold-number" style={{ minWidth: `${String(stat.value).length}ch`, fontVariantNumeric: 'tabular-nums' }}>
                 {reduceMotion ? stat.value : visible ? (
-                  <CountUp start={0} end={stat.value} delay={index * 0.3} duration={1.6} useEasing={false} />
+                  <Suspense fallback={0}><CountUp start={0} end={stat.value} delay={index * 0.3} duration={1.6} useEasing={false} /></Suspense>
                 ) : 0}
               </span>
               <div className="stat-label-wrapper">
                 {stat.labels.map((label, labelIndex) => <span className="stat-label" key={labelIndex}>{label}</span>)}
               </div>
             </div>
-          </motion.div>
+          </m.div>
         ))}
       </div>
     </div>

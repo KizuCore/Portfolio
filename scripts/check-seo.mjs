@@ -237,6 +237,10 @@ function main() {
   const seoConfig = loadTsModule(SEO_CONFIG_PATH);
   const { BUSINESS_PAGES, getBusinessPage } = loadTsModule(path.join(ROOT_DIR, "src", "data", "businessPages.ts"));
   const routes = getGeneratedRoutes(seoConfig);
+  const businessTranslations = Object.fromEntries(seoConfig.SUPPORTED_LOCALES.map((locale) => [
+    locale,
+    JSON.parse(fs.readFileSync(path.join(ROOT_DIR, "src", "locales", `${locale}.json`), "utf8")).business_pages,
+  ]));
   const errors = [];
   const titles = new Map();
   const descriptions = new Map();
@@ -277,7 +281,7 @@ function main() {
     // Détecte les régressions où une nouvelle route reçoit par erreur le contenu générique de l’accueil.
     const localizedRoute = seoConfig.splitLocalizedPath(routePath);
     const businessLocale = seoConfig.getContentLocale(localizedRoute.locale ?? "fr", localizedRoute.pathname);
-    const businessPage = getBusinessPage(localizedRoute.pathname, businessLocale);
+    const businessPage = getBusinessPage(localizedRoute.pathname, businessTranslations[businessLocale]);
     if (businessPage) {
       assert(h1 === businessPage.title, `${routePath}: titre éditorial absent du HTML`, errors);
       // Les pages dédiées retrouvent leurs sections par identifiant, quelle que soit la langue.

@@ -9,15 +9,16 @@ export function useCaseStudy(slug: CaseStudySlug) {
   const { i18n } = useTranslation();
   const path = `/realisations/${slug}`;
   const locale = getContentLocale(getShortLocale(i18n.resolvedLanguage ?? i18n.language), path);
-  const page = getBusinessPage(path, locale);
+  const translations = i18n.getResourceBundle(locale, "translation")?.business_pages;
+  const page = getBusinessPage(path, translations);
   const project = PROJECTS.find((item) => item.caseStudyPath === `/fr${path}`);
   if (!page || !project) throw new Error(`Étude de cas introuvable : ${slug} (${locale})`);
   return {
     page,
     project,
     locale,
-    labels: getBusinessLabels(locale),
-    relatedCases: getBusinessPages(locale).filter((item) => item.kind === "case-study" && item.path !== path),
+    labels: getBusinessLabels(translations),
+    relatedCases: getBusinessPages(translations).filter((item) => item.kind === "case-study" && item.path !== path),
     t: i18n.getFixedT(locale),
     section(id: string) {
       const section = page.sections.find((item) => item.id === id);

@@ -10,8 +10,9 @@ import "../../assets/styles/Business/Business.css";
 export default function BusinessPage({ page: sourcePage }: { page: BusinessPageContent }) {
   const { i18n } = useTranslation();
   const locale = getContentLocale(getShortLocale(i18n.resolvedLanguage ?? i18n.language), sourcePage.path);
-  const page = getBusinessPage(sourcePage.path, locale)!;
-  const labels = getBusinessLabels(locale);
+  const translations = i18n.getResourceBundle(locale, "translation")?.business_pages;
+  const page = getBusinessPage(sourcePage.path, translations)!;
+  const labels = getBusinessLabels(translations);
   return (
     <article className="business-page" lang={getHtmlLang(locale)}>
       <nav className="business-breadcrumb" aria-label={labels.breadcrumb}>
@@ -50,7 +51,7 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
       </section>}
       <section className="business-related" aria-labelledby="business-related-title">
         <h2 id="business-related-title">{labels.related}</h2>
-        <div className="business-related-grid">{getBusinessPages(locale).filter((item) => item.path !== page.path).map((item) => (
+        <div className="business-related-grid">{getBusinessPages(translations).filter((item) => item.path !== page.path).map((item) => (
           <Link key={item.path} to={`/${getContentLocale(locale, item.path)}${item.path}`}><span className="business-eyebrow">{item.kind === "service" ? labels.service : labels.case_study}</span><span>{item.title}</span><span aria-hidden="true">↗</span></Link>
         ))}</div>
       </section>

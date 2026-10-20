@@ -1,4 +1,4 @@
-@import "../Business/Business.css";
+@import "../shared/business-actions.css";
 
 /* La hiérarchie commune préserve l’illustration orbitale et la palette du portfolio. */
 .home-offer {

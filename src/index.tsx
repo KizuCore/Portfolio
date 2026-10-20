@@ -5,7 +5,7 @@ import './assets/styles/index.css';
 import App from './App';
 // Préserve l’ordre de cascade du site, notamment les utilitaires de grille et d’espacement.
 import './assets/styles/bootstrap.scss';
-import './i18n';
+import { i18nReady } from './i18n';
 import Preloader from '@/components/Layout/Preloader/Preloader';
 import { initializeAnalytics } from './services/analytics';
 
@@ -35,15 +35,18 @@ if (typeof window !== 'undefined') {
 }
 
 const rootElement = document.getElementById('root');
-if (rootElement) {
-  const root = ReactDOM.createRoot(rootElement);
-  root.render(
-    <React.StrictMode>
-      <HelmetProvider>
-        <Suspense fallback={<Preloader />}>
-          <App />
-        </Suspense>
-      </HelmetProvider>
-    </React.StrictMode>
-  );
-}
+// Une URL bretonne attend son dictionnaire avant le premier affichage.
+void i18nReady.then(() => {
+  if (rootElement) {
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(
+      <React.StrictMode>
+        <HelmetProvider>
+          <Suspense fallback={<Preloader />}>
+            <App />
+          </Suspense>
+        </HelmetProvider>
+      </React.StrictMode>
+    );
+  }
+});

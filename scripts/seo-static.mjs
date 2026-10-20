@@ -82,7 +82,7 @@ function getPreviewImageUrl(profile) {
 
 // Construit le titre de la route selon la même convention que le composant SEO React.
 function buildTitle({ pathname, routeSeo, localeData }) {
-  const page = getBusinessPage(pathname, localeData.business_pages.locale);
+  const page = getBusinessPage(pathname, localeData.business_pages);
   if (page) return `${page.title} | Théo Guérin`;
   const baseTitle = tx(localeData, "seo_title");
   const route = routeSeo[pathname];
@@ -92,7 +92,7 @@ function buildTitle({ pathname, routeSeo, localeData }) {
 
 // Construit la description de la route à partir des métadonnées SEO traduites.
 function buildDescription({ pathname, routeSeo, localeData }) {
-  const page = getBusinessPage(pathname, localeData.business_pages.locale);
+  const page = getBusinessPage(pathname, localeData.business_pages);
   if (page) return page.description;
   const route = routeSeo[pathname];
   return route?.descriptionKey
@@ -258,7 +258,7 @@ function buildStructuredData({ pathname, canonicalUrl, title, description, htmlL
     about: { "@id": `${SITE_URL}/#person` },
     ...(pageSchemaType === "ProfilePage" ? { mainEntity: { "@id": `${SITE_URL}/#person` } } : {}),
   };
-  const graph = [personSchema, websiteSchema, pageSchema, ...getBusinessSchema(getBusinessPage(pathname, localeData.business_pages.locale), SITE_URL, localeData.business_pages.locale, localeData.business_pages.labels.home)];
+  const graph = [personSchema, websiteSchema, pageSchema, ...getBusinessSchema(getBusinessPage(pathname, localeData.business_pages), SITE_URL, localeData.business_pages.locale, localeData.business_pages.labels.home)];
 
   if (pathname === "/" || pathname === "/about") {
     graph.push({
@@ -298,10 +298,10 @@ function buildStructuredData({ pathname, canonicalUrl, title, description, htmlL
 
 // Construit le contenu sans JavaScript de chaque route publique à partir des données et traductions partagées.
 function buildRouteContent({ pathname, localeData, portfolio, seoConfig }) {
-  const businessPage = getBusinessPage(pathname, localeData.business_pages.locale);
+  const businessPage = getBusinessPage(pathname, localeData.business_pages);
   if (businessPage) {
     const project = portfolio.PORTFOLIO_PROJECTS.find((item) => item.caseStudyPath === `/fr${businessPage.path}`);
-    return `<div id="seo-prerender">${renderBusinessPage(businessPage, getBusinessPages(localeData.business_pages.locale), project, escapeHtml, localeData.business_pages.locale, getBusinessLabels(localeData.business_pages.locale))}</div>`;
+    return `<div id="seo-prerender">${renderBusinessPage(businessPage, getBusinessPages(localeData.business_pages), project, escapeHtml, localeData.business_pages.locale, getBusinessLabels(localeData.business_pages))}</div>`;
   }
   const projects = getSortedProjects(portfolio.PORTFOLIO_PROJECTS);
   const experiences = getExperiences(localeData);
@@ -314,7 +314,7 @@ function buildRouteContent({ pathname, localeData, portfolio, seoConfig }) {
     <p>${escapeHtml(tx(localeData, "home_offer.description"))}</p>
     <p>${escapeHtml(tx(localeData, "professional_availability"))}</p>
     ${homeProject ? `<section><p>${escapeHtml(tx(localeData, "home_offer.case_label"))}</p><h2>${escapeHtml(projectTitle(homeProject, localeData))}</h2><p>${escapeHtml(tx(localeData, "home_offer.case_description"))}</p><a href="${escapeHtml(seoConfig.getLocalizedPath(localeData.business_pages.locale, homeProject.caseStudyPath))}">${escapeHtml(tx(localeData, "home_offer.case_link"))}</a></section>` : ""}
-    <nav aria-label="Services"><ul>${getBusinessPages(localeData.business_pages.locale).map((page) => `<li><a href="/${page.kind === "case-study" ? localeData.business_pages.locale : "fr"}${escapeHtml(page.path)}">${escapeHtml(page.title)}</a></li>`).join("")}</ul></nav>
+    <nav aria-label="Services"><ul>${getBusinessPages(localeData.business_pages).map((page) => `<li><a href="/${page.kind === "case-study" ? localeData.business_pages.locale : "fr"}${escapeHtml(page.path)}">${escapeHtml(page.title)}</a></li>`).join("")}</ul></nav>
     <section><h2>${escapeHtml(tx(localeData, "services.title"))}</h2><p>${escapeHtml(tx(localeData, "services.subtitle"))}</p></section>
     <section><h2>${escapeHtml(tx(localeData, "professional_skills"))}</h2><p>${escapeHtml(skills.join(", "))}</p></section>
     <section><h2>${escapeHtml(tx(localeData, "projects"))}</h2><ul>${projects.slice(0, 6).map((project) => `<li>${escapeHtml(projectTitle(project, localeData))} - ${escapeHtml(projectDescription(project, localeData))}</li>`).join("")}</ul></section>

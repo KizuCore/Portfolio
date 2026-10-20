@@ -1,0 +1,55 @@
+/* Styles communs à l’accueil et aux pages de services. */
+.business-eyebrow {
+  color: #9dc6ff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.business-text-link {
+  color: #a9d1ff;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.business-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.business-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 48px;
+  padding: 0.7rem 1.15rem;
+  background: #14263d;
+  color: #dcecff !important;
+  font-weight: 500;
+  border: 1px solid #648bb8;
+  border-radius: 7px;
+  text-decoration: none !important;
+}
+
+.business-button:hover {
+  background: #203b5c;
+  border-color: #9dc6ff;
+}
+
+.home-offer a:focus-visible,
+.home-proof a:focus-visible {
+  outline: 3px solid #b7d9ff;
+  outline-offset: 5px;
+}
+
+@media (max-width: 767px) {
+  .business-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

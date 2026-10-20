@@ -42,7 +42,7 @@ function SeoMeta(): JSX.Element {
   const tx = i18n.getFixedT(contentLang);
 
   const baseTitle = tx("seo_title");
-  const businessPage = getBusinessPage(pathname, contentLang);
+  const businessPage = getBusinessPage(pathname, i18n.getResourceBundle(contentLang, "translation")?.business_pages);
   const pageTitle = currentRoute ? tx(currentRoute.titleKey) : "";
   const fullTitle = businessPage ? `${businessPage.title} | Théo Guérin` : pathname === "/" || !pageTitle ? baseTitle : `${pageTitle} | ${baseTitle}`;
   const description = businessPage?.description ?? (currentRoute?.descriptionKey

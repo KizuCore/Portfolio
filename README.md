@@ -95,6 +95,11 @@ le déplacement et l’opacité nécessaires au décor. Les 160 étoiles fixes s
 dans `public/images/sky-distant-stars.svg`, régénérable avec `npm run images:sky`.
 La progression du défilement est pilotée par CSS lorsque `animation-timeline` est
 disponible ; le repli JavaScript reste actif sur les autres navigateurs.
+Les dictionnaires français et anglais sont disponibles dès le démarrage ; le breton
+est importé à la demande, avant le premier rendu d’une URL bretonne. Les études de cas
+utilisent le dictionnaire déjà chargé, également fourni aux fonctions partagées par
+la génération SEO. Les styles communs aux boutons de l’accueil et des services sont
+isolés dans `shared/business-actions.css` pour différer le reste des styles de services.
 Comparer les mesures Lighthouse avec le même profil et le même ralentissement :
 un résultat local ne garantit pas le même score sur PageSpeed Insights.
 

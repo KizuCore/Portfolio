@@ -1,6 +1,4 @@
 import fr from "../locales/fr.json";
-import en from "../locales/en.json";
-import bzh from "../locales/bzh.json";
 
 export type BusinessPage = {
   path: string;
@@ -127,18 +125,21 @@ export const BUSINESS_PAGES: BusinessPage[] = [
   },
 ];
 
-const translations = { fr, en, bzh };
-export function getBusinessLabels(locale: string = "fr") {
-  return translations[locale as keyof typeof translations]?.business_pages.labels ?? fr.business_pages.labels;
+// Le navigateur fournit le dictionnaire déjà chargé ; les scripts SEO font de même
+// avec leurs fichiers JSON, sans imposer toutes les langues au JavaScript initial.
+type BusinessTranslations = typeof fr.business_pages;
+
+export function getBusinessLabels(translations: BusinessTranslations = fr.business_pages) {
+  return translations.labels;
 }
 
-export function getBusinessPages(locale: string = "fr"): BusinessPage[] {
-  const cases = (translations[locale as keyof typeof translations] ?? fr).business_pages.cases;
+export function getBusinessPages(translations: BusinessTranslations = fr.business_pages): BusinessPage[] {
+  const cases = translations.cases;
   return BUSINESS_PAGES.map(page => page.kind === "case-study"
     ? { ...page, ...cases[page.path.split("/").pop() as keyof typeof cases] }
     : page);
 }
 
-export function getBusinessPage(pathname: string, locale: string = "fr"): BusinessPage | undefined {
-  return getBusinessPages(locale).find(page => page.path === pathname);
+export function getBusinessPage(pathname: string, translations: BusinessTranslations = fr.business_pages): BusinessPage | undefined {
+  return getBusinessPages(translations).find(page => page.path === pathname);
 }

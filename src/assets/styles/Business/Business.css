@@ -1,3 +1,5 @@
+@import "../shared/business-actions.css";
+
 /* Les blocs rédactionnels reprennent la palette du portfolio, sans ajouter d’animation ni de police. */
 .business-page {
   /* Même cadre que l'accueil, gouttière extérieure comprise. */
@@ -16,8 +18,7 @@
   color: var(--text-muted);
   margin-bottom: 3rem;
 }
-.business-breadcrumb a,
-.business-text-link {
+.business-breadcrumb a {
   color: #a9d1ff;
   text-decoration: underline;
   text-underline-offset: 5px;
@@ -25,13 +26,6 @@
 .business-hero {
   max-width: 900px;
   padding-bottom: 3rem;
-}
-.business-eyebrow {
-  color: #9dc6ff;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 .business-hero h1 {
   font-size: clamp(2.2rem, 5vw, 4.3rem);
@@ -61,34 +55,8 @@
   font-size: 0.8rem;
   background: #101c30;
 }
-.business-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1.4rem;
-}
-.business-button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.75rem;
-  min-height: 48px;
-  padding: 0.7rem 1.15rem;
-  background: #14263d;
-  color: #dcecff !important;
-  font-weight: 500;
-  border: 1px solid #648bb8;
-  border-radius: 7px;
-  text-decoration: none !important;
-}
-.business-button:hover {
-  background: #203b5c;
-  border-color: #9dc6ff;
-}
 .business-page a:focus-visible,
-.business-page summary:focus-visible,
-.home-offer a:focus-visible,
-.home-proof a:focus-visible {
+.business-page summary:focus-visible {
   outline: 3px solid #b7d9ff;
   outline-offset: 5px;
 }
@@ -234,11 +202,6 @@
   }
   .business-section {
     padding-left: 2rem;
-  }
-  .business-actions {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 1rem;
   }
   .business-lead {
     font-size: 1rem;

@@ -13,6 +13,9 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  /* Réserve aussi la hauteur de la page pendant le chargement différé :
+     le pied de page ne remonte plus à l’écran avant l’arrivée du contenu. */
+  min-height: 100vh;
 }
 
 .App::before {

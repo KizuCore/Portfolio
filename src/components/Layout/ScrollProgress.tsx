@@ -4,6 +4,9 @@ function ScrollProgress() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    // Le navigateur suit le défilement sans mesure de la page ni rendu React.
+    if (CSS.supports("animation-timeline: scroll(root block)")) return;
+
     let rafId = 0;
 
     const getScrollableHeight = () => {
@@ -20,8 +23,13 @@ function ScrollProgress() {
     };
 
     const updateProgress = () => {
-      const scrollableHeight = getScrollableHeight();
       const scrollTop = window.scrollY;
+      // Au sommet, la progression est connue sans forcer le calcul de la hauteur.
+      if (scrollTop <= 0) {
+        setProgress(0);
+        return;
+      }
+      const scrollableHeight = getScrollableHeight();
       const nextProgress = scrollableHeight <= 0 ? 0 : Math.min(scrollTop / scrollableHeight, 1);
       setProgress((previous) => (previous === nextProgress ? previous : nextProgress));
     };

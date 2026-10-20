@@ -96,6 +96,22 @@
   box-shadow: 0 0 16px rgba(74, 159, 255, 0.75);
 }
 
+@supports (animation-timeline: scroll(root block)) {
+  .scroll-progress {
+    animation: readingProgress auto linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
+@keyframes readingProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .back-to-top {
   position: fixed;
   right: clamp(0.9rem, 2vw, 1.45rem);
@@ -350,6 +366,8 @@
 }
 .sky-distant-stars {
   opacity: 0.85;
+  /* Une seule image remplace 160 dégradés couvrant chacun tout l'écran. */
+  background: url("/images/sky-distant-stars.svg") center / 100% 100% no-repeat;
   mask-image:
     radial-gradient(ellipse at 36% 35%, #0003, #0009 12%, #000 45%);
 }

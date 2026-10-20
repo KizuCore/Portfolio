@@ -27,7 +27,7 @@ Site en production : [theo-guerin.fr](https://theo-guerin.fr/)
 
 ## Prérequis
 
-- Node.js 18 ou plus récent
+- Node.js 24, conformément à `package.json`
 - npm 9 ou plus récent
 
 ## Installation
@@ -80,14 +80,23 @@ npm run i18n:check        # Vérifie la cohérence des clés de traduction
 npm run i18n:sync         # Synchronise les clés i18n manquantes
 npm run sitemap:generate  # Régénère public/sitemap.xml
 npm run images:home       # Régénère les variantes responsives de la capture d’accueil
+npm run images:sky        # Régénère les étoiles fixes du décor SVG
 npm run check:performance # Après build : vérifie le poids initial et les imports différés
 ```
 
 Le script `npm run build` exécute automatiquement `npm run sitemap:generate` via `prebuild`.
 
-Le contrôle de performance utilise le manifeste Vite et les sourcemaps du build. Il vérifie que le PDF, le calendrier GitHub, les infobulles et les particules restent hors du chargement initial, avec des budgets gzip de 280 Kio de JavaScript et 45 Kio de CSS. Après un changement de dépendances ou de styles, lancer `npm run build`, `npm run check:performance` et `npm run check:seo`, puis vérifier les pages concernées sur mobile et ordinateur.
+Le contrôle de performance utilise le manifeste Vite et les sourcemaps du build. Il vérifie que le PDF, le calendrier GitHub, les infobulles et les particules restent hors du chargement initial, avec des budgets gzip de 230 Kio de JavaScript et 30 Kio de CSS. Il refuse aussi le retour des moteurs de particules complet ou « slim », y compris dans les imports différés. Après un changement de dépendances ou de styles, lancer `npm run build`, `npm run check:performance` et `npm run check:seo`, puis vérifier les pages concernées sur mobile et ordinateur.
 
 Les composants Bootstrap utilisés sont listés dans `src/assets/styles/bootstrap.scss` ; les utilitaires responsives sont conservés. Ajouter l’import Sass correspondant lors de l’introduction d’un nouveau composant Bootstrap. L’accueil conserve un ciel statique sur mobile et pour les préférences de mouvement réduit ; le moteur animé se charge après la page sur les appareils adaptés.
+
+Le ciel animé utilise `@tsparticles/basic` à 24 images par seconde, avec les cercles,
+le déplacement et l’opacité nécessaires au décor. Les 160 étoiles fixes sont réunies
+dans `public/images/sky-distant-stars.svg`, régénérable avec `npm run images:sky`.
+La progression du défilement est pilotée par CSS lorsque `animation-timeline` est
+disponible ; le repli JavaScript reste actif sur les autres navigateurs.
+Comparer les mesures Lighthouse avec le même profil et le même ralentissement :
+un résultat local ne garantit pas le même score sur PageSpeed Insights.
 
 ## Structure
 

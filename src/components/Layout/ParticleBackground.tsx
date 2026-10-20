@@ -12,19 +12,6 @@ function isLimitedDevice() {
     || window.matchMedia("(max-width: 1024px) and (min-resolution: 1.75dppx)").matches;
 }
 
-// Des positions stables empêchent le ciel de se déplacer brusquement entre les rendus et les pages.
-const skyNoise = (seed: number) => {
-  const value = Math.sin(seed * 127.1 + 311.7) * 43758.5453;
-  return value - Math.floor(value);
-};
-const DISTANT_STARS = Array.from({ length: 160 }, (_, index) => {
-  const x = skyNoise(index + 1) * 100;
-  const y = skyNoise(index + 201) * 100;
-  const radius = 0.35 + Math.pow(skyNoise(index + 401), 3) * 0.95;
-  const opacity = 0.14 + skyNoise(index + 601) * 0.44;
-  const color = index % 11 === 0 ? "239,221,196" : index % 3 === 0 ? "232,240,255" : "174,199,235";
-  return `radial-gradient(circle at ${x.toFixed(2)}% ${y.toFixed(2)}%, rgba(${color},${opacity.toFixed(2)}) 0 ${radius.toFixed(2)}px, transparent ${(radius + 0.65).toFixed(2)}px)`;
-}).join(",");
 const BEACONS = [ [8, 19], [79, 12], [93, 62], [17, 79], [65, 86], [42, 7] ];
 
 function ensureParticlesEngine() {
@@ -32,9 +19,10 @@ function ensureParticlesEngine() {
     // tsparticles doit être initialisé une fois avant l’affichage de toute instance Particles.
     particlesEnginePromise = Promise.all([
       import("@tsparticles/react"),
-      import("tsparticles"),
-    ]).then(async ([{ Particles, initParticlesEngine }, { loadFull }]) => {
-      await initParticlesEngine(loadFull);
+      import("@tsparticles/basic"),
+    ]).then(async ([{ Particles, initParticlesEngine }, { loadBasic }]) => {
+      // Le ciel utilise seulement les cercles, leur déplacement et leur opacité.
+      await initParticlesEngine(loadBasic);
       return Particles;
     }).catch((error: unknown) => {
       particlesEnginePromise = null;
@@ -119,8 +107,8 @@ function ParticleBackground() {
   const particleOptions = useMemo<ISourceOptions>(
     () => ({
       fullScreen: { enable: false },
-      // Réduit les mouvements et la fréquence d’affichage sur les appareils limités pour garder le portfolio réactif.
-      fpsLimit: prefersReducedMotion ? 1 : isLowPerfDevice ? 24 : 40,
+      // Le déplacement très lent des étoiles reste fluide à 24 images par seconde.
+      fpsLimit: 24,
       detectRetina: !isLowPerfDevice,
       pauseOnBlur: true,
       pauseOnOutsideViewport: true,
@@ -184,7 +172,7 @@ function ParticleBackground() {
       aria-hidden="true"
     >
       <div className="sky-nebula" />
-      <div className="sky-distant-stars" style={{ backgroundImage: DISTANT_STARS }} />
+      <div className="sky-distant-stars" />
       <div className="sky-beacons">{BEACONS.map(([x, y], index) => <i key={index} style={{ left: `${x}%`, top: `${y}%`, "--star-delay": `${-index * 2.7}s` } as CSSProperties} />)}</div>
       {!isMobile && !isLowPerfDevice && !prefersReducedMotion && <div className="sky-meteors"><i /><i /></div>}
       {Particles && animateParticles ? <Particles id={`particles-${particleId}`} options={particleOptions} /> : null}

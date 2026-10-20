@@ -9,6 +9,7 @@
   "scripts": {
     "images:thumbnails": "node scripts/generate-project-thumbnails.mjs",
     "images:home": "node scripts/generate-home-image.mjs",
+    "images:sky": "node scripts/generate-star-field.mjs",
     "dev": "vite",
     "prebuild": "npm run sitemap:generate",
     "build": "tsc -b && vite build && npm run seo:generate",
@@ -25,6 +26,7 @@
   },
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
+    "@tsparticles/basic": "3.9.1",
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "bootstrap": "^5.3.5",
@@ -45,7 +47,6 @@
     "react-router-dom": "^7.5.0",
     "react-tooltip": "^5.28.1",
     "resend": "^4.3.0",
-    "tsparticles": "^3.8.1",
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {

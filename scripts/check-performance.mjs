@@ -24,6 +24,14 @@ function visit(key) {
 
 visit("index.html");
 
+// Même différé, le moteur complet bloquerait à nouveau le démarrage sur ordinateur.
+for (const chunk of Object.values(manifest)) {
+  if (!chunk.file.endsWith(".js")) continue;
+  const map = JSON.parse(fs.readFileSync(path.join(dist, `${chunk.file}.map`), "utf8"));
+  assert(!map.sources.some((source) => /node_modules\/(?:tsparticles|@tsparticles\/slim)\//.test(source)),
+    `Moteur de particules complet réintroduit : ${chunk.file}`);
+}
+
 for (const file of scripts) {
   const map = JSON.parse(fs.readFileSync(path.join(dist, `${file}.map`), "utf8"));
   const deferredSources = map.sources.filter((source) =>

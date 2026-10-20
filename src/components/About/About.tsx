@@ -1,4 +1,4 @@
-import { JSX, useEffect } from "react";
+import { JSX, lazy, Suspense, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { Container, Row, Col } from "react-bootstrap";
@@ -9,11 +9,19 @@ import AboutCard from "./AboutCard";
 import ToolStack from "./DevelopmentTools";
 import { useInView } from 'react-intersection-observer';
 import '../../assets/styles/About/About.css';
-import SolarSystem from "./SolarSystem.tsx";
+import "../../assets/styles/About/SolarSystem.css";
 import "../../assets/styles/About/AboutIntro.css";
 import "../../assets/styles/About/AboutSkills.css";
 
+const SolarSystem = lazy(() => import("./SolarSystem"));
 
+// Réserve exactement les mêmes surfaces avant le chargement de l'animation.
+const solarPlaceholder = (
+  <div className="solar-container" aria-hidden="true">
+    <div className="solar-stage" />
+    <div className="solar-controls"><p /></div>
+  </div>
+);
 
 function About(): JSX.Element {
   const { t } = useTranslation();
@@ -31,6 +39,7 @@ function About(): JSX.Element {
   const { ref: refImg, inView: imgInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
+    rootMargin: "200px 0px",
   });
 
 
@@ -56,7 +65,9 @@ function About(): JSX.Element {
               animate={imgInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <SolarSystem />
+              {imgInView ? (
+                <Suspense fallback={solarPlaceholder}><SolarSystem /></Suspense>
+              ) : solarPlaceholder}
             </motion.div>
 
           </Col>

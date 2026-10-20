@@ -25,7 +25,10 @@ function AboutCard(): JSX.Element {
   ] as const;
 
   useEffect(() => {
-    const audio = new Audio(secretSound);
+    const audio = new Audio();
+    // Le son secret se télécharge seulement lorsque le visiteur le déclenche.
+    audio.preload = "none";
+    audio.src = secretSound;
     audioRef.current = audio;
     return () => { audio.pause(); audioRef.current = null; };
   }, []);

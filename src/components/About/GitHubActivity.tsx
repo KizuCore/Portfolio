@@ -4,11 +4,14 @@ import { Spinner } from "react-bootstrap";
 import "../../assets/styles/About/GitHubActivity.css";
 import { FaGitlab } from "@react-icons/all-files/fa/FaGitlab";
 import { SiGithub } from "@react-icons/all-files/si/SiGithub";
+import { useInView } from "react-intersection-observer";
 
 const GitHubCalendar = React.lazy(() => import("react-github-calendar"));
 
 const GitHubActivity: React.FC = () => {
   const { t } = useTranslation();
+  const { ref, inView } = useInView({ triggerOnce: true, rootMargin: "300px 0px" });
+  const loading = <div className="code-activity-loading" role="status"><Spinner animation="border" aria-hidden="true" /><span>{t("a11y.loading_content")}</span></div>;
 
   return (
     <section className="about-code-section" aria-labelledby="code-profiles-title">
@@ -31,8 +34,9 @@ const GitHubActivity: React.FC = () => {
           </div>
         </header>
         {/* Place le calendrier sur sa propre ligne pour le séparer des liens des profils. */}
-        <div className="code-activity-calendar">
-          <Suspense fallback={<div className="code-activity-loading" role="status"><Spinner animation="border" aria-hidden="true" /><span>{t("a11y.loading_content")}</span></div>}>
+        <div className="code-activity-calendar" ref={ref}>
+          <div className="code-activity-calendar-content">
+          {inView ? <Suspense fallback={loading}>
             <GitHubCalendar
               username="KizuCore"
               blockSize={13}
@@ -44,7 +48,8 @@ const GitHubActivity: React.FC = () => {
               colorScheme="dark"
               fontSize={13}
             />
-          </Suspense>
+          </Suspense> : loading}
+          </div>
         </div>
       </div>
     </section>

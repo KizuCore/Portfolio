@@ -4,6 +4,7 @@ import path from "node:path";
 import vm from "node:vm";
 import ts from "typescript";
 import { renderBusinessPage } from "./lib/render-business-page.mjs";
+import { buildRoutePreloads } from "./lib/route-preloads.mjs";
 
 const ROOT_DIR = process.cwd();
 const DIST_DIR = path.join(ROOT_DIR, "dist");
@@ -715,6 +716,7 @@ function main() {
   const locales = readLocales(seoConfig.SUPPORTED_LOCALES);
   const fallbackLocaleData = locales[seoConfig.DEFAULT_LOCALE];
   const template = fs.readFileSync(INDEX_HTML_PATH, "utf8");
+  const manifest = JSON.parse(fs.readFileSync(path.join(DIST_DIR, ".vite", "manifest.json"), "utf8"));
   const routePaths = Object.entries(seoConfig.ROUTE_SEO)
     .filter(([, config]) => !config.noindex)
     .map(([pathname]) => pathname);
@@ -756,7 +758,8 @@ function main() {
       portfolio,
     });
     const content = buildRouteContent({ pathname, localeData, portfolio, seoConfig });
-    const routeHtml = injectHtml({ template, head, content, htmlLang });
+    const preloads = buildRoutePreloads(manifest, pathname, contentLocale);
+    const routeHtml = injectHtml({ template, head: `${head}\n${preloads}`, content, htmlLang });
     for (const outputPath of htmlOutputPaths(routePath)) {
       writeFileEnsured(outputPath, routeHtml);
     }

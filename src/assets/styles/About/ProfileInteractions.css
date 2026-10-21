@@ -9,6 +9,17 @@
   height: 2px;
   background: #85bbff;
   box-shadow: 0 0 12px #73aaff70;
+  transform: scaleX(0);
+  transition: transform 0.28s ease-in-out;
+}
+/* L'indicateur s'anime sans mesurer la géométrie de la page en JavaScript. */
+.about-profile-tabs button[aria-selected="true"] .profile-tab-indicator {
+  transform: scaleX(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-tab-indicator {
+    transition: none;
+  }
 }
 .about-profile-content {
   position: relative;

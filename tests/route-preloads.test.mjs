@@ -35,3 +35,12 @@ test("un renommage de composant ou une nouvelle route oubliée fait échouer la 
   assert.throws(() => buildRoutePreloads(manifest, "/contact", "fr"), /Entrée Vite introuvable/);
   assert.throws(() => buildRoutePreloads(manifest, "/inconnue", "fr"), /Préchargement non défini/);
 });
+
+test("une façade fusionnée conserve les préchargements propres à la route", () => {
+  const merged = structuredClone(manifest);
+  const about = merged["src/components/About/About.tsx"];
+  delete merged["src/components/About/About.tsx"];
+  merged["_About-123.js"] = { ...about, name: "About", isDynamicEntry: true };
+  merged["index.html"].dynamicImports = ["_About-123.js"];
+  assert.equal(buildRoutePreloads(merged, "/about", "fr"), buildRoutePreloads(manifest, "/about", "fr"));
+});

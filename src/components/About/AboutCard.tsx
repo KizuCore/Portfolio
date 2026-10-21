@@ -77,7 +77,7 @@ function AboutCard(): JSX.Element {
             }}
           >
             <span aria-hidden="true">{icon}</span> {label}
-            {selectedTab === key && <motion.i className="profile-tab-indicator" layoutId="profile-tab-indicator" transition={{ duration: reducedMotion ? 0 : .28, ease: "easeInOut" }} />}
+            <i className="profile-tab-indicator" aria-hidden="true" />
           </button>
         ))}
       </div>

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { gzipSync } from "node:zlib";
+import { resolveRouteEntry } from "./lib/route-preloads.mjs";
 
 // À exécuter après le build : protège le chargement initial contre le retour des
 // dépendances lourdes, y compris lorsqu’un regroupement manuel change leur nom.
@@ -58,3 +59,17 @@ const cssBytes = gzipBytes(styles);
 assert(jsBytes < 230 * 1024, `JavaScript initial trop lourd : ${jsBytes} octets gzip`);
 assert(cssBytes < 30 * 1024, `CSS initial trop lourd : ${cssBytes} octets gzip`);
 console.log(`Accueil : ${(jsBytes / 1024).toFixed(1)} Kio JS, ${(cssBytes / 1024).toFixed(1)} Kio CSS (gzip). Dépendances différées : OK.`);
+
+const homeScripts = new Set(scripts);
+visit(resolveRouteEntry(manifest, "src/components/About/About.tsx"));
+const aboutScripts = new Set([...scripts].filter((file) => !homeScripts.has(file)));
+for (const file of aboutScripts) {
+  const map = JSON.parse(fs.readFileSync(path.join(dist, `${file}.map`), "utf8"));
+  assert(!map.sources.some((source) =>
+    /src\/components\/About\/(?:StackIcon|SolarSystem)\.tsx$/.test(source)
+    || /node_modules\/(?:react-github-calendar|react-tooltip)\//.test(source)),
+  `Illustrations ou outils secondaires chargés trop tôt sur À propos : ${file}`);
+}
+const aboutBytes = gzipBytes(aboutScripts);
+assert(aboutBytes < 40 * 1024, `JavaScript propre à À propos trop lourd : ${aboutBytes} octets gzip`);
+console.log(`À propos : ${(aboutBytes / 1024).toFixed(1)} Kio JS supplémentaires (gzip). Illustrations et outils différés : OK.`);

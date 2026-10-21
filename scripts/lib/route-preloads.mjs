@@ -12,6 +12,17 @@ const routeEntries = {
   "/realisations/les-portes-de-montafilan": "CaseStudies/LesPortesDeMontafilan",
 };
 
+export function resolveRouteEntry(manifest, source) {
+  if (manifest[source]) return source;
+  // Rollup peut fusionner la façade d'une route avec ses exports partagés.
+  // Son nom reste dans les imports dynamiques du point d'entrée principal.
+  const name = source.split("/").at(-1).replace(/\.tsx$/, "");
+  const candidates = (manifest["index.html"]?.dynamicImports ?? []).filter((key) =>
+    manifest[key]?.isDynamicEntry && manifest[key].name === name);
+  if (candidates.length === 1) return candidates[0];
+  throw new Error(`Entrée Vite introuvable : ${source}`);
+}
+
 // Suit seulement les imports immédiats : les animations et outils différés le restent.
 export function buildRoutePreloads(manifest, pathname, locale) {
   const seen = new Set();
@@ -35,7 +46,7 @@ export function buildRoutePreloads(manifest, pathname, locale) {
   if (pathname !== "/") {
     const entry = pathname.startsWith("/services/") ? "Business/BusinessPage" : routeEntries[pathname];
     if (!entry) throw new Error(`Préchargement non défini pour la route : ${pathname}`);
-    visit(`src/components/${entry}.tsx`, true);
+    visit(resolveRouteEntry(manifest, `src/components/${entry}.tsx`), true);
   }
   if (locale === "bzh") visit("src/locales/bzh.json", true);
   return links.join("\n");

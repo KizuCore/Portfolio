@@ -1,17 +1,22 @@
 import React, { Suspense, useState } from "react";
-import { Col, Row, Spinner, Button } from "react-bootstrap";
+import { Col, Row, Button } from "react-bootstrap";
+import { useInView } from "react-intersection-observer";
 import "../../assets/styles/About/About.css";
 import { useTranslation } from "react-i18next";
 import { TOOL_CATEGORIES, TOOLS } from "./data/tools";
+
+const StackIcon = React.lazy(() => import("./StackIcon"));
+const iconPlaceholder = <svg aria-hidden="true" width="1em" height="1em" />;
 
 const Tooltip = React.lazy(() => import("react-tooltip").then((module) => ({ default: module.Tooltip })));
 
 const ToolStack: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const { t } = useTranslation();
+  const { ref, inView } = useInView({ triggerOnce: true, rootMargin: "300px 0px" });
 
   return (
-    <section className="about-skills-section" aria-labelledby="about-tools-title">
+    <section className="about-skills-section" aria-labelledby="about-tools-title" ref={ref}>
       <h2
         id="about-tools-title"
         className="about-section-title"
@@ -38,7 +43,6 @@ const ToolStack: React.FC = () => {
           .filter((tool) => selectedCategory === "All" || tool.category === selectedCategory)
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((tool, index) => {
-            const IconComponent = tool.component;
             return (
               <Col
                 key={index}
@@ -49,7 +53,7 @@ const ToolStack: React.FC = () => {
                 data-tooltip-content={tool.name}
               >
                 <div className="tech-icon-glyph">
-                  <IconComponent aria-hidden="true" />
+                  {inView ? <Suspense fallback={iconPlaceholder}><StackIcon name={tool.icon} /></Suspense> : iconPlaceholder}
                 </div>
                 <div className="tech-icon-label">{tool.name}</div>
               </Col>
@@ -57,9 +61,9 @@ const ToolStack: React.FC = () => {
           })}
       </Row>
 
-      <Suspense fallback={<Spinner animation="border" role="status" />}>
+      {inView && <Suspense fallback={null}>
         <Tooltip id="tool-tooltip" anchorSelect=".tech-icons-1" place="top" />
-      </Suspense>
+      </Suspense>}
     </section>
   );
 };

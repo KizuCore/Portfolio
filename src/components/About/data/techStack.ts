@@ -1,50 +1,12 @@
-import type { ComponentType, SVGProps } from "react";
-import { SiFlutter } from "@react-icons/all-files/si/SiFlutter";
-import { DiReact } from "@react-icons/all-files/di/DiReact";
-import { DiNodejs } from "@react-icons/all-files/di/DiNodejs";
-import { SiTailwindcss } from "@react-icons/all-files/si/SiTailwindcss";
-import { DiMysql } from "@react-icons/all-files/di/DiMysql";
-import { SiBootstrap } from "@react-icons/all-files/si/SiBootstrap";
-import { SiCss3 } from "@react-icons/all-files/si/SiCss3";
-import { FaJava } from "@react-icons/all-files/fa/FaJava";
-import { DiJavascript1 } from "@react-icons/all-files/di/DiJavascript1";
-import { SiTypescript } from "@react-icons/all-files/si/SiTypescript";
-import { SiHtml5 } from "@react-icons/all-files/si/SiHtml5";
-import { DiPython } from "@react-icons/all-files/di/DiPython";
-import { DiPhp } from "@react-icons/all-files/di/DiPhp";
-import { DiScala } from "@react-icons/all-files/di/DiScala";
-import { FaCheck } from "@react-icons/all-files/fa/FaCheck";
-import { DiWordpress } from "@react-icons/all-files/di/DiWordpress";
-import { FaWix } from "@react-icons/all-files/fa/FaWix";
-import { FaVuejs } from "@react-icons/all-files/fa/FaVuejs";
-import { FaCloud } from "@react-icons/all-files/fa/FaCloud";
-import { SiNginx } from "@react-icons/all-files/si/SiNginx";
-import { SiGnubash } from "@react-icons/all-files/si/SiGnubash";
-import { DiDjango } from "@react-icons/all-files/di/DiDjango";
-import { SiPostgresql } from "@react-icons/all-files/si/SiPostgresql";
-import { FaFileExcel } from "@react-icons/all-files/fa/FaFileExcel";
-import { SiAngular } from "@react-icons/all-files/si/SiAngular";
-import { SiNetlify } from "@react-icons/all-files/si/SiNetlify";
-import { FaAws } from "@react-icons/all-files/fa/FaAws";
-import { SiNuxtDotJs } from "@react-icons/all-files/si/SiNuxtDotJs";
-import { SiCplusplus } from "@react-icons/all-files/si/SiCplusplus";
-import { SiKotlin } from "@react-icons/all-files/si/SiKotlin";
-import { SiFlask } from "@react-icons/all-files/si/SiFlask";
-import { SiHeroku } from "@react-icons/all-files/si/SiHeroku";
-import { SiGraphql } from "@react-icons/all-files/si/SiGraphql";
-import { SiRust } from "@react-icons/all-files/si/SiRust";
-import { SiLaravel } from "@react-icons/all-files/si/SiLaravel";
-import { SiSwift } from "@react-icons/all-files/si/SiSwift";
-import { SiMariadb } from "@react-icons/all-files/si/SiMariadb";
+import type { StackIconName } from "../StackIcon";
 
 export type SkillLevel = 0 | 1 | 2;
 export type SkillCategory = "Programming Languages" | "Front-End" | "Back-End" | "Database" | "Hosting" | "Mobile" | "CMS";
 export type SkillFilter = SkillCategory | "All";
 
-export type StackIcon = ComponentType<SVGProps<SVGSVGElement>>;
 
 export interface TechSkill {
-  component: StackIcon;
+  icon: StackIconName;
   name: string;
   level: SkillLevel;
   category: SkillCategory;
@@ -63,42 +25,42 @@ export const TECH_CATEGORIES: SkillFilter[] = [
 ];
 
 export const TECH_SKILLS: TechSkill[] = [
-  { component: SiFlutter, name: "Flutter", level: 2, category: "Mobile", favorite: true },
-  { component: DiReact, name: "React", level: 2, category: "Front-End", favorite: true },
-  { component: DiNodejs, name: "Node.js", level: 2, category: "Back-End", favorite: true },
-  { component: SiTailwindcss, name: "Tailwind", level: 2, category: "Front-End" },
-  { component: DiMysql, name: "MySQL", level: 2, category: "Database" },
-  { component: SiBootstrap, name: "Bootstrap", level: 2, category: "Front-End" },
-  { component: SiCss3, name: "CSS", level: 2, category: "Front-End" },
-  { component: FaJava, name: "Java", level: 1, category: "Programming Languages" },
-  { component: DiJavascript1, name: "JavaScript", level: 1, category: "Programming Languages" },
-  { component: SiTypescript, name: "TypeScript", level: 2, category: "Programming Languages", favorite: true },
-  { component: SiHtml5, name: "HTML", level: 2, category: "Front-End" },
-  { component: DiPython, name: "Python", level: 2, category: "Programming Languages", favorite: true },
-  { component: DiPhp, name: "PHP", level: 1, category: "Programming Languages" },
-  { component: DiScala, name: "Scala", level: 1, category: "Programming Languages" },
-  { component: FaCheck, name: "Why3", level: 1, category: "Programming Languages" },
-  { component: DiWordpress, name: "Wordpress - CMS", level: 2, category: "CMS" },
-  { component: FaWix, name: "Wix - CMS", level: 2, category: "CMS" },
-  { component: FaVuejs, name: "Vue.js", level: 1, category: "Front-End" },
-  { component: FaCloud, name: "Vercel", level: 2, category: "Hosting" },
-  { component: SiNginx, name: "Nginx", level: 2, category: "Hosting" },
-  { component: SiGnubash, name: "Bash", level: 1, category: "Programming Languages" },
-  { component: DiDjango, name: "Django", level: 2, category: "Back-End", favorite: true },
-  { component: SiPostgresql, name: "PostgreSQL", level: 2, category: "Database" },
-  { component: SiMariadb, name: "MariaDB", level: 0, category: "Database" },
-  { component: FaFileExcel, name: "VBA", level: 1, category: "Programming Languages" },
-  { component: SiAngular, name: "Angular", level: 1, category: "Front-End" },
-  { component: SiNetlify, name: "Netlify", level: 1, category: "Hosting" },
-  { component: FaAws, name: "AWS", level: 1, category: "Hosting" },
-  { component: SiNuxtDotJs, name: "Nuxt", level: 1, category: "Front-End" },
-  { component: SiCplusplus, name: "C++", level: 1, category: "Programming Languages" },
-  { component: SiKotlin, name: "Kotlin", level: 1, category: "Mobile" },
-  { component: SiFlask, name: "Flask", level: 2, category: "Back-End" },
-  { component: SiHeroku, name: "Heroku", level: 0, category: "Hosting" },
-  { component: SiGraphql, name: "GraphQL", level: 0, category: "Back-End" },
-  { component: SiRust, name: "Rust", level: 0, category: "Back-End" },
-  { component: SiLaravel, name: "Laravel", level: 0, category: "Back-End" },
-  { component: DiNodejs, name: "Next.js", level: 1, category: "Back-End" },
-  { component: SiSwift, name: "Swift", level: 0, category: "Mobile" },
+  { icon: "SiFlutter", name: "Flutter", level: 2, category: "Mobile", favorite: true },
+  { icon: "DiReact", name: "React", level: 2, category: "Front-End", favorite: true },
+  { icon: "DiNodejs", name: "Node.js", level: 2, category: "Back-End", favorite: true },
+  { icon: "SiTailwindcss", name: "Tailwind", level: 2, category: "Front-End" },
+  { icon: "DiMysql", name: "MySQL", level: 2, category: "Database" },
+  { icon: "SiBootstrap", name: "Bootstrap", level: 2, category: "Front-End" },
+  { icon: "SiCss3", name: "CSS", level: 2, category: "Front-End" },
+  { icon: "FaJava", name: "Java", level: 1, category: "Programming Languages" },
+  { icon: "DiJavascript1", name: "JavaScript", level: 1, category: "Programming Languages" },
+  { icon: "SiTypescript", name: "TypeScript", level: 2, category: "Programming Languages", favorite: true },
+  { icon: "SiHtml5", name: "HTML", level: 2, category: "Front-End" },
+  { icon: "DiPython", name: "Python", level: 2, category: "Programming Languages", favorite: true },
+  { icon: "DiPhp", name: "PHP", level: 1, category: "Programming Languages" },
+  { icon: "DiScala", name: "Scala", level: 1, category: "Programming Languages" },
+  { icon: "FaCheck", name: "Why3", level: 1, category: "Programming Languages" },
+  { icon: "DiWordpress", name: "Wordpress - CMS", level: 2, category: "CMS" },
+  { icon: "FaWix", name: "Wix - CMS", level: 2, category: "CMS" },
+  { icon: "FaVuejs", name: "Vue.js", level: 1, category: "Front-End" },
+  { icon: "FaCloud", name: "Vercel", level: 2, category: "Hosting" },
+  { icon: "SiNginx", name: "Nginx", level: 2, category: "Hosting" },
+  { icon: "SiGnubash", name: "Bash", level: 1, category: "Programming Languages" },
+  { icon: "DiDjango", name: "Django", level: 2, category: "Back-End", favorite: true },
+  { icon: "SiPostgresql", name: "PostgreSQL", level: 2, category: "Database" },
+  { icon: "SiMariadb", name: "MariaDB", level: 0, category: "Database" },
+  { icon: "FaFileExcel", name: "VBA", level: 1, category: "Programming Languages" },
+  { icon: "SiAngular", name: "Angular", level: 1, category: "Front-End" },
+  { icon: "SiNetlify", name: "Netlify", level: 1, category: "Hosting" },
+  { icon: "FaAws", name: "AWS", level: 1, category: "Hosting" },
+  { icon: "SiNuxtDotJs", name: "Nuxt", level: 1, category: "Front-End" },
+  { icon: "SiCplusplus", name: "C++", level: 1, category: "Programming Languages" },
+  { icon: "SiKotlin", name: "Kotlin", level: 1, category: "Mobile" },
+  { icon: "SiFlask", name: "Flask", level: 2, category: "Back-End" },
+  { icon: "SiHeroku", name: "Heroku", level: 0, category: "Hosting" },
+  { icon: "SiGraphql", name: "GraphQL", level: 0, category: "Back-End" },
+  { icon: "SiRust", name: "Rust", level: 0, category: "Back-End" },
+  { icon: "SiLaravel", name: "Laravel", level: 0, category: "Back-End" },
+  { icon: "DiNodejs", name: "Next.js", level: 1, category: "Back-End" },
+  { icon: "SiSwift", name: "Swift", level: 0, category: "Mobile" },
 ];

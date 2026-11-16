@@ -695,6 +695,7 @@
         }
     },
     "footer_services": {
+        "title": "Services",
         "api": "Développement d’API",
         "django": "Développement Django"
     },

@@ -273,6 +273,11 @@
     justify-self: end;
   }
 }
+@media (max-width: 1199px) and (min-width: 900px) {
+  .site-nav > .site-nav-inner {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+}
 @media (max-width: 1050px) and (min-width: 900px) {
   .site-nav > .site-nav-inner {
     gap: 0.85rem;

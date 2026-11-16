@@ -76,7 +76,7 @@ function Footer(): JSX.Element {
           </div>
 
           <div className="footer-link-column">
-            <p className="footer-column-title">{t("services.title")}</p>
+            <p className="footer-column-title">{t("footer_services.title")}</p>
             <ul>
               {serviceLinks.map((link) => <li key={link.to}>
                 <Link to={link.to} hrefLang="fr" className="footer-nav-link">{link.label}</Link>

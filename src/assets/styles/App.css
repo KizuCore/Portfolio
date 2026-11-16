@@ -173,58 +173,6 @@
   min-height: 100vh;
 }
 
-.route-skeleton {
-  margin: var(--site-page-top) auto 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.route-skeleton-line {
-  border-radius: 999px;
-  border: 1px solid rgba(173, 211, 255, 0.14);
-}
-
-.route-skeleton-title {
-  width: min(420px, 64%);
-  height: 38px;
-}
-
-.route-skeleton-subtitle {
-  width: min(760px, 88%);
-  height: 20px;
-}
-
-.route-skeleton-grid {
-  margin-top: 0.65rem;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.9rem;
-}
-
-.route-skeleton-card {
-  border-radius: 18px;
-  border: 1px solid rgba(173, 211, 255, 0.16);
-  min-height: 170px;
-}
-
-.skeleton-shimmer {
-  background: linear-gradient(
-    110deg,
-    rgba(20, 34, 58, 0.72) 8%,
-    rgba(47, 92, 162, 0.38) 18%,
-    rgba(20, 34, 58, 0.72) 33%
-  );
-  background-size: 220% 100%;
-  animation: skeletonShimmer 1.2s linear infinite;
-}
-
-@keyframes skeletonShimmer {
-  to {
-    background-position-x: -220%;
-  }
-}
-
 @media (max-width: 767px) {
   .App::after {
     content: "";
@@ -336,14 +284,6 @@
     bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem);
     width: 44px;
     height: 44px;
-  }
-
-  .route-skeleton {
-    margin-top: var(--site-page-top);
-  }
-
-  .route-skeleton-grid {
-    grid-template-columns: 1fr;
   }
 }
 

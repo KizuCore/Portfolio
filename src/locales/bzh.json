@@ -693,6 +693,7 @@
         }
     },
     "footer_services": {
+        "title": "Servijoù",
         "api": "Diorren API",
         "django": "Diorren Django"
     },

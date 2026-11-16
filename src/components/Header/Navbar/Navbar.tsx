@@ -9,6 +9,7 @@ import { FiBriefcase } from "@react-icons/all-files/fi/FiBriefcase";
 import { FiFileText } from "@react-icons/all-files/fi/FiFileText";
 import { FiMail } from "@react-icons/all-files/fi/FiMail";
 import { FiGlobe } from "@react-icons/all-files/fi/FiGlobe";
+import { FiHome } from "@react-icons/all-files/fi/FiHome";
 import LanguageSelector from "../LanguageSelector";
 import Logo from "../Logo/LogoContainer";
 import NavItem from "./NavItem";
@@ -177,6 +178,7 @@ function NavBar(): JSX.Element {
 
   // Construit les éléments de navigation selon la langue actuelle pour synchroniser les libellés et les chemins.
   const navItems = [
+    { to: getLocalizedPath(currentLocale, "/"), label: t("home"), ariaLabel: t("home_aria"), icon: <FiHome /> },
     { to: getLocalizedPath(currentLocale, "/project"), label: t("project"), ariaLabel: t("project_aria"), icon: <FiGrid /> },
     { to: getLocalizedPath(currentLocale, "/about"), label: t("about"), ariaLabel: t("about_aria"), icon: <FiUser /> },
     {

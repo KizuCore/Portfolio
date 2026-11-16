@@ -31,15 +31,15 @@ const TimelineBubble = ({ item, isLeft }: Props) => {
                 role="region"
                 aria-label={t("experience_event_aria", { title: item.title })}
             >
-                <h5 className="fw-bold text-light d-flex gap-2 align-items-start">
-                    <span className="align-self-start blue">{getIcon(item.type)}</span>
+                <h5 className="font-bold text-copy flex gap-2 items-start">
+                    <span className="self-start blue">{getIcon(item.type)}</span>
                     <span>{item.title}</span>
                 </h5>
                 <p className="blue small mb-1">{item.date}</p>
-                {item.subtitle && <h6 className="text-light">{item.subtitle}</h6>}
-                {item.diplome && <h6 className="text-light">{item.diplome}</h6>}
+                {item.subtitle && <h6 className="text-copy">{item.subtitle}</h6>}
+                {item.diplome && <h6 className="text-copy">{item.diplome}</h6>}
                 {item.description && (
-                    <p className="text-light">
+                    <p className="text-copy">
                         <i>{item.description}</i>
                     </p>
                 )}

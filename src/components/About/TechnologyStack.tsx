@@ -1,5 +1,4 @@
 import React, { Suspense, useState } from "react";
-import { Col, Row, Button } from "react-bootstrap";
 import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
 import { TECH_CATEGORIES, TECH_SKILLS, type SkillFilter } from "./data/techStack";
@@ -70,20 +69,19 @@ function TechStack() {
           const translatedLabel = t(`categories.${cat}`);
 
           return (
-            <Button
+            <button type="button"
               key={cat}
-              variant={selectedCategory === cat ? "primary" : "outline-secondary"}
               aria-pressed={selectedCategory === cat}
               onClick={() => setSelectedCategory(cat)}
               className="stack-filter-button"
             >
               {translatedLabel}
-            </Button>
+            </button>
           );
         })}
       </div>
 
-      <Row className="stack-icons-row">
+      <div className="grid grid-cols-3 gap-[0.65rem] min-[576px]:grid-cols-4 min-[576px]:gap-4 min-[992px]:grid-cols-6">
         {[...TECH_SKILLS]
           .filter(
             (icon) =>
@@ -104,10 +102,8 @@ function TechStack() {
                   : "border-green";
 
             return (
-              <Col
+              <div
                 key={index}
-                xs={3}
-                md={2}
                 className={`tech-icons ${levelClass}${icon.favorite ? " is-favorite" : ""}`}
                 data-tooltip-id="tech-tooltip"
                 data-tooltip-content={`${icon.name} - ${icon.level === 0
@@ -121,10 +117,10 @@ function TechStack() {
                   {inView ? <Suspense fallback={iconPlaceholder}><StackIcon name={icon.icon} /></Suspense> : iconPlaceholder}
                 </div>
                 <div className="tech-icon-label">{icon.name}</div>
-              </Col>
+              </div>
             );
           })}
-      </Row>
+      </div>
 
       {inView && <Suspense fallback={null}>
         <Tooltip id="tech-tooltip" anchorSelect=".tech-icons" place="top" />

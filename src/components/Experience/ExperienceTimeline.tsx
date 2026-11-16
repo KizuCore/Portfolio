@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import TardisEncounter from "../Easter/TardisEncounter";
 import { useTimelineData } from "./data/timeline";
@@ -29,9 +28,9 @@ const ExperienceTimeline = () => {
   }, [encounter]);
 
   return (
-    <Container fluid className="timeline-page site-page">
+    <div className="timeline-page site-page">
       {encounter && <TardisEncounter beat={beat} reducedMotion={!!reducedMotion} />}
-      <Container className="timeline-container page-content site-container">
+      <div className="timeline-container page-content site-container">
         <h1 className="experience-title">
           {t("about_experience")}
         </h1>
@@ -61,8 +60,8 @@ const ExperienceTimeline = () => {
 
         </div>
         </section>
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 };
 

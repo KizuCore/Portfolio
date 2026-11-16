@@ -1,16 +1,9 @@
 import { useState } from "react";
-import {
-  Alert,
-  Col,
-  Form,
-  Row,
-  Spinner,
-} from "react-bootstrap";
+import LoadingSpinner from "../Common/LoadingSpinner";
 import { useTranslation } from "react-i18next";
 import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
 import { CONTACT_FORM_FIELDS } from "./contactFormFields";
 import { useContactForm } from "./useContactForm";
-import "../../assets/styles/Contact/bootstrap-contact.scss";
 import "../../assets/styles/Contact/Contact.css";
 import { Link } from "react-router-dom";
 import { getLocalizedPath, getShortLocale } from "../../config/seo";
@@ -41,59 +34,53 @@ function ContactForm() {
       </header>
 
       {status && (
-        <Alert
-          id="contact-form-status"
-          variant={status.variant}
-          onClose={clearStatus}
-          dismissible
-          className="contact-form-alert"
-        >
-          {responseMessage}
-        </Alert>
+        <div id="contact-form-status" role="alert"
+          className={`contact-form-alert flex items-start gap-3 rounded-lg border p-4 ${status.variant === "success" ? "border-emerald-400/30 bg-emerald-950/50 text-emerald-100" : "border-rose-400/30 bg-rose-950/50 text-rose-100"}`}>
+          <span className="min-w-0 flex-1">{responseMessage}</span>
+          <button type="button" onClick={clearStatus} aria-label={t("common.close")}
+            className="-m-2 flex size-11 shrink-0 items-center justify-center rounded-md text-xl hover:bg-white/10">&#215;</button>
+        </div>
       )}
 
-      <Form onSubmit={handleSubmit} noValidate>
-        <Row className="g-3">
+      <form onSubmit={handleSubmit} noValidate>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {CONTACT_FORM_FIELDS.map((field) => {
             const errorKey = fieldErrors[field.name];
             // L’identifiant généré relie chaque champ à son message de validation pour les lecteurs d’écran.
             const errorId = `${field.controlId}-error`;
 
+            const inputProps = {
+              id: field.controlId,
+              name: field.name,
+              value: formData[field.name],
+              onChange: handleChange,
+              required: true,
+              autoComplete: field.autoComplete,
+              placeholder: t(field.placeholderKey),
+              className: "custom-form block w-full",
+              "aria-invalid": Boolean(errorKey),
+              "aria-describedby": errorKey ? errorId : undefined,
+            };
             return (
-              <Col key={field.name} md={field.colMd} xs={12}>
-                <Form.Group controlId={field.controlId}>
-                  <Form.Label>{t(field.labelKey)} <span className="contact-required-marker" aria-hidden="true">*</span></Form.Label>
-                  <Form.Control
-                    as={field.as}
-                    type={field.type}
-                    name={field.name}
-                    value={formData[field.name]}
-                    onChange={handleChange}
-                    required
-                    autoComplete={field.autoComplete}
-                    rows={field.rows}
-                    placeholder={t(field.placeholderKey)}
-                    className="custom-form"
-                    aria-invalid={Boolean(errorKey)}
-                    aria-describedby={errorKey ? errorId : undefined}
-                  />
-
-                  {errorKey && (
-                    <p id={errorId} className="contact-field-error">
-                      {t(errorKey)}
-                    </p>
-                  )}
-                </Form.Group>
-              </Col>
+              <div key={field.name} className={field.halfWidth ? "min-w-0" : "min-w-0 md:col-span-2"}>
+                <label htmlFor={field.controlId} className="contact-field-label mb-2 block">
+                  {t(field.labelKey)} <span className="contact-required-marker" aria-hidden="true">*</span>
+                </label>
+                {field.as === "textarea" ? <textarea {...inputProps} rows={field.rows} /> : <input {...inputProps} type={field.type} />}
+                {errorKey && <p id={errorId} className="contact-field-error">{t(errorKey)}</p>}
+              </div>
             );
           })}
-        </Row>
+        </div>
 
         <div className="contact-privacy">
           <p>{t("contact_privacy.summary")} <Link to={getLocalizedPath(getShortLocale(i18n.language), "/politique-de-confidentialite")}>{t("contact_privacy.google_privacy")}</Link></p>
-          <Form.Check id="contact-captcha-consent" type="checkbox" checked={captchaConsent}
-            disabled={isSubmitting} onChange={(event) => setCaptchaConsent(event.currentTarget.checked)}
-            label={t("contact_privacy.captcha_consent")} aria-describedby="contact-captcha-details" />
+          <label htmlFor="contact-captcha-consent" className="contact-consent flex items-start gap-3">
+            <input id="contact-captcha-consent" type="checkbox" checked={captchaConsent}
+              className="mt-1 size-4 shrink-0 accent-accent" disabled={isSubmitting}
+              onChange={(event) => setCaptchaConsent(event.currentTarget.checked)} aria-describedby="contact-captcha-details" />
+            <span>{t("contact_privacy.captcha_consent")}</span>
+          </label>
           <div className="contact-privacy-details">
             <button
               type="button"
@@ -131,7 +118,7 @@ function ContactForm() {
         >
           {isSubmitting ? (
             <>
-              <Spinner animation="border" size="sm" className="me-2" />
+              <LoadingSpinner small className="me-2" />
               {t("sending")}
             </>
           ) : (
@@ -145,7 +132,7 @@ function ContactForm() {
         </div>
         <p className="contact-email-alternative"><a href={`mailto:${SITE_PROFILE.email}`}>{t("contact_privacy.alternative_short")}</a></p>
         </div>
-      </Form>
+      </form>
     </div>
   );
 }

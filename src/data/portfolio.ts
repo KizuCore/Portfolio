@@ -120,7 +120,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     titleKey: "categories_projects.portfolio_v2_title",
     descriptionKey: "categories_projects.portfolio_v2_description",
     ghLink: "https://github.com/KizuCore/Portfolio",
-    techStack: ["React", "Bootstrap", "CSS", "Node.js", "Axios", "TypeScript"],
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Vercel", "Resend"],
     category: "web",
     featured: true,
   },

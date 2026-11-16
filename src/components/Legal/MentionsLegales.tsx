@@ -1,5 +1,4 @@
 import { JSX } from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Legals/Legals.css";
 import { LEGAL_UPDATED_HUMAN } from "../../data/legal";
@@ -12,16 +11,16 @@ function MentionsLegales(): JSX.Element {
   const tx = i18n.getFixedT(legalLang);
 
   return (
-    <Container fluid className="legal-page site-page" id="mentions-legales">
-      <Container className="legal-content-container page-content site-container">
-        <Row className="justify-content-center p-0">
+    <div className="legal-page site-page" id="mentions-legales">
+      <div className="legal-content-container page-content site-container">
+        <div>
           <h1 className="legal-title">{tx("mentions_legales.title")}</h1>
 
-          <Col xs={12}>
+          <div>
             <div className="legal-document">
               <div className="legal-info-box">
-                <section className="mb-4">
-                  <h2 className="h4">{tx("mentions_legales.editor.title")}</h2>
+                <section className="mb-6">
+                  <h2 className="text-2xl">{tx("mentions_legales.editor.title")}</h2>
                   <p>{tx("mentions_legales.editor.site")}</p>
                   <p>{tx("mentions_legales.editor.publisher")}</p>
                   <p>{tx("mentions_legales.editor.address")}</p>
@@ -30,8 +29,8 @@ function MentionsLegales(): JSX.Element {
                   <p>{tx("mentions_legales.editor.director")}</p>
                 </section>
 
-                <section className="mb-4">
-                  <h2 className="h4">{tx("mentions_legales.host.title")}</h2>
+                <section className="mb-6">
+                  <h2 className="text-2xl">{tx("mentions_legales.host.title")}</h2>
                   <p>{tx("mentions_legales.host.name")}</p>
                   <p>{tx("mentions_legales.host.address")}</p>
                   <p>{tx("mentions_legales.host.website")}</p>
@@ -39,59 +38,59 @@ function MentionsLegales(): JSX.Element {
                   <p>{tx("mentions_legales.host.phone")}</p>
                 </section>
 
-                <section className="mb-4">
-                  <h2 className="h4">{tx("mentions_legales.domain.title")}</h2>
+                <section className="mb-6">
+                  <h2 className="text-2xl">{tx("mentions_legales.domain.title")}</h2>
                   <p>{tx("mentions_legales.domain.registrar")}</p>
                   <p>{tx("mentions_legales.domain.registrar_address")}</p>
                   <p>{tx("mentions_legales.domain.registrar_site")}</p>
                 </section>
 
-                <section className="mb-4">
-                  <h2 className="h4">{tx("mentions_legales.status.title")}</h2>
+                <section className="mb-6">
+                  <h2 className="text-2xl">{tx("mentions_legales.status.title")}</h2>
                   <p>{tx("mentions_legales.status.text")}</p>
                 </section>
 
-                <section className="mb-4">
-                  <h2 className="h4">{tx("mentions_legales.ip.title")}</h2>
+                <section className="mb-6">
+                  <h2 className="text-2xl">{tx("mentions_legales.ip.title")}</h2>
                   <p>{tx("mentions_legales.ip.text")}</p>
                 </section>
 
-                <section className="mb-4">
-                  <h2 className="h4">{tx("mentions_legales.links.title")}</h2>
+                <section className="mb-6">
+                  <h2 className="text-2xl">{tx("mentions_legales.links.title")}</h2>
                   <p>{tx("mentions_legales.links.text")}</p>
                 </section>
 
-                <section className="mb-4">
-                  <h2 className="h4">{tx("mentions_legales.privacy.title")}</h2>
+                <section className="mb-6">
+                  <h2 className="text-2xl">{tx("mentions_legales.privacy.title")}</h2>
                   <p>{tx("mentions_legales.privacy.p1")}</p>
                   <p>{tx("mentions_legales.privacy.p2")}</p>
                   <p>{tx("mentions_legales.privacy.p3")}</p>
                 </section>
 
-                <section className="mb-4">
-                  <h2 className="h4">{tx("mentions_legales.cookies.title")}</h2>
+                <section className="mb-6">
+                  <h2 className="text-2xl">{tx("mentions_legales.cookies.title")}</h2>
                   <p>{tx("mentions_legales.cookies.p1")}</p>
                   <p>{tx("mentions_legales.cookies.p2")}</p>
                   <p>{tx("mentions_legales.cookies.p3")}</p>
                 </section>
 
-                <section className="mb-4">
-                  <h2 className="h4">{tx("mentions_legales.security.title")}</h2>
+                <section className="mb-6">
+                  <h2 className="text-2xl">{tx("mentions_legales.security.title")}</h2>
                   <p>{tx("mentions_legales.security.text")}</p>
                 </section>
 
-                <section className="mb-4">
-                  <h2 className="h4">{tx("mentions_legales.law.title")}</h2>
+                <section className="mb-6">
+                  <h2 className="text-2xl">{tx("mentions_legales.law.title")}</h2>
                   <p>{tx("mentions_legales.law.text")}</p>
                 </section>
 
                 <section className="mb-2">
-                  <h2 className="h4">{tx("mentions_legales.contact.title")}</h2>
+                  <h2 className="text-2xl">{tx("mentions_legales.contact.title")}</h2>
                   <p>{tx("mentions_legales.contact.text")}</p>
                 </section>
 
-                <p className="mt-5">{tx("mentions_legales.business_info")}</p>
-                <p className="mt-3">
+                <p className="mt-12">{tx("mentions_legales.business_info")}</p>
+                <p className="mt-4">
                   <em>{tx("mentions_legales.reference_clause")}</em>
                 </p>
                 <p className="text-muted legal-updated-text">
@@ -99,10 +98,10 @@ function MentionsLegales(): JSX.Element {
                 </p>
               </div>
             </div>
-          </Col>
-        </Row>
-      </Container>
-    </Container>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

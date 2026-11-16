@@ -12,7 +12,7 @@ interface LogoContainerProps {
 function LogoContainer({ isAnimating, handleMouseDown, handleMouseUp, handleMouseLeave, t }: LogoContainerProps) {
   return (
     <div
-      className={`d-flex logo-container ${isAnimating ? 'start-border-animation' : ''}`}
+      className={`flex logo-container ${isAnimating ? 'start-border-animation' : ''}`}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseLeave}

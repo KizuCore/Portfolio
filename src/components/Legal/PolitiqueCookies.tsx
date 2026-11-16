@@ -1,5 +1,4 @@
 import { JSX } from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Legals/Legals.css";
 import { LEGAL_UPDATED_HUMAN, LEGAL_UPDATED_ISO } from "../../data/legal";
@@ -13,27 +12,27 @@ function PolitiqueCookies(): JSX.Element {
     const tx = i18n.getFixedT(legalLang);
 
     return (
-        <Container fluid className="legal-page site-page" id="politique-cookies">
-            <Container className="legal-content-container page-content site-container">
+        <div className="legal-page site-page" id="politique-cookies">
+            <div className="legal-content-container page-content site-container">
                 <section aria-labelledby="cookie-policy-title">
-                    <Row className="justify-content-center p-0">
+                    <div>
                         <h1 id="cookie-policy-title" className="legal-title">
                             {tx("cookie_policy.title")}
                         </h1>
 
-                        <Col xs={12}>
+                        <div>
                             <div className="legal-document">
                                 <div className="legal-info-box">
-                                    <section className="mb-4" aria-labelledby="cp-what-title">
-                                        <h2 id="cp-what-title" className="h4">
+                                    <section className="mb-6" aria-labelledby="cp-what-title">
+                                        <h2 id="cp-what-title" className="text-2xl">
                                             {tx("cookie_policy.what.title")}
                                         </h2>
                                         <p>{tx("cookie_policy.what.p1")}</p>
                                         <p>{tx("cookie_policy.what.p2")}</p>
                                     </section>
 
-                                    <section className="mb-4" aria-labelledby="cp-types-title">
-                                        <h2 id="cp-types-title" className="h4">
+                                    <section className="mb-6" aria-labelledby="cp-types-title">
+                                        <h2 id="cp-types-title" className="text-2xl">
                                             {tx("cookie_policy.types.title")}
                                         </h2>
                                         <ul>
@@ -43,16 +42,16 @@ function PolitiqueCookies(): JSX.Element {
                                         </ul>
                                     </section>
 
-                                    <section className="mb-4" aria-labelledby="cp-use-title">
-                                        <h2 id="cp-use-title" className="h4">
+                                    <section className="mb-6" aria-labelledby="cp-use-title">
+                                        <h2 id="cp-use-title" className="text-2xl">
                                             {tx("cookie_policy.use.title")}
                                         </h2>
                                         <p>{tx("cookie_policy.use.p1")}</p>
                                         <p>{tx("cookie_policy.use.p2")}</p>
                                     </section>
 
-                                    <section className="mb-4" aria-labelledby="cp-duration-title">
-                                        <h2 id="cp-duration-title" className="h4">
+                                    <section className="mb-6" aria-labelledby="cp-duration-title">
+                                        <h2 id="cp-duration-title" className="text-2xl">
                                             {tx("cookie_policy.duration.title")}
                                         </h2>
                                         <p>{tx("cookie_policy.duration.p1")}</p>
@@ -61,14 +60,14 @@ function PolitiqueCookies(): JSX.Element {
                                         <p>{tx("cookie_policy.duration.storage")}</p>
                                     </section>
 
-                                    <section className="mb-4" aria-labelledby="cp-manage-title">
-                                        <h2 id="cp-manage-title" className="h4">
+                                    <section className="mb-6" aria-labelledby="cp-manage-title">
+                                        <h2 id="cp-manage-title" className="text-2xl">
                                             {tx("cookie_policy.manage.title")}
                                         </h2>
                                         <p>{tx("cookie_policy.manage.p1")}</p>
                                         <button
                                             type="button"
-                                            className="btn btn-sm cookie-policy-manage-btn"
+                                            className="ui-button text-sm cookie-policy-manage-btn"
                                             onClick={() => window.openCookiePreferences?.()}
                                             aria-label={tx("cookie_policy.manage.button")}
                                         >
@@ -77,7 +76,7 @@ function PolitiqueCookies(): JSX.Element {
                                     </section>
 
                                     <section className="mb-2" aria-labelledby="cp-update-title">
-                                        <h2 id="cp-update-title" className="h4">
+                                        <h2 id="cp-update-title" className="text-2xl">
                                             {tx("cookie_policy.update.title")}
                                         </h2>
                                         <p>{tx("cookie_policy.update.p1")}</p>
@@ -89,11 +88,11 @@ function PolitiqueCookies(): JSX.Element {
                                     </section>
                                 </div>
                             </div>
-                        </Col>
-                    </Row>
+                        </div>
+                    </div>
                 </section>
-            </Container>
-        </Container>
+            </div>
+        </div>
     );
 }
 

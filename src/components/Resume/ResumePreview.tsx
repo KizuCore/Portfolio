@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import { useTranslation } from "react-i18next";
-import { Spinner } from "react-bootstrap";
+import LoadingSpinner from "../Common/LoadingSpinner";
 import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import "react-pdf/dist/Page/TextLayer.css";
 import "react-pdf/dist/Page/AnnotationLayer.css";
@@ -31,7 +31,7 @@ export default function ResumePreview({ file }: { file: string }) {
     <div className="resume-preview" ref={container} aria-busy={!ready && !hasError}>
       {!ready && !hasError && (
         <div className="resume-loading" role="status">
-          <Spinner animation="border" aria-hidden="true" />
+          <LoadingSpinner />
           <span>{t("a11y.loading_content")}</span>
         </div>
       )}

@@ -1,5 +1,4 @@
 import React, { Suspense, useState } from "react";
-import { Col, Row, Button } from "react-bootstrap";
 import { useInView } from "react-intersection-observer";
 import "../../assets/styles/About/About.css";
 import { useTranslation } from "react-i18next";
@@ -26,28 +25,25 @@ const ToolStack: React.FC = () => {
 
       <div className="category-buttons stack-filter-buttons">
         {TOOL_CATEGORIES.map((cat) => (
-          <Button
+          <button type="button"
             key={cat}
-            variant={selectedCategory === cat ? "primary" : "outline-secondary"}
             aria-pressed={selectedCategory === cat}
             onClick={() => setSelectedCategory(cat)}
             className="stack-filter-button"
           >
             {t(`categories.${cat}`)}
-          </Button>
+          </button>
         ))}
       </div>
 
-      <Row className="stack-icons-row">
+      <div className="grid grid-cols-3 gap-[0.65rem] min-[576px]:grid-cols-4 min-[576px]:gap-4 min-[992px]:grid-cols-6">
         {[...TOOLS]
           .filter((tool) => selectedCategory === "All" || tool.category === selectedCategory)
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((tool, index) => {
             return (
-              <Col
+              <div
                 key={index}
-                xs={3}
-                md={2}
                 className="tech-icons-1"
                 data-tooltip-id="tool-tooltip"
                 data-tooltip-content={tool.name}
@@ -56,10 +52,10 @@ const ToolStack: React.FC = () => {
                   {inView ? <Suspense fallback={iconPlaceholder}><StackIcon name={tool.icon} /></Suspense> : iconPlaceholder}
                 </div>
                 <div className="tech-icon-label">{tool.name}</div>
-              </Col>
+              </div>
             );
           })}
-      </Row>
+      </div>
 
       {inView && <Suspense fallback={null}>
         <Tooltip id="tool-tooltip" anchorSelect=".tech-icons-1" place="top" />

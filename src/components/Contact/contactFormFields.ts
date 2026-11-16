@@ -7,7 +7,7 @@ type ContactFormField = {
   placeholderKey: string;
   type?: string;
   autoComplete?: string;
-  colMd?: number;
+  halfWidth?: boolean;
   as?: "textarea";
   rows?: number;
 };
@@ -20,7 +20,7 @@ export const CONTACT_FORM_FIELDS: ContactFormField[] = [
     placeholderKey: "name_placeholder",
     type: "text",
     autoComplete: "name",
-    colMd: 6,
+    halfWidth: true,
   },
   {
     name: "email",
@@ -29,7 +29,7 @@ export const CONTACT_FORM_FIELDS: ContactFormField[] = [
     placeholderKey: "email_placeholder",
     type: "email",
     autoComplete: "email",
-    colMd: 6,
+    halfWidth: true,
   },
   {
     name: "subject",

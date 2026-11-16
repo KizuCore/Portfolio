@@ -1,18 +1,10 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 export default defineConfig({
-  plugins: [react()],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        // Bootstrap 5 utilise encore les imports Sass historiques.
-        silenceDeprecations: ["import", "global-builtin", "color-functions", "if-function"],
-        quietDeps: true,
-      },
-    },
-  },
+  plugins: [react(), tailwindcss()],
   build: {
     sourcemap: true,
     // Le manifeste permet de vérifier le poids initial et les dépendances différées.

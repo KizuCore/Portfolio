@@ -1,5 +1,4 @@
 import { lazy, Suspense, useState } from "react";
-import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AiOutlineDownload } from "@react-icons/all-files/ai/AiOutlineDownload";
 import { useTranslation } from "react-i18next";
@@ -22,8 +21,8 @@ function Resume() {
   const highlights = t("resume_page.missions").split("||").map(value => value.trim()).filter(Boolean);
 
   return (
-    <Container fluid className="resume-section site-page">
-      <Container className="page-content site-container">
+    <div className="resume-section site-page">
+      <div className="page-content site-container">
         <header className="resume-header">
           <div className="resume-identity">
             <p className="resume-eyebrow">{t("resume_page.eyebrow")}</p>
@@ -120,8 +119,8 @@ function Resume() {
             {previewOpen && <Suspense fallback={<p role="status">{t("a11y.loading_content")}</p>}><ResumePreview key={pdf} file={pdf} /></Suspense>}
           </div>
         </details>
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 }
 

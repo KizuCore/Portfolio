@@ -39,8 +39,8 @@ export function CaseStudyLayout({ study, className, children }: StudyProps & { c
 export function CaseStudyLinks({ study }: StudyProps) {
   const { project, labels } = study;
   return <div className="business-actions">
-    {project.seeLink && <a className="business-button" href={project.seeLink} target="_blank" rel="noopener noreferrer">{labels.visit} <span className="visually-hidden">({labels.new_tab})</span> ↗</a>}
-    {project.ghLink && <a className={project.seeLink ? "business-text-link" : "business-button"} href={project.ghLink} target="_blank" rel="noopener noreferrer">{labels.code} <span className="visually-hidden">({labels.new_tab})</span> ↗</a>}
+    {project.seeLink && <a className="business-button" href={project.seeLink} target="_blank" rel="noopener noreferrer">{labels.visit} <span className="sr-only">({labels.new_tab})</span> ↗</a>}
+    {project.ghLink && <a className={project.seeLink ? "business-text-link" : "business-button"} href={project.ghLink} target="_blank" rel="noopener noreferrer">{labels.code} <span className="sr-only">({labels.new_tab})</span> ↗</a>}
   </div>;
 }
 

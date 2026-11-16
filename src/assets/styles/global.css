@@ -1,6 +1,4 @@
-@import "./shared/buttons.css";
 @import "./shared/surfaces.css";
-@import "./shared/layout.css";
 
 :root {
   --surface-900: #0c1017;
@@ -31,11 +29,6 @@ html {
 }
 
 body {
-  --bs-body-bg: var(--surface-900);
-  --bs-body-color: var(--text-primary);
-  --bs-heading-color: var(--text-primary);
-  --bs-link-color: var(--accent);
-  --bs-link-hover-color: var(--accent-hover);
   min-width: 320px;
   height: 100%;
   overflow-x: hidden;

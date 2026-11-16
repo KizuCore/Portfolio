@@ -1,7 +1,6 @@
 import { JSX, lazy, Suspense, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import { Container, Row, Col } from "react-bootstrap";
 import { motion } from 'framer-motion';
 import GitHubActivity from "./GitHubActivity";
 import TechStack from "./TechnologyStack";
@@ -45,19 +44,19 @@ function About(): JSX.Element {
 
 
   return (
-    <Container fluid className="about-section about-page site-page">
-      <Container className="page-content site-container">
-        <Row className="about-intro align-items-start">
+    <div className="about-section about-page site-page">
+      <div className="page-content site-container">
+        <div className="about-intro grid grid-cols-1 items-start gap-x-6 min-[992px]:grid-cols-12">
 
-          <h1 className="about-intro-title">
+          <h1 className="about-intro-title min-[992px]:col-span-12">
             {t('about_me')}
           </h1>
 
-          <Col lg={7} xs={12} className="about-intro-copy">
+          <div className="about-intro-copy min-[992px]:col-span-7">
             <AboutCard />
-          </Col>
+          </div>
 
-          <Col lg={5} xs={12} className="d-flex justify-content-center align-items-center about-img" ref={refImg}>
+          <div className="about-img flex items-center justify-center min-[992px]:col-span-5" ref={refImg}>
 
             <motion.div
               className="canvas-container"
@@ -70,8 +69,8 @@ function About(): JSX.Element {
               ) : solarPlaceholder}
             </motion.div>
 
-          </Col>
-        </Row>
+          </div>
+        </div>
 
         <section className="about-skills-section" aria-labelledby="about-skills-title">
         <h2
@@ -85,8 +84,8 @@ function About(): JSX.Element {
         </section>
         <ToolStack />
         <GitHubActivity />
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 }
 

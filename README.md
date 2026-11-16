@@ -6,7 +6,7 @@ Site en production : [theo-guerin.fr](https://theo-guerin.fr/)
 
 ## Stack
 
-- **Frontend** : React 18, TypeScript, Vite, React Router, React Bootstrap
+- **Frontend** : React 18, TypeScript, Vite, React Router, Tailwind CSS 4
 - **Animations** : Framer Motion, tsparticles, React CountUp
 - **Internationalisation** : i18next / react-i18next
 - **SEO** : React Helmet, balises canonical/hreflang, Schema.org, sitemap généré
@@ -88,7 +88,7 @@ Le script `npm run build` exécute automatiquement `npm run sitemap:generate` vi
 
 Le contrôle de performance utilise le manifeste Vite et les sourcemaps du build. Il vérifie que le PDF, le calendrier GitHub, les infobulles et les particules restent hors du chargement initial, avec des budgets gzip de 230 Kio de JavaScript et 30 Kio de CSS. Il refuse aussi le retour des moteurs de particules complet ou « slim », y compris dans les imports différés. Après un changement de dépendances ou de styles, lancer `npm run build`, `npm run check:performance` et `npm run check:seo`, puis vérifier les pages concernées sur mobile et ordinateur.
 
-Les composants Bootstrap utilisés sont listés dans `src/assets/styles/bootstrap.scss` ; les utilitaires responsives sont conservés. Ajouter l’import Sass correspondant lors de l’introduction d’un nouveau composant Bootstrap. L’accueil conserve un ciel statique sur mobile et pour les préférences de mouvement réduit ; le moteur animé se charge après la page sur les appareils adaptés.
+Tailwind CSS est intégré via `@tailwindcss/vite` et importé dans `src/assets/styles/index.css`. Les grilles et utilitaires utilisent Tailwind ; les styles visuels propres au portfolio restent dans les fichiers CSS des composants. La classe `site-container` conserve un cadre commun aux pages et à la navigation. L’accueil conserve un ciel statique sur mobile et pour les préférences de mouvement réduit ; le moteur animé se charge après la page sur les appareils adaptés.
 
 Le ciel animé utilise `@tsparticles/basic` à 24 images par seconde, avec les cercles,
 le déplacement et l’opacité nécessaires au décor. Les 160 étoiles fixes sont réunies

@@ -99,13 +99,6 @@
   outline: 2px solid #94c3ff;
   outline-offset: 3px;
 }
-.about-skills-section .stack-icons-row {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
 .about-skills-section .tech-icons,
 .about-skills-section .tech-icons-1 {
   position: relative;
@@ -186,20 +179,12 @@
   font-size: 0.8rem;
   line-height: 1.35;
 }
-@media (max-width: 991px) {
-  .about-skills-section .stack-icons-row {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
+
 @media (max-width: 575px) {
   .about-skills-section,
   .about-code-section {
     margin-top: 2.5rem;
     padding-top: 2rem;
-  }
-  .about-skills-section .stack-icons-row {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.65rem;
   }
   .about-skills-section .tech-icons,
   .about-skills-section .tech-icons-1 {

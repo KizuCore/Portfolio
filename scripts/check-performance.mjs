@@ -29,6 +29,8 @@ visit("index.html");
 for (const chunk of Object.values(manifest)) {
   if (!chunk.file.endsWith(".js")) continue;
   const map = JSON.parse(fs.readFileSync(path.join(dist, `${chunk.file}.map`), "utf8"));
+  assert(!map.sources.some((source) => /node_modules\/(?:bootstrap|react-bootstrap|@restart)\//.test(source)),
+    `Bootstrap runtime found in ${chunk.file}`);
   assert(!map.sources.some((source) => /node_modules\/(?:tsparticles|@tsparticles\/slim)\//.test(source)),
     `Moteur de particules complet réintroduit : ${chunk.file}`);
 }

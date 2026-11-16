@@ -17,13 +17,13 @@ function NavItem({ to, label, onClick, ariaLabel, prominent = false }: NavItemPr
   const isActive = currentPath === targetPath || (targetPath === '/project' && currentPath.startsWith('/realisations/'));
 
   return (
-    <li className="nav-item">
+    <li className="site-nav-item">
       <Link
         to={to}
         onClick={onClick}
         aria-label={ariaLabel}
         aria-current={isActive ? "page" : undefined}
-        className={`nav-link${isActive ? ' active' : ''}${prominent ? ' nav-contact' : ''}`}
+        className={`site-nav-link${isActive ? ' active' : ''}${prominent ? ' site-nav-contact' : ''}`}
       >
         <span className="nav-label">{label}</span>
         {prominent && <span aria-hidden="true">↗</span>}

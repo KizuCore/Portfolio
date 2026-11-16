@@ -20,6 +20,6 @@ export function MinecraftMemory() {
         {mined && !reduced && <span className="minecraft-particles" key={burst}>{Array.from({ length: 12 }, (_, index) => <i key={index} style={{ "--dx": `${Math.cos(index * Math.PI / 6) * (35 + index % 3 * 10)}px`, "--dy": `${Math.sin(index * Math.PI / 6) * 42 - 18}px`, "--turn": `${index * 55}deg` } as CSSProperties} />)}</span>}
       </span>
     </button>
-    <span className="visually-hidden" role="status">{mined ? t("about_interactions.mined") : ""}</span>
+    <span className="sr-only" role="status">{mined ? t("about_interactions.mined") : ""}</span>
   </span>;
 }

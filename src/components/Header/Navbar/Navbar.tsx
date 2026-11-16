@@ -176,11 +176,11 @@ function NavBar(): JSX.Element {
   return (
     <nav
       ref={navRef}
-      className={`navbar navbar-polished site-container fixed-top ${navColour ? "sticky" : ""} ${expand ? "menu-open" : ""}`}
+      className={`site-nav site-container ${navColour ? "is-scrolled" : ""} ${expand ? "menu-open" : ""}`}
       aria-label={t("a11y.main_navigation")}
     >
-      <div className="container">
-        <div className="navbar-brand">
+      <div className="site-nav-inner">
+        <div className="site-nav-brand">
           <Logo
             isAnimating={isAnimating}
             handleMouseDown={handleMouseDown}
@@ -190,7 +190,7 @@ function NavBar(): JSX.Element {
           />
           <Link
             to={getLocalizedPath(currentLocale, "/")}
-            className="navbar-brand-text navbar-brand-home-btn"
+            className="site-nav-brand-text site-nav-brand-home-btn"
             aria-label={t("home_aria")}
             onClick={(event) => {
               setExpand(false);
@@ -200,15 +200,15 @@ function NavBar(): JSX.Element {
             }}
           >
             <span>{SITE_PROFILE.brandName}</span>
-            <span className="navbar-brand-caption">{SITE_PROFILE.displayName}</span>
+            <span className="site-nav-brand-caption">{SITE_PROFILE.displayName}</span>
           </Link>
         </div>
 
         <button
           ref={toggleButtonRef}
           type="button"
-          className={`navbar-toggler ${expand ? "" : "collapsed"}`}
-          aria-controls="responsive-navbar-nav"
+          className="site-nav-toggle min-[900px]:hidden"
+          aria-controls="responsive-site-nav-list"
           aria-label={t("a11y.nav_menu_toggle")}
           aria-expanded={expand}
           onClick={() => setExpand(!expand)}
@@ -218,8 +218,8 @@ function NavBar(): JSX.Element {
           <span></span>
         </button>
 
-        <div id="responsive-navbar-nav" className={`collapse navbar-collapse${expand ? " show" : ""}`} ref={menuRef}>
-          <ul className="navbar-nav navbar-menu-items">
+        <div id="responsive-site-nav-list" className={`site-nav-menu min-[900px]:flex ${expand ? "block" : "hidden"}`} ref={menuRef}>
+          <ul className="site-nav-links">
             {navItems.map((item) => (
               <NavItem
                 key={item.to}
@@ -230,20 +230,20 @@ function NavBar(): JSX.Element {
               />
             ))}
           </ul>
-          <div className="navbar-actions">
+          <div className="site-nav-actions">
             <Link
               to={getLocalizedPath(currentLocale, "/cv")}
-              className="navbar-resume-link"
+              className="site-nav-resume"
               aria-current={localizedPath.pathname === "/cv" ? "page" : undefined}
               onClick={() => setExpand(false)}
             >{t("cv")}</Link>
             <Link
               to={getLocalizedPath(currentLocale, "/contact")}
-              className={`nav-link nav-contact${localizedPath.pathname === "/contact" ? " active" : ""}`}
+              className={`site-nav-link site-nav-contact${localizedPath.pathname === "/contact" ? " active" : ""}`}
               aria-current={localizedPath.pathname === "/contact" ? "page" : undefined}
               onClick={() => setExpand(false)}
             >{t("social")} <FiArrowUpRight size={16} aria-hidden="true" /></Link>
-            <div className="navbar-language">
+            <div className="site-nav-language">
               <LanguageSelector />
             </div>
           </div>

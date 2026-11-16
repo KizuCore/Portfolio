@@ -34,7 +34,7 @@ Frontend principal de Flambow, une plateforme d'entraide intergénérationnelle.
 Portfolio personnel multilingue (React + TypeScript) avec SEO technique, formulaire sécurisé par reCAPTCHA v3, analytics sous consentement et déploiement Vercel.
 
 - Catégorie : web
-- Technologies : React, Bootstrap, CSS, Node.js, Axios, TypeScript
+- Technologies : React, TypeScript, Tailwind CSS, Vite, Vercel, Resend
 - Code : https://github.com/KizuCore/Portfolio
 
 ## À table !

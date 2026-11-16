@@ -26,7 +26,7 @@ function ImageState({ alt = "", onLoad, onError, ...props }: Props) {
       {status === "loading" && (
         <span className="loading-image-overlay" role="status">
           <span className="image-spinner" aria-hidden="true" />
-          <span className="visually-hidden">{t("a11y.loading_content")}</span>
+          <span className="sr-only">{t("a11y.loading_content")}</span>
         </span>
       )}
       {status === "error" && <span className="loading-image-overlay loading-image-error" role="status">{alt}</span>}

@@ -17,7 +17,7 @@ function RouteSkeleton() {
         <div className="route-skeleton-card skeleton-shimmer" />
         <div className="route-skeleton-card skeleton-shimmer" />
       </div>
-      <span className="visually-hidden">
+      <span className="sr-only">
         {t("a11y.loading_content")}
       </span>
     </div>

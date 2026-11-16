@@ -1,5 +1,4 @@
 import { JSX } from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import "../../assets/styles/Legals/Legals.css";
@@ -17,19 +16,19 @@ function PolitiqueConfidentialite(): JSX.Element {
   const tx = i18n.getFixedT(legalLang);
 
   return (
-    <Container fluid className="legal-page site-page" id="politique-confidentialite">
-      <Container className="legal-content-container page-content site-container">
+    <div className="legal-page site-page" id="politique-confidentialite">
+      <div className="legal-content-container page-content site-container">
         <section aria-labelledby="page-title">
-          <Row className="justify-content-center p-0">
+          <div>
             <h1 id="page-title" className="legal-title">
               {tx("politique_confidentialite.title")}
             </h1>
 
-            <Col xs={12}>
+            <div>
               <div className="legal-document">
                 <div className="legal-info-box">
-                  <section className="mb-4" aria-labelledby="pc-controller-title">
-                    <h2 id="pc-controller-title" className="h4">
+                  <section className="mb-6" aria-labelledby="pc-controller-title">
+                    <h2 id="pc-controller-title" className="text-2xl">
                       {tx("politique_confidentialite.controller.title")}
                     </h2>
                     <p>{tx("politique_confidentialite.controller.intro")}</p>
@@ -50,8 +49,8 @@ function PolitiqueConfidentialite(): JSX.Element {
                     </address>
                   </section>
 
-                  <section className="mb-4" aria-labelledby="pc-data-title">
-                    <h2 id="pc-data-title" className="h4">
+                  <section className="mb-6" aria-labelledby="pc-data-title">
+                    <h2 id="pc-data-title" className="text-2xl">
                       {tx("politique_confidentialite.data.title")}
                     </h2>
                     <p>{tx("politique_confidentialite.data.intro")}</p>
@@ -70,8 +69,8 @@ function PolitiqueConfidentialite(): JSX.Element {
                     </ul>
                   </section>
 
-                  <section className="mb-4" aria-labelledby="pc-ga4-title">
-                    <h2 id="pc-ga4-title" className="h4">
+                  <section className="mb-6" aria-labelledby="pc-ga4-title">
+                    <h2 id="pc-ga4-title" className="text-2xl">
                       {tx("politique_confidentialite.ga4.title")}
                     </h2>
                     <p>{tx("politique_confidentialite.ga4.p1")}</p>
@@ -82,7 +81,7 @@ function PolitiqueConfidentialite(): JSX.Element {
 
                     <button
                       type="button"
-                      className="btn btn-outline-secondary btn-sm"
+                      className="ui-button ui-button-secondary text-sm"
                       aria-label={tx("politique_confidentialite.ga4.manage_button_aria")}
                       onClick={() => window.openCookiePreferences?.()}
                     >
@@ -90,8 +89,8 @@ function PolitiqueConfidentialite(): JSX.Element {
                     </button>
                   </section>
 
-                  <section className="mb-4" aria-labelledby="pc-recipients-title">
-                    <h2 id="pc-recipients-title" className="h4">
+                  <section className="mb-6" aria-labelledby="pc-recipients-title">
+                    <h2 id="pc-recipients-title" className="text-2xl">
                       {tx("politique_confidentialite.recipients.title")}
                     </h2>
                     <p>{tx("politique_confidentialite.recipients.text")}</p>
@@ -99,15 +98,15 @@ function PolitiqueConfidentialite(): JSX.Element {
                     <ul>{PRIVACY_RESOURCES.map((resource) => <li key={resource.href}><a href={resource.href} target="_blank" rel="noopener noreferrer">{resource.label}</a></li>)}</ul>
                   </section>
 
-                  <section className="mb-4" aria-labelledby="pc-retention-title">
-                    <h2 id="pc-retention-title" className="h4">{tx("politique_confidentialite.retention.title")}</h2>
+                  <section className="mb-6" aria-labelledby="pc-retention-title">
+                    <h2 id="pc-retention-title" className="text-2xl">{tx("politique_confidentialite.retention.title")}</h2>
                     <p>{tx("politique_confidentialite.retention.messages")}</p>
                     <p>{tx("politique_confidentialite.retention.providers")}</p>
                     <p>{tx("politique_confidentialite.retention.analytics")}</p>
                   </section>
 
-                  <section className="mb-4" aria-labelledby="pc-rights-title">
-                    <h2 id="pc-rights-title" className="h4">
+                  <section className="mb-6" aria-labelledby="pc-rights-title">
+                    <h2 id="pc-rights-title" className="text-2xl">
                       {tx("politique_confidentialite.rights.title")}
                     </h2>
                     <p>{tx("politique_confidentialite.rights.intro")}</p>
@@ -126,22 +125,22 @@ function PolitiqueConfidentialite(): JSX.Element {
                     <p>{tx("politique_confidentialite.rights.complaint")} <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener noreferrer">CNIL</a>.</p>
                   </section>
 
-                  <section className="mb-4" aria-labelledby="pc-security-title">
-                    <h2 id="pc-security-title" className="h4">
+                  <section className="mb-6" aria-labelledby="pc-security-title">
+                    <h2 id="pc-security-title" className="text-2xl">
                       {tx("politique_confidentialite.security.title")}
                     </h2>
                     <p>{tx("politique_confidentialite.security.text")}</p>
                   </section>
 
-                  <section className="mb-4" aria-labelledby="pc-changes-title">
-                    <h2 id="pc-changes-title" className="h4">
+                  <section className="mb-6" aria-labelledby="pc-changes-title">
+                    <h2 id="pc-changes-title" className="text-2xl">
                       {tx("politique_confidentialite.changes.title")}
                     </h2>
                     <p>{tx("politique_confidentialite.changes.text")}</p>
                   </section>
 
                   <section className="mb-2" aria-labelledby="pc-contact-update-title">
-                    <h2 id="pc-contact-update-title" className="h4">
+                    <h2 id="pc-contact-update-title" className="text-2xl">
                       {tx("politique_confidentialite.contact_update.title")}
                     </h2>
                     <p>
@@ -156,11 +155,11 @@ function PolitiqueConfidentialite(): JSX.Element {
                   </section>
                 </div>
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </section>
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 }
 

@@ -96,7 +96,7 @@ export default function CookiePreferencesModal() {
           </div>
 
           <div className="cookie-prefs-body">
-            <p className="mb-3">
+            <p className="mb-4">
               {t("cookie_prefs.intro_1")}{" "}
               <strong>Google Analytics (GA4)</strong> {t("cookie_prefs.intro_2")}
             </p>

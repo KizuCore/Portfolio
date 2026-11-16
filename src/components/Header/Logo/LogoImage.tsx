@@ -35,7 +35,7 @@ function LogoImage({ isAnimating, t }: LogoImageProps) {
         width={64}
         height={64}
         alt={t('brand')}
-        className={`img-fluid logo ${showWhiteLogo ? "logo-turn-white" : ""}`}
+        className={`max-w-full h-auto logo ${showWhiteLogo ? "logo-turn-white" : ""}`}
         loading="eager"
         decoding="async"
         initial={{ opacity: 0 }}

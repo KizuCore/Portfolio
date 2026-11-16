@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { useTranslation } from "react-i18next";
-import { Spinner } from "react-bootstrap";
+import LoadingSpinner from "../Common/LoadingSpinner";
 import "../../assets/styles/About/GitHubActivity.css";
 import { FaGitlab } from "@react-icons/all-files/fa/FaGitlab";
 import { SiGithub } from "@react-icons/all-files/si/SiGithub";
@@ -11,7 +11,7 @@ const GitHubCalendar = React.lazy(() => import("react-github-calendar"));
 const GitHubActivity: React.FC = () => {
   const { t } = useTranslation();
   const { ref, inView } = useInView({ triggerOnce: true, rootMargin: "300px 0px" });
-  const loading = <div className="code-activity-loading" role="status"><Spinner animation="border" aria-hidden="true" /><span>{t("a11y.loading_content")}</span></div>;
+  const loading = <div className="code-activity-loading" role="status"><LoadingSpinner /><span>{t("a11y.loading_content")}</span></div>;
 
   return (
     <section className="about-code-section" aria-labelledby="code-profiles-title">

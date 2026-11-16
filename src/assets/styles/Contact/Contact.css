@@ -70,7 +70,7 @@
   font-size: 0.8rem;
   margin: 0;
 }
-.contact-form-card .form-label {
+.contact-form-card .contact-field-label {
   display: block;
   color: #e3ecfa;
   font-size: 0.88rem;
@@ -355,11 +355,11 @@
 .contact-privacy > p { margin-bottom: 0.75rem; }
 .contact-privacy a,
 .contact-email-alternative a { color: #a9d1ff; text-underline-offset: 3px; }
-.contact-privacy .form-check { margin-bottom: 0.75rem; }
-.contact-privacy .form-check-input,
-.contact-privacy .form-check-label { cursor: pointer; }
-.contact-privacy .form-check-input:disabled,
-.contact-privacy .form-check-input:disabled ~ .form-check-label { cursor: not-allowed; }
+.contact-privacy .contact-consent { margin-bottom: 0.75rem; }
+.contact-privacy .contact-consent input,
+.contact-privacy .contact-consent span { cursor: pointer; }
+.contact-privacy .contact-consent input:disabled,
+.contact-privacy .contact-consent input:disabled ~ span { cursor: not-allowed; }
 .contact-privacy-toggle {
   display: flex;
   align-items: center;

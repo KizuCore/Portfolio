@@ -6,6 +6,7 @@ import { getBusinessPage } from "../../data/businessPages";
 import { getBusinessSchema } from "../../config/businessSchema";
 import {
   getContentLocale,
+  getBreadcrumbSchema,
   getCanonicalPath,
   getHtmlLang,
   getLanguageAlternates,
@@ -34,6 +35,7 @@ function SeoMeta(): JSX.Element {
   const pathname = normalizePath(localizedPath.pathname);
   const siteUrl = getSiteUrl();
   const currentRoute = ROUTE_SEO[pathname];
+  const isNotFound = !currentRoute || Boolean(currentRoute.noindex && localizedPath.locale);
   const canonicalLocale = localizedPath.locale ?? DEFAULT_LOCALE;
   const contentLocaleSeed = localizedPath.locale ?? DEFAULT_LOCALE;
   // Certaines URL traduites réutilisent volontairement un contenu de repli en attendant une traduction complète.
@@ -43,9 +45,9 @@ function SeoMeta(): JSX.Element {
 
   const baseTitle = tx("seo_title");
   const businessPage = getBusinessPage(pathname, i18n.getResourceBundle(contentLang, "translation")?.business_pages);
-  const pageTitle = currentRoute ? tx(currentRoute.titleKey) : "";
+  const pageTitle = isNotFound ? tx("not_found.title") : tx(currentRoute.titleKey);
   const fullTitle = businessPage ? `${businessPage.title} | Théo Guérin` : pathname === "/" || !pageTitle ? baseTitle : `${pageTitle} | ${baseTitle}`;
-  const description = businessPage?.description ?? (currentRoute?.descriptionKey
+  const description = isNotFound ? tx("not_found.description") : businessPage?.description ?? (currentRoute?.descriptionKey
     ? tx(currentRoute.descriptionKey, { defaultValue: tx("seo_description") })
     : tx("seo_description"));
 
@@ -53,8 +55,8 @@ function SeoMeta(): JSX.Element {
   const canonicalUrl = `${siteUrl}${canonicalPath}`;
   const imageUrl = getPreviewImageUrl(siteUrl);
   // Les routes cachées ou utilitaires ne doivent pas annoncer de variantes hreflang.
-  const languageAlternates = currentRoute?.noindex ? [] : getLanguageAlternates(siteUrl, pathname);
-  const isNoindex = currentRoute?.noindex ?? false;
+  const languageAlternates = isNotFound || currentRoute?.noindex ? [] : getLanguageAlternates(siteUrl, pathname);
+  const isNoindex = isNotFound || (currentRoute?.noindex ?? false);
   const robotsContent = isNoindex
     ? "noindex, nofollow"
     : "index, follow, max-image-preview:large";
@@ -122,9 +124,10 @@ function SeoMeta(): JSX.Element {
     ...(webPageType === "ProfilePage" ? { mainEntity: { "@id": `${siteUrl}/#person` } } : {}),
   };
 
+  const breadcrumbSchema = getBreadcrumbSchema(siteUrl, pathname, contentLang, businessPage?.title ?? pageTitle, tx("home"));
   const structuredData = {
     "@context": "https://schema.org",
-    "@graph": [personSchema, websiteSchema, webPageSchema, ...getBusinessSchema(businessPage, siteUrl, contentLang, tx("business_pages.labels.home"))],
+    "@graph": [personSchema, websiteSchema, webPageSchema, ...getBusinessSchema(businessPage, siteUrl, contentLang), ...(breadcrumbSchema ? [breadcrumbSchema] : [])],
   };
 
   return (
@@ -142,7 +145,7 @@ function SeoMeta(): JSX.Element {
       <meta name="geo.placename" content={SITE_PROFILE.city} />
       <meta name="geo.position" content={SITE_PROFILE.geoPosition} />
       <meta name="ICBM" content={SITE_PROFILE.geoICBM} />
-      <link rel="canonical" href={canonicalUrl} />
+      {!isNotFound && <link rel="canonical" href={canonicalUrl} />}
       <link rel="alternate" type="text/markdown" href={`${siteUrl}/llms.txt`} />
       <link rel="alternate" type="text/markdown" href={`${siteUrl}/llms-en.txt`} hrefLang="en" />
       <link rel="alternate" type="text/markdown" href={`${siteUrl}/llms-fr.txt`} hrefLang="fr" />
@@ -166,7 +169,7 @@ function SeoMeta(): JSX.Element {
         ))}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={canonicalUrl} />
+      {!isNotFound && <meta property="og:url" content={canonicalUrl} />}
       <meta property="og:image" content={imageUrl} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
@@ -182,7 +185,7 @@ function SeoMeta(): JSX.Element {
       <meta name="twitter:image:alt" content={tx("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
 
       {/* Données structurées */}
-      <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+      {!isNotFound && <script type="application/ld+json">{JSON.stringify(structuredData)}</script>}
     </Helmet>
   );
 }

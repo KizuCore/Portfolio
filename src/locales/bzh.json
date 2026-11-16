@@ -1,4 +1,11 @@
 {
+    "not_found": {
+        "eyebrow": "404 · Pajenn nann kavet",
+        "title": "N’eo ket bet kavet ar bajenn-mañ",
+        "description": "Marteze ez eus cheñchet al liamm, pe n’eus ket eus ar bajenn ken. Distroit d’ar bajenn degemer pe dizoloit ma raktresoù.",
+        "home": "Distreiñ d’an degemer",
+        "projects": "Gwelet ar raktresoù"
+    },
     "contact_refresh": {
         "verification_details": "Pourquoi ?",
         "email_alternative": "Écrire par email",
@@ -610,14 +617,6 @@
         "language_selector": "Dibab ar yezh"
     },
     "easter": {
-        "tardis": {
-            "label": "Gweladenn dic’hortoz ar TARDIS",
-            "arrival": "Direizhder amzerel dinoet",
-            "landed": "An torfenn dorn a zo chomet. Adarre.",
-            "departure": "Ar paouez kentañ: e lec’h all.",
-            "title": "Pemp munutenn hepken…",
-            "joke": "Un ehan berr am boa lavaret. Neket tri c’hantved."
-        },
         "breton": {
             "label": "Aloubadeg vreizhat",
             "detected": "Kod BZH dinoet",

@@ -1,0 +1,81 @@
+.not-found-page {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(1rem, 4vw, 4rem);
+  min-height: min(820px, 88svh);
+  padding-block: var(--site-page-top) 5rem;
+}
+.not-found-copy { position: relative; z-index: 1; }
+.not-found-page .not-found-copy .page-title {
+  max-width: 13ch;
+  font-size: clamp(2.2rem, 4.3vw, 3.5rem);
+  line-height: 1.14;
+}
+.not-found-description { max-width: 40ch; color: #a8bdd8; font-size: 0.95rem; line-height: 1.9; }
+.not-found-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 2rem; }
+.not-found-actions a { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 44px; font: 500 0.85rem/1.5 "Montserrat", sans-serif; text-decoration: none; transition: background-color 180ms, color 180ms, border-color 180ms; }
+.not-found-home { padding: 0.7rem 1.1rem; border: 1px solid #52749d; border-radius: 8px; background: #1b304acc; color: #dbeaff; }
+.not-found-home:hover { background: #284260; border-color: #85afe3; color: white; }
+.not-found-projects { color: #adc7e8; }
+.not-found-projects:hover { color: white; }
+.not-found-actions a:focus-visible { outline: 2px solid #81b4f5; outline-offset: 5px; }
+.not-found-actions svg { width: 16px; height: 16px; flex-shrink: 0; }
+.not-found-art { position: relative; display: grid; place-items: center; width: 100%; max-width: 540px; aspect-ratio: 1.3; justify-self: center; }
+.not-found-number {
+  position: relative;
+  color: transparent;
+  background: linear-gradient(155deg, #c1d9f7 8%, #8eafd9 55%, #6087bb);
+  background-clip: text;
+  -webkit-background-clip: text;
+  font: 500 clamp(8rem, 17vw, 14rem)/1 "Montserrat", sans-serif;
+  letter-spacing: -0.055em;
+  padding-right: 0.055em;
+  filter: drop-shadow(0 0 18px #6e9fdf38);
+}
+.not-found-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.not-found-star { position: absolute; color: #b8d6ff; font: 300 26px/1 "Montserrat", sans-serif; }
+.not-found-star-one { top: 12%; left: 24%; }
+.not-found-star-two { bottom: 13%; right: 22%; font-size: 19px; }
+.not-found-star-three, .not-found-star-four { width: 3px; height: 3px; border-radius: 50%; background: #b8d6ff; }
+.not-found-star-three { top: 29%; right: 9%; }
+.not-found-star-four { bottom: 27%; left: 12%; opacity: 0.5; }
+.not-found-flight { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
+.not-found-traveller { position: absolute; inset: 0; transform: translate(78%, 8%); }
+.tardis-404-ship { position: relative; width: clamp(64px, 7vw, 96px); transform: rotate(-18deg); filter: drop-shadow(0 0 12px #75b9ff30); }
+.tardis-404-box { display: block; width: 100%; height: auto; }
+.tardis-404-lamp { filter: drop-shadow(0 0 5px #92d8ff); }
+@media (prefers-reduced-motion: no-preference) {
+  .not-found-traveller { animation: tardisFlight 42s ease-in-out infinite; }
+  .tardis-404-ship { animation: tardisTumble 14s ease-in-out infinite; }
+  .tardis-404-lamp { animation: tardisLight 3s ease-in-out infinite; }
+  .not-found-number { animation: lostOrbit 8s ease-in-out infinite; }
+  .not-found-star { animation: lostStars 5s ease-in-out infinite alternate; }
+  .not-found-star-two { animation-delay: -2s; }
+  @keyframes lostOrbit { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes lostStars { from { opacity: 0.45; } to { opacity: 1; } }
+  @keyframes tardisFlight {
+    0%, 100% { transform: translate(78%, 8%); }
+    18% { transform: translate(90%, 35%); }
+    38% { transform: translate(73%, 72%); }
+    54% { transform: translate(51%, 65%); }
+    68% { transform: translate(52%, 17%); }
+    82% { transform: translate(20%, 10%); }
+  }
+  @keyframes tardisTumble { 0%, 100% { transform: rotate(-18deg); } 40% { transform: rotate(16deg) scale(0.85); } 75% { transform: rotate(-8deg) scale(0.95); } }
+  @keyframes tardisLight { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+}
+@media (max-width: 767px) {
+  .not-found-page { grid-template-columns: 1fr; gap: 0; padding-block: var(--site-page-top) 4rem; min-height: auto; }
+  .not-found-art { grid-row: 1; width: min(100%, 360px); margin-top: -1.5rem; margin-bottom: 1rem; }
+  .not-found-number { font-size: clamp(7.5rem, 35vw, 11rem); }
+  .not-found-flight { top: var(--site-page-top); height: min(300px, 70vw); }
+  .not-found-traveller { right: 60px; bottom: 70px; }
+  .tardis-404-ship { width: 52px; }
+  .not-found-copy { text-align: center; }
+  .not-found-copy .page-eyebrow, .not-found-actions { justify-content: center; }
+  .not-found-page .not-found-copy .page-title { text-align: center; margin-inline: auto; }
+  .not-found-description { margin-inline: auto; }
+}

@@ -1,5 +1,6 @@
 {
   "trailingSlash": false,
+  "cleanUrls": true,
   "redirects": [
     {
       "source": "/",
@@ -210,10 +211,6 @@
     {
       "source": "/.well-known/ard.json",
       "destination": "/ai-catalog.json"
-    },
-    {
-      "source": "/((?!api/|assets/|fonts/|images/|locales/|pdf/|robots.txt|sitemap.xml|manifest.json|ai-catalog\\.json$|\\.well-known/(?:ai-catalog|ard)\\.json$|llms(?:-[a-z]{2})?\\.txt|[a-z-]+\\.md|favicon.ico).*)",
-      "destination": "/index.html"
     }
   ]
 }

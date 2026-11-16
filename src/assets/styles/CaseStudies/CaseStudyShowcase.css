@@ -42,8 +42,6 @@
 }
 .showcase-intro { font-size: 0.96rem; line-height: 1.8; margin-bottom: 1.75rem; color: var(--text-muted); }
 .showcase-hero .business-actions { gap: 1rem; }
-.showcase-hero .business-button { background: var(--btn-bg); border-color: var(--btn-border); color: var(--btn-text) !important; box-shadow: var(--btn-shadow); }
-.showcase-hero .business-button:hover { background: var(--btn-bg-hover); border-color: var(--btn-border-hover); }
 .showcase-hero-visual {
   margin: 0;
   overflow: hidden;

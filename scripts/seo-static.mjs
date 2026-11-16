@@ -203,33 +203,8 @@ function buildPersonSchema({ profile, socialLinks, professionalTopics, education
   };
 }
 
-// Construit un graphe simple de fil d’Ariane pour les pages internes.
-function buildBreadcrumbSchema({ canonicalUrl, pathname, title }) {
-  if (pathname === "/") {
-    return null;
-  }
-
-  return {
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Accueil",
-        item: `${SITE_URL}/`,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: title.split("|")[0].trim(),
-        item: canonicalUrl,
-      },
-    ],
-  };
-}
-
 // Construit le graphe Schema.org propre à chaque route dans les fichiers HTML prérendus.
-function buildStructuredData({ pathname, canonicalUrl, title, description, htmlLang, localeData, portfolio, routeSchemaType }) {
+function buildStructuredData({ pathname, canonicalUrl, title, description, htmlLang, localeData, portfolio, routeSchemaType, seoConfig, contentLocale }) {
   const imageUrl = getPreviewImageUrl(portfolio.SITE_PROFILE);
   const personSchema = buildPersonSchema({
     profile: portfolio.SITE_PROFILE,
@@ -245,7 +220,7 @@ function buildStructuredData({ pathname, canonicalUrl, title, description, htmlL
     name: `Portfolio de ${portfolio.SITE_PROFILE.displayName}`,
     url: `${SITE_URL}/`,
     author: { "@id": `${SITE_URL}/#person` },
-    inLanguage: ["fr", "en", "es", "br"],
+    inLanguage: ["fr", "en", "br"],
   };
   const pageSchemaType = routeSchemaType[pathname] ?? "WebPage";
   const pageSchema = {
@@ -259,7 +234,7 @@ function buildStructuredData({ pathname, canonicalUrl, title, description, htmlL
     about: { "@id": `${SITE_URL}/#person` },
     ...(pageSchemaType === "ProfilePage" ? { mainEntity: { "@id": `${SITE_URL}/#person` } } : {}),
   };
-  const graph = [personSchema, websiteSchema, pageSchema, ...getBusinessSchema(getBusinessPage(pathname, localeData.business_pages), SITE_URL, localeData.business_pages.locale, localeData.business_pages.labels.home)];
+  const graph = [personSchema, websiteSchema, pageSchema, ...getBusinessSchema(getBusinessPage(pathname, localeData.business_pages), SITE_URL, contentLocale)];
 
   if (pathname === "/" || pathname === "/about") {
     graph.push({
@@ -286,7 +261,7 @@ function buildStructuredData({ pathname, canonicalUrl, title, description, htmlL
     }
   }
 
-  const breadcrumbSchema = buildBreadcrumbSchema({ canonicalUrl, pathname, title });
+  const breadcrumbSchema = seoConfig.getBreadcrumbSchema(SITE_URL, pathname, contentLocale, title.split("|")[0].trim(), tx(localeData, "home"));
   if (breadcrumbSchema) {
     graph.push(breadcrumbSchema);
   }
@@ -745,6 +720,8 @@ function main() {
       localeData,
       portfolio,
       routeSchemaType: seoConfig.ROUTE_SCHEMA_TYPE,
+      seoConfig,
+      contentLocale,
     });
     const head = buildHead({
       pathname,
@@ -764,6 +741,30 @@ function main() {
       writeFileEnsured(outputPath, routeHtml);
     }
   }
+
+  // Ces routes existent côté React mais ne doivent pas entrer dans le sitemap.
+  // Elles ont besoin de leur propre fichier depuis la suppression du repli SPA.
+  for (const [pathname, config] of Object.entries(seoConfig.ROUTE_SEO).filter(([, config]) => config.noindex)) {
+    const title = tx(fallbackLocaleData, config.titleKey);
+    const head = `<title>${escapeHtml(title)}</title><meta name="robots" content="noindex, nofollow" data-rh="true" />`;
+    const content = `<main id="seo-prerender"><h1>${escapeHtml(title)}</h1></main>`;
+    for (const outputPath of htmlOutputPaths(pathname)) {
+      writeFileEnsured(outputPath, injectHtml({ template, head, content, htmlLang: "fr" }));
+    }
+  }
+
+  // Vercel sert ce document avec un statut HTTP 404 pour les chemins absents.
+  // Sans JavaScript, le message et les liens restent lisibles ; React adapte la langue.
+  const errorTitle = tx(fallbackLocaleData, "not_found.title");
+  const errorDescription = tx(fallbackLocaleData, "not_found.description");
+  const errorHead = `<title>404 — ${escapeHtml(errorTitle)}</title>
+    <meta name="description" content="${escapeHtml(errorDescription)}" data-rh="true" />
+    <meta name="robots" content="noindex, nofollow" data-rh="true" />`;
+  const errorContent = `<main id="seo-prerender"><p>404</p><h1>${escapeHtml(errorTitle)}</h1>
+    <p>${escapeHtml(errorDescription)}</p><nav aria-label="Navigation">
+    <a href="/fr">${escapeHtml(tx(fallbackLocaleData, "not_found.home"))}</a> ·
+    <a href="/fr/project">${escapeHtml(tx(fallbackLocaleData, "not_found.projects"))}</a></nav></main>`;
+  writeFileEnsured(path.join(DIST_DIR, "404.html"), injectHtml({ template, head: errorHead, content: errorContent, htmlLang: "fr" }));
 
   const markdownFiles = buildMarkdownFiles({ localeData: fallbackLocaleData, portfolio, seoConfig });
   for (const [filename, markdown] of Object.entries(markdownFiles)) {

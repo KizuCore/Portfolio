@@ -1,5 +1,4 @@
 import { lazy, type JSX } from "react";
-import LocaleFallbackRoute from "./LocaleFallbackRoute";
 import Home from "../components/Home/Home";
 import { BUSINESS_PAGES } from "../data/businessPages";
 import { getLocalizedPath, SUPPORTED_LOCALES } from "../config/seo";
@@ -19,6 +18,7 @@ const PolitiqueConfidentialite = lazy(() => import("../components/Legal/Politiqu
 const PolitiqueCookies = lazy(() => import("../components/Legal/PolitiqueCookies"));
 const Gojo = lazy(() => import("../components/Easter/Gojo"));
 const RouteSecret = lazy(() => import("../components/Easter/Arcane"));
+const LocaleFallbackRoute = lazy(() => import("./LocaleFallbackRoute"));
 
 export type AppRoute = {
   path: string;

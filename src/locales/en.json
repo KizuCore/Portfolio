@@ -1,4 +1,11 @@
 {
+    "not_found": {
+        "eyebrow": "404 · Page not found",
+        "title": "Looks like we got lost.",
+        "description": "This page no longer exists, or never did. But there’s still plenty to discover around here.",
+        "home": "Back to home",
+        "projects": "View projects"
+    },
     "contact_refresh": {
         "verification_details": "Why?",
         "email_alternative": "Send an email",
@@ -610,14 +617,6 @@
         "language_selector": "Choose language"
     },
     "easter": {
-        "tardis": {
-            "label": "Unexpected TARDIS visit",
-            "arrival": "Temporal anomaly detected",
-            "landed": "Left the handbrake on. Again.",
-            "departure": "Next stop: somewhere else.",
-            "title": "Just five minutes…",
-            "joke": "I said a short break. Not three centuries."
-        },
         "breton": {
             "label": "Breton takeover",
             "detected": "BZH code intercepted",

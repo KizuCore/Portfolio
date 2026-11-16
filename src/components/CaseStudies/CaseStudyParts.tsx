@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { FiArrowRight } from "@react-icons/all-files/fi/FiArrowRight";
+import { FiArrowUpRight } from "@react-icons/all-files/fi/FiArrowUpRight";
 import { getHtmlLang } from "../../config/seo";
 import FaqItem from "../Business/FaqItem";
 import LoadingImage from "../Layout/LoadingImage";
@@ -31,7 +33,7 @@ export function CaseStudyLayout({ study, className, children }: StudyProps & { c
     <section className="business-contact">
       <p className="business-eyebrow">{labels.next_project}</p><h2>{labels.contact_heading}</h2>
       <p>{labels.contact_description}</p>
-      <Link className="business-button" to={`/${locale}/contact`}>{labels.contact} ↗</Link>
+      <Link className="business-button" to={`/${locale}/contact`}>{labels.contact} <FiArrowRight aria-hidden="true" /></Link>
     </section>
   </article>;
 }
@@ -39,8 +41,8 @@ export function CaseStudyLayout({ study, className, children }: StudyProps & { c
 export function CaseStudyLinks({ study }: StudyProps) {
   const { project, labels } = study;
   return <div className="business-actions">
-    {project.seeLink && <a className="business-button" href={project.seeLink} target="_blank" rel="noopener noreferrer">{labels.visit} <span className="sr-only">({labels.new_tab})</span> ↗</a>}
-    {project.ghLink && <a className={project.seeLink ? "business-text-link" : "business-button"} href={project.ghLink} target="_blank" rel="noopener noreferrer">{labels.code} <span className="sr-only">({labels.new_tab})</span> ↗</a>}
+    {project.seeLink && <a className="business-button" href={project.seeLink} target="_blank" rel="noopener noreferrer">{labels.visit} <span className="sr-only">({labels.new_tab})</span><FiArrowUpRight aria-hidden="true" /></a>}
+    {project.ghLink && <a className={project.seeLink ? "business-text-link" : "business-button"} href={project.ghLink} target="_blank" rel="noopener noreferrer">{labels.code} <span className="sr-only">({labels.new_tab})</span><FiArrowUpRight aria-hidden="true" /></a>}
   </div>;
 }
 

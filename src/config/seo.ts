@@ -131,6 +131,21 @@ export function getHtmlLang(locale: SupportedLocale): string {
   return locale === "bzh" ? "br" : locale;
 }
 
+// Source unique pour le HTML généré et les navigations React.
+export function getBreadcrumbSchema(siteUrl: string, pathname: string, locale: SupportedLocale, title: string, homeLabel: string) {
+  if (pathname === "/" || !ROUTE_SEO[pathname] || ROUTE_SEO[pathname].noindex) return null;
+  const canonicalLocale = getCanonicalLocale(locale, pathname);
+  const url = `${siteUrl}${getCanonicalPath(locale, pathname)}`;
+  return {
+    "@type": "BreadcrumbList",
+    "@id": `${url}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: homeLabel, item: `${siteUrl}${getLocalizedPath(canonicalLocale, "/")}` },
+      { "@type": "ListItem", position: 2, name: title, item: url },
+    ],
+  };
+}
+
 export function getLanguageAlternates(siteUrl: string, pathname: string) {
   // Les moteurs de recherche attendent une URL alternative absolue par variante linguistique.
   return getIndexableLocales(pathname).map((locale) => {

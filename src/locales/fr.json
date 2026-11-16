@@ -1,4 +1,11 @@
 {
+    "not_found": {
+        "eyebrow": "404 · Page introuvable",
+        "title": "On dirait qu’on s’est perdus.",
+        "description": "Cette page n’existe plus ou n’a jamais existé. Mais il reste de belles choses à découvrir par ici.",
+        "home": "Retour à l’accueil",
+        "projects": "Voir les projets"
+    },
     "contact_refresh": {
         "verification_details": "Pourquoi ?",
         "email_alternative": "Écrire par email",
@@ -612,14 +619,6 @@
         "loading_content": "Chargement du contenu"
     },
     "easter": {
-        "tardis": {
-            "label": "Visite imprévue du TARDIS",
-            "arrival": "Anomalie temporelle détectée",
-            "landed": "Frein à main oublié. Encore.",
-            "departure": "Prochain arrêt : ailleurs.",
-            "title": "Juste cinq minutes…",
-            "joke": "J’avais dit une petite pause. Pas trois siècles."
-        },
         "breton": {
             "label": "Invasion bretonne",
             "detected": "Code BZH intercepté",

@@ -281,6 +281,16 @@ function main() {
     // Détecte les régressions où une nouvelle route reçoit par erreur le contenu générique de l’accueil.
     const localizedRoute = seoConfig.splitLocalizedPath(routePath);
     const businessLocale = seoConfig.getContentLocale(localizedRoute.locale ?? "fr", localizedRoute.pathname);
+    const breadcrumbs = graph.filter((node) => node?.["@type"] === "BreadcrumbList");
+    assert(breadcrumbs.length === (localizedRoute.pathname === "/" ? 0 : 1), `${routePath}: fil d’Ariane absent ou dupliqué`, errors);
+    if (breadcrumbs.length === 1) {
+      const breadcrumb = breadcrumbs[0];
+      const items = breadcrumb.itemListElement;
+      assert(breadcrumb["@id"] === `${expectedCanonicalUrl}#breadcrumb`, `${routePath}: identifiant du fil d’Ariane incorrect`, errors);
+      assert(items?.[0]?.item === `${SITE_URL}${seoConfig.getLocalizedPath(businessLocale, "/")}`, `${routePath}: accueil du fil d’Ariane dans la mauvaise langue`, errors);
+      assert(items?.[0]?.name === businessTranslations[businessLocale].labels.home, `${routePath}: libellé d’accueil non traduit`, errors);
+      assert(items?.at(-1)?.item === expectedCanonicalUrl, `${routePath}: destination du fil d’Ariane non canonique`, errors);
+    }
     const businessPage = getBusinessPage(localizedRoute.pathname, businessTranslations[businessLocale]);
     if (businessPage) {
       assert(h1 === businessPage.title, `${routePath}: titre éditorial absent du HTML`, errors);

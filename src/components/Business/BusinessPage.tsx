@@ -1,6 +1,7 @@
 import FaqItem from "./FaqItem";
 import { getContentLocale, getShortLocale, getHtmlLang } from "../../config/seo";
 import { Link } from "react-router-dom";
+import { FiArrowRight } from "@react-icons/all-files/fi/FiArrowRight";
 import type { BusinessPage as BusinessPageContent } from "../../data/businessPages";
 import { getBusinessPage, getBusinessPages, getBusinessLabels } from "../../data/businessPages";
 import { useTranslation } from "react-i18next";
@@ -24,7 +25,7 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
         <p className="business-lead">{page.intro}</p>
         <ul className="business-tags" aria-label={labels.tags}>{page.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
         <div className="business-actions">
-          <Link className="business-button" to={`/${locale}/contact`}>{labels.talk} <span aria-hidden="true">↗</span></Link>
+          <Link className="business-button" to={`/${locale}/contact`}>{labels.talk} <FiArrowRight aria-hidden="true" /></Link>
           <a className="business-text-link" href="#en-detail">{labels.details} <span aria-hidden="true">↓</span></a>
         </div>
       </header>
@@ -58,7 +59,7 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
       <section className="business-contact">
         <p className="business-eyebrow">{labels.next_project}</p><h2>{labels.contact_heading}</h2>
         <p>{labels.contact_description}</p>
-        <Link className="business-button" to={`/${locale}/contact`}>{labels.contact} ↗</Link>
+        <Link className="business-button" to={`/${locale}/contact`}>{labels.contact} <FiArrowRight aria-hidden="true" /></Link>
       </section>
     </article>
   );

@@ -31,9 +31,25 @@ export default function HobbyArtwork({ index }: { index: number }) {
       <path d="M46 61V29M33 44l13-24 14 24ZM29 54l17-26 19 26Z" fill="#8bbba326" stroke="#8bbba365" />
     </>}
     {index === 5 && <>
-      <path d="M0 70H78L111 38H187M35 88H113L137 64H206M278 0V18L302 42V90" stroke="#89baf435" /><circle cx="187" cy="38" r="3" fill="#89baf4" />
-      <g className="hobby-controller" transform="translate(216 16) rotate(8)"><path d="M10 11Q43 1 76 11L90 48Q92 69 76 60L59 45H30L13 60Q-4 70-2 48Z" fill="#233c65" stroke="#a1caff" strokeWidth="1.6" /><path d="M22 20v18M13 29h18" stroke="#b4d4f8" strokeWidth="4" strokeLinecap="round" /><circle cx="65" cy="24" r="3" fill="#d5b2e9" /><circle cx="75" cy="33" r="3" fill="#94d9c7" /></g>
-      <path d="m55 22 5-7 5 7-5 7Z" fill="#91baf34d" />
+      <ellipse className="hobby-mayhem-halo" cx="253" cy="48" rx="51" ry="42" fill="#d6426526" />
+      <path d="M193 87V45Q193 3 253 3T313 45V87M202 87V45Q202 12 253 12T304 45V87" stroke="#dc8c9e26" />
+      <path d="M177 87H319" stroke="#e497aa40" />
+      <g strokeLinejoin="round">
+        {/* Sculptural headdress, puffed shoulders and the oversized draped red gown. */}
+        <path d="M249 23Q240 17 234 5Q246 10 253 17Q260 10 272 5Q266 17 257 23Z" fill="#541b32" stroke="#dc8097" strokeWidth="1.1" />
+        <path d="m244 19-5-12 12 10m11 2 5-12-12 10" stroke="#d77d92" />
+        <ellipse cx="253" cy="23" rx="4.3" ry="5.5" fill="#edc5c7" />
+        <path d="M249 27V31H257V27" fill="#c96e82" />
+        <path d="M245 31Q235 26 234 37L239 47 246 43H260L267 47 272 37Q271 26 261 31L257 29H249Z" fill="#ac304f" stroke="#e58b9e" strokeWidth="1.1" />
+        <path d="m239 32-4-5m7 5-1-8m26 8 4-5m-7 5 1-8" stroke="#e8b2bc" strokeWidth="1.1" strokeLinecap="round" />
+        <path d="m246 33 3 13h8l3-13M249 34h8m-7 4h6m-6 4h6" stroke="#f0a2b2" strokeWidth=".8" />
+        <path d="M249 45Q218 44 210 61L205 87Q253 93 301 87L296 61Q288 44 257 45Z" fill="#92243f" stroke="#df7c94" strokeWidth="1.2" />
+        <path d="M249 47Q222 47 211 61Q253 67 295 61Q284 47 257 47" fill="#b63855" stroke="#e3869c" strokeWidth=".9" />
+        <path d="M221 64Q227 88 247 66M259 66Q279 88 285 64M218 64Q228 91 246 70M260 70Q278 91 288 64" stroke="#e7859d" strokeWidth=".9" />
+        <path d="m218 66-6 20m17-12-4 14m16-11-2 11m14-22v23m13-12 2 11m12-14 4 14m4-22 6 20M231 51l-8 11m20-14-4 15m25-15 4 15m7-12 8 11" stroke="#5b142c" strokeWidth="1.4" />
+        <path d="M239 38l5 9 6-1m17-8-5 9-6-1" stroke="#f1a3b4" strokeWidth="1.4" strokeLinecap="round" />
+      </g>
+      <path className="hobby-star" d="M186 30v8m-4-4h8M309 21v6m-3-3h6" stroke="#efbdc9" strokeLinecap="round" />
     </>}
     {index === 7 && <>
       <path d="M15 17H109V35H42V58H79V77H17M123 17V55H152V75M148 17H179V44H192" stroke="#bda8e845" strokeWidth="2" strokeLinejoin="round" />

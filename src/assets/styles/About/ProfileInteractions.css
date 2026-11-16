@@ -300,7 +300,7 @@
   --hobby-accent: 155, 199, 169;
 }
 .profile-hobby-card[data-hobby="5"] {
-  --hobby-accent: 145, 190, 246;
+  --hobby-accent: 225, 125, 151;
 }
 .profile-hobby-card[data-hobby="7"] {
   --hobby-accent: 198, 170, 231;
@@ -339,9 +339,12 @@
 .profile-hobby-card:hover .hobby-cat-tail {
   transform: rotate(12deg);
 }
-.hobby-controller {
-  transform-origin: center;
-  transform-box: fill-box;
+.hobby-mayhem-halo {
+  opacity: 0.55;
+  transition: opacity 400ms ease;
+}
+.profile-hobby-card:hover .hobby-mayhem-halo {
+  opacity: 1;
 }
 .profile-hobby-card:hover .hobby-star {
   animation: hobby-star-glow 2.4s ease-in-out;
@@ -365,6 +368,7 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .hobby-mayhem-halo { transition: none; }
   .hobby-cat-tail {
     transition: none;
   }

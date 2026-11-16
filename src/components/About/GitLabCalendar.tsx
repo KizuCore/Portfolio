@@ -32,6 +32,5 @@ export default function GitLabCalendar(props: Omit<Props, "data">) {
   return <div aria-busy={!data}>
     {!data && <span className="sr-only" role="status">{t("a11y.loading_content")}</span>}
     <ActivityCalendar {...props} data={data ?? []} loading={!data} />
-    {data && <p className="code-activity-note">{t("code_activity.gitlab_note")}</p>}
   </div>;
 }

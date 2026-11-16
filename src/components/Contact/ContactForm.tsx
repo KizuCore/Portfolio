@@ -2,6 +2,7 @@ import { useState } from "react";
 import LoadingSpinner from "../Common/LoadingSpinner";
 import { useTranslation } from "react-i18next";
 import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
+import { FiEdit3 } from "@react-icons/all-files/fi/FiEdit3";
 import { CONTACT_FORM_FIELDS } from "./contactFormFields";
 import { useContactForm } from "./useContactForm";
 import "../../assets/styles/Contact/Contact.css";
@@ -28,7 +29,10 @@ function ContactForm() {
   return (
     <div className="contact-form-card">
       <header className="contact-form-header">
-        <h2 className="contact-form-title">{t("contact_form_title")}</h2>
+        <div className="contact-card-heading">
+          <span className="contact-card-icon"><FiEdit3 aria-hidden="true" size={19} /></span>
+          <h2 className="contact-form-title">{t("contact_form_title")}</h2>
+        </div>
         <p className="contact-form-subtitle">{t("contact_form_subtitle")}</p>
         <p className="contact-form-required"><span className="contact-required-marker" aria-hidden="true">*</span> {t("contact_form_required_hint")}</p>
       </header>
@@ -74,14 +78,13 @@ function ContactForm() {
         </div>
 
         <div className="contact-privacy">
-          <p>{t("contact_privacy.summary")} <Link to={getLocalizedPath(getShortLocale(i18n.language), "/politique-de-confidentialite")}>{t("contact_privacy.google_privacy")}</Link></p>
+          <div className="contact-consent-row">
           <label htmlFor="contact-captcha-consent" className="contact-consent flex items-start gap-3">
             <input id="contact-captcha-consent" type="checkbox" checked={captchaConsent}
-              className="mt-1 size-4 shrink-0 accent-accent" disabled={isSubmitting}
+              className="contact-consent-checkbox" disabled={isSubmitting}
               onChange={(event) => setCaptchaConsent(event.currentTarget.checked)} aria-describedby="contact-captcha-details" />
             <span>{t("contact_privacy.captcha_consent")}</span>
           </label>
-          <div className="contact-privacy-details">
             <button
               type="button"
               className="contact-privacy-toggle"
@@ -89,9 +92,11 @@ function ContactForm() {
               aria-controls="contact-privacy-panel"
               onClick={() => setPrivacyDetailsOpen((open) => !open)}
             >
-              <span>{t("contact_privacy.details_label")}</span>
+              <span>{t("contact_refresh.verification_details")}</span>
               <span className="contact-privacy-icon" aria-hidden="true" />
             </button>
+          </div>
+          <div className="contact-privacy-details">
             <div id="contact-privacy-panel" className="contact-privacy-panel" aria-hidden={!privacyDetailsOpen}>
               <div className="contact-privacy-content">
                 <p id="contact-captcha-details">{t("contact_privacy.captcha_details")} <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" tabIndex={privacyDetailsOpen ? undefined : -1}>{t("contact_privacy.google_privacy")}</a> · <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" tabIndex={privacyDetailsOpen ? undefined : -1}>{t("contact_privacy.google_terms")}</a></p>
@@ -130,8 +135,9 @@ function ContactForm() {
         </button>
         {showSubmitHint && <p id="contact-submit-hint" role="tooltip" className="contact-submit-hint">{submitHint}</p>}
         </div>
-        <p className="contact-email-alternative"><a href={`mailto:${SITE_PROFILE.email}`}>{t("contact_privacy.alternative_short")}</a></p>
+        <p className="contact-email-alternative"><a href={`mailto:${SITE_PROFILE.email}`}>{t("contact_refresh.email_alternative")}</a></p>
         </div>
+        <p className="contact-data-note">{t("contact_privacy.summary")} <Link to={getLocalizedPath(getShortLocale(i18n.language), "/politique-de-confidentialite")}>{t("footer_links.privacy")}</Link></p>
       </form>
     </div>
   );

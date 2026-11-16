@@ -1,4 +1,11 @@
 {
+    "contact_refresh": {
+        "verification_details": "Pourquoi ?",
+        "email_alternative": "Écrire par email",
+        "direct_title": "En direct",
+        "direct_description": "Vous préférez un email ou un premier échange sur LinkedIn ?",
+        "details_title": "Quelques repères"
+    },
     "page_headers": {
         "about": "Emgav",
         "projects": "Portfolio",
@@ -15,8 +22,7 @@
         "day_one": "{{count}} contribution le {{date}}",
         "day_other": "{{count}} contributions le {{date}}",
         "unavailable": "Le calendrier est momentanément indisponible. Le profil reste accessible via le lien ci-dessus.",
-        "retry": "Réessayer",
-        "gitlab_note": "Activité visible sur mon profil GitLab. Les contributions ne correspondent pas uniquement aux commits."
+        "retry": "Réessayer"
     },
     "legal_navigation": {
         "eyebrow": "Informations légales",
@@ -82,7 +88,7 @@
             "3": "Ar pezh a blij din en astronomiezh eo e tesker traoù nevez bemdez. Pep dizoloadenn a zegas goulennoù nevez: en em c’houlenn a ran hag-eñ e teuimp un deiz da gompren pep tra.",
             "4": "Ar c’hizhier, hep mar ebet. Diaes eo herzel ouzh ar bouloù blev-se.",
             "5": "Mont er-maez gant ma mignoned, mont da vale, krouiñ eñvorennoù… Profitañ eus ar mareoù bihan ha bevañ da vat, ken eeun-se.",
-            "6": "Rannañ ur c’hoari, kemer plijadur ha tremen ur mare mat.",
+            "6": "Plijout a ra din he sonerezh, an arzourez eo hag an talvoudoù a zifenn.",
             "7": "Fan eus Doctor Who. Kalz istorioù zo en amzer hag en egor.",
             "8": "En em lezel kas gant un istor ha klask an diskoulm asambles."
         }
@@ -131,7 +137,7 @@
     "hobby3": "Steredoniezh",
     "hobby4": "Al loened",
     "hobby5": "Bevañ ar vuhez",
-    "hobby6": "Sportoù-niverel",
+    "hobby6": "Lady Gaga",
     "hobby7": "Heuliadoù / Filmoù",
     "hobby8": "C’hoarioù tec’hout ha divinadelloù",
     "my_projects": "Ma",

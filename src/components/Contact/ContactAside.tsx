@@ -1,30 +1,44 @@
 import { useTranslation } from "react-i18next";
 import { SITE_PROFILE, SOCIAL_LINKS } from "../../config/site";
+import { FiMail } from "@react-icons/all-files/fi/FiMail";
+import { FiArrowUpRight } from "@react-icons/all-files/fi/FiArrowUpRight";
+import { FiClock } from "@react-icons/all-files/fi/FiClock";
+import { FiMapPin } from "@react-icons/all-files/fi/FiMapPin";
+import { FiBriefcase } from "@react-icons/all-files/fi/FiBriefcase";
+import { FiLinkedin } from "@react-icons/all-files/fi/FiLinkedin";
+import { FiGithub } from "@react-icons/all-files/fi/FiGithub";
 
-const DETAIL_KEYS = ["response", "location", "rate"] as const;
+const DETAILS = [
+  { key: "response", Icon: FiClock },
+  { key: "location", Icon: FiMapPin },
+  { key: "rate", Icon: FiBriefcase },
+] as const;
 
-// Les informations complémentaires restent secondaires au formulaire, dans une liste de définitions lisible.
+// Direct contact and practical details share the same visual hierarchy.
 export default function ContactAside() {
   const { t } = useTranslation();
   return <aside className="contact-aside" aria-labelledby="contact-aside-title">
-    <p className="contact-availability"><span aria-hidden="true" />{t("contact_meta_availability_value")}</p>
-    <h2 id="contact-aside-title">{t("contact_panel_title")}</h2>
-    <p className="contact-panel-description">{t("contact_panel_description")}</p>
-    <ol className="contact-steps">
-      {[1, 2, 3].map((step) => <li key={step}>{t(`contact_point_${step}`)}</li>)}
-    </ol>
-    <dl className="contact-details">
-      {DETAIL_KEYS.map((key) => <div key={key}>
-        <dt>{t(`contact_meta_${key}_label`)}</dt>
-        <dd>{t(`contact_meta_${key}_value`)}</dd>
-      </div>)}
-    </dl>
-    <div className="contact-direct">
-      <a className="contact-email-link" href={`mailto:${SITE_PROFILE.email}`}>{SITE_PROFILE.email} <span aria-hidden="true">↗</span></a>
-      <div className="contact-social-links">
-        <a href={SOCIAL_LINKS.linkedin}>{t("contact_cta_linkedin")} <span aria-hidden="true">↗</span></a>
-        <a href={SOCIAL_LINKS.github}>GitHub <span aria-hidden="true">↗</span></a>
+    <section className="contact-direct-card">
+      <div className="contact-card-heading">
+        <span className="contact-card-icon"><FiMail aria-hidden="true" size={19} /></span>
+        <h2 id="contact-aside-title">{t("contact_refresh.direct_title")}</h2>
       </div>
-    </div>
+      <p className="contact-panel-description">{t("contact_refresh.direct_description")}</p>
+      <a className="contact-email-link" href={`mailto:${SITE_PROFILE.email}`}><span>{SITE_PROFILE.email}</span><FiArrowUpRight aria-hidden="true" size={18} /></a>
+      <div className="contact-social-links">
+        <a href={SOCIAL_LINKS.linkedin}><FiLinkedin aria-hidden="true" />LinkedIn<FiArrowUpRight aria-hidden="true" /></a>
+        <a href={SOCIAL_LINKS.github}><FiGithub aria-hidden="true" />GitHub<FiArrowUpRight aria-hidden="true" /></a>
+      </div>
+      <p className="contact-availability"><span aria-hidden="true" />{t("contact_meta_availability_value")}</p>
+    </section>
+    <section className="contact-details-card" aria-labelledby="contact-details-title">
+      <h2 id="contact-details-title">{t("contact_refresh.details_title")}</h2>
+      <dl className="contact-details">
+        {DETAILS.map(({ key, Icon }) => <div key={key}>
+          <dt><Icon aria-hidden="true" size={17} />{t(`contact_meta_${key}_label`)}</dt>
+          <dd>{t(`contact_meta_${key}_value`)}</dd>
+        </div>)}
+      </dl>
+    </section>
   </aside>;
 }

@@ -143,7 +143,7 @@ function Hobbies({ t, onSecretClick }: { t: TFunction; onSecretClick: () => void
     { symbol: '🔭', index: 2 },
     { symbol: '🐈', index: 3 },
     { symbol: '🥂', index: 4 },
-    { symbol: '🎮', index: 5 },
+    { symbol: '🎵', index: 5 },
     { symbol: '🧩', index: 7 },
   ];
   return <>

@@ -1,4 +1,11 @@
 {
+    "contact_refresh": {
+        "verification_details": "Pourquoi ?",
+        "email_alternative": "Écrire par email",
+        "direct_title": "En direct",
+        "direct_description": "Vous préférez un email ou un premier échange sur LinkedIn ?",
+        "details_title": "Quelques repères"
+    },
     "page_headers": {
         "about": "Présentation",
         "projects": "Portfolio",
@@ -15,8 +22,7 @@
         "day_one": "{{count}} contribution le {{date}}",
         "day_other": "{{count}} contributions le {{date}}",
         "unavailable": "Le calendrier est momentanément indisponible. Le profil reste accessible via le lien ci-dessus.",
-        "retry": "Réessayer",
-        "gitlab_note": "Activité visible sur mon profil GitLab. Les contributions ne correspondent pas uniquement aux commits."
+        "retry": "Réessayer"
     },
     "legal_navigation": {
         "eyebrow": "Informations légales",
@@ -82,7 +88,7 @@
             "3": "Ce qui me passionne dans l’astronomie, c’est qu’on en apprend tous les jours. Chaque découverte soulève de nouvelles questions : je me demande si on arrivera un jour à tout comprendre.",
             "4": "Les chats, sans hésiter. Difficile de résister à ces petites boules de poils.",
             "5": "Sortir avec mes amis, partir en balade, créer des souvenirs… Profiter des petits moments et vivre pleinement, tout simplement.",
-            "6": "Partager une partie, se prendre au jeu et passer un bon moment.",
+            "6": "J’aime sa musique, l’artiste qu’elle est et les valeurs qu’elle défend.",
             "7": "Fan de Doctor Who. Le temps et l’espace ne manquent pas de bonnes histoires.",
             "8": "Se laisser embarquer dans une histoire et chercher ensemble la solution."
         }
@@ -131,7 +137,7 @@
     "hobby3": "Astronomie",
     "hobby4": "Les animaux",
     "hobby5": "Profiter de la vie",
-    "hobby6": "E-sports",
+    "hobby6": "Lady Gaga",
     "hobby7": "Séries / Films",
     "hobby8": "Escape games et énigmes",
     "my_projects": "Mes",

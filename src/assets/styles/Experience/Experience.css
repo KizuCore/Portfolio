@@ -6,14 +6,15 @@
 }
 .timeline-container {
   padding: 9.5rem 0 5rem;
-  color: #eaf2ff;
+  color: var(--text-primary);
   text-align: left;
 }
 .experience-title {
+  font-family: "Montserrat", sans-serif;
   margin: 0 0 3rem;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 700;
-  letter-spacing: -0.035em;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 550;
+  letter-spacing: -0.05em;
   line-height: 1.15;
 }
 .experience-title::before {
@@ -24,7 +25,7 @@
   margin-bottom: 1.25rem;
   border-radius: 3px;
   background: #4d92ff;
-  box-shadow: 0 0 12px #367fec55;
+  box-shadow: none;
 }
 .timeline {
   position: relative;
@@ -44,7 +45,7 @@
   background: #73aaff;
   transform: scaleY(var(--timeline-progress, 0));
   transform-origin: top;
-  box-shadow: 0 0 8px #367fec44;
+  box-shadow: none;
 }
 .timeline-event {
   position: relative;
@@ -76,18 +77,14 @@
 }
 .timeline-event:first-child .timeline-event-dot {
   background: #86b6f8;
-  box-shadow: 0 0 12px #5997ff66;
+  box-shadow: none;
 }
 .timeline-card {
   min-width: 0;
   padding: 1.75rem 2rem;
-  border: 1px solid #94b7e72b;
+  border: 1px solid var(--border-subtle);
   border-radius: 18px;
-  background: linear-gradient(
-    135deg,
-    rgba(24, 43, 70, 0.8),
-    rgba(13, 23, 39, 0.94)
-  );
+  background: var(--surface-850);
 }
 .timeline-card-header {
   display: flex;
@@ -105,7 +102,7 @@
   font-size: clamp(1.15rem, 2vw, 1.55rem);
   line-height: 1.35;
   font-weight: 700;
-  color: #f1f6ff;
+  color: var(--text-primary);
 }
 .timeline-card-subtitle {
   margin: 0.65rem 0 0;
@@ -116,7 +113,7 @@
 .timeline-card-description,
 .timeline-card-rncp {
   margin: 1rem 0 0;
-  color: #c8d4e5;
+  color: var(--text-muted);
   line-height: 1.75;
 }
 .timeline-card-diploma {
@@ -149,7 +146,7 @@
   gap: 0.5rem;
   margin-top: 1.5rem;
   padding-top: 1.25rem;
-  border-top: 1px solid #94b7e726;
+  border-top: 1px solid var(--border-subtle);
 }
 .timeline-stack-badge {
   padding: 0.3rem 0.65rem;
@@ -179,6 +176,7 @@
     padding: 7.5rem 0 3rem;
   }
   .experience-title {
+  font-family: "Montserrat", sans-serif;
     margin-bottom: 2rem;
     overflow-wrap: anywhere;
   }
@@ -215,6 +213,7 @@
 
 /* L’expérience professionnelle vient en premier ; la formation adopte une chronologie plus sobre et compacte. */
 .timeline-container .experience-title {
+  font-family: "Montserrat", sans-serif;
   margin-bottom: 1rem;
 }
 .experience-intro {
@@ -270,9 +269,7 @@
 .career-work .timeline-card {
   padding: clamp(1.3rem, 3vw, 2.3rem);
   border-color: #83b7ff55;
-  background:
-    radial-gradient(ellipse at 100% 0, #3d7bc51c, transparent 65%),
-    linear-gradient(135deg, #152b46, #0d1829);
+  background: var(--surface-850);
   box-shadow: 0 18px 60px #00000018;
 }
 .career-work .timeline-card-subtitle {

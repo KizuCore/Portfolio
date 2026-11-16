@@ -11,7 +11,7 @@ export default function Services() {
   return <section className="home-services" id="services" aria-labelledby="services-title">
     <header className="home-services-header">
       <div>
-        <p className="business-eyebrow">{t("services.eyebrow")}</p>
+        <p className="business-eyebrow">02 / {t("services.eyebrow")}</p>
         <h2 id="services-title">{t("services.title")}</h2>
         <p>{t("services.subtitle")}</p>
       </div>

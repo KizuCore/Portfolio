@@ -7,9 +7,9 @@
   z-index: 1080;
   max-width: 1180px;
   margin: 0 auto;
-  border: 1px solid #94b7e733;
-  border-radius: 18px;
-  background: linear-gradient(115deg, #15283f, #101d30 70%);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  background: var(--surface-850);
   box-shadow: 0 12px 40px #02091680;
   max-height: calc(100dvh - 2rem);
   overflow-y: auto;
@@ -28,7 +28,7 @@
 }
 .cookie-banner-title {
   margin: 0 0 0.5rem;
-  color: #f0f6ff;
+  color: var(--text-primary);
   font-size: 1rem;
   font-weight: 650;
   line-height: 1.4;
@@ -37,7 +37,7 @@
 .cookie-banner-text {
   margin: 0;
   text-align: left;
-  color: #cbd9ec;
+  color: var(--text-muted);
   font-size: 0.85rem;
   line-height: 1.65;
 }

@@ -49,11 +49,11 @@
   margin: 1.7rem 0;
 }
 .business-tags li {
-  border: 1px solid #334969;
+  border: 1px solid var(--border-subtle);
   border-radius: 100px;
   padding: 0.4rem 0.8rem;
   font-size: 0.8rem;
-  background: #101c30;
+  background: var(--surface-850);
 }
 .business-page a:focus-visible,
 .business-page summary:focus-visible {
@@ -64,7 +64,7 @@
   display: grid;
   grid-template-columns: 1fr 1.8fr;
   gap: 4rem;
-  border-top: 1px solid #2b3c58;
+  border-top: 1px solid var(--border-subtle);
   padding-top: 3rem;
   scroll-margin-top: 110px;
 }
@@ -82,7 +82,7 @@
   position: relative;
   padding: 0 0 2rem 3rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid #2b3c58;
+  border-bottom: 1px solid var(--border-subtle);
 }
 .business-number {
   position: absolute;
@@ -120,7 +120,7 @@
   margin-bottom: 1.5rem;
 }
 .business-faq details {
-  border-bottom: 1px solid #334969;
+  border-bottom: 1px solid var(--border-subtle);
   padding: 1.25rem 0;
 }
 .business-faq summary {
@@ -170,7 +170,7 @@
   color: var(--text-primary);
   text-decoration: none;
   background: #0e1a2c;
-  border: 1px solid #334969;
+  border: 1px solid var(--border-subtle);
   border-radius: 16px;
   padding: 1.5rem;
 }
@@ -180,7 +180,7 @@
 }
 .business-contact {
   border: 1px solid #385782;
-  background: radial-gradient(ellipse at top right, #203b65 0%, #101c30 65%);
+  background: radial-gradient(ellipse at top right, #203b65 0%, var(--surface-850) 65%);
   border-radius: 20px;
   padding: clamp(1.5rem, 5vw, 3.5rem);
 }

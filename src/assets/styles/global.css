@@ -2,37 +2,26 @@
 @import "./shared/surfaces.css";
 
 :root {
-  --surface-900: #05080f;
-  --surface-850: #090f1f;
-  --surface-800: #10172a;
-  --text-primary: #f5f9ff;
-  --text-muted: #b6c2da;
-  --dark-blue: #2e7bff;
-  --dark-blue-2: #69b3ff;
-  --btn-text: #edf6ff;
-  --btn-border: rgba(170, 211, 255, 0.44);
-  --btn-border-hover: rgba(211, 233, 255, 0.92);
-  --btn-bg: linear-gradient(
-    140deg,
-    rgba(13, 32, 60, 0.95),
-    rgba(36, 97, 181, 0.9)
-  );
-  --btn-bg-hover: linear-gradient(
-    140deg,
-    rgba(17, 42, 79, 0.98),
-    rgba(52, 128, 230, 0.92)
-  );
-  --btn-shadow:
-    0 10px 24px rgba(3, 12, 27, 0.38), 0 0 18px rgba(68, 146, 255, 0.16);
-  --btn-shadow-hover:
-    0 14px 30px rgba(3, 12, 27, 0.5), 0 0 24px rgba(83, 161, 255, 0.34);
-  --section-background-color: linear-gradient(
-    145deg,
-    #05080f 0%,
-    #0b1221 44%,
-    #121d34 100%
-  );
-  --glow: 0 0 40px rgba(64, 144, 255, 0.2);
+  --surface-900: #0c1017;
+  --surface-850: #111720;
+  --surface-800: #19212c;
+  --text-primary: #f2f1ed;
+  --text-muted: #a9b2c0;
+  --accent: #a4c4f5;
+  --accent-hover: #c1d7f8;
+  --accent-ink: #101b2b;
+  --border-subtle: #ffffff1a;
+  --dark-blue: #a4c4f5;
+  --dark-blue-2: #c1d7f8;
+  --btn-text: #101b2b;
+  --btn-border: transparent;
+  --btn-border-hover: transparent;
+  --btn-bg: #a4c4f5;
+  --btn-bg-hover: #c1d7f8;
+  --btn-shadow: none;
+  --btn-shadow-hover: none;
+  --section-background-color: #0c1017;
+  --glow: none;
 }
 
 html {
@@ -41,21 +30,16 @@ html {
 }
 
 body {
+  --bs-body-bg: var(--surface-900);
+  --bs-body-color: var(--text-primary);
+  --bs-heading-color: var(--text-primary);
+  --bs-link-color: var(--accent);
+  --bs-link-hover-color: var(--accent-hover);
+  min-width: 320px;
   height: 100%;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
   color: var(--text-primary);
-  background:
-    radial-gradient(
-      circle at 0% 15%,
-      rgba(72, 129, 255, 0.12),
-      transparent 42%
-    ),
-    radial-gradient(
-      circle at 100% 0%,
-      rgba(88, 196, 255, 0.08),
-      transparent 35%
-    ),
-    linear-gradient(160deg, #04070d 0%, #080e1a 42%, #101a2e 100%);
+  background: var(--surface-900);
 }
 
 ::selection {
@@ -79,7 +63,7 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid #7cb8ff;
+  outline: 2px solid var(--accent) !important;
   outline-offset: 2px;
   box-shadow: none;
 }
@@ -93,51 +77,31 @@ select:focus-visible {
 }
 
 .blue {
-  color: #8bc7ff;
+  color: var(--accent);
 }
 
 .blue-title {
-  font-family: "Montserrat", serif !important;
-  font-weight: 700;
-  background: linear-gradient(90deg, var(--dark-blue), var(--dark-blue-2));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% 200%;
-  background-repeat: no-repeat;
-  display: inline-block;
-  animation: animateGradient 5s linear infinite;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 650;
+  color: var(--text-primary);
 }
 
 .light-blue-title {
-  color: #91c4ff !important;
+  color: var(--accent) !important;
   font-family: "Montserrat", serif !important;
   font-weight: 700;
 }
 
 .custom-title {
   font-family: "Montserrat", sans-serif;
-  font-weight: 800;
-  font-size: 3rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.04em;
   line-height: 1.2;
-  text-align: center;
-  background: linear-gradient(90deg, var(--dark-blue), var(--dark-blue-2));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: fit-content;
-  margin-inline: auto;
-  text-shadow: 0 2px 10px rgba(39, 109, 238, 0.32);
+  color: var(--text-primary);
 }
 
-.custom-title:hover {
-  animation: glowPulse 1s ease-in-out infinite;
-}
+
 
 .custom-title-1 {
   font-size: 2.7rem !important;
@@ -174,17 +138,6 @@ select:focus-visible {
   }
 }
 
-@supports (-webkit-touch-callout: none) {
-  @media (max-width: 991px) {
-    .custom-title,
-    .blue-title {
-      background: none !important;
-      -webkit-text-fill-color: currentColor !important;
-      color: #76b3ff !important;
-      text-shadow: 0 2px 10px rgba(39, 109, 238, 0.28);
-    }
-  }
-}
 
 .about-section,
 .parkour-section {

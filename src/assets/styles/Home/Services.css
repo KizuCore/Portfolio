@@ -1,81 +1,17 @@
-/* Une section et une grille, sans cadre supplémentaire autour des cartes déjà encadrées. */
-.home-services {
-  margin: 4.5rem 0 2rem;
-  text-align: left;
-  scroll-margin-top: 110px;
-}
-.home-services-header {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-.home-services-header h2 {
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  letter-spacing: -0.03em;
-  margin: 0.8rem 0;
-  color: var(--text-primary);
-}
-.home-services-header p:not(.business-eyebrow) {
-  max-width: 620px;
-  color: var(--text-muted);
-  line-height: 1.8;
-  margin: 0;
-}
-.home-services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
-}
-.service-tile {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 1.6rem;
-  border: 1px solid #293a54;
-  border-radius: 12px;
-  background: #0e192b;
-}
-.service-tile-icon {
-  color: #a6ceff;
-  font-size: 1.35rem;
-  margin-bottom: 1.4rem;
-}
-.service-tile h3 {
-  font-size: 1.35rem;
-  font-weight: 650;
-  margin-bottom: 0.35rem;
-}
-.service-tile-technology {
-  margin-bottom: 0.9rem;
-  color: #a6ceff;
-  font-size: 0.8rem;
-}
-.service-tile p {
-  color: var(--text-muted);
-  line-height: 1.8;
-  font-size: 0.93rem;
-  margin-bottom: 1.5rem;
-}
-.service-tile a {
-  margin-top: auto;
-  font-size: 0.85rem;
-}
+﻿.home-services { margin: 5.5rem 0 2rem; padding-top: 3.5rem; border-top: 1px solid var(--border-subtle); text-align: left; scroll-margin-top: 110px; }
+.home-services-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; margin-bottom: 2.5rem; }
+.home-services-header h2 { font-family: "Montserrat", sans-serif; font-size: clamp(1.8rem, 3vw, 2.65rem); letter-spacing: -0.045em; font-weight: 550; margin: 0.8rem 0 1rem; color: var(--text-primary); }
+.home-services-header p:not(.business-eyebrow) { max-width: 54ch; color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; margin: 0; }
+.home-services-header > a { flex-shrink: 0; }
+.home-services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+.service-tile { display: flex; flex-direction: column; align-items: flex-start; padding: 1.5rem 0 0; border-top: 1px solid var(--border-subtle); }
+.service-tile-icon { color: var(--accent); font-size: 1.3rem; margin-bottom: 1.5rem; }
+.service-tile h3 { font-family: "Montserrat", sans-serif; font-size: 1.25rem; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 0.55rem; }
+.service-tile-technology { color: var(--text-muted); font-size: 0.72rem; margin-bottom: 1rem; }
+.service-tile p { color: var(--text-muted); line-height: 1.85; font-size: 0.85rem; margin-bottom: 1.25rem; }
+.service-tile a { margin-top: auto; font-size: 0.78rem; }
 @media (max-width: 767px) {
-  .home-services {
-    margin-top: 3rem;
-  }
-  .home-services-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
-  }
-  .home-services-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  .service-tile {
-    padding: 1.4rem;
-  }
+  .home-services { margin-top: 3.5rem; padding-top: 2.5rem; }
+  .home-services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .home-services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }

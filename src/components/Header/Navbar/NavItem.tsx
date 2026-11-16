@@ -1,19 +1,20 @@
-import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { splitLocalizedPath } from '../../../config/seo';
 import '../../../assets/styles/Header/Navigation.css';
 
 interface NavItemProps {
   to: string;
-  icon: React.ReactNode;
   label: string;
   onClick: () => void;
   ariaLabel: string;
+  prominent?: boolean;
 }
 
-function NavItem({ to, icon, label, onClick, ariaLabel }: NavItemProps) {
+function NavItem({ to, label, onClick, ariaLabel, prominent = false }: NavItemProps) {
   const location = useLocation();
-  const isActive = splitLocalizedPath(location.pathname).pathname === splitLocalizedPath(to).pathname;
+  const currentPath = splitLocalizedPath(location.pathname).pathname;
+  const targetPath = splitLocalizedPath(to).pathname;
+  const isActive = currentPath === targetPath || (targetPath === '/project' && currentPath.startsWith('/realisations/'));
 
   return (
     <li className="nav-item">
@@ -22,12 +23,10 @@ function NavItem({ to, icon, label, onClick, ariaLabel }: NavItemProps) {
         onClick={onClick}
         aria-label={ariaLabel}
         aria-current={isActive ? "page" : undefined}
-        className={`nav-link${isActive ? ' active' : ''}`}
+        className={`nav-link${isActive ? ' active' : ''}${prominent ? ' nav-contact' : ''}`}
       >
-        <span className="nav-icon" aria-hidden="true">
-          {icon}
-        </span>
         <span className="nav-label">{label}</span>
+        {prominent && <span aria-hidden="true">↗</span>}
       </Link>
     </li>
   );

@@ -14,11 +14,12 @@
   margin-bottom: 2.75rem;
 }
 .contact-header h1 {
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 700;
-  color: #f1f6ff;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 550;
+  color: var(--text-primary);
   line-height: 1.15;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.05em;
   margin: 0 0 1.25rem;
 }
 /* Reprend l’accent des titres des pages Projets, Expériences et CV. */
@@ -30,7 +31,7 @@
   margin-bottom: 1.25rem;
   border-radius: 3px;
   background: #4d92ff;
-  box-shadow: 0 0 12px #367fec55;
+  box-shadow: none;
 }
 .contact-lead {
   color: var(--text-muted);
@@ -45,8 +46,8 @@
   gap: clamp(2rem, 5vw, 4.5rem);
 }
 .contact-form-card {
-  background: #0e192b;
-  border: 1px solid #293d59;
+  background: var(--surface-850);
+  border: 1px solid var(--border-subtle);
   border-radius: 16px;
   padding: clamp(1.25rem, 3vw, 2.25rem);
   text-align: left;
@@ -67,7 +68,7 @@
   margin: 0.75rem 0;
 }
 .contact-form-required {
-  color: #9fb1cb;
+  color: var(--text-muted);
   font-size: 0.8rem;
   margin: 0;
 }
@@ -85,8 +86,8 @@
 .contact-form-card .custom-form {
   border: 1px solid #354b6b;
   border-radius: 8px;
-  background: #091323;
-  color: #f5f9ff;
+  background: var(--surface-900);
+  color: var(--text-primary);
   min-height: 48px;
   padding: 0.8rem 0.9rem;
   font-size: 0.95rem;
@@ -101,8 +102,8 @@
   border-color: #6884aa;
 }
 .contact-form-card .custom-form:focus {
-  background-color: #091323;
-  color: #f5f9ff;
+  background-color: var(--surface-900);
+  color: var(--text-primary);
   outline: 2px solid #9dc6ff;
   outline-offset: 2px;
   border-color: #9dc6ff;
@@ -117,8 +118,8 @@
 }
 /* Limite les styles de remplissage automatique à ce formulaire pour préserver les autres champs du site. */
 .contact-form-card input:-webkit-autofill {
-  -webkit-text-fill-color: #f5f9ff;
-  box-shadow: 0 0 0 1000px #091323 inset;
+  -webkit-text-fill-color: var(--text-primary);
+  box-shadow: 0 0 0 1000px var(--surface-900) inset;
 }
 .contact-form-card .contact-submit-btn {
   display: inline-flex;

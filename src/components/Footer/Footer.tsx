@@ -5,14 +5,17 @@ import { FiMapPin } from "@react-icons/all-files/fi/FiMapPin";
 import { FiGithub } from "@react-icons/all-files/fi/FiGithub";
 import { FiGitlab } from "@react-icons/all-files/fi/FiGitlab";
 import { FiLinkedin } from "@react-icons/all-files/fi/FiLinkedin";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { getLocalizedPath, getShortLocale, splitLocalizedPath } from "../../config/seo";
 import logo from "@image/logodev.svg";
 import IconLink from "../Common/IconLink";
 import { SITE_PROFILE, SOCIAL_LINKS } from "../../config/site";
 import "../../assets/styles/Footer/Footer.css";
 
 function Footer(): JSX.Element {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { pathname } = useLocation();
+  const locale = splitLocalizedPath(pathname).locale ?? getShortLocale(i18n.language);
   const year = new Date().getFullYear();
   const serviceLinks = [
     { to: "/fr/services/creation-site-internet-rennes", label: t("services.items.websites.title") },
@@ -64,7 +67,7 @@ function Footer(): JSX.Element {
             <ul className="footer-pages-list">
               {pageLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="footer-nav-link">
+                  <Link to={getLocalizedPath(locale, link.to)} className="footer-nav-link">
                     {link.label}
                   </Link>
                 </li>

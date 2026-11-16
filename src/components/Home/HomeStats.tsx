@@ -1,52 +1,11 @@
-import { lazy, Suspense, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
-import { m, useInView, useReducedMotion } from 'framer-motion';
+﻿import { useTranslation } from "react-i18next";
 
-const CountUp = lazy(() => import('react-countup'));
-
-function HomeStats() {
+// Des repères immédiatement lisibles, sans compteur qui commence à zéro.
+export default function HomeStats() {
   const { t } = useTranslation();
-  const section = useRef<HTMLDivElement>(null);
-  const visible = useInView(section, { once: true, amount: 0.4 });
-  const reduceMotion = useReducedMotion();
-  const codingStartYear = 2017;
-  const stats = [
-    { value: new Date().getFullYear() - codingStartYear, labels: [t('coding_years'), t('coding_since', { year: codingStartYear })] },
-    { value: 2, labels: [t('years'), t('experience_home')] },
-    { value: 5, labels: [t('years'), t('studies')] },
-    { value: 40, prefix: '+', labels: [t('projects'), t('completed')] },
-    { value: 37, prefix: '+', labels: [t('technologies')] },
-  ];
-
-  return (
-    <div className="home-stats" ref={section} data-visible={visible}>
-      <div className="row g-3 g-md-5 justify-content-center">
-        {stats.map((stat, index) => (
-          <m.div
-            key={index}
-            className="col-6 col-md-4 col-lg d-flex justify-content-center"
-            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-            animate={visible || reduceMotion ? { opacity: 1, y: 0 } : undefined}
-            transition={{ duration: reduceMotion ? 0 : 0.45, delay: reduceMotion ? 0 : index * 0.3 }}
-          >
-            {/* Annonce le chiffre final une seule fois, sans lire chaque étape du compteur. */}
-            <span className="visually-hidden">{stat.prefix}{stat.value} {stat.labels.join(' ')}</span>
-            <div className="stat-item stat-item-combo" aria-hidden="true">
-              {stat.prefix && <span className="stat-plus">{stat.prefix}</span>}
-              <span className="stat-number bold-number" style={{ minWidth: `${String(stat.value).length}ch`, fontVariantNumeric: 'tabular-nums' }}>
-                {reduceMotion ? stat.value : visible ? (
-                  <Suspense fallback={0}><CountUp start={0} end={stat.value} delay={index * 0.3} duration={1.6} useEasing={false} /></Suspense>
-                ) : 0}
-              </span>
-              <div className="stat-label-wrapper">
-                {stat.labels.map((label, labelIndex) => <span className="stat-label" key={labelIndex}>{label}</span>)}
-              </div>
-            </div>
-          </m.div>
-        ))}
-      </div>
-    </div>
-  );
+  return <div className="home-facts">
+    <p><strong>2017</strong><span>{t("home_refresh.since")}</span></p>
+    <p><strong>Web & mobile</strong><span>React · Django · Flutter</span></p>
+    <p><strong>{t("home_offer.location")}</strong><span>{t("home_refresh.location_note")}</span></p>
+  </div>;
 }
-
-export default HomeStats;

@@ -1,12 +1,6 @@
 import { JSX, useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation, useNavigate } from "react-router-dom";
-import { FiBriefcase } from "@react-icons/all-files/fi/FiBriefcase";
-import { FiFileText } from "@react-icons/all-files/fi/FiFileText";
-import { FiFolder } from "@react-icons/all-files/fi/FiFolder";
-import { FiHome } from "@react-icons/all-files/fi/FiHome";
-import { FiMail } from "@react-icons/all-files/fi/FiMail";
-import { FiUser } from "@react-icons/all-files/fi/FiUser";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LanguageSelector from "../LanguageSelector";
 import Logo from "../Logo/LogoContainer";
 import NavItem from "./NavItem";
@@ -28,7 +22,7 @@ const MENU_FOCUSABLE_SELECTOR = [
 ].join(",");
 
 // Isole l’interaction cachée du logo de l’état visuel de la barre de navigation.
-function useLogoNavigation(navigate: ReturnType<typeof useNavigate>) {
+function useLogoNavigation(navigate: ReturnType<typeof useNavigate>, homePath: string) {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isLongClick, setIsLongClick] = useState(false);
   const [isClickValid, setIsClickValid] = useState(false);
@@ -64,7 +58,7 @@ function useLogoNavigation(navigate: ReturnType<typeof useNavigate>) {
     clearLogoTimers();
 
     if (!isLongClick && isClickValid) {
-      navigate("/");
+      navigate(homePath);
     }
 
     setIsClickValid(false);
@@ -86,12 +80,13 @@ function NavBar(): JSX.Element {
   const [navColour, setNavColour] = useState(() => window.scrollY >= 20);
   const navigate = useNavigate();
   const location = useLocation();
+  const navRef = useRef<HTMLElement | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const toggleButtonRef = useRef<HTMLButtonElement | null>(null);
   const localizedPath = splitLocalizedPath(location.pathname);
   const currentLocale = localizedPath.locale ?? getShortLocale(i18n.resolvedLanguage ?? i18n.language ?? "fr");
 
-  const { isAnimating, handleMouseDown, handleMouseUp, handleMouseLeave } = useLogoNavigation(navigate);
+  const { isAnimating, handleMouseDown, handleMouseUp, handleMouseLeave } = useLogoNavigation(navigate, getLocalizedPath(currentLocale, "/"));
 
   useEffect(() => {
     // La classe sticky change uniquement lorsque le seuil de défilement est franchi.
@@ -115,8 +110,8 @@ function NavBar(): JSX.Element {
     }
 
     const getFocusableMenuItems = () =>
-      Array.from(menuRef.current?.querySelectorAll<HTMLElement>(MENU_FOCUSABLE_SELECTOR) ?? []).filter(
-        (element) => !element.hasAttribute("disabled") && element.tabIndex !== -1
+      Array.from(navRef.current?.querySelectorAll<HTMLElement>(MENU_FOCUSABLE_SELECTOR) ?? []).filter(
+        (element) => !element.hasAttribute("disabled") && element.tabIndex !== -1 && element.getClientRects().length > 0
       );
 
     // Maintient le focus dans le menu mobile ouvert jusqu’à sa fermeture.
@@ -148,29 +143,38 @@ function NavBar(): JSX.Element {
       }
     };
 
+    const desktop = window.matchMedia("(min-width: 900px)");
+    const closeOnDesktop = () => { if (desktop.matches) setExpand(false); };
+    const closeOutside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !navRef.current?.contains(event.target)) setExpand(false);
+    };
     window.addEventListener("keydown", handleMenuKeyDown);
-    window.requestAnimationFrame(() => getFocusableMenuItems()[0]?.focus());
+    document.addEventListener("pointerdown", closeOutside);
+    desktop.addEventListener("change", closeOnDesktop);
+    const frame = window.requestAnimationFrame(() => menuRef.current?.querySelector<HTMLElement>("a[href]")?.focus());
 
-    return () => window.removeEventListener("keydown", handleMenuKeyDown);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("keydown", handleMenuKeyDown);
+      document.removeEventListener("pointerdown", closeOutside);
+      desktop.removeEventListener("change", closeOnDesktop);
+    };
   }, [expand]);
 
   // Construit les éléments de navigation selon la langue actuelle pour synchroniser les libellés et les chemins.
   const navItems = [
-    { to: getLocalizedPath(currentLocale, "/"), icon: <FiHome />, label: t("home"), ariaLabel: t("home_aria") },
-    { to: getLocalizedPath(currentLocale, "/about"), icon: <FiUser />, label: t("about"), ariaLabel: t("about_aria") },
+    { to: getLocalizedPath(currentLocale, "/project"), label: t("project"), ariaLabel: t("project_aria") },
+    { to: getLocalizedPath(currentLocale, "/about"), label: t("about"), ariaLabel: t("about_aria") },
     {
       to: getLocalizedPath(currentLocale, "/experience"),
-      icon: <FiBriefcase />,
       label: t("experience"),
       ariaLabel: t("about_experience"),
     },
-    { to: getLocalizedPath(currentLocale, "/project"), icon: <FiFolder />, label: t("project"), ariaLabel: t("project_aria") },
-    { to: getLocalizedPath(currentLocale, "/contact"), icon: <FiMail />, label: t("social"), ariaLabel: t("social") },
-    { to: getLocalizedPath(currentLocale, "/cv"), icon: <FiFileText />, label: t("cv"), ariaLabel: t("cv_aria") },
   ];
 
   return (
     <nav
+      ref={navRef}
       className={`navbar navbar-polished navbar-expand-md fixed-top ${navColour ? "sticky" : ""} ${expand ? "menu-open" : ""}`}
       aria-label={t("a11y.main_navigation")}
     >
@@ -183,18 +187,19 @@ function NavBar(): JSX.Element {
             handleMouseLeave={handleMouseLeave}
             t={t}
           />
-          <button
-            type="button"
+          <Link
+            to={getLocalizedPath(currentLocale, "/")}
             className="navbar-brand-text navbar-brand-home-btn"
             aria-label={t("home_aria")}
-            onClick={() => {
+            onClick={(event) => {
               setExpand(false);
-              navigate(getLocalizedPath(currentLocale, "/"));
-              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              if (location.pathname === getLocalizedPath(currentLocale, "/") && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) {
+                window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+              }
             }}
           >
             {SITE_PROFILE.brandName}
-          </button>
+          </Link>
         </div>
 
         <button
@@ -217,12 +222,18 @@ function NavBar(): JSX.Element {
               <NavItem
                 key={item.to}
                 to={item.to}
-                icon={item.icon}
                 label={item.label}
                 onClick={() => setExpand(false)}
                 ariaLabel={item.ariaLabel}
               />
             ))}
+            <NavItem
+              to={getLocalizedPath(currentLocale, "/contact")}
+              label={t("social")}
+              ariaLabel={t("social")}
+              onClick={() => setExpand(false)}
+              prominent
+            />
             <li className="nav-item">
               <LanguageSelector />
             </li>

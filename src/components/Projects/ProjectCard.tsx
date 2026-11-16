@@ -1,153 +1,53 @@
-import LoadingImage from "../Layout/LoadingImage";
-import Card from "react-bootstrap/Card";
-import "../../assets/styles/Projects/bootstrap-card.scss";
-import Button from "react-bootstrap/Button";
+﻿import LoadingImage from "../Layout/LoadingImage";
 import { useTranslation } from "react-i18next";
-import { getShortLocale, getLocalizedPath, getHtmlLang } from "../../config/seo";
-import { Link } from "react-router-dom";
-import "../../assets/styles/Projects/Projects.css";
-import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
-import { FaGitlab } from "@react-icons/all-files/fa/FaGitlab";
-import { FaYoutube } from "@react-icons/all-files/fa/FaYoutube";
-import { FaEye } from "@react-icons/all-files/fa/FaEye";
+import { getShortLocale, getLocalizedPath, getContentLocale, getHtmlLang, splitLocalizedPath } from "../../config/seo";
+import { Link, useLocation } from "react-router-dom";
+import type { ProjectCategory } from "./data/projects";
 
 interface ProjectCardProps {
   imgPath: string;
+  srcSet?: string;
   altText: string;
   title: string;
   description: string;
   techStack: string[];
+  category: ProjectCategory;
   ghLink?: string;
   youtubeLink?: string;
   seeLink?: string;
   caseStudyPath?: string;
   isGitLab?: boolean;
   featured?: boolean;
-  featuredLabel?: string;
   imageMode?: "cover" | "contain";
 }
 
-function resolveResultKey(hasLiveDemo: boolean, hasVideo: boolean, hasCode: boolean) {
-  // Choisit le texte du résultat selon les liens réellement disponibles pour le projet.
-  if (!hasCode) {
-    if (hasLiveDemo && hasVideo) return "project_card.result_live_and_video";
-    if (hasLiveDemo) return "project_card.result_live_only";
-    if (hasVideo) return "project_card.result_video_only";
-    return "project_card.result_case_only";
-  }
-  if (hasLiveDemo && hasVideo) {
-    return "project_card.result_live_video_and_code";
-  }
-
-  if (hasLiveDemo) {
-    return "project_card.result_live_and_code";
-  }
-
-  if (hasVideo) {
-    return "project_card.result_video_and_code";
-  }
-
-  return "project_card.result_github_only";
-}
-
-function ProjectCard(props: ProjectCardProps) {
+export default function ProjectCard(props: ProjectCardProps) {
   const { t, i18n } = useTranslation();
-  const resultText = t(resolveResultKey(Boolean(props.seeLink), Boolean(props.youtubeLink), Boolean(props.ghLink)));
+  const { pathname } = useLocation();
+  const locale = splitLocalizedPath(pathname).locale ?? getShortLocale(i18n.language);
+  const contentLocale = props.caseStudyPath ? getContentLocale(locale, splitLocalizedPath(props.caseStudyPath).pathname) : locale;
+  const casePath = props.caseStudyPath ? getLocalizedPath(contentLocale, props.caseStudyPath) : undefined;
+  const externalLink = props.seeLink ?? props.youtubeLink ?? props.ghLink;
+  const coverClass = `project-cover${props.imageMode === "contain" ? " project-cover-contain" : ""}`;
+  const image = <LoadingImage src={props.imgPath} srcSet={props.srcSet}
+    sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1232px) calc((100vw - 80px) / 2), 568px"
+    alt={props.altText} width="1600" height="1000" decoding="async" loading="lazy" />;
 
-  return (
-    <Card className={`project-card-view ${props.featured ? "project-card-featured" : ""}`}>
-      <div className={`project-img-wrapper ${props.imageMode === "contain" ? "project-img-wrapper-contain" : ""}`}>
-        {/* imageMode garde les captures verticales lisibles sans les recadrer. */}
-        <LoadingImage
-          src={props.imgPath}
-          alt={props.altText}
-          decoding="async"
-          loading="eager"
-          fetchPriority="high"
-          className={`project-img ${props.imageMode === "contain" ? "project-img-contain" : ""}`}
-        />
+  return <article className="project-card-view">
+    {casePath ? <Link to={casePath} hrefLang={getHtmlLang(contentLocale)} className={coverClass} aria-label={`${t("home_offer.case_link")} — ${props.title}`}>{image}<span aria-hidden="true">↗</span></Link>
+      : externalLink ? <a href={externalLink} target="_blank" rel="noopener noreferrer" className={coverClass} aria-label={`${t("see")} — ${props.title}`}>{image}<span aria-hidden="true">↗</span></a>
+      : <div className={coverClass}>{image}</div>}
+    <div className="project-card-body">
+      <div className="project-card-meta"><span>{t(`project_filters.${props.category}`)}</span>{props.featured && <span>{t("project_featured_label")}</span>}</div>
+      <h2 className="project-card-title">{props.title}</h2>
+      <p className="project-description">{props.description}</p>
+      <ul className="project-tech-badges" aria-label={t("project_card.stack")}>{props.techStack.map(tech => <li key={tech}>{tech}</li>)}</ul>
+      <div className="project-card-links">
+        {casePath && <Link className="project-main-link" to={casePath} hrefLang={getHtmlLang(contentLocale)}>{t("home_offer.case_link")} <span aria-hidden="true">↗</span></Link>}
+        {props.seeLink && <a href={props.seeLink} target="_blank" rel="noopener noreferrer">{t("see")} <span aria-hidden="true">↗</span></a>}
+        {props.youtubeLink && <a href={props.youtubeLink} target="_blank" rel="noopener noreferrer">{t("video")} <span aria-hidden="true">↗</span></a>}
+        {props.ghLink && <a href={props.ghLink} target="_blank" rel="noopener noreferrer">{props.isGitLab ? "GitLab" : "GitHub"} <span aria-hidden="true">↗</span></a>}
       </div>
-
-      <Card.Body className="project-card-body">
-        {props.featured && (
-          <span className="project-featured-pill">{props.featuredLabel || t("project_featured_label")}</span>
-        )}
-
-        <Card.Title className="project-card-title">
-          <h2 className="project-title-text">
-            <strong className="blue">{props.title}</strong>
-          </h2>
-        </Card.Title>
-
-        <div className="project-panel project-context-panel">
-          <h3 className="project-panel-title">{t("project_card.context")}</h3>
-          <Card.Text className="project-description">{props.description}</Card.Text>
-        </div>
-
-        <div className="project-info-grid">
-          <div className="project-panel">
-            <h3 className="project-panel-title">{t("project_card.stack")}</h3>
-            {/* Les badges textuels restent lisibles même lorsqu’une technologie n’a pas d’icône associée. */}
-            <div className="project-tech-badges">
-              {props.techStack.map((tech) => (
-                <span key={`${props.title}-${tech}`} className="project-tech-badge">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="project-panel">
-            <h3 className="project-panel-title">{t("project_card.result")}</h3>
-            <p className="project-result">{resultText}</p>
-          </div>
-        </div>
-
-        <div className="button-group">
-          {props.caseStudyPath && <Link className="business-button" to={getLocalizedPath(getShortLocale(i18n.language), props.caseStudyPath)} hrefLang={getHtmlLang(getShortLocale(i18n.language))}>{t("home_offer.case_link")} ↗</Link>}
-          {props.ghLink && <Button
-            className="button-github"
-            href={props.ghLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${props.isGitLab ? "GitLab" : "GitHub"} - ${props.title}`}
-          >
-            {props.isGitLab
-              ? <FaGitlab className="project-button-icon" aria-hidden="true" />
-              : <FaGithub className="project-button-icon" aria-hidden="true" />}
-            {props.isGitLab ? "GitLab" : "GitHub"}
-          </Button>}
-
-          {props.youtubeLink && (
-            <Button
-              className="button-youtube"
-              href={props.youtubeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${t("video")} - ${props.title}`}
-            >
-              <FaYoutube className="project-button-icon" aria-hidden="true" />
-              {t("video")}
-            </Button>
-          )}
-
-          {props.seeLink && (
-            <Button
-              className="button-see"
-              href={props.seeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${t("see")} - ${props.title}`}
-            >
-              <FaEye className="project-button-icon" aria-hidden="true" />
-              {t("see")}
-            </Button>
-          )}
-        </div>
-      </Card.Body>
-    </Card>
-  );
+    </div>
+  </article>;
 }
-
-export default ProjectCard;
-

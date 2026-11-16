@@ -9,11 +9,12 @@
 }
 
 .about-intro-title {
+  font-family: "Montserrat", sans-serif;
   margin: 0 0 2.5rem;
-  color: #f1f6ff;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 700;
-  letter-spacing: -0.035em;
+  color: var(--text-primary);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 550;
+  letter-spacing: -0.05em;
   line-height: 1.15;
   text-align: left;
 }
@@ -26,18 +27,14 @@
   margin-bottom: 1.25rem;
   border-radius: 3px;
   background: #4d92ff;
-  box-shadow: 0 0 12px #367fec55;
+  box-shadow: none;
 }
 
 .about-profile {
   overflow: hidden;
   border: 1px solid rgba(148, 183, 231, 0.22);
   border-radius: 20px;
-  background: linear-gradient(
-    135deg,
-    rgba(24, 43, 70, 0.86),
-    rgba(13, 23, 39, 0.94)
-  );
+  background: var(--surface-850);
 }
 
 .about-profile-tabs {
@@ -72,7 +69,7 @@
 
 .about-profile-content {
   padding: 2rem;
-  color: #c8d4e5;
+  color: var(--text-muted);
   line-height: 1.8;
   text-align: left;
 }
@@ -92,7 +89,7 @@
   font-weight: 400;
 }
 .about-profile-lead {
-  color: #f1f6ff;
+  color: var(--text-primary);
   font-size: 1.15rem;
 }
 
@@ -102,7 +99,7 @@
   margin: 0;
 }
 .qualification-list li + li {
-  border-top: 1px solid #94b7e726;
+  border-top: 1px solid var(--border-subtle);
 }
 .qualification-link {
   display: flex;
@@ -118,7 +115,7 @@
   line-height: 1.6;
 }
 .qualification-link:hover {
-  color: #f1f6ff;
+  color: var(--text-primary);
   background: #81b4ff0d;
 }
 .qualification-link:hover > span:first-child {
@@ -207,6 +204,7 @@
     overflow-wrap: anywhere;
   }
   .about-intro-title {
+  font-family: "Montserrat", sans-serif;
     margin-bottom: 1.75rem;
   }
   .about-profile-tabs {

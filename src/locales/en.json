@@ -63,7 +63,7 @@
     "nametheo": "Théo Guérin",
     "home": "Home",
     "about": "About me",
-    "experience": "Experiences",
+    "experience": "Experience",
     "project": "Projects",
     "resume": "CV",
     "social": "Contact",
@@ -704,9 +704,9 @@
     "footer_rights": "All rights reserved.",
     "home_offer": {
         "location": "Rennes, Brittany",
-        "title": "Freelance web & mobile developer in Rennes.",
-        "specialty": "React, Django & Flutter.",
-        "description": "I’m Théo Guérin. I build React interfaces, Django APIs and Flutter mobile applications, from design to launch.",
+        "title": "Web developer.",
+        "specialty": "And mobile, too.",
+        "description": "I’m Théo Guérin, a freelance developer based in Rennes, France. I build websites, applications and the APIs behind them, from the first idea to launch.",
         "contact": "Let’s discuss your project",
         "projects": "View my work",
         "case_label": "From brief to delivery",
@@ -1167,5 +1167,15 @@
         "google_terms": "Terms of Service",
         "alternative": "Prefer not to use reCAPTCHA? Email directly at",
         "captcha_required": "To submit the form, allow reCAPTCHA verification or use the email link provided."
+    },
+    "home_refresh": {
+        "selected": "Selected work",
+        "work_title": "Ideas brought to life.",
+        "all_projects": "All projects",
+        "since": "Where my journey began",
+        "location_note": "Independent developer",
+        "project_1": "A fishmonger’s website, from online ordering to in-store pickup.",
+        "project_2": "A holiday rental website to explore the property, check availability and plan a stay.",
+        "project_3": "An application to organise your kitchen and reduce food waste."
     }
 }

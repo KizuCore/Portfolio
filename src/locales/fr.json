@@ -63,7 +63,7 @@
     "nametheo": "Théo Guérin",
     "home": "Accueil",
     "about": "À propos",
-    "experience": "Expériences",
+    "experience": "Parcours",
     "project": "Projets",
     "resume": "CV",
     "social": "Contact",
@@ -704,9 +704,9 @@
     },
     "home_offer": {
         "location": "Rennes, Bretagne",
-        "title": "Développeur web & mobile freelance à Rennes.",
-        "specialty": "React, Django & Flutter.",
-        "description": "Je suis Théo Guérin. Je développe des interfaces React, des API Django et des applications mobiles Flutter, de la conception à la mise en ligne.",
+        "title": "Développeur web.",
+        "specialty": "Et mobile.",
+        "description": "Je suis Théo Guérin, développeur freelance à Rennes. Je conçois des sites, des applications et les API qui les font fonctionner, de la première idée à la mise en ligne.",
         "contact": "Parlons de votre projet",
         "projects": "Voir mes réalisations",
         "case_label": "Du besoin à la réalisation",
@@ -1166,5 +1166,15 @@
         "google_terms": "Conditions d’utilisation",
         "alternative": "Vous préférez ne pas utiliser reCAPTCHA ? Écrivez directement à",
         "captcha_required": "Pour envoyer le formulaire, autorisez la vérification reCAPTCHA ou utilisez le lien email proposé."
+    },
+    "home_refresh": {
+        "selected": "Sélection de projets",
+        "work_title": "Des idées devenues concrètes.",
+        "all_projects": "Tous les projets",
+        "since": "Le début de mon parcours",
+        "location_note": "Développeur indépendant",
+        "project_1": "Une poissonnerie, de la commande en ligne au retrait en boutique.",
+        "project_2": "Un gîte à découvrir, des disponibilités à consulter et un séjour à préparer.",
+        "project_3": "Une application pour organiser sa cuisine et limiter le gaspillage alimentaire."
     }
 }

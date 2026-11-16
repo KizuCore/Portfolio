@@ -10,8 +10,7 @@ export default function HomeOffer({ gravityReady = false }: { gravityReady?: boo
     <p className="business-eyebrow">Théo Guérin <span aria-hidden="true">/</span> {t("home_offer.location")}</p>
     <h1><GravityText interactive={gravityReady}>{t("home_offer.title")}</GravityText> <span className="home-offer-specialty"><GravityText interactive={gravityReady}>{t("home_offer.specialty")}</GravityText></span></h1>
     <p className="home-offer-description"><GravityText interactive={gravityReady}>{t("home_offer.description")}</GravityText></p>
-    <p className="professional-availability"><GravityText interactive={gravityReady}>{t("professional_availability")}</GravityText></p>
     <HomeButtons />
-    <p className="home-offer-note">React · Django · Flutter</p>
+    <p className="professional-availability"><span className="availability-dot" aria-hidden="true" />{t("professional_availability")}</p>
   </div>;
 }

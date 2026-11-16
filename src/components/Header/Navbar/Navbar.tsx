@@ -175,7 +175,7 @@ function NavBar(): JSX.Element {
   return (
     <nav
       ref={navRef}
-      className={`navbar navbar-polished navbar-expand-md fixed-top ${navColour ? "sticky" : ""} ${expand ? "menu-open" : ""}`}
+      className={`navbar navbar-polished fixed-top ${navColour ? "sticky" : ""} ${expand ? "menu-open" : ""}`}
       aria-label={t("a11y.main_navigation")}
     >
       <div className="container">
@@ -198,7 +198,8 @@ function NavBar(): JSX.Element {
               }
             }}
           >
-            {SITE_PROFILE.brandName}
+            <span>{SITE_PROFILE.brandName}</span>
+            <span className="navbar-brand-caption">{SITE_PROFILE.displayName}</span>
           </Link>
         </div>
 
@@ -227,17 +228,24 @@ function NavBar(): JSX.Element {
                 ariaLabel={item.ariaLabel}
               />
             ))}
-            <NavItem
-              to={getLocalizedPath(currentLocale, "/contact")}
-              label={t("social")}
-              ariaLabel={t("social")}
-              onClick={() => setExpand(false)}
-              prominent
-            />
-            <li className="nav-item">
-              <LanguageSelector />
-            </li>
           </ul>
+          <div className="navbar-actions">
+            <Link
+              to={getLocalizedPath(currentLocale, "/cv")}
+              className="navbar-resume-link"
+              aria-current={localizedPath.pathname === "/cv" ? "page" : undefined}
+              onClick={() => setExpand(false)}
+            >{t("cv")}</Link>
+            <Link
+              to={getLocalizedPath(currentLocale, "/contact")}
+              className={`nav-link nav-contact${localizedPath.pathname === "/contact" ? " active" : ""}`}
+              aria-current={localizedPath.pathname === "/contact" ? "page" : undefined}
+              onClick={() => setExpand(false)}
+            >{t("social")} <span aria-hidden="true">↗</span></Link>
+            <div className="navbar-language">
+              <LanguageSelector />
+            </div>
+          </div>
         </div>
       </div>
     </nav>

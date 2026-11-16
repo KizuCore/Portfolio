@@ -38,8 +38,6 @@
 .availability-dot { flex: 0 0 6px; height: 6px; border-radius: 50%; background: #97c3a6; margin-top: 0.45rem; }
 .home-hero .home-sky-illustration { display: flex; align-items: center; justify-content: center; min-width: 0; }
 .home-hero .logo-wrapper { width: min(100%, 310px); margin: 0; }
-.home-hero .home-nebula { opacity: 0.5; }
-.home-hero .logo-wrapper::before { box-shadow: none; }
 .home-facts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

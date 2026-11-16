@@ -24,11 +24,13 @@
   inset: 0;
   z-index: -2;
   pointer-events: none;
-  background: var(--surface-900);
+  background:
+    radial-gradient(circle at 0% 15%, rgba(72, 129, 255, 0.14), transparent 42%),
+    radial-gradient(circle at 100% 0%, rgba(88, 196, 255, 0.09), transparent 35%),
+    linear-gradient(160deg, #04070d 0%, #080e1a 42%, #101a2e 100%);
 }
 
 .particles-layer {
-  opacity: 0.26;
   pointer-events: none;
   position: fixed;
   inset: 0;
@@ -223,7 +225,7 @@
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    opacity: 0.12;
+    opacity: 0.52;
     background:
       radial-gradient(
         circle at 8% 10%,

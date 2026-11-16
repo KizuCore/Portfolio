@@ -29,6 +29,30 @@
 .gravity-letter { display: inline-block; transform-origin: center; }
 .home-offer-description { max-width: 52ch; color: var(--text-muted); font-size: 1rem; line-height: 1.85; margin: 0 0 2rem; }
 .home-offer .business-actions { gap: 1rem 1.5rem; }
+.home-project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 0.65rem 1rem;
+  border: 1px solid #a4c4f54d;
+  border-radius: 10px;
+  background: #a4c4f50f;
+  color: #d8e7ff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+.home-project-link svg { flex-shrink: 0; }
+.home-project-link:hover {
+  background: #a4c4f521;
+  border-color: #a4c4f58c;
+  color: #f3f7ff;
+}
 .home-secondary-links { display: flex; flex-wrap: wrap; gap: 1.4rem; margin-top: 1.4rem; font-size: 0.78rem; }
 .home-secondary-links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text-muted); text-decoration: none; }
 .home-secondary-links a:hover { color: var(--text-primary); text-decoration: underline; }
@@ -90,6 +114,7 @@
   .work-preview p { max-width: 50ch; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .home-project-link { transition: none; }
   .work-preview-image img { transition: none; }
   .work-preview:hover img { transform: none; }
 }

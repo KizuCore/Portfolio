@@ -228,8 +228,8 @@
     "cv_aria": "Voir mon CV",
     "web_dev_illustration": "Illustration de développement web Théo Guérin",
     "theo_developer": "Avatar de Théo Guérin, Développeur Web",
-    "seo_title": "Théo Guérin | Développeur web & mobile freelance à Rennes",
-    "seo_description": "Théo Guérin, développeur web et mobile freelance à Rennes : React, Django et Flutter. Découvrez mes services, mes réalisations et contactez-moi pour votre projet.",
+    "seo_title": "Théo Guérin — Développeur web freelance à Rennes",
+    "seo_description": "Théo Guérin, développeur freelance à Rennes : sites internet, applications React et Flutter, API Django et Node.js. Découvrez mes services et réalisations.",
     "seo_og_title": "Théo Guérin | Développeur web & mobile freelance à Rennes",
     "seo_og_description": "Développeur freelance Full-Stack à Rennes, j'accompagne vos projets de sites web, applications React et API, de la conception à la mise en ligne.",
     "seo_og_image_alt": "Aperçu du portfolio de Théo Guérin",
@@ -691,17 +691,17 @@
     },
     "services": {
         "eyebrow": "Ce que je propose",
-        "title": "Services",
-        "subtitle": "Du web au mobile, je construis les interfaces et les services qui donnent vie à votre projet.",
+        "title": "Du site vitrine à l’application métier",
+        "subtitle": "Présenter votre activité, gérer vos données ou créer un service mobile : choisissez l’accompagnement qui correspond à votre besoin.",
         "cta": "Parler de votre projet",
         "items": {
             "websites": {
-                "title": "Sites vitrines",
-                "description": "Landing pages et sites institutionnels rapides, référencables et pensés conversion."
+                "title": "Création de sites internet",
+                "description": "Un site pour présenter votre activité, montrer vos réalisations et faciliter la prise de contact, sur mobile comme sur ordinateur."
             },
             "apps": {
                 "title": "Applications web React",
-                "description": "Interfaces web React, composants réutilisables et parcours adaptés aux ordinateurs comme aux mobiles."
+                "description": "Tableaux de bord, espaces clients et outils métier : des interfaces reliées à vos données et adaptées au travail de vos utilisateurs."
             },
             "api": {
                 "title": "API & backend",
@@ -735,7 +735,7 @@
     },
     "seo_keywords": "Théo Guérin, développeur freelance, développeur freelance Rennes, freelance full-stack, React, Django, Python, Node.js, Flutter, portfolio, Rennes, développeur web",
     "seo_routes": {
-        "home_description": "Théo Guérin, développeur web et mobile freelance à Rennes : React, Django et Flutter. Découvrez mes services, mes réalisations et contactez-moi pour votre projet.",
+        "home_description": "Théo Guérin, développeur freelance à Rennes : sites internet, applications React et Flutter, API Django et Node.js. Découvrez mes services et réalisations.",
         "about_description": "Découvrez Théo Guérin : développeur Full-Stack passionné basé à Rennes, ses loisirs, qualifications et son parcours professionnel.",
         "experience_description": "Parcours de Théo Guérin : expérience Full-Stack chez Nahibu, MBA Web Full-Stack, Bachelor et Licence Informatique à Rennes.",
         "project_description": "Projets web de Théo Guérin : applications React, API REST Django, Flutter et sites vitrine réalisés dans des contextes professionnels et académiques.",
@@ -743,13 +743,18 @@
         "cv_description": "Consultez ou téléchargez le CV de Théo Guérin, développeur Full-Stack spécialisé en React, Django et Python, basé à Rennes.",
         "legal_description": "Mentions légales du portfolio de Théo Guérin, développeur web Full-Stack basé à Rennes.",
         "privacy_description": "Politique de confidentialité du portfolio de Théo Guérin - traitement des données, cookies et vos droits.",
-        "cookies_description": "Politique des cookies du portfolio de Théo Guérin : types de cookies, finalités, durée de conservation et gestion du consentement."
+        "cookies_description": "Politique des cookies du portfolio de Théo Guérin : types de cookies, finalités, durée de conservation et gestion du consentement.",
+        "about_title": "À propos : développeur web à Rennes",
+        "experience_title": "Parcours de développeur full-stack",
+        "project_title": "Réalisations web, mobile et API",
+        "contact_title": "Contact pour votre projet web ou mobile",
+        "cv_title": "CV de développeur full-stack"
     },
     "home_offer": {
         "location": "Rennes, Bretagne",
         "title": "Développeur web.",
-        "specialty": "Et mobile.",
-        "description": "Je suis Théo Guérin, développeur freelance à Rennes. Je conçois des sites, des applications et les API qui les font fonctionner, de la première idée à la mise en ligne.",
+        "specialty": "Freelance à Rennes.",
+        "description": "Je suis Théo Guérin. Je crée des sites pour présenter votre activité, des applications React et Flutter, et des API avec Django ou Node.js. Du premier échange à la mise en ligne, vous échangez directement avec le développeur de votre projet.",
         "contact": "Parlons de votre projet",
         "projects": "Voir mes réalisations",
         "case_label": "Du besoin à la réalisation",
@@ -906,7 +911,8 @@
                         "value": "Fonctionner hors connexion",
                         "detail": "Les données de l’inventaire restent sur l’appareil avec Isar."
                     }
-                ]
+                ],
+                "seoTitle": "À table ! — Application Flutter hors connexion"
             },
             "les-portes-de-montafilan": {
                 "eyebrow": "Étude de cas · Site de gîte",
@@ -1002,7 +1008,8 @@
                         "value": "Une gestion sans code",
                         "detail": "Des tarifs modifiables depuis Google Sheets et des indisponibilités issues d’Airbnb."
                     }
-                ]
+                ],
+                "seoTitle": "Les Portes de Montafilan — Site de gîte en React"
             },
             "la-maree-malouine": {
                 "eyebrow": "Étude de cas · Application web full-stack",
@@ -1192,7 +1199,8 @@
                             "text": "Recevoir la confirmation, puis récupérer sa commande en boutique."
                         }
                     ]
-                }
+                },
+                "seoTitle": "La Marée Malouine — Click & Collect en React"
             }
         }
     },
@@ -1216,8 +1224,8 @@
         "all_projects": "Tous les projets",
         "since": "Le début de mon parcours",
         "location_note": "Développeur indépendant",
-        "project_1": "Une poissonnerie, de la commande en ligne au retrait en boutique.",
-        "project_2": "Un gîte à découvrir, des disponibilités à consulter et un séjour à préparer.",
-        "project_3": "Une application pour organiser sa cuisine et limiter le gaspillage alimentaire."
+        "project_1": "Une application React pour commander en ligne, payer et gérer les retraits en poissonnerie.",
+        "project_2": "Un site de gîte en React, avec tarifs Google Sheets et disponibilités Airbnb.",
+        "project_3": "Une application Flutter avec inventaire alimentaire, rappels et stockage hors connexion."
     }
 }

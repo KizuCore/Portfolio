@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { FiArrowRight } from "@react-icons/all-files/fi/FiArrowRight";
 import { FiArrowUpRight } from "@react-icons/all-files/fi/FiArrowUpRight";
-import { getHtmlLang } from "../../config/seo";
+import { getContentLocale, getHtmlLang } from "../../config/seo";
 import FaqItem from "../Business/FaqItem";
 import LoadingImage from "../Layout/LoadingImage";
 import type { CaseStudy } from "./useCaseStudy";
@@ -26,8 +26,8 @@ export function CaseStudyLayout({ study, className, children }: StudyProps & { c
     </section>}
     <section className="business-related" aria-labelledby="case-related-title">
       <h2 id="case-related-title">{labels.related}</h2>
-      <div className="business-related-grid">{study.relatedCases.map((item) => (
-        <Link key={item.path} to={`/${locale}${item.path}`}><span className="business-eyebrow">{labels.case_study}</span><span>{item.title}</span><span aria-hidden="true">↗</span></Link>
+      <div className="business-related-grid">{study.relatedPages.map((item) => (
+        <Link key={item.path} to={`/${getContentLocale(locale, item.path)}${item.path}`} hrefLang={getHtmlLang(getContentLocale(locale, item.path))}><span className="business-eyebrow">{item.kind === "service" ? labels.service : labels.case_study}</span><span>{item.title}</span><span aria-hidden="true">↗</span></Link>
       ))}</div>
     </section>
     <section className="business-contact">

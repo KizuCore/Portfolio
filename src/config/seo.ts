@@ -2,6 +2,7 @@ export type SupportedLocale = "fr" | "en" | "bzh";
 
 export type RouteSeo = {
   titleKey: string;
+  seoTitleKey?: string;
   descriptionKey?: string;
   noindex?: boolean;
   contentLocale?: SupportedLocale;
@@ -20,11 +21,11 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/realisations/la-maree-malouine": { titleKey: "categories_projects.maree_malouine_title" },
   "/realisations/les-portes-de-montafilan": { titleKey: "categories_projects.portes_montafilan_title" },
   "/": { titleKey: "home", descriptionKey: "seo_routes.home_description" },
-  "/about": { titleKey: "about", descriptionKey: "seo_routes.about_description" },
-  "/experience": { titleKey: "experience", descriptionKey: "seo_routes.experience_description" },
-  "/project": { titleKey: "project", descriptionKey: "seo_routes.project_description" },
-  "/contact": { titleKey: "social", descriptionKey: "seo_routes.contact_description" },
-  "/cv": { titleKey: "cv", descriptionKey: "seo_routes.cv_description" },
+  "/about": { titleKey: "about", seoTitleKey: "seo_routes.about_title", descriptionKey: "seo_routes.about_description" },
+  "/experience": { titleKey: "experience", seoTitleKey: "seo_routes.experience_title", descriptionKey: "seo_routes.experience_description" },
+  "/project": { titleKey: "project", seoTitleKey: "seo_routes.project_title", descriptionKey: "seo_routes.project_description" },
+  "/contact": { titleKey: "social", seoTitleKey: "seo_routes.contact_title", descriptionKey: "seo_routes.contact_description" },
+  "/cv": { titleKey: "cv", seoTitleKey: "seo_routes.cv_title", descriptionKey: "seo_routes.cv_description" },
   "/mentions-legales": { titleKey: "mentions_legales.title", descriptionKey: "seo_routes.legal_description" },
   "/politique-de-confidentialite": {
     titleKey: "politique_confidentialite.title",

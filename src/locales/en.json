@@ -227,8 +227,8 @@
     "cv_aria": "View my Resume",
     "web_dev_illustration": "Web development illustration Théo Guérin",
     "theo_developer": "Avatar of Théo Guérin, Web Developer",
-    "seo_title": "Théo Guérin | Freelance Full-Stack Developer in Rennes",
-    "seo_description": "Théo Guérin, a freelance Full-Stack developer in Rennes, builds high-performance websites, React applications, and APIs. Explore his projects and services.",
+    "seo_title": "Théo Guérin — Freelance web developer in Rennes",
+    "seo_description": "Théo Guérin, freelance developer in Rennes, France: websites, React and Flutter applications, Django and Node.js APIs. Explore my services and projects.",
     "seo_og_title": "Théo Guérin | Freelance Full-Stack Developer in Rennes",
     "seo_og_description": "Freelance Full-Stack developer in Rennes, I support your website, React application, and API projects from design to launch.",
     "seo_twitter_title": "Théo Guérin | Freelance Full-Stack Developer in Rennes",
@@ -689,17 +689,17 @@
     },
     "services": {
         "eyebrow": "What I deliver",
-        "title": "Services",
-        "subtitle": "From web to mobile, I build the interfaces and services that bring your project to life.",
+        "title": "From business websites to custom applications",
+        "subtitle": "Present your business, manage your data or build a mobile service: find the support that fits your project.",
         "cta": "Discuss your project",
         "items": {
             "websites": {
                 "title": "Business websites",
-                "description": "Landing pages and company sites focused on speed, SEO and conversion."
+                "description": "A website to explain your services, showcase your work and help visitors get in touch, on desktop and mobile."
             },
             "apps": {
-                "title": "React web apps",
-                "description": "React web interfaces, reusable components and user journeys adapted to desktop and mobile."
+                "title": "React web applications",
+                "description": "Dashboards, customer portals and business tools: interfaces connected to your data and built around your users’ tasks."
             },
             "api": {
                 "title": "API & backend",
@@ -727,7 +727,7 @@
     },
     "seo_keywords": "Théo Guérin, freelance developer, freelance developer Rennes, freelance full-stack developer, React, Django, Python, Node.js, Flutter, portfolio, Rennes, web developer",
     "seo_routes": {
-        "home_description": "Théo Guérin, a freelance Full-Stack developer in Rennes, builds high-performance websites, React applications, and APIs. Explore his projects and services.",
+        "home_description": "Théo Guérin, freelance developer in Rennes, France: websites, React and Flutter applications, Django and Node.js APIs. Explore my services and projects.",
         "about_description": "Discover Théo Guérin: a passionate Full-Stack developer based in Rennes, his hobbies, qualifications and professional background.",
         "experience_description": "Théo Guérin's background: Full-Stack experience at Nahibu, Full-Stack MBA, Web Bachelor and Computer Science degree in Rennes.",
         "project_description": "Web projects by Théo Guérin: React applications, Django REST APIs, Flutter apps and showcase websites built in professional and academic contexts.",
@@ -735,7 +735,12 @@
         "cv_description": "View or download Théo Guérin's resume, Full-Stack developer specialized in React, Django and Python, based in Rennes.",
         "legal_description": "Legal notice for Théo Guérin's portfolio, Full-Stack web developer based in Rennes.",
         "privacy_description": "Privacy policy for Théo Guérin's portfolio - data processing, cookies and your rights.",
-        "cookies_description": "Cookie policy for Théo Guérin's portfolio: cookie types, purposes, retention and consent management."
+        "cookies_description": "Cookie policy for Théo Guérin's portfolio: cookie types, purposes, retention and consent management.",
+        "about_title": "About: web developer in Rennes",
+        "experience_title": "Full-stack development experience",
+        "project_title": "Web, mobile and API projects",
+        "contact_title": "Contact for your web or mobile project",
+        "cv_title": "Full-stack developer resume"
     },
     "gitlab_profile_link": "GitLab profile",
     "seo_og_image_alt": "Preview of Théo Guérin's portfolio",
@@ -748,8 +753,8 @@
     "home_offer": {
         "location": "Rennes, Brittany",
         "title": "Web developer.",
-        "specialty": "And mobile, too.",
-        "description": "I’m Théo Guérin, a freelance developer based in Rennes, France. I build websites, applications and the APIs behind them, from the first idea to launch.",
+        "specialty": "Freelance in Rennes.",
+        "description": "I’m Théo Guérin. I build websites for businesses, React and Flutter applications, and APIs with Django or Node.js. From our first conversation to launch, you work directly with the developer building your project.",
         "contact": "Let’s discuss your project",
         "projects": "View my work",
         "case_label": "From brief to delivery",
@@ -906,7 +911,8 @@
                         "value": "Offline use",
                         "detail": "Inventory data stays on the device with Isar."
                     }
-                ]
+                ],
+                "seoTitle": "À table ! — Offline Flutter application"
             },
             "les-portes-de-montafilan": {
                 "eyebrow": "Case study · Holiday cottage website",
@@ -1002,7 +1008,8 @@
                         "value": "Management without code",
                         "detail": "Rates editable in Google Sheets and unavailable dates from Airbnb."
                     }
-                ]
+                ],
+                "seoTitle": "Les Portes de Montafilan — React holiday rental website"
             },
             "la-maree-malouine": {
                 "eyebrow": "Case study · Full-stack web application",
@@ -1193,7 +1200,8 @@
                             "text": "Receive confirmation, then collect the order from the shop."
                         }
                     ]
-                }
+                },
+                "seoTitle": "La Marée Malouine — React Click & Collect application"
             }
         }
     },
@@ -1217,8 +1225,8 @@
         "all_projects": "All projects",
         "since": "Where my journey began",
         "location_note": "Independent developer",
-        "project_1": "A fishmonger’s website, from online ordering to in-store pickup.",
-        "project_2": "A holiday rental website to explore the property, check availability and plan a stay.",
-        "project_3": "An application to organise your kitchen and reduce food waste."
+        "project_1": "A React application for online ordering, payment and pickup management at a fishmonger’s.",
+        "project_2": "A React holiday rental website with Google Sheets rates and Airbnb availability.",
+        "project_3": "A Flutter application with food inventory, reminders and offline storage."
     }
 }

@@ -3,6 +3,21 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/es/experience",
+      "destination": "/fr/experience",
+      "permanent": true
+    },
+    {
+      "source": "/es/cv",
+      "destination": "/fr/cv",
+      "permanent": true
+    },
+    {
+      "source": "/es/politique-de-confidentialite",
+      "destination": "/fr/politique-de-confidentialite",
+      "permanent": true
+    },
+    {
       "source": "/",
       "destination": "/fr",
       "permanent": true

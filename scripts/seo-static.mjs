@@ -14,7 +14,7 @@ const SITE_URL = (process.env.VITE_SITE_URL || "https://theo-guerin.fr").replace
 const SEO_CONFIG_PATH = path.join(ROOT_DIR, "src", "config", "seo.ts");
 const PORTFOLIO_DATA_PATH = path.join(ROOT_DIR, "src", "data", "portfolio.ts");
 const LOCALES_DIR = path.join(ROOT_DIR, "src", "locales");
-const { getBusinessPage, getBusinessPages, getBusinessLabels } = loadTsModule(path.join(ROOT_DIR, "src", "data", "businessPages.ts"));
+const { getBusinessPage, getBusinessPages, getBusinessLabels, getRelatedBusinessPages } = loadTsModule(path.join(ROOT_DIR, "src", "data", "businessPages.ts"));
 const { getBusinessSchema } = loadTsModule(path.join(ROOT_DIR, "src", "config", "businessSchema.ts"));
 const { LEGAL_UPDATED_HUMAN, PRIVACY_RESOURCES } = loadTsModule(path.join(ROOT_DIR, "src", "data", "legal.ts"));
 
@@ -84,11 +84,11 @@ function getPreviewImageUrl(profile) {
 // Construit le titre de la route selon la même convention que le composant SEO React.
 function buildTitle({ pathname, routeSeo, localeData }) {
   const page = getBusinessPage(pathname, localeData.business_pages);
-  if (page) return `${page.title} | Théo Guérin`;
+  if (page) return `${page.seoTitle ?? page.title} | Théo Guérin`;
   const baseTitle = tx(localeData, "seo_title");
   const route = routeSeo[pathname];
-  const pageTitle = route ? tx(localeData, route.titleKey, "") : "";
-  return pathname === "/" || !pageTitle ? baseTitle : `${pageTitle} | ${baseTitle}`;
+  const pageTitle = route ? tx(localeData, route.seoTitleKey ?? route.titleKey, "") : "";
+  return pathname === "/" || !pageTitle ? baseTitle : `${pageTitle} | Théo Guérin`;
 }
 
 // Construit la description de la route à partir des métadonnées SEO traduites.
@@ -277,21 +277,29 @@ function buildRouteContent({ pathname, localeData, portfolio, seoConfig }) {
   const businessPage = getBusinessPage(pathname, localeData.business_pages);
   if (businessPage) {
     const project = portfolio.PORTFOLIO_PROJECTS.find((item) => item.caseStudyPath === `/fr${businessPage.path}`);
-    return `<div id="seo-prerender">${renderBusinessPage(businessPage, getBusinessPages(localeData.business_pages), project, escapeHtml, localeData.business_pages.locale, getBusinessLabels(localeData.business_pages))}</div>`;
+    return `<div id="seo-prerender">${renderBusinessPage(businessPage, getRelatedBusinessPages(pathname, getBusinessPages(localeData.business_pages)), project, escapeHtml, localeData.business_pages.locale, getBusinessLabels(localeData.business_pages))}</div>`;
   }
   const projects = getSortedProjects(portfolio.PORTFOLIO_PROJECTS);
   const experiences = getExperiences(localeData);
   const skills = [...portfolio.PROFESSIONAL_TOPICS];
-  const homeProject = projects.find((item) => item.caseStudyPath === portfolio.HOME_CASE_STUDY_PATH);
+  const homeCases = ["la-maree-malouine", "les-portes-de-montafilan", "a-table"];
+  const homeServices = [
+    ["websites", "/services/creation-site-internet-rennes"],
+    ["apps", "/services/developpeur-react"],
+    ["api", "/services/developpement-api"],
+    ["mobile", "/services/developpeur-flutter"],
+  ];
 
   const home = `
     <p>${escapeHtml(portfolio.SITE_PROFILE.displayName)} · ${escapeHtml(tx(localeData, "home_offer.location"))}</p>
     <h1>${escapeHtml(tx(localeData, "home_offer.title"))} ${escapeHtml(tx(localeData, "home_offer.specialty"))}</h1>
     <p>${escapeHtml(tx(localeData, "home_offer.description"))}</p>
     <p>${escapeHtml(tx(localeData, "professional_availability"))}</p>
-    ${homeProject ? `<section><p>${escapeHtml(tx(localeData, "home_offer.case_label"))}</p><h2>${escapeHtml(projectTitle(homeProject, localeData))}</h2><p>${escapeHtml(tx(localeData, "home_offer.case_description"))}</p><a href="${escapeHtml(seoConfig.getLocalizedPath(localeData.business_pages.locale, homeProject.caseStudyPath))}">${escapeHtml(tx(localeData, "home_offer.case_link"))}</a></section>` : ""}
-    <nav aria-label="Services"><ul>${getBusinessPages(localeData.business_pages).map((page) => `<li><a href="/${page.kind === "case-study" ? localeData.business_pages.locale : "fr"}${escapeHtml(page.path)}">${escapeHtml(page.title)}</a></li>`).join("")}</ul></nav>
-    <section><h2>${escapeHtml(tx(localeData, "services.title"))}</h2><p>${escapeHtml(tx(localeData, "services.subtitle"))}</p></section>
+    <section><h2>${escapeHtml(tx(localeData, "home_refresh.work_title"))}</h2>${homeCases.map((slug, index) => {
+      const page = getBusinessPage(`/realisations/${slug}`, localeData.business_pages);
+      return `<article><h3>${escapeHtml(page.title)}</h3><p>${escapeHtml(tx(localeData, `home_refresh.project_${index + 1}`))}</p><a href="${escapeHtml(seoConfig.getLocalizedPath(localeData.business_pages.locale, page.path))}">${escapeHtml(tx(localeData, "home_offer.case_link"))}</a></article>`;
+    }).join("")}</section>
+    <section><h2>${escapeHtml(tx(localeData, "services.title"))}</h2><p>${escapeHtml(tx(localeData, "services.subtitle"))}</p>${homeServices.map(([key, path]) => `<article><h3>${escapeHtml(tx(localeData, `services.items.${key}.title`))}</h3><p>${escapeHtml(tx(localeData, `services.items.${key}.description`))}</p><a href="/fr${path}" hreflang="fr">${escapeHtml(tx(localeData, "home_offer.service_link"))}</a></article>`).join("")}</section>
     <section><h2>${escapeHtml(tx(localeData, "professional_skills"))}</h2><p>${escapeHtml(skills.join(", "))}</p></section>
     <section><h2>${escapeHtml(tx(localeData, "projects"))}</h2><ul>${projects.slice(0, 6).map((project) => `<li>${escapeHtml(projectTitle(project, localeData))} - ${escapeHtml(projectDescription(project, localeData))}</li>`).join("")}</ul></section>
   `;

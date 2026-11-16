@@ -46,7 +46,11 @@ function SeoMeta(): JSX.Element {
   const baseTitle = tx("seo_title");
   const businessPage = getBusinessPage(pathname, i18n.getResourceBundle(contentLang, "translation")?.business_pages);
   const pageTitle = isNotFound ? tx("not_found.title") : tx(currentRoute.titleKey);
-  const fullTitle = businessPage ? `${businessPage.title} | Théo Guérin` : pathname === "/" || !pageTitle ? baseTitle : `${pageTitle} | ${baseTitle}`;
+  const fullTitle = businessPage
+    ? `${businessPage.seoTitle ?? businessPage.title} | ${SITE_PROFILE.displayName}`
+    : pathname === "/" && !isNotFound
+      ? baseTitle
+      : `${currentRoute?.seoTitleKey ? tx(currentRoute.seoTitleKey) : pageTitle} | ${SITE_PROFILE.displayName}`;
   const description = isNotFound ? tx("not_found.description") : businessPage?.description ?? (currentRoute?.descriptionKey
     ? tx(currentRoute.descriptionKey, { defaultValue: tx("seo_description") })
     : tx("seo_description"));

@@ -235,7 +235,7 @@ function validateHreflangs({ routePath, html, seoConfig, errors }) {
 // Valide toutes les routes indexables générées ainsi que les ressources Markdown destinées aux modèles de langage.
 function main() {
   const seoConfig = loadTsModule(SEO_CONFIG_PATH);
-  const { BUSINESS_PAGES, getBusinessPage } = loadTsModule(path.join(ROOT_DIR, "src", "data", "businessPages.ts"));
+  const { BUSINESS_PAGES, getBusinessPage, getRelatedBusinessPages } = loadTsModule(path.join(ROOT_DIR, "src", "data", "businessPages.ts"));
   const routes = getGeneratedRoutes(seoConfig);
   const businessTranslations = Object.fromEntries(seoConfig.SUPPORTED_LOCALES.map((locale) => [
     locale,
@@ -311,7 +311,13 @@ function main() {
       for (const item of businessPage.questions) {
         assert(bodyText.includes(item.question) && bodyText.includes(item.answer), `${routePath}: question ou réponse absente`, errors);
       }
-      for (const related of BUSINESS_PAGES.filter((page) => page.path !== businessPage.path && (businessPage.kind === "service" || page.kind === "case-study"))) {
+      for (const section of businessPage.sections) {
+        for (const link of section.links ?? []) {
+          assert(html.includes(`href="${link.path}"`), `${routePath}: lien de preuve manquant (${link.path})`, errors);
+          assert(fs.existsSync(path.join(DIST_DIR, `${link.path}.html`)), `${routePath}: destination de preuve absente (${link.path})`, errors);
+        }
+      }
+      for (const related of getRelatedBusinessPages(businessPage.path, BUSINESS_PAGES)) {
         assert(html.includes(`href="/${related.kind === "case-study" ? businessLocale : "fr"}${related.path}"`), `${routePath}: lien connexe manquant`, errors);
       }
       for (const shot of businessPage.gallery?.images ?? []) {

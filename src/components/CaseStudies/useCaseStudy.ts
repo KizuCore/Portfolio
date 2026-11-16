@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { getContentLocale, getShortLocale } from "../../config/seo";
-import { getBusinessLabels, getBusinessPage, getBusinessPages } from "../../data/businessPages";
+import { getBusinessLabels, getBusinessPage, getBusinessPages, getRelatedBusinessPages } from "../../data/businessPages";
 import { PROJECTS } from "../Projects/data/projects";
 
 type CaseStudySlug = "la-maree-malouine" | "les-portes-de-montafilan" | "a-table";
@@ -18,7 +18,7 @@ export function useCaseStudy(slug: CaseStudySlug) {
     project,
     locale,
     labels: getBusinessLabels(translations),
-    relatedCases: getBusinessPages(translations).filter((item) => item.kind === "case-study" && item.path !== path),
+    relatedPages: getRelatedBusinessPages(path, getBusinessPages(translations)),
     t: i18n.getFixedT(locale),
     section(id: string) {
       const section = page.sections.find((item) => item.id === id);

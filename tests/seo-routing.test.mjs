@@ -92,3 +92,15 @@ test('hosting serves generated routes and lets missing paths reach the custom 40
   assert(!error.includes('application/ld+json'));
   assert(!fs.readFileSync('dist/sitemap.xml', 'utf8').includes('/404'));
 });
+
+test('page titles remain identical between generated HTML and client navigation in every locale', async () => {
+  for (const locale of SUPPORTED_LOCALES) {
+    for (const route of Object.keys(ROUTE_SEO).filter(path => !ROUTE_SEO[path].noindex)) {
+      const url = `/${locale}${route === '/' ? '' : route}`;
+      const {head} = await render(url);
+      const generated = fs.readFileSync(`dist${url}.html`, 'utf8');
+      const title = html => html.match(/<title[^>]*>(.*?)<\/title>/s)[1];
+      assert.equal(title(head), title(generated), `Title changed after navigation: ${url}`);
+    }
+  }
+});

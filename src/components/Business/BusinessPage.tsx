@@ -3,7 +3,7 @@ import { getContentLocale, getShortLocale, getHtmlLang } from "../../config/seo"
 import { Link } from "react-router-dom";
 import { FiArrowRight } from "@react-icons/all-files/fi/FiArrowRight";
 import type { BusinessPage as BusinessPageContent } from "../../data/businessPages";
-import { getBusinessPage, getBusinessPages, getBusinessLabels } from "../../data/businessPages";
+import { getBusinessPage, getBusinessPages, getBusinessLabels, getRelatedBusinessPages } from "../../data/businessPages";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Business/Business.css";
 
@@ -42,6 +42,7 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
               <span className="business-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
               <h2>{section.title}</h2><p>{section.text}</p>
               {section.items && <ul>{section.items.map((item) => <li key={item}>{item}</li>)}</ul>}
+              {section.links?.map(link => <p key={link.path}><Link className="business-text-link" to={link.path}>{link.label} <span aria-hidden="true">↗</span></Link></p>)}
             </section>
           ))}
         </div>
@@ -52,7 +53,7 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
       </section>}
       <section className="business-related" aria-labelledby="business-related-title">
         <h2 id="business-related-title">{labels.related}</h2>
-        <div className="business-related-grid">{getBusinessPages(translations).filter((item) => item.path !== page.path).map((item) => (
+        <div className="business-related-grid">{getRelatedBusinessPages(page.path, getBusinessPages(translations)).map((item) => (
           <Link key={item.path} to={`/${getContentLocale(locale, item.path)}${item.path}`}><span className="business-eyebrow">{item.kind === "service" ? labels.service : labels.case_study}</span><span>{item.title}</span><span aria-hidden="true">↗</span></Link>
         ))}</div>
       </section>

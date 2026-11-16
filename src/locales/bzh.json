@@ -1,4 +1,23 @@
 {
+    "legal_navigation": {
+        "eyebrow": "Informations légales",
+        "navigation": "Navigation du document",
+        "mobile": "Sommaire et recherche",
+        "search": "Rechercher dans cette page",
+        "placeholder": "Un mot, un sujet…",
+        "clear": "Effacer la recherche",
+        "contents": "Sur cette page",
+        "results": "{{count}} rubriques trouvées",
+        "results_one": "{{count}} rubrique trouvée",
+        "results_other": "{{count}} rubriques trouvées",
+        "empty": "Essayez un autre mot, comme « cookies » ou « contact ».",
+        "documents": "Documents légaux",
+        "intro": {
+            "notice": "Les informations sur l’éditeur, l’hébergement et les conditions d’utilisation de ce portfolio.",
+            "privacy": "Quelles données sont traitées, pourquoi, et comment exercer vos droits.",
+            "cookies": "Les cookies et services utilisés sur ce site, leur durée de conservation et vos choix."
+        }
+    },
     "resume_page": {
         "watch_demo": "Gwelet ar video diskouez",
         "all_skills": "Gwelet ma holl varregezhioù",

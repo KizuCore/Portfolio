@@ -1,4 +1,23 @@
 {
+    "legal_navigation": {
+        "eyebrow": "Legal information",
+        "navigation": "Document navigation",
+        "mobile": "Contents and search",
+        "search": "Search this page",
+        "placeholder": "A word or topic…",
+        "clear": "Clear search",
+        "contents": "On this page",
+        "results": "{{count}} sections found",
+        "results_one": "{{count}} section found",
+        "results_other": "{{count}} sections found",
+        "empty": "Try another word, such as cookies or contact.",
+        "documents": "Legal documents",
+        "intro": {
+            "notice": "Information about the publisher, hosting and terms of use of this portfolio.",
+            "privacy": "What data is processed, why, and how to exercise your rights.",
+            "cookies": "The cookies and services used on this site, how long they are retained, and your choices."
+        }
+    },
     "resume_page": {
         "watch_demo": "Watch the video demo",
         "all_skills": "View all my skills",

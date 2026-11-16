@@ -14,14 +14,17 @@
 .footer-brand-description { color: var(--text-muted); font-size: 0.85rem; line-height: 1.8; margin: 0; }
 .footer-contact-line { display: flex; gap: 0.55rem; align-items: flex-start; margin: 0; font-size: 0.8125rem; line-height: 1.65; color: var(--text-muted); text-decoration: none; overflow-wrap: anywhere; }
 .footer-contact-line svg { flex-shrink: 0; margin-top: 0.2rem; }
-.footer-column-title { font-size: 0.85rem; font-weight: 600; margin: 0.5rem 0 0.8rem; color: var(--text-primary); }
+.footer-column-title { font-size: 0.85rem; font-weight: 600; margin: 0.5rem 0 0.65rem; color: var(--text-primary); }
 .footer-link-column { min-width: 0; }
 .footer-link-column ul { padding: 0; margin: 0; list-style: none; }
-.footer-nav-link { display: inline-flex; align-items: center; min-height: 44px; color: var(--text-muted); font-size: 0.8125rem; line-height: 1.5; text-decoration: none; padding: 0.3rem 0; }
+.footer-nav-link { display: inline-flex; align-items: center; min-height: 32px; color: var(--text-muted); font-size: 0.8125rem; line-height: 1.5; text-decoration: none; padding: 0.25rem 0; }
 .footer-nav-icon { margin-right: 0.45rem; flex-shrink: 0; }
 .footer-nav-link:hover, .footer-external-link:hover { color: var(--accent); }
 .footer-bottom { margin: 0 auto; padding: 1.25rem 0; border-top: 1px solid var(--border-subtle); color: var(--text-muted); text-align: left; }
 .footer-bottom p { font-size: 0.7rem; margin: 0; }
+@media (pointer: coarse) {
+  .footer-nav-link { min-height: 44px; }
+}
 @media (max-width: 1100px) {
   .footer-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .footer-brand-column { grid-column: 1 / -1; margin-bottom: 1rem; }

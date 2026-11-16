@@ -1,6 +1,6 @@
 /* La page Contact utilise une seule surface principale ; la colonne secondaire reste sans cadre. */
 .contact-page {
-  padding: 9.5rem 0 4rem;
+  padding: var(--site-page-top) 0 var(--site-section-gap);
   color: var(--text-primary);
   text-align: left;
 }
@@ -331,7 +331,7 @@
 }
 @media (max-width: 575px) {
   .contact-page {
-    padding-top: 7.5rem;
+    padding-top: var(--site-page-top);
   }
   .contact-header {
     margin-bottom: 1.75rem;

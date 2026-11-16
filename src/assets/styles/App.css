@@ -166,8 +166,7 @@
 }
 
 .route-skeleton {
-  width: min(1080px, 92%);
-  margin: 8.2rem auto 2.5rem;
+  margin: var(--site-page-top) auto 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -332,7 +331,7 @@
   }
 
   .route-skeleton {
-    margin-top: 7.2rem;
+    margin-top: var(--site-page-top);
   }
 
   .route-skeleton-grid {
@@ -463,13 +462,13 @@
 }
 @media (max-width: 768px) {
   .sky-distant-stars {
-    opacity: 0.5;
+    opacity: 0.65;
   }
   .sky-beacons i:nth-child(even) {
     display: none;
   }
   .sky-nebula {
-    opacity: 0.65;
+    opacity: 0.8;
   }
 }
 @media (prefers-reduced-motion: reduce) {

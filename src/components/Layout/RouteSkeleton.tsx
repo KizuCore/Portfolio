@@ -5,7 +5,7 @@ function RouteSkeleton() {
 
   return (
     <div
-      className="route-skeleton"
+      className="route-skeleton site-container"
       role="status"
       aria-live="polite"
       aria-label={t("a11y.loading_content")}

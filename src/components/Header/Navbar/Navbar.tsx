@@ -145,6 +145,8 @@ function NavBar(): JSX.Element {
     };
 
     const desktop = window.matchMedia("(min-width: 900px)");
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     const closeOnDesktop = () => { if (desktop.matches) setExpand(false); };
     const closeOutside = (event: PointerEvent) => {
       if (event.target instanceof Node && !navRef.current?.contains(event.target)) setExpand(false);
@@ -155,6 +157,7 @@ function NavBar(): JSX.Element {
     const frame = window.requestAnimationFrame(() => menuRef.current?.querySelector<HTMLElement>("a[href]")?.focus());
 
     return () => {
+      document.body.style.overflow = previousOverflow;
       window.cancelAnimationFrame(frame);
       window.removeEventListener("keydown", handleMenuKeyDown);
       document.removeEventListener("pointerdown", closeOutside);
@@ -218,7 +221,7 @@ function NavBar(): JSX.Element {
           <span></span>
         </button>
 
-        <div id="responsive-site-nav-list" className={`site-nav-menu min-[900px]:flex ${expand ? "block" : "hidden"}`} ref={menuRef}>
+        <div id="responsive-site-nav-list" className={`site-nav-menu min-[900px]:contents ${expand ? "block" : "hidden"}`} ref={menuRef}>
           <ul className="site-nav-links">
             {navItems.map((item) => (
               <NavItem

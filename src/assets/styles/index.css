@@ -13,6 +13,15 @@
 :root {
   --site-content-width: 1160px;
   --site-gutter: 24px;
+  --site-page-top: 9.5rem;
+  --site-section-gap: clamp(3rem, 6vw, 5rem);
+  --site-nav-top: max(16px, env(safe-area-inset-top, 0px));
+}
+@media (max-width: 899px) {
+  :root {
+    --site-page-top: 7.5rem;
+    --site-nav-top: max(10px, env(safe-area-inset-top, 0px));
+  }
 }
 @media (max-width: 767px) {
   :root { --site-gutter: 20px; }

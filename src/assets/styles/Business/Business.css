@@ -4,7 +4,7 @@
 .business-page {
   /* Même cadre que l'accueil, gouttière extérieure comprise. */
   margin: auto;
-  padding: 8rem 0 4rem;
+  padding: var(--site-page-top) 0 var(--site-section-gap);
   color: var(--text-primary);
   text-align: left;
 }
@@ -188,7 +188,7 @@
 @media (max-width: 767px) {
 
   .business-page {
-    padding-top: 6.5rem;
+    padding-top: var(--site-page-top);
   }
   .business-breadcrumb {
     margin-bottom: 2rem;

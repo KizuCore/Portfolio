@@ -2,7 +2,7 @@
 .resume-section {
   position: relative;
   z-index: 1;
-  padding: 9.5rem 0 5rem;
+  padding: var(--site-page-top) 0 var(--site-section-gap);
   min-height: 100vh;
   color: var(--text-primary);
   text-align: left;
@@ -545,7 +545,7 @@
 }
 @media (max-width: 767px) {
   .resume-section {
-    padding-top: 7.5rem;
+    padding-top: var(--site-page-top);
   }
   .resume-header {
     align-items: flex-start;

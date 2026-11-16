@@ -5,7 +5,7 @@
   min-height: 100vh;
 }
 .timeline-container {
-  padding: 9.5rem 0 5rem;
+  padding: var(--site-page-top) 0 var(--site-section-gap);
   color: var(--text-primary);
   text-align: left;
 }
@@ -173,7 +173,7 @@
 }
 @media (max-width: 575px) {
   .timeline-container {
-    padding: 7.5rem 0 3rem;
+    padding: var(--site-page-top) 0 var(--site-section-gap);
   }
   .experience-title {
   font-family: "Montserrat", sans-serif;

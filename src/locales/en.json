@@ -1,4 +1,17 @@
 {
+    "code_activity": {
+        "select": "Choose a platform",
+        "calendar": "{{platform}} contribution calendar",
+        "total": "{{count}} contributions in the last 12 months",
+        "less": "Less",
+        "more": "More",
+        "day": "{{count}} contributions on {{date}}",
+        "day_one": "{{count}} contribution on {{date}}",
+        "day_other": "{{count}} contributions on {{date}}",
+        "unavailable": "The calendar is temporarily unavailable. You can still visit the profile using the link above.",
+        "retry": "Try again",
+        "gitlab_note": "Activity visible on my GitLab profile. Contributions include more than just commits."
+    },
     "legal_navigation": {
         "eyebrow": "Legal information",
         "navigation": "Document navigation",

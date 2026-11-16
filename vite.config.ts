@@ -5,6 +5,17 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  server: {
+    proxy: {
+      // Vite development equivalent of the public Vercel API endpoint.
+      "^/api/gitlab-calendar$": {
+        target: "https://gitlab.com",
+        changeOrigin: true,
+        rewrite: () => "/users/Theo35000/calendar.json",
+        proxyTimeout: 8000,
+      },
+    },
+  },
   build: {
     sourcemap: true,
     // Le manifeste permet de vérifier le poids initial et les dépendances différées.

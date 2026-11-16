@@ -2,6 +2,25 @@
 #about-skills-title {
   scroll-margin-top: 120px;
 }
+.about-skills-section .stack-tooltip {
+  --rt-opacity: 1;
+  z-index: 20;
+  max-width: min(260px, calc(100vw - 2rem));
+  padding: 0.6rem 0.85rem;
+  border: 1px solid #344963;
+  border-radius: 10px;
+  background: #152236;
+  color: #d8e3f1;
+  box-shadow: 0 6px 18px #03081240;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.stack-tooltip-name { display: block; font-weight: 500; }
+.stack-tooltip-detail { display: block; margin-top: 0.15rem; color: #a9bbd2; }
 .about-skills-section,
 .about-code-section {
   margin-top: 4rem;

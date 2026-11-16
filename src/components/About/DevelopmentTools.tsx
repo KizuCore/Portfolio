@@ -58,7 +58,8 @@ const ToolStack: React.FC = () => {
       </div>
 
       {inView && <Suspense fallback={null}>
-        <Tooltip id="tool-tooltip" anchorSelect=".tech-icons-1" place="top" />
+        <Tooltip id="tool-tooltip" anchorSelect=".tech-icons-1" place="top"
+          className="stack-tooltip" noArrow offset={12} delayShow={150} />
       </Suspense>}
     </section>
   );

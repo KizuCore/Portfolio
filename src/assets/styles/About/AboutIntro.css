@@ -51,6 +51,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   justify-content: center;
   flex: 1 1 auto;
   min-width: 0;
@@ -64,6 +65,15 @@
   font-weight: 400;
   line-height: 1.4;
   white-space: nowrap;
+}
+.profile-tab-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  color: #98abc3;
+}
+.about-profile-tabs button[aria-selected="true"] .profile-tab-icon {
+  color: var(--accent);
 }
 
 .about-profile-tabs button:hover {
@@ -229,8 +239,11 @@
     padding: 0.6rem;
   }
   .about-profile-tabs button {
+    flex-direction: column;
+    gap: 0.35rem;
+    min-height: 56px;
     font-size: 0.75rem;
-    padding-inline: 0.3rem;
+    padding-inline: 0.15rem;
   }
   .about-profile-content {
     padding: 1.35rem;

@@ -8,6 +8,8 @@ import '../../assets/styles/About/ProfileInteractions.css';
 import '../../assets/styles/About/About.css';
 import secretSound from '@sound/voice.mp3';
 import { FaGraduationCap } from "@react-icons/all-files/fa/FaGraduationCap";
+import { FaUser } from "@react-icons/all-files/fa/FaUser";
+import { FaPuzzlePiece } from "@react-icons/all-files/fa/FaPuzzlePiece";
 
 function AboutCard(): JSX.Element {
   const { t } = useTranslation();
@@ -17,9 +19,9 @@ function AboutCard(): JSX.Element {
   const [isCooldown, setIsCooldown] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const tabs = [
-    { key: 'presentation', label: t('presentation_title') },
-    { key: 'qualifications', label: t('qualifications_title') },
-    { key: 'hobbies', label: t('hobbies_title') },
+    { key: 'presentation', icon: <FaUser />, label: t('presentation_title') },
+    { key: 'qualifications', icon: <FaGraduationCap />, label: t('qualifications_title') },
+    { key: 'hobbies', icon: <FaPuzzlePiece />, label: t('hobbies_title') },
   ] as const;
 
   useEffect(() => {
@@ -53,7 +55,7 @@ function AboutCard(): JSX.Element {
   return (
     <div className="about-profile">
       <div className="about-profile-tabs" role="tablist" aria-label={t('about_me')}>
-        {tabs.map(({ key, label }, index) => (
+        {tabs.map(({ key, icon, label }, index) => (
           <button
             key={key}
             type="button"
@@ -74,6 +76,7 @@ function AboutCard(): JSX.Element {
               document.getElementById(`about-tab-${tabs[next].key}`)?.focus();
             }}
           >
+            <span className="profile-tab-icon" aria-hidden="true">{icon}</span>
             {label}
           </button>
         ))}

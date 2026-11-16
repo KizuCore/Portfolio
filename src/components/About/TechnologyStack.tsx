@@ -123,7 +123,17 @@ function TechStack() {
       </div>
 
       {inView && <Suspense fallback={null}>
-        <Tooltip id="tech-tooltip" anchorSelect=".tech-icons" place="top" />
+        <Tooltip id="tech-tooltip" anchorSelect=".tech-icons" place="top"
+          className="stack-tooltip" noArrow offset={12} delayShow={150}
+          render={({ content }) => {
+            if (!content) return null;
+            const separator = content.indexOf(" - ");
+            if (separator < 0) return content;
+            return <>
+              <span className="stack-tooltip-name">{content.slice(0, separator)}</span>
+              <span className="stack-tooltip-detail">{content.slice(separator + 3)}</span>
+            </>;
+          }} />
       </Suspense>}
     </div>
   );

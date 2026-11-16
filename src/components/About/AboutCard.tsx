@@ -8,8 +8,11 @@ import '../../assets/styles/About/ProfileInteractions.css';
 import '../../assets/styles/About/About.css';
 import secretSound from '@sound/voice.mp3';
 import { FaGraduationCap } from "@react-icons/all-files/fa/FaGraduationCap";
-import { FaUser } from "@react-icons/all-files/fa/FaUser";
-import { FaPuzzlePiece } from "@react-icons/all-files/fa/FaPuzzlePiece";
+import { FiUser } from "@react-icons/all-files/fi/FiUser";
+import { FiAward } from "@react-icons/all-files/fi/FiAward";
+import { FiHeart } from "@react-icons/all-files/fi/FiHeart";
+import { FiCode } from "@react-icons/all-files/fi/FiCode";
+import { FiUsers } from "@react-icons/all-files/fi/FiUsers";
 
 function AboutCard(): JSX.Element {
   const { t } = useTranslation();
@@ -19,9 +22,9 @@ function AboutCard(): JSX.Element {
   const [isCooldown, setIsCooldown] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const tabs = [
-    { key: 'presentation', icon: <FaUser />, label: t('presentation_title') },
-    { key: 'qualifications', icon: <FaGraduationCap />, label: t('qualifications_title') },
-    { key: 'hobbies', icon: <FaPuzzlePiece />, label: t('hobbies_title') },
+    { key: 'presentation', icon: <FiUser />, label: t('presentation_title') },
+    { key: 'qualifications', icon: <FiAward />, label: t('qualifications_title') },
+    { key: 'hobbies', icon: <FiHeart />, label: t('hobbies_title') },
   ] as const;
 
   useEffect(() => {
@@ -107,16 +110,27 @@ function AboutCard(): JSX.Element {
 function Presentation({ t }: { t: TFunction }): JSX.Element {
   return (
     <>
-      <p className="about-profile-lead">
+      <h2 className="about-profile-lead">
         <Trans t={t} i18nKey="presentation.introduction" components={{ strong: <strong className="profile-emphasis" /> }} />
-      </p>
-      <p>{t('presentation.background')}</p>
-      <p>
-        <Trans t={t} i18nKey="presentation.first_website" components={{ foodwars: <strong className="profile-emphasis" />, website: <strong className="profile-emphasis" /> }} />
-      </p>
-      <p>
-        <Trans t={t} i18nKey="presentation.minecraft" components={{ minecraft: <MinecraftMemory />, strong: <strong className="profile-emphasis" /> }} />
-      </p>
+      </h2>
+      <p className="about-profile-role">{t('presentation.role')}</p>
+      <p className="about-profile-background">{t('presentation.background')}</p>
+      <div className="profile-stories">
+        <section className="profile-story">
+          <span className="profile-story-icon"><FiCode aria-hidden="true" /></span>
+          <div>
+            <h3>{t('presentation.first_website_title')}</h3>
+            <p><Trans t={t} i18nKey="presentation.first_website" components={{ foodwars: <strong className="profile-emphasis" />, website: <strong className="profile-emphasis" /> }} /></p>
+          </div>
+        </section>
+        <section className="profile-story">
+          <span className="profile-story-icon"><FiUsers aria-hidden="true" /></span>
+          <div>
+            <h3>{t('presentation.minecraft_title')}</h3>
+            <p><Trans t={t} i18nKey="presentation.minecraft" components={{ minecraft: <MinecraftMemory />, strong: <strong className="profile-emphasis" /> }} /></p>
+          </div>
+        </section>
+      </div>
     </>
   );
 }

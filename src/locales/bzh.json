@@ -1,4 +1,11 @@
 {
+    "navigation_menu": {
+        "label": "Menu",
+        "close": "Serriñ",
+        "open_label": "Digeriñ ar menu",
+        "close_label": "Serriñ ar menu",
+        "language": "Yezh"
+    },
     "not_found": {
         "eyebrow": "404 · Pajenn nann kavet",
         "title": "N’eo ket bet kavet ar bajenn-mañ",
@@ -91,7 +98,7 @@
         "hobby_details": {
             "1": "Daou veaj a hunvrean ober: Japan hag Island, dreist-holl evit he gweledvaoù.",
             "2": "Plijout a ra din fardañ dibennoù-pred, flan gant vioù dreist-holl. Hag ur c’hilhog gant kari ivez !",
-            "3": "Ar pezh a blij din en astronomiezh eo e tesker traoù nevez bemdez. Pep dizoloadenn a zegas goulennoù nevez: en em c’houlenn a ran hag-eñ e teuimp un deiz da gompren pep tra.",
+            "3": "An astronomiezh a sach ma evezh : pep dizoloadenn a ro din c’hoant da gompren muioc’h.",
             "4": "Ar c’hizhier, hep mar ebet. Diaes eo herzel ouzh ar bouloù blev-se.",
             "5": "Mont er-maez gant ma mignoned, mont da vale, krouiñ eñvorennoù… Profitañ eus ar mareoù bihan ha bevañ da vat, ken eeun-se.",
             "6": "Plijout a ra din he sonerezh, an arzourez eo hag an talvoudoù a zifenn.",
@@ -305,11 +312,14 @@
     "completed": "echuet",
     "technologies": "Teknologiezhioù",
     "presentation": {
-        "introduction": "Demat, <strong>Théo Guérin</strong> eo ma anv ! 25 bloaz on ha diorroer web full-stack on e Roazhon.",
-        "background": "Un MBA Diorroer Web Full-Stack (RNCP live 7) am eus. Met er penn-kentañ e oa dreist-holl ar c’hoant da zizoleiñ ha da grouiñ un dra din-me.",
-        "first_website": "Kroget em eus gant ul lec’hienn diwar-benn an anime <foodwars>Food Wars</foodwars>, evit klask <website>HTML ha CSS</website> hepken. Ha plijet bras on bet : dibab ar pajennaozañ, cheñch pep munud, ha gwelet ma lec’hienn enlinenn ! Gallout kregiñ gant ur soñj ha sevel pep tra ma-unan en deus roet din c’hoant da vont pelloc’h.",
-        "minecraft": "<minecraft /> en deus bet ur plas bras em hentad ivez, adalek 2017. Ouzhpenn merañ servijerioù, e raen war-dro skipailhoù hag aozadur ar raktresoù. Desket em eus kenurzhiañ labour pep hini, ha dreist-holl kavet plijadur o <strong>sevel un dra a-stroll</strong>. Evel-se eo deuet ar c’hod, mererezh ar raktresoù hag al labour a-stroll asambles en un doare naturel.",
-        "minecraft_label": "Minecraft"
+        "introduction": "Demat, <strong>Théo Guérin</strong> on.",
+        "background": "Diplomet on gant un MBA Diorroer Web Full-Stack (RNCP live 7). Mirout a ran ar c’hoant da zizoleiñ en deus roet din ar mennozh da grouiñ ma lec’hiennoù kentañ.",
+        "first_website": "Kroget eo gant ul lec’hienn diwar-benn an anime <foodwars>Food Wars</foodwars>, evit amprouiñ <website>HTML ha CSS</website>. Dibab ar pajennaozañ, prederiañ war ar munudoù ha gwelet ma lec’hienn enlinenn : setu ar pezh en deus roet din c’hoant da genderc’hel.",
+        "minecraft": "Adalek 2017, <minecraft /> en deus desket din ivez merañ servijerioù, aozañ raktresoù ha kenurzhiañ skipailhoù. Kavet em eus plijadur o <strong>sevel a-stroll</strong>, un dra a gavan c’hoazh en diorren hiziv.",
+        "minecraft_label": "Minecraft",
+        "role": "Diorroer web full-stack e Roazhon.",
+        "first_website_title": "An deroù",
+        "minecraft_title": "Sevel a-stroll"
     },
     "Informations": "Titouroù",
     "Vous avez un projet ?": "Un raktres hoc'h eus ?",

@@ -2,6 +2,13 @@ import { JSX, useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FiArrowUpRight } from "@react-icons/all-files/fi/FiArrowUpRight";
+import { FiArrowRight } from "@react-icons/all-files/fi/FiArrowRight";
+import { FiGrid } from "@react-icons/all-files/fi/FiGrid";
+import { FiUser } from "@react-icons/all-files/fi/FiUser";
+import { FiBriefcase } from "@react-icons/all-files/fi/FiBriefcase";
+import { FiFileText } from "@react-icons/all-files/fi/FiFileText";
+import { FiMail } from "@react-icons/all-files/fi/FiMail";
+import { FiGlobe } from "@react-icons/all-files/fi/FiGlobe";
 import LanguageSelector from "../LanguageSelector";
 import Logo from "../Logo/LogoContainer";
 import NavItem from "./NavItem";
@@ -149,7 +156,10 @@ function NavBar(): JSX.Element {
     document.body.style.overflow = "hidden";
     const closeOnDesktop = () => { if (desktop.matches) setExpand(false); };
     const closeOutside = (event: PointerEvent) => {
-      if (event.target instanceof Node && !navRef.current?.contains(event.target)) setExpand(false);
+      if (event.target instanceof Node && !navRef.current?.contains(event.target)) {
+        setExpand(false);
+        toggleButtonRef.current?.focus();
+      }
     };
     window.addEventListener("keydown", handleMenuKeyDown);
     document.addEventListener("pointerdown", closeOutside);
@@ -167,16 +177,19 @@ function NavBar(): JSX.Element {
 
   // Construit les éléments de navigation selon la langue actuelle pour synchroniser les libellés et les chemins.
   const navItems = [
-    { to: getLocalizedPath(currentLocale, "/project"), label: t("project"), ariaLabel: t("project_aria") },
-    { to: getLocalizedPath(currentLocale, "/about"), label: t("about"), ariaLabel: t("about_aria") },
+    { to: getLocalizedPath(currentLocale, "/project"), label: t("project"), ariaLabel: t("project_aria"), icon: <FiGrid /> },
+    { to: getLocalizedPath(currentLocale, "/about"), label: t("about"), ariaLabel: t("about_aria"), icon: <FiUser /> },
     {
       to: getLocalizedPath(currentLocale, "/experience"),
       label: t("experience"),
       ariaLabel: t("about_experience"),
+      icon: <FiBriefcase />,
     },
   ];
 
   return (
+    <>
+    {expand && <div className="site-nav-backdrop" aria-hidden="true" />}
     <nav
       ref={navRef}
       className={`site-nav site-container ${navColour ? "is-scrolled" : ""} ${expand ? "menu-open" : ""}`}
@@ -212,13 +225,12 @@ function NavBar(): JSX.Element {
           type="button"
           className="site-nav-toggle min-[900px]:hidden"
           aria-controls="responsive-site-nav-list"
-          aria-label={t("a11y.nav_menu_toggle")}
+          aria-label={t(expand ? "navigation_menu.close_label" : "navigation_menu.open_label")}
           aria-expanded={expand}
           onClick={() => setExpand(!expand)}
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span className="site-nav-toggle-label">{t(expand ? "navigation_menu.close" : "navigation_menu.label")}</span>
+          <span className="site-nav-toggle-icon" aria-hidden="true"><span /><span /></span>
         </button>
 
         <div id="responsive-site-nav-list" className={`site-nav-menu min-[900px]:contents ${expand ? "block" : "hidden"}`} ref={menuRef}>
@@ -230,6 +242,7 @@ function NavBar(): JSX.Element {
                 label={item.label}
                 onClick={() => setExpand(false)}
                 ariaLabel={item.ariaLabel}
+                icon={item.icon}
               />
             ))}
           </ul>
@@ -239,20 +252,22 @@ function NavBar(): JSX.Element {
               className="site-nav-resume"
               aria-current={localizedPath.pathname === "/cv" ? "page" : undefined}
               onClick={() => setExpand(false)}
-            >{t("cv")}</Link>
+            ><span className="site-nav-mobile-icon" aria-hidden="true"><FiFileText /></span>{t("cv")}<FiArrowRight className="site-nav-mobile-arrow" aria-hidden="true" /></Link>
             <Link
               to={getLocalizedPath(currentLocale, "/contact")}
               className={`site-nav-link site-nav-contact${localizedPath.pathname === "/contact" ? " active" : ""}`}
               aria-current={localizedPath.pathname === "/contact" ? "page" : undefined}
               onClick={() => setExpand(false)}
-            >{t("social")} <FiArrowUpRight size={16} aria-hidden="true" /></Link>
+            ><span className="site-nav-mobile-icon" aria-hidden="true"><FiMail /></span>{t("social")} <FiArrowUpRight size={16} aria-hidden="true" /></Link>
             <div className="site-nav-language">
+              <span className="site-nav-language-label"><FiGlobe aria-hidden="true" />{t("navigation_menu.language")}</span>
               <LanguageSelector />
             </div>
           </div>
         </div>
       </div>
     </nav>
+    </>
   );
 }
 

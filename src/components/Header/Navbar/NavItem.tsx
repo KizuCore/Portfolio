@@ -1,4 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
+import type { ReactNode } from 'react';
+import { FiArrowRight } from '@react-icons/all-files/fi/FiArrowRight';
 import { splitLocalizedPath } from '../../../config/seo';
 import '../../../assets/styles/Header/Navigation.css';
 
@@ -8,9 +10,10 @@ interface NavItemProps {
   onClick: () => void;
   ariaLabel: string;
   prominent?: boolean;
+  icon?: ReactNode;
 }
 
-function NavItem({ to, label, onClick, ariaLabel, prominent = false }: NavItemProps) {
+function NavItem({ to, label, onClick, ariaLabel, prominent = false, icon }: NavItemProps) {
   const location = useLocation();
   const currentPath = splitLocalizedPath(location.pathname).pathname;
   const targetPath = splitLocalizedPath(to).pathname;
@@ -25,7 +28,9 @@ function NavItem({ to, label, onClick, ariaLabel, prominent = false }: NavItemPr
         aria-current={isActive ? "page" : undefined}
         className={`site-nav-link${isActive ? ' active' : ''}${prominent ? ' site-nav-contact' : ''}`}
       >
+        {icon && <span className="site-nav-mobile-icon" aria-hidden="true">{icon}</span>}
         <span className="nav-label">{label}</span>
+        <FiArrowRight className="site-nav-mobile-arrow" aria-hidden="true" />
         {prominent && <span aria-hidden="true">↗</span>}
       </Link>
     </li>

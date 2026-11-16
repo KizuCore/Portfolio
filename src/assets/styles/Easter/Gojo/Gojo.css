@@ -135,7 +135,8 @@
   transition:
     opacity 0.8s,
     transform 0.8s;
-  animation: gojo-rise 1.5s both;
+  /* Libère l’opacité après l’entrée pour laisser les phases suivantes masquer l’introduction. */
+  animation: gojo-rise 1.5s backwards;
 }
 .gojo-eyebrow {
   margin: 0 0 16px;

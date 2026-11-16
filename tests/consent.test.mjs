@@ -8,7 +8,7 @@ function loadConsent({ blockedStorage = false } = {}) {
   const stored = new Map();
   const events = [];
   const exports = {};
-  const source = ts.transpileModule(fs.readFileSync(new URL('../src/utils/consent.ts', import.meta.url), 'utf8'), {
+  const source = ts.transpileModule(fs.readFileSync(new URL('../src/shared/privacy/consent.ts', import.meta.url), 'utf8'), {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
   }).outputText;
   const context = {

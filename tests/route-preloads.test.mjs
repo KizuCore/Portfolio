@@ -5,7 +5,7 @@ import { buildRoutePreloads } from "../scripts/lib/route-preloads.mjs";
 const manifest = {
   "index.html": { file: "assets/main.js", imports: ["react"], css: ["assets/main.css"] },
   react: { file: "assets/react.js" },
-  "src/components/About/About.tsx": {
+  "src/features/about/pages/About.tsx": {
     file: "assets/about.js",
     imports: ["react", "shared"],
     dynamicImports: ["solar"],
@@ -38,8 +38,8 @@ test("un renommage de composant ou une nouvelle route oubliée fait échouer la 
 
 test("une façade fusionnée conserve les préchargements propres à la route", () => {
   const merged = structuredClone(manifest);
-  const about = merged["src/components/About/About.tsx"];
-  delete merged["src/components/About/About.tsx"];
+  const about = merged["src/features/about/pages/About.tsx"];
+  delete merged["src/features/about/pages/About.tsx"];
   merged["_About-123.js"] = { ...about, name: "About", isDynamicEntry: true };
   merged["index.html"].dynamicImports = ["_About-123.js"];
   assert.equal(buildRoutePreloads(merged, "/about", "fr"), buildRoutePreloads(manifest, "/about", "fr"));

@@ -39,7 +39,7 @@ for (const file of scripts) {
   const map = JSON.parse(fs.readFileSync(path.join(dist, `${file}.map`), "utf8"));
   const deferredSources = map.sources.filter((source) =>
     /node_modules\/(?:react-pdf|pdfjs-dist|@tsparticles|tsparticles|react-github-calendar|react-tooltip|react-countup|countup.js)\//.test(source)
-    || /src\/components\/(?:About|Resume|Contact|CaseStudies)\//.test(source)
+    || /src\/features\/(?:about|resume|contact|case-studies)\//.test(source)
     || /src\/locales\/bzh\.json$/.test(source)
   );
   assert.equal(deferredSources.length, 0, `Code différé chargé à l’accueil dans ${file} : ${deferredSources.join(", ")}`);
@@ -63,12 +63,12 @@ assert(cssBytes < 30 * 1024, `CSS initial trop lourd : ${cssBytes} octets gzip`)
 console.log(`Accueil : ${(jsBytes / 1024).toFixed(1)} Kio JS, ${(cssBytes / 1024).toFixed(1)} Kio CSS (gzip). Dépendances différées : OK.`);
 
 const homeScripts = new Set(scripts);
-visit(resolveRouteEntry(manifest, "src/components/About/About.tsx"));
+visit(resolveRouteEntry(manifest, "src/features/about/pages/About.tsx"));
 const aboutScripts = new Set([...scripts].filter((file) => !homeScripts.has(file)));
 for (const file of aboutScripts) {
   const map = JSON.parse(fs.readFileSync(path.join(dist, `${file}.map`), "utf8"));
   assert(!map.sources.some((source) =>
-    /src\/components\/About\/(?:StackIcon|SolarSystem)\.tsx$/.test(source)
+    /src\/features\/about\/components\/(?:StackIcon|SolarSystem)\.tsx$/.test(source)
     || /node_modules\/(?:react-github-calendar|react-tooltip)\//.test(source)),
   `Illustrations ou outils secondaires chargés trop tôt sur À propos : ${file}`);
 }

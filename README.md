@@ -17,7 +17,7 @@ Site en production : [theo-guerin.fr](https://theo-guerin.fr/)
 ## Fonctionnalités
 
 - Pages portfolio : accueil, à propos, expériences, projets, contact et CV.
-- Routes localisées en `fr`, `en`, `es` et `bzh`.
+- Routes localisées en `fr`, `en` et `bzh` (anciennes URL espagnoles redirigées).
 - Métadonnées SEO par page, Open Graph, Twitter Cards et données structurées.
 - Fichiers `llms.txt`, `llms-fr.txt` et `llms-en.txt`.
 - Sitemap XML généré automatiquement depuis la configuration SEO.
@@ -76,6 +76,8 @@ npm run dev               # Lance le serveur de développement
 npm run build             # Génère le sitemap, compile TypeScript et build Vite
 npm run preview           # Prévisualise le build de production
 npm run lint              # Lance ESLint
+npm run check             # ESLint, TypeScript, traductions et architecture
+npm test                  # Tests du consentement, des API et du rendu SEO
 npm run i18n:check        # Vérifie la cohérence des clés de traduction
 npm run i18n:sync         # Synchronise les clés i18n manquantes
 npm run sitemap:generate  # Régénère public/sitemap.xml
@@ -88,7 +90,7 @@ Le script `npm run build` exécute automatiquement `npm run sitemap:generate` vi
 
 Le contrôle de performance utilise le manifeste Vite et les sourcemaps du build. Il vérifie que le PDF, le calendrier GitHub, les infobulles et les particules restent hors du chargement initial, avec des budgets gzip de 230 Kio de JavaScript et 30 Kio de CSS. Il refuse aussi le retour des moteurs de particules complet ou « slim », y compris dans les imports différés. Après un changement de dépendances ou de styles, lancer `npm run build`, `npm run check:performance` et `npm run check:seo`, puis vérifier les pages concernées sur mobile et ordinateur.
 
-Tailwind CSS est intégré via `@tailwindcss/vite` et importé dans `src/assets/styles/index.css`. Les grilles et utilitaires utilisent Tailwind ; les styles visuels propres au portfolio restent dans les fichiers CSS des composants. La classe `site-container` conserve un cadre commun aux pages et à la navigation. L’accueil conserve un ciel statique sur mobile et pour les préférences de mouvement réduit ; le moteur animé se charge après la page sur les appareils adaptés.
+Tailwind CSS est intégré via `@tailwindcss/vite` et importé dans `src/styles/index.css`. Les grilles et utilitaires utilisent Tailwind ; les styles visuels propres au portfolio restent dans les fichiers CSS des composants. La classe `site-container` conserve un cadre commun aux pages et à la navigation. L’accueil conserve un ciel statique sur mobile et pour les préférences de mouvement réduit ; le moteur animé se charge après la page sur les appareils adaptés.
 
 Le ciel animé utilise `@tsparticles/basic` à 24 images par seconde, avec les cercles,
 le déplacement et l’opacité nécessaires au décor. Les 160 étoiles fixes sont réunies
@@ -99,45 +101,51 @@ Les dictionnaires français et anglais sont disponibles dès le démarrage ; le 
 est importé à la demande, avant le premier rendu d’une URL bretonne. Les études de cas
 utilisent le dictionnaire déjà chargé, également fourni aux fonctions partagées par
 la génération SEO. Les styles communs aux boutons de l’accueil et des services sont
-isolés dans `shared/business-actions.css` pour différer le reste des styles de services.
+isolés dans `src/styles/shared/business-actions.css` pour différer le reste des styles de services.
 Comparer les mesures Lighthouse avec le même profil et le même ralentissement :
 un résultat local ne garantit pas le même score sur PageSpeed Insights.
 
 ## Structure
 
 ```text
-api/                 API serverless Vercel pour le formulaire de contact
-public/              Assets publics, manifest, robots.txt, sitemap et fichiers llms
-scripts/             Scripts de maintenance, i18n et sitemap
-src/assets/          Images, médias et styles regroupés par fonctionnalité
-src/components/      Composants React par domaine
-src/components/Layout/ Composants d'infrastructure communs à toutes les pages
-src/config/          Configuration globale du site et du SEO
-src/hooks/           Hooks React réutilisables
-src/locales/         Traductions JSON
-src/routes/          Définition des routes applicatives
-src/services/        Services côté frontend
-src/utils/           Utilitaires navigateur sans rendu React
+api/                 Points d'entrée HTTP Vercel
+lib/contact/         Validation serveur, limitation, captcha et envoi
+lib/email/           Modèles des e-mails
+public/              Ressources servies à URL fixe, sitemap et fichiers llms
+scripts/             Génération des ressources et contrôles du projet
+tests/               Tests Node, API simulées et rendu SEO
+src/app/             Démarrage, routes, navigation, footer et SEO
+src/features/        Pages regroupées par fonctionnalité, avec leur logique et CSS
+src/shared/          UI, hooks, configuration et consentement communs
+src/content/         Données partagées entre React et les générateurs SEO
+src/locales/         Traductions JSON (fr, en, bzh)
+src/styles/          Tailwind, polices et styles communs
+src/assets/          Images et médias importés par Vite
 ```
+
+Les responsabilités, règles de dépendances et étapes pour ajouter une page sont
+expliquées dans [le guide d'architecture](docs/architecture.md).
+`npm run check:architecture` empêche les imports entre fonctionnalités et les
+dépendances inversées vers l'application. Ce contrôle fait partie de `npm run check`.
 
 ## SEO et internationalisation
 
-La configuration SEO principale se trouve dans `src/config/seo.ts`.
+La configuration SEO principale se trouve dans `src/shared/config/seo.ts`.
 
 Les routes localisées sont générées à partir des routes applicatives et des langues supportées. Les pages légales utilisent un fallback de contenu :
 
-- `fr` utilise le contenu français.
-- `en` et `es` utilisent le contenu anglais.
+- `fr` et `bzh` utilisent le contenu juridique français.
+- `en` utilise le contenu anglais.
 
 Le sitemap est généré depuis la même configuration afin d'éviter les écarts entre les routes réelles, les balises `hreflang` et `public/sitemap.xml`.
 
 ## Pages de services et études de cas
 
-Les textes des pages React, Django, Flutter, création de sites et de l’étude de cas Montafilan sont centralisés dans `src/data/businessPages.ts`. Le composant `BusinessPage` s’occupe de la présentation ; `scripts/lib/render-business-page.mjs` utilise les mêmes textes pour le HTML sans JavaScript. Les données structurées communes se trouvent dans `src/config/businessSchema.ts`.
+Les textes des pages React, Django, Flutter, création de sites et de l’étude de cas Montafilan sont centralisés dans `src/content/businessPages.ts`. Le composant `BusinessPage` s’occupe de la présentation ; `scripts/lib/render-business-page.mjs` utilise les mêmes textes pour le HTML sans JavaScript. Les données structurées communes se trouvent dans `src/shared/config/businessSchema.ts`.
 
-Ces pages sont maintenues en français. `contentLocale` dans `src/config/seo.ts` fixe leur langue et leur URL canonique ; les variantes non traduites ne sont pas ajoutées au sitemap comme traductions. Pour une nouvelle page, ajouter son contenu, sa configuration SEO et sa redirection dans `vercel.json`.
+Ces pages sont maintenues en français. `contentLocale` dans `src/shared/config/seo.ts` fixe leur langue et leur URL canonique ; les variantes non traduites ne sont pas ajoutées au sitemap comme traductions. Pour une nouvelle page, ajouter son contenu, sa configuration SEO et sa redirection dans `vercel.json`.
 
-Les textes de l’accueil sont dans `home_offer` et `services` des dictionnaires `src/locales`. Les trois offres sont définies dans `src/components/Home/data/services.ts`. Les styles de l’accueil et des services sont séparés du gabarit des pages détaillées.
+Les textes de l’accueil sont dans `home_offer` et `services` des dictionnaires `src/locales`. Les trois offres sont définies dans `src/features/home/data/services.ts`. Les styles de l’accueil et des services sont séparés du gabarit des pages détaillées.
 
 Ne pas modifier directement `public/experience.md`, `profile.md` ou `projects.md` : ils sont régénérés depuis les données et les traductions lors de `npm run build`.
 

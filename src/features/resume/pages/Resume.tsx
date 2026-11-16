@@ -1,0 +1,156 @@
+import { lazy, Suspense, useState } from "react";
+import { Link } from "react-router-dom";
+import { AiOutlineDownload } from "@react-icons/all-files/ai/AiOutlineDownload";
+import { useTranslation } from "react-i18next";
+import { FiArrowUpRight } from "@react-icons/all-files/fi/FiArrowUpRight";
+import { FiMapPin } from "@react-icons/all-files/fi/FiMapPin";
+import { FiArrowRight } from "@react-icons/all-files/fi/FiArrowRight";
+import { FiBriefcase } from "@react-icons/all-files/fi/FiBriefcase";
+import { FiBookOpen } from "@react-icons/all-files/fi/FiBookOpen";
+import { FiCode } from "@react-icons/all-files/fi/FiCode";
+import { FiServer } from "@react-icons/all-files/fi/FiServer";
+import { FiLayers } from "@react-icons/all-files/fi/FiLayers";
+import { FiFileText } from "@react-icons/all-files/fi/FiFileText";
+import { FiMail } from "@react-icons/all-files/fi/FiMail";
+import { FiGithub } from "@react-icons/all-files/fi/FiGithub";
+import { FiLinkedin } from "@react-icons/all-files/fi/FiLinkedin";
+import { FiShield } from "@react-icons/all-files/fi/FiShield";
+import { getLocalizedPath, getShortLocale } from "@/shared/config/seo";
+import { SITE_PROFILE, SOCIAL_LINKS } from "@/content/profile";
+import { RESUME_SKILL_GROUPS, RESUME_EDUCATION_IDS } from "@/content/resume";
+import "../styles/Resume.css";
+import "@/styles/shared/business-actions.css";
+
+const ResumePreview = lazy(() => import("../components/ResumePreview"));
+const skillIcons = [FiCode, FiServer, FiLayers];
+
+function Resume() {
+  const { t, i18n } = useTranslation();
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const locale = getShortLocale(i18n.resolvedLanguage || "fr");
+  // Le PDF français est le document commun à toutes les langues de l’interface.
+  const language = "FR";
+  const pdf = "/pdf/CV-Guerin-Theo-FR.pdf";
+  const highlights = t("resume_page.missions").split("||").map(value => value.trim()).filter(Boolean);
+
+  return (
+    <div className="resume-section site-page">
+      <div className="page-content site-container">
+        <header className="resume-header">
+          <div className="resume-identity">
+            <p className="page-eyebrow">{t("resume_page.eyebrow")}</p>
+            <h1 className="resume-title page-title">{SITE_PROFILE.displayName}</h1>
+            <p className="resume-role">{t("resume_page.role")}</p>
+            <p className="resume-intro">{t("resume_page.intro")}</p>
+            <div className="resume-meta">
+              <p className="resume-location"><FiMapPin aria-hidden="true" />{t("contact_meta_location_value")}</p>
+              <p className="resume-availability"><span aria-hidden="true" />{t("resume_page.availability")}</p>
+            </div>
+          </div>
+          <div className="resume-file-card">
+            <div className="resume-file-heading">
+              <span className="resume-file-icon"><FiFileText aria-hidden="true" /></span>
+              <div>
+                <p>{t("cv_alt_description")}</p>
+                <span className="resume-file-type">PDF · {language}</span>
+              </div>
+            </div>
+            <p className="resume-file-hint">{t("resume_page.pdf_hint")}</p>
+            <a href={pdf} download className="resume-download business-button">
+              <AiOutlineDownload aria-hidden="true" />
+              {t("downloadcv")}
+            </a>
+            <a href="#resume-document" className="resume-text-link" onClick={() => setPreviewOpen(true)}>
+              {t("resume_page.preview_pdf")} <FiArrowRight aria-hidden="true" />
+            </a>
+          </div>
+        </header>
+
+        <div className="resume-layout">
+          <div className="resume-main">
+            <section aria-labelledby="resume-work-title">
+              <h2 id="resume-work-title" className="resume-section-title"><FiBriefcase aria-hidden="true" />{t("career.work")}</h2>
+              <article className="resume-work-card">
+                <p className="resume-date">{t("experience_1_date")}</p>
+                <h3>{t("experience_1_title")}</h3>
+                <p className="resume-organization">{t("experience_1_subtitle")}</p>
+                <ul className="resume-missions">{highlights.map(point => <li key={point}>{point}</li>)}</ul>
+                <div className="resume-impact">
+                  <p><span>10 min</span><FiArrowRight aria-hidden="true" /><strong>~10 s</strong></p>
+                  <span>{t("resume_page.impact")}</span>
+                </div>
+                <Link to={getLocalizedPath(locale, "/experience")} className="resume-text-link">{t("resume_page.full_journey")} <FiArrowUpRight aria-hidden="true" /></Link>
+              </article>
+            </section>
+            <section className="resume-education" aria-labelledby="resume-education-title">
+              <h2 id="resume-education-title" className="resume-section-title"><FiBookOpen aria-hidden="true" />{t("career.education")}</h2>
+              <ol className="resume-education-list">
+                {RESUME_EDUCATION_IDS.map(id => <li key={id}>
+                  <p className="resume-date">{t(`experience_${id}_date`)}</p>
+                  <h3>{t(`experience_${id}_title`)}</h3>
+                  <p className="resume-organization">{t(`experience_${id}_subtitle`)}</p>
+                  {id !== 4 && <p className="resume-diploma">{t(`experience_${id}_diplome`)}</p>}
+                </li>)}
+              </ol>
+              <p className="resume-certification"><FiShield aria-hidden="true" />{t("degree4")}</p>
+            </section>
+          </div>
+          <aside className="resume-sidebar">
+            <section className="resume-skills" aria-labelledby="resume-skills-title">
+              <h2 id="resume-skills-title" className="resume-section-title">{t("professional_skills")}</h2>
+              {RESUME_SKILL_GROUPS.map((group, index) => {
+                const Icon = skillIcons[index];
+                return <div className="resume-skill-group" key={group.key}>
+                  <h3><Icon aria-hidden="true" />{t(group.key)}</h3>
+                  <ul>{group.skills.map(skill => <li key={skill}>{skill}</li>)}</ul>
+                </div>;
+              })}
+              <Link className="resume-text-link resume-all-skills" to={`${getLocalizedPath(locale, "/about")}#about-skills-title`}>{t("resume_page.all_skills")} <FiArrowUpRight aria-hidden="true" /></Link>
+              <div className="resume-languages">
+                <h3>{t("resume_page.languages")}</h3>
+                <dl><div><dt>{t("language_options.en")}</dt><dd>B2</dd></div><div><dt>{t("language_options.es")}</dt><dd>B1</dd></div></dl>
+              </div>
+            </section>
+            <article className="resume-project-card">
+              <p className="resume-date">{t("resume_page.project_label")}</p>
+              <h3>La Marée Malouine</h3>
+              <p>{t("resume_page.featured_project")}</p>
+              <Link to={getLocalizedPath(locale, "/project")} className="resume-text-link">{t("resume_page.projects")} <FiArrowRight aria-hidden="true" /></Link>
+            </article>
+          </aside>
+        </div>
+
+        <details id="resume-document" className="resume-document" open={previewOpen} onToggle={event => setPreviewOpen(event.currentTarget.open)}>
+          <summary>
+            <span className="resume-document-symbol" aria-hidden="true">PDF</span>
+            <span className="resume-document-label"><strong>{t("cv_alt_description")}</strong><span>{t("resume_page.pdf_hint")}</span></span>
+            <span className="resume-document-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div className="resume-viewer">
+            <div className="resume-toolbar">
+              <span className="resume-format">PDF <span aria-hidden="true">/</span> {language}</span>
+              <a href={pdf} target="_blank" rel="noopener noreferrer">{t("resume_page.open_pdf")} <FiArrowUpRight aria-hidden="true" /></a>
+            </div>
+            {previewOpen && <Suspense fallback={<p role="status">{t("a11y.loading_content")}</p>}><ResumePreview key={pdf} file={pdf} /></Suspense>}
+          </div>
+        </details>
+        <section className="resume-connect" aria-labelledby="resume-connect-title">
+          <div>
+            <h2 id="resume-connect-title">{t("resume_page.connect")}</h2>
+            <p className="resume-mobility">{t("resume_page.mobility")}</p>
+            <div className="resume-socials">
+              <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer"><FiLinkedin aria-hidden="true" />LinkedIn <FiArrowUpRight aria-hidden="true" /></a>
+              <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer"><FiGithub aria-hidden="true" />GitHub <FiArrowUpRight aria-hidden="true" /></a>
+            </div>
+          </div>
+          <div className="resume-connect-actions">
+            <Link to={getLocalizedPath(locale, "/contact")} className="business-button"><FiMail aria-hidden="true" />{t("resume_page.contact")} <FiArrowRight aria-hidden="true" /></Link>
+            <a className="resume-email" href={`mailto:${SITE_PROFILE.email}`}>{SITE_PROFILE.email}</a>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
+
+export default Resume;

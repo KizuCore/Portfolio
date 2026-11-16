@@ -4,7 +4,7 @@ import vm from "node:vm";
 import ts from "typescript";
 
 const ROOT_DIR = process.cwd();
-const SEO_CONFIG_PATH = path.join(ROOT_DIR, "src", "config", "seo.ts");
+const SEO_CONFIG_PATH = path.join(ROOT_DIR, "src", "shared", "config", "seo.ts");
 const SITEMAP_PATH = path.join(ROOT_DIR, "public", "sitemap.xml");
 const DEFAULT_SITE_URL = "https://theo-guerin.fr";
 const LASTMOD = new Date().toISOString().slice(0, 10);

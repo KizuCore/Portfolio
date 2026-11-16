@@ -5,6 +5,7 @@ import { createRequire } from 'node:module';
 import { build } from 'esbuild';
 
 const compiled = await build({
+  tsconfig: 'tsconfig.app.json',
   stdin: {
     contents: `
       import React from 'react';
@@ -13,12 +14,12 @@ const compiled = await build({
       import { HelmetProvider } from 'react-helmet-async';
       import { I18nextProvider } from 'react-i18next';
       import { createInstance } from 'i18next';
-      import SeoMeta from './src/components/Seo/SeoMeta';
-      import NotFound from './src/routes/LocaleFallbackRoute';
+      import SeoMeta from './src/app/seo/SeoMeta';
+      import NotFound from './src/features/not-found/pages/NotFound';
       import fr from './src/locales/fr.json';
       import en from './src/locales/en.json';
       import bzh from './src/locales/bzh.json';
-      export { ROUTE_SEO, SUPPORTED_LOCALES } from './src/config/seo';
+      export { ROUTE_SEO, SUPPORTED_LOCALES } from './src/shared/config/seo';
       export async function render(path, error = false) {
         const i18n = createInstance();
         await i18n.init({ lng: 'fr', resources: { fr: {translation: fr}, en: {translation: en}, bzh: {translation: bzh} }, interpolation: { escapeValue: false } });

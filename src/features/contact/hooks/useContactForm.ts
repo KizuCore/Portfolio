@@ -1,0 +1,109 @@
+import { ChangeEvent, FormEvent, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { sendContactEmail } from "../api/contactApi";
+import { getRecaptchaToken } from "../api/recaptcha";
+import type { ContactFieldErrors, ContactFormFieldName, ContactFormFields, ContactFormStatus } from "../types/contact.types";
+
+const EMPTY_FORM: ContactFormFields = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};
+
+const RECAPTCHA_ACTION = "contact";
+
+export function useContactForm(recaptchaSiteKey: string) {
+  const { i18n } = useTranslation();
+  const [formData, setFormData] = useState<ContactFormFields>(EMPTY_FORM);
+  const [fieldErrors, setFieldErrors] = useState<ContactFieldErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaConsent, setCaptchaConsent] = useState(false);
+  const [status, setStatus] = useState<ContactFormStatus | null>(null);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = event.target as { name: ContactFormFieldName; value: string };
+
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setFieldErrors((prevErrors) => {
+      if (!prevErrors[name]) {
+        return prevErrors;
+      }
+
+      const nextErrors = { ...prevErrors };
+      delete nextErrors[name];
+
+      return nextErrors;
+    });
+  };
+
+  const clearStatus = () => setStatus(null);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (isSubmitting) return;
+
+    // Valide chaque champ localement avant de solliciter reCAPTCHA ou l’API.
+    const nextFieldErrors = Object.entries(formData).reduce<ContactFieldErrors>((errors, [name, value]) => {
+      if (!value.trim()) {
+        errors[name as ContactFormFieldName] = "errors.missing_fields";
+      }
+
+      return errors;
+    }, {});
+
+    setFieldErrors(nextFieldErrors);
+
+    if (Object.keys(nextFieldErrors).length > 0) {
+      setStatus({ variant: "danger", translationKey: "errors.missing_fields" });
+      return;
+    }
+
+    if (!captchaConsent) {
+      setStatus({ variant: "danger", translationKey: "contact_privacy.captcha_required" });
+      return;
+    }
+    if (!recaptchaSiteKey) {
+      setStatus({ variant: "danger", translationKey: "errors.captcha_failed" });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // L’accord est distinct du consentement aux statistiques et renouvelé pour chaque envoi.
+      const recaptchaToken = await getRecaptchaToken(recaptchaSiteKey, RECAPTCHA_ACTION);
+      const locale = (i18n.resolvedLanguage ?? i18n.language).split('-')[0] === 'en' ? 'en' : 'fr';
+      const result = await sendContactEmail({ ...formData, recaptchaToken, captchaConsent: true, locale });
+
+      if (result.ok && result.data.success) {
+        setStatus({ variant: "success", translationKey: "message_success" });
+        setFieldErrors({});
+        setFormData(EMPTY_FORM);
+      } else {
+        setStatus({
+          variant: "danger",
+          translationKey: result.data.errorCode ? `errors.${result.data.errorCode}` : "message_fail",
+          fallbackMessage: result.data.message,
+        });
+      }
+    } catch {
+      setStatus({ variant: "danger", translationKey: "message_error" });
+    } finally {
+      setIsSubmitting(false);
+      setCaptchaConsent(false);
+    }
+  };
+
+  return {
+    formData,
+    fieldErrors,
+    isSubmitting,
+    captchaConsent,
+    setCaptchaConsent,
+    status,
+    clearStatus,
+    handleChange,
+    handleSubmit,
+  };
+}

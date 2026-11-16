@@ -4,6 +4,7 @@ import { build } from 'esbuild';
 import { createRequire } from 'node:module';
 
 const compiled = await build({
+  tsconfig: 'tsconfig.app.json',
   stdin: {
     contents: `
       import React from 'react';
@@ -14,10 +15,10 @@ const compiled = await build({
       import fr from './src/locales/fr.json';
       import en from './src/locales/en.json';
       import bzh from './src/locales/bzh.json';
-      import Notice from './src/components/Legal/MentionsLegales';
-      import Privacy from './src/components/Legal/PolitiqueConfidentialite';
-      import Cookies from './src/components/Legal/PolitiqueCookies';
-      export { matchesLegalSearch } from './src/utils/legalSearch';
+      import Notice from './src/features/legal/pages/MentionsLegales';
+      import Privacy from './src/features/legal/pages/PolitiqueConfidentialite';
+      import Cookies from './src/features/legal/pages/PolitiqueCookies';
+      export { matchesLegalSearch } from './src/features/legal/utils/legalSearch';
       export async function render(language, index) {
         const i18n = createInstance();
         await i18n.init({ lng: language, resources: { fr: { translation: fr }, en: { translation: en }, bzh: { translation: bzh } }, interpolation: { escapeValue: false } });

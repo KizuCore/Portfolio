@@ -11,12 +11,12 @@ const DIST_DIR = path.join(ROOT_DIR, "dist");
 const PUBLIC_DIR = path.join(ROOT_DIR, "public");
 const INDEX_HTML_PATH = path.join(DIST_DIR, "index.html");
 const SITE_URL = (process.env.VITE_SITE_URL || "https://theo-guerin.fr").replace(/\/+$/, "");
-const SEO_CONFIG_PATH = path.join(ROOT_DIR, "src", "config", "seo.ts");
-const PORTFOLIO_DATA_PATH = path.join(ROOT_DIR, "src", "data", "portfolio.ts");
+const SEO_CONFIG_PATH = path.join(ROOT_DIR, "src", "shared", "config", "seo.ts");
+const CONTENT_DIR = path.join(ROOT_DIR, "src", "content");
 const LOCALES_DIR = path.join(ROOT_DIR, "src", "locales");
-const { getBusinessPage, getBusinessPages, getBusinessLabels, getRelatedBusinessPages } = loadTsModule(path.join(ROOT_DIR, "src", "data", "businessPages.ts"));
-const { getBusinessSchema } = loadTsModule(path.join(ROOT_DIR, "src", "config", "businessSchema.ts"));
-const { LEGAL_UPDATED_HUMAN, PRIVACY_RESOURCES } = loadTsModule(path.join(ROOT_DIR, "src", "data", "legal.ts"));
+const { getBusinessPage, getBusinessPages, getBusinessLabels, getRelatedBusinessPages } = loadTsModule(path.join(ROOT_DIR, "src", "content", "businessPages.ts"));
+const { getBusinessSchema } = loadTsModule(path.join(ROOT_DIR, "src", "shared", "config", "businessSchema.ts"));
+const { LEGAL_UPDATED_HUMAN, PRIVACY_RESOURCES } = loadTsModule(path.join(ROOT_DIR, "src", "content", "legal.ts"));
 
 // Charge un fichier de configuration ou de données TypeScript dans les scripts SEO Node sans compilation préalable.
 function loadTsModule(filePath) {
@@ -695,7 +695,11 @@ function main() {
   }
 
   const seoConfig = loadTsModule(SEO_CONFIG_PATH);
-  const portfolio = loadTsModule(PORTFOLIO_DATA_PATH);
+  const portfolio = {
+    ...loadTsModule(path.join(CONTENT_DIR, "profile.ts")),
+    ...loadTsModule(path.join(CONTENT_DIR, "projects.ts")),
+    ...loadTsModule(path.join(CONTENT_DIR, "resume.ts")),
+  };
   const locales = readLocales(seoConfig.SUPPORTED_LOCALES);
   const fallbackLocaleData = locales[seoConfig.DEFAULT_LOCALE];
   const template = fs.readFileSync(INDEX_HTML_PATH, "utf8");

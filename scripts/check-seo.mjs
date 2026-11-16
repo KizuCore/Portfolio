@@ -6,7 +6,7 @@ import ts from "typescript";
 
 const ROOT_DIR = process.cwd();
 const DIST_DIR = path.join(ROOT_DIR, "dist");
-const SEO_CONFIG_PATH = path.join(ROOT_DIR, "src", "config", "seo.ts");
+const SEO_CONFIG_PATH = path.join(ROOT_DIR, "src", "shared", "config", "seo.ts");
 const SITE_URL = (process.env.VITE_SITE_URL || "https://theo-guerin.fr").replace(/\/+$/, "");
 const PERSON_ID = `${SITE_URL}/#person`;
 const DISTINCT_PAGE_ROUTES = new Set(["/", "/about", "/experience", "/project", "/contact", "/cv"]);
@@ -235,7 +235,7 @@ function validateHreflangs({ routePath, html, seoConfig, errors }) {
 // Valide toutes les routes indexables générées ainsi que les ressources Markdown destinées aux modèles de langage.
 function main() {
   const seoConfig = loadTsModule(SEO_CONFIG_PATH);
-  const { BUSINESS_PAGES, getBusinessPage, getRelatedBusinessPages } = loadTsModule(path.join(ROOT_DIR, "src", "data", "businessPages.ts"));
+  const { BUSINESS_PAGES, getBusinessPage, getRelatedBusinessPages } = loadTsModule(path.join(ROOT_DIR, "src", "content", "businessPages.ts"));
   const routes = getGeneratedRoutes(seoConfig);
   const businessTranslations = Object.fromEntries(seoConfig.SUPPORTED_LOCALES.map((locale) => [
     locale,

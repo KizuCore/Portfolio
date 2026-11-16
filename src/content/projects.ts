@@ -1,0 +1,175 @@
+export type ProjectCategory = "web" | "mobile" | "api" | "game";
+export type ProjectFilter = "all" | ProjectCategory;
+
+export type ProjectImageKey =
+  | "aTable"
+  | "apibook"
+  | "badmintonapi"
+  | "chrono"
+  | "cosmiclink"
+  | "flambow"
+  | "flambowFrontend"
+  | "lemonmaze"
+  | "laMareeMalouine"
+  | "portesDeMontafilan"
+  | "portfoliov2"
+  | "tboi";
+
+export type PortfolioProject = {
+  imageKey: ProjectImageKey;
+  altTextKey: string;
+  titleKey: string;
+  descriptionKey: string;
+  ghLink?: string;
+  isGitLab?: boolean;
+  youtubeLink?: string;
+  seeLink?: string;
+  caseStudyPath?: string;
+  techStack: string[];
+  category: ProjectCategory;
+  featured?: boolean;
+  pinTop?: boolean;
+  imageMode?: "cover" | "contain";
+};
+
+export const PROJECT_FILTERS: ProjectFilter[] = ["all", "web", "mobile", "api", "game"];
+export const HOME_CASE_STUDY_PATH = "/fr/realisations/la-maree-malouine";
+
+export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
+  {
+    imageKey: "laMareeMalouine",
+    caseStudyPath: HOME_CASE_STUDY_PATH,
+    altTextKey: "categories_projects.maree_malouine_image_alt",
+    titleKey: "categories_projects.maree_malouine_title",
+    descriptionKey: "categories_projects.maree_malouine_description",
+    ghLink: "https://gitlab.com/Theo22100/La-Maree-Malouine",
+    isGitLab: true,
+    seeLink: "https://lamareemalouine.fr/",
+    techStack: ["React", "TypeScript", "TanStack Start", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Stripe", "Brevo", "Docker", "GitLab CI/CD"],
+    category: "web",
+    featured: true,
+    pinTop: true,
+  },
+  {
+    imageKey: "portesDeMontafilan",
+    caseStudyPath: "/fr/realisations/les-portes-de-montafilan",
+    altTextKey: "categories_projects.portes_montafilan_image_alt",
+    titleKey: "categories_projects.portes_montafilan_title",
+    descriptionKey: "categories_projects.portes_montafilan_description",
+    ghLink: "https://github.com/KizuCore/PortesDeMontafilan",
+    seeLink: "https://www.lesportesdemontafilan.com/",
+    techStack: ["React", "TypeScript", "Vite", "Tailwind CSS", "Vercel", "Brevo", "Vitest", "Playwright"],
+    category: "web",
+    featured: true,
+    pinTop: true,
+  },
+  {
+    imageKey: "portfoliov2",
+    altTextKey: "categories_projects.portfoliov2_image_alt",
+    titleKey: "categories_projects.portfolio_v2_title",
+    descriptionKey: "categories_projects.portfolio_v2_description",
+    ghLink: "https://github.com/KizuCore/Portfolio",
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Vercel", "Resend"],
+    category: "web",
+    featured: true,
+  },
+  {
+    imageKey: "apibook",
+    altTextKey: "categories_projects.apibook_image_alt",
+    titleKey: "categories_projects.library_title",
+    descriptionKey: "categories_projects.library_description",
+    ghLink: "https://github.com/KizuCore/MDS-M1-Librairie",
+    techStack: ["Node.js", "Swagger", "MySQL", "React", "Bootstrap", "Sequelize"],
+    category: "api",
+  },
+  {
+    imageKey: "lemonmaze",
+    altTextKey: "categories_projects.lemonmaze_image_alt",
+    titleKey: "categories_projects.lemonmaze_title",
+    descriptionKey: "categories_projects.lemonmaze_description",
+    ghLink: "https://github.com/KizuCore/Lemon_Maze",
+    techStack: ["Flutter"],
+    category: "mobile",
+  },
+  {
+    imageKey: "aTable",
+    caseStudyPath: "/fr/realisations/a-table",
+    altTextKey: "categories_projects.atable_image_alt",
+    titleKey: "categories_projects.atable_title",
+    descriptionKey: "categories_projects.atable_description",
+    ghLink: "https://github.com/KizuCore/a_table",
+    techStack: ["Flutter", "Dart", "Riverpod", "Isar", "GoRouter", "TableCalendar", "Material 3"],
+    category: "mobile",
+    featured: true,
+  },
+  {
+    imageKey: "lemonmaze",
+    altTextKey: "categories_projects.lemonmaze_image_alt",
+    titleKey: "categories_projects.lemonmaze_api_title",
+    descriptionKey: "categories_projects.lemonmaze_api_description",
+    ghLink: "https://github.com/KizuCore/APILemonMaze",
+    techStack: ["Node.js", "Swagger", "MySQL"],
+    category: "api",
+  },
+  {
+    imageKey: "badmintonapi",
+    altTextKey: "categories_projects.badmintonapi_image_alt",
+    titleKey: "categories_projects.badmintonapi_title",
+    descriptionKey: "categories_projects.badmintonapi_description",
+    ghLink: "https://github.com/KizuCore/projet-api-badminton",
+    techStack: ["Node.js", "Swagger", "MySQL", "GraphQL"],
+    category: "api",
+  },
+  {
+    imageKey: "cosmiclink",
+    altTextKey: "categories_projects.cosmiclink_image_alt",
+    titleKey: "categories_projects.cosmiclink_title",
+    descriptionKey: "categories_projects.cosmiclink_description",
+    ghLink: "https://github.com/KizuCore/CosmicLink",
+    youtubeLink: "https://youtube.com/watch?v=3yVybmKT5d0",
+    techStack: ["PHP", "JavaScript", "HTML", "CSS"],
+    category: "web",
+  },
+  {
+    imageKey: "flambow",
+    altTextKey: "categories_projects.flambow_image_alt",
+    titleKey: "categories_projects.flambow_title",
+    descriptionKey: "categories_projects.flambow_description",
+    ghLink: "https://github.com/KizuCore/Flambow",
+    seeLink: "https://flambow.vercel.app/",
+    techStack: ["React", "JavaScript", "Bootstrap", "CSS", "Axios"],
+    category: "web",
+  },
+  {
+    imageKey: "flambowFrontend",
+    altTextKey: "categories_projects.flambow_frontend_image_alt",
+    titleKey: "categories_projects.flambow_frontend_title",
+    descriptionKey: "categories_projects.flambow_frontend_description",
+    ghLink: "https://gitlab.com/Theo22100/flambow-front",
+    isGitLab: true,
+    youtubeLink: "https://youtu.be/-TLaRV4pO2s?si=MLq_zy-hdlk9pjF3",
+    techStack: ["React", "TypeScript", "Vite", "Docker", "GitLab CI", "Playwright", "Vitest"],
+    category: "web",
+    featured: true,
+    pinTop: true,
+    imageMode: "contain",
+  },
+  {
+    imageKey: "chrono",
+    altTextKey: "categories_projects.chrono_image_alt",
+    titleKey: "categories_projects.minuteur_mobile_title",
+    descriptionKey: "categories_projects.minuteur_mobile_description",
+    ghLink: "https://github.com/KizuCore/MDS-ExamMobile2024",
+    techStack: ["Kotlin"],
+    category: "mobile",
+  },
+  {
+    imageKey: "tboi",
+    altTextKey: "categories_projects.tboi_image_alt",
+    titleKey: "categories_projects.thebindingofisaac_title",
+    descriptionKey: "categories_projects.thebindingofisaac_description",
+    ghLink: "https://github.com/KizuCore/TheBindingOfIsaac",
+    techStack: ["Java"],
+    category: "game",
+  },
+];

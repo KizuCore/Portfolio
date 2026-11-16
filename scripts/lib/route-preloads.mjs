@@ -1,15 +1,15 @@
 const routeEntries = {
-  "/about": "About/About",
-  "/contact": "Contact/Contact",
-  "/project": "Projects/Projects",
-  "/cv": "Resume/Resume",
-  "/experience": "Experience/ExperienceTimeline",
-  "/mentions-legales": "Legal/MentionsLegales",
-  "/politique-de-confidentialite": "Legal/PolitiqueConfidentialite",
-  "/politique-des-cookies": "Legal/PolitiqueCookies",
-  "/realisations/a-table": "CaseStudies/ATable",
-  "/realisations/la-maree-malouine": "CaseStudies/LaMareeMalouine",
-  "/realisations/les-portes-de-montafilan": "CaseStudies/LesPortesDeMontafilan",
+  "/about": "about/pages/About",
+  "/contact": "contact/pages/Contact",
+  "/project": "projects/pages/Projects",
+  "/cv": "resume/pages/Resume",
+  "/experience": "experience/pages/ExperienceTimeline",
+  "/mentions-legales": "legal/pages/MentionsLegales",
+  "/politique-de-confidentialite": "legal/pages/PolitiqueConfidentialite",
+  "/politique-des-cookies": "legal/pages/PolitiqueCookies",
+  "/realisations/a-table": "case-studies/pages/ATable",
+  "/realisations/la-maree-malouine": "case-studies/pages/LaMareeMalouine",
+  "/realisations/les-portes-de-montafilan": "case-studies/pages/LesPortesDeMontafilan",
 };
 
 export function resolveRouteEntry(manifest, source) {
@@ -44,9 +44,9 @@ export function buildRoutePreloads(manifest, pathname, locale) {
   // Le modèle HTML annonce déjà le point d'entrée et ses dépendances.
   visit("index.html", false);
   if (pathname !== "/") {
-    const entry = pathname.startsWith("/services/") ? "Business/BusinessPage" : routeEntries[pathname];
+    const entry = pathname.startsWith("/services/") ? "business/pages/BusinessPage" : routeEntries[pathname];
     if (!entry) throw new Error(`Préchargement non défini pour la route : ${pathname}`);
-    visit(resolveRouteEntry(manifest, `src/components/${entry}.tsx`), true);
+    visit(resolveRouteEntry(manifest, `src/features/${entry}.tsx`), true);
   }
   if (locale === "bzh") visit("src/locales/bzh.json", true);
   return links.join("\n");

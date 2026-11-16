@@ -1,0 +1,77 @@
+import lemonmazeThumb from "@image/Projects/thumbnails/LemonMaze.webp";
+import cosmiclinkThumb from "@image/Projects/thumbnails/CosmicLink.webp";
+import chronoThumb from "@image/Projects/thumbnails/chrono.webp";
+import aTableThumb from "@image/Projects/thumbnails/aTable.webp";
+import tboiThumb from "@image/Projects/thumbnails/TBOI.webp";
+import portfoliov2Thumb from "@image/Projects/thumbnails/portfoliov2.webp";
+import apibookThumb from "@image/Projects/thumbnails/apibook.webp";
+import flambowThumb from "@image/Projects/thumbnails/flambowImg.webp";
+import flambowFrontendThumb from "@image/Projects/thumbnails/FlambowFrontEnd.webp";
+import badmintonapiThumb from "@image/Projects/thumbnails/badmintonapi.webp";
+import portesDeMontafilanThumb from "@image/Projects/thumbnails/portesDeMontafilan.webp";
+import laMareeMalouineThumb from "@image/Projects/thumbnails/laMareeMalouine.webp";
+import lemonmaze from "@image/Projects/LemonMaze.webp";
+import cosmiclink from "@image/Projects/CosmicLink.webp";
+import chrono from "@image/Projects/chrono.webp";
+import aTable from "@image/Projects/aTable.webp";
+import tboi from "@image/Projects/TBOI.webp";
+import portfoliov2 from "@image/Projects/portfoliov2.webp";
+import apibook from "@image/Projects/apibook.webp";
+import flambow from "@image/Projects/flambowImg.webp";
+import flambowFrontend from "@image/Projects/FlambowFrontEnd.webp";
+import badmintonapi from "@image/Projects/badmintonapi.webp";
+import portesDeMontafilan from "@image/Projects/portesDeMontafilan.webp";
+import laMareeMalouine from "@image/Projects/laMareeMalouine.webp";
+import maree480 from "@image/Projects/responsive/laMareeMalouine-480.webp";
+import maree768 from "@image/Projects/responsive/laMareeMalouine-768.webp";
+import maree1024 from "@image/Projects/responsive/laMareeMalouine-1024.webp";
+import { PORTFOLIO_PROJECTS, PROJECT_FILTERS, type PortfolioProject, type ProjectCategory, type ProjectFilter } from "@/content/projects";
+
+export type ProjectItem = {
+  imgPath: string;
+  thumbnailPath: string;
+  srcSet?: string;
+} & Omit<PortfolioProject, "imageKey">;
+
+const PROJECT_IMAGES: Record<PortfolioProject["imageKey"], string> = {
+  aTable,
+  apibook,
+  badmintonapi,
+  chrono,
+  cosmiclink,
+  flambow,
+  flambowFrontend,
+  lemonmaze,
+  portesDeMontafilan,
+  laMareeMalouine,
+  portfoliov2,
+  tboi,
+};
+
+const PROJECT_THUMBNAILS: Record<PortfolioProject["imageKey"], string> = {
+  lemonmaze: lemonmazeThumb,
+  cosmiclink: cosmiclinkThumb,
+  chrono: chronoThumb,
+  aTable: aTableThumb,
+  tboi: tboiThumb,
+  portfoliov2: portfoliov2Thumb,
+  apibook: apibookThumb,
+  flambow: flambowThumb,
+  flambowFrontend: flambowFrontendThumb,
+  badmintonapi: badmintonapiThumb,
+  portesDeMontafilan: portesDeMontafilanThumb,
+  laMareeMalouine: laMareeMalouineThumb,
+};
+
+export type { ProjectCategory, ProjectFilter };
+
+export { PROJECT_FILTERS };
+
+export const PROJECTS: ProjectItem[] = PORTFOLIO_PROJECTS.map(({ imageKey, ...project }) => ({
+  ...project,
+  imgPath: PROJECT_IMAGES[imageKey],
+  thumbnailPath: PROJECT_THUMBNAILS[imageKey],
+  srcSet: imageKey === "laMareeMalouine"
+    ? `${maree480} 480w, ${maree768} 768w, ${maree1024} 1024w, ${laMareeMalouine} 1440w`
+    : undefined,
+}));

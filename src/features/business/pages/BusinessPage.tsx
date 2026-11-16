@@ -1,0 +1,67 @@
+import FaqItem from "@/shared/ui/FaqItem";
+import { getContentLocale, getShortLocale, getHtmlLang } from "@/shared/config/seo";
+import { Link } from "react-router-dom";
+import { FiArrowRight } from "@react-icons/all-files/fi/FiArrowRight";
+import type { BusinessPage as BusinessPageContent } from "@/content/businessPages";
+import { getBusinessPage, getBusinessPages, getBusinessLabels, getRelatedBusinessPages } from "@/content/businessPages";
+import { useTranslation } from "react-i18next";
+import "@/styles/shared/business-layout.css";
+
+// Ce modèle est réservé aux services ; les études de cas ont chacune leur propre page React.
+export default function BusinessPage({ page: sourcePage }: { page: BusinessPageContent }) {
+  const { i18n } = useTranslation();
+  const locale = getContentLocale(getShortLocale(i18n.resolvedLanguage ?? i18n.language), sourcePage.path);
+  const translations = i18n.getResourceBundle(locale, "translation")?.business_pages;
+  const page = getBusinessPage(sourcePage.path, translations)!;
+  const labels = getBusinessLabels(translations);
+  return (
+    <article className="business-page site-container" lang={getHtmlLang(locale)}>
+      <nav className="business-breadcrumb" aria-label={labels.breadcrumb}>
+        <Link to={`/${locale}`}>{labels.home}</Link><span aria-hidden="true">/</span><span>{labels.services}</span>
+      </nav>
+      <header className="business-hero">
+        <p className="business-eyebrow page-eyebrow">{page.eyebrow}</p>
+        <h1 className="page-title">{page.title}</h1>
+        <p className="business-lead">{page.intro}</p>
+        <ul className="business-tags" aria-label={labels.tags}>{page.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
+        <div className="business-actions">
+          <Link className="business-button" to={`/${locale}/contact`}>{labels.talk} <FiArrowRight aria-hidden="true" /></Link>
+          <a className="business-text-link" href="#en-detail">{labels.details} <span aria-hidden="true">↓</span></a>
+        </div>
+      </header>
+      <div className="business-detail" id="en-detail">
+        <aside className="business-aside">
+          <p className="business-eyebrow">{labels.service_eyebrow}</p>
+          <h2>{labels.service_heading}</h2>
+          <p>Théo Guérin<br />{labels.developer}</p>
+          <Link className="business-text-link" to={`/${locale}/experience`}>{labels.experience} ↗</Link>
+        </aside>
+        <div className="business-sections">
+          {page.sections.map((section, index) => (
+            <section className="business-section" key={section.title}>
+              <span className="business-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+              <h2>{section.title}</h2><p>{section.text}</p>
+              {section.items && <ul>{section.items.map((item) => <li key={item}>{item}</li>)}</ul>}
+              {section.links?.map(link => <p key={link.path}><Link className="business-text-link" to={link.path}>{link.label} <span aria-hidden="true">↗</span></Link></p>)}
+            </section>
+          ))}
+        </div>
+      </div>
+      {page.questions.length > 0 && <section className="business-faq" aria-labelledby="business-faq-title">
+        <p className="business-eyebrow">{labels.before}</p><h2 id="business-faq-title">{labels.faq}</h2>
+        {page.questions.map((item) => <FaqItem key={item.question} {...item} />)}
+      </section>}
+      <section className="business-related" aria-labelledby="business-related-title">
+        <h2 id="business-related-title">{labels.related}</h2>
+        <div className="business-related-grid">{getRelatedBusinessPages(page.path, getBusinessPages(translations)).map((item) => (
+          <Link key={item.path} to={`/${getContentLocale(locale, item.path)}${item.path}`}><span className="business-eyebrow">{item.kind === "service" ? labels.service : labels.case_study}</span><span>{item.title}</span><span aria-hidden="true">↗</span></Link>
+        ))}</div>
+      </section>
+      <section className="business-contact">
+        <p className="business-eyebrow">{labels.next_project}</p><h2>{labels.contact_heading}</h2>
+        <p>{labels.contact_description}</p>
+        <Link className="business-button" to={`/${locale}/contact`}>{labels.contact} <FiArrowRight aria-hidden="true" /></Link>
+      </section>
+    </article>
+  );
+}

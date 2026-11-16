@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import ts from 'typescript';
 import { test } from 'node:test';
 
-const source = ts.transpileModule(fs.readFileSync(new URL('../src/services/analytics.ts', import.meta.url), 'utf8'), {
+const source = ts.transpileModule(fs.readFileSync(new URL('../src/shared/privacy/analytics.ts', import.meta.url), 'utf8'), {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
 }).outputText;
 

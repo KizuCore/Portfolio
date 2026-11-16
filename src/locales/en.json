@@ -1,4 +1,10 @@
 {
+    "page_headers": {
+        "about": "About me",
+        "projects": "Portfolio",
+        "experience": "My journey",
+        "contact": "Let’s talk"
+    },
     "code_activity": {
         "select": "Choose a platform",
         "calendar": "{{platform}} contribution calendar",

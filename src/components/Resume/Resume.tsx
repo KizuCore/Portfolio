@@ -25,8 +25,8 @@ function Resume() {
       <div className="page-content site-container">
         <header className="resume-header">
           <div className="resume-identity">
-            <p className="resume-eyebrow">{t("resume_page.eyebrow")}</p>
-            <h1 className="resume-title">{SITE_PROFILE.displayName}</h1>
+            <p className="resume-eyebrow page-eyebrow">{t("resume_page.eyebrow")}</p>
+            <h1 className="resume-title page-title">{SITE_PROFILE.displayName}</h1>
             <p className="resume-role">{t("resume_page.role")}</p>
             <p className="resume-intro">{t("resume_page.intro")}</p>
             <p className="resume-location"><FiMapPin aria-hidden="true" />{t("contact_meta_location_value")}</p>

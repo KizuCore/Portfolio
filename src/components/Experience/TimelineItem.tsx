@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from "framer-motion";
 import { TimelineItem as TimelineItemType } from "./data/timeline";
 import { FaBriefcase } from "@react-icons/all-files/fa/FaBriefcase";
 import { FaUserGraduate } from "@react-icons/all-files/fa/FaUserGraduate";
@@ -27,7 +26,6 @@ const TimelineItem = ({ item, onTimeAnomaly, anomalyYear }: Props) => {
     if (clicks.current.count === 3) { clicks.current.count = 0; onTimeAnomaly(); }
   };
   const { t } = useTranslation();
-  const reduceMotion = useReducedMotion();
   const hasHighlights = Boolean(item.highlights?.length);
   const showRncpLine = (item.diplome || "").toLowerCase().includes("rncp");
 
@@ -38,11 +36,7 @@ const TimelineItem = ({ item, onTimeAnomaly, anomalyYear }: Props) => {
         {anomalyYear !== undefined && <span className="timeline-anomaly-year" aria-hidden="true">{anomalyYear} / ?</span>}
       </button></p>
       <span className="timeline-event-dot" aria-hidden="true" />
-      <motion.article
-        initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: reduceMotion ? 0 : 0.45, ease: "easeOut" }}
+      <article
         className={`timeline-card ${hasHighlights ? "timeline-card-detailed" : ""}`}
         role="region"
         aria-label={`${item.title} - ${item.date}`}
@@ -79,7 +73,7 @@ const TimelineItem = ({ item, onTimeAnomaly, anomalyYear }: Props) => {
             ))}
           </div>
         )}
-      </motion.article>
+      </article>
     </div>
   );
 };

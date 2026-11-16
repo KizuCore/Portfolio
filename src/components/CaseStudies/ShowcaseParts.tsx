@@ -15,8 +15,8 @@ export function ShowcaseHero({ study, headline, visualLabel, format, mediaLabel,
 }) {
   return <header className="showcase-hero">
     <div className="showcase-hero-copy">
-      <p className="showcase-kicker">{study.page.eyebrow}</p>
-      <h1>{study.page.title}</h1>
+      <p className="showcase-kicker page-eyebrow">{study.page.eyebrow}</p>
+      <h1 className="page-title">{study.page.title}</h1>
       <p className="showcase-headline">{headline}</p>
       <p className="showcase-intro">{study.page.intro}</p>
       <CaseStudyLinks study={study} />

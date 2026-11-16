@@ -31,7 +31,8 @@ const ExperienceTimeline = () => {
     <div className="timeline-page site-page">
       {encounter && <TardisEncounter beat={beat} reducedMotion={!!reducedMotion} />}
       <div className="timeline-container page-content site-container">
-        <h1 className="experience-title">
+        <p className="page-eyebrow">{t("page_headers.experience")}</p>
+        <h1 className="experience-title page-title">
           {t("about_experience")}
         </h1>
         <p className="experience-intro">{t("career.intro")}</p>

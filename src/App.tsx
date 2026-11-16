@@ -4,6 +4,7 @@ import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from "
 import { useTranslation } from "react-i18next";
 import "./assets/styles/global.css";
 import "./assets/styles/App.css";
+import "./assets/styles/PagePresentation.css";
 import NavBar from "@/components/Header/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import SeoMeta from "@/components/Seo/SeoMeta";
@@ -12,6 +13,7 @@ import CookiePreferencesModal from "@/components/Legal/CookiePreferencesModal";
 import BackToTop from "@/components/Layout/BackToTop";
 import ParticleBackground from "@/components/Layout/ParticleBackground";
 import RouteSkeleton from "@/components/Layout/RouteSkeleton";
+import PageMotion from "@/components/Layout/PageMotion";
 import ScrollProgress from "@/components/Layout/ScrollProgress";
 import ScrollToTop from "@/components/Layout/ScrollToTop";
 import { DEFAULT_LOCALE, getShortLocale, splitLocalizedPath } from "@/config/seo";
@@ -78,11 +80,11 @@ function AppContent() {
                 exit={routeExit}
                 transition={routeTransition}
               >
-                <Routes location={location}>
+                <PageMotion><Routes location={location}>
                   {[...ALL_APP_ROUTES, FALLBACK_ROUTE].map((route) => (
                     <Route key={route.path} path={route.path} element={route.element} />
                   ))}
-                </Routes>
+                </Routes></PageMotion>
               </m.div>
             </AnimatePresence>
           </Suspense>

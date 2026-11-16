@@ -16,8 +16,8 @@ export default function Projects() {
   return <section className="project-section" aria-labelledby="projects-title">
     <div className="projects-container site-container">
       <header className="projects-header">
-        <p className="business-eyebrow">Portfolio / {t("project")}</p>
-        <h1 className="projects-title" id="projects-title">{t("my_projects")} {t("projects")}</h1>
+        <p className="page-eyebrow">{t("page_headers.projects")}</p>
+        <h1 className="projects-title page-title" id="projects-title">{t("my_projects")} {t("projects")}</h1>
         <p className="projects-intro">{t("projects_description")}</p>
       </header>
       <div className="project-filter-shell">

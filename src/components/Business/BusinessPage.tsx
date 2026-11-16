@@ -19,8 +19,8 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
         <Link to={`/${locale}`}>{labels.home}</Link><span aria-hidden="true">/</span><span>{labels.services}</span>
       </nav>
       <header className="business-hero">
-        <p className="business-eyebrow">{page.eyebrow}</p>
-        <h1>{page.title}</h1>
+        <p className="business-eyebrow page-eyebrow">{page.eyebrow}</p>
+        <h1 className="page-title">{page.title}</h1>
         <p className="business-lead">{page.intro}</p>
         <ul className="business-tags" aria-label={labels.tags}>{page.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
         <div className="business-actions">

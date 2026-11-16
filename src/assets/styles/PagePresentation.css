@@ -1,0 +1,93 @@
+/* Shared page heading, independent of when a route's stylesheet loads. */
+.route-stage .page-motion-scope .page-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.25rem;
+  color: #9fbfe9;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+.route-stage .page-motion-scope .page-eyebrow::before {
+  content: "";
+  display: block;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 2px;
+  margin: 0;
+  border-radius: 2px;
+  background: #81b4f5;
+  box-shadow: none;
+}
+.route-stage .page-motion-scope .page-eyebrow svg { flex-shrink: 0; }
+.route-stage .page-motion-scope .page-title {
+  margin: 0 0 1.25rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(2.2rem, 4.8vw, 3.75rem);
+  font-weight: 550;
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  color: #f1f6ff;
+  text-align: left;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.route-stage .page-motion-scope .page-title::before { content: none; }
+.about-page-heading { margin-bottom: 1.25rem; }
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .page-motion-scope .page-eyebrow,
+  .page-motion-scope .page-title,
+  .page-motion-scope .page-title + p,
+  .page-motion-scope .showcase-hero-visual {
+    animation: pageArrival 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .page-motion-scope .page-title { animation-delay: 60ms; }
+  .page-motion-scope .page-title + p { animation-delay: 120ms; }
+  .page-motion-scope .showcase-hero-visual { animation-delay: 140ms; }
+  .page-motion-scope .page-eyebrow::before {
+    transform-origin: left;
+    animation: pageAccentArrival 650ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .route-stage .page-motion-scope [data-page-reveal] {
+    transition: opacity 600ms ease, translate 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .route-stage .page-motion-scope [data-page-reveal="pending"] { opacity: 0; translate: 0 20px; }
+  .route-stage .page-motion-scope [data-page-reveal="visible"] { opacity: 1; translate: 0 0; }
+  .route-stage .page-motion-scope [data-page-reveal]:focus-within { opacity: 1; translate: 0 0; transition: none; }
+  /* Long documents use a smaller movement to keep reading comfortable. */
+  .page-motion-scope .legal-info-box [data-page-reveal="pending"] { translate: 0 10px; }
+  .page-motion-scope :is(.tech-icon-glyph, .project-cover > span, .project-card-links a > span, .resume-download svg, .resume-text-link svg, .contact-submit-icon) {
+    transition: transform 220ms ease;
+  }
+  .page-motion-scope :is(.project-filter-chip, .stack-filter-button, .code-activity-selector button) {
+    transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+  }
+  .page-motion-scope .project-cover:focus-visible > span { transform: translate(2px, -2px); }
+  .page-motion-scope .resume-download:focus-visible svg { transform: translateY(3px); }
+  @media (hover: hover) and (pointer: fine) {
+    .page-motion-scope :is(.tech-icons, .tech-icons-1):hover .tech-icon-glyph { transform: translateY(-4px); }
+    .page-motion-scope .project-cover:hover > span { transform: translate(2px, -2px); }
+    .page-motion-scope .project-card-links a:hover > span { transform: translate(2px, -2px); }
+    .page-motion-scope .resume-download:hover svg { transform: translateY(3px); }
+    .page-motion-scope .resume-text-link:hover svg { transform: translate(2px, -2px); }
+    .page-motion-scope .contact-submit-btn:not(:disabled):hover .contact-submit-icon { transform: translate(3px, -2px); }
+  }
+  @media (min-width: 768px) {
+    .page-motion-scope .project-card-view:nth-child(even)[data-page-reveal],
+    .page-motion-scope .business-related-grid > :nth-child(even)[data-page-reveal],
+    .page-motion-scope .business-gallery-grid > :nth-child(even)[data-page-reveal] { transition-delay: 90ms; }
+  }
+}
+@keyframes pageArrival {
+  from { opacity: 0.72; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes pageAccentArrival {
+  from { transform: scaleX(0.35); }
+  to { transform: scaleX(1); }
+}

@@ -1,4 +1,10 @@
 {
+    "page_headers": {
+        "about": "Emgav",
+        "projects": "Portfolio",
+        "experience": "Ma hent",
+        "contact": "Komzomp"
+    },
     "code_activity": {
         "select": "Choisir la plateforme",
         "calendar": "Calendrier de contributions {{platform}}",

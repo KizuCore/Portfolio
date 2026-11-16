@@ -1,4 +1,10 @@
 {
+    "page_headers": {
+        "about": "Présentation",
+        "projects": "Portfolio",
+        "experience": "Parcours",
+        "contact": "Échangeons"
+    },
     "code_activity": {
         "select": "Choisir la plateforme",
         "calendar": "Calendrier de contributions {{platform}}",

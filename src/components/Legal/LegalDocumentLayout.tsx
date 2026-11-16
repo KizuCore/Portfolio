@@ -81,8 +81,8 @@ export default function LegalDocumentLayout({ kind, language, title, children }:
     <div className="legal-page site-page">
       <div className="legal-content-container page-content site-container">
         <header className="legal-header">
-          <span className="legal-eyebrow"><CurrentIcon aria-hidden="true" size={17} />{tx("legal_navigation.eyebrow")}</span>
-          <h1 id="legal-page-title" className="legal-title">{title}</h1>
+          <span className="legal-eyebrow page-eyebrow"><CurrentIcon aria-hidden="true" size={17} />{tx("legal_navigation.eyebrow")}</span>
+          <h1 id="legal-page-title" className="legal-title page-title">{title}</h1>
           <p className="legal-intro">{tx(`legal_navigation.intro.${kind}`)}</p>
         </header>
         <div className="legal-layout grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-8">

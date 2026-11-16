@@ -1,7 +1,7 @@
 import { JSX, lazy, Suspense, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import GitHubActivity from "./GitHubActivity";
 import TechStack from "./TechnologyStack";
 import AboutCard from "./AboutCard";
@@ -24,6 +24,7 @@ const solarPlaceholder = (
 
 function About(): JSX.Element {
   const { t } = useTranslation();
+  const reduceMotion = useReducedMotion();
   const { hash } = useLocation();
   useEffect(() => {
     if (hash !== "#about-skills-title") return;
@@ -48,9 +49,12 @@ function About(): JSX.Element {
       <div className="page-content site-container">
         <div className="about-intro grid grid-cols-1 items-start gap-x-6 min-[992px]:grid-cols-12">
 
-          <h1 className="about-intro-title min-[992px]:col-span-12">
+          <header className="about-page-heading min-[992px]:col-span-12">
+          <p className="page-eyebrow">{t('page_headers.about')}</p>
+          <h1 className="about-intro-title page-title">
             {t('about_me')}
           </h1>
+          </header>
 
           <div className="about-intro-copy min-[992px]:col-span-7">
             <AboutCard />
@@ -60,9 +64,9 @@ function About(): JSX.Element {
 
             <motion.div
               className="canvas-container"
-              initial={{ opacity: 0 }}
+              initial={reduceMotion ? false : { opacity: 0 }}
               animate={imgInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: reduceMotion ? 0 : 0.8, ease: "easeOut" }}
             >
               {imgInView ? (
                 <Suspense fallback={solarPlaceholder}><SolarSystem /></Suspense>

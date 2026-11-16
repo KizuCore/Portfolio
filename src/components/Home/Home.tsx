@@ -1,19 +1,23 @@
 import { useRef, useState } from "react";
 import useLetterGravity from "./useLetterGravity";
+import useHomeMotion from "./useHomeMotion";
 import HomeOffer from "./HomeOffer";
 import HomeAnimatedLogo from "./HomeAnimatedLogo";
 import HomeProof from "./HomeProof";
 import HomeStats from "./HomeStats";
 import Services from "./Services";
 import "../../assets/styles/Home/Home.css";
+import "../../assets/styles/Home/HomeMotion.css";
 
 export default function Home() {
   const [isDragging, setIsDragging] = useState(false);
   const [isExposed, setIsExposed] = useState(false);
   const [gravityReady, setGravityReady] = useState(false);
   const hero = useRef<HTMLElement>(null);
+  const page = useRef<HTMLDivElement>(null);
   useLetterGravity(hero, isExposed);
-  return <div className="home-page" id="home">
+  useHomeMotion(page);
+  return <div className="home-page" id="home" ref={page}>
       <div className="home-content site-container">
         <section className="home-hero" ref={hero}>
           <div className="home-header"><HomeOffer gravityReady={gravityReady} /></div>

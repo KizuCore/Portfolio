@@ -51,14 +51,12 @@
         }
     },
     "resume_page": {
-        "watch_demo": "Watch the video demo",
         "all_skills": "View all my skills",
         "intro": "From React interfaces to Django APIs, I build web and mobile applications with a focus on performance and code quality.",
         "missions": "React interfaces, microbiome reports and data visualisations with Django.||Development and maintenance of REST APIs with Django and Flask; PostgreSQL and MySQL databases.||Node.js API with Sequelize (ORM) to synchronise user data between WooCommerce, the customer portal and Brevo.||WooCommerce, Systempay, Brevo and LimeSurvey integrations; internationalisation and technical SEO.||Infrastructure migration, environment management and Docker / CI/CD deployments.||Automated tests with Playwright, Jest and Bruno; Agile teamwork on GitLab.",
         "impact": "PDF report generation time at Nahibu.",
-        "project_label": "Team project · Technical lead",
-        "flambow": "Development of an intergenerational skill-sharing application within a multidisciplinary team. React and TypeScript, Stripe payments, real-time exchanges with Socket.io, automated tests and VPS deployment.",
-        "source": "Explore the code on GitLab",
+        "project_label": "Explore my projects",
+        "featured_project": "An online ordering application for a fishmonger, from browsing the catalogue to payment and in-store collection. Explore this project and my other work in my portfolio.",
         "languages": "Languages",
         "availability": "Seeking a development position starting in March 2027.",
         "mobility": "Mobility: Rennes and surrounding areas · Driving licence (B)",

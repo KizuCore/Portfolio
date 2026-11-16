@@ -244,11 +244,6 @@
   font-size: 1.15rem;
   font-weight: 600;
 }
-.resume-project-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1.5rem;
-}
 .resume-project-card > p:not(.resume-date) {
   color: #b4c6de;
   font-size: 0.88rem;

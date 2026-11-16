@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { FiX } from "@react-icons/all-files/fi/FiX";
 import { getConsent, updateConsent } from "../../utils/consent";
 import "../../assets/styles/Legals/CookiePreferences.css";
 
@@ -78,6 +79,7 @@ export default function CookiePreferencesModal() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="cookie-prefs-title"
+        aria-describedby="cookie-prefs-description"
         className="cookie-prefs-dialog"
       >
         <div className="cookie-prefs-content">
@@ -91,27 +93,28 @@ export default function CookiePreferencesModal() {
               onClick={() => setShow(false)}
               aria-label={t("common.close")}
             >
-              <span aria-hidden="true">&times;</span>
+              <FiX size={20} aria-hidden="true" />
             </button>
           </div>
 
           <div className="cookie-prefs-body">
-            <p className="mb-4">
+            <p id="cookie-prefs-description" className="cookie-prefs-description">
               {t("cookie_prefs.intro_1")}{" "}
-              <strong>Google Analytics (GA4)</strong> {t("cookie_prefs.intro_2")}
+              Google Analytics (GA4) {t("cookie_prefs.intro_2")}
             </p>
 
             <div className="cookie-prefs-form">
               <label htmlFor="consent-analytics" className="cookie-prefs-toggle">
+                <span>{t("cookie_prefs.analytics_label")}</span>
                 <input
                   id="consent-analytics"
                   type="checkbox"
+                  role="switch"
                   className="cookie-prefs-checkbox"
                   aria-describedby="cookie-prefs-note"
                   checked={analyticsOn}
                   onChange={(event) => setAnalyticsOn(event.currentTarget.checked)}
                 />
-                <span>{t("cookie_prefs.analytics_label")}</span>
               </label>
 
               <small id="cookie-prefs-note" className="cookie-prefs-note">{t("cookie_prefs.note")}</small>

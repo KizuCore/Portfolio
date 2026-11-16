@@ -5,8 +5,6 @@
   text-align: left;
 }
 .contact-layout {
-  width: calc(100% - 3rem);
-  max-width: 1180px;
   margin: auto;
 }
 .contact-header {
@@ -334,9 +332,6 @@
 @media (max-width: 575px) {
   .contact-page {
     padding-top: 7.5rem;
-  }
-  .contact-layout {
-    width: calc(100% - 2rem);
   }
   .contact-header {
     margin-bottom: 1.75rem;

@@ -12,7 +12,7 @@ type StudyProps = { study: CaseStudy };
 // Ces blocs partagent uniquement la présentation ; chaque page compose librement son étude de cas.
 export function CaseStudyLayout({ study, className, children }: StudyProps & { className: string; children: ReactNode }) {
   const { page, labels, locale } = study;
-  return <article className={`business-page case-study ${className}`} lang={getHtmlLang(locale)}>
+  return <article className={`business-page site-container case-study ${className}`} lang={getHtmlLang(locale)}>
     <nav className="business-breadcrumb" aria-label={labels.breadcrumb}>
       <Link to={`/${locale}`}>{labels.home}</Link><span aria-hidden="true">/</span>
       <Link to={`/${locale}/project`}>{labels.project}</Link>

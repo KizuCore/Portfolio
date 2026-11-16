@@ -70,7 +70,6 @@
 .case-preview img { max-height: none; }
 .case-study .business-gallery { margin: 2rem 0 0; }
 @media (max-width: 767px) {
-  .case-study { width: calc(100% - 2.5rem); }
   .case-grid, .case-split { grid-template-columns: 1fr; }
   .case-block { margin: 2.5rem 0; }
   .case-study .business-actions { flex-direction: row; align-items: center; flex-wrap: wrap; }

@@ -1,8 +1,7 @@
-﻿@import "../shared/business-actions.css";
+@import "../shared/business-actions.css";
 
 /* Tous les projets restent visibles : les catégories filtrent la galerie. */
 .project-section { padding: 9rem 0 4rem; text-align: left; color: var(--text-primary); }
-.projects-container { width: min(1160px, calc(100% - 3rem)); margin-inline: auto; }
 .projects-header { max-width: 750px; }
 .projects-title { font-family: "Montserrat", sans-serif; margin: 1rem 0; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 550; letter-spacing: -0.05em; line-height: 1.1; }
 .projects-intro { max-width: 65ch; margin: 1.25rem 0 0; font-size: 0.98rem; line-height: 1.85; color: var(--text-muted); }
@@ -34,7 +33,6 @@
 .project-empty { padding-block: 3rem; color: var(--text-muted); }
 @media (max-width: 767px) {
   .project-section { padding-top: 7.5rem; }
-  .projects-container { width: calc(100% - 2.5rem); }
   .project-gallery { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
   .project-filter-shell { margin-top: 2rem; gap: 0.8rem; }
   .project-filter-chip { padding-inline: 0.75rem; font-size: 0.75rem; }

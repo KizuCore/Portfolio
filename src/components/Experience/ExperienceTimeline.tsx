@@ -29,9 +29,9 @@ const ExperienceTimeline = () => {
   }, [encounter]);
 
   return (
-    <Container fluid className="timeline-page">
+    <Container fluid className="timeline-page site-page">
       {encounter && <TardisEncounter beat={beat} reducedMotion={!!reducedMotion} />}
-      <Container className="timeline-container page-content">
+      <Container className="timeline-container page-content site-container">
         <h1 className="experience-title">
           {t("about_experience")}
         </h1>

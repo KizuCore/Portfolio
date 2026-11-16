@@ -1,5 +1,6 @@
 @import "./shared/buttons.css";
 @import "./shared/surfaces.css";
+@import "./shared/layout.css";
 
 :root {
   --surface-900: #0c1017;

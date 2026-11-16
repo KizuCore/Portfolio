@@ -13,8 +13,8 @@ function PolitiqueCookies(): JSX.Element {
     const tx = i18n.getFixedT(legalLang);
 
     return (
-        <Container fluid className="legal-page" id="politique-cookies">
-            <Container className="legal-content-container page-content">
+        <Container fluid className="legal-page site-page" id="politique-cookies">
+            <Container className="legal-content-container page-content site-container">
                 <section aria-labelledby="cookie-policy-title">
                     <Row className="justify-content-center p-0">
                         <h1 id="cookie-policy-title" className="legal-title">

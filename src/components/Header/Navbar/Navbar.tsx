@@ -176,7 +176,7 @@ function NavBar(): JSX.Element {
   return (
     <nav
       ref={navRef}
-      className={`navbar navbar-polished fixed-top ${navColour ? "sticky" : ""} ${expand ? "menu-open" : ""}`}
+      className={`navbar navbar-polished site-container fixed-top ${navColour ? "sticky" : ""} ${expand ? "menu-open" : ""}`}
       aria-label={t("a11y.main_navigation")}
     >
       <div className="container">

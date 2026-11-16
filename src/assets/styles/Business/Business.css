@@ -3,8 +3,6 @@
 /* Les blocs rédactionnels reprennent la palette du portfolio, sans ajouter d’animation ni de police. */
 .business-page {
   /* Même cadre que l'accueil, gouttière extérieure comprise. */
-  max-width: 1180px;
-  width: calc(100% - 4.5rem);
   margin: auto;
   padding: 8rem 0 4rem;
   color: var(--text-primary);

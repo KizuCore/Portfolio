@@ -22,8 +22,8 @@ function Resume() {
   const highlights = t("resume_page.missions").split("||").map(value => value.trim()).filter(Boolean);
 
   return (
-    <Container fluid className="resume-section">
-      <Container className="page-content">
+    <Container fluid className="resume-section site-page">
+      <Container className="page-content site-container">
         <header className="resume-header">
           <div className="resume-identity">
             <p className="resume-eyebrow">{t("resume_page.eyebrow")}</p>

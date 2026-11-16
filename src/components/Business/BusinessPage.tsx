@@ -14,7 +14,7 @@ export default function BusinessPage({ page: sourcePage }: { page: BusinessPageC
   const page = getBusinessPage(sourcePage.path, translations)!;
   const labels = getBusinessLabels(translations);
   return (
-    <article className="business-page" lang={getHtmlLang(locale)}>
+    <article className="business-page site-container" lang={getHtmlLang(locale)}>
       <nav className="business-breadcrumb" aria-label={labels.breadcrumb}>
         <Link to={`/${locale}`}>{labels.home}</Link><span aria-hidden="true">/</span><span>{labels.services}</span>
       </nav>

@@ -1,8 +1,6 @@
-﻿@import "../shared/business-actions.css";
+@import "../shared/business-actions.css";
 
 .home-page .home-content {
-  width: min(1160px, calc(100% - 3rem));
-  margin-inline: auto;
   padding: 8.75rem 0 3rem !important;
 }
 .home-hero {
@@ -72,7 +70,7 @@
   .home-offer h1 { font-size: clamp(2.6rem, 5vw, 3.6rem); }
 }
 @media (max-width: 767px) {
-  .home-page .home-content { width: calc(100% - 2.5rem); padding-top: 7rem !important; }
+  .home-page .home-content { padding-top: 7rem !important; }
   .home-hero { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; padding: 1rem 0 2.5rem; }
   .home-offer h1 { font-size: clamp(2.4rem, 8.5vw, 3.75rem); margin: 1.25rem 0; }
   .home-offer .business-eyebrow { font-size: 0.62rem; }

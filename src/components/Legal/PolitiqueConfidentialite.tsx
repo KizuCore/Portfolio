@@ -1,4 +1,4 @@
-﻿import { JSX } from "react";
+import { JSX } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -17,8 +17,8 @@ function PolitiqueConfidentialite(): JSX.Element {
   const tx = i18n.getFixedT(legalLang);
 
   return (
-    <Container fluid className="legal-page" id="politique-confidentialite">
-      <Container className="legal-content-container page-content">
+    <Container fluid className="legal-page site-page" id="politique-confidentialite">
+      <Container className="legal-content-container page-content site-container">
         <section aria-labelledby="page-title">
           <Row className="justify-content-center p-0">
             <h1 id="page-title" className="legal-title">

@@ -36,7 +36,7 @@ function Footer(): JSX.Element {
   return (
     <footer className="footer-section">
       <div className="footer-shell">
-        <div className="footer-grid" role="navigation" aria-label={t("footer_navigation")}>
+        <div className="footer-grid site-container" role="navigation" aria-label={t("footer_navigation")}>
           <div className="footer-brand-column">
             <div className="footer-brand-title-wrap">
               <img src={logo} alt={t("brand")} className="footer-brand-logo" loading="lazy" decoding="async" />
@@ -149,7 +149,7 @@ function Footer(): JSX.Element {
           </div>
         </div>
 
-        <div className="footer-bottom">
+        <div className="footer-bottom site-container">
           <p>
             {"\u00A9"} 2024-{year} {SITE_PROFILE.brandName}. {t("footer_rights")}
           </p>

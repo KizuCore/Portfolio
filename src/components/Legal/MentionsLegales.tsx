@@ -1,4 +1,4 @@
-﻿import { JSX } from "react";
+import { JSX } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import "../../assets/styles/Legals/Legals.css";
@@ -12,8 +12,8 @@ function MentionsLegales(): JSX.Element {
   const tx = i18n.getFixedT(legalLang);
 
   return (
-    <Container fluid className="legal-page" id="mentions-legales">
-      <Container className="legal-content-container page-content">
+    <Container fluid className="legal-page site-page" id="mentions-legales">
+      <Container className="legal-content-container page-content site-container">
         <Row className="justify-content-center p-0">
           <h1 className="legal-title">{tx("mentions_legales.title")}</h1>
 

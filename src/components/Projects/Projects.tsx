@@ -1,4 +1,4 @@
-﻿import { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import ProjectCard from "./ProjectCard";
 import "../../assets/styles/Projects/Projects.css";
@@ -14,7 +14,7 @@ export default function Projects() {
   const projects = activeFilter === "all" ? sortedProjects : sortedProjects.filter(project => project.category === activeFilter);
 
   return <section className="project-section" aria-labelledby="projects-title">
-    <div className="projects-container">
+    <div className="projects-container site-container">
       <header className="projects-header">
         <p className="business-eyebrow">Portfolio / {t("project")}</p>
         <h1 className="projects-title" id="projects-title">{t("my_projects")} {t("projects")}</h1>

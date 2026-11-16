@@ -14,7 +14,7 @@ export default function Home() {
   const hero = useRef<HTMLElement>(null);
   useLetterGravity(hero, isExposed);
   return <div className="home-page" id="home">
-      <div className="home-content">
+      <div className="home-content site-container">
         <section className="home-hero" ref={hero}>
           <div className="home-header"><HomeOffer gravityReady={gravityReady} /></div>
           <div className="home-sky-illustration">

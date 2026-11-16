@@ -368,7 +368,9 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hobby-mayhem-halo { transition: none; }
+  .hobby-mayhem-halo {
+    transition: none;
+  }
   .hobby-cat-tail {
     transition: none;
   }

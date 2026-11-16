@@ -19,8 +19,15 @@
   white-space: normal;
   overflow-wrap: anywhere;
 }
-.stack-tooltip-name { display: block; font-weight: 500; }
-.stack-tooltip-detail { display: block; margin-top: 0.15rem; color: #a9bbd2; }
+.stack-tooltip-name {
+  display: block;
+  font-weight: 500;
+}
+.stack-tooltip-detail {
+  display: block;
+  margin-top: 0.15rem;
+  color: #a9bbd2;
+}
 .about-skills-section,
 .about-code-section {
   margin-top: 4rem;

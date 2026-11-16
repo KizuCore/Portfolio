@@ -178,7 +178,11 @@
 }
 .business-contact {
   border: 1px solid #385782;
-  background: radial-gradient(ellipse at top right, #203b65 0%, var(--surface-850) 65%);
+  background: radial-gradient(
+    ellipse at top right,
+    #203b65 0%,
+    var(--surface-850) 65%
+  );
   border-radius: 20px;
   padding: clamp(1.5rem, 5vw, 3.5rem);
 }
@@ -186,7 +190,6 @@
   max-width: 600px;
 }
 @media (max-width: 767px) {
-
   .business-page {
     padding-top: var(--site-page-top);
   }

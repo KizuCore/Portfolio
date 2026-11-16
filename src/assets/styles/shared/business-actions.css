@@ -18,8 +18,16 @@
   text-underline-offset: 6px;
   transition: color 180ms ease;
 }
-.business-text-link:hover { color: var(--accent); text-decoration-color: currentColor; }
-.business-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.4rem; }
+.business-text-link:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+.business-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.4rem;
+}
 .business-button {
   display: inline-flex;
   justify-content: center;
@@ -35,9 +43,30 @@
   border: 1px solid #52749d;
   border-radius: 8px;
   text-decoration: none !important;
-  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
 }
-.business-button:hover { background: #284260; border-color: #85afe3; color: #fff !important; }
-.business-button:focus-visible, .business-text-link:focus-visible { outline: 2px solid #81b4f5; outline-offset: 4px; }
-.business-button svg, .business-text-link svg { width: 16px; height: 16px; flex-shrink: 0; }
-@media (max-width: 575px) { .business-actions { align-items: flex-start; gap: 0.8rem 1.2rem; } }
+.business-button:hover {
+  background: #284260;
+  border-color: #85afe3;
+  color: #fff !important;
+}
+.business-button:focus-visible,
+.business-text-link:focus-visible {
+  outline: 2px solid #81b4f5;
+  outline-offset: 4px;
+}
+.business-button svg,
+.business-text-link svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+@media (max-width: 575px) {
+  .business-actions {
+    align-items: flex-start;
+    gap: 0.8rem 1.2rem;
+  }
+}

@@ -176,7 +176,7 @@
     padding: var(--site-page-top) 0 var(--site-section-gap);
   }
   .experience-title {
-  font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
     margin-bottom: 2rem;
     overflow-wrap: anywhere;
   }

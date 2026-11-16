@@ -153,14 +153,28 @@
   border: 1px solid #a4c4f54d;
   background: #253b55;
 }
-.cookie-prefs-cancel:hover { background: #ffffff08; color: #e0ecff; }
-.cookie-prefs-save:hover { background: #304c6b; border-color: #a4c4f58c; }
+.cookie-prefs-cancel:hover {
+  background: #ffffff08;
+  color: #e0ecff;
+}
+.cookie-prefs-save:hover {
+  background: #304c6b;
+  border-color: #a4c4f58c;
+}
 @media (prefers-reduced-motion: reduce) {
-  .cookie-prefs-checkbox::before { transition: none; }
+  .cookie-prefs-checkbox::before {
+    transition: none;
+  }
 }
 @media (forced-colors: active) {
-  .cookie-prefs-checkbox { appearance: auto; background: revert; border: revert; }
-  .cookie-prefs-checkbox::before { display: none; }
+  .cookie-prefs-checkbox {
+    appearance: auto;
+    background: revert;
+    border: revert;
+  }
+  .cookie-prefs-checkbox::before {
+    display: none;
+  }
 }
 .cookie-prefs-dialog :focus-visible {
   outline: 2px solid #94c3ff;

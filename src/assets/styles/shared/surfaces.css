@@ -7,4 +7,7 @@
   overflow: hidden;
   box-shadow: none;
 }
-.background-box::before, .background-box::after { content: none; }
+.background-box::before,
+.background-box::after {
+  content: none;
+}

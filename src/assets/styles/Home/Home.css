@@ -45,8 +45,12 @@
   z-index: -1;
   pointer-events: none;
 }
-.logo-wrapper.dragging::before { opacity: 0; }
-.home-page .home-content { overflow-x: clip; }
+.logo-wrapper.dragging::before {
+  opacity: 0;
+}
+.home-page .home-content {
+  overflow-x: clip;
+}
 
 .black-hole {
   position: absolute;

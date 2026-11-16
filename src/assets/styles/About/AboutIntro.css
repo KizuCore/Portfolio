@@ -4,7 +4,9 @@
 }
 
 .about-intro-copy,
-.about-intro .about-img { min-width: 0; }
+.about-intro .about-img {
+  min-width: 0;
+}
 
 .about-intro {
   padding-top: 0;
@@ -232,7 +234,7 @@
     overflow-wrap: anywhere;
   }
   .about-intro-title {
-  font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
     margin-bottom: 1.75rem;
   }
   .about-profile-tabs {

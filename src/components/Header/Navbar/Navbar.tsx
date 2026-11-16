@@ -1,6 +1,7 @@
 import { JSX, useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FiArrowUpRight } from "@react-icons/all-files/fi/FiArrowUpRight";
 import LanguageSelector from "../LanguageSelector";
 import Logo from "../Logo/LogoContainer";
 import NavItem from "./NavItem";
@@ -241,7 +242,7 @@ function NavBar(): JSX.Element {
               className={`nav-link nav-contact${localizedPath.pathname === "/contact" ? " active" : ""}`}
               aria-current={localizedPath.pathname === "/contact" ? "page" : undefined}
               onClick={() => setExpand(false)}
-            >{t("social")} <span aria-hidden="true">↗</span></Link>
+            >{t("social")} <FiArrowUpRight size={16} aria-hidden="true" /></Link>
             <div className="navbar-language">
               <LanguageSelector />
             </div>

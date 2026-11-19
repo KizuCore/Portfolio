@@ -127,13 +127,13 @@ function Footer(): JSX.Element {
             <p className="footer-column-title">{t("footer_legal_title")}</p>
             <ul>
               <li>
-                <Link to="/mentions-legales" className="footer-nav-link" aria-label={t("footer_links.aria_legal")}>
+                <Link to={getLocalizedPath(locale, "/mentions-legales")} className="footer-nav-link" aria-label={t("footer_links.aria_legal")}>
                   {t("footer_links.legal")}
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/politique-de-confidentialite"
+                  to={getLocalizedPath(locale, "/politique-de-confidentialite")}
                   className="footer-nav-link"
                   aria-label={t("footer_links.aria_privacy")}
                 >
@@ -141,7 +141,7 @@ function Footer(): JSX.Element {
                 </Link>
               </li>
               <li>
-                <Link to="/politique-des-cookies" className="footer-nav-link" aria-label={t("footer_links.aria_cookies_policy")}>
+                <Link to={getLocalizedPath(locale, "/politique-des-cookies")} className="footer-nav-link" aria-label={t("footer_links.aria_cookies_policy")}>
                   {t("footer_links.cookies_policy")}
                 </Link>
               </li>

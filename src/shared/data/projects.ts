@@ -25,6 +25,12 @@ import laMareeMalouine from "@image/Projects/laMareeMalouine.webp";
 import maree480 from "@image/Projects/responsive/laMareeMalouine-480.webp";
 import maree768 from "@image/Projects/responsive/laMareeMalouine-768.webp";
 import maree1024 from "@image/Projects/responsive/laMareeMalouine-1024.webp";
+import montafilan400 from "@image/Projects/responsive/portesDeMontafilan-400.webp";
+import montafilan768 from "@image/Projects/responsive/portesDeMontafilan-768.webp";
+import montafilan1024 from "@image/Projects/responsive/portesDeMontafilan-1024.webp";
+import aTable400 from "@image/Projects/responsive/aTable-400.webp";
+import aTable768 from "@image/Projects/responsive/aTable-768.webp";
+import aTable1024 from "@image/Projects/responsive/aTable-1024.webp";
 import { PORTFOLIO_PROJECTS, PROJECT_FILTERS, type PortfolioProject, type ProjectCategory, type ProjectFilter } from "@/content/projects";
 
 export type ProjectItem = {
@@ -67,11 +73,15 @@ export type { ProjectCategory, ProjectFilter };
 
 export { PROJECT_FILTERS };
 
+const PROJECT_SRC_SETS: Partial<Record<PortfolioProject["imageKey"], string>> = {
+  laMareeMalouine: `${maree480} 480w, ${maree768} 768w, ${maree1024} 1024w, ${laMareeMalouine} 1440w`,
+  portesDeMontafilan: `${montafilan400} 400w, ${montafilan768} 768w, ${montafilan1024} 1024w, ${portesDeMontafilan} 1280w`,
+  aTable: `${aTable400} 400w, ${aTable768} 768w, ${aTable1024} 1024w, ${aTable} 1280w`,
+};
+
 export const PROJECTS: ProjectItem[] = PORTFOLIO_PROJECTS.map(({ imageKey, ...project }) => ({
   ...project,
   imgPath: PROJECT_IMAGES[imageKey],
   thumbnailPath: PROJECT_THUMBNAILS[imageKey],
-  srcSet: imageKey === "laMareeMalouine"
-    ? `${maree480} 480w, ${maree768} 768w, ${maree1024} 1024w, ${laMareeMalouine} 1440w`
-    : undefined,
+  srcSet: PROJECT_SRC_SETS[imageKey],
 }));

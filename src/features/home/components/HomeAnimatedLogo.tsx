@@ -1,4 +1,4 @@
-import { useRef, type PointerEvent } from "react";
+import { useEffect, useRef, type PointerEvent } from "react";
 import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
 import PreloaderLogo from "@/shared/ui/PreloaderLogo";
@@ -12,16 +12,38 @@ export default function HomeAnimatedLogo({ onDragStateChange, onExposureChange }
   const { t } = useTranslation();
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
   const drag = useRef<{ id: number; x: number; y: number } | null>(null);
+  const returnAnimation = useRef<Animation | null>(null);
+  useEffect(() => () => returnAnimation.current?.cancel(), []);
+
   const release = (event: PointerEvent<HTMLDivElement>) => {
     if (drag.current?.id !== event.pointerId) return;
+    const element = event.currentTarget;
+    const { m41: x, m42: y } = new DOMMatrixReadOnly(getComputedStyle(element).transform);
     drag.current = null;
-    event.currentTarget.removeAttribute("data-dragging");
-    event.currentTarget.style.transform = "translate3d(0, 0, 0)";
-    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
-      event.currentTarget.releasePointerCapture(event.pointerId);
+    element.removeAttribute("data-dragging");
+    element.style.transform = "translate3d(0, 0, 0)";
+    if (element.hasPointerCapture(event.pointerId)) {
+      element.releasePointerCapture(event.pointerId);
     }
     onDragStateChange(false);
     onExposureChange(false);
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || Math.hypot(x, y) < 1) return;
+
+    // Un élan vers l'extérieur, puis des rebonds amortis sur deux axes indépendants.
+    // Les images échantillonnées gardent une trajectoire fluide entre les oscillations.
+    const frames = Array.from({ length: 121 }, (_, index) => {
+      const time = index / 120 * 2;
+      const decay = Math.exp(-3.8 * time);
+      const horizontal = decay * (Math.cos(9 * time) + 0.6 * Math.sin(9 * time));
+      const vertical = decay * (Math.cos(11 * time) + 0.5 * Math.sin(11 * time));
+      const dx = index === 120 ? 0 : x * horizontal;
+      const dy = index === 120 ? 0 : y * vertical;
+      return { transform: `translate3d(${dx}px, ${dy}px, 0)` };
+    });
+    const animation = element.animate(frames, { duration: 2000, easing: "linear" });
+    returnAnimation.current = animation;
+    animation.onfinish = () => { returnAnimation.current = null; };
   };
 
   return <div
@@ -34,6 +56,9 @@ export default function HomeAnimatedLogo({ onDragStateChange, onExposureChange }
       if (!event.isPrimary || event.button !== 0 || drag.current) return;
       // Mesure uniquement lors d'une interaction, pour reprendre un retour en cours.
       const transform = new DOMMatrixReadOnly(getComputedStyle(event.currentTarget).transform);
+      returnAnimation.current?.cancel();
+      returnAnimation.current = null;
+      event.currentTarget.style.transform = `translate3d(${transform.m41}px, ${transform.m42}px, 0)`;
       drag.current = { id: event.pointerId, x: event.clientX - transform.m41, y: event.clientY - transform.m42 };
       event.currentTarget.dataset.dragging = "true";
       event.currentTarget.setPointerCapture(event.pointerId);

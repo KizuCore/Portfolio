@@ -48,8 +48,9 @@
 .logo-wrapper.dragging::before {
   opacity: 0;
 }
+/* Le logo déplacé peut dépasser le conteneur centré ; body gère le débordement horizontal. */
 .home-page .home-content {
-  overflow-x: clip;
+  overflow-x: visible;
 }
 
 .black-hole {

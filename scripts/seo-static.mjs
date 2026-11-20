@@ -525,7 +525,7 @@ function buildHead({ pathname, canonicalUrl, title, description, structuredData,
   <meta name="twitter:title" content="${escapeHtml(title)}" data-rh="true" />
   <meta name="twitter:description" content="${escapeHtml(description)}" data-rh="true" />
   <meta name="twitter:image" content="${escapeHtml(imageUrl)}" data-rh="true" />
-  <script type="application/ld+json" data-rh="true">${escapeJsonScript(structuredData)}</script>`;
+  <script id="seo-structured-data" type="application/ld+json">${escapeJsonScript(structuredData)}</script>`;
 }
 
 // Retire les balises SEO de l’index générique de Vite avant d’insérer les métadonnées propres à la route.
@@ -543,7 +543,7 @@ function stripGeneratedHead(html) {
     .replace(/<link\s+rel=["']alternate["'][\s\S]*?>/gi, "")
     .replace(/<meta\s+property=["']og:[^"']+["'][\s\S]*?>/gi, "")
     .replace(/<meta\s+name=["']twitter:[^"']+["'][\s\S]*?>/gi, "")
-    .replace(/<script\s+type=["']application\/ld\+json["'][\s\S]*?<\/script>/gi, "");
+    .replace(/<script\b[^>]*\btype=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi, "");
 }
 
 // Insère les métadonnées et le contenu propres à la route dans la structure HTML produite par Vite.

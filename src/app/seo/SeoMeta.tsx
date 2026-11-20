@@ -2,6 +2,8 @@ import { JSX } from "react";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
+import StructuredData from "./StructuredData";
+import { serializeStructuredData } from "./structuredDataDom";
 import { getBusinessPage } from "@/content/businessPages";
 import { getBusinessSchema } from "@/shared/config/businessSchema";
 import {
@@ -135,6 +137,7 @@ function SeoMeta(): JSX.Element {
   };
 
   return (
+    <>
     <Helmet>
       <html lang={htmlLang} />
       <title>{fullTitle}</title>
@@ -188,9 +191,9 @@ function SeoMeta(): JSX.Element {
       <meta name="twitter:image" content={imageUrl} />
       <meta name="twitter:image:alt" content={tx("seo_og_image_alt", { defaultValue: "Aperçu du portfolio de Théo Guérin" })} />
 
-      {/* Données structurées */}
-      {!isNotFound && <script type="application/ld+json">{JSON.stringify(structuredData)}</script>}
     </Helmet>
+    <StructuredData json={isNotFound ? null : serializeStructuredData(structuredData)} />
+    </>
   );
 }
 

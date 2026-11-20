@@ -119,7 +119,7 @@ function getHreflangs(html) {
 
 // Analyse chaque bloc JSON-LD et signale les données structurées invalides.
 function getStructuredData(html) {
-  return [...html.matchAll(/<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)].map((match) => {
+  return [...html.matchAll(/<script\b[^>]*\btype=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)].map((match) => {
     try {
       return JSON.parse(match[1]);
     } catch (error) {
@@ -335,9 +335,11 @@ function main() {
     assert(description, `${routePath}: meta description manquante`, errors);
     assert(canonical, `${routePath}: canonical manquant`, errors);
     assert(canonical === expectedCanonicalUrl, `${routePath}: canonical ${canonical} au lieu de ${expectedCanonicalUrl}`, errors);
-    // Les balises du prérendu doivent pouvoir être remplacées par React Helmet à la navigation.
-    const managedTags = html.match(/<(?:meta|link|script)\b[^>]*(?:name="(?:description|robots|googlebot|bingbot)"|rel="canonical"|type="application\/ld\+json")[^>]*>/g) ?? [];
-    assert(managedTags.length >= 6 && managedTags.every((tag) => tag.includes('data-rh="true"')), `${routePath}: métadonnées statiques non gérées par React Helmet`, errors);
+    // Helmet gère les métadonnées ; le composant Trusted Types remplace le graphe JSON-LD.
+    const managedTags = html.match(/<(?:meta|link)\b[^>]*(?:name="(?:description|robots|googlebot|bingbot)"|rel="canonical")[^>]*>/g) ?? [];
+    assert(managedTags.length >= 5 && managedTags.every((tag) => tag.includes('data-rh="true"')), `${routePath}: métadonnées statiques non gérées par React Helmet`, errors);
+    const structuredDataTags = html.match(/<script\b[^>]*type="application\/ld\+json"[^>]*>/g) ?? [];
+    assert(structuredDataTags.length === 1 && structuredDataTags[0].includes('id="seo-structured-data"') && !structuredDataTags[0].includes('data-rh='), `${routePath}: graphe JSON-LD non géré par le composant Trusted Types`, errors);
     assert(htmlLang === expectedLang, `${routePath}: html lang ${htmlLang || "absent"} au lieu de ${expectedLang}`, errors);
     assert(h1, `${routePath}: H1 manquant`, errors);
     assert(bodyText.length > 450, `${routePath}: HTML prérendu trop pauvre (${bodyText.length} caractères)`, errors);

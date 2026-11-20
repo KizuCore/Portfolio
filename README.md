@@ -119,7 +119,7 @@ Le projet est prévu pour Vercel : commande de build `npm run build`, dossier de
 
 [`vercel.json`](vercel.json) regroupe les redirections, le cache et les en-têtes de sécurité : CSP, HSTS, COOP et protection contre le clickjacking. Ces en-têtes ne sont pas appliqués par `vite preview`.
 
-La CSP utilise une liste de sources autorisées et bloque les scripts inline ainsi que `eval`. Trusted Types reste en mode observation, car React Helmet et le lecteur PDF ne sont pas encore compatibles avec son blocage. HSTS inclut `includeSubDomains` et `preload` ; l’inscription dans la liste de préchargement des navigateurs reste une démarche séparée.
+La CSP utilise une liste de sources autorisées et bloque les scripts inline ainsi que `eval`. Les données SEO JSON-LD utilisent une politique Trusted Types dédiée, limitée à un graphe JSON schema.org, sans passer par `innerHTML` de React Helmet. Trusted Types reste en mode observation pour les autres intégrations, notamment le lecteur PDF. HSTS inclut `includeSubDomains` et `preload` ; l’inscription dans la liste de préchargement des navigateurs reste une démarche séparée.
 
 ---
 

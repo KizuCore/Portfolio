@@ -24,7 +24,7 @@ function LogoImage({ isAnimating, t }: LogoImageProps) {
   }, [isAnimating]);
 
   return (
-    <m.div
+    <m.span
       className="logo-container"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -42,7 +42,7 @@ function LogoImage({ isAnimating, t }: LogoImageProps) {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
       />
-    </m.div>
+    </m.span>
   );
 }
 

@@ -70,6 +70,7 @@ function NavBar(): JSX.Element {
             handleMouseDown={handleMouseDown}
             handleMouseUp={handleMouseUp}
             handleMouseLeave={handleMouseLeave}
+            handleActivate={() => navigate(getLocalizedPath(currentLocale, "/"))}
             t={t}
           />
           <Link

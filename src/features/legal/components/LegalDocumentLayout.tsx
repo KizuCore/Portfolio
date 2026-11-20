@@ -85,7 +85,7 @@ export default function LegalDocumentLayout({ kind, language, title, children }:
           <h1 id="legal-page-title" className="legal-title page-title">{title}</h1>
           <p className="legal-intro">{tx(`legal_navigation.intro.${kind}`)}</p>
         </header>
-        <div className="legal-layout grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-8">
+        <div className="legal-layout grid items-start gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-8">
           <aside className="legal-sidebar" aria-label={tx("legal_navigation.navigation")}>
             <button className="legal-mobile-toggle" type="button" aria-expanded={expanded} aria-controls="legal-navigation-panel" onClick={() => setExpanded(!expanded)}>
               <span><FiSearch aria-hidden="true" />{tx("legal_navigation.mobile")}</span><FiChevronDown aria-hidden="true" />

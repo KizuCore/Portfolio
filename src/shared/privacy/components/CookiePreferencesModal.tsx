@@ -50,7 +50,10 @@ export default function CookiePreferencesModal() {
 
     return () => {
       document.body.style.overflow = previousOverflow;
-      previousFocus?.focus();
+      const returnTarget = previousFocus?.isConnected
+        ? previousFocus
+        : document.getElementById("main-content");
+      returnTarget?.focus({ preventScroll: true });
       window.removeEventListener("keydown", handleEscape);
     };
   }, [show]);

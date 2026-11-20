@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, Suspense } from "react";
+import { useEffect, useLayoutEffect, useRef, Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -16,6 +16,7 @@ import RouteSkeleton from "./layout/RouteSkeleton";
 import PageMotion from "./layout/PageMotion";
 import ScrollProgress from "./layout/ScrollProgress";
 import ScrollToTop from "./layout/ScrollToTop";
+import RouteFocus from "./layout/RouteFocus";
 import { DEFAULT_LOCALE, getShortLocale, splitLocalizedPath } from "@/shared/config/seo";
 import useKonamiCode from "@/features/easter-eggs/hooks/useKonamiCode";
 import { ALL_APP_ROUTES, FALLBACK_ROUTE } from "./routes/appRoutes";
@@ -28,6 +29,7 @@ function KonamiComponent() {
 function AppContent() {
   const { t, i18n } = useTranslation();
   const location = useLocation();
+  const previousFocusPath = useRef(location.pathname);
   const reduceMotion = useReducedMotion();
   const routeLocale = splitLocalizedPath(location.pathname).locale;
 
@@ -85,6 +87,7 @@ function AppContent() {
                     <Route key={route.path} path={route.path} element={route.element} />
                   ))}
                 </Routes></PageMotion>
+                <RouteFocus pathname={location.pathname} previousPath={previousFocusPath} />
               </m.div>
             </AnimatePresence>
           </Suspense>

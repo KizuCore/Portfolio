@@ -24,6 +24,9 @@ export function useMobileMenu(pathname: string) {
     if (!expand) {
       return;
     }
+    const menu = menuRef.current;
+    const nav = navRef.current;
+    const toggleButton = toggleButtonRef.current;
 
     const getFocusableMenuItems = () =>
       Array.from(navRef.current?.querySelectorAll<HTMLElement>(MENU_FOCUSABLE_SELECTOR) ?? []).filter(
@@ -80,6 +83,13 @@ export function useMobileMenu(pathname: string) {
       window.removeEventListener("keydown", handleMenuKeyDown);
       document.removeEventListener("pointerdown", closeOutside);
       desktop.removeEventListener("change", closeOnDesktop);
+      // A link to the current page can close the menu without changing routes.
+      if (menu?.contains(document.activeElement)) {
+        const target = desktop.matches
+          ? nav?.querySelector<HTMLElement>("a[href]")
+          : toggleButton;
+        target?.focus();
+      }
     };
   }, [expand]);
 

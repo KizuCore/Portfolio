@@ -49,6 +49,7 @@ export default function CookieBanner() {
             onClick={() => {
               updateConsent(false);
               setVisible(false);
+              document.getElementById("main-content")?.focus({ preventScroll: true });
             }}
           >
             {t("cookie_banner.decline")}
@@ -60,6 +61,7 @@ export default function CookieBanner() {
             onClick={() => {
               updateConsent(true);
               setVisible(false);
+              document.getElementById("main-content")?.focus({ preventScroll: true });
             }}
           >
             {t("cookie_banner.accept")}

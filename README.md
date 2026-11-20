@@ -1,183 +1,126 @@
-# Portfolio Théo Guérin
+# Portfolio — Théo Guérin
 
-Portfolio personnel de Théo Guérin, développeur full-stack basé à Rennes. Le site présente le profil, les expériences, les projets, le CV et un formulaire de contact sécurisé.
+Mon portfolio de développeur full-stack, basé à Rennes. J’y rassemble mes projets web et mobile, mon parcours et les services que je propose en freelance.
 
-Site en production : [theo-guerin.fr](https://theo-guerin.fr/)
+Le site est développé avec React et TypeScript, puis déployé sur Vercel.
+
+**[Voir le portfolio →](https://theo-guerin.fr/fr)**
+
+[![Aperçu de la page d’accueil](public/images/preview/previewsite.png)](https://theo-guerin.fr/fr)
+
+## Ce qu’on y trouve
+
+- Mes réalisations, avec des filtres et des études de cas pour **La Marée Malouine**, **Les Portes de Montafilan** et **À table !**.
+- Mon parcours, mes compétences et un CV consultable sur place ou téléchargeable en PDF.
+- Des pages consacrées à mes prestations : sites internet, applications React et Flutter, API Django et Node.js.
+- Un formulaire de contact avec envoi par e-mail et accusé de réception.
+
+L’interface existe en français, en anglais et en breton. Les traductions disponibles dépendent des pages ; les services restent présentés en français. Il y a aussi quelques easter eggs à trouver.
 
 ## Stack
 
-- **Frontend** : React 18, TypeScript, Vite, React Router, Tailwind CSS 4
-- **Animations** : Framer Motion, tsparticles, React CountUp
-- **Internationalisation** : i18next / react-i18next
-- **SEO** : React Helmet, balises canonical/hreflang, Schema.org, sitemap généré
-- **Contact** : API Vercel Serverless, Resend, Google reCAPTCHA v3
-- **Consentement** : Google Analytics 4 avec Consent Mode v2
-- **Déploiement** : Vercel
+| Partie | Outils |
+| --- | --- |
+| Interface | React 18, TypeScript, React Router |
+| Build | Vite |
+| Styles et animations | Tailwind CSS 4, CSS, Framer Motion, tsParticles |
+| Traductions | i18next, react-i18next |
+| Contact | Fonctions Vercel, Resend, reCAPTCHA v3 |
+| Tests et qualité | Node.js test runner, ESLint, TypeScript |
 
-## Fonctionnalités
+## Quelques choix de code
 
-- Pages portfolio : accueil, à propos, expériences, projets, contact et CV.
-- Routes localisées en `fr`, `en` et `bzh` (anciennes URL espagnoles redirigées).
-- Métadonnées SEO par page, Open Graph, Twitter Cards et données structurées.
-- Fichiers `llms.txt`, `llms-fr.txt` et `llms-en.txt`.
-- Sitemap XML généré automatiquement depuis la configuration SEO.
-- Formulaire de contact avec validation, reCAPTCHA v3, rate limit côté API et envoi via Resend.
-- Bandeau cookies et panneau de préférences pour le consentement analytics.
-- Accessibilité renforcée sur la navigation, le menu mobile et le sélecteur de langue.
+**Une organisation par fonctionnalité.** Les composants, hooks et styles d’une page restent dans le même dossier. Les données de profil, de projets et de CV sont séparées du rendu, dans `src/content`. Elles servent aussi à générer le contenu statique du site.
 
-## Prérequis
+**Du HTML disponible avant React.** Le build génère un document HTML pour chaque route publique, avec son contenu, ses métadonnées et ses données structurées. React prend ensuite le relais pour les interactions. Le sitemap, les URL canoniques et les variantes de langue viennent d’une configuration commune.
 
-- Node.js 24, conformément à `package.json`
-- npm 9 ou plus récent
+**Les modules lourds chargent au moment utile.** Le lecteur PDF, les calendriers d’activité et les particules sont chargés à la demande. Le fond reste statique sur mobile et lorsque la réduction des animations est activée. Des contrôles sur le build suivent le poids des bundles et les imports différés.
 
-## Installation
+**Le clavier fait partie du parcours.** Lien d’évitement, focus visible, navigation dans les onglets et restitution du focus à la fermeture des fenêtres : ces comportements sont pris en compte dans les composants.
 
-```bash
-npm install
-```
+**Les services tiers attendent le consentement.** Analytics démarre uniquement après accord, sur le domaine de production. reCAPTCHA est chargé séparément au moment de l’envoi du formulaire. L’API valide les champs, vérifie le captcha et applique une limitation simple par IP, en mémoire.
 
-Créez ensuite un fichier `.env` à partir de `.env.template` :
+## Lancer le projet
+
+Il faut **Node.js 24** et npm.
 
 ```bash
-cp .env.template .env
+git clone https://github.com/KizuCore/Portfolio.git
+cd Portfolio
+npm ci
+npm run dev
 ```
 
-Sous Windows PowerShell :
+Vite affiche l’adresse locale dans le terminal. Les clés des services tiers ne sont pas nécessaires pour parcourir le site.
 
-```powershell
-Copy-Item .env.template .env
-```
+### Configurer le formulaire
 
-## Variables d'environnement
-
-Variables requises :
+Copier `.env.template` vers `.env`, puis renseigner les clés :
 
 ```env
-RESEND_API_KEY=
+VITE_RECAPTCHA_SITE_KEY=
 RECAPTCHA_SECRET_KEY=
 RECAPTCHA_MIN_SCORE=0.5
-VITE_RECAPTCHA_SITE_KEY=
+RESEND_API_KEY=
 ```
 
-Variables optionnelles utiles en production :
+La clé `VITE_RECAPTCHA_SITE_KEY` est publique. Les secrets reCAPTCHA et Resend sont utilisés uniquement côté serveur.
+
+Ces variables permettent également d’adapter le destinataire, l’expéditeur et l’URL du site :
 
 ```env
-CONTACT_EMAIL=theo.guerin35000@gmail.com
+CONTACT_EMAIL=vous@example.com
 RESEND_FROM=Portfolio <contact@votre-domaine.fr>
-VITE_SITE_URL=https://theo-guerin.fr
+VITE_SITE_URL=https://votre-domaine.fr
 ```
 
-`RESEND_FROM` doit utiliser un domaine autorisé dans Resend. En local, l'adresse par défaut `onboarding@resend.dev` peut suffire pour tester.
+En production, l’adresse d’expédition doit utiliser un domaine autorisé dans Resend. Les domaines utilisés pour le formulaire doivent aussi être autorisés dans reCAPTCHA.
 
-## Scripts
+`npm run dev` lance le frontend, pas les fonctions HTTP de `api/`. L’envoi d’e-mails se teste dans un environnement Vercel configuré avec ces variables.
 
-```bash
-npm run dev               # Lance le serveur de développement
-npm run build             # Génère le sitemap, compile TypeScript et build Vite
-npm run preview           # Prévisualise le build de production
-npm run lint              # Lance ESLint
-npm run check             # ESLint, TypeScript, traductions et architecture
-npm test                  # Tests du consentement, des API et du rendu SEO
-npm run i18n:check        # Vérifie la cohérence des clés de traduction
-npm run i18n:sync         # Synchronise les clés i18n manquantes
-npm run sitemap:generate  # Régénère public/sitemap.xml
-npm run images:home       # Régénère les variantes responsives de la capture d’accueil
-npm run images:sky        # Régénère les étoiles fixes du décor SVG
-npm run check:performance # Après build : vérifie le poids initial et les imports différés
-```
-
-Le script `npm run build` exécute automatiquement `npm run sitemap:generate` via `prebuild`.
-
-Le contrôle de performance utilise le manifeste Vite et les sourcemaps du build. Il vérifie que le PDF, le calendrier GitHub, les infobulles et les particules restent hors du chargement initial, avec des budgets gzip de 230 Kio de JavaScript et 30 Kio de CSS. Il refuse aussi le retour des moteurs de particules complet ou « slim », y compris dans les imports différés. Après un changement de dépendances ou de styles, lancer `npm run build`, `npm run check:performance` et `npm run check:seo`, puis vérifier les pages concernées sur mobile et ordinateur.
-
-Tailwind CSS est intégré via `@tailwindcss/vite` et importé dans `src/styles/index.css`. Les grilles et utilitaires utilisent Tailwind ; les styles visuels propres au portfolio restent dans les fichiers CSS des composants. La classe `site-container` conserve un cadre commun aux pages et à la navigation. L’accueil conserve un ciel statique sur mobile et pour les préférences de mouvement réduit ; le moteur animé se charge après la page sur les appareils adaptés.
-
-Le ciel animé utilise `@tsparticles/basic` à 24 images par seconde, avec les cercles,
-le déplacement et l’opacité nécessaires au décor. Les 160 étoiles fixes sont réunies
-dans `public/images/sky-distant-stars.svg`, régénérable avec `npm run images:sky`.
-La progression du défilement est pilotée par CSS lorsque `animation-timeline` est
-disponible ; le repli JavaScript reste actif sur les autres navigateurs.
-Les dictionnaires français et anglais sont disponibles dès le démarrage ; le breton
-est importé à la demande, avant le premier rendu d’une URL bretonne. Les études de cas
-utilisent le dictionnaire déjà chargé, également fourni aux fonctions partagées par
-la génération SEO. Les styles communs aux boutons de l’accueil et des services sont
-isolés dans `src/styles/shared/business-actions.css` pour différer le reste des styles de services.
-Comparer les mesures Lighthouse avec le même profil et le même ralentissement :
-un résultat local ne garantit pas le même score sur PageSpeed Insights.
-
-## Structure
+## Repères dans le dépôt
 
 ```text
-api/                 Points d'entrée HTTP Vercel
-lib/contact/         Validation serveur, limitation, captcha et envoi
-lib/email/           Modèles des e-mails
-public/              Ressources servies à URL fixe, sitemap et fichiers llms
-scripts/             Génération des ressources et contrôles du projet
-tests/               Tests Node, API simulées et rendu SEO
-src/app/             Démarrage, routes, navigation, footer et SEO
-src/features/        Pages regroupées par fonctionnalité, avec leur logique et CSS
-src/shared/          UI, hooks, configuration et consentement communs
-src/content/         Données partagées entre React et les générateurs SEO
-src/locales/         Traductions JSON (fr, en, bzh)
-src/styles/          Tailwind, polices et styles communs
-src/assets/          Images et médias importés par Vite
+src/
+  app/          Démarrage, routes, navigation et métadonnées
+  features/     Pages, composants, hooks et styles par fonctionnalité
+  shared/       UI, configuration et logique communes
+  content/      Profil, projets, CV et contenus des services
+  locales/      Traductions françaises, anglaises et bretonnes
+  styles/       Styles globaux, polices et utilitaires
+  assets/       Images et médias traités par Vite
+api/            Fonctions HTTP Vercel
+lib/            Validation serveur et modèles d’e-mails
+public/         Ressources servies à URL fixe
+scripts/        Génération du contenu et contrôles du build
+tests/          Tests des API, du consentement, de la sécurité et du SEO
 ```
 
-Les responsabilités, règles de dépendances et étapes pour ajouter une page sont
-expliquées dans [le guide d'architecture](docs/architecture.md).
-`npm run check:architecture` empêche les imports entre fonctionnalités et les
-dépendances inversées vers l'application. Ce contrôle fait partie de `npm run check`.
+Pour modifier les projets, commencer par [`src/content/projects.ts`](src/content/projects.ts). Pour ajouter une page ou comprendre les règles d’import, voir le [guide d’architecture](docs/architecture.md).
 
-## SEO et internationalisation
+Le sitemap et les fichiers de présentation Markdown dans `public/` sont générés au build : leurs sources se trouvent dans `src/content`, `src/locales` et `scripts`.
 
-La configuration SEO principale se trouve dans `src/shared/config/seo.ts`.
-
-Les routes localisées sont générées à partir des routes applicatives et des langues supportées. Les pages légales utilisent un fallback de contenu :
-
-- `fr` et `bzh` utilisent le contenu juridique français.
-- `en` utilise le contenu anglais.
-
-Le sitemap est généré depuis la même configuration afin d'éviter les écarts entre les routes réelles, les balises `hreflang` et `public/sitemap.xml`.
-
-## Pages de services et études de cas
-
-Les textes des pages React, Django, Flutter, création de sites et de l’étude de cas Montafilan sont centralisés dans `src/content/businessPages.ts`. Le composant `BusinessPage` s’occupe de la présentation ; `scripts/lib/render-business-page.mjs` utilise les mêmes textes pour le HTML sans JavaScript. Les données structurées communes se trouvent dans `src/shared/config/businessSchema.ts`.
-
-Ces pages sont maintenues en français. `contentLocale` dans `src/shared/config/seo.ts` fixe leur langue et leur URL canonique ; les variantes non traduites ne sont pas ajoutées au sitemap comme traductions. Pour une nouvelle page, ajouter son contenu, sa configuration SEO et sa redirection dans `vercel.json`.
-
-Les textes de l’accueil sont dans `home_offer` et `services` des dictionnaires `src/locales`. Les trois offres sont définies dans `src/features/home/data/services.ts`. Les styles de l’accueil et des services sont séparés du gabarit des pages détaillées.
-
-Ne pas modifier directement `public/experience.md`, `profile.md` ou `projects.md` : ils sont régénérés depuis les données et les traductions lors de `npm run build`.
-
-Validation : `npm run check`, `npm run build`, puis `npm run check:seo`. Ce dernier vérifie aussi les textes des nouvelles pages, leurs liens, leurs URL canoniques et leurs données structurées.
-
-Après publication, vérifier les URL dans Google Search Console, soumettre `/sitemap.xml` et suivre les impressions, les clics et les demandes de contact. Les profils externes et témoignages doivent refléter les prestations réelles ; aucune position Google ou recommandation IA n’est garantie. La configuration des comptes et le suivi de fréquentation restent à réaliser dans les outils concernés.
-
-## Formulaire de contact
-
-Le formulaire appelle `/api/sendEmail`, qui :
-
-- nettoie et limite la longueur des champs ;
-- vérifie les champs requis et le format de l'adresse e-mail ;
-- applique un rate limit simple par IP ;
-- vérifie le token Google reCAPTCHA v3 ;
-- envoie l'e-mail via Resend.
-
-## Déploiement
-
-Le projet est prévu pour Vercel. Le fichier `vercel.json` contient les règles de cache et les rewrites nécessaires au routing côté client, tout en laissant passer `/api`, `robots.txt`, `sitemap.xml`, les fichiers `llms` et les assets publics.
-
-Avant déploiement :
+## Vérifier et compiler
 
 ```bash
-npm run lint
-npm run i18n:check
-npm run build
+npm run check              # ESLint, TypeScript, traductions et architecture
+npm test                   # Tests automatisés
+npm run build              # Sitemap, compilation et génération du HTML
+npm run check:seo          # Contrôle les pages générées
+npm run check:performance  # Vérifie les bundles et leur chargement
+npm run preview            # Sert le build localement
 ```
 
-## Auteur
+Les deux contrôles `check:seo` et `check:performance` nécessitent un build préalable. Les tests utilisent des services simulés et n’envoient pas d’e-mails réels.
 
-Théo Guérin  
-Portfolio : [theo-guerin.fr](https://theo-guerin.fr/)  
-GitHub : [KizuCore](https://github.com/KizuCore)  
-LinkedIn : [theo-guerin35](https://www.linkedin.com/in/theo-guerin35/)
+## Déploiement et sécurité
+
+Le projet est prévu pour Vercel : commande de build `npm run build`, dossier de sortie `dist`, fonctions serveur dans `api/`. Les variables d’environnement sont à renseigner dans le projet Vercel.
+
+[`vercel.json`](vercel.json) regroupe les redirections, le cache et les en-têtes de sécurité : CSP, HSTS, COOP et protection contre le clickjacking. Ces en-têtes ne sont pas appliqués par `vite preview`.
+
+La CSP utilise une liste de sources autorisées et bloque les scripts inline ainsi que `eval`. Trusted Types reste en mode observation, car React Helmet et le lecteur PDF ne sont pas encore compatibles avec son blocage. HSTS inclut `includeSubDomains` et `preload` ; l’inscription dans la liste de préchargement des navigateurs reste une démarche séparée.
+
+---
+
+Développé par **Théo Guérin · KizuCore** — [Portfolio](https://theo-guerin.fr/fr) · [GitHub](https://github.com/KizuCore) · [LinkedIn](https://www.linkedin.com/in/theo-guerin35/)

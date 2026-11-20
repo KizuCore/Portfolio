@@ -6,14 +6,7 @@
   <meta name="theme-color" content="#070b12" />
   <meta name="color-scheme" content="dark light" />
   <meta name="application-name" content="Théo Guérin Portfolio" />
-  <script>
-    // Définit cet état avant l’analyse du corps HTML pour éviter un affichage furtif du contenu statique au démarrage.
-    document.documentElement.setAttribute("data-app-loading", "");
-    window.setTimeout(function () {
-      // Garde le document accessible si le code de l’application ne démarre pas.
-      document.documentElement.removeAttribute("data-app-loading");
-    }, 8000);
-  </script>
+  <script src="/startup.js"></script>
 
   <title>Théo Guérin | Développeur Freelance Full-Stack à Rennes</title>
   <meta

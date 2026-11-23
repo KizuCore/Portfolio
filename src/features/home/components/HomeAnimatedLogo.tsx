@@ -25,10 +25,12 @@ export default function HomeAnimatedLogo({ onDragStateChange, onExposureChange }
     if (element.hasPointerCapture(event.pointerId)) {
       element.releasePointerCapture(event.pointerId);
     }
-    onDragStateChange(false);
     onExposureChange(false);
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || Math.hypot(x, y) < 1) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || Math.hypot(x, y) < 1) {
+      onDragStateChange(false);
+      return;
+    }
 
     // Un élan vers l'extérieur, puis des rebonds amortis sur deux axes indépendants.
     // Les images échantillonnées gardent une trajectoire fluide entre les oscillations.
@@ -43,7 +45,11 @@ export default function HomeAnimatedLogo({ onDragStateChange, onExposureChange }
     });
     const animation = element.animate(frames, { duration: 2000, easing: "linear" });
     returnAnimation.current = animation;
-    animation.onfinish = () => { returnAnimation.current = null; };
+    // Le halo fixe reste masqué jusqu'à la fin des rebonds, une fois le logo revenu au centre.
+    animation.onfinish = () => {
+      returnAnimation.current = null;
+      onDragStateChange(false);
+    };
   };
 
   return <div

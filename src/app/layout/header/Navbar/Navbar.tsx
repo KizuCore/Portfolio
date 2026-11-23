@@ -84,7 +84,7 @@ function NavBar(): JSX.Element {
               }
             }}
           >
-            <span>{SITE_PROFILE.brandName}</span>
+            <span className="site-nav-brand-name">{SITE_PROFILE.brandName}</span>
             <span className="site-nav-brand-caption">{SITE_PROFILE.displayName}</span>
           </Link>
         </div>

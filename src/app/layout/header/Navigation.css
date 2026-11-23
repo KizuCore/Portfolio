@@ -56,7 +56,9 @@
 .site-nav .site-nav-brand-text {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
+  text-align: left;
   min-height: 44px;
   gap: 3px;
   padding: 0;
@@ -68,6 +70,14 @@
   letter-spacing: -0.025em;
   text-decoration: none;
   white-space: nowrap;
+}
+/* Retrouve le lettrage historique de KizuCore sans modifier le sous-titre. */
+.site-nav-brand-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: rgba(213, 233, 255, 0.9);
 }
 .site-nav-brand-text .site-nav-brand-caption {
   font-family: "Sora", sans-serif;
@@ -189,6 +199,7 @@
   border-radius: 4px;
   background: transparent;
   color: #a7b8cf;
+  font-family: "Montserrat", sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
 }
@@ -329,6 +340,10 @@
   }
   .site-nav .site-nav-brand-text {
     font-size: 0.9rem;
+  }
+  .site-nav-brand-name {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
   }
   .site-nav .site-nav-menu {
     flex-basis: 100%;

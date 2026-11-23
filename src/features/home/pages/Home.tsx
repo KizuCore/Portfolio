@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import BlackHole from "@/shared/ui/BlackHole";
 import useLetterGravity from "../hooks/useLetterGravity";
 import useHomeMotion from "../hooks/useHomeMotion";
 import HomeOffer from "../components/HomeOffer";
@@ -24,14 +25,7 @@ export default function Home() {
           <div className="home-sky-illustration">
             <div className="home-nebula" aria-hidden="true" />
             <div className={`logo-wrapper home-logo-orbit${isDragging ? " dragging" : ""}`}>
-              <div className="black-hole" aria-hidden="true">
-                <div className="black-hole-aura" />
-                <div className="black-hole-lensing" />
-                <div className="accretion-disk"><div className="accretion-flow" /></div>
-                <div className="event-horizon" />
-                <div className="accretion-disk accretion-foreground"><div className="accretion-flow" /></div>
-                <div className="black-hole-photon-ring" />
-              </div>
+              <BlackHole />
               <HomeAnimatedLogo onDragStateChange={(dragging) => {
                 setIsDragging(dragging);
                 if (dragging) setGravityReady(true);

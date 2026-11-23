@@ -8,8 +8,8 @@
     },
     "not_found": {
         "eyebrow": "404 · Page not found",
-        "title": "Looks like we got lost.",
-        "description": "This page no longer exists, or never did. But there’s still plenty to discover around here.",
+        "title": "Lost in space?",
+        "description": "This page doesn’t exist or has moved. Explore my projects or head back home.",
         "home": "Back to home",
         "projects": "View projects"
     },

@@ -1,0 +1,121 @@
+/* Apparence du globe, des climats et des nuages ; projection animée dans useEarthRotation. */
+
+.not-found-astronomy {
+  position: relative;
+  isolation: isolate;
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+.not-found-planet-system {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  transform: rotate(-8deg);
+}
+
+.not-found-planet {
+  position: absolute;
+  inset: 12%;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 50%;
+  background: radial-gradient(circle at 28% 26%, #537f9d, #285473 35%, #15374f 70%, #0b1e30);
+  box-shadow: -2px -1px 4px #b3dbf280, -7px -3px 22px #71aed72b, 0 0 0 1px #9ac7e526;
+}
+
+/* Les formes CSS suivent la longitude du globe ; l’éclairage reste fixe. */
+.not-found-earth-surface,
+.earth-land {
+  position: absolute;
+  inset: 0;
+}
+
+.earth-land {
+  background:
+    radial-gradient(ellipse at 42% 34%, #8f9d8266, transparent 55%),
+    linear-gradient(155deg, #81978a, #678772 48%, #426957);
+}
+
+.earth-arid-layer,
+.earth-ice-layer,
+.earth-sea-ice-layer,
+.earth-sea-ice,
+.earth-arid,
+.earth-ice {
+  position: absolute;
+  inset: 0;
+}
+
+.earth-arid-layer {
+  filter: blur(5px);
+  opacity: 0.85;
+}
+
+.earth-ice-layer {
+  filter: blur(1.5px);
+}
+
+.earth-arid {
+  background:
+    radial-gradient(ellipse at 38% 45%, #c2b28f, transparent 70%),
+    linear-gradient(135deg, #aca78a, #a99b7b 60%, #8d8066);
+}
+
+.earth-ice {
+  background: linear-gradient(145deg, #d1dfdb, #aec5c9 65%, #8ba8b4);
+}
+
+.earth-sea-ice-layer {
+  filter: blur(0.7px);
+}
+
+.earth-sea-ice {
+  background: linear-gradient(145deg, #d5e5e7, #adcbd5 65%, #8eafbf);
+}
+
+.not-found-earth-cloud-layer {
+  position: absolute;
+  inset: 0;
+  filter: blur(1.4px);
+  opacity: 0.48;
+}
+
+.not-found-earth-clouds {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-radial-gradient(ellipse at 24% 35%, #eff6ef40 0 2px, transparent 4px 8px),
+    radial-gradient(ellipse at 30% 25%, #f2f7f0b3, #d9e9e773 60%, #c4d8dc38);
+}
+
+.not-found-planet::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 27% 28%, transparent 24%, #07142426 44%, #040c1a99 66%, #030914f2 88%);
+  box-shadow: inset 2px 1px 5px #c4ddf366, inset -10px -8px 24px #03081399;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .not-found-planet-system {
+    animation: earthFloat 10s ease-in-out infinite;
+  }
+
+  @keyframes earthFloat {
+    0%, 100% { transform: translateY(0) rotate(-8deg); }
+    50% { transform: translateY(-6px) rotate(-8deg); }
+  }
+}
+
+@media (max-width: 767px) {
+  .not-found-astronomy {
+    grid-column: 1;
+    width: min(100%, 300px);
+    justify-self: center;
+  }
+}

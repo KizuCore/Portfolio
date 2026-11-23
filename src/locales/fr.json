@@ -8,8 +8,8 @@
     },
     "not_found": {
         "eyebrow": "404 · Page introuvable",
-        "title": "On dirait qu’on s’est perdus.",
-        "description": "Cette page n’existe plus ou n’a jamais existé. Mais il reste de belles choses à découvrir par ici.",
+        "title": "Perdu dans l’espace ?",
+        "description": "Cette page n’existe pas ou a été déplacée. Retrouvez mes projets ou revenez à l’accueil.",
         "home": "Retour à l’accueil",
         "projects": "Voir les projets"
     },

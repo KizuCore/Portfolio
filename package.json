@@ -31,6 +31,7 @@
     "@tsparticles/basic": "3.9.1",
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
+    "d3-geo": "3.1.1",
     "framer-motion": "^12.6.5",
     "i18next": "^24.2.3",
     "i18next-browser-languagedetector": "^8.0.4",
@@ -53,6 +54,7 @@
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@tailwindcss/vite": "^4.3.5",
+    "@types/d3-geo": "3.1.0",
     "@types/node": "^22.14.1",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.5",

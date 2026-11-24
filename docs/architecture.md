@@ -43,6 +43,7 @@ src/
 
 api/                         Points d'entrée HTTP déployés par Vercel
 lib/contact/                 Validation serveur, limitation, captcha, envoi
+lib/gitlab/                  Lecture et cache du calendrier public
 lib/email/                   Modèles HTML et texte des e-mails
 scripts/                     Génération des ressources et vérifications
 scripts/lib/                 Fonctions partagées par les scripts de build
@@ -67,7 +68,7 @@ interactions et effets React, `data` les modèles locaux, `api` les échanges r�
 - `api` et `lib` restent côté serveur. Aucun module de `src` ne doit les importer.
 
 `npm run check:architecture`, inclus dans `npm run check`, contrôle ces frontières
-dans les imports TypeScript, les imports dynamiques et les imports CSS. TypeScript
+dans les imports TypeScript, JavaScript serveur, dynamiques et CSS. TypeScript
 vérifie la résolution des modules. Ce contrôle ne remplace pas la revue du code.
 
 Les imports internes à une fonctionnalité restent relatifs ; les imports entre
@@ -95,14 +96,22 @@ frontières de chargement différé.
 
 ## Formulaire et services externes
 
-Le client du formulaire et reCAPTCHA navigateur sont dans `features/contact/api`.
-`api/sendEmail.js` orchestre la requête HTTP ; les fonctions de `lib/contact`
-valident les données, limitent les tentatives, vérifient le captcha et envoient les
-e-mails. Les modèles d'e-mails restent indépendants du transport Resend.
-Les tests utilisent des réponses simulées, sans envoyer de message réel.
+Le formulaire appelle le client HTTP de `features/contact/api`. Côté serveur,
+`api/sendEmail.js` lit la requête et traduit le résultat en réponse HTTP.
+`lib/contact/submitContact.js` applique les règles de validation, de limitation et
+de consentement avant l’envoi. Le message destiné à Théo part en premier. Si seul
+l’accusé de réception échoue, la demande reste traitée. Les adaptateurs reCAPTCHA
+et Resend et les modèles d’e-mails peuvent évoluer séparément.
 
-`api/gitlab-calendar.js` est un proxy public limité au profil du portfolio ; le
-formatage des contributions pour l'interface appartient à `features/about/utils`.
+Sur la page À propos, le composant `GitLabCalendar` affiche le chargement,
+le calendrier ou le bouton de nouvelle tentative. Le hook `useGitLabCalendar`
+gère les tentatives et l’annulation au départ de la page. Le client HTTP de
+`features/about/api` utilise la transformation des contributions de `about/utils`.
+La route `api/gitlab-calendar.js` choisit le statut et les en-têtes HTTP.
+Le module `lib/gitlab/calendar.js` interroge le profil public, contrôle la réponse
+et conserve les données valides pendant une heure.
+
+Les tests de contact et de calendrier simulent les services externes.
 Les secrets d'environnement restent exclusivement côté serveur.
 
 ## Validation et fichiers générés

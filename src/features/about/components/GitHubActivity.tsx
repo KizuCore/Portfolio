@@ -24,7 +24,7 @@ const GitHubActivity: React.FC = () => {
     blockSize: 13, blockMargin: 4, theme, colorScheme: "dark", fontSize: 13,
     labels: {
       months: Array.from({ length: 12 }, (_, index) => monthFormat.format(new Date(Date.UTC(2026, index, 1)))),
-      // The calendar replaces {{count}} after summing the selected platform.
+      // Le calendrier remplace {{count}} après avoir additionné les contributions de la plateforme choisie.
       totalCount: t("code_activity.total", { interpolation: { prefix: "[[", suffix: "]]" } }),
       legend: { less: t("code_activity.less"), more: t("code_activity.more") },
     },

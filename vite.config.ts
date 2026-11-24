@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     proxy: {
-      // Vite development equivalent of the public Vercel API endpoint.
+      // En développement, Vite relaie les requêtes du calendrier public servi par Vercel en production.
       "^/api/gitlab-calendar$": {
         target: "https://gitlab.com",
         changeOrigin: true,

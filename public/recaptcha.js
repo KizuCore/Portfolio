@@ -1,4 +1,4 @@
-// No Google request before the message sent after the visitor's explicit choice.
+// Le chargement de reCAPTCHA attend le message de la page parente, envoyé après l’accord du visiteur.
 let started = false;
 window.addEventListener("message", function (event) {
   if (started || window.parent === window || event.source !== window.parent || event.origin !== location.origin) return;

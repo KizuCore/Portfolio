@@ -1,4 +1,4 @@
-/* Shared page heading, independent of when a route's stylesheet loads. */
+/* Les titres des pages gardent leur présentation quel que soit l’ordre de chargement des styles. */
 .route-stage .page-motion-scope .page-eyebrow {
   display: flex;
   align-items: center;
@@ -83,7 +83,7 @@
     translate: 0 0;
     transition: none;
   }
-  /* Long documents use a smaller movement to keep reading comfortable. */
+  /* Un mouvement plus discret facilite la lecture des documents longs. */
   .page-motion-scope .legal-info-box [data-page-reveal="pending"] {
     translate: 0 10px;
   }

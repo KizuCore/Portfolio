@@ -59,7 +59,7 @@ import { SiTrello } from "@react-icons/all-files/si/SiTrello";
 import { SiJenkins } from "@react-icons/all-files/si/SiJenkins";
 import { SiConfluence } from "@react-icons/all-files/si/SiConfluence";
 
-// Ce module regroupe les logos charg?s ? l?approche des grilles de comp?tences.
+// Les logos se chargent à l’approche des grilles de compétences.
 const icons = {
   SiFlutter,
   DiReact,

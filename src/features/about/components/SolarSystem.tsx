@@ -3,7 +3,7 @@ import { useId, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "../styles/SolarSystem.css";
 
-// A decorative illustration: distances and sizes are deliberately stylized.
+// Les distances et les tailles sont stylisées pour que les orbites restent lisibles.
 const planets = [
   { key: "mercury", orbit: 39, size: 3, angle: 205, duration: 38, light: "#d5cbbc", color: "#817b78" },
   { key: "venus", orbit: 62, size: 5, angle: 315, duration: 55, light: "#f1d4a1", color: "#ae8057" },

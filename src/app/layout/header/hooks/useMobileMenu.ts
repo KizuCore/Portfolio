@@ -83,7 +83,7 @@ export function useMobileMenu(pathname: string) {
       window.removeEventListener("keydown", handleMenuKeyDown);
       document.removeEventListener("pointerdown", closeOutside);
       desktop.removeEventListener("change", closeOnDesktop);
-      // A link to the current page can close the menu without changing routes.
+      // Un lien vers la page déjà affichée doit aussi refermer le menu.
       if (menu?.contains(document.activeElement)) {
         const target = desktop.matches
           ? nav?.querySelector<HTMLElement>("a[href]")

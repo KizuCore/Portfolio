@@ -1,6 +1,6 @@
 import type { Activity } from "react-activity-calendar";
 
-/** Fill the rolling year: GitLab omits days with no contributions. */
+/** GitLab omet les jours sans contribution, que le calendrier rétablit sur les douze derniers mois. */
 export function toGitLabActivities(payload: unknown, today = new Date()): Activity[] {
   if (!payload || typeof payload !== "object" || Array.isArray(payload)) throw new Error("Invalid calendar");
   const counts = payload as Record<string, unknown>;
@@ -16,7 +16,7 @@ export function toGitLabActivities(payload: unknown, today = new Date()): Activi
   for (const day = new Date(start); day <= end; day.setUTCDate(day.getUTCDate() + 1)) {
     const date = day.toISOString().slice(0, 10);
     const count = Number(counts[date] ?? 0);
-    // GitLab's calendar uses daily contribution bands, not commit counts.
+    // La couleur correspond à une tranche de contributions quotidiennes, toutes activités GitLab confondues.
     const level = count === 0 ? 0 : count <= 9 ? 1 : count <= 19 ? 2 : count <= 29 ? 3 : 4;
     activities.push({ date, count, level });
   }

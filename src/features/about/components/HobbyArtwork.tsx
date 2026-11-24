@@ -35,7 +35,7 @@ export default function HobbyArtwork({ index }: { index: number }) {
       <path d="M193 87V45Q193 3 253 3T313 45V87M202 87V45Q202 12 253 12T304 45V87" stroke="#dc8c9e26" />
       <path d="M177 87H319" stroke="#e497aa40" />
       <g strokeLinejoin="round">
-        {/* Sculptural headdress, puffed shoulders and the oversized draped red gown. */}
+        {/* Coiffe sculptée, manches bouffantes et longue robe rouge drapée. */}
         <path d="M249 23Q240 17 234 5Q246 10 253 17Q260 10 272 5Q266 17 257 23Z" fill="#541b32" stroke="#dc8097" strokeWidth="1.1" />
         <path d="m244 19-5-12 12 10m11 2 5-12-12 10" stroke="#d77d92" />
         <ellipse cx="253" cy="23" rx="4.3" ry="5.5" fill="#edc5c7" />

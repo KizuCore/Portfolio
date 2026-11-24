@@ -6,7 +6,7 @@ type TrustedTypesFactory = {
 const policies = new WeakMap<TrustedTypesFactory, JsonLdPolicy>();
 const scriptId = "seo-structured-data";
 
-// Only JSON data is accepted: never grant trust to arbitrary JavaScript or HTML.
+// La politique accepte uniquement du JSON pour empêcher l’exécution de JavaScript ou de HTML arbitraire.
 function validateJsonLd(input: string): string {
   const value = JSON.parse(input);
   if (!value || Array.isArray(value) || value["@context"] !== "https://schema.org" || !Array.isArray(value["@graph"])) {
@@ -48,7 +48,7 @@ export function updateStructuredData(document: Document, json: string | null): (
   const script = document.createElement("script");
   script.id = scriptId;
   script.type = "application/ld+json";
-  // TS 5.7 only declares string here; the runtime must receive the TrustedScript object.
+  // TypeScript 5.7 attend ici une chaîne, mais le navigateur doit recevoir l’objet TrustedScript.
   script.text = content as string;
   previous.forEach(element => element.remove());
   document.head.appendChild(script);

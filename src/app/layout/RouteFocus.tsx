@@ -1,7 +1,7 @@
 import { useEffect, type MutableRefObject } from "react";
 
-// Mounted inside the route's Suspense/animation boundary: the heading is ready,
-// and the previous page has left before focus moves to the new content.
+// Ce composant attend le chargement de la nouvelle page et la fin de la transition.
+// Le focus peut alors rejoindre son titre.
 export default function RouteFocus({ pathname, previousPath }: {
   pathname: string;
   previousPath: MutableRefObject<string>;

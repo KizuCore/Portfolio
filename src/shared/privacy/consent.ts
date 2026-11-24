@@ -31,7 +31,7 @@ export function getConsentRecord(): ConsentRecord | null {
   try {
     const raw = localStorage.getItem(CONSENT_KEY);
     const record = parseConsent(raw);
-    // Legacy choices have no expiry and must be requested again.
+    // Les anciens choix ne précisent aucune date d’expiration. Il faut donc redemander le consentement.
     if (raw && !record) localStorage.removeItem(CONSENT_KEY);
     return record;
   } catch {

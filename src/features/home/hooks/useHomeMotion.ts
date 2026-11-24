@@ -1,6 +1,6 @@
 import { useEffect, type RefObject } from "react";
 
-/** Content stays visible without JS; only offscreen sections wait for their reveal. */
+/** Le contenu reste lisible sans JavaScript. Seules les sections hors écran attendent leur animation. */
 export default function useHomeMotion(root: RefObject<HTMLDivElement>) {
   useEffect(() => {
     const page = root.current;
@@ -35,7 +35,7 @@ export default function useHomeMotion(root: RefObject<HTMLDivElement>) {
       }, { rootMargin: "0px 0px -32px 0px", threshold: 0 });
       if (hero) observer.observe(hero);
       items.forEach((item) => {
-        // Restored scroll positions and above-the-fold text never flash or disappear.
+        // Une section déjà visible doit le rester, y compris après la restauration du défilement.
         if (item.getBoundingClientRect().top >= window.innerHeight) {
           item.dataset.homeReveal = "pending";
           observer?.observe(item);

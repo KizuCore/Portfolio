@@ -1,4 +1,4 @@
-/* A responsive orbital illustration, scoped to the About introduction. */
+/* L’illustration des orbites s’adapte à la largeur de l’introduction de la page À propos. */
 .about-intro .about-img {
   align-self: center;
   overflow: hidden;

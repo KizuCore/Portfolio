@@ -1,6 +1,6 @@
 import { useEffect, useRef, type ReactNode } from "react";
 
-// Only content blocks: fixed/sticky navigation, dialogs and form fields stay steady.
+// L’animation cible les blocs de contenu pour garder la navigation, les fenêtres de dialogue et les champs immobiles.
 const REVEAL_TARGETS = [
   ".about-section-title", ".tech-icons", ".tech-icons-1", ".code-activity-card",
   ".project-card-view", ".career-section-heading", ".timeline-event",
@@ -16,7 +16,7 @@ export default function PageMotion({ children }: { children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const page = root.current;
-    // These scenes already own their animation lifecycle.
+    // Ces scènes gèrent déjà leurs propres animations.
     if (!page || page.querySelector(".home-page, .gojo-route, .arcane-route") || typeof IntersectionObserver === "undefined") return;
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     const tracked = new Set<HTMLElement>();
@@ -34,7 +34,7 @@ export default function PageMotion({ children }: { children: ReactNode }) {
       if (preference.matches) return;
       page.querySelectorAll<HTMLElement>(REVEAL_TARGETS).forEach((item) => {
         if (tracked.has(item) || item.closest("[hidden], [aria-hidden='true']") || !item.getClientRects().length) return;
-        // Avoid stacking entrance effects on nested content blocks.
+        // Un bloc imbriqué bénéficie déjà de l’animation de son parent.
         if (item.parentElement?.closest(REVEAL_TARGETS)) return;
         tracked.add(item);
         if (item.getBoundingClientRect().top >= window.innerHeight) {
@@ -58,7 +58,7 @@ export default function PageMotion({ children }: { children: ReactNode }) {
       if (target) reveal(target);
     };
     configure();
-    // Filters and lazy-loaded content can add cards after the initial route render.
+    // Les filtres et le chargement différé peuvent ajouter des cartes après le premier affichage.
     const mutations = new MutationObserver(() => { if (!frame) frame = requestAnimationFrame(scan); });
     mutations.observe(page, { childList: true, subtree: true });
     preference.addEventListener("change", configure);

@@ -14,7 +14,7 @@ const DETAILS = [
   { key: "rate", Icon: FiBriefcase },
 ] as const;
 
-// Direct contact and practical details share the same visual hierarchy.
+// Les coordonnées et les renseignements pratiques suivent la même hiérarchie visuelle.
 export default function ContactAside() {
   const { t } = useTranslation();
   return <aside className="contact-aside" aria-labelledby="contact-aside-title">

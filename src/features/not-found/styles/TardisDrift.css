@@ -141,7 +141,7 @@
   }
 
   /* Les cinq trajets parcourent la hauteur de la page. Chaque cycle de 14 secondes
-     comprend une apparition, un d?placement puis une disparition.
+     comprend une apparition, un déplacement puis une disparition.
      Le changement de position se produit uniquement lorsque le TARDIS est invisible. */
   @keyframes tardisJourney {
     0%, 4%, 100% { transform: translate(76%, 18%); }

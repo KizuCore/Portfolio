@@ -64,7 +64,7 @@ export default function LegalDocumentLayout({ kind, language, title, children }:
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
     update();
-    // Lazy-loaded legal pages also support links directly to a section.
+    // Après le chargement d’une page légale, un lien direct doit encore mener à la section demandée.
     const target = headings.find((heading) => `#${heading.id}` === window.location.hash);
     target?.scrollIntoView({ behavior: "instant", block: "start" });
     window.addEventListener("scroll", schedule, { passive: true });
